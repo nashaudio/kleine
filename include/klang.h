@@ -1214,6 +1214,7 @@ namespace klang {
 	/// A multi-channel audio signal (e.g. stereo).
 	template<int CHANNELS = 2>
 	struct signals {
+#if !defined(__GNU__) // non-GNU compilers support anonymous unions; GNU compilers do not (and produce warnings/errors)
 		/// @cond
 		union {
 			signal value[CHANNELS]; ///< Array of channel values.
@@ -1223,14 +1224,6 @@ namespace klang {
 			};
 		};
 		/// @endcond
-
-		/// Return the mono mix of a stereo channel.
-		signal mono() const { return (l + r) * 0.5f; }
-
-		/// Return a reference to the signal at the specified index (0 = left, 1 = right).
-		signal& operator[](int index) { return value[index]; }
-		/// Return a read-only reference to the signal  at the specified index (0 = left, 1 = right).
-		const signal& operator[](int index) const { return value[index]; }
 
 		/// Create a stereo signal with the given value.
 		signals(float initial = 0.f) : l(initial), r(initial) {}
@@ -1252,6 +1245,40 @@ namespace klang {
 		/// Create a multi-channel signal with the given channel values.
 		template <typename... Args, typename = std::enable_if_t<(std::is_scalar_v<Args> && ...)>>
 		signals(Args... initial) : value{ initial... } {}
+#else
+		signal value[CHANNELS]; ///< Array of channel values.
+		signal& l = value[0]; ///< Left channel
+		signal& r = value[1]; ///< Right channel
+
+		/// Create a stereo signal with the given value.
+		signals(float initial = 0.f) { for (int v = 0; v < CHANNELS; v++) value[v] = initial; }
+		/// Create a stereo signal with the given value.
+		signals(double initial) { for (int v = 0; v < CHANNELS; v++) value[v] = (float)initial; }
+		/// Create a stereo signal with the given value.
+		signals(int initial) { for (int v = 0; v < CHANNELS; v++) value[v] = (float)initial; }
+
+		/// Create a stereo signal with the given left and right value.
+		signals(float left, float right) { l = left; r = right; for (int v = 2; v < CHANNELS; v++) value[v] = 0.f; }
+		/// Create a stereo signal with the given left and right value.
+		signals(double left, double right) { l = (float)left; r = (float)right; for (int v = 2; v < CHANNELS; v++) value[v] = 0.f; }
+		/// Create a stereo signal with the given left and right value.
+		signals(int left, int right) { l = (float)left; r = (float)right; for (int v = 2; v < CHANNELS; v++) value[v] = 0.f; }
+
+		/// Create a multi-channel signal with the given channel values.
+		template <typename... Args, typename = std::enable_if_t<(std::is_convertible_v<Args, signal> && ...)>>
+		signals(Args&... initial) : value{ initial... } {}
+		/// Create a multi-channel signal with the given channel values.
+		template <typename... Args, typename = std::enable_if_t<(std::is_scalar_v<Args> && ...)>>
+		signals(Args... initial) : value{ initial... } {}
+#endif
+
+		/// Return the mono mix of a stereo channel.
+		signal mono() const { return (l + r) * 0.5f; }
+
+		/// Return a reference to the signal at the specified index (0 = left, 1 = right).
+		signal& operator[](int index) { return value[index]; }
+		/// Return a read-only reference to the signal  at the specified index (0 = left, 1 = right).
+		const signal& operator[](int index) const { return value[index]; }
 
 		/// Returns the number of channels in the signal.
 		int channels() const { return CHANNELS; }
