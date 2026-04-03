@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <cmath>
+#include <math.h>
 #include <limits>
 #include <assert.h>
 #include <array>
@@ -8,6 +9,9 @@
 #include <vector>
 #include <string>
 #include <cstdarg>
+#include <cstring>
+#include <climits>
+#include <thread>
 #include <algorithm>
 #include <type_traits>
 #include <mutex>
@@ -35,6 +39,12 @@ static inline float _abs(float x) { return __builtin_fabsf(x); }
 #define FABS ::fabsf
 #endif
 #if defined(__WIN32__) || defined(WIN32)
+#define THREAD_LOCAL thread_local
+#define SQRT ::sqrt
+#define SQRTF ::sqrtf
+#define ABS ::abs
+#define FABS ::fabsf
+#else
 #define THREAD_LOCAL thread_local
 #define SQRT ::sqrt
 #define SQRTF ::sqrtf
@@ -73,6 +83,7 @@ namespace std {
 	static_assert(std::is_trivially_move_constructible_v<type>, "signal is not trivially copy assignable");	
 
 namespace klang {
+	typedef unsigned char byte;
 
 	/// Klang language version (major.minor.build.debug)
 	struct Version {
