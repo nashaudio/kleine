@@ -30,20 +30,21 @@ static inline float _abs(float x) { return __builtin_fabsf(x); }
 #define SQRTF _sqrt
 #define ABS _abs
 #define FABS _abs
-#endif
-#ifdef __APPLE__
+
+#elif defined(__APPLE__)
 #define THREAD_LOCAL
 #define SQRT ::sqrt
 #define SQRTF ::sqrtf
 #define ABS ::abs
 #define FABS ::fabsf
-#endif
-#if defined(__WIN32__) || defined(WIN32)
+
+#elif defined(__WIN32__) || defined(WIN32)
 #define THREAD_LOCAL thread_local
 #define SQRT ::sqrt
 #define SQRTF ::sqrtf
 #define ABS ::abs
 #define FABS ::fabsf
+
 #else
 #define THREAD_LOCAL thread_local
 #define SQRT ::sqrt
