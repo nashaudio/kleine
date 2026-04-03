@@ -1225,6 +1225,10 @@ namespace klang {
 		};
 		/// @endcond
 
+		signals() = default;
+		signals(const signals&) = default;
+		signals& operator=(const signals&) = default;
+
 		/// Create a stereo signal with the given value.
 		signals(float initial = 0.f) : l(initial), r(initial) {}
 		/// Create a stereo signal with the given value.
