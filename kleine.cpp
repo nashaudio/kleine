@@ -13,6 +13,8 @@ using signal = klang::signal;
 #include "DX7.k"		// klang synth plugin emulating the Yamaha DX7
 #include "PingPong.k"	// klang effect plugin implementing a stereo (ping-pong) delay
 
+DX7 dx7;
+
 #include "kleine.h"
 
 int main(int argc, char** argv)
@@ -20,7 +22,7 @@ int main(int argc, char** argv)
 	// create and configure the audio, synth, effect
 	Engine engine;
 	engine.start();
-	engine.attach<DX7>(0);
+	engine.attach(&dx7);
     engine.attach<PingPong>(0.167, 0.75, 0.333, 0.25);
 
 	// play some notes
