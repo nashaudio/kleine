@@ -6,7 +6,7 @@
 // It demonstrates how to set up the audio engine, attach plugins, send MIDI messages, and manage timing.
 //
 
-// #include "DX7.k"		// klang synth plugin emulating the Yamaha DX7
+#include "DX7.k"		// klang synth plugin emulating the Yamaha DX7
 #include "PingPong.k"	// klang effect plugin implementing a stereo (ping-pong) delay
 
 #include "kleine.h"
