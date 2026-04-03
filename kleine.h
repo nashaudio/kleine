@@ -9,8 +9,8 @@
 #pragma once
 
 #include "klang.h"
-// #include "klang/audio.h"
-// #include "klang/midi.h"
+#include "klang/audio.h"
+#include "klang/midi.h"
 
 // Declare/define your own objects here
 // 

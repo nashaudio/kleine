@@ -6,6 +6,8 @@ constexpr int NA = 0;
 
 namespace DX {
 
+using signal = klang::signal;
+
 enum { Ratio, Fixed }; // OSC_MODE (+ SYNC?!)
 
 //////////////////////// PATCH DATA ////////////////////////
