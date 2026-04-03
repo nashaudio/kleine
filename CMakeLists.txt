@@ -17,6 +17,8 @@ add_executable (kleine "kleine.cpp" "kleine.h")
 # disable warning C4244: 'argument': conversion from 'size_t' to 'int', possible loss of data
 target_compile_options(kleine PRIVATE
     $<$<CXX_COMPILER_ID:MSVC>:/wd4244 /wd4305>
+    $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wno-error=changes-meaning>
+    $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wno-error=deprecated>
 )
 
 # Disable CRT insecure warnings for MSVC compilers.
