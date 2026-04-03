@@ -4254,6 +4254,14 @@ namespace klang {
 	struct Plugin : public Controller {
 		virtual ~Plugin() {}
 
+		template<typename DERIVED, typename... ARGS>
+		static DERIVED* Create(ARGS&&... args) {
+			static_assert(std::is_base_of_v<Plugin, DERIVED>);
+			DERIVED* p = new DERIVED();
+			p->controls.set(std::forward<ARGS>(args)...);
+			return p;
+		}
+
 		Controls controls;
 		Presets presets;
 	};
@@ -6039,11 +6047,9 @@ namespace klang {
 
 	struct File {
 #if defined(_MSC_VER)
-    #define PACK_STRUCT __pragma(pack(push, 1)) struct
-    #define PACK_END    }; __pragma(pack(pop))
+#define packed __pragma(pack(push,1)) struct __pragma(pack(pop))
 #else
-    #define PACK_STRUCT struct __attribute__((packed))
-    #define PACK_END };
+#define packed struct __attribute__((packed))
 #endif
 		struct Format {
 			unsigned int channels = 0;
@@ -6051,7 +6057,7 @@ namespace klang {
 			unsigned int bitrate = 0;
 		};
 
-		PACK_STRUCT Chunk {
+		packed Chunk{
 			struct ID {
 				char id[4] = { 0 };
 				ID() = default;
@@ -6067,9 +6073,9 @@ namespace klang {
 
 			Chunk() = default;
 			Chunk(ID id, unsigned int size = 0) : id(id), size(size) {}
-		PACK_END
+		};
 
-		PACK_STRUCT Header : Chunk {
+		packed Header : Chunk{
 			ID format;
 
 			Header() = default;
@@ -6077,17 +6083,16 @@ namespace klang {
 
 			bool isWAV()  const { return id == "RIFF" && format == "WAVE"; }
 			bool isAIFF() const { return id == "FORM" && format == "AIFF"; }
-		PACK_END
+		};
 
-		PACK_STRUCT WAV {
+		packed WAV{
 			Memory memory;
 
-			PACK_STRUCT Header : File::Header {
+			packed Header : File::Header {
 				Header() : File::Header("RIFF", "WAVE") {}
-			PACK_END
-			Header *header = nullptr;
+			} *header = nullptr;
 
-			PACK_STRUCT Format : Chunk {
+			packed Format : Chunk {
 				unsigned short AudioFormat;
 				unsigned short NumChannels;
 				unsigned int   SampleRate;
@@ -6098,15 +6103,13 @@ namespace klang {
 				Format() : Chunk("fmt ", sizeof(Format)) {}
 
 				operator File::Format() const { return { NumChannels, SampleRate, BitsPerSample }; }
-			PACK_END
-			Format *format = nullptr;
+			} *format = nullptr;
 
-			PACK_STRUCT Data : Chunk {
+			packed Data : Chunk {
 				unsigned char data[1] = { 0 };
 
 				Data() : Chunk("data") {}
-			PACK_END
-			Data *data = nullptr;
+			} *data = nullptr;
 
 			// use internal memory
 			bool load(const char* path) {
@@ -6190,7 +6193,7 @@ namespace klang {
 				}
 				return true;
 			}
-		PACK_END
+		};
 
 		//struct AIFF {		
 		//	struct Binary Extended {

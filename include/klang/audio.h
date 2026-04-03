@@ -12404,7 +12404,7 @@ static MA_INLINE double ma_powd(double x, double y)
 static MA_INLINE double ma_sqrtd(double x)
 {
     /* TODO: Implement custom sqrt(x). */
-    return std::sqrt(x);
+    return sqrt(x);
 }
 
 
@@ -95894,6 +95894,15 @@ namespace klang {
         Stereo::Sound* sound2 = nullptr;
         Stereo::Effect* effect2 = nullptr;
 
+        virtual ~Processor() {
+            delete effect;
+			delete synth;
+            delete sound;
+            delete synth2;
+            delete sound2;
+			delete effect2;
+        }
+
         variable::buffer left, right;
 
         bool attach(Plugin* plugin) {
@@ -96063,6 +96072,13 @@ namespace klang {
             klang::fs = device.sampleRate;
         }
 
+        virtual ~Engine() {
+            // stop all notes and the engine
+	        allNotesOff();
+	        stop();
+            ma_device_uninit(&device);
+        }
+
         bool start() {
             if (ma_device_start(&device) != MA_SUCCESS) {
                 printf("Failed to start playback device.\n");
@@ -96088,6 +96104,15 @@ namespace klang {
             ma_device_stop(&device);
         }
 
+        template<typename DERIVED, typename... ARGS>
+		DERIVED* attach(ARGS&&... args) {
+			static_assert(std::is_base_of_v<Plugin, DERIVED>);
+			DERIVED* p = new DERIVED();
+			attach(p);
+			p->controls.set(std::forward<ARGS>(args)...);
+            return p;
+		}
+
         void attach(Plugin* plugin) {
             processor.attach(plugin);
         }
@@ -96097,13 +96122,16 @@ namespace klang {
             processor.midiIn(bytes...);
         }
 
-        void allNotesOff() {
-            processor.stop();
+        void noteOn(int note, int velocity, int channel = 0) {
+            midiIn(0x90 | channel, note, velocity);
+		}
+
+        void noteOff(int note, int velocity = 0, int channel = 0) {
+            midiIn(0x80 | channel, note, velocity);
         }
 
-        virtual ~Engine() {
-            stop(true);
-            ma_device_uninit(&device);
+        void allNotesOff() {
+            processor.stop();
         }
     };
 

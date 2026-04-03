@@ -1,5 +1,5 @@
 
-#include "klang.h"
+#include <klang.h>
 using namespace klang::optimised;
 
 constexpr int NA = 0;

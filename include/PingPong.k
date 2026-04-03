@@ -1,4 +1,4 @@
-#include "klang.h"
+#include <klang.h>
 using namespace klang::optimised;
 
 struct PingPong : Stereo::Effect {
