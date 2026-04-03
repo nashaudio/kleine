@@ -8,11 +8,9 @@
       "name": "Run Kleine",
       "type": "cppvsdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/kleine.exe",
+      "program": "${command:cmake.launchTargetPath}",
       "args": [],
-      "cwd": "${workspaceFolder}",
-      "preLaunchTask": "C/C++: cl.exe build active file",
-    //   "MIMode": "cppvsdbg"
+      "cwd": "${workspaceFolder}"
     }
     ]
 }
