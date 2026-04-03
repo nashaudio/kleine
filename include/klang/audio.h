@@ -12404,7 +12404,7 @@ static MA_INLINE double ma_powd(double x, double y)
 static MA_INLINE double ma_sqrtd(double x)
 {
     /* TODO: Implement custom sqrt(x). */
-    return sqrt(x);
+    return std::sqrt(x);
 }
 
 
