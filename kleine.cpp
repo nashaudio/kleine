@@ -7,7 +7,7 @@
 //
 
 // #include "DX7.k"		// klang synth plugin emulating the Yamaha DX7
-// #include "PingPong.k"	// klang effect plugin implementing a stereo (ping-pong) delay
+#include "PingPong.k"	// klang effect plugin implementing a stereo (ping-pong) delay
 
 #include "kleine.h"
 
