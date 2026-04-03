@@ -1214,7 +1214,7 @@ namespace klang {
 	/// A multi-channel audio signal (e.g. stereo).
 	template<int CHANNELS = 2>
 	struct signals {
-#if !defined(__GNU__) // non-GNU compilers support anonymous unions; GNU compilers do not (and produce warnings/errors)
+#if !defined(__GNUC__) || defined(__clang__) // non-GNU compilers support anonymous unions; GNU compilers do not (and produce warnings/errors)
 		/// @cond
 		union {
 			signal value[CHANNELS]; ///< Array of channel values.
