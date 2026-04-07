@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Kleine Audio</title>
+</head>
+<body>
+  <button id="runMainButton">Run main()</button>
+  <script>
+    var Module = {
+      onRuntimeInitialized: function() {
+        var button = document.getElementById('runMainButton');
+        button.disabled = false;
+        button.addEventListener('click', function() {
+          Module.callMain([]);
+        });
+      }
+    };
+  </script>
+  <script src="build/emscripten-debug/kleine.js"></script>
+</body>
+</html>

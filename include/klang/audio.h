@@ -96094,7 +96094,11 @@ namespace klang {
                 while (processor.isPlaying())
                     wait(100);
 			} else { // wait for specified time
+#ifdef __EMSCRIPTEN__
+                emscripten_sleep(ms);
+#else
                 std::this_thread::sleep_for(std::chrono::milliseconds(ms));
+#endif
             }
 		}
 

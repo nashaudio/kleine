@@ -14,6 +14,11 @@ project ("kleine")
 # Add source to this project's executable.
 add_executable (kleine "kleine.cpp" "kleine.h")
 
+if (CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    set_target_properties(kleine PROPERTIES SUFFIX ".js")
+    target_link_options(kleine PRIVATE -sALLOW_MEMORY_GROWTH=1 -sEXPORTED_RUNTIME_METHODS=['ccall','cwrap','callMain'] -sEXPORTED_FUNCTIONS=['_main'] -sASYNCIFY=1 -sEXIT_RUNTIME=0)
+endif()
+
 # disable warning C4244: 'argument': conversion from 'size_t' to 'int', possible loss of data
 target_compile_options(kleine PRIVATE
     $<$<CXX_COMPILER_ID:MSVC>:/wd4244 /wd4305>

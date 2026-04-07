@@ -5121,110 +5121,52 @@ namespace klang {
 				}
 			};
 
-			/// Oscillator phase (optimised)
 			struct Phase {
-				// represent phase using full range of uint32
-				// (integer math, no conditionals, free oversampling)
-				unsigned int position = 0;
+				inline static float bits_to_float(uint32_t bits) {
+					float f;
+					std::memcpy(&f, &bits, sizeof(f));
+					return f;
+				}
 
-				// convert float [0, 2pi) to uint32
+				uint32_t position = 0;
+
 				Phase& operator=(klang::Phase phase) {
-					constexpr float FINTMAX = 2147483648.0f; // (float)INT_MAX + 1.f;
-					phase = phase * FINTMAX / (2.f * pi);
-					position = (unsigned int)phase;
-					return *this;
+					constexpr float kScale = 4294967296.0 / (2.0 * pi.d); // 2^32 / 2pi
 
-					//position = 2u * (signed int)(phase * (float(INT_MAX) + 1.f) * twoPiInv);
-					//return *this;
+					// Fast path: already normalised
+					if (phase.value >= 0.0f && phase.value < twoPi) {
+						position = static_cast<uint32_t>(phase * kScale);
+						return *this;
+					}
+
+					// Slow path: wrap safely
+					float x = phase * twoPiInv;     // cycles
+					x -= std::floor(x);             // [0,1)
+					position = static_cast<uint32_t>(x * 4294967296.0f);
+
+					return *this;
 				}
 
-				// convert uint32 to float [0, 1)
 				operator float() const {
-					const unsigned int i = (position >> 9) | 0x3f800000;
-					return (*(const float*)&i - 1.f);
-
-					//// = quarter-turn (pi/2) phase offset
-					//unsigned int phase = position + 0x40000000;
-
-					//// range reduce to [0,pi]
-					//if (phase & 0x80000000) // cos(x) = cos(-x)
-					//	phase = ~phase; 
-
-					//// convert to float in range [-pi/2,pi/2)
-					//phase = (phase >> 8) | 0x3f800000;
-					//return *(float*)&phase * pi - 3.f/2.f * pi; // 1.0f + (phase / (2^31))
+					uint32_t i = ((position + 0x100u) >> 9) | 0x3f800000u;
+					return bits_to_float(i) - 1.0f;
 				}
 
-				// returns offset phase
 				float operator+(const Phase& offset) const {
+					uint32_t phase = position + offset.position;// +0x40000000u;
 
-					unsigned int phase = (position + offset.position) + 0x40000000; // = quarter-turn (pi/2) phase offset
-					// range reduce to [0,pi]
-					if (phase & 0x80000000) // cos(x) = cos(-x)
-						phase = ~phase;
+					// branchless range reduce to [0, pi]
+					const std::uint32_t mask = 0u - (phase >> 31);
+					phase ^= mask;
 
-					// convert to float in range [-pi/2,pi/2)
-					phase = (phase >> 8) | 0x3f800000;
-					return *(float*)&phase * pi - 3.f / 2.f * pi; // 1.0f + (phase / (2^31))
+					phase = ((phase + 0x100u) >> 8) | 0x3f800000u;
+					return bits_to_float(phase) * pi - 1.5f * pi;
 				}
 
-				// convert uint32 to float [0, 2pi)
-				float radians() const {
-					return operator float();
-				}
-
-				// applies increment and returns float [0, 2pi)
-				//float operator+=(Increment i) {
-				//	unsigned int phase = position + 0x40000000; // = quarter-turn (pi/2) phase offset
-				//	position += i.amount;						// apply increment
-
-				//	// range reduce to [0,pi]
-				//	if (phase & 0x80000000) // cos(x) = cos(-x)
-				//		phase = ~phase;
-
-				//	// convert to float in range [-pi/2,pi/2)
-				//	phase = (phase >> 8) | 0x3f800000;
-				//	return *(float*)&phase * pi - 3 / 2.f * pi; // 1.0f + (phase / (2^31))
-				//}
-
-				// applies increment and returns float [0, 2pi)
-				Phase& operator+=(const Increment i) {
-					position += i.amount;						// apply increment
+				Phase& operator+=(Increment i) {
+					position += i.amount;
 					return *this;
 				}
-
-				// applies increment and returns float [0, 2pi)
-				//Phase operator+(const Phase& i) const {
-				//	return { position + i.position };				// apply increment
-				//}
-
-				//// applies increment and returns float [0, 2pi)
-				//float operator+=(Increment i) {
-				//	unsigned int phase = position + 0x40000000; // = quarter-turn (pi/2) phase offset
-				//	position += i.amount;						// apply increment
-
-				//	// range reduce to [0,pi]
-				//	if (phase & 0x80000000) // cos(x) = cos(-x)
-				//		phase = ~phase; 
-
-				//	// convert to float in range [-pi/2,pi/2)
-				//	phase = (phase >> 8) | 0x3f800000;
-				//	return *(float*)&phase * pi - 3/2.f * pi; // 1.0f + (phase / (2^31))
-				//}
-
-				//Phase& operator+(Phase offset) const {
-				//	offset.position += position;
-				//	return offset;
-				//}
-
-				//static void test() {
-				//	Phase p;
-				//	assert((float)(p = 0.f).radians() == 0.f);
-				//	assert((float)(p = pi/2).radians() == pi/2);
-				//	assert((float)(p = pi).radians() == pi);
-				//	assert((float)(p = 3*pi/2).radians() == 3*pi/2);
-				//	assert((float)(p = 2*pi).radians() == 0.f);
-				//}
 			};
 
 			/// sin approximation [-pi/2, pi/2] using odd minimax polynomial (Robin Green)

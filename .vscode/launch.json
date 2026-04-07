@@ -11,6 +11,18 @@
       "program": "${command:cmake.launchTargetPath}",
       "args": [],
       "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Run Kleine (web)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/.vscode/start-server.js",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      // "internalConsoleOptions": "neverOpen",
+      "env": {
+        "PORT": "8000"
+      }
     }
     ]
 }

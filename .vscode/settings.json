@@ -7,5 +7,6 @@
   },
   "files.associations": {
     "*.k": "cpp"
-  }
+  },
+  "livePreview.defaultPreviewPath": "/index.html"
 }

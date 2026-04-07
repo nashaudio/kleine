@@ -140,7 +140,7 @@ struct {
 		if (curve == 0 || curve == 3) { // linear
 			scale = (group * depth * 329) >> 12;
 		} else { 						// exponential
-			const int raw_exp = exp_scale_data[min(group, (int)sizeof(exp_scale_data) - 1)];
+			const int raw_exp = exp_scale_data[std::min(group, (int)sizeof(exp_scale_data) - 1)];
 			scale = (raw_exp * depth * 329) >> 15;
 		}
 		if (curve < 2)
@@ -172,7 +172,7 @@ struct {
 	int getOutputLevel(int pitch, int velocity, const Patch::Op& OP){
         int outlevel = Output[OP.OUTPUTLEVEL];
         outlevel += ScaleLevel(pitch, OP);
-        outlevel = min(127, outlevel);
+        outlevel = std::min(127, outlevel);
         outlevel = outlevel * 32;
         outlevel += ScaleVelocity(velocity, OP.KEYVELOCITY);
         outlevel = max(0, outlevel);								// up to 4256              
@@ -181,7 +181,7 @@ struct {
     
     int getTargetLevel(int envlevel, int outlevel){
     	//return std::max(0, Actual[envlevel] * 64 + OutputLevel);	// up to 3840
-    	return max(0, (Output[envlevel] << 5) - 224);
+    	return std::max(0, (Output[envlevel] << 5) - 224);
 		//return std::max(0, (Output[envlevel] << 5) - 224 + (Output[outlevel] << 6) - 4256);
 	}   
 	
@@ -231,7 +231,7 @@ struct Operator : public klang::Operator<Sine> {
 				rising = target > out;
 			
 				const int rate_scaling = (op.OP->RATESCALING * min(31, max(0, op.pitch / 3 - 7))) >> 3;
-				qrate = min(63, int(rate * 41.f/64) + rate_scaling);
+				qrate = std::min(63, int(rate * 41.f/64) + rate_scaling);
 				shift = (qrate >> 2) - 11;
 			}
 		}
@@ -283,7 +283,7 @@ struct Operator : public klang::Operator<Sine> {
 		
 		last = out; // buffer for feedback
 		Sine::process();
-		out *= Amplitude(dB(((amp + env++) - 8096) * 0.0235f)) * 6.f;
+		out *= Amplitude(dB(((amp + env++) - 8096) * 0.0235f)) * 3.f;
 	}
 };
 
@@ -313,7 +313,7 @@ struct DX7 : Synth {
 				op[o].init(p, v, OP[o]);
 		
 			adsr(0.005,0,1,1);
-
+			
 //			Envelope& env = op[0].env;
 //			graph.clear();
 //			for(int x=0; x<50; x++)
@@ -360,8 +360,6 @@ struct DX7 : Synth {
 //			op[1] >> debug;
 		}
 	};
-	
-	
 	
 	// Initialise plugin (called once at startup)
 	DX7() {		
