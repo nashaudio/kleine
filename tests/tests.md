@@ -35,18 +35,18 @@ Use iteration to print and repeat the following drum pattern
 - 1 mark for printing the pattern
 - 1 mark for including a closing bar line
 - 1 mark for repeating the pattern
-- 1 mark if the repeat ends with a bass drum (p) instead of a hihat (x)
+- 1 mark if the final repeat ends with a bass drum (p) instead of a hihat (x)
 
 ### 4. tree - "Roots Manoeuvre"
 
 **Concepts:** recursion, traversal, conditionals  
-Implement a recursive function that searches a provided tree structure for target values.
+Implement a recursive function that searches a provided tree structure for given values.
 
-- 1 mark for correctly finding values in the root's immediate children
-- 1 mark for traversing the entire tree recursively (all descendents)
-- 1 mark for correctly finding values anywhere in the tree
+- 1 mark for correctly tagging a given value if it appears at the root
+- 1 mark for correctly tagging a given value in the root's immediate children
+- 1 mark for correctly tagging a given value anywhere in the tree
 - 1 mark for correctly returning false when a value is absent
-- 1 mark for breadth-first traversal (rather than depth-first)
+- 1 mark for correctly tagging all instances of a given value in the tree (e.g. if a value appears multiple times)
 
 ## STL, Containers, and Files
 
