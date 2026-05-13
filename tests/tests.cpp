@@ -63,65 +63,6 @@ void loop() {
 // - 1 mark for correctly returning false when a value is absent
 // - 1 mark for correctly tagging all instances of a given value in the tree (e.g. if a value appears multiple times)
 
-//bool Node::Find(const char* v) {
-//    if (value == v) {
-//        tag();
-//        return true;
-//    }
-//
-//    return false;
-//}
-//
-//bool Node::Find(const char* v) {
-//    if (value == v) {
-//        tag();
-//        return true;
-//    }
-//
-//    for (Node* child : children) {
-//        if (child->value == v) {
-//            child->tag();
-//            return true;
-//        }
-//    }
-//
-//	return false;
-//}
-//
-//bool Node::Find(const char* v) {
-//    if (value == v) {
-//        tag();
-//        return true;
-//    }
-//
-//    for (Node* child : children) {
-//        if (child->value == v) {
-//			child->tag();
-//            return true;
-//        }
-//    }
-//
-//    if(!parent) // only print "not found" at the end of the search, not for every leaf node
-//		std::cout << v << " not found\n";
-//
-//	return false;
-//}
-//
-//bool Node::Find(const char* v) {
-//    if (value == v) {
-//        tag();
-//        return true;
-//    }
-//
-//    for (Node* child : children)
-//        if(child->Find(v))
-//			return true;
-//
-//    if(!parent) // only print "not found" at the end of the search, not for every leaf node
-//		std::cout << v << " not found\n";
-//	return false;
-//}
-
 #include "tree.h"
 
 // Recursive search function to find a value in the tree and tag all instances of it

@@ -12,7 +12,7 @@ endif()
 project ("kleine")
 
 # Add source to this project's executable.
-add_executable (kleine "kleine.cpp" "kleine.h" "tests/tree.h" "tests/answers.cpp")
+add_executable (kleine "kleine.cpp" "kleine.h" "tests/tree.h")
 
 # disable warning C4244: 'argument': conversion from 'size_t' to 'int', possible loss of data
 target_compile_options(kleine PRIVATE
