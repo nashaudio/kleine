@@ -41,3 +41,6 @@
 *.dwo
 
 build/
+.vs/
+tests/tests.cpp
+/tests/tests.cpp
