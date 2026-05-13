@@ -1225,10 +1225,6 @@ namespace klang {
 		};
 		/// @endcond
 
-		signals() = default;
-		signals(const signals&) = default;
-		signals& operator=(const signals&) = default;
-
 		/// Create a stereo signal with the given value.
 		signals(float initial = 0.f) : l(initial), r(initial) {}
 		/// Create a stereo signal with the given value.
@@ -1274,6 +1270,8 @@ namespace klang {
 		/// Create a multi-channel signal with the given channel values.
 		template <typename... Args, typename = std::enable_if_t<(std::is_scalar_v<Args> && ...)>>
 		signals(Args... initial) : value{ initial... } {}
+
+		signals& operator=(const signals& input) { for (int v = 0; v < CHANNELS; v++) value[v] = input[v]; return *this; }
 #endif
 
 		/// Return the mono mix of a stereo channel.
