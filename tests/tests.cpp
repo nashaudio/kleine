@@ -76,7 +76,7 @@ bool Node::Find(const char* v) const {
 void tree() {
 	// Build a test tree of nodes 
     // (a chord builder of notes)
-    const Node tree = Node::Chords();
+    const Tree tree;
     
     //       C (root)
     //     / | \
