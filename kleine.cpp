@@ -7,6 +7,7 @@
 //
 
 #include "kleine.h"
+#include "tests/tests.h"	// for the test function
 
 #include "DX7.k"		// klang synth plugin emulating the Yamaha DX7
 #include "PingPong.k"	// klang effect plugin implementing a stereo (ping-pong) delay
@@ -30,6 +31,9 @@ int main(int argc, char** argv)
 	// wait for notes to finish, stop the engine
 	engine.wait(1000);
 	engine.stop();
+
+	// test(hello);
+	test_all();
 	
     return 0;
 }
