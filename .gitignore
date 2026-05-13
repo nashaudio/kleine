@@ -42,5 +42,4 @@
 
 build/
 .vs/
-tests/tests.cpp
-/tests/tests.cpp
+tests/answers.cpp
