@@ -373,7 +373,7 @@ Mark test_hello (const StdioCapture::IO& io) {
     // 1 mark for capitals - all words should start with capital letters
     // Extract all alphabetic words and check first character is uppercase
     std::regex word_pattern(R"([A-Za-z]+)");
-	std::string greeting = io.out.substr(hello_pos); // Check capitalization in the part of the output starting from "hello"
+	std::string greeting = io.out.substr(hello_pos == std::string::npos ? 0 : hello_pos); // Check capitalization in the part of the output starting from "hello"
     auto words_begin = std::sregex_iterator(greeting.begin(), greeting.end(), word_pattern);
     auto words_end = std::sregex_iterator();
     
@@ -520,7 +520,8 @@ Mark test_loop(const StdioCapture::IO& io) {
 
     // 1 mark if the repeat ends with a bass drum (p) instead of a hihat (x)
     // Look for the ending pattern before the final bar
-	if (pattern[last_bar + PATTERN_LENGTH - 2] == 'p') {
+    size_t closing_barline = last_bar + PATTERN_LENGTH - 2;
+	if (closing_barline < pattern.length() && pattern[closing_barline] == 'p') {
         marks++;
         std::cout << ansi::green << "[PASS] Repeat ends with bass drum (p).\n" << ansi::reset;
     } else {
@@ -629,57 +630,34 @@ Mark test(void (*test_func)()) {
     return mark;
 }
 
-// detect: void hello()
-template <typename = void>
-struct has_hello : std::false_type {};
+// Macro to declare test detection trait
+#define DECLARE_TEST(name) \
+    template <typename = void> struct has_##name : std::false_type {}; \
+    template <> struct has_##name<std::void_t<decltype(name())>> : std::true_type {};
 
-template <>
-struct has_hello<std::void_t<decltype(hello())>> : std::true_type {};
-
-// detect: void beats()
-template <typename = void>
-struct has_beats : std::false_type {};
-
-template <>
-struct has_beats<std::void_t<decltype(beats())>> : std::true_type {};
-
-// detect: void loop()
-template <typename = void>
-struct has_loop : std::false_type {};
-
-template <>
-struct has_loop<std::void_t<decltype(loop())>> : std::true_type {};
-
-// detect: void tree()
-template <typename = void>
-struct has_tree : std::false_type {};
-
-template <>
-struct has_tree<std::void_t<decltype(tree())>> : std::true_type {};
+DECLARE_TEST(hello)
+DECLARE_TEST(beats)
+DECLARE_TEST(loop)
+DECLARE_TEST(tree)
 
 Mark test_all() {
     Mark marks = { 0, 0 };
     
-    if constexpr (has_hello<>::value)
-        marks += test(hello);
-    else
-        std::cerr << ansi::red << "Test function 'hello()' not found.\n" << ansi::reset;
+    // Helper macro for conditional test execution
+    #define RUN_TEST(name) \
+        if constexpr (has_##name<>::value) \
+            marks += test(name); \
+        else \
+            std::cerr << ansi::red << "Test function '" #name "()' not found.\n" << ansi::reset;
+
+    RUN_TEST(hello)
+    RUN_TEST(beats)
+    RUN_TEST(loop)
+    RUN_TEST(tree)
     
-    if constexpr (has_beats<>::value)
-        marks += test(beats);
-    else
-        std::cerr << ansi::red << "Test function 'beats()' not found.\n" << ansi::reset;
+    #undef RUN_TEST
 
-    if constexpr (has_loop<>::value)
-        marks += test(loop);
-    else
-        std::cerr << ansi::red << "Test function 'loop()' not found.\n" << ansi::reset;
-
-    if constexpr (has_tree<>::value)
-        marks += test(tree);
-    else
-        std::cerr << ansi::red << "Test function 'tree()' not found.\n" << ansi::reset;
-
-    std::cout << ansi::white << "\nTotal marks: " << marks.marks << " / " << marks.total << " (" << marks.percent() << "%)\n\n" << ansi::reset;
+    std::cout << ansi::white << "\nTotal marks: " << marks.marks << " / " << marks.total 
+              << " (" << marks.percent() << "%)\n\n" << ansi::reset;
     return marks;
 }

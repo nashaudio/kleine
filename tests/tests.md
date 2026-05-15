@@ -117,7 +117,7 @@ Implement a small class that stores notes (e.g. as integers) internally, in a ve
 
 ### 11. pointer - "Point Counterpoint" (draft)
 
-**Concepts:** pointers, dereferencing, member access through pointers
+**Concepts:** pointers, dereferencing, member access through pointers\
 Use a pointer to iterate through an array.
 
 - 1 mark for iterating over the array.

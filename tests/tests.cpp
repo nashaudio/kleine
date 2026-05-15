@@ -37,7 +37,7 @@ void beats() {
 // --------------------------------------------------------------------------
 // Use iteration to print and repeat the following drum pattern
 //
-// | p . x . P . x . x . p . P . x . |
+//              | p . x . P . x . x . p . P . x . |
 //
 // (p - bass drum; P - snare drum; x - hi hat; . - rest; | - bar line):
 //
@@ -72,7 +72,7 @@ bool Node::Find(const char* v) const {
 }
 
 // Function used to test your Node::Find function
-// (NB: do not need to edit this!)
+// (NB: do not edit this!)
 void tree() {
 	// Build a test tree of nodes 
     // (a chord builder of notes)
@@ -94,3 +94,16 @@ void tree() {
 	tree.Find("G");  // should find instances of G and print their values and paths
 }
 
+
+
+// ==========================================================================
+// 5. transpose - "Uplifting Melody"
+// --------------------------------------------------------------------------
+// Given a list of notes and a transpose amount, return the transposed notes.
+//
+// - 1 mark for printing the transposed note numbers
+// - 1 mark for in-place processing of original array
+
+void transpose(std::vector<int>& notes, int semitones) {
+    // [Add your code here]
+}
