@@ -99,11 +99,32 @@ void tree() {
 // ==========================================================================
 // 5. transpose - "Uplifting Melody"
 // --------------------------------------------------------------------------
-// Given a list of notes and a transpose amount, return the transposed notes.
+// Given a list of notes, transpose the notes by a given amount of semitones.
 //
 // - 1 mark for printing the transposed note numbers
 // - 1 mark for in-place processing of original array
 
+// Transpose a list of MIDI note numbers by a given number of semitones
 void transpose(std::vector<int>& notes, int semitones) {
     // [Add your code here]
+}
+
+// Function used to test your transpose(...) function
+// (NB: do not edit this!)
+void transpose() {
+	std::cout << "Input: ";
+
+	// Generate a random list of MIDI note numbers (between 60 and 71)
+    std::vector<int> notes;
+    for (int n = 0; n < 12; n++) {
+        notes.push_back(60 + rand() % 12);
+		std::cout << notes.back() << " ";
+    }
+
+	// Random transpose amount between 0 and 11 semitones
+    const int semitones = rand() % 12;
+	std::cout << "(+" << semitones << " semitones)\n";
+
+	// Transpose the notes
+    transpose(notes, semitones);
 }
