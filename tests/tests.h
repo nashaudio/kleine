@@ -58,6 +58,8 @@ extern void counterpoint();
 extern void counterpoint(const std::array<std::string, 15>& scale, std::vector<std::string>& melody);
 extern void play();
 extern void play(klang::Engine& engine, const Track& melody, const Track& bass);
+extern void file();
+extern void file(klang::Engine& engine, std::vector<int>& notes, const std::vector<int>& durations);
 
 namespace test {
 
@@ -420,6 +422,156 @@ namespace test {
 #define MARK(condition, pass, fail) { if (condition) { PASS(pass); } else { FAIL(fail); } }
 #define MARK_QUIET(condition) { if (condition) { marks++; } }
 #define MARK_IF(condition) if(condition)
+
+    enum { Pitch = 1, Duration = 2, Time = 4, All = Pitch|Duration|Time };
+
+    struct Output {
+        const int tick = 0;
+		const int split = 0; // split point between melody and bass (in MIDI note number)
+
+        struct Note {
+            int pitch = 0, duration = 0, time = 0;
+            int compare(const Note& other) const {
+                return (pitch == other.pitch ? Pitch : 0)
+                    | (duration == other.duration ? Duration : 0)
+                    | (time == other.time ? Time : 0);
+            }
+        };
+        struct Notes : std::vector<Note> {
+            Notes& operator=(const ::Track in) {
+                int time = 0;
+                for (int e = 0; e < in.pitch.size(); e++) {
+                    if (in.pitch[e]) // note on
+                        push_back({ in.pitch[e], in.length[e], time });
+                    time += in.length[e];
+                }
+                return *this;
+            }
+
+			template<typename T>
+            bool matches(const T& array, int mode = Pitch) const {
+                if (size() != array.size())
+                    return false;
+                
+                if (mode & Pitch)
+                    for (size_t n = 0; n < size(); n++)
+                        if (at(n).pitch != array[n])
+                            return false;
+                
+                if (mode & Duration)
+                    for (size_t n = 0; n < size(); n++)
+                        if (at(n).duration != array[n])
+                            return false;
+                
+                if (mode & Time)
+                    for (size_t n = 0; n < size(); n++)
+                        if (at(n).time != array[n])
+                            return false;
+				
+                return true;
+			}
+
+            // return a mask indicating what (if anything) was matched
+            int find(const Notes& notes, size_t offset = 0) const {
+                int match = All;
+                for (int n = 0; n < notes.size() && match; n++) {
+                    if (n + offset >= size())
+                        return 0;
+                    const Note& a = at(n + offset);
+                    const Note& b = notes[n];
+                    match &= a.compare(b);
+                }
+                return match;
+            }
+
+            std::string print(int offset) {
+                int time = 0;
+                std::string output;
+
+                const int start = offset;
+                const int end = start + 60;
+
+                for (const Note& note : *this) {
+                    if (note.time < start) {
+                        time = note.time + note.duration; // skip notes that have already finished before the current time window
+                        continue;
+                    } else if (note.time >= end) {
+                        break; // stop printing notes that start after the current time window
+                    } else if (note.time == start) {
+                        time = note.time; // start of time window, print notes starting at this time
+                    }
+
+                    if (note.time > time) {
+                        int duration = note.time - time;
+                        for (int d = 0; d < duration; d++)
+                            output += "  "; // print dashes for note duration
+                        time = note.time;
+                    }
+
+                    output += std::to_string(note.pitch);
+                    for (int d = 0; d < note.duration - 1; d++)
+                        output += "--"; // print dashes for note duration
+                    time += note.duration;
+                }
+
+                return output += "\n";
+            }
+        } melody, bass;
+
+        Output(int tick = 100, int split = 0) : tick(tick), split(split) { }
+        Output(const std::vector<int>& midi, int split = 0) : tick(calculate_tick(midi)), split(split) { 
+			operator=(midi);
+        }
+
+        static int calculate_tick(const std::vector<int>& midi) {
+            std::vector<int> intervals;
+            for(int m = 0; m < midi.size(); m += 3) {
+                if (midi[m] == 0xF0)
+                    intervals.push_back(midi[m + 1]);
+			}
+
+			// Find the greatest common divisor (GCD) of the intervals to determine the tick size
+            auto gcd = [](int a, int b) {
+                while (b != 0) {
+                    int temp = b;
+                    b = a % b;
+                    a = temp;
+                }
+                return a;
+            };
+            int tick = intervals.empty() ? 100 : intervals[0];
+            for (size_t i = 1; i < intervals.size(); i++) {
+                tick = gcd(tick, intervals[i]);
+            }
+			return tick > 0 ? tick : 100; // default to 100ms if GCD is zero or negative
+		}
+
+        Output& operator=(const std::vector<int>& midi) {
+            int time = 0;
+            for (size_t m = 0; m < midi.size(); m += 3) {
+                const int status = midi[m];
+                const int data1 = midi[m + 1]; // pitch/wait
+
+                Notes& notes = data1 >= split ? melody : bass;
+
+                switch (status) {
+                case 0x90: // note on
+                    notes.push_back({ data1, 0, time });
+                    break;
+                case 0x80: // note off
+                {
+                    auto it = std::find_if(notes.rbegin(), notes.rend(), [data1](const Note& n) { return n.pitch == data1 && n.duration == 0; });
+                    if (it != notes.rend())
+                        it->duration = time - it->time; // update note duration
+                }   break; // find note
+                case 0xF0:
+                    time += data1 / tick; // 100ms ticks
+                    break;
+                }
+            }
+            return *this;
+        }
+    };
 
 	// Test: 1. hello - "Hello, World!"
     struct Hello : public Test {
@@ -942,102 +1094,6 @@ namespace test {
             {  45, 0, 45, 0, 45, 0, 48, 50, 52, 50, 55, 43, 0, 43, 0, 55, 50, 48, 47, 43, 35, 0 },
             {   2, 2,  6, 2,  4, 2,  2,  2,  2,  2,  2,  2, 2,  6, 2,  8,  4,  2,  2,  2,  1, 1 } };
 
-        enum { Pitch = 1, Duration = 2, Time = 4, All = Pitch|Duration|Time };
-
-        struct Output {
-            struct Note {
-                int pitch = 0, duration = 0, time = 0;
-                int compare(const Note& other) const {
-                    return (pitch == other.pitch ? Pitch : 0)
-                        | (duration == other.duration ? Duration : 0)
-                        | (time == other.time ? Time : 0);
-                }
-            };
-            struct Notes : std::vector<Note> {
-                Notes& operator=(const ::Track in) {
-                    int time = 0;
-                    for (int e = 0; e < in.pitch.size(); e++) {
-                        if (in.pitch[e]) // note on
-                            push_back({ in.pitch[e], in.length[e], time });
-                        time += in.length[e];
-                    }
-                    return *this;
-                }
-
-                // return a mask indicating what (if anything) was matched
-                int find(const Notes& notes, size_t offset = 0) const {
-                    int match = All;
-                    for (int n = 0; n < notes.size() && match; n++) {
-                        if (n + offset >= size())
-                            return 0;
-                        const Note& a = at(n + offset);
-                        const Note& b = notes[n];
-                        match &= a.compare(b);
-                    }
-                    return match;
-                }
-
-                std::string print(int offset) {
-                    int time = 0;
-                    std::string output;
-
-                    const int start = offset;
-                    const int end = start + 60;
-
-                    for (const Note& note : *this) {
-                        if (note.time < start) {
-                            time = note.time + note.duration; // skip notes that have already finished before the current time window
-                            continue;
-                        } else if (note.time >= end) {
-                            break; // stop printing notes that start after the current time window
-                        } else if (note.time == start) {
-                            time = note.time; // start of time window, print notes starting at this time
-                        }
-
-                        if (note.time > time) {
-                            int duration = note.time - time;
-                            for (int d = 0; d < duration; d++)
-                                output += "  "; // print dashes for note duration
-                            time = note.time;
-                        }
-
-                        output += std::to_string(note.pitch);
-                        for (int d = 0; d < note.duration - 1; d++)
-                            output += "--"; // print dashes for note duration
-                        time += note.duration;
-                    }
-
-                    return output += "\n";
-                }
-            } melody, bass;
-
-            Output& operator=(const std::vector<int> midi) {
-                int time = 0;
-                for (size_t m = 0; m < midi.size(); m += 3) {
-                    const int status = midi[m];
-                    const int data1 = midi[m + 1]; // pitch/wait
-
-                    Notes& notes = data1 > 60 ? melody : bass;
-
-                    switch (status) {
-                    case 0x90: // note on
-                        notes.push_back({ data1, 0, time });
-                        break;
-                    case 0x80: // note off
-                    {
-                        auto it = std::find_if(notes.rbegin(), notes.rend(), [data1](const Note& n) { return n.pitch == data1 && n.duration == 0; });
-                        if (it != notes.rend())
-                            it->duration = time - it->time; // update note duration
-                    }   break; // find note
-                    case 0xF0:
-                        time += data1 / 100; // 100ms ticks
-                        break;
-                    }
-                }
-                return *this;
-            }
-        };
-
         Play() : engine(klang::Engine::SIMULATED) {
             name = "play";
         }
@@ -1046,7 +1102,7 @@ namespace test {
 
             ::play(engine, melody, bass); 
 
-            Output output;
+            Output output(100, 60);
             output = engine.history;
 
             int time = 0;
@@ -1091,7 +1147,7 @@ namespace test {
                 }
             }
 
-            Output original, output;
+            Output original, output(100, 60);
             original.melody = melody;
             original.bass = bass;
             output = midi;
@@ -1137,6 +1193,80 @@ namespace test {
 		}
     } play;
 
+    // Test: 8. file - "Beverly Hills 902 I/O"
+    struct File : public Test {
+        klang::Engine engine;
+
+        std::vector<int> notes;
+        static constexpr char* input_path = "../../tests/input.dat";
+        static constexpr char* output_path = "../../tests/output.dat";
+
+		const std::vector<int> pitches = {  65,68,65,65,70,65,63,65,72,65,65,73,72,68,65,72,77,65,63,63,60,67,65 };
+        const std::vector<int> durations = { 4, 3, 2, 1, 2, 2, 2, 4, 3, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2,10 };
+
+        File() : engine(klang::Engine::SIMULATED) {
+            name = "file";
+        }
+        void run() override { 
+            engine.start();
+
+            remove(output_path); // ensure output file is removed before running test
+
+            ::file(engine, notes, durations); 
+
+			Output output(engine.history);
+            std::cout << output.melody.print(0);
+        
+            engine.stop();
+        }
+        Mark mark(const StdioCapture::IO& io) override {
+            Mark marks(4);
+			Output output(engine.history);
+
+            // 1 mark for loading the notes into the array
+            MARK(notes == pitches,
+                "Notes correctly loaded into the array.",
+				"Notes not correctly loaded into the array.");
+
+            // 1 mark for playing the correct pitches
+            MARK(output.melody.matches(pitches, Pitch),
+                "Pitches played correctly .",
+				"Pitches not played correctly.");
+             
+            // 1 mark for playing the correct timing (durations)
+            MARK(output.melody.matches(durations, Duration),
+                "Durations played correctly.",
+				"Durations not played correctly.");
+             
+            // 1 mark for saving the pitches interleaved with their durations to a new file
+			FILE* file = fopen(output_path, "r");
+            if (file) {
+                std::vector<int> file_data;
+                int value;
+                while (fscanf(file, "%d,", &value) == 1)
+                    file_data.push_back(value);
+                fclose(file);
+                bool interleaved = true;
+                if (file_data.size() != pitches.size() * 2)
+                    interleaved = false;
+                else
+                    for (size_t n = 0; n < pitches.size(); n++) {
+                        if (file_data[n * 2] != pitches[n] || file_data[n * 2 + 1] != durations[n]) {
+                            interleaved = false;
+                            break;
+                        }
+                    }
+                MARK(interleaved,
+                    "Pitches and durations saved correctly to file.",
+                    "Pitches and durations not saved correctly to file.");
+            } else {
+                FAIL("Output file not found.");
+			}
+
+            return marks;
+        }
+    } file;
+
     Mark all() {
         Mark marks;
         marks += hello();
@@ -1146,6 +1276,10 @@ namespace test {
 		marks += transpose();
 		marks += counterpoint();
 		marks += play();
+		marks += file();
+
+		std::cout << "\n[Total marks: " << marks.marks << " / " << marks.total << " - " << int(round(marks.marks * 100.0 / marks.total) + 0.001) << "%]\n";
+
         return marks;
     }
 

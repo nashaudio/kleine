@@ -17,8 +17,9 @@ int main(int argc, char** argv)
 	//test::tree();
 	//test::transpose();
 	//test::counterpoint();
-	test::play();
-	//test::all();
+	//test::play();
+	//test::file();
+	test::all();
 
     return 0;
 }

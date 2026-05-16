@@ -80,15 +80,15 @@ Write a short program that plays a defined note phrase using `noteOn`, `wait`, a
 - 1 mark for accurate bass pitch 
 - 1 mark for accurate bass timing
 
-### 8. file - "Reading Music"
+### 8. file - "Beverley Hills 902 I/O"
 
 **Concepts:** file I/O, loops, vectors\
 Read a simple list of integer note values from a text file into a `std::vector<int>`.
 
-- 1 mark for accurate reading
-- 1 mark for playing the notes with random velocities
-- 1 mark for saving the notes with random velocities to a new file
-- 1 mark if played and saved velocities match
+- 1 mark for loading the notes into the array
+- 1 mark for playing the correct pitches
+- 1 mark for playing the correct timing (durations)
+- 1 mark for saving the pitches interleaved with their durations to a new file
 
 ## OOP - Object Oriented Programming
 

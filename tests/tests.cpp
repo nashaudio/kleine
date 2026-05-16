@@ -160,7 +160,7 @@ void counterpoint() {
 
 // =========================================================================
 // 7. play - "The Sound of C"
-// --------------------------------------------------------------------------
+// -------------------------------------------------------------------------
 // Write a short program that plays a defined note phrase using 'noteOn', 'wait', and 'noteOff'.
 //
 // Note phrases are provided using the following struct:
@@ -173,6 +173,7 @@ void counterpoint() {
 // (see assignment brief for marking criteria / additional marks)
 
 #include "DX7.k"
+#include "SuperSaw.k"
 #include "PingPong.k"
 using namespace klang;
 
@@ -199,4 +200,38 @@ void play() {
 
     engine.wait(1000);
     engine.stop();
+}
+
+
+
+// =========================================================================
+// 8. file - "Beverly Hills 902 I/O"
+// -------------------------------------------------------------------------
+// Load a pitch sequence from disk and play it with the correct durations.
+// 
+// (see assignment brief for marking criteria / additional marks)
+
+constexpr char* input_path = "../../tests/input.dat";
+constexpr char* output_path = "../../tests/output.dat";
+
+// Load the pitches from file into the array and play using the provided engine
+void file(Engine& engine, std::vector<int>& notes, const std::vector<int>& durations) {
+	// [Add your code here]
+}
+
+// Function used to test your file(...) function
+// (NB: do not edit this!)
+void file() {
+    Engine engine;
+    engine.start();
+    engine.attach<SuperSaw>(0, 0, 0.05);
+    engine.attach<PingPong>(0.167, 0.75, 0.222, 0.25);
+
+	std::vector<int> notes;
+	const std::vector<int> durations = { 4, 3, 2, 1, 2, 2, 2, 4, 3, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 10 }; // in ticks (e.g. 120ms)
+
+    file(engine, notes, durations);
+
+	engine.wait(1000);
+	engine.stop();
 }
