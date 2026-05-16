@@ -64,9 +64,9 @@ Given a list of notes and a transpose amount, return the transposed notes.
 Implement a function that constructs and returns a short musical sequence as a `std::vector<int>`, given a provided std::array\<int> scale.&#x20;
 
 - 1 mark for notes within scale
-- 1 mark if beginning on tonic
-- 1 mark if ending on tonic
-- 1 mark if final note is always approached in stepwise motion (from one scale step above/below)
+- 1 mark if beginning and ending on the tonic
+- 1 mark if no consecutive notes are repeated
+- 1 mark if final note is approached in stepwise motion (from one scale step above/below)
 - 1 mark if melodic leaps (two scale steps or higher) subsequently step back one scale step
 
 ### 7. play - "The Sound of C"
@@ -75,10 +75,10 @@ Implement a function that constructs and returns a short musical sequence as a `
 Write a short program that plays a defined note phrase using `noteOn`, `wait`, and `noteOff`.
 
 - 1 mark for accurate melody pitch
-- 1 mark for accurate melody timing
-- 1 mark for graceful ending
+- 1 mark for repeating the phrase more than once
 - 1 mark for polyphony (simultaneous notes, e.g. melody and bass)
-- 1 mark for accurate bass (pitch and timing)
+- 1 mark for accurate bass pitch 
+- 1 mark for accurate bass timing
 
 ### 8. file - "Reading Music"
 

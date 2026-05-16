@@ -1,4 +1,19 @@
-#include "tests.cpp"
+namespace ansi {
+    const char* reset  = "\x1b[0m";
+    const char* red    = "\x1b[31m";
+    const char* green  = "\x1b[32m";
+    const char* yellow = "\x1b[33m";
+    const char* blue   = "\x1b[34m";
+    const char* cyan   = "\x1b[36m";
+    const char* bold   = "\x1b[1m";
+    const char* grey   = "\x1b[90m";
+    const char* white  = "\x1b[37m";
+	const char* amber =  "\x1b[38;5;214m";
+
+    const char* dark_red = "\x1b[2;31m";    
+    const char* dark_green = "\x1b[2;32m";  
+    const char* dark_yellow = "\x1b[2;33m";  
+}
 
 #pragma once
 
@@ -14,20 +29,6 @@
 #include <streambuf>
 #include <regex>
 
-namespace ansi {
-    const char* reset  = "\x1b[0m";
-    const char* red    = "\x1b[31m";
-    const char* green  = "\x1b[32m";
-    const char* yellow = "\x1b[33m";
-    const char* blue   = "\x1b[34m";
-    const char* cyan   = "\x1b[36m";
-    const char* bold   = "\x1b[1m";
-    const char* grey   = "\x1b[90m";
-    const char* white  = "\x1b[37m";
-}
-
-
-
 #ifdef _WIN32
     #include <io.h>
     #define OAI_DUP     _dup
@@ -42,17 +43,41 @@ namespace ansi {
     #define OAI_CLOSE   close
 #endif
 
+struct Track {
+	std::vector<int> pitch;  // MIDI note numbers (0 = rest)
+	std::vector<int> length; // note lengths (in 100ms ticks)
+};
+
+extern void hello();
+extern void beats();
+extern void loop();
+extern void transpose();
+extern void transpose(std::vector<int>& notes, int semitones);
+extern void tree();
+extern void counterpoint();
+extern void counterpoint(const std::array<std::string, 15>& scale, std::vector<std::string>& melody);
+extern void play();
+extern void play(klang::Engine& engine, const Track& melody, const Track& bass);
+
 namespace test {
 
     struct Mark {
         int marks = 0;
         int total = 0;
 
+		Mark() = default;
+		explicit Mark(int total) : total(total) {}
+
         Mark& operator+=(const Mark& other) {
             marks += other.marks;
             total += other.total;
             return *this;
         }
+
+        Mark& operator++(int) {
+            marks++;
+            return *this;
+		}
 
         double percent() const {
             return total > 0 ? (static_cast<double>(marks) / total) * 100.0 : 0.0;
@@ -372,7 +397,7 @@ namespace test {
 
         Mark operator()() { 
             StdioCapture::IO stdio;
-            Mark m = { 0, 0 };
+            Mark m;
 
             std::cout << ansi::grey << "\n[Running test: " << name << "]\n\n" << ansi::white;
             {
@@ -389,6 +414,13 @@ namespace test {
         virtual Mark mark(const StdioCapture::IO& io) = 0;
     };
 
+#define PASS(comment) { marks++; std::cout << ansi::green << "[PASS] " << comment << "\n" << ansi::reset; }
+#define FAIL(comment) std::cout << ansi::red << "[FAIL] " << comment << "\n" << ansi::reset;
+
+#define MARK(condition, pass, fail) { if (condition) { PASS(pass); } else { FAIL(fail); } }
+#define MARK_QUIET(condition) { if (condition) { marks++; } }
+#define MARK_IF(condition) if(condition)
+
 	// Test: 1. hello - "Hello, World!"
     struct Hello : public Test {
         Hello() {
@@ -399,18 +431,13 @@ namespace test {
         void run() override { ::hello(); }
 
 		Mark mark(const StdioCapture::IO& io) override { 
-            int marks = 0;
-            const int total = 4;
-
-            size_t hello_pos = lowercase(io.out).find("hello");
+            Mark marks(4);
 
             // 1 mark for the word "hello" in the output (case-insensitive)
-            if (hello_pos != std::string::npos) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Output contains 'hello'.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Output does not contain 'hello'.\n" << ansi::reset;
-            }
+            size_t hello_pos = lowercase(io.out).find("hello");
+            MARK (hello_pos != std::string::npos, 
+                "Output contains 'hello'.", 
+                "Output does not contain 'hello'."); 
 
             // 1 mark for capitals - all words should start with capital letters
             // Extract all alphabetic words and check first character is uppercase
@@ -432,32 +459,23 @@ namespace test {
                     break;
                 }
             }
+            MARK (word_count > 0 && all_capitalized, 
+                "Output contains correct capitalization.", 
+                "Output does not contain correct capitalization.");
 
-            if (word_count > 0 && all_capitalized) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Output contains correct capitalization.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Output does not contain correct capitalization.\n" << ansi::reset;
-            }
-
+            // 1 mark for punctuation (comma, exclamation mark)
             std::regex punctuation_pattern(R"([A-Za-z0-9 ]+,\s*[A-Za-z0-9 ]+!)");
-            if (std::regex_search(io.out, punctuation_pattern)) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Output contains correct punctuation.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Output does not contain correct punctuation.\n" << ansi::reset;
-            }
+            MARK (std::regex_search(io.out, punctuation_pattern), 
+                "Output contains correct punctuation.", 
+                "Output does not contain correct punctuation.");
 
             // 1 mark for supporting a user-entered name (e.g. "Hello, Kevin!")
             std::string name = trim_trailing_newlines(io.in);
-            if (io.inputs() != 0 && lowercase(io.out).find(lowercase(name)) != std::string::npos) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Output contains user-entered name.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Output does not contain user-entered name.\n" << ansi::reset;
-            }
+            MARK (io.inputs() != 0 && lowercase(io.out).find(lowercase(name)) != std::string::npos, 
+                "Output contains user-entered name.", 
+                "Output does not contain user-entered name.");
 
-            return { marks, total };
+            return marks;
         }
 	} hello;
 
@@ -469,61 +487,42 @@ namespace test {
         }
 		void run() override { ::beats(); }
         Mark mark(const StdioCapture::IO& io) override {
-            int marks = 0;
-            const int total = 3;
+            Mark marks(3);
             std::string output = lowercase(io.out);
             enum { NO_BEATS_PROMPT, BEATS_PROMPT, BEATS_CORRECT };
             int mode = io.inputs() == 2 ? BEATS_PROMPT : NO_BEATS_PROMPT;
 
             if (mode == BEATS_PROMPT) { // test multiple beats case
-                // Three beats at 160 BPM should be 500ms
-                // 60000ms / 160 BPM = 375ms per beat
-
                 // 1 mark for correctly converting multiple beats (e.g. three beats at 160bpm)
-                if (output.find("1125") != std::string::npos) {
-                    marks++;
+                MARK_IF (output.find("1125") != std::string::npos) {
                     mode = BEATS_CORRECT;
-                    std::cout << ansi::green << "[PASS] Correctly converts beats to milliseconds.\n" << ansi::reset;
+                    PASS ("Correctly converts beats to milliseconds.");
                 } else {
-                    std::cout << ansi::red << "[FAIL] Does not correctly convert beats to milliseconds.\n" << ansi::reset;
+                    FAIL ("Does not correctly convert beats to milliseconds.");
                 }
             } else { // test single beat case
-                // Single beat at 160 BPM should be 375ms
-                // 60000ms / 160 BPM = 375ms per beat
-                bool found_375 = output.find("375") != std::string::npos;
-
                 // 1 mark for correctly converting a single beat (e.g. a beat at 160bpm)
-                if (found_375) {
-                    marks++;
-                    std::cout << ansi::green << "[PASS] Correctly converts beats to milliseconds.\n" << ansi::reset;
-                } else {
-                    std::cout << ansi::red << "[FAIL] Does not correctly convert beats to milliseconds.\n" << ansi::reset;
-                }
+                MARK (output.find("375") != std::string::npos, 
+                    "Correctly converts beats to milliseconds.", 
+                    "Does not correctly convert beats to milliseconds.");
             }
 
             // 1 mark for user interaction (input handling, prompts)
             bool has_prompt = output.find("bpm") != std::string::npos ||
-                output.find("beat") != std::string::npos ||
-                output.find("number") != std::string::npos ||
-                output.find("tempo") != std::string::npos ||
-                output.find("enter") != std::string::npos;
-
-            if (has_prompt && io.inputs() != 0) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Provides user interaction and prompts.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Missing user interaction or prompts.\n" << ansi::reset;
-            }
+                              output.find("beat") != std::string::npos ||
+                              output.find("number") != std::string::npos ||
+                              output.find("tempo") != std::string::npos ||
+                              output.find("enter") != std::string::npos;
+            MARK (has_prompt && io.inputs() != 0, 
+                "Provides user interaction and prompts.", 
+                "Missing user interaction or prompts.");
 
             // 1 mark for supporting multiple beats (e.g. 3 beats at 180bpm)
-            if (mode == BEATS_CORRECT) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Supports multiple beats.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Does not support multiple beats.\n" << ansi::reset;
-            }
+            MARK (mode == BEATS_CORRECT, 
+                "Supports multiple beats.", 
+                "Does not support multiple beats.");
 
-            return { marks, total };
+            return marks;
         }
 	} beats;
 
@@ -534,9 +533,7 @@ namespace test {
         }
         void run() override { ::loop(); }
         Mark mark(const StdioCapture::IO& io) {
-            int marks = 0;
-            const int total = 4;
-
+            Mark marks(4);
             constexpr char PATTERN[] = "|p.x.P.x.x.p.P.x.";
             constexpr char PATTERN_NOEND[] = "|p.x.P.x.x.p.P.";
             constexpr int PATTERN_LENGTH = sizeof(PATTERN) - 1; // exclude null terminator
@@ -550,42 +547,31 @@ namespace test {
             // 1 mark for printing the pattern
             // Pattern: | p . x . P . x . x . p . P . x . (spacing/linefeed optional)
             size_t first_bar = pattern.find(PATTERN);
-            if (first_bar != std::string::npos) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Output contains drum pattern.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Output does not contain drum pattern.\n" << ansi::reset;
-            }
+            MARK (first_bar != std::string::npos, 
+                "Output contains drum pattern.", 
+                "Output does not contain drum pattern.");
 
             // 1 mark for including a closing bar line
             size_t last_bar = pattern.rfind(PATTERN_NOEND);
-            if (last_bar != std::string::npos && (last_bar + PATTERN_LENGTH < pattern.size())
-                && pattern[last_bar + PATTERN_LENGTH] == '|') {
-                marks++;
-                std::cout << ansi::green << "[PASS] Output includes closing bar line.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Output does not include closing bar line.\n" << ansi::reset;
-            }
+            MARK (last_bar != std::string::npos 
+             && (last_bar + PATTERN_LENGTH) < pattern.size()
+             &&  pattern[last_bar + PATTERN_LENGTH] == '|', 
+                "Output includes closing bar line.", 
+                "Output does not include closing bar line.");
 
             // 1 mark for repeating the pattern 
-            if (last_bar != first_bar) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Pattern is repeated.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Pattern is not repeated.\n" << ansi::reset;
-            }
+            MARK (last_bar != first_bar, 
+                "Pattern is repeated.", 
+                "Pattern is not repeated.");
 
             // 1 mark if the repeat ends with a bass drum (p) instead of a hihat (x)
             // Look for the ending pattern before the final bar
             size_t closing_barline = last_bar + PATTERN_LENGTH - 2;
-            if (closing_barline < pattern.length() && pattern[closing_barline] == 'p') {
-                marks++;
-                std::cout << ansi::green << "[PASS] Repeat ends with bass drum (p).\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Repeat does not end with bass drum (p).\n" << ansi::reset;
-            }
+            MARK (closing_barline < pattern.length() && pattern[closing_barline] == 'p', 
+                "Repeat ends with bass drum (p).", 
+                "Repeat does not end with bass drum (p).");
 
-            return { marks, total };
+            return marks;
         }
 	} loop;
 
@@ -596,52 +582,36 @@ namespace test {
         }
         void run() override { ::tree(); }
         Mark mark(const StdioCapture::IO& io) {
-            int marks = 0;
-            const int total = 5;
+            Mark marks(5);
             std::string output = io.out;
 
             // 1 mark for correctly tagging a given value if it appears at the root
-            if (output.find("{ C }") != std::string::npos) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Correctly tags value at root.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Does not correctly tag value at root.\n" << ansi::reset;
-            }
+            MARK (output.find("{ C }") != std::string::npos, 
+                "Correctly tags value at root.", 
+                "Does not correctly tag value at root.");
 
-            // 1 mark for correctly tagging a given value in the root's immediate children
-            if (output.find("{ C > Eb }") != std::string::npos) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Correctly tags values in root's immediate children.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Does not correctly tag values in root's immediate children.\n" << ansi::reset;
-            }
+            //// 1 mark for correctly tagging a given value in the root's immediate children
+            MARK (output.find("{ C > Eb }") != std::string::npos, 
+                "Correctly tags values in root's immediate children.", 
+                "Does not correctly tag values in root's immediate children.");
 
-            // 1 mark for correctly tagging a given value anywhere in the tree
-            if (output.find("{ C > E > G > B }") != std::string::npos) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Correctly tags values anywhere in the tree.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Does not correctly tag values anywhere in the tree.\n" << ansi::reset;
-            }
+            //// 1 mark for correctly tagging a given value anywhere in the tree
+            MARK (output.find("{ C > E > G > B }") != std::string::npos, 
+                "Correctly tags values anywhere in the tree.", 
+                "Does not correctly tag values anywhere in the tree.");
 
-            // 1 mark for correctly printing "<value> not found" when a value is absent
-            if (output.find("F# not found") != std::string::npos) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Correctly prints \"not found\" when value is absent.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Does not correctly return false when value is absent.\n" << ansi::reset;
-            }
+            //// 1 mark for correctly printing "<value> not found" when a value is absent
+            MARK (output.find("F# not found") != std::string::npos, 
+                "Correctly prints \"not found\" when value is absent.", 
+                "Does not correctly print \"not found\" when value is absent.");
 
-            // 1 mark for correctly tagging all instances of a given value in the tree (e.g. if a value appears multiple times)
-            if (output.find("{ C > E > G }") != std::string::npos
-                && output.find("{ C > Eb > G }") != std::string::npos) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Correctly tags all instances of a value in the tree.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Does not correctly tag all instances of a value in the tree.\n" << ansi::reset;
-            }
+            //// 1 mark for correctly tagging all instances of a given value in the tree (e.g. if a value appears multiple times)
+            MARK (output.find("{ C > E > G }") != std::string::npos
+               && output.find("{ C > Eb > G }") != std::string::npos, 
+                "Correctly tags all instances of a value in the tree.", 
+                "Does not correctly tag all instances of a value in the tree.");
 
-            return { marks, total };
+            return marks;
         }
 	} tree;
 
@@ -675,19 +645,17 @@ namespace test {
         }
 
         Mark mark(const StdioCapture::IO& io) {
-            int marks = 0;
-            const int total = 2;
+            Mark marks(2);
             std::string output = io.out;
 
             // remove line beginning "Input: " if present
 			size_t input_pos = output.find("Input:");
 			if (input_pos != std::string::npos) {
 				size_t end_of_line = output.find('\n', input_pos);
-				if (end_of_line != std::string::npos) {
+				if (end_of_line != std::string::npos)
 					output.erase(input_pos, end_of_line - input_pos + 1);
-				} else {
+				else
 					output.erase(input_pos);
-				}
 			}
 
             // 1 mark for printing the transposed note numbers
@@ -702,39 +670,485 @@ namespace test {
 					offset++; // move past the found note for the next search
                 }
             }
-            if(all_notes_correct) {
-                marks++;
-                std::cout << ansi::green << "[PASS] Output contains correct transposed note numbers.\n" << ansi::reset;
-            } else {
-                std::cout << ansi::red << "[FAIL] Output does not contain correct transposed note numbers.\n" << ansi::reset;
-			}
+            MARK (all_notes_correct, 
+                "Output contains correct transposed note numbers.", 
+                "Output does not contain correct transposed note numbers.");
 
             // 1 mark for in-place processing of original array
-            if (notes == original) {
-                std::cout << ansi::red << "[FAIL] Original array was not modified (in-place processing not implemented).\n" << ansi::reset;
-            } else {
+            MARK_IF (notes != original) {
                 for(int i = 0; i < original.size(); i++) {
                     if(notes[i] != original[i] + semitones) {
-                        std::cout << ansi::red << "[FAIL] Original array was modified but does not contain correct transposed values.\n" << ansi::reset;
-                        return { marks, total };
+                        FAIL ("Original array was modified but does not contain correct transposed values.");
+                        return marks;
                     }
 				}
-                marks++;
-                std::cout << ansi::green << "[PASS] Original array was modified (in-place processing).\n" << ansi::reset;
+				PASS ("Original array was modified (in-place processing).");
+            } else {
+                FAIL ("Original array was not modified (in-place processing not implemented).");
 			}
 
-            return { marks, total };
+            return marks;
         }
-	} transpose;
+	} transpose;//*/
+
+    // Test: 6. counterpoint - "Music in the Key of C++"
+    struct Counterpoint : public Test {
+        //typedef std::array<std::string, 15> Scale;
+
+        struct Scale : public std::array<std::string, 15>
+        {
+            using std::array<std::string, 15>::array;
+            using std::array<std::string, 15>::operator=;
+
+            Scale(const std::array<std::string, 15>& scale) : std::array<std::string, 15>(scale) { };
+
+            //const std::array<std::string, 15>:& get() const {
+            //    return *this;
+            //}
+
+            int indexOf(const std::string& note) const {
+			    auto it = std::find(begin(), end(), note);
+			    int index = std::distance(begin(), it);
+			    return it == end() ? -1 : index;
+		    };
+
+		    int intervalBetween(const std::string& from, const std::string& to) const {
+			    int from_index = indexOf(from), to_index = indexOf(to);
+			    if (from_index == -1 || to_index == -1) return 0;
+			    return to_index - from_index; // returns positive for interval up, negative for interval down
+		    };
+
+            bool isTonic(const std::string& note) const {
+			    return note == at(0) || note == at(7) || note == at(14); // any F
+		    };
+
+		    int isStepwise(const std::string& from, const std::string& to) const {
+                int interval = intervalBetween(from, to);
+                return interval == 1 || interval == -1 ? interval : 0; // returns 1 for step up, -1 for step down, else 0
+            }
+
+            bool isLeap(const std::string& from, const std::string& to) const {
+                return !isRepeat(from, to) && !isStepwise(from, to);
+		    }
+
+		    bool isRepeat(const std::string& from, const std::string& to) const {
+			    return from == to;
+		    }
+        } scale;
+		std::vector<std::string> melody[100]; // run counterpoint multiple times to check for randomness / reproducibility
+
+        struct Mark : public test::Mark {
+            Mark() = default;
+			explicit Mark(int total) : test::Mark(total) {}
+
+            enum {
+				SCALE = 1,      // all notes are drawn from the scale
+				TONIC = 2,      // beginning and ending on the tonic
+				REPEATS = 4,    // no consecutive notes are repeated
+				STEPWISE = 8,   // final note is approached in stepwise motion (from one scale step above/below)
+				LEAPS = 16,     // melodic leaps (two scale steps or higher) subsequently step back one scale step
+            };
+			int criteria = 0;
+
+            bool operator==(int marks) const { return this->marks == marks; }
+			bool operator!=(int marks) const { return this->marks != marks; }
+
+            Mark& operator++(int) {
+                marks++;
+                return *this;
+			}
+        };
+
+        void print(std::vector<std::string>& melody) {
+            if(melody.empty())
+                return;
+
+            // Print the generated melody 
+            if(scale.isTonic(melody.front())) {
+                std::cout << ansi::green; // tonic in cyan
+            } else {
+                if (scale.indexOf(melody.front()) == -1)
+                    std::cout << ansi::red; // non-tonic starting note in red
+                else
+                    std::cout << ansi::yellow; // in scale, but not tonic
+			}
+			std::cout << melody.front();
+
+            
+            for (int n = 1; n < melody.size(); n++) {
+                const std::string& prev = melody[n - 1];
+                const std::string& note = melody[n];
+
+                int interval = scale.intervalBetween(prev, note);
+                if(scale.isLeap(prev, note)) {
+                    if (n == melody.size() - 1) {
+                        std::cout << ansi::dark_red; // can't step back
+                    } else {
+                        const std::string& next = melody[n + 1];
+                        int next_interval = scale.intervalBetween(note, next);
+                        if((next_interval >= 0 != interval >= 0) && abs(next_interval) == 1) // 
+                            std::cout << ansi::dark_green; // step back -> green
+                        else
+                            std::cout << ansi::dark_yellow; // leaps in yellow
+                    }
+                } else if(scale.isRepeat(prev, note)) {
+                    std::cout << ansi::dark_red;    // repeats in red
+                } else { // step wise
+                    std::cout << ansi::dark_green;   // stepwise motion in green
+				}
+
+                
+                std::cout << (interval >= 0 ? " +" : " ") << interval << ansi::reset;
+
+                std::cout << ansi::green;
+                if (n == melody.size() - 1 && !scale.isTonic(note))
+                    std::cout << ansi::yellow;
+                if (scale.indexOf(note) == -1)
+                    std::cout << ansi::red;
+                    
+                std::cout << " " << melody[n] << ansi::reset;
+			}
+	        std::cout << "\n";
+        }
+
+        Counterpoint() {
+            name = "counterpoint";
+        }
+        void run() override { 
+            // Scale for testing
+            scale = {
+                "F4", "G4", "A4", "Bb4", "C5", "D5", "E5", 
+                "F5", "G5", "A5", "Bb5", "C6", "D6", "E6", "F7" 
+            };
+
+	        // Print the provided scale
+            std::cout << ansi::grey << "Scale:  ";
+            for (const std::string& note : scale)
+		        std::cout << note << " ";
+	        std::cout << "\n\n" << ansi::reset;
+
+	        // Generate a melody from the provided scale
+            for (int i = 0; i < 100; i++) {
+                ::counterpoint(scale, melody[i]);
+				std::cout << ansi::grey << std::to_string(1001 + i).substr(1, 3) << ": " << ansi::reset; // print melody number (001, 002, ..., 100)
+                print(melody[i]);
+            }
+        }
+
+        static Mark mark(const Scale& scale, const std::vector<std::string>& melody) {
+            Mark marks(5);
+
+            // 1 mark for notes within scale
+            bool all_notes_within_scale = true;
+            for (const std::string& note : melody) {
+                if (scale.indexOf(note) == -1) {
+                    all_notes_within_scale = false;
+                    break;
+                }
+            }
+            MARK_IF (all_notes_within_scale)
+				marks++.criteria |= Mark::SCALE;
+
+            // 1 mark if beginning and ending on the tonic
+            MARK_IF (!melody.empty() && scale.isTonic(melody.front()) && scale.isTonic(melody.back()))
+				marks++.criteria |= Mark::TONIC;
+             
+			// 1 mark if no consecutive notes are repeated
+            bool no_consecutive_repeats = true;
+            for (size_t i = 1; i < melody.size(); i++) {
+                if (scale.isRepeat(melody[i - 1], melody[i])) {
+                    no_consecutive_repeats = false;
+                    break;
+                }
+			}
+            MARK_IF (no_consecutive_repeats)
+				marks++.criteria |= Mark::REPEATS;
+
+            // 1 mark if final note is always approached in stepwise motion (from one scale step above/below) 
+            MARK_IF (!melody.empty() && scale.isStepwise(melody[melody.size() - 2], melody.back()))
+				marks++.criteria |= Mark::STEPWISE;
+
+            // 1 mark if melodic leaps (two scale steps or higher) subsequently step back one scale step
+			bool leaps_step_back = true;
+            for (size_t i = 1; i < melody.size(); i++) {
+                const std::string& prev = melody[i - 1];
+                const std::string& note = melody[i];
+
+                int interval = scale.intervalBetween(prev, note);
+                if(scale.isLeap(prev, note)) {
+                    if (i == melody.size() - 1) {
+                        leaps_step_back = false;
+                    } else {
+                        const std::string& next = melody[i + 1];
+                        int next_interval = scale.intervalBetween(note, next);
+                        if (!((next_interval >= 0 != interval >= 0) && abs(next_interval) == 1)) {
+                            leaps_step_back = false;
+                            break;
+                        }
+                    }
+                }
+			}
+            MARK_IF (leaps_step_back)
+				marks++.criteria |= Mark::LEAPS;
+
+            return marks;
+        }
+
+        test::Mark mark(const StdioCapture::IO& io) override {
+            if(melody[0] == melody[1]) {
+                FAIL ("Melody generation does not appear to be random (same melody generated twice).");
+                return Mark(5); // no marks
+            }
+
+            Mark marks(5), run[100];
+			marks.criteria = Mark::SCALE | Mark::TONIC | Mark::REPEATS | Mark::STEPWISE | Mark::LEAPS; // all criteria must be met in all generated melodies to earn marks
+            for(int m = 0; m < 100; m++) {
+                run[m] = mark(scale, melody[m]);
+				marks.criteria &= run[m].criteria; // only award marks if criteria met in all generated melodies
+			}
+
+			MARK (marks.criteria & Mark::SCALE,
+				"All notes are drawn from the scale.",
+				"Not all notes are drawn from the scale.");
+
+            MARK (marks.criteria & Mark::TONIC,
+				"Melody begins and ends on the tonic.",
+				"Melody does not begin and end on the tonic.");
+
+            MARK (marks.criteria & Mark::REPEATS,
+				"No consecutive notes are repeated.",
+				"Consecutive notes are repeated.");
+
+            MARK (marks.criteria & Mark::STEPWISE,
+				"Final note is approached in stepwise motion.",
+				"Final note is not approached in stepwise motion.");
+
+            MARK (marks.criteria & Mark::LEAPS,
+				"Melodic leaps are followed by a step back.",
+				"Melodic leaps are not followed by a step back.");
+
+            return marks;
+        }
+	} counterpoint;
+
+    // Test: 7. play - "The Sound of C"
+    struct Play : public Test {
+        klang::Engine engine;
+
+        const Track melody = {
+	        { 81,76,83,76,79,81,76,84,76,86,76,83,84,76,81,76,83,76,79,81,76,84,76,86,76,83,84,76,83,76 },   
+	        {  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 } }; 
+        const Track bass = {
+            {  45, 0, 45, 0, 45, 0, 48, 50, 52, 50, 55, 43, 0, 43, 0, 55, 50, 48, 47, 43, 35, 0 },
+            {   2, 2,  6, 2,  4, 2,  2,  2,  2,  2,  2,  2, 2,  6, 2,  8,  4,  2,  2,  2,  1, 1 } };
+
+        enum { Pitch = 1, Duration = 2, Time = 4, All = Pitch|Duration|Time };
+
+        struct Output {
+            struct Note {
+                int pitch = 0, duration = 0, time = 0;
+                int compare(const Note& other) const {
+                    return (pitch == other.pitch ? Pitch : 0)
+                        | (duration == other.duration ? Duration : 0)
+                        | (time == other.time ? Time : 0);
+                }
+            };
+            struct Notes : std::vector<Note> {
+                Notes& operator=(const ::Track in) {
+                    int time = 0;
+                    for (int e = 0; e < in.pitch.size(); e++) {
+                        if (in.pitch[e]) // note on
+                            push_back({ in.pitch[e], in.length[e], time });
+                        time += in.length[e];
+                    }
+                    return *this;
+                }
+
+                // return a mask indicating what (if anything) was matched
+                int find(const Notes& notes, size_t offset = 0) const {
+                    int match = All;
+                    for (int n = 0; n < notes.size() && match; n++) {
+                        if (n + offset >= size())
+                            return 0;
+                        const Note& a = at(n + offset);
+                        const Note& b = notes[n];
+                        match &= a.compare(b);
+                    }
+                    return match;
+                }
+
+                std::string print(int offset) {
+                    int time = 0;
+                    std::string output;
+
+                    const int start = offset;
+                    const int end = start + 60;
+
+                    for (const Note& note : *this) {
+                        if (note.time < start) {
+                            time = note.time + note.duration; // skip notes that have already finished before the current time window
+                            continue;
+                        } else if (note.time >= end) {
+                            break; // stop printing notes that start after the current time window
+                        } else if (note.time == start) {
+                            time = note.time; // start of time window, print notes starting at this time
+                        }
+
+                        if (note.time > time) {
+                            int duration = note.time - time;
+                            for (int d = 0; d < duration; d++)
+                                output += "  "; // print dashes for note duration
+                            time = note.time;
+                        }
+
+                        output += std::to_string(note.pitch);
+                        for (int d = 0; d < note.duration - 1; d++)
+                            output += "--"; // print dashes for note duration
+                        time += note.duration;
+                    }
+
+                    return output += "\n";
+                }
+            } melody, bass;
+
+            Output& operator=(const std::vector<int> midi) {
+                int time = 0;
+                for (size_t m = 0; m < midi.size(); m += 3) {
+                    const int status = midi[m];
+                    const int data1 = midi[m + 1]; // pitch/wait
+
+                    Notes& notes = data1 > 60 ? melody : bass;
+
+                    switch (status) {
+                    case 0x90: // note on
+                        notes.push_back({ data1, 0, time });
+                        break;
+                    case 0x80: // note off
+                    {
+                        auto it = std::find_if(notes.rbegin(), notes.rend(), [data1](const Note& n) { return n.pitch == data1 && n.duration == 0; });
+                        if (it != notes.rend())
+                            it->duration = time - it->time; // update note duration
+                    }   break; // find note
+                    case 0xF0:
+                        time += data1 / 100; // 100ms ticks
+                        break;
+                    }
+                }
+                return *this;
+            }
+        };
+
+        Play() : engine(klang::Engine::SIMULATED) {
+            name = "play";
+        }
+        void run() override { 
+            engine.start();
+
+            ::play(engine, melody, bass); 
+
+            Output output;
+            output = engine.history;
+
+            int time = 0;
+            const int length = max(output.melody.empty() ? 0 : output.melody.back().time + output.melody.back().duration, 
+				                   output.bass.empty() ? 0 : output.bass.back().time + output.bass.back().duration);
+            while(time < length) {
+                std::cout << output.melody.print(time);
+                std::cout << ansi::grey;
+                if (!output.bass.empty())
+                    std::cout << output.bass.print(time);
+                std::cout << ansi::reset << std::endl;
+                time += 60;
+            }   
+
+            engine.wait(1000);
+            engine.stop();
+        }
+        Mark mark(const StdioCapture::IO& io) override {
+            Mark marks(5);
+            const std::vector<int>& midi = engine.history;
+
+            if (midi.size() <= 3) {
+                FAIL("No recorded MIDI activity.");
+                return marks;
+            }
+
+            // original pitch sequences without note offs
+            std::vector<int> melody_ons = melody.pitch, bass_ons;
+            for (int p : bass.pitch)
+                if(p) bass_ons.push_back(p);
+
+            // output pitch sequences (note ons only)
+            std::vector<int> melody_out_ons, bass_out_ons;
+            for (int m = 0; m < midi.size(); m += 3) {
+                int status = midi[m];
+                if (status == 0x90) {
+                    int pitch = midi[m + 1];
+                    if (pitch > 60)
+                        melody_out_ons.push_back(pitch);
+                    else
+                        bass_out_ons.push_back(pitch);
+                }
+            }
+
+            Output original, output;
+            original.melody = melody;
+            original.bass = bass;
+            output = midi;
+
+            // 1 mark for accurate melody (pitch, note lengths, and timing)
+            int match = output.melody.find(original.melody);
+            MARK_IF(match == All) {
+                PASS("Accurate melody pitch and timing.");
+            } else {
+                std::string errors;
+                if(!(match & Pitch)) errors += "pitch, ";
+                if(!(match & Duration)) errors += "note lengths, ";
+                if(!(match & Time)) errors += "timing, ";      
+                errors.resize(errors.size() - 2); // remove trailing comma
+                FAIL("Inaccurate melody (" + errors + ")");
+            }
+
+            // 1 mark for repeating the phrase more than once
+			match = output.melody.find(original.melody, original.melody.size());
+            MARK (match != 0, 
+                "Melody is repeated more than once.", 
+				"Melody is not repeated more than once.");
+            
+            // 1 mark for polyphony (simultaneous notes, i.e. melody and bass)
+			bool polyphony = !output.melody.empty() && output.melody[0].time == 0 && 
+                             !output.bass.empty() && output.bass[0].time == 0;
+			MARK (polyphony,
+                "Includes polyphony (simultaneous notes, i.e. melody and bass).", 
+				"Does not include polyphony (simultaneous notes, i.e. melody and bass).");
+            
+            // 1 mark for accurate bass pitch 
+			match = output.bass.find(original.bass);
+            MARK(match & Pitch,
+                "Accurate bass pitch.",
+                "Inaccurate bass pitch.");
+
+			// 1 mark for accurate bass timing
+            MARK((match & (Time|Duration)) == (Time|Duration), 
+				"Accurate bass timing.",
+				"Inaccurate bass timing.");
+
+            return marks;
+		}
+    } play;
 
     Mark all() {
-        Mark marks = { 0, 0 };
+        Mark marks;
         marks += hello();
         marks += beats();
         marks += loop();
 		marks += tree();
 		marks += transpose();
+		marks += counterpoint();
+		marks += play();
         return marks;
     }
 
 }; // namespace test
+
+#include "tests.cpp"

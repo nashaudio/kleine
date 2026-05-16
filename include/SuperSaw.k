@@ -25,9 +25,9 @@ struct SuperSaw : Synth {
 		void process() {
 			out = 0;
 			for(int s=0; s<7; s++)
-				out += osc[s] / 7;
+				out += osc[s];
 			
-			out *= 0.1 * adsr;							
+			out *= .025 * adsr;							
 			if (adsr.finished())
 				stop();
 		}

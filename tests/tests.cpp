@@ -6,10 +6,7 @@
 // -------------------------------------------------------------------------
 // Implement a function that prints a greeting to the console
 //
-// - 1 mark for the word "hello"
-// - 1 mark for capitals (e.g. "Hello, World!")
-// - 1 mark for punctuation (comma, exclamation mark)
-// - 1 mark for supporting a user-entered name (e.g. "Hello, Kevin!")
+// (see assignment brief for marking criteria / additional marks)
 
 void hello () {
 	// [Add your code here]
@@ -22,9 +19,7 @@ void hello () {
 // --------------------------------------------------------------------------
 // Implement a function that converts beats at a given BPM into milliseconds.
 // 
-// - 1 mark for correctly converting a single beat (e.g. a beat at 120bpm)
-// - 1 mark for user interaction (input handling, prompts)
-// - 1 mark for supporting multiple beats (e.g. 3 beats at 180bpm)
+// (see assignment brief for marking criteria / additional marks)
 
 void beats() {
     // [Add your code here]
@@ -41,10 +36,7 @@ void beats() {
 //
 // (p - bass drum; P - snare drum; x - hi hat; . - rest; | - bar line):
 //
-// - 1 mark for printing the pattern
-// - 1 mark for including a closing bar line
-// - 1 mark for repeating the pattern
-// - 1 mark if the final repeat ends with a bass drum (p) instead of a hihat (x)
+// (see assignment brief for marking criteria / additional marks)
 
 void loop() {
     // [Add your code here]
@@ -57,11 +49,7 @@ void loop() {
 // --------------------------------------------------------------------------
 // Implement a recursive function that searches a provided tree structure for given values.
 //
-// - 1 mark for correctly tagging a given value if it appears at the root
-// - 1 mark for correctly tagging a given value in the root's immediate children
-// - 1 mark for correctly tagging a given value anywhere in the tree
-// - 1 mark for correctly returning false when a value is absent
-// - 1 mark for correctly tagging all instances of a given value in the tree (e.g. if a value appears multiple times)
+// (see assignment brief for marking criteria / additional marks)
 
 #include "tree.h"
 
@@ -101,8 +89,7 @@ void tree() {
 // --------------------------------------------------------------------------
 // Given a list of notes, transpose the notes by a given amount of semitones.
 //
-// - 1 mark for printing the transposed note numbers
-// - 1 mark for in-place processing of original array
+// (see assignment brief for marking criteria / additional marks)
 
 // Transpose a list of MIDI note numbers by a given number of semitones
 void transpose(std::vector<int>& notes, int semitones) {
@@ -123,8 +110,93 @@ void transpose() {
 
 	// Random transpose amount between 0 and 11 semitones
     const int semitones = rand() % 12;
-	std::cout << "(+" << semitones << " semitones)\n";
+	std::cout << "(+" << semitones << " semitones)\nOutput: ";
 
 	// Transpose the notes
     transpose(notes, semitones);
+}
+
+
+
+// ==========================================================================
+// 6. counterpoint - "Music in the Key of C++"
+// --------------------------------------------------------------------------
+// Implement a function that constructs a short musical sequence using a
+// std::vector<std::string>, given a provided std::array<int> scale.
+// 
+// (see assignment brief for marking criteria / additional marks)
+
+// Generate a melody from the provided scale
+void counterpoint(const std::array<std::string, 15>& scale, std::vector<std::string>& melody) {
+    // [Add your code here]
+}
+
+// Function used to test your counterpoint(...) function
+// (NB: do not edit this!)
+void counterpoint() {
+    // Scale for testing
+    const std::array<std::string, 15> f_major = { 
+        "F4", "G4", "A4", "Bb4", "C5", "D5", "E5", 
+        "F5", "G5", "A5", "Bb5", "C6", "D6", "E6", "F7" 
+    };
+
+	// Print the provided scale
+    std::cout << ansi::grey << "Scale: ";
+    for (const std::string& note : f_major)
+		std::cout << note << " ";
+	std::cout << "\n" << ansi::reset;
+
+	// Generate a melody using the scale
+    std::vector<std::string> melody;
+    counterpoint(f_major, melody);
+
+	// Print the generated melody 
+    for (const std::string& note : melody)
+        std::cout << note << " ";
+	std::cout << "\n";
+}
+
+
+
+// =========================================================================
+// 7. play - "The Sound of C"
+// --------------------------------------------------------------------------
+// Write a short program that plays a defined note phrase using 'noteOn', 'wait', and 'noteOff'.
+//
+// Note phrases are provided using the following struct:
+// 
+//  struct Track {
+//	    std::vector<int> pitch;  // MIDI note numbers (0 = rest)
+//	    std::vector<int> length; // note lengths (in 100ms ticks)
+//  };
+// 
+// (see assignment brief for marking criteria / additional marks)
+
+#include "DX7.k"
+#include "PingPong.k"
+using namespace klang;
+
+// Play the provided track(s) using the provided engine
+void play(Engine& engine, const Track& melody, const Track& bass) {
+	// [Add your code here]
+}
+
+// Function used to test your play(...) function
+void play() {
+    Engine engine;
+    engine.start();
+    engine.attach<DX7>(1);
+    engine.attach<PingPong>(0.167, 0.75, 0.222, 0.25);
+
+    const Track melody = {
+	    { 81,76,83,76,79,81,76,84,76,86,76,83,84,76,81,76,83,76,79,81,76,84,76,86,76,83,84,76,83,76 },   
+	    {  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 } }; 
+    const Track bass = {
+        {  45, 0, 45, 0, 45, 0, 48, 50, 52, 50, 55, 43, 0, 43, 0, 55, 50, 48, 47, 43, 35, 0 },
+        {   2, 2,  6, 2,  4, 2,  2,  2,  2,  2,  2,  2, 2,  6, 2,  8,  4,  2,  2,  2,  1, 1 } };
+
+	play(engine, melody, bass);
+
+    engine.wait(1000);
+    engine.stop();
 }
