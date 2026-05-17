@@ -19,6 +19,9 @@ int main(int argc, char** argv)
 	//test::counterpoint();
 	//test::play();
 	//test::file();
+	//test::object();
+	//test::sequence();
+	//test::point();
 	test::all();
 
     return 0;

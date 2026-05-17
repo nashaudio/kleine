@@ -1738,10 +1738,10 @@ namespace klang {
 		//float operator-(float x) const { return value - x; }
 		//float operator/(float x) const { return value / x; }
 
-		template<typename TYPE> signal operator+(const Control& x) const { return value + (signal)x; }
-		template<typename TYPE> signal operator*(const Control& x) const { return value * (signal)x; }
-		template<typename TYPE> signal operator-(const Control& x) const { return value - (signal)x; }
-		template<typename TYPE> signal operator/(const Control& x) const { return value / (signal)x; }
+		template<typename TYPE> signal operator+(const Control& x) const { return value + x.operator klang::signal(); }
+		template<typename TYPE> signal operator*(const Control& x) const { return value * x.operator klang::signal(); }
+		template<typename TYPE> signal operator-(const Control& x) const { return value - x.operator klang::signal(); }
+		template<typename TYPE> signal operator/(const Control& x) const { return value / x.operator klang::signal(); }
 
 		template<typename TYPE> float operator+(TYPE& x) const { return value + (signal)x; }
 		template<typename TYPE> float operator*(TYPE& x) const { return value * (signal)x; }

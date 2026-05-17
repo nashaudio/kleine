@@ -175,7 +175,7 @@ void counterpoint() {
 #include "DX7.k"
 #include "SuperSaw.k"
 #include "PingPong.k"
-using namespace klang;
+
 
 // Play the provided track(s) using the provided engine
 void play(Engine& engine, const Track& melody, const Track& bass) {
@@ -211,8 +211,8 @@ void play() {
 // 
 // (see assignment brief for marking criteria / additional marks)
 
-constexpr char* input_path = "../../tests/input.dat";
-constexpr char* output_path = "../../tests/output.dat";
+const char* input_path = "../../tests/input.dat";
+const char* output_path = "../../tests/output.dat";
 
 // Load the pitches from file into the array and play using the provided engine
 void file(Engine& engine, std::vector<int>& notes, const std::vector<int>& durations) {
@@ -234,4 +234,56 @@ void file() {
 
 	engine.wait(1000);
 	engine.stop();
+}
+
+
+
+// =========================================================================
+// 9. object - "Objection Noted"
+// -------------------------------------------------------------------------
+// Create a simple musical event type, MyNote, with fields pitch, velocity, and duration.
+// 
+// (see assignment brief for marking criteria / additional marks)
+
+// [Declate/define your object here]
+
+
+
+// =========================================================================
+// 10. sequence - "Private Notes"
+// -------------------------------------------------------------------------
+// Implement an object, MySequence, that stores notes (as simple ints)
+// internally, in a vector called, notes, and exposes a minimal public
+// interface, with at(), add(), size() and clear() member function.
+//
+// (see assignment brief for marking criteria / additional marks)
+
+// [Declate/define your object here]
+
+
+
+// =========================================================================
+// 11. point - "Point Counterpoint"
+// -------------------------------------------------------------------------
+// Use a pointer to iterate through an array, printing each value.
+// 
+// (see assignment brief for marking criteria / additional marks)
+
+#include "unknown.h"
+
+// Function to RLE decode a short value to a string
+// (RLE encoding: lower byte = char, upper byte = count)
+static inline std::string decode(short data) {
+	return std::string(data & 0xFF, data >> 8);
+}
+
+// Use the provided pointer to iterate through the array and print its values
+void point(const short*& ptr, size_t size) {
+	// [Add your code here]
+}
+
+// Function used to test your point(...) function
+void point() {
+    const short* ptr = unknown.data(); 
+    point(ptr, unknown.size());
 }

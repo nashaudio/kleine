@@ -48,18 +48,20 @@ struct Track {
 	std::vector<int> length; // note lengths (in 100ms ticks)
 };
 
-extern void hello();
-extern void beats();
-extern void loop();
-extern void transpose();
-extern void transpose(std::vector<int>& notes, int semitones);
-extern void tree();
-extern void counterpoint();
-extern void counterpoint(const std::array<std::string, 15>& scale, std::vector<std::string>& melody);
-extern void play();
-extern void play(klang::Engine& engine, const Track& melody, const Track& bass);
-extern void file();
-extern void file(klang::Engine& engine, std::vector<int>& notes, const std::vector<int>& durations);
+#include "tests.cpp"
+
+// Disable runtime checks and optimizations to detect uninitialized variables
+#ifdef _MSC_VER
+    #pragma runtime_checks("", off)
+    #pragma optimize("", on)
+    #pragma warning(disable:4700)
+#elif defined(__GNUC__) || defined(__clang__)
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wuninitialized"
+    #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+    // GCC/Clang: Use function attribute instead of global pragma for optimization
+#endif
+
 
 namespace test {
 
@@ -1198,8 +1200,8 @@ namespace test {
         klang::Engine engine;
 
         std::vector<int> notes;
-        static constexpr char* input_path = "../../tests/input.dat";
-        static constexpr char* output_path = "../../tests/output.dat";
+        const char* input_path = "../../tests/input.dat";
+        const char* output_path = "../../tests/output.dat";
 
 		const std::vector<int> pitches = {  65,68,65,65,70,65,63,65,72,65,65,73,72,68,65,72,77,65,63,63,60,67,65 };
         const std::vector<int> durations = { 4, 3, 2, 1, 2, 2, 2, 4, 3, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2,10 };
@@ -1267,6 +1269,363 @@ namespace test {
         }
     } file;
 
+    // Test 9: object - "Objection Noted"
+    namespace MyNote { // Class checker for MyNote
+        // Helper to detect if MyNote exists
+        template<typename = void>
+        static constexpr bool is_declared() {
+            if constexpr (requires { typename ::MyNote; }) return true; else return false;
+        }
+
+        // Helper to detect if MyNote has public member variables pitch, duration, and time
+        template<typename = void>
+        static constexpr bool has_members() {
+            if constexpr (!is_declared()) return false;
+            if constexpr (requires { ::MyNote::pitch; ::MyNote::velocity; ::MyNote::duration; }) return true; else return false;
+        }
+
+        // Helper to detect if note's members are initialised to 0
+        template<typename T>
+        static constexpr bool is_note_initialised(T) {
+            if (std::is_trivially_default_constructible_v<T>)
+                return false;
+
+            if constexpr (requires { T::pitch; T::velocity; T::duration; }) {
+                T note;
+                return note.pitch == 0 && note.velocity == 0 && note.duration == 0;
+            }
+
+            return false;
+        }
+
+        // Helper to detect if MyNote is initialised to 0
+        template<typename = void>
+        static constexpr bool is_initialised() {
+            if constexpr (requires { typename ::MyNote; })
+                return is_note_initialised(::MyNote());
+            return false;
+        }
+    };
+    struct Object : public Test {
+
+        Object() {
+            name = "object";
+        }
+        void run() override { }
+
+#if defined(__GNUC__) || defined(__clang__)
+        __attribute__((optimize("O0")))  // Disable optimization for this function
+#endif
+        Mark mark(const StdioCapture::IO& io) override {
+            Mark marks(3);
+
+			// 1 mark for declaring the object.
+            if constexpr (MyNote::is_declared()) {
+                PASS("Defines an object called MyNote.");
+
+                // 1 mark for declaring public member variables.
+                if constexpr (MyNote::has_members()) {
+                    PASS("MyNote has public member variables pitch, duration, and time.");
+
+                    MARK (MyNote::is_initialised(),
+                        "Member variables are initialised to zero.", 
+                        "Member variables are not initialised to zero.");
+                } else {
+                    FAIL("MyNote does not have the required public member variables.");
+                }
+            } else {
+                FAIL("No object called MyNote defined.");
+            }
+
+            return marks;
+        }
+    } object;
+
+	// Test 10: sequence - "Private Notes"
+	namespace MySequence { // Class checker for MySequence
+        // Helper to detect if MySequence exists
+        template<typename = void>
+        static constexpr bool is_declared() {
+	        if constexpr (requires { typename ::MySequence; }) return true; else return false;
+        }
+
+        // Helper to detect if MySequence has a member, notes
+        template<typename = void>
+        static constexpr bool has_notes() {
+            if constexpr (is_declared())
+                if constexpr (requires { ::MySequence::notes; }) 
+                    return true; 
+            return false;
+        }
+
+        // Helper to detect if MySequence::notes is accessible (i.e., public) by trying to access its size() member function
+        template<typename T>
+        static constexpr bool access_notes(T) {
+            if constexpr (has_notes()) {
+                if constexpr (requires {{ T{}.notes.size() } -> std::convertible_to<std::size_t>;} )
+                    return true; 
+            }
+            return false;
+        }
+
+        // Helper to detect if MySequence::notes is accessible (i.e., public)
+        template<typename = void>
+        static constexpr bool is_notes_accessible() {
+            if constexpr (is_declared()) return access_notes(::MySequence()); return false;
+        }
+
+        // Helper to detect if MySequence has public member function at()
+        template<typename T>
+        static constexpr bool has_at(T) {
+            if constexpr (!has_notes()) return false;
+
+            if constexpr (requires { { T{}.at(0) } -> std::same_as<int>;}) 
+                return true; 
+            return false;
+        }
+
+        // Helper to detect if MySequence has public member function add()
+        template<typename T>
+        static constexpr bool has_add(T) {
+            if constexpr (!has_notes()) return false;
+
+            if constexpr (requires { { T{}.add(0) }; }) 
+                return true; 
+            return false;
+        }
+
+        // Helper to detect if MySequence has public member function size()
+        template<typename T>
+        static constexpr bool has_size(T) {
+            if constexpr (!has_notes()) return false;
+
+            if constexpr (requires { { T{}.size() } -> std::convertible_to<int>; }) 
+                return true; 
+            return false;
+        }
+
+        // Helper to detect if MySequence has public member function clear()
+        template<typename T>
+        static constexpr bool has_clear(T) {
+            if constexpr (!has_notes()) return false;
+
+            if constexpr (requires { { T{}.clear() }; }) 
+                return true; 
+            return false;
+        }
+
+		// Helper to detect overloaded subscript operator []
+		template<typename T>
+        static constexpr bool has_subscript(T) {
+            if constexpr (!has_notes()) return false;
+            if constexpr (requires { { T{}[0] } -> std::convertible_to<int>;}) 
+                return true; 
+            return false;
+		}
+
+        // Helper to detect if MySequence has public member function clear()
+        template<typename T>
+        static constexpr bool has_all_functions(T) {
+            if constexpr (!has_notes()) return false;
+
+            if constexpr (has_at(T()) && has_add(T()) && has_size(T()) && has_clear(T()))
+                return true;
+            return false;
+        }
+
+        enum Checks {
+            Size0 = 1,
+            Size1 = 2,
+            Size2 = 4,
+            Size = Size0|Size1|Size2,
+            Add0 = 8,
+            Add1 = 16,
+            Add = Add0|Add1,
+            At = 32,
+            Clear = 64,
+            All = Size|Add|At|Clear,
+            Crash = 128,
+			Subscript = 256
+        };
+
+        template<typename T>
+        static constexpr int test_all_functions(T) {
+            if constexpr (!is_declared())
+                return false;
+            if constexpr (has_all_functions(T())) {
+                int checks = 0;
+                T s;
+                if (s.size() == 0) checks |= Size0;
+                s.add(42);
+                if (s.size() == 1) checks |= Size1 | Add0;
+                if (s.at(0) == 42) checks |= At | Add1;
+                if constexpr (has_subscript(T()))
+					if (s[0] == 42) checks |= Subscript; // check subscript operator returns same as at()
+                s.clear();
+                if (s.size() == 0) checks |= Size2 | Clear;
+
+                return checks;
+            }
+
+            return 0;
+        }
+};
+    struct Sequence : public Test {
+        Sequence() {
+            name = "sequence";
+        }
+        void run() override {}
+        Mark mark(const StdioCapture::IO& io) override {
+            Mark marks(7);
+
+            // 1 mark for declaring the object.
+            if constexpr (MySequence::is_declared()) {
+                //PASS("Defines an object called MySequence.");
+
+                // 1 mark if the container is inaccessible (e.g. private or protected).
+                if constexpr (!MySequence::has_notes()) {
+                    FAIL("The container of notes is not defined.");
+                    return marks;
+                } else {
+                    if constexpr (MySequence::is_notes_accessible()) {
+                        FAIL("The note container is accessible externally.");
+                    } else {
+                        PASS("The note container is inaccessible externally.");
+                    } 
+                }
+
+                // 4 marks for the public functions (1 per function).
+                //    at(...) - returns the note at a given index
+                if constexpr (MySequence::has_at(::MySequence())) {
+                    PASS("MySequence has public function at(...) for reading a note at a given index.");
+                } else {
+                    FAIL("MySequence does not have public function at(...) for reading a note at a given index.");
+				}
+                //    add(...) - adds a note to the sequence
+                if constexpr (MySequence::has_add(::MySequence())) {
+                    PASS("MySequence has public function add(...) for adding a note to the sequence.");
+                } else {
+					FAIL("MySequence does not have public function add(...) for adding a note to the sequence.");
+				}
+                //    size() - returns the number of notes
+                if constexpr (MySequence::has_size(::MySequence())) {
+                    PASS("MySequence has public function size(...) for returning the length of the array.");
+                } else {
+					FAIL("MySequence does not have public function size(...) for returning the length of the array.");
+				}
+                //    clear() - resets (empties) the sequence
+                if constexpr (MySequence::has_clear(::MySequence())) {
+                    PASS("MySequence has public function clear(...) for clearing the array.");
+                } else {
+					FAIL("MySequence does not have public function clear(...) for clearing the array.");
+				}
+                 
+                // 1 mark if all functions work as expected
+                int checks = 0;
+                if (MySequence::has_all_functions(::MySequence())) {
+                    using enum MySequence::Checks;
+
+                    try {
+                        checks = MySequence::test_all_functions(::MySequence());
+                    } catch (...) {
+                        checks = Crash;
+                    }
+
+                    MARK_IF((checks & All) == All) {
+                        PASS("All functions work as expected.");
+                    } else if(checks == Crash) {
+                        FAIL("Function code crashed.");
+                    } else {
+                        std::string errors;
+                        if ((checks & Size) != Size) errors += "size, ";
+                        if ((checks & Add) != Add) errors += "add, ";
+                        if ((checks & At) != At) errors += "at, ";      
+                        if ((checks & Clear) != Clear) errors += "clear, ";
+                        errors.resize(errors.size() - 2); // remove trailing comma
+                        FAIL("Unexpected function behaviour (" + errors + "?)");
+                    }
+                } else {
+                    FAIL("Function code incomplete.");
+                }
+                 
+                // 1 mark for overloading the subscript [] operator.
+                if constexpr (MySequence::has_subscript(::MySequence())) {
+                    MARK(checks & MySequence::Subscript, 
+                        "Subscript operator [] provided as replacement for at(...).", 
+						"Subscript operator [] does not return the same value as at(...).");
+                } else {
+                    FAIL("No subscript [] operator provided.");
+				}
+
+            } else {
+                FAIL("No object called MySequence defined.");
+            }
+
+            return marks;
+        }
+    } sequence;
+
+    // Test 11: point - "Point Counterpoint"
+    struct Point : public Test {
+        const short* ptr = nullptr;
+
+        Point() {
+            name = "point";
+        }
+        void run() override {
+			ptr = unknown.data(); // Get a pointer to the first element of the array
+            ::point(ptr, unknown.size());
+        }
+        Mark mark(const StdioCapture::IO& io) override {
+            Mark marks(2);
+
+            if (ptr == unknown.data()) {
+                FAIL("Pointer was not incremented to iterate over the array.");
+                return marks;
+            }
+
+			std::string output = io.out;
+            size_t offset = 0;
+			bool iterates_correctly = true;
+            for(int i = 0; i < unknown.size(); i++) {
+				offset = output.find(std::to_string(unknown[i]), offset);
+                if (offset == std::string::npos) {
+					iterates_correctly = false;
+					break;
+                }
+				offset++; // move past the found number for the next search
+			}
+
+            offset = 0;
+			bool decodes_correctly = true;
+            for(int i = 0; i < unknown.size(); i++) {
+				offset = output.find(decode(unknown[i]), offset);
+                if (offset == std::string::npos) {
+					decodes_correctly = false;
+					break;
+                }
+				offset++; // move past the found number for the next search
+			}
+
+            // 1 mark for iterating over the array.
+            MARK(iterates_correctly || decodes_correctly, 
+                "Iterates over the array correctly.", 
+				"Does not iterate over the array correctly.");
+
+			// 1 mark for decoding the values correctly.
+            MARK(decodes_correctly, 
+				"Array is successfully decoded.",
+				"Array is not successfully decoded.");
+             
+            // 1 mark for if the pointer ends after the array.
+            MARK(ptr == unknown.data() + unknown.size(), 
+				"Pointer now rests at the end of the array.",   
+                "Pointer does not rest at the end of the array.");
+
+            return marks;
+        }
+    } point;
+    
     Mark all() {
         Mark marks;
         marks += hello();
@@ -1277,12 +1636,23 @@ namespace test {
 		marks += counterpoint();
 		marks += play();
 		marks += file();
+		marks += object();
+		marks += sequence();
+		marks += point();
 
 		std::cout << "\n[Total marks: " << marks.marks << " / " << marks.total << " - " << int(round(marks.marks * 100.0 / marks.total) + 0.001) << "%]\n";
 
         return marks;
     }
 
-}; // namespace test
+// Restore settings
+#ifdef _MSC_VER
+    #pragma warning(default:4700)
+    #pragma runtime_checks("", restore)
+    #pragma optimize("", on)
+#elif defined(__GNUC__) || defined(__clang__)
+    #pragma GCC diagnostic pop
+#endif
 
-#include "tests.cpp"
+
+}; // namespace test

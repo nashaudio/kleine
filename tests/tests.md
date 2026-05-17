@@ -95,7 +95,7 @@ Read a simple list of integer note values from a text file into a `std::vector<i
 ### 9. object - "Objection Noted" (WIP)
 
 **Concepts:** classes/structs, members, constructors\
-Create a simple musical event type, `Note`, with fields such as note (pitch), velocity, and duration.
+Create a simple musical event type, MyNote, with fields pitch, velocity, and duration.
 
 - 1 mark for declaring the object.
 - 1 mark for declaring public member variables.
@@ -106,19 +106,19 @@ Create a simple musical event type, `Note`, with fields such as note (pitch), v
 **Concepts:** encapsulation, classes, vectors, methods\
 Implement a small class that stores notes (e.g. as integers) internally, in a vector called "notes", and exposes a minimal public interface, with at(), add(), size() and clear() member function.
 
-- 1 mark if the container is inaccessible (e.g. private or protected).
+- 1 mark if the container is protected (inaccessible externally).
 - 4 marks for the public functions (1 per function).\
-    at(...) - returns the note at a given index\
+    at(...) - returns the note value at a given index\
     add(...) - adds a note to the sequence\
     size() - returns the number of notes\
     clear() - resets (empties) the sequence
-- 1 mark for out-of-range checks.
+- 1 mark if all functions behave as expected
 - 1 mark for overloading the subscript [] operator.
 
 ### 11. pointer - "Point Counterpoint" (draft)
 
 **Concepts:** pointers, dereferencing, member access through pointers\
-Use a pointer to iterate through an array.
+Use a pointer to iterate through an array, printing each value;
 
 - 1 mark for iterating over the array.
 - 1 mark for if the pointer ends after the array.

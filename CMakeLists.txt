@@ -12,7 +12,7 @@ endif()
 project ("kleine")
 
 # Add source to this project's executable.
-add_executable (kleine "kleine.cpp" "kleine.h" "tests/tree.h")
+add_executable (kleine "kleine.cpp" "kleine.h" "tests/tree.h" "tests/unknown.h")
 
 # disable warning C4244: 'argument': conversion from 'size_t' to 'int', possible loss of data
 target_compile_options(kleine PRIVATE
@@ -32,7 +32,7 @@ target_include_directories(kleine
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET kleine PROPERTY CXX_STANDARD 17)
+  set_property(TARGET kleine PROPERTY CXX_STANDARD 20)
 endif()
 
 # TODO: Add tests and install targets if needed.
