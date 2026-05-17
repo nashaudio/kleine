@@ -132,7 +132,6 @@ Declare a objects to model a basic audio plugin system, supporting both effects 
 - 1 mark for a SynthPlugin object with functions, input() and output(), that print "midi" and "audio".
 - 1 mark if EffectPlugin/SynthPlugin are derived from a common parent class called Plugin.
 - 1 mark if SynthPlugin overrides input() to print "midi".
-- 1 mark if the Plugin class is abstract.
 - 1 mark if EffectPlugin and SynthPlugin support polymorphism (through Plugin\*).
 
 ## Rationale
@@ -175,8 +174,8 @@ Each test is broken down into **small, explicit marking criteria** (up to 6 item
 
   - 8 - object [3 marks]
   - 9 - sequence [7 marks]
-  - 10 - pointer [2 marks]
-  - 11 - model [6 marks]
+  - 10 - pointer [3 marks]
+  - 11 - model [5 marks]
 
 ### Rationale
 

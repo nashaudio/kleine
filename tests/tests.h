@@ -984,13 +984,18 @@ namespace test {
 	        // Generate a melody from the provided scale
             for (int i = 0; i < 100; i++) {
                 ::counterpoint(scale, melody[i]);
-				std::cout << ansi::grey << std::to_string(1001 + i).substr(1, 3) << ": " << ansi::reset; // print melody number (001, 002, ..., 100)
-                print(melody[i]);
+                if (!melody[i].empty()) {
+                    std::cout << ansi::grey << std::to_string(1001 + i).substr(1, 3) << ": " << ansi::reset; // print melody number (001, 002, ..., 100)
+                    print(melody[i]);
+                }
             }
         }
 
         static Mark mark(const Scale& scale, const std::vector<std::string>& melody) {
             Mark marks(5);
+
+            if(melody.empty())
+                return marks; // no marks
 
             // 1 mark for notes within scale
             bool all_notes_within_scale = true;
@@ -1049,6 +1054,11 @@ namespace test {
         }
 
         test::Mark mark(const StdioCapture::IO& io) override {
+            if(melody[0].empty()) {
+                FAIL ("No melody generated.");
+                return Mark(5); // no marks
+			}
+
             if(melody[0] == melody[1]) {
                 FAIL ("Melody generation does not appear to be random (same melody generated twice).");
                 return Mark(5); // no marks
@@ -1371,67 +1381,93 @@ namespace test {
         // Helper to detect if MySequence::notes is accessible (i.e., public)
         template<typename = void>
         static constexpr bool is_notes_accessible() {
-            if constexpr (is_declared()) return access_notes(::MySequence()); return false;
+            if constexpr (is_declared()) return access_notes(::MySequence()); 
+            return false;
         }
 
         // Helper to detect if MySequence has public member function at()
         template<typename T>
         static constexpr bool has_at(T) {
             if constexpr (!has_notes()) return false;
-
-            if constexpr (requires { { T{}.at(0) } -> std::same_as<int>;}) 
-                return true; 
+            if constexpr (requires { { T{}.at(0) } -> std::same_as<int>;}) return true; 
             return false;
+        }
+
+        template<typename = void>
+        static constexpr bool has_at() {
+            if constexpr (is_declared()) return has_at(::MySequence()); return false;
         }
 
         // Helper to detect if MySequence has public member function add()
         template<typename T>
         static constexpr bool has_add(T) {
             if constexpr (!has_notes()) return false;
-
-            if constexpr (requires { { T{}.add(0) }; }) 
-                return true; 
+            if constexpr (requires { { T{}.add(0) }; }) return true; 
             return false;
         }
+
+        template<typename = void>
+        static constexpr bool has_add() {
+            if constexpr (is_declared()) return has_add(::MySequence()); 
+            return false;
+        }
+
 
         // Helper to detect if MySequence has public member function size()
         template<typename T>
         static constexpr bool has_size(T) {
             if constexpr (!has_notes()) return false;
-
-            if constexpr (requires { { T{}.size() } -> std::convertible_to<int>; }) 
-                return true; 
+            if constexpr (requires { { T{}.size() } -> std::convertible_to<int>; }) return true; 
             return false;
         }
 
-        // Helper to detect if MySequence has public member function clear()
-        template<typename T>
-        static constexpr bool has_clear(T) {
-            if constexpr (!has_notes()) return false;
-
-            if constexpr (requires { { T{}.clear() }; }) 
-                return true; 
-            return false;
-        }
-
-		// Helper to detect overloaded subscript operator []
-		template<typename T>
-        static constexpr bool has_subscript(T) {
-            if constexpr (!has_notes()) return false;
-            if constexpr (requires { { T{}[0] } -> std::convertible_to<int>;}) 
-                return true; 
+		template<typename = void>
+        static constexpr bool has_size() {
+            if constexpr (is_declared()) return has_size(::MySequence()); 
             return false;
 		}
 
         // Helper to detect if MySequence has public member function clear()
         template<typename T>
-        static constexpr bool has_all_functions(T) {
+        static constexpr bool has_clear(T) {
             if constexpr (!has_notes()) return false;
-
-            if constexpr (has_at(T()) && has_add(T()) && has_size(T()) && has_clear(T()))
-                return true;
+            if constexpr (requires { { T{}.clear() }; }) return true; 
             return false;
         }
+
+		template<typename = void>
+        static constexpr bool has_clear() {
+            if constexpr (is_declared()) return has_clear(::MySequence()); 
+            return false;
+		}
+
+		// Helper to detect overloaded subscript operator []
+		template<typename T>
+        static constexpr bool has_subscript(T) {
+            if constexpr (!has_notes()) return false;
+            if constexpr (requires { { T{}[0] } -> std::convertible_to<int>;}) return true; 
+            return false;
+		}
+
+		template<typename = void>
+        static constexpr bool has_subscript() {
+            if constexpr (is_declared()) return has_subscript(::MySequence());
+            return false;
+        }
+
+        // Helper to detect if MySequence has public member function clear()
+        template<typename T>
+        static constexpr bool has_all_functions(T) {
+            if constexpr (!has_notes()) return false;
+            if constexpr (has_at(T()) && has_add(T()) && has_size(T()) && has_clear(T())) return true;
+            return false;
+        }
+
+		template<typename = void>
+        static constexpr bool has_all_functions() {
+            if constexpr (is_declared()) return has_all_functions(::MySequence());
+            return false;
+		}
 
         enum Checks {
             Size0 = 1,
@@ -1469,7 +1505,13 @@ namespace test {
 
             return 0;
         }
-};
+
+		template<typename = void>
+        static constexpr int test_all_functions() {
+            if constexpr (is_declared()) return test_all_functions(::MySequence());
+            return 0;
+		}
+    };
     struct Sequence : public Test {
         Sequence() {
             name = "sequence";
@@ -1496,25 +1538,25 @@ namespace test {
 
                 // 4 marks for the public functions (1 per function).
                 //    at(...) - returns the note at a given index
-                if constexpr (MySequence::has_at(::MySequence())) {
+                if constexpr (MySequence::has_at()) {
                     PASS("MySequence has public function at(...) for reading a note at a given index.");
                 } else {
                     FAIL("MySequence does not have public function at(...) for reading a note at a given index.");
 				}
                 //    add(...) - adds a note to the sequence
-                if constexpr (MySequence::has_add(::MySequence())) {
+                if constexpr (MySequence::has_add()) {
                     PASS("MySequence has public function add(...) for adding a note to the sequence.");
                 } else {
 					FAIL("MySequence does not have public function add(...) for adding a note to the sequence.");
 				}
                 //    size() - returns the number of notes
-                if constexpr (MySequence::has_size(::MySequence())) {
+                if constexpr (MySequence::has_size()) {
                     PASS("MySequence has public function size(...) for returning the length of the array.");
                 } else {
 					FAIL("MySequence does not have public function size(...) for returning the length of the array.");
 				}
                 //    clear() - resets (empties) the sequence
-                if constexpr (MySequence::has_clear(::MySequence())) {
+                if constexpr (MySequence::has_clear()) {
                     PASS("MySequence has public function clear(...) for clearing the array.");
                 } else {
 					FAIL("MySequence does not have public function clear(...) for clearing the array.");
@@ -1522,11 +1564,11 @@ namespace test {
                  
                 // 1 mark if all functions work as expected
                 int checks = 0;
-                if (MySequence::has_all_functions(::MySequence())) {
+                if (MySequence::has_all_functions()) {
                     using enum MySequence::Checks;
 
                     try {
-                        checks = MySequence::test_all_functions(::MySequence());
+                        checks = MySequence::test_all_functions();
                     } catch (...) {
                         checks = Crash;
                     }
@@ -1549,7 +1591,7 @@ namespace test {
                 }
                  
                 // 1 mark for overloading the subscript [] operator.
-                if constexpr (MySequence::has_subscript(::MySequence())) {
+                if constexpr (MySequence::has_subscript()) {
                     MARK(checks & MySequence::Subscript, 
                         "Subscript operator [] provided as replacement for at(...).", 
 						"Subscript operator [] does not return the same value as at(...).");
@@ -1577,7 +1619,7 @@ namespace test {
             ::point(ptr, unknown.size());
         }
         Mark mark(const StdioCapture::IO& io) override {
-            Mark marks(2);
+            Mark marks(3);
 
             if (ptr == unknown.data()) {
                 FAIL("Pointer was not incremented to iterate over the array.");
