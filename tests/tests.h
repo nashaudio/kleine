@@ -1668,6 +1668,189 @@ namespace test {
         }
     } point;
     
+    // Test 12: model - "Plug and Play"
+    namespace MyModel {
+
+        // Helper to detect if EffectPlugin exists
+        template<typename = void> static constexpr bool effect_declared() {
+            if constexpr (requires { typename ::EffectPlugin; }) return true; else return false;
+        }
+
+        // Helper to detect if a class called AudioPlugin exists
+		template<typename = void> static constexpr bool plugin_declared() {
+            if constexpr (requires { typename ::AudioPlugin; }) return true; else return false;
+		}
+        
+		// Helper to detect if SynthPlugin exists
+        template<typename = void> static constexpr bool synth_declared() {
+            if constexpr (requires { typename ::SynthPlugin; }) return true; else return false;
+		}
+
+        // Helper template to defer instantiation
+        template<typename T>
+        struct object {
+			static constexpr bool is_polymorohic = std::is_polymorphic_v<T>;
+            static constexpr bool is_abstract = std::is_abstract_v<T>;
+            static constexpr bool has_input = requires { { T{}.input() } -> std::convertible_to<std::string>; };
+			static constexpr bool has_output = requires { { T{}.output() } -> std::convertible_to<std::string>; };
+			static constexpr bool has_functions = has_input && has_output;
+			static constexpr bool has_virtual_functions = has_functions && is_polymorohic;
+
+			static constexpr bool inherits_plugin = plugin_declared() && std::derived_from<T, ::AudioPlugin>;
+        };
+
+        template<typename = void>
+        static constexpr bool is_derived_from_plugin() {
+            if constexpr (effect_declared())
+                return object<::EffectPlugin>::inherits_plugin;//&& object<::SynthPlugin>::inherits_plugin;
+            return false;
+        }
+
+		// Helper to detect if EffectPlugin has the required functions
+		template<typename = void>
+        static constexpr bool has_effect_functions() {
+            if constexpr (effect_declared()) return object<::EffectPlugin>::has_functions;
+            return false;
+		}
+
+		// Helper to test if EffectPlugin's functions return the correct strings
+        template<typename T>
+        static constexpr bool test_effect_functions(T) {
+            if constexpr (has_effect_functions()) return T().input() == std::string("audio") && T().output() == std::string("audio");
+            return false;
+		}
+		template<typename = void>
+        static constexpr bool test_effect_functions() {
+			if constexpr (has_effect_functions()) return test_effect_functions(::EffectPlugin());
+			return false;
+		}
+
+		// Helper to detect if SynthPlugin has the required functions
+        template<typename = void>
+        static constexpr bool has_synth_functions() {
+			if constexpr (synth_declared()) return object<::SynthPlugin>::has_functions;
+            return false;
+        }
+
+		// Helper to test if SynthPlugin's functions return the correct strings
+        template<typename T>
+        static constexpr bool test_synth_functions(T) {
+            if constexpr (has_synth_functions()) return T().input() == std::string("midi") && T().output() == std::string("audio");
+            return false;
+		}
+
+		template<typename = void>
+        static constexpr bool test_synth_functions() {
+			if constexpr (has_synth_functions()) return test_synth_functions(::SynthPlugin());
+			return false;
+		}
+
+        template<typename = void>
+        static constexpr bool plugin_has_virtual_functions() {
+            if constexpr (plugin_declared()) return object<::AudioPlugin>::has_virtual_functions;
+            return false;
+        }
+
+        template<typename = void>
+        static constexpr bool plugin_is_abstract() {
+            if constexpr (plugin_declared()) return object<::AudioPlugin>::is_abstract;
+            return false;
+        }
+
+        template<typename = void>
+        static constexpr bool plugin_is_polymorphic() {
+            if constexpr (plugin_declared()) return std::is_polymorphic_v<::AudioPlugin>;
+            return false;
+        }
+    }
+
+    struct Model : public Test {
+        Model() {
+            name = "model";
+        }
+        void run() override { }
+
+        Mark mark(const StdioCapture::IO& io) override {
+            Mark marks(5);
+
+            enum {
+                EffectPlugin = 1,
+                SynthPlugin = 2,
+                Plugin = 4,
+                SynthInput = 8,
+                EffectInputOutput = 16,
+				Polymorphism = 32
+            };
+
+			int checks = 0;
+
+            // 1 mark for an EffectPlugin object with functions, input() and output(), that print "audio" and "audio".
+            constexpr bool effect_declared = MyModel::effect_declared();
+            if constexpr (!effect_declared) {
+                FAIL("No object called EffectPlugin defined.");
+            } else {
+                if constexpr (MyModel::has_effect_functions()) {
+                    if (MyModel::test_effect_functions()) {
+                        PASS("EffectPlugin declared with working input() and output() functions.");
+                        checks |= EffectInputOutput;
+                    } else {
+                        FAIL("EffectPlugin functions do not return the correct strings.");
+                    }
+                } else {
+                    FAIL("EffectPlugin does not have the required functions input() and output().");
+				}
+            }
+
+            // 1 mark for a SynthPlugin object with functions, input() and output(), that print "midi" and "audio".
+			constexpr bool synth_declared = MyModel::synth_declared();
+            if constexpr (!synth_declared) {
+                FAIL("No object called SynthPlugin defined.");
+            } else {
+                if constexpr (MyModel::has_synth_functions()) {
+                    if (MyModel::test_synth_functions()) {
+                        PASS("SynthPlugin declared with working input() and output() functions.");
+                    } else {
+                        FAIL("SynthPlugin functions do not return the correct strings.");
+                    }
+                } else {
+                    FAIL("SynthPlugin does not have the required functions input() and output().");
+                }
+            }
+
+            if constexpr (!(effect_declared && synth_declared))
+				return marks; // if neither plugin is declared, no need to check further
+            
+            // 1 mark if EffectPlugin/SynthPlugin are derived from a common parent class called Plugin.
+            if constexpr (MyModel::is_derived_from_plugin()) {
+                PASS("EffectPlugin and SynthPlugin are derived from a common parent class called AudioPlugin.");
+
+                // 1 mark if AudioPlugin is abstract - defines output(), but input() is pure virtual.
+                if constexpr (MyModel::plugin_is_abstract()) {
+                    PASS("AudioPlugin is abstract - defines output(), but input() is pure virtual.");
+                } else {
+                    FAIL("AudioPlugin is not abstract - either output() is not defined or input() is not pure virtual.");
+				}
+
+                // 1 mark if EffectPlugin and SynthPlugin support polymorphism (through AudioPlugin).
+                if constexpr (MyModel::plugin_is_polymorphic()) {
+                    PASS("EffectPlugin and SynthPlugin support polymorphism (through AudioPlugin).");
+                } else if constexpr (!MyModel::plugin_has_virtual_functions()) {
+                    FAIL("AudioPlugin functions are not virtual.");
+                }
+
+            } else {
+                FAIL("EffectPlugin and SynthPlugin are not derived from a common parent class called AudioPlugin.");
+			}
+            
+            // 1 mark if SynthPlugin overrides input() to print "midi".
+            
+            
+
+
+            return marks;
+        }
+	} model;
+
     Mark all() {
         Mark marks;
         marks += hello();
@@ -1681,6 +1864,7 @@ namespace test {
 		marks += object();
 		marks += sequence();
 		marks += point();
+		marks += model();
 
 		std::cout << "\n[Total marks: " << marks.marks << " / " << marks.total << " - " << int(round(marks.marks * 100.0 / marks.total) + 0.001) << "%]\n";
 

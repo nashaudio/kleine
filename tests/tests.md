@@ -92,7 +92,7 @@ Read a simple list of integer note values from a text file into a `std::vector<i
 
 ## OOP - Object Oriented Programming
 
-### 9. object - "Objection Noted" (WIP)
+### 9. object - "Objection Noted"
 
 **Concepts:** classes/structs, members, constructors\
 Create a simple musical event type, MyNote, with fields pitch, velocity, and duration.
@@ -115,24 +115,25 @@ Implement a small class that stores notes (e.g. as integers) internally, in a ve
 - 1 mark if all functions behave as expected
 - 1 mark for overloading the subscript [] operator.
 
-### 11. pointer - "Point Counterpoint" (draft)
+### 11. pointer - "Point Counterpoint"
 
 **Concepts:** pointers, dereferencing, member access through pointers\
 Use a pointer to iterate through an array, printing each value;
 
 - 1 mark for iterating over the array.
-- 1 mark for if the pointer ends after the array.
+- 1 mark for successfully decoding the values.
+- 1 mark if the pointer rests at the end of the array.
 
 ### 12. model - "Plug and Play"
 
 **Concepts:** object-oriented programming, inheritance, polymorphism\
 Declare a objects to model a basic audio plugin system, supporting both effects and synthesisers.
 
-- 1 mark for an EffectPlugin object with functions, input() and output(), that print "audio" and "audio".
-- 1 mark for a SynthPlugin object with functions, input() and output(), that print "midi" and "audio".
+- 1 mark for an EffectPlugin object providing functions, input() and output(), that return "audio" and "audio".
+- 1 mark for a SynthPlugin object providing functions, input() and output(), that return "midi" and "audio".
 - 1 mark if EffectPlugin/SynthPlugin are derived from a common parent class called Plugin.
-- 1 mark if SynthPlugin overrides input() to print "midi".
-- 1 mark if EffectPlugin and SynthPlugin support polymorphism (through Plugin\*).
+- 1 mark if AudioPlugin is abstract - defines output(), but input() is pure virtual.
+- 1 mark if EffectPlugin and SynthPlugin support polymorphism (through AudioPlugin).
 
 ## Rationale
 

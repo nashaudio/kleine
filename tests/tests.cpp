@@ -287,3 +287,14 @@ void point() {
     const short* ptr = unknown.data(); 
     point(ptr, unknown.size());
 }
+
+
+
+// =========================================================================
+// 12. model - "Plug and Play"
+// -------------------------------------------------------------------------
+// Declare objects to model a basic audio plugin system, supporting both effects and synthesisers.
+//
+// (see assignment brief for marking criteria / additional marks)
+
+// [Declate/define your objects here]

@@ -22,6 +22,7 @@ int main(int argc, char** argv)
 	//test::object();
 	//test::sequence();
 	//test::point();
+	//test::model();
 	test::all();
 
     return 0;
