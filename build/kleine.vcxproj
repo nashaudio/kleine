@@ -255,7 +255,9 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\tests\tests.cpp" />
+    <ClCompile Include="..\tests\tests.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="C:\Users\Chris Nash\source\repos\kleine\kleine.cpp" />
     <ClInclude Include="..\include\klang.h" />
     <ClInclude Include="..\include\klang\audio.h" />
