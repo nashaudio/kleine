@@ -1,4 +1,21 @@
 namespace ansi {
+
+#ifdef __APPLE_CC__
+    const char* reset  = "";
+    const char* red    = "";
+    const char* green  = "";
+    const char* yellow = "";
+    const char* blue   = "";
+    const char* cyan   = "";
+    const char* bold   = "";
+    const char* grey   = "";
+    const char* white  = "";
+    const char* amber = "";
+
+    const char* dark_red = "";
+    const char* dark_green = "";
+    const char* dark_yellow = "";
+#else
     const char* reset  = "\x1b[0m";
     const char* red    = "\x1b[31m";
     const char* green  = "\x1b[32m";
@@ -13,6 +30,7 @@ namespace ansi {
     const char* dark_red = "\x1b[2;31m";    
     const char* dark_green = "\x1b[2;32m";  
     const char* dark_yellow = "\x1b[2;33m";  
+#endif
 }
 
 #pragma once
@@ -69,7 +87,7 @@ class EffectPlugin;
 class SynthPlugin;
 class AudioPlugin;
 
-#include "tests.cpp"
+#include "answers.cpp"
 
 namespace test {
 
@@ -174,6 +192,7 @@ namespace test {
             int_type underflow() override {
                 if (prefix_pos_ < prefix_.size()) {
                     const int_type c = traits_type::to_int_type(prefix_[prefix_pos_]);
+                    
                     if (io_ && c == 10) {
                         prefix_pos_++; // skip the newline in the prefix
                         io_->in.push_back('\n');
@@ -373,7 +392,7 @@ namespace test {
     };
 
     // Helper function to read the entire contents of a file into a string
-    static std::string read_file(const std::string& path) {
+    static inline std::string read_file(const std::string& path) {
         std::ifstream in(path);
         if (!in) {
             return "";
@@ -407,7 +426,10 @@ namespace test {
         std::string name;
         std::string input;
 
-        Mark operator()() { 
+        Mark operator()(bool clear = true) {
+//            if(clear)
+//                std::cout << "\033[2J\033[3J\033[H";
+            
             StdioCapture::IO stdio;
             Mark m;
 
@@ -418,7 +440,8 @@ namespace test {
             }
             std::cout << "\n";
             m = mark(stdio);
-            std::cout << ansi::grey << "\n[Test marks: " << m.marks << " / " << m.total << "]\n" << ansi::reset;
+            std::cout
+            << ansi::grey << "\n[Test marks: " << m.marks << " / " << m.total << "]\n\n" << ansi::reset;
             return m;
         }
 
@@ -868,14 +891,14 @@ namespace test {
             //    return *this;
             //}
 
-            int indexOf(const std::string& note) const {
+            size_t indexOf(const std::string& note) const {
 			    auto it = std::find(begin(), end(), note);
-			    int index = std::distance(begin(), it);
+			    size_t index = std::distance(begin(), it);
 			    return it == end() ? -1 : index;
 		    };
 
-		    int intervalBetween(const std::string& from, const std::string& to) const {
-			    int from_index = indexOf(from), to_index = indexOf(to);
+		    size_t intervalBetween(const std::string& from, const std::string& to) const {
+			    size_t from_index = indexOf(from), to_index = indexOf(to);
 			    if (from_index == -1 || to_index == -1) return 0;
 			    return to_index - from_index; // returns positive for interval up, negative for interval down
 		    };
@@ -884,8 +907,8 @@ namespace test {
 			    return note == at(0) || note == at(7) || note == at(14); // any F
 		    };
 
-		    int isStepwise(const std::string& from, const std::string& to) const {
-                int interval = intervalBetween(from, to);
+            size_t isStepwise(const std::string& from, const std::string& to) const {
+                size_t interval = intervalBetween(from, to);
                 return interval == 1 || interval == -1 ? interval : 0; // returns 1 for step up, -1 for step down, else 0
             }
 
@@ -941,14 +964,14 @@ namespace test {
                 const std::string& prev = melody[n - 1];
                 const std::string& note = melody[n];
 
-                int interval = scale.intervalBetween(prev, note);
+                size_t interval = scale.intervalBetween(prev, note);
                 if(scale.isLeap(prev, note)) {
                     if (n == melody.size() - 1) {
                         std::cout << ansi::dark_red; // can't step back
                     } else {
                         const std::string& next = melody[n + 1];
-                        int next_interval = scale.intervalBetween(note, next);
-                        if((next_interval >= 0 != interval >= 0) && abs(next_interval) == 1) // 
+                        size_t next_interval = scale.intervalBetween(note, next);
+                        if((next_interval >= 0 != interval >= 0) && abs(next_interval) == 1) //
                             std::cout << ansi::dark_green; // step back -> green
                         else
                             std::cout << ansi::dark_yellow; // leaps in yellow
@@ -1041,13 +1064,13 @@ namespace test {
                 const std::string& prev = melody[i - 1];
                 const std::string& note = melody[i];
 
-                int interval = scale.intervalBetween(prev, note);
+                size_t interval = scale.intervalBetween(prev, note);
                 if(scale.isLeap(prev, note)) {
                     if (i == melody.size() - 1) {
                         leaps_step_back = false;
                     } else {
                         const std::string& next = melody[i + 1];
-                        int next_interval = scale.intervalBetween(note, next);
+                        size_t next_interval = scale.intervalBetween(note, next);
                         if (!((next_interval >= 0 != interval >= 0) && abs(next_interval) == 1)) {
                             leaps_step_back = false;
                             break;
@@ -1348,7 +1371,7 @@ namespace test {
         }
         void run() override { }
 
-#if defined(__GNUC__) //|| defined(__clang__)
+#if defined(__GNUC__) && !defined(__clang__)
         __attribute__((optimize("O0")))  // Disable optimization for this function
 #endif
         Mark mark(const StdioCapture::IO& io) override {
@@ -1729,116 +1752,119 @@ namespace test {
         template<typename T>
         struct object {
             static constexpr bool is_defined = (requires { sizeof(T); });
-			//static constexpr bool is_polymorphic = std::is_polymorphic_v<T>;
+            //static constexpr bool is_polymorphic = std::is_polymorphic_v<T>;
             //static constexpr bool is_abstract = std::is_abstract_v<T>;
             static constexpr bool has_input = requires { { T{}.input() } -> std::convertible_to<std::string>; };
-			static constexpr bool has_output = requires { { T{}.output() } -> std::convertible_to<std::string>; };
-			static constexpr bool has_functions = has_input && has_output;
-			
-
-            static constexpr bool inherits_plugin = plugin_declared() && std::derived_from<T, ::AudioPlugin>;
-
-			template<typename U = T>
+            static constexpr bool has_output = requires { { T{}.output() } -> std::convertible_to<std::string>; };
+            static constexpr bool has_functions = has_input && has_output;
+            
+            template<typename U = T>
             static constexpr bool is_polymorphic () {
                 if constexpr (is_defined)
                     return std::is_polymorphic_v<T>;
                 return false;
-			}
+            }
 
-			template<typename U = T>
+            template<typename U = T>
             static constexpr bool is_abstract () {
                 if constexpr (is_defined)
                     return std::is_abstract_v<T>;
                 return false;
-			}
+            }
 
             template<typename U = T>
             static constexpr bool is_empty () {
                 if constexpr (is_defined)
                     return std::is_empty_v<U>;
                 return false;
-			}
+            }
+            
+            template<typename PARENT, typename U = T>
+            static constexpr bool inherits () {
+                if constexpr (object<PARENT>::is_defined)
+                    return std::derived_from<U, PARENT>;
+                return false;
+            }
 
             static constexpr bool has_virtual_functions = has_functions && is_polymorphic();
-			
         };
 
         // Helper to detect if EffectPlugin exists
         template<typename = void> static constexpr bool effect_defined() {
-			return effect_declared() && object<::EffectPlugin>::is_defined;
+            return effect_declared() && object<::EffectPlugin>::is_defined;
+        }
+        
+        // Helper to detect if SynthPlugin exists
+        template<typename = void> static constexpr bool synth_defined() {
+            return synth_declared() && object<::SynthPlugin>::is_defined;
         }
 
         // Helper to detect if a class called AudioPlugin exists
-		template<typename = void> static constexpr bool plugin_defined() {
-			return plugin_declared() && object<::AudioPlugin>::is_defined;
-		}
-        
-		// Helper to detect if SynthPlugin exists
-        template<typename = void> static constexpr bool synth_defined() {
-			return synth_declared() && object<::SynthPlugin>::is_defined;
-		}
+        template<typename = void> static constexpr bool plugin_defined() {
+            return plugin_declared() && object<::AudioPlugin>::is_defined;
+        }
 
         template<typename = void>
         static constexpr bool is_derived_from_plugin() {
-            if constexpr (effect_declared())
-                return object<::EffectPlugin>::inherits_plugin;//&& object<::SynthPlugin>::inherits_plugin;
+            if constexpr (effect_defined() && synth_defined() && plugin_defined())
+                return object<::EffectPlugin>::inherits<::AudioPlugin>() && object<::SynthPlugin>::inherits<::AudioPlugin>();
             return false;
         }
 
-		// Helper to detect if EffectPlugin has the required functions
-		template<typename = void>
+        // Helper to detect if EffectPlugin has the required functions
+        template<typename = void>
         static constexpr bool has_effect_functions() {
-            if constexpr (effect_declared()) return object<::EffectPlugin>::has_functions;
+            if constexpr (effect_defined()) return object<::EffectPlugin>::has_functions;
             return false;
-		}
+        }
 
-		// Helper to test if EffectPlugin's functions return the correct strings
+        // Helper to test if EffectPlugin's functions return the correct strings
         template<typename T>
-        static constexpr bool test_effect_functions(T) {
+        static constexpr bool test_effect_functions(T*) {
             if constexpr (has_effect_functions()) return T().input() == std::string("audio") && T().output() == std::string("audio");
             return false;
-		}
-		template<typename = void>
-        static constexpr bool test_effect_functions() {
-			if constexpr (has_effect_functions()) return test_effect_functions(::EffectPlugin());
-			return false;
-		}
-
-		// Helper to detect if SynthPlugin has the required functions
+        }
         template<typename = void>
-        static constexpr bool has_synth_functions() {
-			if constexpr (synth_declared()) return object<::SynthPlugin>::has_functions;
+        static constexpr bool test_effect_functions() {
+            if constexpr (effect_defined() && has_effect_functions()) return test_effect_functions<::EffectPlugin>(nullptr);
             return false;
         }
 
-		// Helper to test if SynthPlugin's functions return the correct strings
+        // Helper to detect if SynthPlugin has the required functions
+        template<typename = void>
+        static constexpr bool has_synth_functions() {
+            if constexpr (synth_defined()) return object<::SynthPlugin>::has_functions;
+            return false;
+        }
+
+        // Helper to test if SynthPlugin's functions return the correct strings
         template<typename T>
-        static constexpr bool test_synth_functions(T) {
+        static constexpr bool test_synth_functions(T*) {
             if constexpr (has_synth_functions()) return T().input() == std::string("midi") && T().output() == std::string("audio");
             return false;
-		}
+        }
 
-		template<typename = void>
+        template<typename = void>
         static constexpr bool test_synth_functions() {
-			if constexpr (has_synth_functions()) return test_synth_functions(::SynthPlugin());
-			return false;
-		}
+            if constexpr (synth_defined() && has_synth_functions()) return test_synth_functions<::SynthPlugin>(nullptr);
+            return false;
+        }
 
         template<typename = void>
         static constexpr bool plugin_has_virtual_functions() {
-            if constexpr (plugin_declared()) return object<::AudioPlugin>::has_virtual_functions;
+            if constexpr (plugin_defined()) return object<::AudioPlugin>::has_virtual_functions;
             return false;
         }
 
         template<typename = void>
         static constexpr bool plugin_is_abstract() {
-            if constexpr (plugin_declared()) return object<::AudioPlugin>::is_abstract();
+            if constexpr (plugin_defined()) return object<::AudioPlugin>::is_abstract();
             return false;
         }
 
         template<typename = void>
         static constexpr bool plugin_is_polymorphic() {
-            if constexpr (plugin_declared()) return object<::AudioPlugin>::is_polymorphic();
+            if constexpr (plugin_defined()) return object<::AudioPlugin>::is_polymorphic();
             return false;
         }
     }
@@ -1926,19 +1952,21 @@ namespace test {
 	} model;//*/
 
     Mark all() {
+//        std::cout << "\033[2J\033[3J\033[H" << std::flush;
+        
         Mark marks;
-        marks += hello();
-        marks += beats();
-        marks += loop();
-		marks += tree();
-		marks += transpose();
-		marks += counterpoint();
-		marks += play();
-		marks += file();
-		marks += object();
-		marks += sequence();
-		marks += point();
-		marks += model();
+        marks += hello(false);
+        marks += beats(false);
+        marks += loop(false);
+		marks += tree(false);
+		marks += transpose(false);
+		marks += counterpoint(false);
+		marks += play(false);
+		marks += file(false);
+		marks += object(false);
+		marks += sequence(false);
+		marks += point(false);
+		marks += model(false);
 
 		std::cout << "\n[Total marks: " << marks.marks << " / " << marks.total << " - " << int(round(marks.marks * 100.0 / marks.total) + 0.001) << "%]\n";
 
