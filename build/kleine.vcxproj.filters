@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Chris Nash\source\repos\kleine\kleine.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tests\tests.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\klang\tests.h">
+      <Filter>include\klang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\klang\audio.h">
+      <Filter>include\klang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\klang\midi.h">
+      <Filter>include\klang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\klang.h">
+      <Filter>include\klang</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Chris Nash\source\repos\kleine\tests\unknown.h">
+      <Filter>tests\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Chris Nash\source\repos\kleine\tests\tree.h">
+      <Filter>tests\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="tests">
+      <UniqueIdentifier>{97fcfb37-2a67-4e88-8f43-f09393af7f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{7D54DD3A-2D93-3D2B-8E73-7D821F76358D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\klang">
+      <UniqueIdentifier>{b74d03de-0834-4f45-814f-71d3707769c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\dsp">
+      <UniqueIdentifier>{a1b70bf5-be51-4065-92ec-897aef1d4ce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests\include">
+      <UniqueIdentifier>{8bb955ae-c49a-4d5d-aa94-fdd0f3ba3ce6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Chris Nash\source\repos\kleine\kleine.cpp" />
+    <ClCompile Include="..\tests\tests.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\tests\tests.md">
+      <Filter>tests</Filter>
+    </None>
+    <None Include="..\include\DX7.k">
+      <Filter>include\dsp</Filter>
+    </None>
+    <None Include="..\include\Mini.k">
+      <Filter>include\dsp</Filter>
+    </None>
+    <None Include="..\include\PingPong.k">
+      <Filter>include\dsp</Filter>
+    </None>
+    <None Include="..\include\SuperSaw.k">
+      <Filter>include\dsp</Filter>
+    </None>
+    <None Include="..\tests\input.dat">
+      <Filter>tests\include</Filter>
+    </None>
+  </ItemGroup>
+</Project>
