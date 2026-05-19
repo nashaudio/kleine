@@ -1,6 +1,11 @@
+#ifndef _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <cmath>
+#include <math.h>
 #include <limits>
 #include <assert.h>
 #include <array>
@@ -8,14 +13,19 @@
 #include <vector>
 #include <string>
 #include <cstdarg>
+#include <cstring>
+#include <climits>
+#include <thread>
 #include <algorithm>
 #include <type_traits>
 #include <mutex>
 #include <functional>
 #include <float.h>
 #include <utility>
+#include <chrono>
 
 #define HAS_KLANG 1
+
 #pragma once
 
 #ifdef __wasm__
@@ -26,15 +36,22 @@ static inline float _abs(float x) { return __builtin_fabsf(x); }
 #define SQRTF _sqrt
 #define ABS _abs
 #define FABS _abs
-#endif
-#ifdef __APPLE__
+
+#elif defined(__APPLE__)
 #define THREAD_LOCAL
 #define SQRT ::sqrt
 #define SQRTF ::sqrtf
 #define ABS ::abs
 #define FABS ::fabsf
-#endif
-#if defined(__WIN32__) || defined(WIN32)
+
+#elif defined(MSVC_VER)
+#define THREAD_LOCAL thread_local
+#define SQRT ::sqrt
+#define SQRTF ::sqrtf
+#define ABS ::abs
+#define FABS ::fabsf
+
+#else
 #define THREAD_LOCAL thread_local
 #define SQRT ::sqrt
 #define SQRTF ::sqrtf
@@ -73,6 +90,7 @@ namespace std {
 	static_assert(std::is_trivially_move_constructible_v<type>, "signal is not trivially copy assignable");	
 
 namespace klang {
+	typedef unsigned char byte;
 
 	/// Klang language version (major.minor.build.debug)
 	struct Version {
@@ -1202,6 +1220,7 @@ namespace klang {
 	/// A multi-channel audio signal (e.g. stereo).
 	template<int CHANNELS = 2>
 	struct signals {
+#if !defined(__GNUC__) || defined(__clang__) // non-GNU compilers support anonymous unions; GNU compilers do not (and produce warnings/errors)
 		/// @cond
 		union {
 			signal value[CHANNELS]; ///< Array of channel values.
@@ -1211,14 +1230,6 @@ namespace klang {
 			};
 		};
 		/// @endcond
-
-		/// Return the mono mix of a stereo channel.
-		signal mono() const { return (l + r) * 0.5f; }
-
-		/// Return a reference to the signal at the specified index (0 = left, 1 = right).
-		signal& operator[](int index) { return value[index]; }
-		/// Return a read-only reference to the signal  at the specified index (0 = left, 1 = right).
-		const signal& operator[](int index) const { return value[index]; }
 
 		/// Create a stereo signal with the given value.
 		signals(float initial = 0.f) : l(initial), r(initial) {}
@@ -1240,6 +1251,42 @@ namespace klang {
 		/// Create a multi-channel signal with the given channel values.
 		template <typename... Args, typename = std::enable_if_t<(std::is_scalar_v<Args> && ...)>>
 		signals(Args... initial) : value{ initial... } {}
+#else
+		signal value[CHANNELS]; ///< Array of channel values.
+		signal& l = value[0]; ///< Left channel
+		signal& r = value[1]; ///< Right channel
+
+		/// Create a stereo signal with the given value.
+		signals(float initial = 0.f) { for (int v = 0; v < CHANNELS; v++) value[v] = initial; }
+		/// Create a stereo signal with the given value.
+		signals(double initial) { for (int v = 0; v < CHANNELS; v++) value[v] = (float)initial; }
+		/// Create a stereo signal with the given value.
+		signals(int initial) { for (int v = 0; v < CHANNELS; v++) value[v] = (float)initial; }
+
+		/// Create a stereo signal with the given left and right value.
+		signals(float left, float right) { l = left; r = right; for (int v = 2; v < CHANNELS; v++) value[v] = 0.f; }
+		/// Create a stereo signal with the given left and right value.
+		signals(double left, double right) { l = (float)left; r = (float)right; for (int v = 2; v < CHANNELS; v++) value[v] = 0.f; }
+		/// Create a stereo signal with the given left and right value.
+		signals(int left, int right) { l = (float)left; r = (float)right; for (int v = 2; v < CHANNELS; v++) value[v] = 0.f; }
+
+		/// Create a multi-channel signal with the given channel values.
+		template <typename... Args, typename = std::enable_if_t<(std::is_convertible_v<Args, signal> && ...)>>
+		signals(Args&... initial) : value{ initial... } {}
+		/// Create a multi-channel signal with the given channel values.
+		template <typename... Args, typename = std::enable_if_t<(std::is_scalar_v<Args> && ...)>>
+		signals(Args... initial) : value{ initial... } {}
+
+		signals& operator=(const signals& input) { for (int v = 0; v < CHANNELS; v++) value[v] = input[v]; return *this; }
+#endif
+
+		/// Return the mono mix of a stereo channel.
+		signal mono() const { return (l + r) * 0.5f; }
+
+		/// Return a reference to the signal at the specified index (0 = left, 1 = right).
+		signal& operator[](int index) { return value[index]; }
+		/// Return a read-only reference to the signal  at the specified index (0 = left, 1 = right).
+		const signal& operator[](int index) const { return value[index]; }
 
 		/// Returns the number of channels in the signal.
 		int channels() const { return CHANNELS; }
@@ -6046,7 +6093,7 @@ namespace klang {
 	};
 
 	struct File {
-#if defined(_MSC_VER)
+#if defined(_MSC_VER) && !defined(__clang__)
 #define packed __pragma(pack(push,1)) struct __pragma(pack(pop))
 #else
 #define packed struct __attribute__((packed))

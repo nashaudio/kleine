@@ -48,20 +48,28 @@ struct Track {
 	std::vector<int> length; // note lengths (in 100ms ticks)
 };
 
-#include "tests.cpp"
-
 // Disable runtime checks and optimizations to detect uninitialized variables
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && !defined(__clang__)
     #pragma runtime_checks("", off)
     #pragma optimize("", on)
-    #pragma warning(disable:4700)
+    #pragma warning(push)
+    #pragma warning(disable:4700) // uninitialized local variable used
+    #pragma warning(disable:4099) // ignore struct/class mismatch
 #elif defined(__GNUC__) || defined(__clang__)
     #pragma GCC diagnostic push
     #pragma GCC diagnostic ignored "-Wuninitialized"
-    #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+    #pragma GCC diagnostic ignored "-Wpointer-bool-conversion"
     // GCC/Clang: Use function attribute instead of global pragma for optimization
 #endif
 
+// required to support clang/GNU
+class MyNote;
+class MySequence;
+class EffectPlugin;
+class SynthPlugin;
+class AudioPlugin;
+
+#include "tests.cpp"
 
 namespace test {
 
@@ -686,7 +694,7 @@ namespace test {
             name = "loop";
         }
         void run() override { ::loop(); }
-        Mark mark(const StdioCapture::IO& io) {
+        Mark mark(const StdioCapture::IO& io) override {
             Mark marks(4);
             constexpr char PATTERN[] = "|p.x.P.x.x.p.P.x.";
             constexpr char PATTERN_NOEND[] = "|p.x.P.x.x.p.P.";
@@ -735,7 +743,7 @@ namespace test {
             name = "tree";
         }
         void run() override { ::tree(); }
-        Mark mark(const StdioCapture::IO& io) {
+        Mark mark(const StdioCapture::IO& io) override {
             Mark marks(5);
             std::string output = io.out;
 
@@ -798,7 +806,7 @@ namespace test {
             ::transpose(notes, semitones);
         }
 
-        Mark mark(const StdioCapture::IO& io) {
+        Mark mark(const StdioCapture::IO& io) override {
             Mark marks(2);
             std::string output = io.out;
 
@@ -1283,36 +1291,53 @@ namespace test {
     namespace MyNote { // Class checker for MyNote
         // Helper to detect if MyNote exists
         template<typename = void>
-        static constexpr bool is_declared() {
-            if constexpr (requires { typename ::MyNote; }) return true; else return false;
+        static constexpr bool note_is_declared() {
+            if constexpr (requires { typename ::MyNote; }) return true; return false;
+        }
+
+        // Helper template to defer instantiation
+		template<typename T>
+        struct object {
+            static constexpr bool is_defined = (requires { sizeof(T); });
+			static constexpr bool has_members = (requires { T::pitch; T::velocity; T::duration; });
+			
+			template<typename U = T>
+            static constexpr bool is_trivial () {
+                if constexpr (is_defined)
+                    return std::is_trivially_default_constructible_v<U>;
+                return false;
+			}
+        };
+
+        template<typename = void>
+        static constexpr bool is_defined() {
+			if constexpr (note_is_declared()) return object<::MyNote>::is_defined; 
+            return false;
         }
 
         // Helper to detect if MyNote has public member variables pitch, duration, and time
         template<typename = void>
         static constexpr bool has_members() {
-            if constexpr (!is_declared()) return false;
-            if constexpr (requires { ::MyNote::pitch; ::MyNote::velocity; ::MyNote::duration; }) return true; else return false;
-        }
-
-        // Helper to detect if note's members are initialised to 0
-        template<typename T>
-        static constexpr bool is_note_initialised(T) {
-            if (std::is_trivially_default_constructible_v<T>)
-                return false;
-
-            if constexpr (requires { T::pitch; T::velocity; T::duration; }) {
-                T note;
-                return note.pitch == 0 && note.velocity == 0 && note.duration == 0;
-            }
-
+            if constexpr (note_is_declared()) return object<::MyNote>::has_members;
             return false;
         }
 
-        // Helper to detect if MyNote is initialised to 0
+        // Helper to test if EffectPlugin's functions return the correct strings
+        template<typename T>
+        static constexpr bool is_initialised_t() {
+            if constexpr (object<::MyNote>::is_trivial()) return false;
+            if constexpr (object<T>::has_members) {
+                T t;
+                return t.pitch == 0 && t.velocity == 0 && t.duration == 0;
+            }
+            return false;
+		}
+
+        // Helper to detect if note's members are initialised to 0
         template<typename = void>
         static constexpr bool is_initialised() {
-            if constexpr (requires { typename ::MyNote; })
-                return is_note_initialised(::MyNote());
+            if constexpr (object<::MyNote>::is_defined)
+                return is_initialised<::MyNote>();
             return false;
         }
     };
@@ -1323,14 +1348,14 @@ namespace test {
         }
         void run() override { }
 
-#if defined(__GNUC__) || defined(__clang__)
+#if defined(__GNUC__) //|| defined(__clang__)
         __attribute__((optimize("O0")))  // Disable optimization for this function
 #endif
         Mark mark(const StdioCapture::IO& io) override {
             Mark marks(3);
 
 			// 1 mark for declaring the object.
-            if constexpr (MyNote::is_declared()) {
+            if constexpr (MyNote::is_defined()) {
                 PASS("Defines an object called MyNote.");
 
                 // 1 mark for declaring public member variables.
@@ -1359,19 +1384,44 @@ namespace test {
 	        if constexpr (requires { typename ::MySequence; }) return true; else return false;
         }
 
-        // Helper to detect if MySequence has a member, notes
+        // Helper template to defer instantiation
+		template<typename T>
+        struct object {
+            static constexpr bool is_defined = (requires { sizeof(T); });
+			static constexpr bool has_notes = (requires { T::notes; });
+			
+			template<typename U = T>
+            static constexpr bool is_trivial () {
+                if constexpr (is_defined)
+                    return std::is_trivially_default_constructible_v<U>;
+                return false;
+			}
+
+            template<typename U = T>
+            static constexpr bool is_empty () {
+                if constexpr (is_defined)
+                    return std::is_empty_v<U>;
+                return false;
+			}
+        };
+
+		// Helper to detect if MySequence is defined (i.e., not just declared)
+		template<typename = void>
+		static constexpr bool is_defined() {
+            if constexpr (is_declared()) return object<::MySequence>::is_defined; 
+			return false;
+		}
+
         template<typename = void>
-        static constexpr bool has_notes() {
-            if constexpr (is_declared())
-                if constexpr (requires { ::MySequence::notes; }) 
-                    return true; 
+        static constexpr bool is_empty() {
+            if constexpr (is_declared()) return object<::MySequence>::is_empty(); 
             return false;
-        }
+		}
 
         // Helper to detect if MySequence::notes is accessible (i.e., public) by trying to access its size() member function
         template<typename T>
-        static constexpr bool access_notes(T) {
-            if constexpr (has_notes()) {
+        static constexpr bool access_notes(T*) {
+            if constexpr (object<T>::has_notes) {
                 if constexpr (requires {{ T{}.notes.size() } -> std::convertible_to<std::size_t>;} )
                     return true; 
             }
@@ -1380,94 +1430,87 @@ namespace test {
 
         // Helper to detect if MySequence::notes is accessible (i.e., public)
         template<typename = void>
-        static constexpr bool is_notes_accessible() {
-            if constexpr (is_declared()) return access_notes(::MySequence()); 
+        static constexpr bool notes_are_inaccessible() {
+            if constexpr (object<::MySequence>::is_defined) return !access_notes<::MySequence>(nullptr); 
             return false;
         }
 
         // Helper to detect if MySequence has public member function at()
         template<typename T>
-        static constexpr bool has_at(T) {
-            if constexpr (!has_notes()) return false;
+        static constexpr bool has_at(T*) {
+            //if constexpr (!object<T>::has_notes) return false;
             if constexpr (requires { { T{}.at(0) } -> std::same_as<int>;}) return true; 
             return false;
         }
 
         template<typename = void>
         static constexpr bool has_at() {
-            if constexpr (is_declared()) return has_at(::MySequence()); return false;
+            if constexpr (is_declared()) return has_at<::MySequence>(nullptr); return false;
         }
 
         // Helper to detect if MySequence has public member function add()
         template<typename T>
-        static constexpr bool has_add(T) {
-            if constexpr (!has_notes()) return false;
+        static constexpr bool has_add(T*) {
+            //if constexpr (!object<T>::has_notes) return false;
             if constexpr (requires { { T{}.add(0) }; }) return true; 
             return false;
         }
 
         template<typename = void>
         static constexpr bool has_add() {
-            if constexpr (is_declared()) return has_add(::MySequence()); 
+            if constexpr (is_declared()) return has_add<::MySequence>(nullptr); 
             return false;
         }
 
-
         // Helper to detect if MySequence has public member function size()
         template<typename T>
-        static constexpr bool has_size(T) {
-            if constexpr (!has_notes()) return false;
+        static constexpr bool has_size(T*) {
+            //if constexpr (!object<T>::has_notes) return false;
             if constexpr (requires { { T{}.size() } -> std::convertible_to<int>; }) return true; 
             return false;
         }
 
 		template<typename = void>
         static constexpr bool has_size() {
-            if constexpr (is_declared()) return has_size(::MySequence()); 
+            if constexpr (is_declared()) return has_size<::MySequence>(nullptr); 
             return false;
 		}
 
         // Helper to detect if MySequence has public member function clear()
         template<typename T>
-        static constexpr bool has_clear(T) {
-            if constexpr (!has_notes()) return false;
+        static constexpr bool has_clear(T*) {
+            //if constexpr (!object<T>::has_notes) return false;
             if constexpr (requires { { T{}.clear() }; }) return true; 
             return false;
         }
 
 		template<typename = void>
         static constexpr bool has_clear() {
-            if constexpr (is_declared()) return has_clear(::MySequence()); 
+            if constexpr (is_declared()) return has_clear<::MySequence>(nullptr); 
             return false;
 		}
 
 		// Helper to detect overloaded subscript operator []
 		template<typename T>
-        static constexpr bool has_subscript(T) {
-            if constexpr (!has_notes()) return false;
+        static constexpr bool has_subscript(T*) {
+            //if constexpr (!object<T>::has_notes) return false;
             if constexpr (requires { { T{}[0] } -> std::convertible_to<int>;}) return true; 
             return false;
 		}
 
 		template<typename = void>
         static constexpr bool has_subscript() {
-            if constexpr (is_declared()) return has_subscript(::MySequence());
+            if constexpr (is_declared()) return has_subscript<::MySequence>(nullptr);
             return false;
         }
 
         // Helper to detect if MySequence has public member function clear()
-        template<typename T>
-        static constexpr bool has_all_functions(T) {
-            if constexpr (!has_notes()) return false;
-            if constexpr (has_at(T()) && has_add(T()) && has_size(T()) && has_clear(T())) return true;
+        template<typename = void>
+        static constexpr bool has_all_functions() {
+            //if constexpr (object<T>::has_notes) return false;
+            if constexpr (has_at() && has_add() && has_size() && has_clear()) return true;
             return false;
         }
-
-		template<typename = void>
-        static constexpr bool has_all_functions() {
-            if constexpr (is_declared()) return has_all_functions(::MySequence());
-            return false;
-		}
 
         enum Checks {
             Size0 = 1,
@@ -1485,17 +1528,17 @@ namespace test {
         };
 
         template<typename T>
-        static constexpr int test_all_functions(T) {
+        static constexpr int test_all_functions(T*) {
             if constexpr (!is_declared())
                 return false;
-            if constexpr (has_all_functions(T())) {
+            if constexpr (has_all_functions()) {
                 int checks = 0;
                 T s;
                 if (s.size() == 0) checks |= Size0;
                 s.add(42);
                 if (s.size() == 1) checks |= Size1 | Add0;
                 if (s.at(0) == 42) checks |= At | Add1;
-                if constexpr (has_subscript(T()))
+                if constexpr (has_subscript())
 					if (s[0] == 42) checks |= Subscript; // check subscript operator returns same as at()
                 s.clear();
                 if (s.size() == 0) checks |= Size2 | Clear;
@@ -1508,7 +1551,7 @@ namespace test {
 
 		template<typename = void>
         static constexpr int test_all_functions() {
-            if constexpr (is_declared()) return test_all_functions(::MySequence());
+            if constexpr (is_declared()) return test_all_functions<::MySequence>(nullptr);
             return 0;
 		}
     };
@@ -1520,19 +1563,15 @@ namespace test {
         Mark mark(const StdioCapture::IO& io) override {
             Mark marks(7);
 
-            // 1 mark for declaring the object.
-            if constexpr (MySequence::is_declared()) {
-                //PASS("Defines an object called MySequence.");
-
-                // 1 mark if the container is inaccessible (e.g. private or protected).
-                if constexpr (!MySequence::has_notes()) {
-                    FAIL("The container of notes is not defined.");
-                    return marks;
+            if constexpr (MySequence::is_defined()) {
+                // 1 mark defining the object with no externally accessible container.
+                if constexpr (MySequence::is_empty()) { 
+                    FAIL("MySequence is defined, but does not contain notes.");
                 } else {
-                    if constexpr (MySequence::is_notes_accessible()) {
-                        FAIL("The note container is accessible externally.");
+                    if constexpr (MySequence::notes_are_inaccessible()) {
+                        PASS("MySequence defined with no externally accessible note container.");
                     } else {
-                        PASS("The note container is inaccessible externally.");
+                        FAIL("MySequence defined but the note container is accessible externally.");
                     } 
                 }
 
@@ -1689,15 +1728,55 @@ namespace test {
         // Helper template to defer instantiation
         template<typename T>
         struct object {
-			static constexpr bool is_polymorohic = std::is_polymorphic_v<T>;
-            static constexpr bool is_abstract = std::is_abstract_v<T>;
+            static constexpr bool is_defined = (requires { sizeof(T); });
+			//static constexpr bool is_polymorphic = std::is_polymorphic_v<T>;
+            //static constexpr bool is_abstract = std::is_abstract_v<T>;
             static constexpr bool has_input = requires { { T{}.input() } -> std::convertible_to<std::string>; };
 			static constexpr bool has_output = requires { { T{}.output() } -> std::convertible_to<std::string>; };
 			static constexpr bool has_functions = has_input && has_output;
-			static constexpr bool has_virtual_functions = has_functions && is_polymorohic;
+			
 
-			static constexpr bool inherits_plugin = plugin_declared() && std::derived_from<T, ::AudioPlugin>;
+            static constexpr bool inherits_plugin = plugin_declared() && std::derived_from<T, ::AudioPlugin>;
+
+			template<typename U = T>
+            static constexpr bool is_polymorphic () {
+                if constexpr (is_defined)
+                    return std::is_polymorphic_v<T>;
+                return false;
+			}
+
+			template<typename U = T>
+            static constexpr bool is_abstract () {
+                if constexpr (is_defined)
+                    return std::is_abstract_v<T>;
+                return false;
+			}
+
+            template<typename U = T>
+            static constexpr bool is_empty () {
+                if constexpr (is_defined)
+                    return std::is_empty_v<U>;
+                return false;
+			}
+
+            static constexpr bool has_virtual_functions = has_functions && is_polymorphic();
+			
         };
+
+        // Helper to detect if EffectPlugin exists
+        template<typename = void> static constexpr bool effect_defined() {
+			return effect_declared() && object<::EffectPlugin>::is_defined;
+        }
+
+        // Helper to detect if a class called AudioPlugin exists
+		template<typename = void> static constexpr bool plugin_defined() {
+			return plugin_declared() && object<::AudioPlugin>::is_defined;
+		}
+        
+		// Helper to detect if SynthPlugin exists
+        template<typename = void> static constexpr bool synth_defined() {
+			return synth_declared() && object<::SynthPlugin>::is_defined;
+		}
 
         template<typename = void>
         static constexpr bool is_derived_from_plugin() {
@@ -1753,13 +1832,13 @@ namespace test {
 
         template<typename = void>
         static constexpr bool plugin_is_abstract() {
-            if constexpr (plugin_declared()) return object<::AudioPlugin>::is_abstract;
+            if constexpr (plugin_declared()) return object<::AudioPlugin>::is_abstract();
             return false;
         }
 
         template<typename = void>
         static constexpr bool plugin_is_polymorphic() {
-            if constexpr (plugin_declared()) return std::is_polymorphic_v<::AudioPlugin>;
+            if constexpr (plugin_declared()) return object<::AudioPlugin>::is_polymorphic();
             return false;
         }
     }
@@ -1785,7 +1864,7 @@ namespace test {
 			int checks = 0;
 
             // 1 mark for an EffectPlugin object with functions, input() and output(), that print "audio" and "audio".
-            constexpr bool effect_declared = MyModel::effect_declared();
+            constexpr bool effect_declared = MyModel::effect_defined();
             if constexpr (!effect_declared) {
                 FAIL("No object called EffectPlugin defined.");
             } else {
@@ -1802,7 +1881,7 @@ namespace test {
             }
 
             // 1 mark for a SynthPlugin object with functions, input() and output(), that print "midi" and "audio".
-			constexpr bool synth_declared = MyModel::synth_declared();
+			constexpr bool synth_declared = MyModel::synth_defined();
             if constexpr (!synth_declared) {
                 FAIL("No object called SynthPlugin defined.");
             } else {
@@ -1842,14 +1921,9 @@ namespace test {
                 FAIL("EffectPlugin and SynthPlugin are not derived from a common parent class called AudioPlugin.");
 			}
             
-            // 1 mark if SynthPlugin overrides input() to print "midi".
-            
-            
-
-
             return marks;
         }
-	} model;
+	} model;//*/
 
     Mark all() {
         Mark marks;
@@ -1873,7 +1947,7 @@ namespace test {
 
 // Restore settings
 #ifdef _MSC_VER
-    #pragma warning(default:4700)
+    #pragma warning(pop)
     #pragma runtime_checks("", restore)
     #pragma optimize("", on)
 #elif defined(__GNUC__) || defined(__clang__)

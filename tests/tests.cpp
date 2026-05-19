@@ -297,4 +297,4 @@ void point() {
 //
 // (see assignment brief for marking criteria / additional marks)
 
-// [Declate/define your objects here]
+// [Declare/define your objects here]

@@ -106,7 +106,7 @@ Create a simple musical event type, MyNote, with fields pitch, velocity, and du
 **Concepts:** encapsulation, classes, vectors, methods\
 Implement a small class that stores notes (e.g. as integers) internally, in a vector called "notes", and exposes a minimal public interface, with at(), add(), size() and clear() member function.
 
-- 1 mark if the container is protected (inaccessible externally).
+- 1 mark defining the object with no externally accessible container.\
 - 4 marks for the public functions (1 per function).\
     at(...) - returns the note value at a given index\
     add(...) - adds a note to the sequence\
