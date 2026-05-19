@@ -43,3 +43,4 @@
 build/
 .vs/
 tests/answers.cpp
+/tests/output.dat
