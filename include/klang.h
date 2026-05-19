@@ -2528,7 +2528,7 @@ namespace klang {
 
 				// Calling: full set of arguments supplied (overwrite live input)
 				if constexpr (ARGS == sizeof...(FuncArgs)) {
-					in = first(args...);
+					in = float(first(args...));
 					inputs = std::tuple<Args...>(args...);
 					return *this;
 
@@ -4521,7 +4521,7 @@ namespace klang {
 
 		// pass to synth and notes
 		virtual event onMIDI(int status, int byte1, int byte2) override {
-			onMIDI(status, byte1, byte2);
+			midi(status, byte1, byte2);
 			for (unsigned int n = 0; n < notes.count; n++)
 				if (notes[n]->stage != Note::Off)
 					notes[n]->onMIDI(status, byte1, byte2);
@@ -4926,7 +4926,7 @@ namespace klang {
 
 			// pass to synth and notes
 			virtual event onMIDI(int status, int byte1, int byte2) override {
-				onMIDI(status, byte1, byte2);
+				midi(status, byte1, byte2);
 				for (unsigned int n = 0; n < notes.count; n++)
 					if (notes[n]->stage != Note::Off)
 						notes[n]->onMIDI(status, byte1, byte2);
@@ -5504,7 +5504,7 @@ namespace klang {
 				union { unsigned int i; float f; };
 				/// @endcond
 				void process() {
-					i = ((rand() & 0b111111111111111UL) << 1) | bias;
+					i = ((rand() & 0b111111111111111U) << 1) | bias;
 					out = f - 257.f;
 				}
 			};
