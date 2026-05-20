@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D5099D52FBD2E5700CD44C0 /* kleine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5D5099B02FBCD24800CD44C0 /* kleine.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5D5099D32FBD2D5500CD44C0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5D5099A52FBCD24800CD44C0 /* audio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = audio.h; sourceTree = "<group>"; };
+		5D5099A62FBCD24800CD44C0 /* midi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = midi.h; sourceTree = "<group>"; };
+		5D5099A72FBCD24800CD44C0 /* tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tests.h; sourceTree = "<group>"; };
+		5D5099A92FBCD24800CD44C0 /* DX7.k */ = {isa = PBXFileReference; lastKnownFileType = text; path = DX7.k; sourceTree = "<group>"; };
+		5D5099AA2FBCD24800CD44C0 /* klang.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = klang.h; sourceTree = "<group>"; };
+		5D5099AB2FBCD24800CD44C0 /* Mini.k */ = {isa = PBXFileReference; lastKnownFileType = text; path = Mini.k; sourceTree = "<group>"; };
+		5D5099AC2FBCD24800CD44C0 /* PingPong.k */ = {isa = PBXFileReference; lastKnownFileType = text; path = PingPong.k; sourceTree = "<group>"; };
+		5D5099AD2FBCD24800CD44C0 /* SuperSaw.k */ = {isa = PBXFileReference; lastKnownFileType = text; path = SuperSaw.k; sourceTree = "<group>"; };
+		5D5099AF2FBCD24800CD44C0 /* kleine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = kleine.h; path = ../kleine.h; sourceTree = SOURCE_ROOT; };
+		5D5099B02FBCD24800CD44C0 /* kleine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = kleine.cpp; path = ../kleine.cpp; sourceTree = SOURCE_ROOT; };
+		5D5099B12FBCD24800CD44C0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = SOURCE_ROOT; };
+		5D5099B22FBCD24800CD44C0 /* input.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.dat; sourceTree = "<group>"; };
+		5D5099B32FBCD24800CD44C0 /* tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tests.h; sourceTree = "<group>"; };
+		5D5099B42FBCD24800CD44C0 /* tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tests.cpp; sourceTree = "<group>"; };
+		5D5099B52FBCD24800CD44C0 /* tests.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = tests.md; sourceTree = "<group>"; };
+		5D5099B62FBCD24800CD44C0 /* tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
+		5D5099B72FBCD24800CD44C0 /* unknown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unknown.h; sourceTree = "<group>"; };
+		5D5099BB2FBD2A6600CD44C0 /* kleine.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = kleine.xcconfig; sourceTree = "<group>"; };
+		5D5099C02FBD2C8900CD44C0 /* kleine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kleine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D5099CC2FBD2C8B00CD44C0 /* kleine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kleine.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5D5099BD2FBD2C8900CD44C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5D5099922FBCD1D800CD44C0 = {
+			isa = PBXGroup;
+			children = (
+				5D5099AE2FBCD24800CD44C0 /* include */,
+				5D5099AF2FBCD24800CD44C0 /* kleine.h */,
+				5D5099B02FBCD24800CD44C0 /* kleine.cpp */,
+				5D5099CC2FBD2C8B00CD44C0 /* kleine.entitlements */,
+				5D5099B12FBCD24800CD44C0 /* README.md */,
+				5D5099B82FBCD24800CD44C0 /* tests */,
+				5D50999C2FBCD1D800CD44C0 /* Products */,
+				5D5099BB2FBD2A6600CD44C0 /* kleine.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		5D50999C2FBCD1D800CD44C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D5099C02FBD2C8900CD44C0 /* kleine.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5D5099A82FBCD24800CD44C0 /* klang */ = {
+			isa = PBXGroup;
+			children = (
+				5D5099A52FBCD24800CD44C0 /* audio.h */,
+				5D5099A62FBCD24800CD44C0 /* midi.h */,
+				5D5099A72FBCD24800CD44C0 /* tests.h */,
+			);
+			path = klang;
+			sourceTree = "<group>";
+		};
+		5D5099AE2FBCD24800CD44C0 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				5D5099A82FBCD24800CD44C0 /* klang */,
+				5D5099A92FBCD24800CD44C0 /* DX7.k */,
+				5D5099AA2FBCD24800CD44C0 /* klang.h */,
+				5D5099AB2FBCD24800CD44C0 /* Mini.k */,
+				5D5099AC2FBCD24800CD44C0 /* PingPong.k */,
+				5D5099AD2FBCD24800CD44C0 /* SuperSaw.k */,
+			);
+			name = include;
+			path = ../include;
+			sourceTree = SOURCE_ROOT;
+		};
+		5D5099B82FBCD24800CD44C0 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				5D5099B22FBCD24800CD44C0 /* input.dat */,
+				5D5099B32FBCD24800CD44C0 /* tests.h */,
+				5D5099B42FBCD24800CD44C0 /* tests.cpp */,
+				5D5099B52FBCD24800CD44C0 /* tests.md */,
+				5D5099B62FBCD24800CD44C0 /* tree.h */,
+				5D5099B72FBCD24800CD44C0 /* unknown.h */,
+			);
+			name = tests;
+			path = ../tests;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5D5099BF2FBD2C8900CD44C0 /* kleine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D5099CD2FBD2C8B00CD44C0 /* Build configuration list for PBXNativeTarget "kleine" */;
+			buildPhases = (
+				5D5099BC2FBD2C8900CD44C0 /* Sources */,
+				5D5099BD2FBD2C8900CD44C0 /* Frameworks */,
+				5D5099BE2FBD2C8900CD44C0 /* Resources */,
+				5D5099D32FBD2D5500CD44C0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kleine;
+			packageProductDependencies = (
+			);
+			productName = kleine_app;
+			productReference = 5D5099C02FBD2C8900CD44C0 /* kleine.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5D5099932FBCD1D800CD44C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					5D5099BF2FBD2C8900CD44C0 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+				};
+			};
+			buildConfigurationList = 5D5099962FBCD1D800CD44C0 /* Build configuration list for PBXProject "kleine" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5D5099922FBCD1D800CD44C0;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5D50999C2FBCD1D800CD44C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5D5099BF2FBD2C8900CD44C0 /* kleine */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5D5099BE2FBD2C8900CD44C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5D5099BC2FBD2C8900CD44C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D5099D52FBD2E5700CD44C0 /* kleine.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5D5099A02FBCD1D800CD44C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D5099BB2FBD2A6600CD44C0 /* kleine.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "../include/**";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SYMROOT = "$(SRCROOT)/$(CONFIGURATION)";
+			};
+			name = Debug;
+		};
+		5D5099A12FBCD1D800CD44C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D5099BB2FBD2A6600CD44C0 /* kleine.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "../include/**";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SYMROOT = "$(SRCROOT)/$(CONFIGURATION)";
+			};
+			name = Release;
+		};
+		5D5099CE2FBD2C8B00CD44C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D5099BB2FBD2A6600CD44C0 /* kleine.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = kleine.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "audio.nash.kleine-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		5D5099CF2FBD2C8B00CD44C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D5099BB2FBD2A6600CD44C0 /* kleine.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = kleine.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "audio.nash.kleine-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5D5099962FBCD1D800CD44C0 /* Build configuration list for PBXProject "kleine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D5099A02FBCD1D800CD44C0 /* Debug */,
+				5D5099A12FBCD1D800CD44C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D5099CD2FBD2C8B00CD44C0 /* Build configuration list for PBXNativeTarget "kleine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D5099CE2FBD2C8B00CD44C0 /* Debug */,
+				5D5099CF2FBD2C8B00CD44C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5D5099932FBCD1D800CD44C0 /* Project object */;
+}
