@@ -87,7 +87,7 @@ class EffectPlugin;
 class SynthPlugin;
 class AudioPlugin;
 
-#include "answers.cpp"
+#include "tests.cpp"
 
 namespace test {
 
@@ -1606,25 +1606,25 @@ namespace test {
                 }
 
                 // 4 marks for the public functions (1 per function).
-                //    at(...) - returns the note at a given index
+                //  ï¿½ï¿½at(...) - returns the note at a given index
                 if constexpr (MySequence::has_at()) {
                     PASS("MySequence has public function at(...) for reading a note at a given index.");
                 } else {
                     FAIL("MySequence does not have public function at(...) for reading a note at a given index.");
 				}
-                //    add(...) - adds a note to the sequence
+                //  ï¿½ï¿½add(...) - adds a note to the sequence
                 if constexpr (MySequence::has_add()) {
                     PASS("MySequence has public function add(...) for adding a note to the sequence.");
                 } else {
 					FAIL("MySequence does not have public function add(...) for adding a note to the sequence.");
 				}
-                //    size() - returns the number of notes
+                //  ï¿½ï¿½size() - returns the number of notes
                 if constexpr (MySequence::has_size()) {
                     PASS("MySequence has public function size(...) for returning the length of the array.");
                 } else {
 					FAIL("MySequence does not have public function size(...) for returning the length of the array.");
 				}
-                //    clear() - resets (empties) the sequence
+                //  ï¿½ï¿½clear() - resets (empties) the sequence
                 if constexpr (MySequence::has_clear()) {
                     PASS("MySequence has public function clear(...) for clearing the array.");
                 } else {
