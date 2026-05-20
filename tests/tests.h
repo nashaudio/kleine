@@ -1,6 +1,6 @@
 namespace ansi {
 
-#ifdef __APPLE_CC__
+#if FALSE
     const char* reset  = "";
     const char* red    = "";
     const char* green  = "";
@@ -156,6 +156,10 @@ namespace test {
 
         ~StdioCapture() {
             unhook();
+            
+            if(!io.in.empty() && io.in.back() != '\n')
+                io.in += '\n';
+            
             std::cout << io.console; // Output the captured console interactions (in and out)
         }
 
@@ -193,19 +197,20 @@ namespace test {
                 if (prefix_pos_ < prefix_.size()) {
                     const int_type c = traits_type::to_int_type(prefix_[prefix_pos_]);
                     
+#if !defined(__APPLE_CC__)
                     if (io_ && c == 10) {
                         prefix_pos_++; // skip the newline in the prefix
                         io_->in.push_back('\n');
                         io_->console.push_back('\n');
                     }
+#endif
                     return c;
-                    //return traits_type::to_int_type(prefix_[prefix_pos_]);
                 }
 
-                if (!source_)
-                    return traits_type::eof();
+                //if (!source_)
+                return traits_type::eof();
 
-                return source_->sgetc();
+                //return source_->sgetc();
             }
 
             // Called when a character is read from the stream (e.g. std::cin.get())
@@ -218,16 +223,18 @@ namespace test {
                         io_->console.append(ansi::grey);
                         io_->console.push_back(traits_type::to_char_type(c));
                         io_->console.append(ansi::reset);
+#if defined(__APPLE_CC__)
                         if (prefix_pos_ < prefix_.size() && traits_type::to_int_type(prefix_[prefix_pos_]) == '\n') {
-                            //++prefix_pos_; // skip the newline in the prefix
-                            //io_->in.push_back(traits_type::to_char_type('\n'));
-                            //io_->console.push_back(traits_type::to_char_type('\n'));
-                            //return '\n';
+                            io_->in.push_back(traits_type::to_char_type('\n'));
+                            io_->console.push_back(traits_type::to_char_type('\n'));
                         }
+#endif
                     }
                     return c;
                 } else if (!prefix_.empty()) {
+//#if !defined(__APPLE_CC__)
                     return '\n'; // simulate end of input with a newline after the prefix is fully read
+//#endif
                 }
 
                 if (!source_)
@@ -240,7 +247,7 @@ namespace test {
                     return c;
                 }
 
-                if (io_) {
+                if (io_ && traits_type::to_char_type(c)) {
                     io_->in.push_back(traits_type::to_char_type(c));
                     io_->console.push_back(traits_type::to_char_type(c));
                 }
@@ -822,7 +829,7 @@ namespace test {
             notes = original;
 
 	        // Random transpose amount between 0 and 11 semitones
-            semitones = rand() % 12;
+            semitones = (rand() % 11) + 1;
 	        std::cout << "(+" << semitones << " semitones)\nOutput: " << ansi::reset;
 
 	        // Transpose the notes
@@ -891,14 +898,14 @@ namespace test {
             //    return *this;
             //}
 
-            size_t indexOf(const std::string& note) const {
+            int indexOf(const std::string& note) const {
 			    auto it = std::find(begin(), end(), note);
-			    size_t index = std::distance(begin(), it);
+			    int index = (int)std::distance(begin(), it);
 			    return it == end() ? -1 : index;
 		    };
 
-		    size_t intervalBetween(const std::string& from, const std::string& to) const {
-			    size_t from_index = indexOf(from), to_index = indexOf(to);
+		    int intervalBetween(const std::string& from, const std::string& to) const {
+			    int from_index = indexOf(from), to_index = indexOf(to);
 			    if (from_index == -1 || to_index == -1) return 0;
 			    return to_index - from_index; // returns positive for interval up, negative for interval down
 		    };
@@ -907,8 +914,8 @@ namespace test {
 			    return note == at(0) || note == at(7) || note == at(14); // any F
 		    };
 
-            size_t isStepwise(const std::string& from, const std::string& to) const {
-                size_t interval = intervalBetween(from, to);
+            int isStepwise(const std::string& from, const std::string& to) const {
+                int interval = intervalBetween(from, to);
                 return interval == 1 || interval == -1 ? interval : 0; // returns 1 for step up, -1 for step down, else 0
             }
 
@@ -964,13 +971,13 @@ namespace test {
                 const std::string& prev = melody[n - 1];
                 const std::string& note = melody[n];
 
-                size_t interval = scale.intervalBetween(prev, note);
+                int interval = scale.intervalBetween(prev, note);
                 if(scale.isLeap(prev, note)) {
                     if (n == melody.size() - 1) {
                         std::cout << ansi::dark_red; // can't step back
                     } else {
                         const std::string& next = melody[n + 1];
-                        size_t next_interval = scale.intervalBetween(note, next);
+                        int next_interval = scale.intervalBetween(note, next);
                         if((next_interval >= 0 != interval >= 0) && abs(next_interval) == 1) //
                             std::cout << ansi::dark_green; // step back -> green
                         else
@@ -1064,13 +1071,13 @@ namespace test {
                 const std::string& prev = melody[i - 1];
                 const std::string& note = melody[i];
 
-                size_t interval = scale.intervalBetween(prev, note);
+                int interval = scale.intervalBetween(prev, note);
                 if(scale.isLeap(prev, note)) {
                     if (i == melody.size() - 1) {
                         leaps_step_back = false;
                     } else {
                         const std::string& next = melody[i + 1];
-                        size_t next_interval = scale.intervalBetween(note, next);
+                        int next_interval = scale.intervalBetween(note, next);
                         if (!((next_interval >= 0 != interval >= 0) && abs(next_interval) == 1)) {
                             leaps_step_back = false;
                             break;
@@ -1360,7 +1367,7 @@ namespace test {
         template<typename = void>
         static constexpr bool is_initialised() {
             if constexpr (object<::MyNote>::is_defined)
-                return is_initialised<::MyNote>();
+                return is_initialised_t<::MyNote>();
             return false;
         }
     };
