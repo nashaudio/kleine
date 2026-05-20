@@ -46,9 +46,12 @@ namespace ansi {
 #include <algorithm>
 #include <streambuf>
 #include <regex>
+#include <vector>
+
 
 #ifdef _WIN32
     #include <io.h>
+    #include <fcntl.h>
     #define OAI_DUP     _dup
     #define OAI_DUP2    _dup2
     #define OAI_FILENO  _fileno
@@ -87,7 +90,22 @@ class EffectPlugin;
 class SynthPlugin;
 class AudioPlugin;
 
+namespace test {
+    int printf(const char* format, ...) {
+        // Your custom implementation
+
+        char buffer[1024] = { 0 };
+		int res = sprintf(buffer, format);
+		std::cout << buffer; // Output to console
+        return res;
+    }
+}
+
+#define printf(...) test::printf(__VA_ARGS__)
+
 #include "tests.cpp"
+
+#undef printf
 
 namespace test {
 
@@ -379,7 +397,9 @@ namespace test {
             try {
                 std::cout.flush();
                 std::cerr.flush();
+                fflush(stdout);
 
+                // Restore C++ streams
                 if (old_cin_buf_) {
                     std::cin.rdbuf(old_cin_buf_);
                     old_cin_buf_ = nullptr;
