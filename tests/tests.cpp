@@ -208,8 +208,8 @@ void play() {
 // 
 // (see assignment brief for marking criteria / additional marks)
 
-const char* input_path = "../../tests/input.dat";
-const char* output_path = "../../tests/output.dat";
+const char* input_path = "input.dat";
+const char* output_path = "output.dat";
 
 // Load the pitches from file into the array and play using the provided engine
 void file(Engine& engine, std::vector<int>& notes, const std::vector<int>& durations) {
@@ -227,6 +227,7 @@ void file() {
 	std::vector<int> notes;
 	const std::vector<int> durations = { 4, 3, 2, 1, 2, 2, 2, 4, 3, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 10 }; // in ticks (e.g. 120ms)
 
+    test::create();
     file(engine, notes, durations);
 
 	engine.wait(1000);

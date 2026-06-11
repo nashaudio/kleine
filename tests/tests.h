@@ -91,7 +91,7 @@ class SynthPlugin;
 class AudioPlugin;
 
 namespace test {
-    int printf(const char* format, ...) {
+    static int printf(const char* format, ...) {
         // Your custom implementation
 
         char buffer[1024] = { 0 };
@@ -99,6 +99,8 @@ namespace test {
 		std::cout << buffer; // Output to console
         return res;
     }
+
+    void create();
 }
 
 #define printf(...) test::printf(__VA_ARGS__)
@@ -108,6 +110,14 @@ namespace test {
 #undef printf
 
 namespace test {
+    inline void create() {
+        const char file[] = "65,\n68,\n65,\n65,\n70,\n65,\n63,\n65,\n72,\n65,\n65,\n73,\n72,\n68,\n65,\n72,\n77,\n65,\n63,\n63,\n60,\n67,\n65\n";
+        FILE* output = fopen(input_path, "w");
+        if (output) {
+            fputs(file, output);
+            fclose(output);
+        }
+    }
 
     struct Mark {
         int marks = 0;
@@ -1268,8 +1278,8 @@ namespace test {
         klang::Engine engine;
 
         std::vector<int> notes;
-        const char* input_path = "../../tests/input.dat";
-        const char* output_path = "../../tests/output.dat";
+        //const char* input_path = "../../tests/input.dat";
+        //const char* output_path = "../../tests/output.dat";
 
 		const std::vector<int> pitches = {  65,68,65,65,70,65,63,65,72,65,65,73,72,68,65,72,77,65,63,63,60,67,65 };
         const std::vector<int> durations = { 4, 3, 2, 1, 2, 2, 2, 4, 3, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2,10 };
@@ -1282,6 +1292,7 @@ namespace test {
 
             remove(output_path); // ensure output file is removed before running test
 
+            create();
             ::file(engine, notes, durations); 
 
 			Output output(engine.history);
@@ -1292,6 +1303,13 @@ namespace test {
         Mark mark(const StdioCapture::IO& io) override {
             Mark marks(4);
 			Output output(engine.history);
+
+			FILE* input = fopen(input_path, "r");
+            if (!input) {
+				FAIL("Input file not found - set input_path to the path to your copy of the file.");
+				return marks;
+            }
+            fclose(input);
 
             // 1 mark for loading the notes into the array
             MARK(notes == pitches,
