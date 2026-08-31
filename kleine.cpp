@@ -19,9 +19,10 @@ int main(int argc, char** argv)
 	engine.attach<DX7>(0);
     engine.attach<PingPong>(0.167, 0.75, 0.333, 0.25);
 
-	// load input file, stream as input to engine
+	// load input file, stream as input to engine, capture output 
 	Engine::File input = "input.flac";
-	input >> engine;
+	Engine::File output = "output.wav";
+	input >> engine >> output;
 
 	// play some notes
 	int notes[] = { 62, 64, 60, 48, 55 };

@@ -2,6 +2,8 @@
 #include <klang.h>
 #endif
 
+#include <atomic>
+
 #include "audio.h" // MiniAudio library for realtime + file I/O
 
 namespace klang {
@@ -39,6 +41,8 @@ namespace klang {
         }
 
         variable::buffer left, right;
+		ma_encoder recorder{};
+		std::atomic<bool> recording{ false };
 		struct Input {
 		 	variable::buffer left, right;
 		} input;
@@ -191,6 +195,10 @@ namespace klang {
                 pOutputF32[frame * 2] = processor->left[frame] * 0.25f;
                 pOutputF32[frame * 2 + 1] = processor->right[frame] * 0.25f;
             }
+
+			// Capture exactly what is sent to the playback device.
+			if (processor->recording.load(std::memory_order_acquire))
+				ma_encoder_write_pcm_frames(&processor->recorder, pOutputF32, frames, nullptr);
         }
     };
 
@@ -206,8 +214,10 @@ namespace klang {
 
 		struct File : buffer {
 			File() = default;
-			File(const std::string& path) { load(path); }
+			File(const std::string& path) : path(path) {}
 			virtual ~File() { close(); }
+			File(const File&) = delete;
+			File& operator=(const File&) = delete;
 
 			std::string path;
 			ma_decoder_config config;
@@ -217,6 +227,7 @@ namespace klang {
 			variable::buffer left, right;
 
 			bool load(const std::string& path) {
+				this->path = path;
 				if (data)
 					close();
 				config = ma_decoder_config_init(ma_format_f32, 0, 0);
@@ -235,7 +246,8 @@ namespace klang {
 						left[i] = ((float*)data)[i * config.channels];
 						if(config.channels > 1)
 							right[i] = ((float*)data)[i * config.channels + 1];
-					}	
+					}
+                    close();
 				}
 				return result == MA_SUCCESS;
 			}
@@ -251,17 +263,45 @@ namespace klang {
 			}
 		};
 
-		// buffer input;
- 		File output;
-
 		Engine& operator<<(File& file) {
+			if (!file.data && !file.load(file.path)) {
+				error = -5;
+				return *this;
+			}
 			processor.input.left = file.left;
 			processor.input.right = file.config.channels == 1 ? file.left : file.right;
 			return *this;
 		}
 
 		Engine& operator>>(File& file) {
-			output = file;
+			if (mode != LIVE) {
+				error = -6;
+				return *this;
+			}
+
+			// The callback may currently be using the encoder. Pause it before
+			// replacing the destination, then restore its previous state.
+			const bool wasStarted = ma_device_is_started(&device);
+			if (wasStarted)
+				ma_device_stop(&device);
+
+			if (processor.recording.exchange(false, std::memory_order_acq_rel))
+				ma_encoder_uninit(&processor.recorder);
+
+			const ma_encoder_config encoderConfig = ma_encoder_config_init(
+				ma_encoding_format_wav, ma_format_f32, 2, device.sampleRate);
+			const ma_result result = ma_encoder_init_file(
+				file.path.c_str(), &encoderConfig, &processor.recorder);
+			if (result != MA_SUCCESS) {
+				printf("Failed to open output audio file: %s (Error %d: %s)\n",
+					file.path.c_str(), result, ma_result_description(result));
+				error = -6;
+			} else {
+				processor.recording.store(true, std::memory_order_release);
+			}
+
+			if (wasStarted)
+				ma_device_start(&device);
 			return *this;
 		}
 
@@ -327,6 +367,8 @@ namespace klang {
                 if (!now)
                     wait(0);
                 ma_device_stop(&device);
+				if (processor.recording.exchange(false, std::memory_order_acq_rel))
+					ma_encoder_uninit(&processor.recorder);
             }
         }
 
