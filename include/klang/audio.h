@@ -96043,8 +96043,8 @@ namespace klang {
 
             // Interleave left and right channels into the output buffer
             for (ma_uint32 frame = 0; frame < frames; ++frame) {
-                pOutputF32[frame * 2] = processor->left[frame];
-                pOutputF32[frame * 2 + 1] = processor->right[frame];
+                pOutputF32[frame * 2] = processor->left[frame] * 0.25f;
+                pOutputF32[frame * 2 + 1] = processor->right[frame] * 0.25f;
             }
         }
     };
@@ -96056,17 +96056,22 @@ namespace klang {
         Processor processor;
         int error = 0;
 
-        Engine() {
-            config = ma_device_config_init(ma_device_type_playback);
-            config.playback.format = ma_format_f32;
-            config.playback.channels = 2; // stereo output
-            config.dataCallback = Processor::callback;
-            config.pUserData = &processor;
+		std::vector<int> history; // for storing MIDI events in simulated mode
+		enum Mode { LIVE, SIMULATED } mode = LIVE;
 
-            if (ma_device_init(NULL, &config, &device) != MA_SUCCESS) {
-                printf("Failed to open playback device.\n");
-                error = -3;
-                return;
+        Engine(Mode mode = LIVE) : mode(mode) {
+            if (mode == LIVE) {
+                config = ma_device_config_init(ma_device_type_playback);
+                config.playback.format = ma_format_f32;
+                config.playback.channels = 2; // stereo output
+                config.dataCallback = Processor::callback;
+                config.pUserData = &processor;
+
+                if (ma_device_init(NULL, &config, &device) != MA_SUCCESS) {
+                    printf("Failed to open playback device.\n");
+                    error = -3;
+                    return;
+                }
             }
 
             klang::fs = device.sampleRate;
@@ -96075,11 +96080,18 @@ namespace klang {
         virtual ~Engine() {
             // stop all notes and the engine
 	        allNotesOff();
-	        stop();
-            ma_device_uninit(&device);
+            if (mode == LIVE) {
+                stop();
+                ma_device_uninit(&device);
+            }
         }
 
         bool start() {
+            if (mode == SIMULATED) {
+                history.clear();
+                return true;
+            }
+
             if (ma_device_start(&device) != MA_SUCCESS) {
                 printf("Failed to start playback device.\n");
                 ma_device_uninit(&device);
@@ -96090,6 +96102,12 @@ namespace klang {
         }
 
         void wait(int ms) {
+            if (mode == SIMULATED){
+				history.push_back(0xF0); // F0 flags start of "wait" call
+                history.push_back(ms);   // encode in millseconds
+                history.push_back(0xF7); // F7 flags end of "wait" call
+                return;
+            }
 			if (ms == 0) { // wait until all audio has finished playing
                 while (processor.isPlaying())
                     wait(100);
@@ -96099,9 +96117,11 @@ namespace klang {
 		}
 
         void stop(bool now = false) {
-            if (!now)
-                wait(0);
-            ma_device_stop(&device);
+            if (mode == LIVE) {
+                if (!now)
+                    wait(0);
+                ma_device_stop(&device);
+            }
         }
 
         template<typename DERIVED, typename... ARGS>
@@ -96114,12 +96134,16 @@ namespace klang {
 		}
 
         void attach(Plugin* plugin) {
-            processor.attach(plugin);
+            if(mode == LIVE)
+                processor.attach(plugin);
         }
 
         template<typename... BYTE>
         void midiIn(BYTE ...bytes) {
-            processor.midiIn(bytes...);
+			if (mode == LIVE)
+                processor.midiIn(bytes...);
+            else
+                (history.push_back(bytes), ...);
         }
 
         void noteOn(int note, int velocity, int channel = 0) {
@@ -96131,6 +96155,10 @@ namespace klang {
         }
 
         void allNotesOff() {
+            if(mode == LIVE)
+                midiIn(0xB0, 0x7B, 0); // Control Change: All Notes Off
+            else
+				history.insert(history.end(), { 0xB0, 0x7B, 0 });
             processor.stop();
         }
     };

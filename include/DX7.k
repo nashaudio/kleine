@@ -6,8 +6,6 @@ constexpr int NA = 0;
 
 namespace DX {
 
-using signal = klang::signal;
-
 enum { Ratio, Fixed }; // OSC_MODE (+ SYNC?!)
 
 //////////////////////// PATCH DATA ////////////////////////
@@ -191,7 +189,7 @@ struct Operator : public klang::Operator<Sine> {
 	int pitch, velocity;
 	const Patch::Op* OP = nullptr;
 	int outlevel;
-	signal last = 0, feedback = 0;
+	klang::signal last = 0, feedback = 0;
 
 	struct Ramp : public Envelope::Linear {
 		const Operator& op;
@@ -236,7 +234,7 @@ struct Operator : public klang::Operator<Sine> {
 			}
 		}
 	
-		signal operator++(int) override {	
+		klang::signal operator++(int) override {	
 			if(step(i++)){
 				rate = (rising ? attack(out) : decay()) * sr_multiplier;
 				Linear::operator++(1);	

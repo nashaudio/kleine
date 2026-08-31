@@ -1,3 +1,7 @@
+#ifndef _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <cmath>
@@ -18,8 +22,10 @@
 #include <functional>
 #include <float.h>
 #include <utility>
+#include <chrono>
 
 #define HAS_KLANG 1
+
 #pragma once
 
 #ifdef __wasm__
@@ -38,7 +44,7 @@ static inline float _abs(float x) { return __builtin_fabsf(x); }
 #define ABS ::abs
 #define FABS ::fabsf
 
-#elif defined(__WIN32__) || defined(WIN32)
+#elif defined(_MSC_VER)
 #define THREAD_LOCAL thread_local
 #define SQRT ::sqrt
 #define SQRTF ::sqrtf
@@ -1779,10 +1785,10 @@ namespace klang {
 		//float operator-(float x) const { return value - x; }
 		//float operator/(float x) const { return value / x; }
 
-		template<typename TYPE> signal operator+(const Control& x) const { return value + (signal)x; }
-		template<typename TYPE> signal operator*(const Control& x) const { return value * (signal)x; }
-		template<typename TYPE> signal operator-(const Control& x) const { return value - (signal)x; }
-		template<typename TYPE> signal operator/(const Control& x) const { return value / (signal)x; }
+		template<typename TYPE> signal operator+(const Control& x) const { return value + x.operator klang::signal(); }
+		template<typename TYPE> signal operator*(const Control& x) const { return value * x.operator klang::signal(); }
+		template<typename TYPE> signal operator-(const Control& x) const { return value - x.operator klang::signal(); }
+		template<typename TYPE> signal operator/(const Control& x) const { return value / x.operator klang::signal(); }
 
 		template<typename TYPE> float operator+(TYPE& x) const { return value + (signal)x; }
 		template<typename TYPE> float operator*(TYPE& x) const { return value * (signal)x; }
@@ -2522,7 +2528,7 @@ namespace klang {
 
 				// Calling: full set of arguments supplied (overwrite live input)
 				if constexpr (ARGS == sizeof...(FuncArgs)) {
-					in = first(args...);
+					in = float(first(args...));
 					inputs = std::tuple<Args...>(args...);
 					return *this;
 
@@ -4515,7 +4521,7 @@ namespace klang {
 
 		// pass to synth and notes
 		virtual event onMIDI(int status, int byte1, int byte2) override {
-			onMIDI(status, byte1, byte2);
+			midi(status, byte1, byte2);
 			for (unsigned int n = 0; n < notes.count; n++)
 				if (notes[n]->stage != Note::Off)
 					notes[n]->onMIDI(status, byte1, byte2);
@@ -4920,7 +4926,7 @@ namespace klang {
 
 			// pass to synth and notes
 			virtual event onMIDI(int status, int byte1, int byte2) override {
-				onMIDI(status, byte1, byte2);
+				midi(status, byte1, byte2);
 				for (unsigned int n = 0; n < notes.count; n++)
 					if (notes[n]->stage != Note::Off)
 						notes[n]->onMIDI(status, byte1, byte2);
@@ -5498,7 +5504,7 @@ namespace klang {
 				union { unsigned int i; float f; };
 				/// @endcond
 				void process() {
-					i = ((rand() & 0b111111111111111UL) << 1) | bias;
+					i = ((rand() & 0b111111111111111U) << 1) | bias;
 					out = f - 257.f;
 				}
 			};
@@ -6087,7 +6093,7 @@ namespace klang {
 	};
 
 	struct File {
-#if defined(_MSC_VER)
+#if defined(_MSC_VER) && !defined(__clang__)
 #define packed __pragma(pack(push,1)) struct __pragma(pack(pop))
 #else
 #define packed struct __attribute__((packed))
