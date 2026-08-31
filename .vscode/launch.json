@@ -10,7 +10,9 @@
       "request": "launch",
       "program": "${command:cmake.launchTargetPath}",
       "args": [],
-      "cwd": "${workspaceFolder}"
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "CMake: build",
+      "externalConsole": true
     }
     ]
 }
