@@ -42,3 +42,13 @@
 
 build/
 .vs/
+
+# Local book reference and generated analysis/build files
+/book/
+/output.wav
+__pycache__/
+*.py[cod]
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Testing/
