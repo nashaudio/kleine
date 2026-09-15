@@ -52,3 +52,5 @@ __pycache__/
 /CMakeCache.txt
 /cmake_install.cmake
 /Testing/
+# Redundant compressed download; extracted patches/audio are reference assets.
+/farnell/zip/examples.tar.gz

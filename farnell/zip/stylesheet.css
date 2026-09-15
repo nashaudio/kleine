@@ -1,0 +1,232 @@
+/*
+START List of Non Standard Colours Used
+
+BLUE
+ #1C2D5B - An unspecified Dark Blue
+ #2A3D75 - An unspecified Medium Blue
+ #6889BF - An unspecified Light Blue
+
+CREAM
+ #F5F5DB - An unspecified Cream
+
+END List of Non Standard Colors Used
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #f5f5db;
+  background-image: url(img/bg_blueprint.gif);
+  background-repeat: repeat;
+  background-attachment: fixed;
+  }
+
+/* START Main Layout */
+#wrapper, #onecolumn {
+  margin: 0 auto;
+  }
+#wrapper, #header, #subheader, #footer {
+  width: 1044px;
+  }
+#header, #subheader, #footer {
+  text-align: center;
+  }
+#header, #subheader, #leftcolumn, .floatleft {
+  float: left;
+  }
+#header {
+  margin: 10px 10px 5px 10px;
+  }
+#subheader {
+  margin: 0px 10px 5px 10px;
+  }
+#leftcolumn {
+  margin: 0px 5px 5px 10px;
+  width: 270px;
+  }
+#rightcolumn, .floatright {
+  float: right;
+  }
+#rightcolumn {
+  margin: 0px 0px 5px 10px;
+  display: inline;
+  }
+#rightcolumn, #onecolumn {
+  width: 749px;
+}
+#leftcolumn, #rightcolumn, #onecolumn {
+  text-align: justify;
+  }
+#footer {
+  clear: both;
+  padding: 2em;
+  }
+/* END Main Layout */
+
+/* START Additional Layout */
+.section {
+  width: 75%;
+  margin: 0 20% 0 5%;
+  }
+.narrowcolumn {
+  width: 49%;
+  text-align: left;
+  }
+.topgap {
+  margin-top: 40px;
+  }
+.topspace {
+  margin-top: 1em;
+  }
+.leftspace {
+  margin-left: 0.55em;
+  }
+.rightspace {
+  margin-right: 0.55em;
+  }
+.triplerightspace {
+  margin-right: 1.65em;
+  }
+/* END Additional layout */
+
+
+
+/* START Navigation Menu Styling */
+
+#navmenu a, #navmenu a:visited {
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  background-color: #f5f5db;
+  color: #1c2d5b;
+  display: block;
+  width: 12em;
+  padding: 0.25em;
+  margin: 0.5em auto;
+  }
+#navmenu a:hover {
+  color: #1c2d5b;
+  font-weight: bold;
+  }
+#navmenu li {
+  list-style-type: none;
+  }
+/*Set Identifier for Current Page */
+body.page0 #navmenu a.item0,
+body.page1 #navmenu a.item1,
+body.page2 #navmenu a.item2,
+body.page3 #navmenu a.item3,
+body.page4 #navmenu a.item4,
+body.page5 #navmenu a.item5,
+body.page6 #navmenu a.item6,
+body.page7 #navmenu a.item7 {
+  background-color: #6889BF;
+  color: #1c2d5b;
+  font-weight: bold;
+  }
+/* END Page Identifier / Navigation Menu Styling */
+
+
+
+/* START Link Styling */
+.numeral {
+  font-family: 'Courier New','Courier',monospace;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #6889BF;
+  }
+.numeral, pre {
+  font-family: 'Courier New','Courier',monospace;
+  }
+.alignleft, pre {
+  text-align: left;
+  }
+a:link {
+  color: #6889bf;
+  text-decoration: underline;
+  }
+a:active {
+  color: #0000ff;
+  text-decoration: underline;
+  }
+a:visited {
+  color: #6889bf;
+  text-decoration: underline;
+  }
+a:hover {
+  color: #ff0000;
+  text-decoration: none;
+  }
+a img {
+  border-style: none;
+  }
+/* END Link Styling */
+
+
+
+/* START List Styling */
+ul.nobullet {
+  list-style-position: inside;
+}
+ul.nobullet2 {
+  list-style-position: outside;
+}
+ul.nobullet, ul.nobullet2, ul.nobullet ul, ul.nobullet2 ul {
+  list-style-type: none;
+  text-align: left;
+}
+ul.nobullet, ul.nobullet2 {
+  font-weight: bold;
+}
+ul.nobullet ul, ul.nobullet2 ul {
+  font-weight: normal;
+}
+ul.nobullet li, ul.nobullet2 li {
+  margin: 0.5em 0 0 0;
+}
+ul.nobullet li ul li, ul.nobullet2 li ul li {
+  margin: 0 0 0 0;
+}
+/* END List Styling */
+
+
+
+img {
+  margin: 0 1em 2em 1em;
+}
+h1,h2,h3 {
+	margin: 1em 0;
+}
+h1,h2,h3,h4,h5,h6,strong {
+	font-weight: bold;
+}
+p {
+  margin-bottom: 1em;
+}
+abbr,acronym {
+	border-bottom: 1px dotted #000;
+	cursor: help;
+}
+blockquote, em {
+	font-style: italic;
+}
+blockquote,ul,ol,dl {
+	margin: 0 1em;
+}
+pre {
+    margin: 0 auto 0.5em auto;
+    padding: 0.5em;
+    border: 2px solid #6889BF;
+    width: 100%;
+    height: 100px;
+    background-color: #F5F5DB;
+    color: #1C2D5B;
+    font-weight: bold;
+    overflow: auto;
+}
+

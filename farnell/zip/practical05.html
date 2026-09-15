@@ -1,0 +1,790 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound -  Practical 5: Police
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Practical 5: Police</h2>
+
+ <h2>Pure Data</h2>
+
+<h3>Complete police siren - <em>requires following abstractions</em></h3>
+<pre>
+#N canvas 154 237 123 242 10;
+#X obj 5 217 dac~;
+#X obj 5 118 +~ 300;
+#X msg 39 46 3;
+#X msg 5 46 0.1;
+#X obj 5 94 *~ 800;
+#X obj 5 190 environment;
+#X obj 5 70 logosc;
+#X obj 5 142 logosc;
+#X obj 5 166 plastichorn;
+#X obj 5 17 loadbang;
+#X connect 1 0 7 0;
+#X connect 2 0 6 0;
+#X connect 3 0 6 0;
+#X connect 4 0 1 0;
+#X connect 5 0 0 0;
+#X connect 5 0 0 1;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 8 0 5 0;
+#X connect 9 0 3 0;
+</pre>
+<p>Download <a href="p05/police_siren.pd">police_siren.pd</a>.</p>
+
+<h3>RC curve oscillator - <em>needed by &ldquo;police siren&rdquo;</em></h3>
+<pre>
+#N canvas 358 117 280 345 10;
+#X obj 183 174 sig~ 2.71828;
+#X obj 158 127 sig~ 1;
+#X obj 158 151 -~;
+#X obj 65 199 pow~;
+#X obj 91 173 sig~ 2.71828;
+#X obj 49 279 +~;
+#X obj 120 53 *~ 2;
+#X obj 65 122 sig~ 1;
+#X obj 65 149 -~;
+#X obj 174 102 -~ 1;
+#X obj 49 227 sig~ 1;
+#X obj 49 253 -~;
+#X obj 49 325 outlet~ signal;
+#X obj 49 303 -~ 1;
+#X obj 81 101 min~ 1;
+#X obj 174 79 max~ 1;
+#X obj 120 31 phasor~ 3;
+#X obj 157 218 sqrt~;
+#X obj 120 7 inlet~ frequency;
+#X obj 158 196 pow~;
+#X connect 0 0 19 1;
+#X connect 1 0 2 0;
+#X connect 2 0 19 0;
+#X connect 3 0 11 1;
+#X connect 4 0 3 1;
+#X connect 5 0 13 0;
+#X connect 6 0 14 0;
+#X connect 6 0 15 0;
+#X connect 7 0 8 0;
+#X connect 8 0 3 0;
+#X connect 9 0 2 1;
+#X connect 10 0 11 0;
+#X connect 11 0 5 0;
+#X connect 13 0 12 0;
+#X connect 14 0 8 1;
+#X connect 15 0 9 0;
+#X connect 16 0 6 0;
+#X connect 17 0 5 1;
+#X connect 18 0 16 0;
+#X connect 19 0 17 0;
+</pre>
+<p>Download <a href="p05/logosc.pd">logosc.pd</a>.</p>
+
+<h3>Plastic horn - <em>needed by &ldquo;police siren&rdquo;</em></h3>
+<pre>
+#N canvas 24 10 102 94 10;
+#X obj 0 50 bp~ 1500 4;
+#X obj 0 25 clip~ -0.2 0.2;
+#X obj 0 0 inlet~;
+#X obj 0 75 outlet~;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+</pre>
+<p>Download <a href="p05/plastichorn.pd">plastichorn.pd</a>.</p>
+
+<h3>Echo environment - <em>needed by &ldquo;police siren&rdquo;</em></h3>
+<pre>
+#N canvas 106 281 544 249 10;
+#X obj 357 72 delwrite~ d2 1000;
+#X obj 356 119 delwrite~ d3 1000;
+#X obj 357 25 delwrite~ d1 1000;
+#X obj 118 191 *~ 0.1;
+#X obj 230 153 delread~ d3 33;
+#X obj 118 153 delread~ d2 121;
+#X obj 6 153 delread~ d1 165;
+#X obj 4 48 throw~ b1;
+#X obj 73 48 throw~ b2;
+#X obj 142 48 throw~ b3;
+#X obj 357 2 catch~ b1;
+#X obj 357 48 catch~ b2;
+#X obj 356 97 catch~ b3;
+#X obj 9 227 throw~ b1;
+#X obj 77 227 throw~ b2;
+#X obj 145 227 throw~ b3;
+#X obj 393 201 +~;
+#X obj 213 227 send~ echo;
+#X obj 443 151 receive~ echo;
+#X obj 211 48 send~ dir;
+#X obj 354 151 receive~ dir;
+#X obj 393 225 outlet~;
+#X obj 120 14 inlet~;
+#X obj 354 175 *~ 0.7;
+#X obj 443 176 *~ 0.5;
+#X connect 3 0 13 0;
+#X connect 3 0 14 0;
+#X connect 3 0 15 0;
+#X connect 3 0 17 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
+#X connect 6 0 3 0;
+#X connect 10 0 2 0;
+#X connect 11 0 0 0;
+#X connect 12 0 1 0;
+#X connect 16 0 21 0;
+#X connect 18 0 24 0;
+#X connect 20 0 23 0;
+#X connect 22 0 7 0;
+#X connect 22 0 8 0;
+#X connect 22 0 9 0;
+#X connect 22 0 19 0;
+#X connect 23 0 16 0;
+#X connect 24 0 16 1;
+</pre>
+<p>Download <a href="p05/environment.pd">environment.pd</a>.</p>
+
+<h3>Patch showing graph of RC oscillator signals</h3>
+<pre>
+#N canvas 132 159 365 367 10;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array a1 64 float 1;
+#A 0 0.225086 0.30618 0.381692 0.451789 0.516641 0.57642 0.6313 0.681456
+0.727068 0.768318 0.80539 0.838474 0.867759 0.893443 0.915725 0.934809
+0.950906 0.96423 0.975006 0.983462 0.98984 0.99439 0.99738 0.999093
+0.999845 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0.0334737
+0.126976 0.214548 0.296351 0.372552 0.443317 0.508816 0.569219 0.624701
+0.675438 0.721609;
+#X coords 0 1 63 -1 100 100 1;
+#X restore 258 -81 graph;
+#X obj 25 161 tabsend~ a1;
+#X obj 135 79 pow~;
+#X obj 160 56 sig~ 2.71828;
+#X obj 135 10 sig~ 1;
+#X obj 135 34 -~;
+#X obj 153 -38 max~ 1;
+#X obj 42 82 pow~;
+#X obj 67 55 sig~ 2.71828;
+#X obj 48 209 *~ 2;
+#X obj 48 188 +~;
+#X obj 42 5 sig~ 1;
+#X obj 42 32 -~;
+#X obj 153 -15 -~ 1;
+#X obj 25 110 sig~ 1;
+#X obj 25 136 -~;
+#X obj 48 231 -~ 3;
+#X obj 135 109 tabsend~ a2;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array a2 64 float 1;
+#A 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0.913192 0.823045
+0.738738 0.660107 0.586984 0.519203 0.456591 0.398978 0.346186 0.29804
+0.254359 0.21496 0.179656 0.148258 0.120572 0.0964018 0.0755444 0.0577935
+0.0429366 0.0307552 0.0210232 0.0135063 0.00795963 0.0041259 0.00173139
+0.000479667 3.87952e-05 1 1 1 1 1 1 1 1 1 1 1;
+#X coords 0 1 63 -1 100 100 1;
+#X restore 258 39 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array a3 64 float 1;
+#A 0 -0.549829 -0.38764 -0.236617 -0.0964217 0.0332828 0.15284 0.262599
+0.362911 0.454136 0.536635 0.610781 0.676947 0.735519 0.786887 0.83145
+0.869618 0.901812 0.928461 0.950011 0.966924 0.97968 0.988781 0.99476
+0.998186 0.999689 1 0.826383 0.64609 0.477477 0.320214 0.173969 0.0384057
+-0.0868173 -0.202045 -0.307627 -0.403919 -0.491281 -0.57008 -0.640688
+-0.703484 -0.758855 -0.807196 -0.848911 -0.884413 -0.914127 -0.938489
+-0.957953 -0.972987 -0.984081 -0.991748 -0.996537 -0.999041 -0.999923
+-0.933053 -0.746047 -0.570904 -0.407297 -0.254896 -0.113366 0.0176315
+0.138439 0.249403 0.350877 0.443217;
+#X coords 0 1 63 -1 100 100 1;
+#X restore 258 159 graph;
+#X obj 48 251 tabsend~ a3;
+#X obj 60 -19 min~ 1;
+#X obj 100 -70 *~ 2;
+#X obj 100 -94 phasor~ 800;
+#X connect 2 0 10 1;
+#X connect 2 0 17 0;
+#X connect 3 0 2 1;
+#X connect 4 0 5 0;
+#X connect 5 0 2 0;
+#X connect 6 0 13 0;
+#X connect 7 0 15 1;
+#X connect 8 0 7 1;
+#X connect 9 0 16 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 12 0 7 0;
+#X connect 13 0 5 1;
+#X connect 14 0 15 0;
+#X connect 15 0 10 0;
+#X connect 15 0 1 0;
+#X connect 16 0 20 0;
+#X connect 21 0 12 1;
+#X connect 22 0 6 0;
+#X connect 22 0 21 0;
+#X connect 23 0 22 0;
+</pre>
+<p>Download <a href="p05/logosc_graph.pd">logosc_graph.pd</a>.</p>
+
+<h3>Comparison of triangle wave and RC curve spectrums</h3>
+<pre>
+#N canvas 0 0 629 354 10;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array a1 64 float 5;
+#A 0 -0.998795 -0.999802 -1 -0.841823 -0.682562 -0.532295 -0.390803
+-0.257863 -0.133252 -0.0167427 0.0918934 0.192888 0.286476 0.372893
+0.452382 0.525185 0.59155 0.651728 0.705975 0.754549 0.797715 0.835744
+0.868909 0.897492 0.921782 0.942075 0.958676 0.971901 0.982076 0.989545
+0.994666 0.997824 0.999434 0.999965 0.924894 0.761055 0.606318 0.460466
+0.323278 0.19453 0.0739989 -0.0385451 -0.143331 -0.240593 -0.330566
+-0.413489 -0.489604 -0.559157 -0.622397 -0.679577 -0.730954 -0.776791
+-0.817355 -0.852916 -0.883755 -0.910155 -0.932409 -0.950818 -0.96569
+-0.977349 -0.986127 -0.992375 -0.996465 -0.998795;
+#X coords 0 1 63 -1 100 100 1;
+#X restore 233 124 graph;
+#X obj 112 165 pow~;
+#X obj 137 139 sig~ 2.71828;
+#X obj 112 96 sig~ 1;
+#X obj 112 120 -~;
+#X obj 37 70 min~ 1;
+#X obj 130 48 max~ 1;
+#X obj 19 168 pow~;
+#X obj 44 140 sig~ 2.71828;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array b1 64 float 1;
+#A 0 0.869235 0.932727 0.996219 0.940289 0.876797 0.813305 0.749813
+0.686321 0.622829 0.559337 0.495845 0.432353 0.368861 0.305369 0.241877
+0.178385 0.114893 0.0514005 -0.0120916 -0.0755837 -0.139076 -0.202568
+-0.26606 -0.329552 -0.393044 -0.456536 -0.520028 -0.58352 -0.647012
+-0.710504 -0.773996 -0.837488 -0.90098 -0.964473 -0.972035 -0.908543
+-0.845051 -0.781559 -0.718067 -0.654575 -0.591083 -0.527591 -0.464099
+-0.400607 -0.337115 -0.273623 -0.210131 -0.146639 -0.0831466 -0.0196545
+0.0438375 0.10733 0.170822 0.234314 0.297806 0.361298 0.42479 0.488282
+0.551774 0.615266 0.678758 0.74225 0.805742 0.869234;
+#X coords 0 1 63 -1 100 100 1;
+#X restore 519 126 graph;
+#X obj 1 270 *~ 2;
+#X obj 1 248 +~;
+#X obj 74 22 *~ 2;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array f1 512 float 3;
+#A 0 -0.563493 -0.563147 -0.562106 -0.560362 -0.557904 -0.554714 -0.550769
+-0.54604 -0.540489 -0.534071 -0.526731 -0.518403 -0.509005 -0.498439
+-0.486588 -0.473307 -0.458419 -0.441704 -0.422888 -0.401626 -0.377473
+-0.349848 -0.317981 -0.280819 -0.236885 -0.184031 -0.118986 -0.036479
+0.0726721 0.226292 0.465219 0.914523 1 1 0.914564 0.4564 0.212873 0.0559413
+-0.0559683 -0.140961 -0.208353 -0.263494 -0.309704 -0.349169 -0.383394
+-0.413451 -0.440133 -0.464037 -0.485624 -0.505253 -0.523216 -0.539745
+-0.555031 -0.569235 -0.582488 -0.594905 -0.606581 -0.617599 -0.628031
+-0.637941 -0.647385 -0.656412 -0.665069 -0.6734 -0.681461 -0.693789
+-0.696599 -0.703973 -0.711151 -0.718182 -0.725098 -0.73193 -0.738709
+-0.745466 -0.752236 -0.759058 -0.765973 -0.773031 -0.780291 -0.787821
+-0.795709 -0.80406 -0.813014 -0.822755 -0.833533 -0.845698 -0.859769
+-0.876543 -0.89735 -0.924601 -0.963147 -1.0089 -0.951107 -0.874065
+-0.789478 -0.679517 -0.499334 0.0143112 0.153414 -0.344309 -0.485461
+-0.557079 -0.601668 -0.632654 -0.655748 -0.673818 -0.688479 -0.700713
+-0.711151 -0.720222 -0.728223 -0.735374 -0.741835 -0.747727 -0.753145
+-0.758164 -0.762843 -0.767231 -0.771368 -0.775285 -0.779012 -0.78257
+-0.785982 -0.789263 -0.79243 -0.795497 -0.798475 -0.801377 -0.804215
+-0.807013 -0.810467 -0.812304 -0.814983 -0.817616 -0.820228 -0.822831
+-0.825435 -0.82805 -0.830685 -0.833354 -0.836069 -0.838845 -0.841699
+-0.844655 -0.847734 -0.850968 -0.854395 -0.858064 -0.862036 -0.866394
+-0.871248 -0.876753 -0.883131 -0.890714 -0.900025 -0.911948 -0.928124
+-0.952108 -0.994376 -1.02441 -0.914258 -0.783254 -0.461251 -0.313488
+-0.611705 -0.691524 -0.73077 -0.754665 -0.770993 -0.783005 -0.792311
+-0.799805 -0.806023 -0.811306 -0.815884 -0.819917 -0.823519 -0.826774
+-0.829746 -0.832483 -0.835025 -0.8374 -0.839635 -0.841748 -0.843757
+-0.845675 -0.847516 -0.849286 -0.850997 -0.852655 -0.854266 -0.855839
+-0.857376 -0.85888 -0.860344 -0.859205 -0.863346 -0.864768 -0.866195
+-0.867623 -0.869055 -0.870494 -0.871945 -0.873414 -0.874907 -0.87643
+-0.877993 -0.879605 -0.881276 -0.883021 -0.884855 -0.8868 -0.88888
+-0.89113 -0.893592 -0.896323 -0.899405 -0.902945 -0.907111 -0.912145
+-0.918447 -0.9267 -0.938192 -0.955735 -0.987077 -1.02971 -0.91063 -0.668184
+-0.516857 -0.729589 -0.783615 -0.809519 -0.82503 -0.835503 -0.843138
+-0.849012 -0.853716 -0.857604 -0.860897 -0.863744 -0.866249 -0.868483
+-0.870502 -0.872344 -0.874042 -0.875619 -0.877094 -0.878483 -0.879799
+-0.881052 -0.882249 -0.883399 -0.884507 -0.885579 -0.886619 -0.887631
+-0.888616 -0.889574 -0.890497 -0.891335 -0.88634 -0.893651 -0.894461
+-0.895345 -0.896248 -0.897161 -0.898086 -0.899021 -0.899971 -0.900939
+-0.901929 -0.902947 -0.903998 -0.905089 -0.906229 -0.907428 -0.908701
+-0.910061 -0.911532 -0.91314 -0.914919 -0.916923 -0.919217 -0.921901
+-0.925122 -0.929119 -0.934279 -0.941317 -0.951675 -0.968825 -1.00347
+-0.985893 -0.784774 -0.63074 -0.796197 -0.83616 -0.854912 -0.865988
+-0.873396 -0.878758 -0.882862 -0.886136 -0.888833 -0.891111 -0.893077
+-0.894804 -0.896342 -0.897732 -0.899 -0.900167 -0.901252 -0.902266
+-0.903222 -0.904128 -0.904989 -0.905813 -0.906604 -0.907366 -0.908103
+-0.908817 -0.909507 -0.910175 -0.910812 -0.9114 -0.911818 -0.903176
+-0.914143 -0.914523 -0.915083 -0.915686 -0.916311 -0.916949 -0.9176
+-0.918263 -0.918941 -0.919637 -0.920353 -0.921094 -0.921864 -0.92267
+-0.923518 -0.924417 -0.92538 -0.926421 -0.927557 -0.928813 -0.930226
+-0.93184 -0.933723 -0.935975 -0.938752 -0.942314 -0.947117 -0.954062
+-0.965209 -0.986439 -1.02207 -0.860245 -0.703551 -0.839067 -0.870219
+-0.884552 -0.89292 -0.898471 -0.902466 -0.905511 -0.907931 -0.909918
+-0.911594 -0.913038 -0.914304 -0.915431 -0.916447 -0.917374 -0.918227
+-0.919019 -0.919759 -0.920456 -0.921115 -0.921743 -0.922342 -0.922916
+-0.923468 -0.924 -0.92451 -0.925 -0.925466 -0.925893 -0.926239 -0.926303
+-0.914105 -0.929088 -0.929079 -0.929399 -0.9298 -0.930234 -0.930689
+-0.931159 -0.931641 -0.932137 -0.932648 -0.933175 -0.933721 -0.93429
+-0.934887 -0.935514 -0.936182 -0.936895 -0.937667 -0.93851 -0.939442
+-0.940488 -0.941682 -0.943073 -0.944732 -0.946772 -0.949375 -0.95286
+-0.957848 -0.965712 -0.980204 -1.01342 -0.913514 -0.754088 -0.868942
+-0.89406 -0.905408 -0.911963 -0.91628 -0.919372 -0.921718 -0.923577
+-0.9251 -0.926382 -0.927484 -0.928449 -0.929306 -0.930079 -0.930783
+-0.931429 -0.932028 -0.932589 -0.933115 -0.933612 -0.934084 -0.934532
+-0.934961 -0.935371 -0.935763 -0.936134 -0.936483 -0.936801 -0.937067
+-0.937215 -0.93693 -0.921243 -0.940551 -0.94013 -0.940243 -0.940485
+-0.940779 -0.941102 -0.941443 -0.941798 -0.942168 -0.942551 -0.942948
+-0.943363 -0.943794 -0.944247 -0.944725 -0.945234 -0.945779 -0.946368
+-0.947013 -0.947725 -0.948526 -0.949438 -0.9505 -0.951763 -0.953316
+-0.955288 -0.957918 -0.961655 -0.967479 -0.977988 -1.00226 -0.953088
+-0.791168 -0.890881 -0.911603 -0.920801 -0.926062 -0.929505 -0.931958
+-0.933812 -0.935278 -0.936475 -0.937481 -0.938343 -0.939097 -0.939766
+-0.940368 -0.940914 -0.941415 -0.941879 -0.942312 -0.942717 -0.943098
+-0.943458 -0.943799 -0.944123;
+#X coords 0 1 512 -1 100 100 1;
+#X restore 233 246 graph;
+#N canvas 306 488 450 300 spect1 0;
+#N canvas 805 505 371 273 fft 0;
+#X obj 46 44 inlet~;
+#X obj 46 74 rfft~;
+#X obj 46 107 *~;
+#X obj 77 107 *~;
+#X obj 46 137 sqrt~;
+#X obj 183 191 block~ 2048 1;
+#X obj 118 89 inlet;
+#X obj 45 253 tabwrite~ f1;
+#X obj 46 161 sqrt~;
+#X obj 46 182 *~ 0.6;
+#X obj 46 226 min~ 1;
+#X obj 46 205 -~ 1.1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 1 1 3 0;
+#X connect 1 1 3 1;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 9 0 11 0;
+#X connect 10 0 7 0;
+#X connect 11 0 10 0;
+#X restore 120 208 pd fft;
+#X obj 119 126 inlet~;
+#X msg 157 61 1;
+#X obj 157 106 f 0;
+#X obj 187 106 + 1;
+#X msg 188 61 0;
+#X obj 156 36 t b b;
+#X msg 125 61 0;
+#X obj 156 16 loadbang;
+#X obj 167 135 t b;
+#X obj 120 157 hip~ 50;
+#X obj 157 82 metro 100;
+#X obj 120 183 *~ 0.05;
+#X connect 1 0 10 0;
+#X connect 2 0 11 0;
+#X connect 3 0 4 0;
+#X connect 3 0 9 0;
+#X connect 4 0 3 1;
+#X connect 5 0 11 0;
+#X connect 6 0 2 0;
+#X connect 6 1 7 0;
+#X connect 7 0 3 0;
+#X connect 8 0 6 0;
+#X connect 9 0 0 1;
+#X connect 10 0 12 0;
+#X connect 11 0 3 0;
+#X connect 12 0 0 0;
+#X restore 86 329 pd spect1;
+#X obj 380 215 min~ 1;
+#X obj 380 191 *~ 2;
+#X obj 362 243 -~;
+#X obj 362 266 *~ 4;
+#X obj 362 290 +~ 1;
+#X obj 19 91 sig~ 1;
+#X obj 19 118 -~;
+#X obj 130 71 -~ 1;
+#X obj 1 196 sig~ 1;
+#X obj 1 222 -~;
+#X obj 1 293 -~ 3;
+#X obj 74 0 phasor~ 700;
+#X obj 362 162 phasor~ 700;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array f2 512 float 3;
+#A 0 -0.932425 -0.928114 -0.916744 -0.901293 -0.884009 -0.866074 -0.848001
+-0.829967 -0.811993 -0.794022 -0.775963 -0.757704 -0.739119 -0.720067
+-0.700394 -0.679925 -0.658461 -0.635767 -0.611564 -0.585508 -0.557173
+-0.526012 -0.491308 -0.452096 -0.407032 -0.354173 -0.290576 -0.211516
+-0.108783 0.0335197 0.25174 0.65699 1 1 0.704221 0.305001 0.0941306
+-0.0410448 -0.137017 -0.209642 -0.267059 -0.313928 -0.353136 -0.386576
+-0.415549 -0.440982 -0.463553 -0.483776 -0.502044 -0.518664 -0.533883
+-0.547899 -0.560872 -0.572938 -0.584208 -0.594777 -0.604724 -0.61412
+-0.623023 -0.631486 -0.639555 -0.64727 -0.654667 -0.661779 -0.668634
+-0.674563 -0.681713 -0.68796 -0.694056 -0.700018 -0.705869 -0.711631
+-0.717324 -0.722972 -0.7286 -0.734233 -0.7399 -0.745634 -0.751473 -0.757463
+-0.763656 -0.770119 -0.776936 -0.784214 -0.792095 -0.800772 -0.810516
+-0.821718 -0.83498 -0.851269 -0.872289 -0.901421 -0.946886 -1.01705
+-0.910452 -0.789209 -0.614654 -0.151424 0.00440872 -0.41756 -0.534653
+-0.593238 -0.629376 -0.654342 -0.672884 -0.687371 -0.699125 -0.708943
+-0.717336 -0.724648 -0.731119 -0.736921 -0.742181 -0.746996 -0.75144
+-0.755573 -0.759439 -0.763078 -0.766519 -0.769789 -0.772908 -0.775894
+-0.778764 -0.78153 -0.784204 -0.786797 -0.789316 -0.791771 -0.794165
+-0.796494 -0.796848 -0.80118 -0.803399 -0.805611 -0.80781 -0.809999
+-0.812183 -0.814369 -0.816565 -0.818777 -0.821016 -0.82329 -0.825613
+-0.827997 -0.83046 -0.833021 -0.835706 -0.838545 -0.841579 -0.844859
+-0.848455 -0.852461 -0.857012 -0.862301 -0.868626 -0.87646 -0.886619
+-0.900637 -0.92184 -0.959252 -1.01284 -0.870405 -0.569618 -0.405616
+-0.653491 -0.717842 -0.748941 -0.767683 -0.780416 -0.78976 -0.796998
+-0.802834 -0.807689 -0.81183 -0.815433 -0.818622 -0.821484 -0.824084
+-0.826469 -0.828678 -0.830739 -0.832674 -0.834503 -0.83624 -0.837898
+-0.839487 -0.841016 -0.842492 -0.843921 -0.845309 -0.84666 -0.847979
+-0.849266 -0.850519 -0.85171 -0.849413 -0.854448 -0.855592 -0.856776
+-0.857969 -0.859165 -0.860367 -0.861575 -0.862794 -0.864028 -0.865282
+-0.866561 -0.867871 -0.869221 -0.870618 -0.872075 -0.873605 -0.875225
+-0.876957 -0.878831 -0.880882 -0.883164 -0.885746 -0.888734 -0.892281
+-0.896629 -0.902183 -0.909672 -0.920564 -0.93835 -0.973911 -0.988647
+-0.750498 -0.582513 -0.757009 -0.799748 -0.819869 -0.831799 -0.839815
+-0.845649 -0.850143 -0.853751 -0.856743 -0.85929 -0.861504 -0.863462
+-0.86522 -0.866816 -0.868283 -0.869641 -0.870911 -0.872105 -0.873235
+-0.87431 -0.875338 -0.876325 -0.877275 -0.878195 -0.879087 -0.879954
+-0.880798 -0.88162 -0.882419 -0.883182 -0.883847 -0.879297 -0.885985
+-0.886611 -0.887338 -0.888088 -0.888849 -0.889618 -0.890395 -0.891182
+-0.891982 -0.892795 -0.893627 -0.894482 -0.895363 -0.896278 -0.897232
+-0.898236 -0.899299 -0.900437 -0.901667 -0.903014 -0.90451 -0.906202
+-0.908153 -0.910462 -0.913279 -0.916852 -0.92162 -0.928444 -0.939275
+-0.959694 -1.0101 -0.852836 -0.681267 -0.815549 -0.846704 -0.861059
+-0.869462 -0.87506 -0.879111 -0.882216 -0.884702 -0.886759 -0.888507
+-0.890025 -0.891365 -0.892568 -0.893661 -0.894664 -0.895594 -0.896463
+-0.897281 -0.898055 -0.898792 -0.899497 -0.900174 -0.900827 -0.901458
+-0.902069 -0.902662 -0.903238 -0.903794 -0.904325 -0.904808 -0.905136
+-0.898377 -0.907229 -0.907503 -0.907959 -0.908459 -0.908978 -0.909509
+-0.910049 -0.910598 -0.911158 -0.91173 -0.912316 -0.912918 -0.91354
+-0.914187 -0.914863 -0.915574 -0.916328 -0.917135 -0.918008 -0.918963
+-0.920025 -0.921223 -0.922603 -0.924233 -0.926216 -0.92872 -0.932042
+-0.936753 -0.944114 -0.957586 -0.990764 -0.919592 -0.744328 -0.853295
+-0.877288 -0.888134 -0.894417 -0.898573 -0.901565 -0.903851 -0.905676
+-0.907183 -0.908461 -0.909569 -0.910548 -0.911425 -0.912221 -0.912952
+-0.913629 -0.914262 -0.914856 -0.91542 -0.915956 -0.916468 -0.91696
+-0.917432 -0.917889 -0.918329 -0.918755 -0.919163 -0.919551 -0.919907
+-0.920197 -0.92025 -0.911253 -0.922647 -0.922608 -0.92287 -0.923203
+-0.923565 -0.923943 -0.924333 -0.924733 -0.925142 -0.925562 -0.925993
+-0.926438 -0.926898 -0.927377 -0.927878 -0.928406 -0.928966 -0.929566
+-0.930216 -0.930926 -0.931715 -0.932606 -0.933632 -0.934841 -0.936309
+-0.938159 -0.940602 -0.944044 -0.949372 -0.958941 -0.981692 -0.96643
+-0.788061 -0.879635 -0.89878 -0.907285 -0.912165 -0.915374 -0.917674
+-0.919426 -0.92082 -0.921969 -0.922943 -0.923785 -0.924528 -0.925193
+-0.925797 -0.926349 -0.926862 -0.92734 -0.927789 -0.928214 -0.928617
+-0.929002 -0.92937 -0.929723 -0.930062 -0.930387 -0.930697 -0.93099
+-0.931258 -0.931484 -0.931617 -0.931409 -0.920133 -0.934391 -0.93403
+-0.934127 -0.93433 -0.934577 -0.934847 -0.935131 -0.935427 -0.935732
+-0.936048 -0.936373 -0.936709 -0.93706 -0.937424 -0.937806 -0.938209
+-0.938638 -0.939097 -0.939595 -0.940139 -0.940745 -0.941427 -0.942213
+-0.94314 -0.944262 -0.945675 -0.947536 -0.950147 -0.954158 -0.96127
+-0.97773 -0.997724 -0.820116 -0.898985 -0.914631 -0.92147 -0.925359
+-0.927903 -0.929719 -0.931097 -0.932191 -0.933091 -0.933852 -0.934509
+-0.935088 -0.935605 -0.936073 -0.936502 -0.936899 -0.937268 -0.937614
+-0.937941 -0.93825 -0.938544 -0.938824 -0.939091;
+#X coords 0 1 512 -1 100 100 1;
+#X restore 519 246 graph;
+#X obj 1 329 tabsend~ a1;
+#X obj 362 329 tabsend~ b1;
+#N canvas 306 488 450 300 spect2 0;
+#N canvas 805 505 371 273 fft 0;
+#X obj 46 44 inlet~;
+#X obj 46 74 rfft~;
+#X obj 46 107 *~;
+#X obj 77 107 *~;
+#X obj 46 137 sqrt~;
+#X obj 183 191 block~ 2048 1;
+#X obj 118 89 inlet;
+#X obj 46 161 sqrt~;
+#X obj 46 182 *~ 0.6;
+#X obj 46 226 min~ 1;
+#X obj 46 205 -~ 1.1;
+#X obj 45 253 tabwrite~ f2;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 1 1 3 0;
+#X connect 1 1 3 1;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 6 0 11 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X restore 120 208 pd fft;
+#X obj 119 126 inlet~;
+#X msg 157 61 1;
+#X obj 157 106 f 0;
+#X obj 187 106 + 1;
+#X msg 188 61 0;
+#X obj 156 36 t b b;
+#X msg 125 61 0;
+#X obj 156 16 loadbang;
+#X obj 167 135 t b;
+#X obj 120 157 hip~ 50;
+#X obj 157 82 metro 100;
+#X obj 120 183 *~ 0.05;
+#X connect 1 0 10 0;
+#X connect 2 0 11 0;
+#X connect 3 0 4 0;
+#X connect 3 0 9 0;
+#X connect 4 0 3 1;
+#X connect 5 0 11 0;
+#X connect 6 0 2 0;
+#X connect 6 1 7 0;
+#X connect 7 0 3 0;
+#X connect 8 0 6 0;
+#X connect 9 0 0 1;
+#X connect 10 0 12 0;
+#X connect 11 0 3 0;
+#X connect 12 0 0 0;
+#X restore 445 329 pd spect2;
+#X connect 1 0 11 1;
+#X connect 2 0 1 1;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 21 1;
+#X connect 6 0 22 0;
+#X connect 7 0 24 1;
+#X connect 8 0 7 1;
+#X connect 10 0 25 0;
+#X connect 11 0 10 0;
+#X connect 12 0 5 0;
+#X connect 12 0 6 0;
+#X connect 15 0 17 1;
+#X connect 16 0 15 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 30 0;
+#X connect 19 0 31 0;
+#X connect 20 0 21 0;
+#X connect 21 0 7 0;
+#X connect 22 0 4 1;
+#X connect 23 0 24 0;
+#X connect 24 0 11 0;
+#X connect 25 0 29 0;
+#X connect 25 0 14 0;
+#X connect 26 0 12 0;
+#X connect 27 0 16 0;
+#X connect 27 0 17 0;
+</pre>
+<p>Download <a href="p05/triangle_logosc_compare.pd">triangle_logosc_compare.pd</a>.</p>
+
+<h2>Audio</h2>
+<h3>Police siren</h3>
+<p>Download <a href="p05/police.wav">police.wav</a>.</p>
+
+
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

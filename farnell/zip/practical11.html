@@ -1,0 +1,914 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound -  Practical 11: Fire
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Practical 11: Fire</h2>
+
+ <h2>Pure Data</h2>
+
+<h3>Fire - cracking, attempt 1</h3>
+<pre>
+#N canvas 209 480 62 135 10;
+#X obj 0 88 *~;
+#X msg 0 0 bang;
+#X obj 0 116 dac~;
+#X obj 16 64 noise~;
+#X obj 0 43 line~;
+#X msg 0 22 1 \, 0 20;
+#X connect 0 0 2 0;
+#X connect 0 0 2 1;
+#X connect 1 0 5 0;
+#X connect 3 0 0 1;
+#X connect 4 0 0 0;
+#X connect 5 0 4 0;
+</pre>
+<p>Download <a href="p11/fire_crackling1.pd">fire_crackling1.pd</a>.</p>
+
+<h3>Fire - cracking, attempt 2</h3>
+<pre>
+#N canvas 303 372 120 265 10;
+#X obj 0 219 *~;
+#X obj 9 50 env~;
+#X obj 9 26 lop~ 1;
+#X msg 60 116 bang;
+#X obj 9 73 moses 50;
+#X obj 60 94 moses 51;
+#X obj 0 246 dac~;
+#X obj 0 0 noise~;
+#X obj 60 158 line~;
+#X obj 60 186 *~;
+#X msg 60 137 1 \, 0 20;
+#X connect 0 0 6 0;
+#X connect 0 0 6 1;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 10 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 0;
+#X connect 7 0 2 0;
+#X connect 7 0 0 0;
+#X connect 8 0 9 0;
+#X connect 8 0 9 1;
+#X connect 9 0 0 1;
+#X connect 10 0 8 0;
+</pre>
+<p>Download <a href="p11/fire_crackling2.pd">fire_crackling2.pd</a>.</p>
+
+<h3>Fire - cracking, attempt 3</h3>
+<pre>
+#N canvas 119 343 171 347 10;
+#X obj 0 303 *~;
+#X obj 53 52 env~;
+#X obj 53 28 lop~ 1;
+#X msg 104 118 bang;
+#X obj 53 75 moses 50;
+#X obj 104 96 moses 51;
+#X obj 104 141 random 30;
+#X obj 0 328 dac~;
+#X obj 41 0 noise~;
+#X obj 0 224 line~;
+#X msg 0 203 1 \, 0 \$1;
+#X obj 0 251 *~;
+#X obj 73 223 + 1500;
+#X obj 73 201 * 500;
+#X obj 0 278 *~;
+#X obj 104 163 t f f;
+#X obj 41 247 bp~ 2000 1;
+#X connect 0 0 7 0;
+#X connect 0 0 7 1;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 15 0;
+#X connect 8 0 2 0;
+#X connect 8 0 16 0;
+#X connect 9 0 11 0;
+#X connect 9 0 11 1;
+#X connect 10 0 9 0;
+#X connect 11 0 14 0;
+#X connect 11 0 14 1;
+#X connect 12 0 16 1;
+#X connect 13 0 12 0;
+#X connect 14 0 0 0;
+#X connect 15 0 10 0;
+#X connect 15 1 13 0;
+#X connect 16 0 0 1;
+</pre>
+<p>Download <a href="p11/fire_crackling3.pd">fire_crackling3.pd</a>.</p>
+
+<h3>Fire - hissing, attempt 1</h3>
+<pre>
+#N canvas 62 455 60 110 10;
+#X obj 0 63 *~;
+#X obj 15 21 noise~;
+#X obj 0 92 dac~;
+#X obj 0 0 noise~;
+#X obj 15 42 lop~ 1;
+#X connect 0 0 2 0;
+#X connect 0 0 2 1;
+#X connect 1 0 4 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;
+</pre>
+<p>Download <a href="p11/fire_hissing1.pd">fire_hissing1.pd</a>.</p>
+
+<h3>Fire - hissing, attempt 2</h3>
+<pre>
+#N canvas 62 455 62 157 10;
+#X obj 0 112 *~;
+#X obj 15 21 noise~;
+#X obj -1 139 dac~;
+#X obj 0 0 noise~;
+#X obj 15 42 lop~ 1;
+#X obj 16 67 *~;
+#X obj 16 89 *~ 300;
+#X connect 0 0 2 0;
+#X connect 0 0 2 1;
+#X connect 1 0 4 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 5 0 6 0;
+#X connect 6 0 0 1;
+</pre>
+<p>Download <a href="p11/fire_hissing2.pd">fire_hissing2.pd</a>.</p>
+
+<h3>Fire - hissing, attempt 3</h3>
+<pre>
+#N canvas 62 455 121 199 10;
+#X obj 58 152 *~;
+#X obj 57 179 dac~;
+#X obj 45 -1 noise~;
+#X obj 75 29 lop~ 1;
+#X obj 75 79 *~;
+#X obj 0 30 hip~ 1000;
+#X obj 75 105 *~;
+#X obj 75 52 *~ 10;
+#X obj 75 128 *~ 600;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 2 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 7 0;
+#X connect 4 0 6 0;
+#X connect 4 0 6 1;
+#X connect 5 0 0 0;
+#X connect 6 0 8 0;
+#X connect 7 0 4 0;
+#X connect 7 0 4 1;
+#X connect 8 0 0 1;
+</pre>
+<p>Download <a href="p11/fire_hissing3.pd">fire_hissing3.pd</a>.</p>
+
+<h3>Fire - lapping, attempt 1</h3>
+<pre>
+#N canvas 106 490 52 65 10;
+#X obj 0 47 dac~;
+#X obj 0 0 noise~;
+#X obj 0 22 lop~ 30;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+</pre>
+<p>Download <a href="p11/fire_lapping1.pd">fire_lapping1.pd</a>.</p>
+
+<h3>Fire - lapping, attempt 2</h3>
+<pre>
+#N canvas 85 413 59 88 10;
+#X obj 0 21 bp~ 30 5;
+#X obj 0 70 dac~;
+#X obj 0 0 noise~;
+#X obj 0 44 *~ 10;
+#X connect 0 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 3 0 1 1;
+</pre>
+<p>Download <a href="p11/fire_lapping2.pd">fire_lapping2.pd</a>.</p>
+
+<h3>Fire - lapping, attempt 3</h3>
+<pre>
+#N canvas 17 288 102 168 10;
+#X obj 0 84 clip~ -0.9 0.9;
+#X obj 0 105 hip~ 25;
+#X obj 0 63 hip~ 25;
+#X obj 0 21 bp~ 30 5;
+#X obj 0 42 *~ 100;
+#X obj 0 126 *~ 0.6;
+#X obj 0 150 dac~;
+#X obj 0 0 noise~;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+#X connect 7 0 3 0;
+</pre>
+<p>Download <a href="p11/fire_lapping3.pd">fire_lapping3.pd</a>.</p>
+
+<h3>Fire - Generator as abstraction</h3>
+<pre>
+#N canvas 0 0 241 119 10;
+#N canvas 0 0 242 473 crackles 0;
+#X obj 64 394 *~;
+#X obj 77 104 env~;
+#X obj 77 80 lop~ 1;
+#X msg 128 170 bang;
+#X obj 77 127 moses 50;
+#X obj 128 148 moses 51;
+#X obj 128 193 random 30;
+#X obj 128 237 line~;
+#X msg 128 216 1 \, 0 \$1;
+#X obj 128 265 *~;
+#X obj 96 325 + 1500;
+#X obj 64 349 bp~ 4000 1;
+#X obj 95 303 * 500;
+#X obj 64 419 outlet~;
+#X obj 63 52 inlet~;
+#X connect 0 0 13 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 8 0;
+#X connect 6 0 12 0;
+#X connect 7 0 9 0;
+#X connect 7 0 9 1;
+#X connect 8 0 7 0;
+#X connect 9 0 0 1;
+#X connect 10 0 11 1;
+#X connect 11 0 0 0;
+#X connect 12 0 10 0;
+#X connect 14 0 2 0;
+#X connect 14 0 11 0;
+#X restore 0 40 pd crackles;
+#N canvas 0 0 450 300 hissing 0;
+#X obj 106 188 *~;
+#X obj 141 57 lop~ 1;
+#X obj 142 107 *~;
+#X obj 66 58 hip~ 1000;
+#X obj 141 133 *~;
+#X obj 142 80 *~ 10;
+#X obj 141 157 *~ 600;
+#X obj 105 222 outlet~;
+#X obj 111 27 inlet~;
+#X connect 0 0 7 0;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 2 0 4 1;
+#X connect 3 0 0 0;
+#X connect 4 0 6 0;
+#X connect 5 0 2 0;
+#X connect 5 0 2 1;
+#X connect 6 0 0 1;
+#X connect 8 0 1 0;
+#X connect 8 0 3 0;
+#X restore 84 40 pd hissing;
+#N canvas 0 0 170 271 lapping 0;
+#X obj 21 109 clip~ -0.9 0.9;
+#X obj 21 129 hip~ 25;
+#X obj 21 86 hip~ 25;
+#X obj 21 40 bp~ 30 5;
+#X obj 21 65 *~ 100;
+#X obj 21 153 *~ 0.6;
+#X obj 20 177 outlet~;
+#X obj 21 12 inlet~;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 7 0 3 0;
+#X restore 168 40 pd lapping;
+#X obj 83 0 noise~;
+#X obj 86 101 outlet~;
+#X obj 0 66 *~ 0.2;
+#X obj 168 66 *~ 0.6;
+#X obj 85 66 *~ 0.3;
+#X connect 0 0 5 0;
+#X connect 1 0 7 0;
+#X connect 2 0 6 0;
+#X connect 3 0 0 0;
+#X connect 3 0 1 0;
+#X connect 3 0 2 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+</pre>
+<p>Download <a href="p11/fire_generator.pd">fire_generator.pd</a>.</p>
+
+<h3>Fire - complete fire scene</h3>
+<pre>
+#N canvas 37 416 358 107 10;
+#X obj 282 22 hip~ 1000;
+#X obj 87 22 bp~ 1200 0.6;
+#X obj 180 22 bp~ 2600 0.4;
+#X obj 0 22 bp~ 600 0.2;
+#X obj 134 83 dac~;
+#N canvas 27 401 450 300 firegen 0;
+#N canvas 0 0 242 473 crackles 0;
+#X obj 64 394 *~;
+#X obj 77 104 env~;
+#X obj 77 80 lop~ 1;
+#X msg 128 170 bang;
+#X obj 77 127 moses 50;
+#X obj 128 148 moses 51;
+#X obj 128 193 random 30;
+#X obj 128 237 line~;
+#X msg 128 216 1 \, 0 \$1;
+#X obj 128 265 *~;
+#X obj 96 325 + 1500;
+#X obj 64 349 bp~ 4000 1;
+#X obj 95 303 * 500;
+#X obj 64 419 outlet~;
+#X obj 63 52 inlet~;
+#X connect 0 0 13 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 8 0;
+#X connect 6 0 12 0;
+#X connect 7 0 9 0;
+#X connect 7 0 9 1;
+#X connect 8 0 7 0;
+#X connect 9 0 0 1;
+#X connect 10 0 11 1;
+#X connect 11 0 0 0;
+#X connect 12 0 10 0;
+#X connect 14 0 2 0;
+#X connect 14 0 11 0;
+#X restore 57 96 pd crackles;
+#N canvas 0 0 450 300 hissing 0;
+#X obj 106 188 *~;
+#X obj 141 57 lop~ 1;
+#X obj 142 107 *~;
+#X obj 66 58 hip~ 1000;
+#X obj 141 133 *~;
+#X obj 142 80 *~ 10;
+#X obj 141 157 *~ 600;
+#X obj 105 222 outlet~;
+#X obj 111 27 inlet~;
+#X connect 0 0 7 0;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 2 0 4 1;
+#X connect 3 0 0 0;
+#X connect 4 0 6 0;
+#X connect 5 0 2 0;
+#X connect 5 0 2 1;
+#X connect 6 0 0 1;
+#X connect 8 0 1 0;
+#X connect 8 0 3 0;
+#X restore 149 96 pd hissing;
+#N canvas 0 0 170 271 lapping 0;
+#X obj 21 109 clip~ -0.9 0.9;
+#X obj 21 129 hip~ 25;
+#X obj 21 86 hip~ 25;
+#X obj 21 40 bp~ 30 5;
+#X obj 21 65 *~ 100;
+#X obj 21 153 *~ 0.6;
+#X obj 20 177 outlet~;
+#X obj 21 12 inlet~;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 7 0 3 0;
+#X restore 246 97 pd lapping;
+#X obj 148 61 noise~;
+#X text 203 60 factor common noise;
+#X text 305 129 mix levels;
+#X obj 151 154 outlet~;
+#X obj 57 123 *~ 0.2;
+#X obj 246 123 *~ 0.6;
+#X obj 150 122 *~ 0.3;
+#X text 144 30 fire generator;
+#X connect 0 0 7 0;
+#X connect 1 0 9 0;
+#X connect 2 0 8 0;
+#X connect 3 0 0 0;
+#X connect 3 0 1 0;
+#X connect 3 0 2 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 0;
+#X restore 87 -3 pd firegen;
+#N canvas 27 401 424 180 firegen 0;
+#N canvas 0 0 242 473 crackles 0;
+#X obj 64 394 *~;
+#X obj 77 104 env~;
+#X obj 77 80 lop~ 1;
+#X msg 128 170 bang;
+#X obj 77 127 moses 50;
+#X obj 128 148 moses 51;
+#X obj 128 193 random 30;
+#X obj 128 237 line~;
+#X msg 128 216 1 \, 0 \$1;
+#X obj 128 265 *~;
+#X obj 96 325 + 1500;
+#X obj 64 349 bp~ 4000 1;
+#X obj 95 303 * 500;
+#X obj 64 419 outlet~;
+#X obj 63 52 inlet~;
+#X connect 0 0 13 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 8 0;
+#X connect 6 0 12 0;
+#X connect 7 0 9 0;
+#X connect 7 0 9 1;
+#X connect 8 0 7 0;
+#X connect 9 0 0 1;
+#X connect 10 0 11 1;
+#X connect 11 0 0 0;
+#X connect 12 0 10 0;
+#X connect 14 0 2 0;
+#X connect 14 0 11 0;
+#X restore 60 77 pd crackles;
+#N canvas 0 0 450 300 hissing 0;
+#X obj 106 188 *~;
+#X obj 141 57 lop~ 1;
+#X obj 142 107 *~;
+#X obj 66 58 hip~ 1000;
+#X obj 141 133 *~;
+#X obj 142 80 *~ 10;
+#X obj 141 157 *~ 600;
+#X obj 105 222 outlet~;
+#X obj 111 27 inlet~;
+#X connect 0 0 7 0;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 2 0 4 1;
+#X connect 3 0 0 0;
+#X connect 4 0 6 0;
+#X connect 5 0 2 0;
+#X connect 5 0 2 1;
+#X connect 6 0 0 1;
+#X connect 8 0 1 0;
+#X connect 8 0 3 0;
+#X restore 152 77 pd hissing;
+#N canvas 0 0 170 271 lapping 0;
+#X obj 21 109 clip~ -0.9 0.9;
+#X obj 21 129 hip~ 25;
+#X obj 21 86 hip~ 25;
+#X obj 21 40 bp~ 30 5;
+#X obj 21 65 *~ 100;
+#X obj 21 153 *~ 0.6;
+#X obj 20 177 outlet~;
+#X obj 21 12 inlet~;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 7 0 3 0;
+#X restore 249 78 pd lapping;
+#X obj 151 42 noise~;
+#X text 206 41 factor common noise;
+#X text 308 110 mix levels;
+#X obj 154 135 outlet~;
+#X obj 60 104 *~ 0.2;
+#X obj 249 104 *~ 0.6;
+#X obj 153 103 *~ 0.3;
+#X text 147 11 fire generator;
+#X connect 0 0 7 0;
+#X connect 1 0 9 0;
+#X connect 2 0 8 0;
+#X connect 3 0 0 0;
+#X connect 3 0 1 0;
+#X connect 3 0 2 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 0;
+#X restore 180 -3 pd firegen;
+#N canvas 27 401 450 300 firegen 0;
+#N canvas 0 0 242 473 crackles 0;
+#X obj 64 394 *~;
+#X obj 77 104 env~;
+#X obj 77 80 lop~ 1;
+#X msg 128 170 bang;
+#X obj 77 127 moses 50;
+#X obj 128 148 moses 51;
+#X obj 128 193 random 30;
+#X obj 128 237 line~;
+#X msg 128 216 1 \, 0 \$1;
+#X obj 128 265 *~;
+#X obj 96 325 + 1500;
+#X obj 64 349 bp~ 4000 1;
+#X obj 95 303 * 500;
+#X obj 64 419 outlet~;
+#X obj 63 52 inlet~;
+#X connect 0 0 13 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 8 0;
+#X connect 6 0 12 0;
+#X connect 7 0 9 0;
+#X connect 7 0 9 1;
+#X connect 8 0 7 0;
+#X connect 9 0 0 1;
+#X connect 10 0 11 1;
+#X connect 11 0 0 0;
+#X connect 12 0 10 0;
+#X connect 14 0 2 0;
+#X connect 14 0 11 0;
+#X restore 57 96 pd crackles;
+#N canvas 0 0 450 300 hissing 0;
+#X obj 106 188 *~;
+#X obj 141 57 lop~ 1;
+#X obj 142 107 *~;
+#X obj 66 58 hip~ 1000;
+#X obj 141 133 *~;
+#X obj 142 80 *~ 10;
+#X obj 141 157 *~ 600;
+#X obj 105 222 outlet~;
+#X obj 111 27 inlet~;
+#X connect 0 0 7 0;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 2 0 4 1;
+#X connect 3 0 0 0;
+#X connect 4 0 6 0;
+#X connect 5 0 2 0;
+#X connect 5 0 2 1;
+#X connect 6 0 0 1;
+#X connect 8 0 1 0;
+#X connect 8 0 3 0;
+#X restore 149 96 pd hissing;
+#N canvas 0 0 170 271 lapping 0;
+#X obj 21 109 clip~ -0.9 0.9;
+#X obj 21 129 hip~ 25;
+#X obj 21 86 hip~ 25;
+#X obj 21 40 bp~ 30 5;
+#X obj 21 65 *~ 100;
+#X obj 21 153 *~ 0.6;
+#X obj 20 177 outlet~;
+#X obj 21 12 inlet~;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 7 0 3 0;
+#X restore 246 97 pd lapping;
+#X obj 148 61 noise~;
+#X text 203 60 factor common noise;
+#X text 305 129 mix levels;
+#X obj 151 154 outlet~;
+#X obj 57 123 *~ 0.2;
+#X obj 246 123 *~ 0.6;
+#X obj 150 122 *~ 0.3;
+#X text 144 30 fire generator;
+#X connect 0 0 7 0;
+#X connect 1 0 9 0;
+#X connect 2 0 8 0;
+#X connect 3 0 0 0;
+#X connect 3 0 1 0;
+#X connect 3 0 2 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 0;
+#X restore 282 -3 pd firegen;
+#N canvas 27 401 450 300 firegen 0;
+#N canvas 0 0 242 473 crackles 0;
+#X obj 64 394 *~;
+#X obj 77 104 env~;
+#X obj 77 80 lop~ 1;
+#X msg 128 170 bang;
+#X obj 77 127 moses 50;
+#X obj 128 148 moses 51;
+#X obj 128 193 random 30;
+#X obj 128 237 line~;
+#X msg 128 216 1 \, 0 \$1;
+#X obj 128 265 *~;
+#X obj 96 325 + 1500;
+#X obj 64 349 bp~ 4000 1;
+#X obj 95 303 * 500;
+#X obj 64 419 outlet~;
+#X obj 63 52 inlet~;
+#X connect 0 0 13 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 8 0;
+#X connect 6 0 12 0;
+#X connect 7 0 9 0;
+#X connect 7 0 9 1;
+#X connect 8 0 7 0;
+#X connect 9 0 0 1;
+#X connect 10 0 11 1;
+#X connect 11 0 0 0;
+#X connect 12 0 10 0;
+#X connect 14 0 2 0;
+#X connect 14 0 11 0;
+#X restore 57 96 pd crackles;
+#N canvas 0 0 450 300 hissing 0;
+#X obj 106 188 *~;
+#X obj 141 57 lop~ 1;
+#X obj 142 107 *~;
+#X obj 66 58 hip~ 1000;
+#X obj 141 133 *~;
+#X obj 142 80 *~ 10;
+#X obj 141 157 *~ 600;
+#X obj 105 222 outlet~;
+#X obj 111 27 inlet~;
+#X connect 0 0 7 0;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 2 0 4 1;
+#X connect 3 0 0 0;
+#X connect 4 0 6 0;
+#X connect 5 0 2 0;
+#X connect 5 0 2 1;
+#X connect 6 0 0 1;
+#X connect 8 0 1 0;
+#X connect 8 0 3 0;
+#X restore 149 96 pd hissing;
+#N canvas 0 0 170 271 lapping 0;
+#X obj 21 109 clip~ -0.9 0.9;
+#X obj 21 129 hip~ 25;
+#X obj 21 86 hip~ 25;
+#X obj 21 40 bp~ 30 5;
+#X obj 21 65 *~ 100;
+#X obj 21 153 *~ 0.6;
+#X obj 20 177 outlet~;
+#X obj 21 12 inlet~;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 7 0 3 0;
+#X restore 246 97 pd lapping;
+#X obj 148 61 noise~;
+#X text 203 60 factor common noise;
+#X text 305 129 mix levels;
+#X obj 151 154 outlet~;
+#X obj 57 123 *~ 0.2;
+#X obj 246 123 *~ 0.6;
+#X obj 150 122 *~ 0.3;
+#X text 144 30 fire generator;
+#X connect 0 0 7 0;
+#X connect 1 0 9 0;
+#X connect 2 0 8 0;
+#X connect 3 0 0 0;
+#X connect 3 0 1 0;
+#X connect 3 0 2 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 0;
+#X restore 0 -3 pd firegen;
+#X obj 134 58 *~ 0.2;
+#X connect 0 0 9 0;
+#X connect 1 0 9 0;
+#X connect 2 0 9 0;
+#X connect 3 0 9 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 0 0;
+#X connect 8 0 3 0;
+#X connect 9 0 4 0;
+#X connect 9 0 4 1;
+</pre>
+<p>Download <a href="p11/fire_all.pd">fire_all.pd</a>.</p>
+
+
+
+
+<h2>Audio</h2>
+<h3>Fire effects</h3>
+<p>The example consists of separate crackles, crackle clusters using a random trigger, crackles with random tone, roar/lapping made from low pass filtered noise, roar/lapping with band pass filters, roar/lapping with dynamically limited band-pass filtered noise, hissing using simple random modulator, hissing with expanded modulator, hissing with expanded modulator and high pass filtered noise, full ensemble fire texture, paper fire example mix, wood fire example mix, fierce fire example mix.</p>
+<p>Download <a href="p11/fire.wav">fire.wav</a>.</p>
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

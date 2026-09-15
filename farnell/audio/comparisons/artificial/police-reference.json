@@ -1,0 +1,25 @@
+{
+  "source": "farnell\\zip\\p05\\police.wav",
+  "sha256": "2ad943fe94df67536c7d5bce3d5e1442336c8fcf4ab7c6d2a8455a028c4512e8",
+  "interval_seconds": [
+    0,
+    10
+  ],
+  "fft": 16384,
+  "frequency_range_hz": [
+    200,
+    6000
+  ],
+  "active_threshold_db": -40,
+  "cases": {
+    "police": {
+      "fitted_psd_gain_db": 3.9734133856444513,
+      "median_shape_difference_db": 0.7796389001570305
+    },
+    "police-legacy": {
+      "fitted_psd_gain_db": 3.285931804583318,
+      "median_shape_difference_db": 4.725503600009755
+    }
+  },
+  "note": "Welch spectral comparison only; performance timing/phase differ. Fitted gain is analytical and is not applied to any delivered WAV. This does not establish the authoring PD version or prove post-processing."
+}

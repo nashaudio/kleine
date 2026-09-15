@@ -1,0 +1,36 @@
+{
+  "files": {
+    "farnell\\audio\\27-alarms\\alarm03-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.20000000298023224,
+      "rms": 0.14066498090848512,
+      "dc": 6.838309704200647e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\27-alarms\\alarm03-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.20000000298023224,
+      "rms": 0.14066498156992957,
+      "dc": 6.837639780635137e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 16384,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 0.9999999999999938,
+  "aligned_error_rms": 1.5621604972991765e-08,
+  "identical_samples": false,
+  "relative_error_db": -139.0892068018268,
+  "rms_difference_db": 4.084338000482083e-08,
+  "envelope_relative_error": 2.557291846658522e-08,
+  "active_spectrum_median_abs_db": 3.411266288901422e-06
+}

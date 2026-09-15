@@ -1,0 +1,36 @@
+{
+  "files": {
+    "farnell\\audio\\25-phone-tones\\busy-archive-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.20000000298023224,
+      "rms": 0.07071062136541442,
+      "dc": -3.566814494337124e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\25-phone-tones\\busy-archive-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.20000000298023224,
+      "rms": 0.07071062136541442,
+      "dc": -3.566814494337124e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 16384,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 1.0,
+  "aligned_error_rms": 0.0,
+  "identical_samples": true,
+  "relative_error_db": -240.0,
+  "rms_difference_db": 0.0,
+  "envelope_relative_error": 0.0,
+  "active_spectrum_median_abs_db": 0.0
+}

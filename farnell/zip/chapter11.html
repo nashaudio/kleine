@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound -  Chapter 11: Pure Data Audio Introduction
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Chapter 11: Pure Data Audio Introduction </h2>
+
+<h3>Table oscillator</h3>
+<img src="ch11/basics29.gif" alt="basics29" />
+<pre>
+#N canvas 52 186 422 174 10;
+#N canvas 0 0 450 300 graph1 0;
+#X array A 64 float 1;
+#A 0 -0.00422644 -0.00422644 0.0100593 0.0243451 0.0672024 0.11006
+0.138631 0.167203 0.21006 0.324346 0.424347 0.58149 0.638633 0.767205
+0.895777 0.938634 0.938634 0.85292 0.138632 -0.0899407 -0.204227 -0.26137
+-0.332799 -0.432799 -0.5328 -0.575657 -0.604228 -0.618514 -0.6328 -0.647086
+-0.661371 -0.675657 -0.675657 -0.689943 -0.689943 -0.689943 -0.675657
+-0.661371 -0.6328 -0.618514 -0.604228 -0.589943 -0.561371 -0.5328 -0.504228
+-0.461371 -0.447085 -0.404228 -0.36137 -0.304227 -0.26137 -0.204227
+-0.16137 -0.132798 -0.0899407 -0.0470834 -0.00422606 0.0100597 0.0243455
+0.0386313 0.052917 0.052917 0.052917 0.052917;
+#X coords 0 1 63 -1 120 120 1;
+#X restore 130 30 graph;
+#N canvas 0 0 450 300 graph2 0;
+#X array B 64 float 1;
+#A 0 0.052917 0.0243451 0.167203 0.58149 0.938634 -0.0899407 -0.432799
+-0.618514 -0.675657 -0.689943 -0.618514 -0.5328 -0.404228 -0.204227
+-0.0470834 0.0386313 0.052917 0.0243451 0.167203 0.58149 0.938634 -0.0899407
+-0.432799 -0.618514 -0.675657 -0.689943 -0.618514 -0.5328 -0.404228
+-0.204227 -0.0470834 0.0386313 0.052917 0.0243451 0.167203 0.58149
+0.938634 -0.0899407 -0.432799 -0.618514 -0.675657 -0.689943 -0.618514
+-0.5328 -0.404228 -0.204227 -0.0470834 0.0386313 0.052917 0.0243451
+0.167203 0.58149 0.938634 -0.0899407 -0.432799 -0.618514 -0.675657
+-0.689943 -0.618514 -0.5328 -0.404228 -0.204227 -0.0470834 0.0386313
+;
+#X coords 0 1 63 -1 120 120 1;
+#X restore 271 32 graph;
+#X obj 10 38 *~ 64;
+#X obj 10 61 tabread~ A;
+#X obj 23 91 tabsend~ B;
+#X obj 10 12 phasor~ 3000;
+#X obj 10 140 dac~;
+#X obj 10 114 *~ 0.1;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 7 0;
+#X connect 5 0 2 0;
+#X connect 7 0 6 0;
+#X connect 7 0 6 1;
+</pre>
+<p>Download <a href="ch11/basics29.pd">basics29.pd</a>.</p>
+
+<h3>Basic sample replay</h3>
+<img src="ch11/basics30.gif" alt="basics30" />
+<pre>
+#N canvas 131 141 717 350 10;
+#N canvas 0 0 450 300 graph1 0;
+#X array kit1-01 32768 float 0;
+#X coords 0 1.02 32767 -1.02 100 100 1;
+#X restore 4 87 graph;
+#X obj 250 236 loadbang;
+#X obj 250 308 soundfiler;
+#X obj 56 284 hip~ 5;
+#X obj 56 206 r phase;
+#X obj 56 236 vline~;
+#N canvas 0 0 450 300 graph1 0;
+#X array kit1-02 32768 float 0;
+#X coords 0 1.02 32767 -1.02 100 100 1;
+#X restore 185 88 graph;
+#N canvas 0 0 450 300 graph1 0;
+#X array kit1-03 32768 float 0;
+#X coords 0 1.02 32767 -1.02 100 100 1;
+#X restore 362 88 graph;
+#N canvas 0 0 450 300 graph1 0;
+#X array kit1-04 32768 float 0;
+#X coords 0 1.02 32767 -1.02 100 100 1;
+#X restore 540 87 graph;
+#X obj 7 206 r snum;
+#X obj 56 262 tabread4~;
+#X msg 3 2 \; snum set kit1-01 \; phase 1 \, 4.41e+08 1e+07 \;;
+#X msg 183 2 \; snum set kit1-02 \; phase 1 \, 4.41e+08 1e+07 \;;
+#X msg 362 2 \; snum set kit1-03 \; phase 1 \, 4.41e+08 1e+07 \;;
+#X msg 539 2 \; snum set kit1-04 \; phase 1 \, 4.41e+08 1e+07 \;;
+#X obj 56 329 dac~;
+#X obj 56 305 *~ 0.5;
+#X msg 250 259 read ./sounds/ttsnr.wav kit1-01 \, read ./sounds/jrsnr.wav
+kit1-02 \, read ./sounds/dlsnr.wav kit1-03 \, read ./sounds/ezsnr.wav
+kit1-04;
+#X connect 1 0 17 0;
+#X connect 3 0 16 0;
+#X connect 4 0 5 0;
+#X connect 5 0 10 0;
+#X connect 9 0 10 0;
+#X connect 10 0 3 0;
+#X connect 16 0 15 0;
+#X connect 16 0 15 1;
+#X connect 17 0 2 0;
+</pre>
+<p>Download <a href="ch11/basics30.pd">basics30.pd</a>.</p>
+
+<h3>Simple MIDI monosynth</h3>
+<img src="ch11/midi-monosynth.gif" alt="midi-monosynth" />
+<pre>
+#N canvas 1021 433 185 218 10;
+#X obj 3 2 notein;
+#X obj 3 31 stripnote;
+#X obj 3 53 mtof;
+#X obj 3 124 osc~;
+#X obj 38 124 vline~;
+#X obj 3 174 *~;
+#X obj 3 200 dac~;
+#X obj 85 124 / 127;
+#X obj 3 150 *~;
+#X obj 3 74 t f b;
+#X msg 38 100 0 \, 1 10 0 \, 0 100 20;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 1 0 2 0;
+#X connect 1 1 7 0;
+#X connect 2 0 9 0;
+#X connect 3 0 8 0;
+#X connect 4 0 8 1;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+#X connect 7 0 5 1;
+#X connect 8 0 5 0;
+#X connect 9 0 3 0;
+#X connect 9 1 10 0;
+#X connect 10 0 4 0;
+</pre>
+<p>Download <a href="ch11/basics1.pd">midi-monosynth.pd</a>.</p>
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

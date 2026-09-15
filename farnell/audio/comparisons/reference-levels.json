@@ -1,0 +1,223 @@
+{
+  "sample_rate": 48000,
+  "template_start_frame": 11968,
+  "template_frames": 4800,
+  "method": "Integer-sample cross-correlation then least-squares scalar gain; original left channel, no resampling.",
+  "local_pd_versus_klang": {
+    "pd_peak": 0.04739164933562279,
+    "klang_peak": 0.047391366213560104,
+    "pd_dc": 7.35747364472653e-13,
+    "klang_dc": -2.700495637727775e-12,
+    "pd_rms": 0.003956559144023836,
+    "klang_rms": 0.0039565502619693165,
+    "level_delta_db": -1.949892042661084e-05,
+    "error_rms": 1.8692050951065412e-07,
+    "relative_error_db": -86.51321411874135,
+    "max_abs_error": 1.679858542047441e-06,
+    "identical_samples": false
+  },
+  "pd_current_versus_legacy": {
+    "pd_peak": 0.04739164933562279,
+    "klang_peak": 0.04795494303107262,
+    "pd_dc": 7.35747364472653e-13,
+    "klang_dc": 1.7052245998702351e-12,
+    "pd_rms": 0.003956559144023836,
+    "klang_rms": 0.004003586735945671,
+    "level_delta_db": 0.10263159293681007,
+    "error_rms": 4.702759314485722e-05,
+    "relative_error_db": -38.499298196325086,
+    "max_abs_error": 0.0005632936954498291,
+    "identical_samples": false
+  },
+  "website_pulse_fits": [
+    {
+      "source_start_seconds": 7.900791666666667,
+      "frames": 4800,
+      "fitted_gain": 1.9729717302366843,
+      "fitted_gain_db": 5.90241724999901,
+      "residual_db": -54.46638397153181
+    },
+    {
+      "source_start_seconds": 8.000791666666666,
+      "frames": 4800,
+      "fitted_gain": 1.9729300734110151,
+      "fitted_gain_db": 5.902233856387891,
+      "residual_db": -54.25745728463855
+    },
+    {
+      "source_start_seconds": 8.100791666666666,
+      "frames": 4800,
+      "fitted_gain": 1.9729764501923392,
+      "fitted_gain_db": 5.902438029295666,
+      "residual_db": -54.28019501833959
+    },
+    {
+      "source_start_seconds": 8.200791666666667,
+      "frames": 4800,
+      "fitted_gain": 1.9729460502507083,
+      "fitted_gain_db": 5.902304194666129,
+      "residual_db": -54.193874766930534
+    },
+    {
+      "source_start_seconds": 8.300791666666667,
+      "frames": 4800,
+      "fitted_gain": 1.972961986528375,
+      "fitted_gain_db": 5.902374353802006,
+      "residual_db": -54.22339413558962
+    },
+    {
+      "source_start_seconds": 8.400791666666667,
+      "frames": 4800,
+      "fitted_gain": 1.9729503772984107,
+      "fitted_gain_db": 5.902323244461019,
+      "residual_db": -54.36812679249919
+    },
+    {
+      "source_start_seconds": 8.500791666666666,
+      "frames": 4800,
+      "fitted_gain": 1.9729734020635779,
+      "fitted_gain_db": 5.902424610113459,
+      "residual_db": -54.14746881282617
+    },
+    {
+      "source_start_seconds": 9.479458333333334,
+      "frames": 4800,
+      "fitted_gain": 1.9729909270526358,
+      "fitted_gain_db": 5.902501762418027,
+      "residual_db": -54.37085468249437
+    },
+    {
+      "source_start_seconds": 9.579458333333333,
+      "frames": 4800,
+      "fitted_gain": 1.9729533818359277,
+      "fitted_gain_db": 5.902336471890211,
+      "residual_db": -54.210299561808654
+    },
+    {
+      "source_start_seconds": 9.679458333333333,
+      "frames": 4800,
+      "fitted_gain": 1.9729625711474494,
+      "fitted_gain_db": 5.902376927564727,
+      "residual_db": -54.29370690207604
+    },
+    {
+      "source_start_seconds": 9.779458333333334,
+      "frames": 4800,
+      "fitted_gain": 1.9729410196647925,
+      "fitted_gain_db": 5.902282047497036,
+      "residual_db": -54.2810882279108
+    },
+    {
+      "source_start_seconds": 9.879458333333334,
+      "frames": 4800,
+      "fitted_gain": 1.9729873365275055,
+      "fitted_gain_db": 5.9024859554860365,
+      "residual_db": -54.262446476950615
+    },
+    {
+      "source_start_seconds": 10.631458333333333,
+      "frames": 4800,
+      "fitted_gain": 1.9729633990115887,
+      "fitted_gain_db": 5.902380572203071,
+      "residual_db": -54.46237773482696
+    },
+    {
+      "source_start_seconds": 10.731458333333332,
+      "frames": 4800,
+      "fitted_gain": 1.972922793282115,
+      "fitted_gain_db": 5.90220180532146,
+      "residual_db": -54.37105448016618
+    },
+    {
+      "source_start_seconds": 10.831458333333334,
+      "frames": 4800,
+      "fitted_gain": 1.9730103933419436,
+      "fitted_gain_db": 5.902587460331872,
+      "residual_db": -54.25358011813142
+    },
+    {
+      "source_start_seconds": 10.931458333333333,
+      "frames": 4800,
+      "fitted_gain": 1.972983607116345,
+      "fitted_gain_db": 5.902469537091569,
+      "residual_db": -54.30059222080332
+    },
+    {
+      "source_start_seconds": 11.031458333333333,
+      "frames": 4800,
+      "fitted_gain": 1.9729936310517242,
+      "fitted_gain_db": 5.9025136664877556,
+      "residual_db": -54.27100357193339
+    },
+    {
+      "source_start_seconds": 11.131458333333333,
+      "frames": 4800,
+      "fitted_gain": 1.9729662720841405,
+      "fitted_gain_db": 5.90239322077676,
+      "residual_db": -54.39068289373006
+    },
+    {
+      "source_start_seconds": 11.231458333333332,
+      "frames": 4800,
+      "fitted_gain": 1.9729670867415539,
+      "fitted_gain_db": 5.902396807266314,
+      "residual_db": -54.20100621201921
+    },
+    {
+      "source_start_seconds": 12.338125,
+      "frames": 4800,
+      "fitted_gain": 1.972961867721494,
+      "fitted_gain_db": 5.9023738307592435,
+      "residual_db": -54.484997224424696
+    },
+    {
+      "source_start_seconds": 12.935458333333333,
+      "frames": 4800,
+      "fitted_gain": 1.9729738689328422,
+      "fitted_gain_db": 5.902426665475393,
+      "residual_db": -54.15722234152135
+    },
+    {
+      "source_start_seconds": 13.490124999999999,
+      "frames": 4800,
+      "fitted_gain": 1.9729919303674193,
+      "fitted_gain_db": 5.90250617940705,
+      "residual_db": -54.36084543426408
+    },
+    {
+      "source_start_seconds": 13.590125,
+      "frames": 4800,
+      "fitted_gain": 1.9729782826972733,
+      "fitted_gain_db": 5.902446096765618,
+      "residual_db": -54.25272457576625
+    },
+    {
+      "source_start_seconds": 13.690125,
+      "frames": 4800,
+      "fitted_gain": 1.9729632889839532,
+      "fitted_gain_db": 5.9023800878109505,
+      "residual_db": -54.38548275646055
+    },
+    {
+      "source_start_seconds": 13.790125,
+      "frames": 4800,
+      "fitted_gain": 1.9729534752473525,
+      "fitted_gain_db": 5.902336883132219,
+      "residual_db": -54.277773354868856
+    },
+    {
+      "source_start_seconds": 13.890125000000001,
+      "frames": 4800,
+      "fitted_gain": 1.9729347259152907,
+      "fitted_gain_db": 5.9022543391670705,
+      "residual_db": -54.417865259480436
+    }
+  ],
+  "median_fitted_gain": 1.9729648355478646,
+  "notes": [
+    "Legacy means Pd 0.55.2 with compatibility 0.43, not an old executable.",
+    "In the legacy comparison, klang_* fields denote the legacy PD output.",
+    "A fitted gain is evidence of a level difference, not proof of post-processing.",
+    "The pulse patch has no oscillator; its DSP is clip/bp/hip filtering."
+  ]
+}

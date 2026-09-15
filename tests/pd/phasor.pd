@@ -1,0 +1,8 @@
+#N canvas 0 0 300 200 10;
+#X obj 20 20 phasor~ \$1;
+#X obj 20 80 outlet~;
+#X obj 150 20 loadbang;
+#X obj 150 50 f \$2;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 1;

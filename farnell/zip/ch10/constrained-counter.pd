@@ -1,0 +1,20 @@
+#N canvas 288 556 473 303 10;
+#X obj 100 41 metro 200;
+#X obj 100 16 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 100 72 f;
+#X obj 131 72 + 1;
+#X obj 100 192 print;
+#X msg 197 26 1;
+#X msg 196 48 -1;
+#X text 233 26 count up;
+#X text 234 47 count down;
+#X obj 111 100 mod 8;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 2 0 9 0;
+#X connect 3 0 2 1;
+#X connect 5 0 3 1;
+#X connect 6 0 3 1;
+#X connect 9 0 3 0;

@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound - Practical 29: Mammals
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Practical 29: Mammals</h2>
+
+ <h2>Pure Data</h2>
+
+<h3>Mammals - vocal tract simulator</h3>
+<pre>
+#N canvas 309 176 593 431 10;
+#X obj 25 323 *~ 0.1;
+#X obj 25 412 dac~;
+#X obj 530 205 - 0.5;
+#X obj 530 225 * 2;
+#X obj 25 367 *~;
+#X obj 530 185 max 0.5;
+#X obj 530 247 sqrt;
+#X obj 239 117 bng 15 250 50 0 empty empty roar 0 -6 1 8 -262144 -1
+-1;
+#X obj 25 388 *~ 8;
+#X obj 27 21 hsl 128 12 0.2 0.8 0 1 \$0-risefall empty risefall 40
+6 1 8 -262144 -1 -1 8500 1;
+#X obj 27 9 hsl 128 12 100 3000 0 1 \$0-dur empty duration 30 6 1 8
+-262144 -1 -1 7600 1;
+#X obj 239 139 articulate;
+#X obj 271 98 r \$0-dur;
+#X obj 304 118 r \$0-risefall;
+#X obj 27 33 hsl 128 12 5 700 0 1 \$0-frange empty F0-range 40 6 1
+8 -262144 -1 -1 1100 1;
+#X obj 41 183 r \$0-frange;
+#X obj 25 206 *;
+#X obj 25 252 +;
+#X obj 41 228 r \$0-base;
+#X obj 27 45 hsl 128 12 5 300 0 1 \$0-base empty F0-base 40 6 1 8 -262144
+-1 -1 2400 1;
+#X obj 140 184 r \$0-cordr;
+#X obj 124 204 *;
+#X obj 27 57 hsl 128 12 0.2 5 0 1 \$0-cordr empty cord-ripple 40 6
+1 8 -262144 -1 -1 4400 1;
+#X obj 27 93 hsl 128 12 10 500 0 1 \$0-tractb empty tract-base 20 6
+1 8 -262144 -1 -1 8500 1;
+#X obj 210 206 *;
+#X obj 27 105 hsl 128 12 10 500 0 1 \$0-tractbm empty tract-baserise
+20 6 1 8 -262144 -1 -1 4400 1;
+#X obj 210 247 +;
+#X obj 332 223 r \$0-tractl;
+#X obj 226 226 r \$0-tracb;
+#X obj 226 184 r \$0-tractbm;
+#X obj 332 184 r \$0-tractlm;
+#X obj 316 205 *;
+#X obj 316 243 +;
+#X obj 27 117 hsl 128 12 10 100 0 1 \$0-traclm empty tract-lengthmod
+20 6 1 8 -262144 -1 -1 4400 1;
+#X obj 27 129 hsl 128 12 10 200 0 1 \$0-tractl empty tract-length 20
+6 1 8 -262144 -1 -1 7600 1;
+#X obj 27 141 hsl 128 12 2 40 0 1 \$0-tracrm empty tract-resmod 20
+6 1 8 -262144 -1 -1 8000 1;
+#X obj 430 185 r \$0-tractrm;
+#X obj 414 205 *;
+#X obj 430 225 r \$0-tractres;
+#X obj 414 245 +;
+#X obj 27 153 hsl 128 12 5 60 0 1 \$0-tractres empty tract-res 20 6
+1 8 -262144 -1 -1 9100 1;
+#X obj 53 250 r \$0-cordw;
+#X obj 27 69 hsl 128 12 1 100 0 1 \$0-cordw empty cord-width 40 6 1
+8 -262144 -1 -1 5300 1;
+#N canvas 781 270 247 409 cord 0;
+#X obj 54 85 cos~;
+#X obj 54 43 -~ 0.5;
+#X obj 54 108 +~ 1;
+#X obj 105 131 cos~;
+#X obj 54 159 *~;
+#X obj 105 109 *~;
+#X obj 54 21 phasor~ 100;
+#X obj 54 131 *~ 0.5;
+#X obj 121 65 sig~;
+#X obj 121 86 lop~ 10;
+#X obj 3 275 /~;
+#X obj 54 227 *~;
+#X obj 54 248 +~ 1;
+#X obj 3 249 sig~ 1;
+#X obj 3 391 outlet~;
+#X obj 3 366 hip~ 1;
+#X obj 54 201 *~;
+#X obj 70 179 inlet cord width;
+#X obj 121 41 inlet cord ripple;
+#X obj 54 0 inlet cord freq;
+#X obj 49 278 noise~;
+#X obj 33 304 *~;
+#X obj 3 332 *~;
+#X obj 33 332 *~;
+#X obj 97 278 sig~ 1;
+#X obj 97 302 -~;
+#X obj 113 233 inlet noisiness;
+#X obj 113 254 sig~;
+#X connect 0 0 2 0;
+#X connect 1 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 7 0;
+#X connect 3 0 4 1;
+#X connect 4 0 16 0;
+#X connect 5 0 3 0;
+#X connect 6 0 1 0;
+#X connect 7 0 4 0;
+#X connect 8 0 9 0;
+#X connect 9 0 5 1;
+#X connect 10 0 21 0;
+#X connect 10 0 22 0;
+#X connect 11 0 12 0;
+#X connect 12 0 10 1;
+#X connect 13 0 10 0;
+#X connect 15 0 14 0;
+#X connect 16 0 11 0;
+#X connect 16 0 11 1;
+#X connect 17 0 16 1;
+#X connect 18 0 8 0;
+#X connect 19 0 6 0;
+#X connect 20 0 21 1;
+#X connect 21 0 23 0;
+#X connect 22 0 15 0;
+#X connect 23 0 15 0;
+#X connect 24 0 25 0;
+#X connect 25 0 22 1;
+#X connect 26 0 27 0;
+#X connect 27 0 23 1;
+#X connect 27 0 25 1;
+#X restore 25 300 pd cord model;
+#X obj 82 270 r \$0-cordnz;
+#X obj 27 81 hsl 128 12 0 1 0 1 \$0-cordnz empty cord-noise 40 6 1
+8 -262144 -1 -1 3400 1;
+#N canvas 0 0 462 479 tract 0;
+#X obj 136 100 +;
+#X obj 3 420 bp~ 1 1;
+#X obj 409 354 inlet;
+#X text 410 331 res;
+#X obj 60 419 bp~ 1 1;
+#X obj 166 144 +;
+#X obj 119 418 bp~ 1 1;
+#X obj 176 417 bp~ 1 1;
+#X obj 196 188 +;
+#X obj 235 417 bp~ 1 1;
+#X obj 292 416 bp~ 1 1;
+#X obj 351 415 bp~ 1 1;
+#X obj 408 414 bp~ 1 1;
+#X obj 226 229 +;
+#X obj 256 270 +;
+#X obj 286 312 +;
+#X obj 316 355 +;
+#X obj 189 460 outlet~;
+#X obj 182 61 * 1.414;
+#X obj 212 100 * 1.414;
+#X obj 242 139 * 1.414;
+#X obj 272 178 * 1.414;
+#X obj 302 218 * 1.414;
+#X obj 332 259 * 1.414;
+#X obj 152 42 t f f;
+#X obj 182 80 t f f;
+#X obj 212 120 t f f;
+#X obj 242 158 t f f;
+#X obj 272 198 t f f;
+#X obj 302 238 t f f;
+#X obj 136 122 t f f;
+#X obj 166 164 t f f;
+#X obj 196 208 t f f;
+#X obj 226 249 t f f;
+#X obj 256 291 t f f;
+#X obj 286 332 t f f;
+#X obj 106 78 t f f;
+#X obj 152 22 inlet separation;
+#X obj 106 1 inlet base;
+#X obj 3 20 inlet~ audio;
+#X connect 0 0 30 0;
+#X connect 1 0 17 0;
+#X connect 2 0 12 2;
+#X connect 2 0 11 2;
+#X connect 2 0 10 2;
+#X connect 2 0 9 2;
+#X connect 2 0 7 2;
+#X connect 2 0 6 2;
+#X connect 2 0 4 2;
+#X connect 2 0 1 2;
+#X connect 4 0 17 0;
+#X connect 5 0 31 0;
+#X connect 6 0 17 0;
+#X connect 7 0 17 0;
+#X connect 8 0 32 0;
+#X connect 9 0 17 0;
+#X connect 10 0 17 0;
+#X connect 11 0 17 0;
+#X connect 12 0 17 0;
+#X connect 13 0 33 0;
+#X connect 14 0 34 0;
+#X connect 15 0 35 0;
+#X connect 16 0 12 1;
+#X connect 18 0 25 0;
+#X connect 19 0 26 0;
+#X connect 20 0 27 0;
+#X connect 21 0 28 0;
+#X connect 22 0 29 0;
+#X connect 23 0 16 1;
+#X connect 24 0 0 1;
+#X connect 24 1 18 0;
+#X connect 25 0 5 1;
+#X connect 25 1 19 0;
+#X connect 26 0 8 1;
+#X connect 26 1 20 0;
+#X connect 27 0 13 1;
+#X connect 27 1 21 0;
+#X connect 28 0 14 1;
+#X connect 28 1 22 0;
+#X connect 29 0 15 1;
+#X connect 29 1 23 0;
+#X connect 30 0 4 1;
+#X connect 30 1 5 0;
+#X connect 31 0 6 1;
+#X connect 31 1 8 0;
+#X connect 32 0 7 1;
+#X connect 32 1 13 0;
+#X connect 33 0 9 1;
+#X connect 33 1 14 0;
+#X connect 34 0 10 1;
+#X connect 34 1 15 0;
+#X connect 35 0 11 1;
+#X connect 35 1 16 0;
+#X connect 36 0 1 1;
+#X connect 36 1 0 0;
+#X connect 37 0 24 0;
+#X connect 38 0 36 0;
+#X connect 39 0 1 0;
+#X connect 39 0 4 0;
+#X connect 39 0 6 0;
+#X connect 39 0 7 0;
+#X connect 39 0 9 0;
+#X connect 39 0 10 0;
+#X connect 39 0 11 0;
+#X connect 39 0 12 0;
+#X restore 25 345 pd tract comb filter;
+#X connect 0 0 46 0;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 4 0 8 0;
+#X connect 5 0 2 0;
+#X connect 6 0 4 1;
+#X connect 7 0 11 0;
+#X connect 8 0 1 0;
+#X connect 8 0 1 1;
+#X connect 11 0 5 0;
+#X connect 11 0 16 0;
+#X connect 11 0 21 0;
+#X connect 11 0 24 0;
+#X connect 11 0 31 0;
+#X connect 11 0 37 0;
+#X connect 12 0 11 1;
+#X connect 13 0 11 2;
+#X connect 15 0 16 1;
+#X connect 16 0 17 0;
+#X connect 17 0 43 0;
+#X connect 18 0 17 1;
+#X connect 20 0 21 1;
+#X connect 21 0 43 3;
+#X connect 24 0 26 0;
+#X connect 26 0 46 1;
+#X connect 27 0 32 1;
+#X connect 28 0 26 1;
+#X connect 29 0 24 1;
+#X connect 30 0 31 1;
+#X connect 31 0 32 0;
+#X connect 32 0 46 2;
+#X connect 36 0 37 1;
+#X connect 37 0 39 0;
+#X connect 38 0 39 1;
+#X connect 39 0 46 3;
+#X connect 41 0 43 1;
+#X connect 43 0 0 0;
+#X connect 44 0 43 2;
+#X connect 46 0 4 0;
+</pre>
+<p>Download <a href="p29/creature_factory.pd">creature_factory.pd</a>.</p>
+
+<h3>Mammals - <em>articulation abstraction required by above patch</em></h3>
+<pre>
+#N canvas 132 129 252 424 10;
+#X obj 25 37 t b b;
+#X obj -1 254 line;
+#X obj -1 276 * 1.5708;
+#X obj 25 15 inlet;
+#X obj -1 405 outlet;
+#X obj -1 363 * 0.5;
+#X obj -1 298 cos;
+#X obj -1 320 swap 1;
+#X obj -1 342 -;
+#X obj -1 384 + 0.25;
+#X obj 68 15 inlet duration;
+#X obj 25 64 f;
+#X msg -1 222 1 \$1;
+#X obj 68 37 t f f f;
+#X obj 39 149 del;
+#X obj 174 15 inlet ad;
+#X obj 174 36 t f f;
+#X obj 25 98 *;
+#X obj 204 60 swap 1;
+#X obj 205 81 -;
+#X obj 39 171 f;
+#X obj 39 193 *;
+#X msg 39 221 0 \$1;
+#X obj 25 119 t f f;
+#X connect 0 0 11 0;
+#X connect 0 1 14 0;
+#X connect 1 0 2 0;
+#X connect 2 0 6 0;
+#X connect 3 0 0 0;
+#X connect 5 0 9 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 1 8 1;
+#X connect 8 0 5 0;
+#X connect 9 0 4 0;
+#X connect 10 0 13 0;
+#X connect 11 0 17 0;
+#X connect 12 0 1 0;
+#X connect 13 0 11 1;
+#X connect 13 2 20 1;
+#X connect 14 0 20 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 1;
+#X connect 16 1 18 0;
+#X connect 17 0 23 0;
+#X connect 18 0 19 0;
+#X connect 18 1 19 1;
+#X connect 19 0 21 1;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X connect 22 0 1 0;
+#X connect 23 0 12 0;
+#X connect 23 1 14 1;
+</pre>
+<p>Download <a href="p29/articulate.pd">articulate.pd</a>.</p>
+
+<h3>Mammals - human vowel resonances</h3>
+<pre>
+#N canvas 175 79 379 392 10;
+#X obj 65 369 dac~;
+#X obj 66 130 sig~ 1;
+#X obj 66 254 /~;
+#X obj 82 213 *~;
+#X obj 82 234 +~ 1;
+#X obj 140 274 unpack f f f;
+#X msg 180 96 400 1900 2550;
+#X msg 180 74 280 2250 2900;
+#X msg 180 117 550 1770 2490;
+#X obj 130 312 bp~ 1 34;
+#X obj 65 313 bp~ 1 34;
+#X obj 2 313 bp~ 1 34;
+#X msg 180 139 690 1660 2490;
+#X msg 180 161 640 1190 2390;
+#X msg 180 183 310 870 2250;
+#X msg 180 205 450 1030 2380;
+#X msg 180 227 500 1500 2500;
+#X msg 180 249 710 1100 2640;
+#X obj 82 171 osc~;
+#X obj 82 150 sig~ 50;
+#X msg 87 4 i;
+#X msg 118 4 I;
+#X msg 149 4 E;
+#X msg 180 4 ae;
+#X msg 211 4 ^;
+#X msg 242 4 u;
+#X msg 272 4 U;
+#X msg 301 4 &amp;;
+#X msg 331 4 A;
+#X obj 180 45 route i I E ae ^ u U &amp; A;
+#X obj 66 275 -~ 0.5;
+#X obj 64 343 clip~ -1 1;
+#X obj 82 192 *~ 24;
+#X connect 1 0 2 0;
+#X connect 2 0 30 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 1;
+#X connect 5 0 11 1;
+#X connect 5 1 10 1;
+#X connect 5 2 9 1;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
+#X connect 9 0 31 0;
+#X connect 10 0 31 0;
+#X connect 11 0 31 0;
+#X connect 12 0 5 0;
+#X connect 13 0 5 0;
+#X connect 14 0 5 0;
+#X connect 15 0 5 0;
+#X connect 16 0 5 0;
+#X connect 17 0 5 0;
+#X connect 18 0 32 0;
+#X connect 19 0 18 0;
+#X connect 20 0 29 0;
+#X connect 21 0 29 0;
+#X connect 22 0 29 0;
+#X connect 23 0 29 0;
+#X connect 24 0 29 0;
+#X connect 25 0 29 0;
+#X connect 26 0 29 0;
+#X connect 27 0 29 0;
+#X connect 28 0 29 0;
+#X connect 29 0 7 0;
+#X connect 29 1 6 0;
+#X connect 29 2 8 0;
+#X connect 29 3 12 0;
+#X connect 29 4 13 0;
+#X connect 29 5 14 0;
+#X connect 29 6 15 0;
+#X connect 29 7 16 0;
+#X connect 29 8 17 0;
+#X connect 30 0 9 0;
+#X connect 30 0 10 0;
+#X connect 30 0 11 0;
+#X connect 31 0 0 0;
+#X connect 31 0 0 1;
+#X connect 32 0 3 0;
+#X connect 32 0 3 1;
+</pre>
+<p>Download <a href="p29/vowels.pd">vowels.pd</a>.</p>
+
+
+
+<h2>Audio</h2>
+<h3>Animals and human speech sounds</h3>
+<p>Several examples in this audio file. Starts with tweaking parameters of simple multi-filter tract model, adjust length, width, impedance and glotal frequency. Some animal and monster sounds made with tract, cow, lion etc. Some pseudo speech for cartoon characters. Vowels for use in speech synthesis. Male singers.</p>
+<p>Download <a href="p29/mammals.wav">mammals.wav</a>.</p>
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

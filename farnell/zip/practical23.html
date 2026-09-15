@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound - Practical 23: Fans
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Practical 23: Fans</h2>
+
+ <h2>Pure Data</h2>
+
+<h3>Fans - air pulse simulation</h3>
+<pre>
+#N canvas 211 269 134 206 10;
+#X obj 3 185 dac~;
+#X obj 3 104 sig~ 1;
+#X obj 3 132 /~;
+#X obj 52 82 *~;
+#X obj 52 52 *~;
+#X obj 68 33 nbx 5 14 1 10 0 1 empty empty pulsewidth 0 -6 1 8 -262144
+-1 -1 6 256;
+#X obj 52 104 +~ 1;
+#X obj 3 155 *~ 0.2;
+#X obj 52 3 osc~ 12;
+#X connect 1 0 2 0;
+#X connect 2 0 7 0;
+#X connect 3 0 6 0;
+#X connect 4 0 3 0;
+#X connect 4 0 3 1;
+#X connect 5 0 4 1;
+#X connect 6 0 2 1;
+#X connect 7 0 0 1;
+#X connect 7 0 0 0;
+#X connect 8 0 4 0;
+</pre>
+<p>Download <a href="p23/fan1.pd">fan1.pd</a>.</p>
+
+<h3>Fans - adding noise effect</h3>
+<pre>
+#N canvas 376 321 145 318 10;
+#X obj 38 176 noise~;
+#X obj 22 220 *~;
+#X obj 6 295 dac~;
+#X obj 6 104 sig~ 1;
+#X obj 6 132 /~;
+#X obj 55 82 *~;
+#X obj 55 52 *~;
+#X obj 71 33 nbx 5 14 1 10 0 1 empty empty pulsewidth 0 -6 1 8 -262144
+-1 -1 4 256;
+#X obj 6 244 +~;
+#X obj 55 104 +~ 1;
+#X obj 6 267 *~ 0.2;
+#X obj 22 155 *~ 0.4;
+#X obj 38 198 bp~ 700 1;
+#X obj 55 3 osc~ 12;
+#X connect 0 0 12 0;
+#X connect 1 0 8 1;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 4 0 11 0;
+#X connect 5 0 9 0;
+#X connect 6 0 5 0;
+#X connect 6 0 5 1;
+#X connect 7 0 6 1;
+#X connect 8 0 10 0;
+#X connect 9 0 4 1;
+#X connect 10 0 2 1;
+#X connect 10 0 2 0;
+#X connect 11 0 1 0;
+#X connect 12 0 1 1;
+#X connect 13 0 6 0;
+</pre>
+<p>Download <a href="p23/fan2.pd">fan2.pd</a>.</p>
+
+<h3>Fans - filter (Doppler effect)</h3>
+<pre>
+#N canvas 226 220 221 368 10;
+#X obj 80 144 noise~;
+#X obj 26 342 dac~;
+#X obj 2 107 sig~ 1;
+#X obj 2 135 /~;
+#X obj 59 84 *~;
+#X obj 59 54 *~;
+#X obj 59 12 nbx 5 14 1 10 0 1 empty empty pulsewidth 0 -6 1 8 -262144
+-1 -1 7 256;
+#X obj 59 106 +~ 1;
+#X obj 26 309 +~;
+#X obj 2 279 *~ 0.1;
+#X obj 80 221 vcf~ 1 12;
+#X obj 64 248 *~;
+#X msg 158 198 5;
+#X obj 109 197 +~ 100;
+#X obj 109 175 *~ 500;
+#X obj 158 175 loadbang;
+#X obj 109 14 osc~ 12;
+#X obj 64 278 *~ 0.3;
+#X connect 0 0 10 0;
+#X connect 2 0 3 0;
+#X connect 3 0 9 0;
+#X connect 3 0 11 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 5 0 4 1;
+#X connect 6 0 5 0;
+#X connect 7 0 3 1;
+#X connect 8 0 1 0;
+#X connect 8 0 1 1;
+#X connect 9 0 8 0;
+#X connect 10 0 11 1;
+#X connect 11 0 17 0;
+#X connect 12 0 10 2;
+#X connect 13 0 10 1;
+#X connect 14 0 13 0;
+#X connect 15 0 12 0;
+#X connect 16 0 5 1;
+#X connect 16 0 14 0;
+#X connect 17 0 8 1;
+</pre>
+<p>Download <a href="p23/fan3.pd">fan3.pd</a>.</p>
+
+<h3>Fans - chop (blade slap)</h3>
+<pre>
+#N canvas 226 220 251 421 10;
+#X obj 112 207 noise~;
+#X obj 168 195 dac~;
+#X obj 7 169 sig~ 1;
+#X obj 34 198 /~;
+#X obj 82 148 *~;
+#X obj 82 118 *~;
+#X obj 82 80 nbx 5 14 1 10 0 1 empty empty pulsewidth 0 -6 1 8 -262144
+-1 -1 8 256;
+#X obj 82 170 +~ 1;
+#X obj 58 372 +~;
+#X obj 34 342 *~ 0.1;
+#X obj 96 311 *~;
+#X obj 58 400 delwrite~ a 400;
+#X obj 168 165 vd~ a;
+#X obj 168 141 +~ 200;
+#X obj 168 62 cos~;
+#X obj 112 236 lop~ 200;
+#X obj 96 341 *~ 0.3;
+#X obj 184 97 nbx 5 14 1 20 0 1 empty empty chop 0 -6 1 8 -262144 -1
+-1 10 256;
+#X obj 168 117 *~;
+#X obj 168 36 phasor~;
+#X obj 168 14 nbx 5 14 1 20 0 1 empty empty speed 0 -6 1 8 -262144
+-1 -1 16 256;
+#X connect 0 0 15 0;
+#X connect 2 0 3 0;
+#X connect 3 0 9 0;
+#X connect 3 0 10 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 5 0 4 1;
+#X connect 6 0 5 0;
+#X connect 7 0 3 1;
+#X connect 8 0 11 0;
+#X connect 9 0 8 0;
+#X connect 10 0 16 0;
+#X connect 12 0 1 1;
+#X connect 12 0 1 0;
+#X connect 13 0 12 0;
+#X connect 14 0 5 1;
+#X connect 14 0 18 0;
+#X connect 15 0 10 1;
+#X connect 16 0 8 1;
+#X connect 17 0 18 1;
+#X connect 18 0 13 0;
+#X connect 19 0 14 0;
+#X connect 20 0 19 0;
+</pre>
+<p>Download <a href="p23/fan4.pd">fan4.pd</a>.</p>
+
+<h3>Fans - complete aircon system model</h3>
+<pre>
+#N canvas 309 186 537 616 10;
+#X obj 176 276 noise~;
+#X obj 160 360 *~;
+#X obj 220 583 dac~;
+#X obj 144 204 sig~ 1;
+#X obj 144 232 /~;
+#X obj 193 182 *~;
+#X obj 193 152 *~;
+#X obj 144 384 +~;
+#X obj 193 204 +~ 1;
+#X obj 160 255 *~ 0.4;
+#X obj 176 298 bp~ 700 1;
+#X obj 7 71 phasor~;
+#N canvas 5 12 292 361 rotor 0;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array A 100 float 0;
+#X coords 0 1 99 -1 100 100 1;
+#X restore 100 100 graph;
+#X obj 289 155 inlet~;
+#X obj 210 182 tabwrite~ A;
+#X obj 222 110 metro 200;
+#X obj 230 148 s b;
+#X obj 221 86 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X connect 2 0 3 0;
+#X connect 4 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 4 0;
+#X coords 0 -1 1 1 100 100 1 100 100;
+#X restore 4 260 pd grapha;
+#X obj 117 227 *~;
+#X obj 117 67 *~;
+#X obj 117 135 +~;
+#X obj 134 182 *~;
+#X obj 133 110 sig~ 0.2;
+#X obj 117 0 noise~;
+#X obj 133 44 r brush-level;
+#X obj 133 87 r rotor-level;
+#X obj 117 22 bp~ 4000 1;
+#X obj 133 204 *~;
+#X obj 134 157 inlet~ drive;
+#X obj 117 272 outlet~;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array B 100 float 0;
+#X coords 0 1 99 -1 100 100 1;
+#X restore 100 100 graph;
+#X obj 289 155 inlet~;
+#X obj 210 182 tabwrite~ B;
+#X obj 210 156 r b;
+#X connect 2 0 3 0;
+#X connect 4 0 3 0;
+#X coords 0 -1 1 1 100 100 1 100 100;
+#X restore 189 259 pd grapha;
+#X connect 1 0 12 0;
+#X connect 1 0 13 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 10 0;
+#X connect 4 0 10 1;
+#X connect 5 0 3 1;
+#X connect 6 0 9 0;
+#X connect 7 0 2 1;
+#X connect 8 0 5 0;
+#X connect 9 0 2 0;
+#X connect 10 0 1 1;
+#X connect 11 0 4 0;
+#X connect 11 0 4 1;
+#X restore 7 204 pd rotor;
+#N canvas 541 10 203 345 stator 0;
+#X obj -1 96 sig~ 1;
+#X obj 31 150 /~;
+#X obj 47 123 +~ 1;
+#X obj 47 96 *~;
+#X obj 47 68 cos~;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array C 100 float 0;
+#X coords 0 1 99 -1 100 100 1;
+#X restore 100 100 graph;
+#X obj 289 155 inlet~;
+#X obj 210 156 r b;
+#X obj 210 182 tabwrite~ C;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X coords 0 -1 1 1 100 100 1 100 100;
+#X restore 98 239 pd grapha;
+#X obj 47 46 wrap~;
+#X obj 30 172 -~ 0.5;
+#X obj 47 22 *~ 2;
+#X obj 48 -2 inlet~ drive;
+#X obj 31 249 outlet~;
+#X obj 31 222 *~;
+#X obj 47 198 r stator-level;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 2 0 1 1;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 4 0 3 1;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X connect 7 0 11 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 1;
+#X restore 73 204 pd stator;
+#X obj 8 230 +~;
+#X obj 8 25 sig~;
+#X obj 209 129 r fan-pulsewidth;
+#X obj 9 273 *~;
+#X obj 25 251 r motor-level;
+#X obj 8 3 r main-speed;
+#X obj 7 123 *~;
+#X obj 23 99 r motor-ratio;
+#X obj 7 146 wrap~;
+#X obj 193 103 cos~;
+#X obj 130 454 +~;
+#X obj 145 427 *~;
+#X obj 161 405 r fan-level;
+#X obj 192 318 r fan-noise;
+#X obj 176 339 *~;
+#X obj 164 561 s~ fba;
+#X obj 164 457 r~ fba;
+#X obj 164 513 delread~ a 22;
+#X obj 164 491 delwrite~ a 22;
+#X obj 271 454 r~ fbb;
+#X obj 271 558 s~ fbb;
+#X obj 271 534 *~ 0.499;
+#X obj 271 488 delwrite~ b 200;
+#X obj 271 510 delread~ b 70;
+#X obj 164 537 *~ 0.3;
+#X msg 365 25 \; main-speed 22 \; motor-ratio 20 \; motor-level 0.2
+\; brush-level 0.05 \; rotor-level 0.1 \; stator-level 0.3 \; fan-pulsewidth
+4 \; fan-noise 0.2 \; fan-level 0.5;
+#X msg 364 194 \; main-speed 0 \; motor-ratio 20 \; motor-level 0.2
+\; brush-level 0.05 \; rotor-level 0.1 \; stator-level 0.3 \; fan-pulsewidth
+4 \; fan-noise 0.2 \; fan-level 0.5;
+#X obj 8 48 lop~ 0.1;
+#X obj 365 2 loadbang;
+#X obj 364 171 r shutdown-ventilator;
+#X connect 0 0 10 0;
+#X connect 1 0 7 1;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 4 0 9 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 0;
+#X connect 6 0 5 1;
+#X connect 7 0 25 0;
+#X connect 8 0 4 1;
+#X connect 9 0 1 0;
+#X connect 10 0 28 0;
+#X connect 11 0 20 0;
+#X connect 11 0 23 0;
+#X connect 12 0 14 0;
+#X connect 13 0 14 1;
+#X connect 14 0 17 0;
+#X connect 15 0 41 0;
+#X connect 16 0 6 1;
+#X connect 17 0 24 0;
+#X connect 18 0 17 1;
+#X connect 19 0 15 0;
+#X connect 20 0 22 0;
+#X connect 21 0 20 1;
+#X connect 22 0 13 0;
+#X connect 22 0 12 0;
+#X connect 23 0 6 0;
+#X connect 24 0 32 0;
+#X connect 25 0 24 1;
+#X connect 26 0 25 1;
+#X connect 27 0 28 1;
+#X connect 28 0 1 1;
+#X connect 30 0 32 0;
+#X connect 30 0 36 0;
+#X connect 31 0 38 0;
+#X connect 33 0 32 0;
+#X connect 33 0 36 0;
+#X connect 35 0 34 0;
+#X connect 35 0 2 1;
+#X connect 35 0 2 0;
+#X connect 37 0 35 0;
+#X connect 38 0 29 0;
+#X connect 41 0 11 0;
+#X connect 42 0 39 0;
+#X connect 43 0 40 0;
+</pre>
+<p>Download <a href="p23/fan5.pd">fan5.pd</a>.</p>
+
+
+
+<h2>Audio</h2>
+<h3>Fan and regular air displacement sounds</h3>
+<p>Five example in this file. First you will hear a single parabolic pulse. Next you hear edge noise added, in phase with pulse. The third model introduces some blade slapping and jitter. The next two examples in the file are fans in context, an aircon system with a reverberant conduit and motor, and a large fan as an aircraft propeller. </p>
+<p>Download <a href="p23/fans.wav">fans.wav</a>.</p>
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

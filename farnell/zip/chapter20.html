@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound -  Chapter 20: Modulation
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Chapter 20: Technique 4 - Modulation</h2>
+
+<h3>Signal multiplication</h3>
+<img src="ch20/multiplication.gif" alt="multiplication" />
+<pre>
+#N canvas 173 132 150 91 10;
+#X obj 4 3 osc~ 320;
+#X obj 74 3 osc~ 440;
+#X obj 32 36 *~;
+#X obj 32 65 dac~;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+</pre>
+<p>Download <a href="ch20/multiplication.pd">multiplication.pd</a>.</p>
+
+<h3>Ring modulation</h3>
+<img src="ch20/am.gif" alt="am" />
+<pre>
+#N canvas 173 132 142 158 10;
+#X obj 4 3 osc~ 320;
+#X obj 58 23 osc~ 440;
+#X obj 5 94 *~;
+#X obj 5 140 dac~;
+#X obj 74 42 sig~ 1;
+#X obj 58 67 +~;
+#X obj 5 115 *~ 0.5;
+#X connect 0 0 2 0;
+#X connect 1 0 5 0;
+#X connect 2 0 6 0;
+#X connect 4 0 5 1;
+#X connect 5 0 2 1;
+#X connect 6 0 3 0;
+#X connect 6 0 3 1;
+</pre>
+<p>Download <a href="ch20/am.pd">am.pd</a>.</p>
+
+<h3>all band AM</h3>
+<img src="ch20/2bandam.gif" alt="2bandam" />
+<pre>
+#N canvas 173 132 138 176 10;
+#X obj 4 3 osc~ 320;
+#X obj 70 3 osc~ 440;
+#X obj 4 49 *~;
+#X obj 4 155 dac~;
+#X obj 54 47 +~;
+#X obj 4 108 +~;
+#X obj 4 130 *~ 0.5;
+#X obj 54 71 *~ 0.5;
+#X connect 0 0 2 0;
+#X connect 0 0 4 0;
+#X connect 1 0 2 1;
+#X connect 1 0 4 1;
+#X connect 2 0 5 0;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 6 0 3 1;
+#X connect 7 0 5 1;
+</pre>
+<p>Download <a href="ch20/2bandam.pd">2bandam.pd</a>.</p>
+
+<h3>Cascade AM</h3>
+<img src="ch20/complexam2.gif" alt="complexam2" />
+<pre>
+#N canvas 322 471 196 178 10;
+#X obj 4 156 dac~;
+#X obj 98 34 +~;
+#X obj 70 3 osc~ 300;
+#X obj 98 57 /~ 2;
+#X obj 4 3 osc~ 900;
+#X obj 134 3 osc~ 400;
+#X obj 4 110 *~;
+#X obj 4 131 *~ 0.5;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 1;
+#X connect 4 0 6 0;
+#X connect 5 0 1 1;
+#X connect 6 0 7 0;
+#X connect 7 0 0 0;
+#X connect 7 0 0 1;
+</pre>
+<p>Download <a href="ch20/complexam2.pd">complexam2.pd</a>.</p>
+
+<h3>Complex AM 2</h3>
+<img src="ch20/complexam.gif" alt="complexam" />
+<pre>
+#N canvas 173 132 222 222 10;
+#X obj 4 49 *~;
+#X obj 5 194 dac~;
+#X obj 54 47 +~;
+#X obj 4 77 +~;
+#X obj 4 110 +~;
+#X obj 50 109 *~;
+#X obj 4 143 +~;
+#X obj 4 3 osc~ 600;
+#X obj 136 3 osc~ 400;
+#X obj 70 3 osc~ 300;
+#X obj 5 169 *~ 0.16;
+#X connect 0 0 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 1;
+#X connect 6 0 10 0;
+#X connect 7 0 0 0;
+#X connect 7 0 2 0;
+#X connect 8 0 5 1;
+#X connect 8 0 4 1;
+#X connect 9 0 0 1;
+#X connect 9 0 2 1;
+#X connect 10 0 1 0;
+#X connect 10 0 1 1;
+</pre>
+<p>Download <a href="ch20/complexam.pd">complexam.pd</a>.</p>
+
+<h3>Single sideband modulation</h3>
+<img src="ch20/singlesideband.gif" alt="singlesideband" />
+<pre>
+#N canvas 100 113 152 198 10;
+#X obj 4 33 hilbert~;
+#X obj 4 3 osc~ 440;
+#X obj 83 31 hilbert~;
+#X obj 4 70 *~;
+#X obj 55 70 *~;
+#X obj 16 111 -~;
+#X obj 16 164 dac~;
+#X obj 16 134 *~ 0.5;
+#X obj 83 3 osc~ 110;
+#X connect 0 0 3 0;
+#X connect 0 1 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 1;
+#X connect 2 1 4 1;
+#X connect 3 0 5 0;
+#X connect 4 0 5 1;
+#X connect 5 0 7 0;
+#X connect 7 0 6 0;
+#X connect 7 0 6 1;
+#X connect 8 0 2 0;
+</pre>
+<p>Download <a href="ch20/singlesideband.pd">singlesideband.pd</a>.</p>
+
+<h3>FM signal names</h3>
+<img src="ch20/fm-basic03.gif" alt="fm-basic03" />
+<pre>
+#N canvas 86 109 213 201 10;
+#X obj 21 143 osc~;
+#X obj -2 175 dac~;
+#X floatatom 20 18 5 0 0 0 - - -;
+#X text 66 16 modulator frequency;
+#X obj 20 41 osc~;
+#X obj 21 81 *~;
+#X floatatom 37 64 5 0 0 0 - - -;
+#X obj 21 118 +~;
+#X floatatom 37 101 5 0 0 0 - - -;
+#X text 79 64 FM index;
+#X text 80 100 carrier frequency;
+#X connect 0 0 1 1;
+#X connect 2 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 1 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 1;
+#X connect 7 0 0 0;
+#X connect 8 0 7 1;
+</pre>
+<p>Download <a href="ch20/fm-basic03.pd">fm-basic03.pd</a>.</p>
+
+<h3>See relation between modulator and FM signal</h3>
+<img src="ch20/fm-basic02.gif" alt="fm-basic02" />
+<pre>
+#N canvas 86 109 93 94 10;
+#X obj 36 50 osc~;
+#X obj 13 74 dac~;
+#X obj 13 3 osc~ 10;
+#X obj 36 27 *~ 100;
+#X connect 0 0 1 1;
+#X connect 2 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+</pre>
+<p>Download <a href="ch20/fm-basic02.pd">fm-basic02.pd</a>.</p>
+
+<h3>Simple FM 1 - no modulator</h3>
+<img src="ch20/simplefm1.gif" alt="simplefm1" />
+<pre>
+#N canvas 173 132 100 187 10;
+#X obj 4 49 *~;
+#X obj 4 165 dac~;
+#X obj 4 93 +~;
+#X obj 4 116 osc~;
+#X floatatom 20 29 5 0 0 0 - - -;
+#X obj 4 140 *~ 0.8;
+#X obj 20 71 sig~ 600;
+#X obj 4 7 osc~ 200;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 0 1;
+#X connect 5 0 1 0;
+#X connect 5 0 1 1;
+#X connect 6 0 2 1;
+#X connect 7 0 0 0;
+</pre>
+<p>Download <a href="ch20/simplefm1.pd">simplefm1.pd</a>.</p>
+
+<h3>Simple FM 2 - modulator 50</h3>
+<img src="ch20/simplefm1-5.gif" alt="simplefm1-5" />
+<pre>
+#N canvas 173 132 118 212 10;
+#X obj 4 49 *~;
+#X obj 4 165 dac~;
+#X obj 4 93 +~;
+#X obj 4 116 osc~;
+#X obj 4 140 *~ 0.8;
+#X obj 20 71 sig~ 600;
+#X obj 4 7 osc~ 200;
+#X obj 21 28 sig~ 50;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 4 0 1 1;
+#X connect 5 0 2 1;
+#X connect 6 0 0 0;
+#X connect 7 0 0 1;
+</pre>
+<p>Download <a href="ch20/simplefm2.pd">simplefm2.pd</a>.</p>
+
+
+<h3>Simple FM 3 - modulator 200</h3>
+<img src="ch20/simplefm2.gif" alt="simplefm2" />
+<pre>
+#N canvas 173 132 118 212 10;
+#X obj 4 49 *~;
+#X obj 4 165 dac~;
+#X obj 4 93 +~;
+#X obj 4 116 osc~;
+#X obj 4 140 *~ 0.8;
+#X obj 20 71 sig~ 600;
+#X obj 4 7 osc~ 200;
+#X obj 21 28 sig~ 200;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 4 0 1 1;
+#X connect 5 0 2 1;
+#X connect 6 0 0 0;
+#X connect 7 0 0 1;
+</pre>
+<p>Download <a href="ch20/simplefm3.pd">simplefm3.pd</a>.</p>
+
+<h3>Complex FM</h3>
+<img src="ch20/complexfm.gif" alt="complexfm" />
+<pre>
+#N canvas 49 127 159 187 10;
+#X obj 20 68 *~;
+#X obj 4 164 dac~;
+#X obj 4 93 +~;
+#X floatatom 36 49 5 0 0 0 - - -;
+#X obj 4 139 *~ 0.8;
+#X obj 4 116 cos~;
+#X obj 20 29 osc~ 200;
+#X obj 4 7 phasor~ 600;
+#X obj 85 68 *~;
+#X floatatom 101 49 5 0 0 0 - - -;
+#X obj 85 29 osc~ 50;
+#X connect 0 0 2 1;
+#X connect 2 0 5 0;
+#X connect 3 0 0 1;
+#X connect 4 0 1 0;
+#X connect 4 0 1 1;
+#X connect 5 0 4 0;
+#X connect 6 0 0 0;
+#X connect 7 0 2 0;
+#X connect 8 0 2 1;
+#X connect 9 0 8 1;
+#X connect 10 0 8 0;
+</pre>
+<p>Download <a href="ch20/complexfm.pd">complexfm.pd</a>.</p>
+
+
+<h3>Phase modulation</h3>
+<img src="ch20/phasemod.gif" alt="phasemod" />
+<pre>
+#N canvas 146 127 107 187 10;
+#X obj 20 68 *~;
+#X obj 4 164 dac~;
+#X obj 4 93 +~;
+#X floatatom 36 49 5 0 0 0 - - -;
+#X obj 4 139 *~ 0.8;
+#X obj 4 7 phasor~ 200;
+#X obj 4 116 cos~;
+#X obj 20 29 osc~ 600;
+#X connect 0 0 2 1;
+#X connect 2 0 6 0;
+#X connect 3 0 0 1;
+#X connect 4 0 1 0;
+#X connect 4 0 1 1;
+#X connect 5 0 2 0;
+#X connect 6 0 4 0;
+#X connect 7 0 0 0;
+</pre>
+<p>Download <a href="ch20/phasemod.pd">phasemod.pd</a>.</p>
+
+
+
+
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

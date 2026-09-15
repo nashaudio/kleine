@@ -1,0 +1,10 @@
+#N canvas 0 0 450 250 10;
+#X obj 30 30 noise~;
+#X obj 30 160 outlet~;
+#X obj 200 30 loadbang;
+#X obj 200 65 f \$1;
+#X msg 200 100 seed \$1;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;

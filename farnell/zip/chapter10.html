@@ -1,0 +1,1105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound - Chapter 10: Using Pure Data
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+
+<h2>Chapter 10 : Using Pure Data</h2>
+
+<h3>Hot and cold inlets</h3>
+<img src="ch10/basics5.gif" alt="basics5" />
+<pre>
+#N canvas 558 1 146 107 10;
+#X floatatom 36 8 5 0 0 0 - - -;
+#X floatatom 36 84 5 0 0 0 - - -;
+#X obj 36 32 * 5;
+#X obj 36 59 + 3;
+#X floatatom 79 8 5 0 0 0 - - -;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 1;
+</pre>
+<p>Download <a href="ch10/basics5.pd">basics5.pd</a></p>
+
+<h3>Good and bad evaluation order</h3>
+<img src="ch10/basics6.gif" alt="basics6" />
+<pre>
+#N canvas 0 0 193 102 10;
+#X floatatom 40 62 0 0 0 0 - - -;
+#X floatatom 99 63 0 0 0 0 - - -;
+#X obj 40 36 +;
+#X floatatom 40 6 0 0 0 0 - - -;
+#X obj 99 37 +;
+#X text 38 81 good;
+#X text 100 82 bad;
+#X floatatom 99 6 0 0 0 0 - - -;
+#X connect 2 0 0 0;
+#X connect 3 0 2 1;
+#X connect 3 0 2 0;
+#X connect 4 0 1 0;
+#X connect 7 0 4 0;
+#X connect 7 0 4 1;
+</pre>
+<p>Download <a href="ch10/basics6.pd">basics6.pd</a></p>
+
+<h3>Evaluation order needed here</h3>
+<img src="ch10/evaluation-order.gif" alt="evaluation-order" />
+<pre>
+#N canvas 25 1 210 159 10;
+#X obj -67 48 * 10;
+#X obj -97 24 t f f;
+#X obj -97 48 - 3;
+#X floatatom -97 121 5 0 0 0 - - -;
+#X msg -97 -2 4;
+#X obj -17 24 t f f;
+#X floatatom -17 121 5 0 0 0 - - -;
+#X msg -17 -2 4;
+#X obj -17 48 * 10;
+#X obj 18 48 - 3;
+#X obj -97 97 /;
+#X obj -17 97 /;
+#X connect 0 0 10 1;
+#X connect 1 0 2 0;
+#X connect 1 1 0 0;
+#X connect 2 0 10 0;
+#X connect 4 0 1 0;
+#X connect 5 0 8 0;
+#X connect 5 1 9 0;
+#X connect 7 0 5 0;
+#X connect 8 0 11 0;
+#X connect 9 0 11 1;
+#X connect 10 0 3 0;
+#X connect 11 0 6 0;
+</pre>
+<p>Download <a href="ch10/evaluation-order.pd">evaluation-order.pd</a></p>
+
+<h3>Ordering messages with trigger</h3>
+<img src="ch10/basics7.gif" alt="basics7" />
+<pre>
+#N canvas 153 232 189 111 10;
+#X floatatom 65 81 0 0 0 0 - - -;
+#X obj 65 55 +;
+#X floatatom 65 8 0 0 0 0 - - -;
+#X obj 65 31 t f f;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 1 1 1;
+</pre>
+<p>Download <a href="ch10/basics7.pd">basics7.pd</a></p>
+
+<h3>Warming a cold inlet</h3>
+<img src="ch10/basics8.gif" alt="basics8" />
+<pre>
+#N canvas 153 232 189 111 10;
+#X floatatom 65 81 0 0 0 0 - - -;
+#X obj 65 55 +;
+#X floatatom 65 8 0 0 0 0 - - -;
+#X obj 65 31 t b f;
+#X floatatom 30 7 0 0 0 0 - - -;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 1 1 1;
+#X connect 4 0 1 0;
+</pre>
+<p>Download <a href="ch10/basics8.pd">basics8.pd</a></p>
+
+<h3>Message arrival order</h3>
+<img src="ch10/basics9.gif" alt="basics9" />
+<pre>
+#N canvas 153 232 189 111 10;
+#X floatatom 65 81 0 0 0 0 - - -;
+#X floatatom 65 8 0 0 0 0 - - -;
+#X obj 65 55 f;
+#X floatatom 95 8 0 0 0 0 - - -;
+#X floatatom 125 8 0 0 0 0 - - -;
+#X obj 34 8 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1 -1
+;
+#X connect 1 0 2 1;
+#X connect 2 0 0 0;
+#X connect 3 0 2 1;
+#X connect 4 0 2 1;
+#X connect 5 0 2 0;
+</pre>
+<p>Download <a href="ch10/basics9.pd">basics9.pd</a></p>
+
+<h3>Starting and stopping a metronome</h3>
+<img src="ch10/basics10.gif" alt="basics10" />
+<pre>
+#N canvas 153 232 189 111 10;
+#X msg 51 19 1;
+#X msg 81 19 0;
+#X obj 66 51 metro 1000;
+#X obj 66 80 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X connect 0 0 2 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+</pre>
+<p>Download <a href="ch10/basics10.pd">basics10.pd</a></p>
+
+<h3>A counter timebase</h3>
+<img src="ch10/basics11.gif" alt="basics11" />
+<pre>
+#N canvas 198 254 191 131 10;
+#X obj 54 43 metro 1000;
+#X obj 54 20 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X msg 103 10 500;
+#X msg 135 10 250;
+#X obj 54 70 f 0;
+#X obj 89 70 + 1;
+#X floatatom 54 94 5 0 0 0 - - -;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 0 1;
+#X connect 4 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 1;
+</pre>
+<p>Download <a href="ch10/basics11.pd">basics11.pd</a></p>
+
+<h3>Time related objects</h3>
+<img src="ch10/basics12.gif" alt="basics12" />
+<pre>
+#N canvas 207 254 271 159 10;
+#X msg 80 -45 bang;
+#X obj 80 48 delay 1000;
+#X msg 90 -23 stop;
+#X msg 101 -1 2000;
+#X obj 80 73 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 5 46 timer;
+#X floatatom 5 71 5 0 0 0 - - -;
+#X obj 5 0 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1 -1
+;
+#X obj 35 0 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1 -1
+;
+#X obj 204 48 pipe 300;
+#X floatatom 204 23 5 0 0 0 - - -;
+#X floatatom 204 76 5 0 0 0 - - -;
+#X floatatom 145 23 5 0 0 0 - - -;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 5 0 6 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 1;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 12 0 1 1;
+</pre>
+<p>Download <a href="ch10/basics12.pd">basics12.pd</a></p>
+
+<h3>A simple sequence</h3>
+<img src="ch10/basics13.gif" alt="basics13" />
+<pre>
+#N canvas 207 254 271 159 10;
+#X obj 66 77 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 89 77 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 112 77 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 135 77 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 66 27 f 0;
+#X obj 96 27 + 1;
+#X msg 113 -3 0;
+#X obj 66 -44 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X obj 66 51 select 0 1 2 3;
+#X obj 66 -25 metro 300;
+#X connect 4 0 5 0;
+#X connect 4 0 8 0;
+#X connect 5 0 4 1;
+#X connect 6 0 4 1;
+#X connect 7 0 9 0;
+#X connect 8 0 0 0;
+#X connect 8 1 1 0;
+#X connect 8 2 2 0;
+#X connect 8 3 3 0;
+#X connect 8 3 6 0;
+#X connect 9 0 4 0;
+</pre>
+<p>Download <a href="ch10/basics13.pd">basics13.pd</a></p>
+
+<h3>Routing</h3>
+<img src="ch10/basics14.gif" alt="basics14" />
+<pre>
+#N canvas 51 92 180 119 10;
+#X obj 26 43 route vcf vco vca;
+#X floatatom 26 70 3 0 0 0 - - -;
+#X floatatom 64 70 3 0 0 0 - - -;
+#X floatatom 102 70 3 0 0 0 - - -;
+#X msg 26 -11 vcf 20;
+#X msg 35 9 vca 5;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 0 2 3 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+</pre>
+<p>Download <a href="ch10/basics14.pd">basics14.pd</a></p>
+
+<h3>Swap</h3>
+<img src="ch10/basics23.gif" alt="basics23" />
+<pre>
+#N canvas 135 174 214 95 10;
+#X floatatom 85 2 3 0 0 0 - - -;
+#X obj 85 39 swap;
+#X floatatom 108 19 3 0 0 0 - - -;
+#X floatatom 85 78 3 0 0 0 - - -;
+#X floatatom 108 62 3 0 0 0 - - -;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 1 1 4 0;
+#X connect 2 0 1 1;
+</pre>
+<p>Download <a href="ch10/basics23.pd">basics23.pd</a></p>
+
+<h3>Change</h3>
+<img src="ch10/basics24.gif" alt="basics24" />
+<pre>
+#N canvas 135 174 155 172 10;
+#X obj 44 0 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1;
+#X obj 44 45 f 0;
+#X obj 72 45 + 1;
+#X obj 44 69 / 2;
+#X obj 44 93 int;
+#X floatatom 14 71 3 0 0 0 - - -;
+#X floatatom 14 95 3 0 0 0 - - -;
+#X obj 44 117 change;
+#X floatatom 14 120 3 0 0 0 - - -;
+#X floatatom 14 143 3 0 0 0 - - -;
+#X obj 44 20 metro 1000;
+#X connect 0 0 10 0;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 1 0 5 0;
+#X connect 2 0 1 1;
+#X connect 3 0 4 0;
+#X connect 3 0 6 0;
+#X connect 4 0 7 0;
+#X connect 4 0 8 0;
+#X connect 7 0 9 0;
+#X connect 10 0 1 0;
+</pre>
+<p>Download <a href="ch10/basics24.pd">basics24.pd</a></p>
+
+<h3>Message send</h3>
+<img src="ch10/basics15.gif" alt="basics15" />
+<pre>
+#N canvas 207 254 237 52 10;
+#X obj 59 28 send mungo;
+#X obj 135 28 send midge;
+#X floatatom 5 6 5 0 0 0 - - -;
+#X floatatom 59 6 5 0 0 0 - - -;
+#X floatatom 135 6 5 0 0 0 - - -;
+#X obj 5 28 s mary;
+#X connect 2 0 5 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+</pre>
+<p>Download <a href="ch10/basics15.pd">basics15.pd</a></p>
+
+<h3>Message receive</h3>
+<img src="ch10/basics16.gif" alt="basics16" />
+<pre>
+#N canvas 233 476 237 60 10;
+#X floatatom 4 31 5 0 0 0 - - -;
+#X floatatom 98 31 5 0 0 0 - - -;
+#X floatatom 157 31 5 0 0 0 - - -;
+#X obj 4 3 receive mary;
+#X obj 157 3 r midge;
+#X obj 98 3 r mungo;
+#X connect 3 0 0 0;
+#X connect 4 0 2 0;
+#X connect 5 0 1 0;
+</pre>
+<p>Download <a href="ch10/basics16.pd">basics16.pd</a></p>
+
+<h3>Broadcast and special messages</h3>
+<img src="ch10/basics26.gif" alt="basics26" />
+<pre>
+#N canvas 177 207 775 133 10;
+#N canvas 0 0 450 300 graph13 0;
+#X array a1 67 float 1;
+#A 0 -0.0586214 0 0.0586214 0.115555 0.169171 0.217958 0.260573 0.29589
+0.323036 0.341421 0.350759 0.35107 0.342678 0.326197 0.302502 0.272694
+0.238055 0.200001 0.160019 0.119621 0.0802746 0.0433551 0.0100909 -0.0184815
+-0.0415546 -0.0585784 -0.0692782 -0.0736618 -0.0720147 -0.0648849 -0.0530575
+-0.0375191 -0.0194151 -5.30718e-07 0.0194141 0.0375181 0.0530567 0.0648844
+0.0720144 0.0736619 0.0692786 0.0585791 0.0415557 0.0184829 -0.0100892
+-0.0433532 -0.0802726 -0.119619 -0.160017 -0.199998 -0.238054 -0.272692
+-0.302501 -0.326196 -0.342678 -0.35107 -0.350759 -0.341422 -0.323037
+-0.295891 -0.260575 -0.21796 -0.169174 -0.115558 -0.0586246 -3.18431e-06
+0.0586183;
+#X coords 0 1 66 -1 100 100 1;
+#X restore 194 7 graph;
+#X msg 6 43 \; a1 sinesum 64 0.2 0.2;
+#X obj 712 21 vsl 15 64 0 127 0 0 empty gain gain 0 -8 1 8 -262144
+-1 -1 3175 1;
+#X floatatom 712 95 5 0 0 0 - - -;
+#X msg 614 39 \; gain 64;
+#N canvas 0 0 450 300 graph13 0;
+#X array a2 131 float 1;
+#A 0 -0.0896305 0 0.0896305 0.178527 0.265964 0.351226 0.433621 0.512482
+0.587174 0.657101 0.72171 0.780498 0.833014 0.878865 0.91772 0.949309
+0.973432 0.989953 0.998808 1 0.993603 0.979759 0.958674 0.930622 0.895937
+0.85501 0.80829 0.756271 0.699496 0.638546 0.574037 0.506611 0.436935
+0.365689 0.293561 0.221244 0.149424 0.0787778 0.00996261 -0.0563869
+-0.119666 -0.179307 -0.234781 -0.285606 -0.331352 -0.371642 -0.406157
+-0.43464 -0.456895 -0.472793 -0.482271 -0.485331 -0.482042 -0.472537
+-0.457014 -0.435732 -0.409009 -0.377218 -0.340784 -0.300178 -0.255915
+-0.208545 -0.158652 -0.106843 -0.0537466 -2.91115e-06 0.0537408 0.106837
+0.158646 0.20854 0.25591 0.300174 0.34078 0.377215 0.409006 0.43573
+0.457012 0.472535 0.482041 0.485331 0.482272 0.472795 0.456897 0.434642
+0.406161 0.371646 0.331357 0.285611 0.234786 0.179313 0.119673 0.0563939
+-0.00995529 -0.0787702 -0.149417 -0.221236 -0.293553 -0.365681 -0.436928
+-0.506604 -0.57403 -0.638539 -0.69949 -0.756265 -0.808284 -0.855006
+-0.895933 -0.930619 -0.958672 -0.979757 -0.993602 -1 -0.998808 -0.989954
+-0.973434 -0.949312 -0.917724 -0.87887 -0.833019 -0.780504 -0.721717
+-0.657108 -0.587182 -0.51249 -0.43363 -0.351235 -0.265973 -0.178537
+-0.0896401 -9.70382e-06 0.0896208;
+#X coords 0 1 130 -1 100 100 1;
+#X restore 492 8 graph;
+#X msg 312 37 \; a2 resize 128 \; a2 sinesum 128 0.1 0.2 \; a2 normalize
+;
+#X connect 2 0 3 0;
+</pre>
+<p>Download <a href="ch10/basics26.pd">basics26.pd</a></p>
+
+<h3>List packing</h3>
+<img src="ch10/basics20.gif" alt="basics20" />
+<pre>
+#N canvas 156 131 253 117 10;
+#X obj 59 75 pack s s f f;
+#X symbolatom 59 3 5 0 0 0 - - -;
+#X symbolatom 85 20 5 0 0 0 - - -;
+#X floatatom 111 38 3 0 0 0 - - -;
+#X floatatom 138 55 3 0 0 0 - - -;
+#X obj 59 96 s packed;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 0 2;
+#X connect 4 0 0 3;
+</pre>
+<p>Download <a href="ch10/basics20.pd">basics20.pd</a></p>
+
+<h3>List unpacking</h3>
+<img src="ch10/basics21.gif" alt="basics21" />
+<pre>
+#N canvas 491 136 241 116 10;
+#X symbolatom 58 98 5 0 0 0 - - -;
+#X symbolatom 89 80 5 0 0 0 - - -;
+#X floatatom 120 62 3 0 0 0 - - -;
+#X floatatom 151 48 3 0 0 0 - - -;
+#X obj 58 2 r packed;
+#X obj 58 24 unpack s s f f;
+#X connect 4 0 5 0;
+#X connect 5 0 0 0;
+#X connect 5 1 1 0;
+#X connect 5 2 2 0;
+#X connect 5 3 3 0;
+</pre>
+<p>Download <a href="ch10/basics21.pd">basics21.pd</a></p>
+
+<h3>Substitution (Dollar args in message boxes)</h3>
+<img src="ch10/basics27.gif" alt="basics27" />
+<pre>
+#N canvas 116 227 230 131 10;
+#X msg 18 46 \$1;
+#X floatatom 18 71 5 0 0 0 - - -;
+#X msg 18 23 5 6 7;
+#X msg 91 43 \$3 \$1 \$2;
+#X obj 91 21 pack 5 10 15;
+#X obj 91 66 unpack f f f;
+#X obj 91 1 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1 -1
+;
+#X floatatom 91 88 3 0 0 0 - - -;
+#X floatatom 130 88 3 0 0 0 - - -;
+#X floatatom 170 88 3 0 0 0 - - -;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 7 0;
+#X connect 5 1 8 0;
+#X connect 5 2 9 0;
+#X connect 6 0 4 0;
+</pre>
+<p>Download <a href="ch10/basics27.pd">basics27.pd</a></p>
+
+<h3>Persistance (Storage in message boxes)</h3>
+<img src="ch10/basics25.gif" alt="basics25" />
+<pre>
+#N canvas 177 206 216 157 10;
+#X msg 30 95 4 6 8;
+#X msg 2 50 set \$1 \$2 \$3;
+#X obj 30 73 loadbang;
+#N canvas 0 0 450 300 synthesiser 0;
+#X obj 94 30 inlet;
+#X restore 50 132 pd synthesiser;
+#X obj 73 24 t a a;
+#X msg 73 0 4 6 8;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 4 0 1 0;
+#X connect 4 1 3 0;
+#X connect 5 0 4 0;
+</pre>
+<p>Download <a href="ch10/basics25.pd">basics25.pd</a></p>
+
+<h3>List distribution (property of objects)</h3>
+<img src="ch10/basics17.gif" alt="basics17" />
+<pre>
+#N canvas 233 476 116 65 10;
+#X floatatom 41 49 5 0 0 0 - - -;
+#X obj 41 26 -;
+#X msg 41 1 9 7;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+</pre>
+<p>Download <a href="ch10/basics17.pd">basics17.pd</a></p>
+
+<h3>MIDI in using [notein] object</h3>
+<img src="ch10/basics19.gif" alt="basics19" />
+<pre>
+#N canvas 271 248 183 89 10;
+#X obj 56 0 notein;
+#X floatatom 56 66 3 0 0 1 note - -;
+#X floatatom 74 46 3 0 0 1 velocity - -;
+#X floatatom 93 25 3 0 0 1 channel - -;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 0 2 3 0;
+</pre>
+<p>Download <a href="ch10/basics19.pd">basics19.pd</a></p>
+
+<h3>Random MIDI note out using [noteout] object</h3>
+<img src="ch10/noteout.gif" alt="noteout" />
+<pre>
+#N canvas 682 315 148 197 10;
+#X obj 1 147 makenote;
+#X obj 1 25 metro 200;
+#X obj 1 114 + 48;
+#X obj 1 72 random 3;
+#X obj 1 94 * 12;
+#X obj 1 49 t b b;
+#X obj 68 70 random 127;
+#X obj 55 127 hsl 64 12 0 1000 0 1 empty empty notelength 5 6 1 8 -262144
+-1 -1 6200 1;
+#X floatatom 66 148 5 0 0 0 - - -;
+#X obj 1 3 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1;
+#X obj 1 179 noteout;
+#X connect 0 0 10 0;
+#X connect 0 1 10 1;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;
+#X connect 5 1 6 0;
+#X connect 6 0 0 1;
+#X connect 7 0 8 0;
+#X connect 7 0 0 2;
+#X connect 9 0 1 0;
+</pre>
+<p>Download <a href="ch10/midi-noteout.pd">midi-noteout.pd</a></p>
+
+<h3>Arithmetic mean on three numbers</h3>
+<img src="ch10/basics22.gif" alt="basics22" />
+<pre>
+#N canvas 226 146 285 178 10;
+#X obj 29 46 random 100;
+#X obj 109 46 random 100;
+#X obj 189 46 random 100;
+#X obj 29 86 +;
+#X floatatom 35 66 3 0 0 0 - - -;
+#X floatatom 115 66 3 0 0 0 - - -;
+#X floatatom 195 66 3 0 0 0 - - -;
+#X obj 29 18 trigger bang bang bang;
+#X obj 29 109 +;
+#X obj 29 131 / 3;
+#X floatatom 29 154 6 0 0 0 - - -;
+#X obj 29 -2 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 1 0 3 1;
+#X connect 1 0 5 0;
+#X connect 2 0 6 0;
+#X connect 2 0 8 1;
+#X connect 3 0 8 0;
+#X connect 7 0 0 0;
+#X connect 7 1 1 0;
+#X connect 7 2 2 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 11 0 7 0;
+</pre>
+<p>Download <a href="ch10/basics22.pd">basics22.pd</a></p>
+
+<h3>Counter</h3>
+<img src="ch10/counter.gif" alt="counter" />
+<pre>
+#N canvas 288 556 408 147 10;
+#X obj 100 41 metro 200;
+#X obj 100 16 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 100 72 f;
+#X obj 131 72 + 1;
+#X obj 100 111 print;
+#X msg 197 26 1;
+#X msg 196 48 -1;
+#X text 233 26 count up;
+#X text 234 47 count down;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 1;
+#X connect 5 0 3 1;
+#X connect 6 0 3 1;
+</pre>
+<p>Download <a href="ch10/counter.pd">counter.pd</a></p>
+
+<h3>Constrained counter</h3>
+<img src="ch10/constrained-counter.gif" alt="constrained-counter" />
+<pre>
+#N canvas 288 556 473 303 10;
+#X obj 100 41 metro 200;
+#X obj 100 16 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 100 72 f;
+#X obj 131 72 + 1;
+#X obj 100 192 print;
+#X msg 197 26 1;
+#X msg 196 48 -1;
+#X text 233 26 count up;
+#X text 234 47 count down;
+#X obj 111 100 mod 8;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 2 0 9 0;
+#X connect 3 0 2 1;
+#X connect 5 0 3 1;
+#X connect 6 0 3 1;
+#X connect 9 0 3 0;
+</pre>
+<p>Download <a href="ch10/constrained-counter.pd">constrained-counter.pd</a></p>
+
+<h3>Accumulator</h3>
+<img src="ch10/accumulator.gif" alt="accumulator" />
+<pre>
+#N canvas 288 556 473 303 10;
+#X obj 100 41 metro 200;
+#X obj 100 16 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 133 146 f;
+#X obj 100 226 print;
+#X msg 265 53 1;
+#X msg 264 75 -1;
+#X text 301 53 count up;
+#X text 302 74 count down;
+#X obj 100 146 +;
+#X obj 100 107 f 1;
+#X msg 264 30 2;
+#X msg 264 97 -2;
+#X text 259 2 accumulate step;
+#X connect 0 0 9 0;
+#X connect 1 0 0 0;
+#X connect 2 0 8 1;
+#X connect 4 0 9 1;
+#X connect 5 0 9 1;
+#X connect 8 0 2 0;
+#X connect 8 0 3 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 1;
+#X connect 11 0 9 1;
+</pre>
+<p>Download <a href="ch10/accumulator.pd">accumulator.pd</a></p>
+
+<h3>Scaling</h3>
+<img src="ch10/scale.gif" alt="scale" />
+<pre>
+#N canvas 403 566 212 135 10;
+#X obj 100 2 inlet value;
+#X obj 123 26 inlet scale;
+#X obj 123 69 inlet offset;
+#X obj 100 116 outlet;
+#X obj 5 2 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10 -262144
+-1 -1 127 256;
+#X obj 5 118 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 9.99998 256;
+#X obj 5 91 + 1;
+#X obj 5 46 * 0.070866;
+#X obj 100 47 * \$1;
+#X obj 100 90 + \$2;
+#X connect 0 0 8 0;
+#X connect 1 0 8 1;
+#X connect 2 0 9 1;
+#X connect 4 0 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 3 0;
+</pre>
+<p>Download <a href="ch10/scale.pd">scale.pd</a></p>
+
+<h3>Looping with [until]</h3>
+<img src="ch10/cheby-until.gif" alt="cheby-until" />
+<pre>
+#N canvas 83 115 320 317 10;
+#X obj 17 14 t b b;
+#X obj 60 82 f;
+#X obj 98 82 + 1;
+#X msg 76 53 0;
+#X obj 17 43 until;
+#X obj 60 112 t f f;
+#N canvas 0 0 450 300 graph1 0;
+#X array cheby 256 float 1;
+#A 0 1.03137 1 0.968872 0.937988 0.907349 0.876953 0.846802 0.816895
+0.787231 0.757812 0.728638 0.699707 0.671021 0.642578 0.61438 0.586426
+0.558716 0.53125 0.504028 0.477051 0.450317 0.423828 0.397583 0.371582
+0.345825 0.320312 0.295044 0.27002 0.245239 0.220703 0.196411 0.172363
+0.14856 0.125 0.101685 0.0786133 0.0557861 0.0332031 0.0108643 -0.0112305
+-0.0330811 -0.0546875 -0.0760498 -0.097168 -0.118042 -0.138672 -0.159058
+-0.179199 -0.199097 -0.21875 -0.238159 -0.257324 -0.276245 -0.294922
+-0.313354 -0.331543 -0.349487 -0.367188 -0.384644 -0.401855 -0.418823
+-0.435547 -0.452026 -0.468262 -0.484253 -0.5 -0.515503 -0.530762 -0.545776
+-0.560547 -0.575073 -0.589355 -0.603394 -0.617188 -0.630737 -0.644043
+-0.657104 -0.669922 -0.682495 -0.694824 -0.706909 -0.71875 -0.730347
+-0.741699 -0.752808 -0.763672 -0.774292 -0.784668 -0.7948 -0.804688
+-0.814331 -0.82373 -0.832886 -0.841797 -0.850464 -0.858887 -0.867065
+-0.875 -0.88269 -0.890137 -0.897339 -0.904297 -0.911011 -0.91748 -0.923706
+-0.929688 -0.935425 -0.940918 -0.946167 -0.951172 -0.955933 -0.960449
+-0.964722 -0.96875 -0.972534 -0.976074 -0.97937 -0.982422 -0.985229
+-0.987793 -0.990112 -0.992188 -0.994019 -0.995605 -0.996948 -0.998047
+-0.998901 -0.999512 -0.999878 -1 -0.999878 -0.999512 -0.998901 -0.998047
+-0.996948 -0.995605 -0.994019 -0.992188 -0.990112 -0.987793 -0.985229
+-0.982422 -0.97937 -0.976074 -0.972534 -0.96875 -0.964722 -0.960449
+-0.955933 -0.951172 -0.946167 -0.940918 -0.935425 -0.929688 -0.923706
+-0.91748 -0.911011 -0.904297 -0.897339 -0.890137 -0.88269 -0.875 -0.867065
+-0.858887 -0.850464 -0.841797 -0.832886 -0.82373 -0.814331 -0.804688
+-0.7948 -0.784668 -0.774292 -0.763672 -0.752808 -0.741699 -0.730347
+-0.71875 -0.706909 -0.694824 -0.682495 -0.669922 -0.657104 -0.644043
+-0.630737 -0.617188 -0.603394 -0.589355 -0.575073 -0.560547 -0.545776
+-0.530762 -0.515503 -0.5 -0.484253 -0.468262 -0.452026 -0.435547 -0.418823
+-0.401855 -0.384644 -0.367188 -0.349487 -0.331543 -0.313354 -0.294922
+-0.276245 -0.257324 -0.238159 -0.21875 -0.199097 -0.179199 -0.159058
+-0.138672 -0.118042 -0.097168 -0.0760498 -0.0546875 -0.0330811 -0.0112305
+0.0108643 0.0332031 0.0557861 0.0786133 0.101685 0.125 0.14856 0.172363
+0.196411 0.220703 0.245239 0.27002 0.295044 0.320312 0.345825 0.371582
+0.397583 0.423828 0.450317 0.477051 0.504028 0.53125 0.558716 0.586426
+0.61438 0.642578 0.671021 0.699707 0.728638 0.757812 0.787231 0.816895
+0.846802 0.876953 0.907349 1.06299;
+#X coords 0 1 255 -1 140 140 1;
+#X restore 174 166 graph;
+#X obj 60 290 tabwrite cheby;
+#X obj 17 -8 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 60 137 swap 129;
+#X obj 60 160 -;
+#X obj 60 182 / 128;
+#X obj 60 204 t f f;
+#X obj 60 226 *;
+#X obj 60 247 * 2;
+#X obj 60 268 - 1;
+#X obj 4 111 sel 256;
+#X connect 0 0 4 0;
+#X connect 0 1 3 0;
+#X connect 1 0 2 0;
+#X connect 1 0 5 0;
+#X connect 1 0 16 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 1;
+#X connect 4 0 1 0;
+#X connect 5 0 9 0;
+#X connect 5 1 7 1;
+#X connect 8 0 0 0;
+#X connect 9 0 10 0;
+#X connect 9 1 10 1;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 12 1 13 1;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 7 0;
+#X connect 16 0 4 1;
+</pre>
+<p>Download <a href="ch10/chebyshev-until.pd">chebyshev-until.pd</a></p>
+
+<h3>For loop construct (fixed iterations)</h3>
+<img src="ch10/basics28.gif" alt="basics28" />
+<pre>
+#N canvas 0 0 131 69 10;
+#X obj 29 25 min 1;
+#X obj 29 46 until;
+#X msg 29 3 256;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+</pre>
+<p>Download <a href="ch10/basics28.pd">basics28.pd</a></p>
+
+<h3>Message complement and inverse</h3>
+<img src="ch10/message-reciprocal-inverse.gif" alt="message-reciprocal-inverse" />
+<pre>
+#N canvas 720 452 189 106 10;
+#X obj 10 29 swap 1;
+#X obj 10 54 -;
+#X obj 10 8 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10 -262144
+-1 -1 0.25 256;
+#X obj 10 78 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 0.75 256;
+#X obj 91 29 swap 1;
+#X obj 91 8 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10 -262144
+-1 -1 0.5 256;
+#X obj 91 78 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 2 256;
+#X obj 91 54 /;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 4 0 7 0;
+#X connect 4 1 7 1;
+#X connect 5 0 4 0;
+#X connect 7 0 6 0;
+</pre>
+<p>Download <a href="ch10/message-reciprocal-inverse.pd">message-reciprocal-inverse.pd</a></p>
+
+<h3>Weighted random numbers</h3>
+<img src="ch10/weighted-random.gif" alt="weighted-random" />
+<pre>
+#N canvas 288 556 376 201 10;
+#X obj 100 16 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 100 41 metro 500;
+#X obj 100 66 random 100;
+#X obj 100 95 moses 10;
+#X obj 206 159 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 153 118 moses 50;
+#X obj 153 160 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 100 159 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 7 0;
+#X connect 3 1 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 4 0;
+</pre>
+<p>Download <a href="ch10/weighted-random.pd">weighted-random.pd</a></p>
+
+<h3>Delay cascade</h3>
+<img src="ch10/delay-cascade.gif" alt="delay-cascade" />
+<pre>
+#N canvas 288 556 376 201 10;
+#X obj 209 90 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 149 91 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 86 90 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 86 22 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 86 59 del 100;
+#X obj 149 59 del 100;
+#X obj 209 59 del 100;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 5 0 1 0;
+#X connect 6 0 0 0;
+</pre>
+<p>Download <a href="ch10/delay-cascade.pd">delay-cascade.pd</a></p>
+
+<h3>Last number (running average example)</h3>
+<img src="ch10/last-average.gif" alt="last-average" />
+<pre>
+#N canvas 177 190 241 153 10;
+#X obj 15 32 t f b;
+#X obj 15 59 f;
+#X floatatom 15 10 5 0 0 0 - - -;
+#X floatatom 15 85 5 0 0 0 - - -;
+#X obj 83 50 t f b;
+#X obj 83 74 f;
+#X floatatom 83 135 5 0 0 0 - - -;
+#X obj 83 94 +;
+#X obj 83 114 / 2;
+#X obj 83 30 trigger f f;
+#X msg 83 6 10;
+#X msg 118 6 15;
+#X connect 0 0 1 1;
+#X connect 0 1 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 4 0 5 1;
+#X connect 4 1 5 0;
+#X connect 5 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 4 0;
+#X connect 9 1 7 1;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+</pre>
+<p>Download <a href="ch10/last-average.pd">last-average.pd</a></p>
+
+<h3>Running maximum or minimum</h3>
+<img src="ch10/running-max.gif" alt="running-max" />
+<pre>
+#N canvas 310 189 71 81 10;
+#X obj 3 42 t f f;
+#X floatatom 3 2 5 0 0 0 - - -;
+#X obj 3 20 max 1e-21;
+#X floatatom 3 64 5 0 0 0 - - -;
+#X connect 0 0 3 0;
+#X connect 0 1 2 1;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+</pre>
+<p>Download <a href="ch10/running-max.pd">running-max.pd</a></p>
+
+<h3>Float lowpass filter</h3>
+<img src="ch10/message-lowpass.gif" alt="message-lowpass" />
+<pre>
+#N canvas 401 263 114 115 10;
+#X floatatom 5 5 5 0 0 0 - - -;
+#X obj 5 30 * 0.1;
+#X obj 5 58 +;
+#X obj 38 58 * 0.9;
+#X floatatom 5 86 5 0 0 0 - - -;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 1;
+</pre>
+<p>Download <a href="ch10/message-lowpass.pd">message-lowpass.pd</a></p>
+
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

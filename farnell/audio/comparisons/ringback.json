@@ -1,0 +1,46 @@
+{
+  "files": {
+    "farnell\\audio\\25-phone-tones\\ringback-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 576000,
+      "seconds": 12.0,
+      "peak": 0.11680681258440018,
+      "rms": 0.047622011662708845,
+      "dc": -2.896962282569771e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\25-phone-tones\\ringback-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 576000,
+      "seconds": 12.0,
+      "peak": 0.11680632084608078,
+      "rms": 0.04762194438742652,
+      "dc": -2.896952507701509e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\25-phone-tones\\ringback-online.wav": {
+      "sample_rate": 48000,
+      "frames": 504000,
+      "seconds": 10.5,
+      "peak": 0.11822509765625,
+      "rms": 0.05152941271739344,
+      "dc": 2.0587255084325395e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 16384,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 0.9999999999849033,
+  "aligned_error_rms": 2.701855052066863e-07,
+  "identical_samples": false,
+  "relative_error_db": -104.92291381154777,
+  "rms_difference_db": -1.2270504122230806e-05,
+  "envelope_relative_error": 2.1710947307409726e-06,
+  "active_spectrum_median_abs_db": 2.705986410994698e-05
+}
