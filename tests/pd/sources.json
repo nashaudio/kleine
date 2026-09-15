@@ -1,0 +1,38 @@
+[
+  {
+    "tag": "0.42-5",
+    "file": "d_filter.c",
+    "url": "https://raw.githubusercontent.com/pure-data/pure-data/0.42-5/src/d_filter.c",
+    "sha256": "79dc9796feb97b514ba339bbe4a55b43de2f9b11ebea98ec4cd4b0231b8fd37d"
+  },
+  {
+    "tag": "0.42-5",
+    "file": "d_osc.c",
+    "url": "https://raw.githubusercontent.com/pure-data/pure-data/0.42-5/src/d_osc.c",
+    "sha256": "1788d92f2e22ebaa31297cb3e8becf8acb25ba8a1acdeb3b989c3226dea38b58"
+  },
+  {
+    "tag": "0.55-2",
+    "file": "d_filter.c",
+    "url": "https://raw.githubusercontent.com/pure-data/pure-data/0.55-2/src/d_filter.c",
+    "sha256": "b9a095f0dae4628432a0711fbefb71677ceb6a6a02002996096d1f53733bcc93"
+  },
+  {
+    "tag": "0.55-2",
+    "file": "d_osc.c",
+    "url": "https://raw.githubusercontent.com/pure-data/pure-data/0.55-2/src/d_osc.c",
+    "sha256": "4908b184e57eee441b520c6db5b0ca64d5eabf945a0b6b31ec61f845b83361af"
+  },
+  {
+    "tag": "0.55-2",
+    "file": "d_osc.h",
+    "url": "https://raw.githubusercontent.com/pure-data/pure-data/0.55-2/src/d_osc.h",
+    "sha256": "ed24fc47c0754f1f235e58e0a8a4ccc6d388edfbe75a1b0cd1f5a06527608a45"
+  },
+  {
+    "tag": "0.55-2",
+    "file": "d_ctl.c",
+    "url": "https://raw.githubusercontent.com/pure-data/pure-data/0.55-2/src/d_ctl.c",
+    "sha256": "c2f5ffbeeccfaad71aef934c4cc8423fe5e3897b00f0d4cc86bc9bc6a33553d9"
+  }
+]

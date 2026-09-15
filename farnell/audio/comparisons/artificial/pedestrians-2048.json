@@ -1,0 +1,46 @@
+{
+  "files": {
+    "farnell\\audio\\24-pedestrians\\pedestrians-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999998807907104,
+      "rms": 0.09999992104081444,
+      "dc": -2.364486526573728e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\24-pedestrians\\pedestrians-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999998807907104,
+      "rms": 0.09999992104081444,
+      "dc": -2.364486526573728e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\24-pedestrians\\pedestrians-online.wav": {
+      "sample_rate": 48000,
+      "frames": 247200,
+      "seconds": 5.15,
+      "peak": 0.199981689453125,
+      "rms": 0.09853023892123146,
+      "dc": 2.733249108768204e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 2048,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 1.0,
+  "aligned_error_rms": 0.0,
+  "identical_samples": true,
+  "relative_error_db": -240.0,
+  "rms_difference_db": 0.0,
+  "envelope_relative_error": 0.0,
+  "active_spectrum_median_abs_db": 0.0
+}

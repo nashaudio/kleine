@@ -1,0 +1,8 @@
+# Preserve upstream patch/licence bytes so provenance hashes survive checkout.
+farnell/pd/** -text
+farnell/pd/old/** -text -whitespace
+farnell/zip/** -text -whitespace
+farnell/reference/**/*.pd -text
+tests/pd/*.pd -text
+licenses/Pure-Data-BSD.txt -text -whitespace
+*.wav binary

@@ -1,0 +1,4333 @@
+{
+  "schema": 1,
+  "snapshot": "2026-09-15",
+  "book_pdf_page_offset": 25,
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 6,
+      "series": "Introduction",
+      "id": "01-introduction",
+      "website": null,
+      "klang_file": "klang/Introduction/Introduction/introduction.k"
+    },
+    {
+      "number": 2,
+      "title": "Theory Introduction",
+      "page_start": 7,
+      "page_end": 8,
+      "series": "Theory",
+      "id": "02-theoryintroduction",
+      "website": null,
+      "klang_file": "klang/Theory/Theory Introduction/theoryintroduction.k"
+    },
+    {
+      "number": 3,
+      "title": "Physical Sound",
+      "page_start": 9,
+      "page_end": 38,
+      "series": "Theory",
+      "id": "03-physicalsound",
+      "website": null,
+      "klang_file": "klang/Theory/Physical Sound/physicalsound.k"
+    },
+    {
+      "number": 4,
+      "title": "Oscillations",
+      "page_start": 39,
+      "page_end": 54,
+      "series": "Theory",
+      "id": "04-oscillations",
+      "website": null,
+      "klang_file": "klang/Theory/Oscillations/oscillations.k"
+    },
+    {
+      "number": 5,
+      "title": "Acoustics",
+      "page_start": 55,
+      "page_end": 76,
+      "series": "Theory",
+      "id": "05-acoustics",
+      "website": null,
+      "klang_file": "klang/Theory/Acoustics/acoustics.k"
+    },
+    {
+      "number": 6,
+      "title": "Psychoacoustics",
+      "page_start": 77,
+      "page_end": 118,
+      "series": "Theory",
+      "id": "06-psychoacoustics",
+      "website": null,
+      "klang_file": "klang/Theory/Psychoacoustics/psychoacoustics.k"
+    },
+    {
+      "number": 7,
+      "title": "Digital Signals",
+      "page_start": 119,
+      "page_end": 146,
+      "series": "Theory",
+      "id": "07-digitalsignals",
+      "website": null,
+      "klang_file": "klang/Theory/Digital Signals/digitalsignals.k"
+    },
+    {
+      "number": 8,
+      "title": "Tools Introduction",
+      "page_start": 147,
+      "page_end": 148,
+      "series": "Pure Data",
+      "id": "08-toolsintroduction",
+      "website": null,
+      "klang_file": "klang/Pure Data/Tools Introduction/toolsintroduction.k"
+    },
+    {
+      "number": 9,
+      "title": "Starting with Pure Data",
+      "page_start": 149,
+      "page_end": 164,
+      "series": "Pure Data",
+      "id": "09-startingwithpuredata",
+      "website": "chapter09.html",
+      "klang_file": "klang/Pure Data/Starting with Pure Data/startingwithpuredata.k"
+    },
+    {
+      "number": 10,
+      "title": "Using Pure Data",
+      "page_start": 165,
+      "page_end": 184,
+      "series": "Pure Data",
+      "id": "10-usingpuredata",
+      "website": "chapter10.html",
+      "klang_file": "klang/Pure Data/Using Pure Data/usingpuredata.k"
+    },
+    {
+      "number": 11,
+      "title": "Pure Data Audio",
+      "page_start": 185,
+      "page_end": 192,
+      "series": "Pure Data",
+      "id": "11-puredataaudio",
+      "website": "chapter11.html",
+      "klang_file": "klang/Pure Data/Pure Data Audio/puredataaudio.k"
+    },
+    {
+      "number": 12,
+      "title": "Abstraction",
+      "page_start": 193,
+      "page_end": 204,
+      "series": "Pure Data",
+      "id": "12-abstraction",
+      "website": "chapter12.html",
+      "klang_file": "klang/Pure Data/Abstraction/abstraction.k"
+    },
+    {
+      "number": 13,
+      "title": "Shaping Sound",
+      "page_start": 205,
+      "page_end": 218,
+      "series": "Pure Data",
+      "id": "13-shapingsound",
+      "website": "chapter13.html",
+      "klang_file": "klang/Pure Data/Shaping Sound/shapingsound.k"
+    },
+    {
+      "number": 14,
+      "title": "Pure Data Essentials",
+      "page_start": 219,
+      "page_end": 238,
+      "series": "Pure Data",
+      "id": "14-puredataessentials",
+      "website": "chapter14.html",
+      "klang_file": "klang/Pure Data/Pure Data Essentials/puredataessentials.k"
+    },
+    {
+      "number": 15,
+      "title": "Technique Introduction",
+      "page_start": 239,
+      "page_end": 242,
+      "series": "Techniques",
+      "id": "15-techniqueintroduction",
+      "website": null,
+      "klang_file": "klang/Techniques/Technique Introduction/techniqueintroduction.k"
+    },
+    {
+      "number": 16,
+      "title": "Strategic Production",
+      "page_start": 243,
+      "page_end": 266,
+      "series": "Techniques",
+      "id": "16-strategicproduction",
+      "website": null,
+      "klang_file": "klang/Techniques/Strategic Production/strategicproduction.k"
+    },
+    {
+      "number": 17,
+      "title": "Technique 1—Summation",
+      "page_start": 267,
+      "page_end": 276,
+      "series": "Techniques",
+      "id": "17-technique1summation",
+      "website": "chapter17.html",
+      "klang_file": "klang/Techniques/Technique 1—Summation/technique1summation.k"
+    },
+    {
+      "number": 18,
+      "title": "Technique 2—Tables",
+      "page_start": 277,
+      "page_end": 282,
+      "series": "Techniques",
+      "id": "18-technique2tables",
+      "website": "chapter18.html",
+      "klang_file": "klang/Techniques/Technique 2—Tables/technique2tables.k"
+    },
+    {
+      "number": 19,
+      "title": "Technique 3—Nonlinear Functions",
+      "page_start": 283,
+      "page_end": 290,
+      "series": "Techniques",
+      "id": "19-technique3nonlinearfunctions",
+      "website": "chapter19.html",
+      "klang_file": "klang/Techniques/Technique 3—Nonlinear Functions/technique3nonlinearfunctions.k"
+    },
+    {
+      "number": 20,
+      "title": "Technique 4—Modulation",
+      "page_start": 291,
+      "page_end": 304,
+      "series": "Techniques",
+      "id": "20-technique4modulation",
+      "website": "chapter20.html",
+      "klang_file": "klang/Techniques/Technique 4—Modulation/technique4modulation.k"
+    },
+    {
+      "number": 21,
+      "title": "Technique 5—Grains",
+      "page_start": 305,
+      "page_end": 314,
+      "series": "Techniques",
+      "id": "21-technique5grains",
+      "website": "chapter21.html",
+      "klang_file": "klang/Techniques/Technique 5—Grains/technique5grains.k"
+    },
+    {
+      "number": 22,
+      "title": "Game Audio",
+      "page_start": 315,
+      "page_end": 328,
+      "series": "Techniques",
+      "id": "22-gameaudio",
+      "website": null,
+      "klang_file": "klang/Techniques/Game Audio/gameaudio.k"
+    },
+    {
+      "number": 23,
+      "title": "Practicals Introduction",
+      "page_start": 329,
+      "page_end": 332,
+      "series": "Practicals Introduction",
+      "id": "23-practicalsintroduction",
+      "website": null,
+      "klang_file": "klang/Practicals Introduction/Practicals Introduction/practicalsintroduction.k"
+    },
+    {
+      "number": 24,
+      "title": "Pedestrians",
+      "page_start": 333,
+      "page_end": 336,
+      "series": "Artificial Sounds",
+      "id": "24-pedestrians",
+      "website": "practical01.html",
+      "klang_file": "klang/Artificial Sounds/Pedestrians/pedestrians.k"
+    },
+    {
+      "number": 25,
+      "title": "Phone Tones",
+      "page_start": 337,
+      "page_end": 342,
+      "series": "Artificial Sounds",
+      "id": "25-phonetones",
+      "website": "practical02.html",
+      "klang_file": "klang/Artificial Sounds/Phone Tones/phonetones.k"
+    },
+    {
+      "number": 26,
+      "title": "DTMF Tones",
+      "page_start": 343,
+      "page_end": 346,
+      "series": "Artificial Sounds",
+      "id": "26-dtmftones",
+      "website": "practical03.html",
+      "klang_file": "klang/Artificial Sounds/DTMF Tones/dtmftones.k"
+    },
+    {
+      "number": 27,
+      "title": "Alarm Generator",
+      "page_start": 347,
+      "page_end": 354,
+      "series": "Artificial Sounds",
+      "id": "27-alarmgenerator",
+      "website": "practical04.html",
+      "klang_file": "klang/Artificial Sounds/Alarm Generator/alarmgenerator.k"
+    },
+    {
+      "number": 28,
+      "title": "Police",
+      "page_start": 355,
+      "page_end": 366,
+      "series": "Artificial Sounds",
+      "id": "28-police",
+      "website": "practical05.html",
+      "klang_file": "klang/Artificial Sounds/Police/police.k"
+    },
+    {
+      "number": 29,
+      "title": "Telephone Bell",
+      "page_start": 367,
+      "page_end": 382,
+      "series": "Idiophonics",
+      "id": "29-telephonebell",
+      "website": "practical06.html",
+      "klang_file": "klang/Idiophonics/Telephone Bell/telephonebell.k"
+    },
+    {
+      "number": 30,
+      "title": "Bouncing",
+      "page_start": 383,
+      "page_end": 386,
+      "series": "Idiophonics",
+      "id": "30-bouncing",
+      "website": "practical07.html",
+      "klang_file": "klang/Idiophonics/Bouncing/bouncing.k"
+    },
+    {
+      "number": 31,
+      "title": "Rolling",
+      "page_start": 387,
+      "page_end": 394,
+      "series": "Idiophonics",
+      "id": "31-rolling",
+      "website": "practical08.html",
+      "klang_file": "klang/Idiophonics/Rolling/rolling.k"
+    },
+    {
+      "number": 32,
+      "title": "Creaking",
+      "page_start": 395,
+      "page_end": 400,
+      "series": "Idiophonics",
+      "id": "32-creaking",
+      "website": "practical09.html",
+      "klang_file": "klang/Idiophonics/Creaking/creaking.k"
+    },
+    {
+      "number": 33,
+      "title": "Boing",
+      "page_start": 401,
+      "page_end": 408,
+      "series": "Idiophonics",
+      "id": "33-boing",
+      "website": "practical10.html",
+      "klang_file": "klang/Idiophonics/Boing/boing.k"
+    },
+    {
+      "number": 34,
+      "title": "Fire",
+      "page_start": 409,
+      "page_end": 418,
+      "series": "Nature",
+      "id": "34-fire",
+      "website": "practical11.html",
+      "klang_file": "klang/Nature/Fire/fire.k"
+    },
+    {
+      "number": 35,
+      "title": "Bubbles",
+      "page_start": 419,
+      "page_end": 428,
+      "series": "Nature",
+      "id": "35-bubbles",
+      "website": "practical12.html",
+      "klang_file": "klang/Nature/Bubbles/bubbles.k"
+    },
+    {
+      "number": 36,
+      "title": "Running Water",
+      "page_start": 429,
+      "page_end": 436,
+      "series": "Nature",
+      "id": "36-runningwater",
+      "website": "practical13.html",
+      "klang_file": "klang/Nature/Running Water/runningwater.k"
+    },
+    {
+      "number": 37,
+      "title": "Pouring",
+      "page_start": 437,
+      "page_end": 440,
+      "series": "Nature",
+      "id": "37-pouring",
+      "website": "practical14.html",
+      "klang_file": "klang/Nature/Pouring/pouring.k"
+    },
+    {
+      "number": 38,
+      "title": "Rain",
+      "page_start": 441,
+      "page_end": 450,
+      "series": "Nature",
+      "id": "38-rain",
+      "website": "practical15.html",
+      "klang_file": "klang/Nature/Rain/rain.k"
+    },
+    {
+      "number": 39,
+      "title": "Electricity",
+      "page_start": 451,
+      "page_end": 458,
+      "series": "Nature",
+      "id": "39-electricity",
+      "website": "practical16.html",
+      "klang_file": "klang/Nature/Electricity/electricity.k"
+    },
+    {
+      "number": 40,
+      "title": "Thunder",
+      "page_start": 459,
+      "page_end": 470,
+      "series": "Nature",
+      "id": "40-thunder",
+      "website": "practical17.html",
+      "klang_file": "klang/Nature/Thunder/thunder.k"
+    },
+    {
+      "number": 41,
+      "title": "Wind",
+      "page_start": 471,
+      "page_end": 484,
+      "series": "Nature",
+      "id": "41-wind",
+      "website": "practical18.html",
+      "klang_file": "klang/Nature/Wind/wind.k"
+    },
+    {
+      "number": 42,
+      "title": "Switches",
+      "page_start": 485,
+      "page_end": 490,
+      "series": "Machines",
+      "id": "42-switches",
+      "website": "practical19.html",
+      "klang_file": "klang/Machines/Switches/switches.k"
+    },
+    {
+      "number": 43,
+      "title": "Clocks",
+      "page_start": 491,
+      "page_end": 498,
+      "series": "Machines",
+      "id": "43-clocks",
+      "website": "practical20.html",
+      "klang_file": "klang/Machines/Clocks/clocks.k"
+    },
+    {
+      "number": 44,
+      "title": "Motors",
+      "page_start": 499,
+      "page_end": 506,
+      "series": "Machines",
+      "id": "44-motors",
+      "website": "practical21.html",
+      "klang_file": "klang/Machines/Motors/motors.k"
+    },
+    {
+      "number": 45,
+      "title": "Cars",
+      "page_start": 507,
+      "page_end": 516,
+      "series": "Machines",
+      "id": "45-cars",
+      "website": "practical22.html",
+      "klang_file": "klang/Machines/Cars/cars.k"
+    },
+    {
+      "number": 46,
+      "title": "Fans",
+      "page_start": 517,
+      "page_end": 522,
+      "series": "Machines",
+      "id": "46-fans",
+      "website": "practical23.html",
+      "klang_file": "klang/Machines/Fans/fans.k"
+    },
+    {
+      "number": 47,
+      "title": "Jet Engine",
+      "page_start": 523,
+      "page_end": 528,
+      "series": "Machines",
+      "id": "47-jetengine",
+      "website": "practical24.html",
+      "klang_file": "klang/Machines/Jet Engine/jetengine.k"
+    },
+    {
+      "number": 48,
+      "title": "Helicopter",
+      "page_start": 529,
+      "page_end": 546,
+      "series": "Machines",
+      "id": "48-helicopter",
+      "website": "practical25.html",
+      "klang_file": "klang/Machines/Helicopter/helicopter.k"
+    },
+    {
+      "number": 49,
+      "title": "Footsteps",
+      "page_start": 547,
+      "page_end": 556,
+      "series": "Lifeforms",
+      "id": "49-footsteps",
+      "website": "practical26.html",
+      "klang_file": "klang/Lifeforms/Footsteps/footsteps.k"
+    },
+    {
+      "number": 50,
+      "title": "Insects",
+      "page_start": 557,
+      "page_end": 570,
+      "series": "Lifeforms",
+      "id": "50-insects",
+      "website": "practical27.html",
+      "klang_file": "klang/Lifeforms/Insects/insects.k"
+    },
+    {
+      "number": 51,
+      "title": "Birds",
+      "page_start": 571,
+      "page_end": 578,
+      "series": "Lifeforms",
+      "id": "51-birds",
+      "website": "practical28.html",
+      "klang_file": "klang/Lifeforms/Birds/birds.k"
+    },
+    {
+      "number": 52,
+      "title": "Mammals",
+      "page_start": 579,
+      "page_end": 592,
+      "series": "Lifeforms",
+      "id": "52-mammals",
+      "website": "practical29.html",
+      "klang_file": "klang/Lifeforms/Mammals/mammals.k"
+    },
+    {
+      "number": 53,
+      "title": "Guns",
+      "page_start": 593,
+      "page_end": 606,
+      "series": "Mayhem",
+      "id": "53-guns",
+      "website": "practical30.html",
+      "klang_file": "klang/Mayhem/Guns/guns.k"
+    },
+    {
+      "number": 54,
+      "title": "Explosions",
+      "page_start": 607,
+      "page_end": 616,
+      "series": "Mayhem",
+      "id": "54-explosions",
+      "website": "practical31.html",
+      "klang_file": "klang/Mayhem/Explosions/explosions.k"
+    },
+    {
+      "number": 55,
+      "title": "Rocket Launcher",
+      "page_start": 617,
+      "page_end": 628,
+      "series": "Mayhem",
+      "id": "55-rocketlauncher",
+      "website": "practical32.html",
+      "klang_file": "klang/Mayhem/Rocket Launcher/rocketlauncher.k"
+    },
+    {
+      "number": 56,
+      "title": "Transporter",
+      "page_start": 629,
+      "page_end": 634,
+      "series": "Science Fiction",
+      "id": "56-transporter",
+      "website": "practical33.html",
+      "klang_file": "klang/Science Fiction/Transporter/transporter.k"
+    },
+    {
+      "number": 57,
+      "title": "R2D2",
+      "page_start": 635,
+      "page_end": 640,
+      "series": "Science Fiction",
+      "id": "57-r2d2",
+      "website": "practical34.html",
+      "klang_file": "klang/Science Fiction/R2D2/r2d2.k"
+    },
+    {
+      "number": 58,
+      "title": "Red Alert",
+      "page_start": 641,
+      "page_end": 646,
+      "series": "Science Fiction",
+      "id": "58-redalert",
+      "website": "practical35.html",
+      "klang_file": "klang/Science Fiction/Red Alert/redalert.k"
+    }
+  ],
+  "figure_pages": {
+    "2.1": 8,
+    "3.1": 14,
+    "3.2": 15,
+    "3.3": 16,
+    "3.4": 18,
+    "3.5": 19,
+    "3.6": 22,
+    "3.7": 25,
+    "3.8": 26,
+    "3.9": 27,
+    "3.10": 28,
+    "3.11": 30,
+    "3.12": 31,
+    "3.13": 33,
+    "3.14": 34,
+    "3.15": 35,
+    "3.16": 35,
+    "3.17": 36,
+    "4.1": 40,
+    "4.2": 41,
+    "4.3": 42,
+    "4.4": 43,
+    "4.5": 45,
+    "4.6": 46,
+    "4.7": 47,
+    "4.8": 49,
+    "4.9": 50,
+    "4.10": 52,
+    "5.1": 56,
+    "5.2": 57,
+    "5.3": 59,
+    "5.4": 60,
+    "5.5": 63,
+    "5.6": 64,
+    "5.7": 65,
+    "5.8": 68,
+    "5.9": 69,
+    "5.10": 72,
+    "5.11": 73,
+    "6.1": 82,
+    "6.2": 84,
+    "7.1": 120,
+    "7.2": 122,
+    "7.3": 123,
+    "7.4": 124,
+    "7.5": 125,
+    "7.6": 126,
+    "7.7": 127,
+    "7.8": 127,
+    "7.9": 130,
+    "7.10": 132,
+    "7.11": 133,
+    "7.12": 134,
+    "7.13": 135,
+    "7.14": 137,
+    "7.15": 139,
+    "7.16": 140,
+    "7.17": 141,
+    "7.18": 142,
+    "9.1": 150,
+    "9.2": 151,
+    "9.3": 151,
+    "9.4": 154,
+    "9.5": 154,
+    "9.6": 155,
+    "9.7": 155,
+    "9.8": 156,
+    "9.9": 156,
+    "9.10": 160,
+    "9.11": 161,
+    "9.12": 162,
+    "9.13": 162,
+    "10.1": 165,
+    "10.2": 166,
+    "10.3": 166,
+    "10.4": 166,
+    "10.5": 167,
+    "10.6": 167,
+    "10.7": 168,
+    "10.8": 168,
+    "10.9": 169,
+    "10.10": 169,
+    "10.11": 170,
+    "10.12": 170,
+    "10.13": 171,
+    "10.14": 171,
+    "10.15": 172,
+    "10.16": 172,
+    "10.17": 173,
+    "10.18": 173,
+    "10.19": 173,
+    "10.20": 174,
+    "10.21": 175,
+    "10.22": 175,
+    "10.23": 176,
+    "10.24": 177,
+    "10.25": 177,
+    "10.26": 178,
+    "10.27": 179,
+    "10.28": 179,
+    "10.29": 180,
+    "10.30": 180,
+    "10.31": 180,
+    "10.32": 181,
+    "10.33": 181,
+    "10.34": 181,
+    "10.35": 182,
+    "10.36": 182,
+    "10.37": 182,
+    "10.38": 182,
+    "10.39": 183,
+    "10.40": 183,
+    "11.1": 186,
+    "11.2": 186,
+    "11.3": 187,
+    "11.4": 188,
+    "11.5": 188,
+    "11.6": 189,
+    "11.7": 190,
+    "11.8": 191,
+    "11.9": 191,
+    "12.1": 193,
+    "12.2": 193,
+    "12.3": 194,
+    "12.4": 194,
+    "12.5": 195,
+    "12.6": 195,
+    "12.7": 196,
+    "12.8": 197,
+    "12.9": 197,
+    "12.10": 198,
+    "12.11": 199,
+    "12.12": 199,
+    "12.13": 200,
+    "12.14": 200,
+    "12.15": 200,
+    "12.16": 201,
+    "12.17": 201,
+    "12.18": 202,
+    "12.19": 202,
+    "13.1": 206,
+    "13.2": 206,
+    "13.3": 206,
+    "13.4": 206,
+    "13.5": 207,
+    "13.6": 207,
+    "13.7": 208,
+    "13.8": 208,
+    "13.9": 209,
+    "13.10": 210,
+    "13.11": 210,
+    "13.12": 211,
+    "13.13": 211,
+    "13.14": 212,
+    "13.15": 212,
+    "13.16": 213,
+    "13.17": 214,
+    "13.18": 214,
+    "13.19": 216,
+    "13.20": 216,
+    "13.21": 217,
+    "14.1": 219,
+    "14.2": 219,
+    "14.3": 220,
+    "14.4": 220,
+    "14.5": 220,
+    "14.6": 221,
+    "14.7": 221,
+    "14.8": 222,
+    "14.9": 222,
+    "14.10": 223,
+    "14.11": 223,
+    "14.12": 224,
+    "14.13": 225,
+    "14.14": 225,
+    "14.15": 225,
+    "14.16": 226,
+    "14.17": 226,
+    "14.18": 227,
+    "14.19": 228,
+    "14.20": 228,
+    "14.21": 229,
+    "14.22": 229,
+    "14.23": 230,
+    "14.24": 231,
+    "14.25": 232,
+    "14.26": 233,
+    "14.27": 233,
+    "14.28": 234,
+    "15.1": 240,
+    "16.1": 246,
+    "16.2": 248,
+    "16.3": 251,
+    "16.4": 253,
+    "16.5": 255,
+    "16.6": 258,
+    "16.7": 263,
+    "17.1": 268,
+    "17.2": 270,
+    "17.3": 271,
+    "17.4": 272,
+    "17.5": 273,
+    "17.6": 274,
+    "17.7": 274,
+    "18.1": 278,
+    "18.2": 279,
+    "18.3": 280,
+    "18.4": 281,
+    "19.1": 284,
+    "19.2": 284,
+    "19.3": 285,
+    "19.4": 285,
+    "19.5": 286,
+    "19.6": 286,
+    "19.7": 286,
+    "19.8": 287,
+    "19.9": 287,
+    "19.10": 288,
+    "19.11": 288,
+    "20.1": 291,
+    "20.2": 292,
+    "20.3": 293,
+    "20.4": 293,
+    "20.5": 294,
+    "20.6": 294,
+    "20.7": 294,
+    "20.8": 295,
+    "20.9": 295,
+    "20.10": 296,
+    "20.11": 296,
+    "20.12": 297,
+    "20.13": 297,
+    "20.14": 298,
+    "20.15": 298,
+    "20.16": 299,
+    "20.17": 301,
+    "20.18": 302,
+    "20.19": 302,
+    "20.20": 302,
+    "20.21": 303,
+    "21.1": 306,
+    "21.2": 307,
+    "21.3": 308,
+    "21.4": 309,
+    "21.5": 310,
+    "21.6": 311,
+    "21.7": 312,
+    "21.8": 313,
+    "24.1": 333,
+    "24.2": 334,
+    "24.3": 335,
+    "24.4": 335,
+    "25.1": 338,
+    "25.2": 338,
+    "25.3": 339,
+    "25.4": 339,
+    "25.5": 340,
+    "25.6": 340,
+    "26.1": 343,
+    "26.2": 344,
+    "26.3": 345,
+    "27.1": 348,
+    "27.2": 348,
+    "27.3": 349,
+    "27.4": 350,
+    "27.5": 351,
+    "27.6": 352,
+    "27.7": 353,
+    "28.1": 356,
+    "28.2": 356,
+    "28.3": 357,
+    "28.4": 358,
+    "28.5": 359,
+    "28.6": 360,
+    "28.7": 361,
+    "28.8": 361,
+    "28.9": 362,
+    "28.10": 363,
+    "29.1": 368,
+    "29.2": 371,
+    "29.3": 372,
+    "29.4": 372,
+    "29.5": 373,
+    "29.6": 373,
+    "29.7": 376,
+    "29.8": 377,
+    "29.9": 377,
+    "29.10": 377,
+    "29.11": 378,
+    "29.12": 378,
+    "29.13": 379,
+    "29.14": 380,
+    "29.15": 380,
+    "30.1": 384,
+    "30.2": 385,
+    "31.1": 388,
+    "31.2": 389,
+    "31.3": 390,
+    "31.4": 390,
+    "31.5": 390,
+    "31.6": 391,
+    "31.7": 391,
+    "31.8": 392,
+    "32.1": 396,
+    "32.2": 397,
+    "32.3": 398,
+    "32.4": 398,
+    "32.5": 399,
+    "32.6": 399,
+    "33.1": 402,
+    "33.2": 404,
+    "33.3": 405,
+    "34.1": 411,
+    "34.2": 412,
+    "34.3": 413,
+    "34.4": 413,
+    "34.5": 414,
+    "34.6": 415,
+    "34.7": 415,
+    "34.8": 415,
+    "34.9": 416,
+    "34.10": 416,
+    "34.11": 416,
+    "34.12": 416,
+    "34.13": 417,
+    "35.1": 420,
+    "35.2": 422,
+    "35.3": 423,
+    "35.4": 424,
+    "35.5": 424,
+    "35.6": 424,
+    "35.7": 425,
+    "35.8": 425,
+    "35.9": 425,
+    "35.10": 426,
+    "35.11": 426,
+    "35.12": 427,
+    "36.1": 430,
+    "36.2": 431,
+    "36.3": 432,
+    "36.4": 433,
+    "36.5": 434,
+    "36.6": 434,
+    "37.1": 438,
+    "37.2": 439,
+    "37.3": 439,
+    "38.1": 442,
+    "38.2": 443,
+    "38.3": 443,
+    "38.4": 444,
+    "38.5": 444,
+    "38.6": 445,
+    "38.7": 445,
+    "38.8": 446,
+    "38.9": 446,
+    "38.10": 447,
+    "38.11": 447,
+    "38.12": 448,
+    "39.1": 453,
+    "39.2": 454,
+    "39.3": 454,
+    "39.4": 455,
+    "39.5": 455,
+    "39.6": 456,
+    "39.7": 456,
+    "39.8": 457,
+    "40.1": 460,
+    "40.2": 461,
+    "40.3": 462,
+    "40.4": 463,
+    "40.5": 464,
+    "40.6": 464,
+    "40.7": 464,
+    "40.8": 465,
+    "40.9": 466,
+    "40.10": 466,
+    "40.11": 467,
+    "40.12": 467,
+    "40.13": 468,
+    "41.1": 472,
+    "41.2": 473,
+    "41.3": 474,
+    "41.4": 475,
+    "41.5": 476,
+    "41.6": 476,
+    "41.7": 476,
+    "41.8": 477,
+    "41.9": 477,
+    "41.10": 477,
+    "41.11": 478,
+    "41.12": 478,
+    "41.13": 479,
+    "41.14": 480,
+    "42.1": 486,
+    "42.2": 487,
+    "42.3": 487,
+    "42.4": 487,
+    "42.5": 488,
+    "42.6": 488,
+    "42.7": 489,
+    "42.8": 489,
+    "43.1": 492,
+    "43.2": 493,
+    "43.3": 493,
+    "43.4": 494,
+    "43.5": 494,
+    "43.6": 494,
+    "43.7": 495,
+    "43.8": 495,
+    "43.9": 495,
+    "43.10": 495,
+    "43.11": 496,
+    "43.12": 496,
+    "44.1": 500,
+    "44.2": 501,
+    "44.3": 502,
+    "44.4": 503,
+    "44.5": 503,
+    "44.6": 504,
+    "45.1": 508,
+    "45.2": 509,
+    "45.3": 511,
+    "45.4": 511,
+    "45.5": 512,
+    "45.6": 513,
+    "45.7": 514,
+    "45.8": 515,
+    "46.1": 518,
+    "46.2": 519,
+    "46.3": 519,
+    "46.4": 520,
+    "46.5": 520,
+    "46.6": 521,
+    "47.1": 524,
+    "47.2": 524,
+    "47.3": 525,
+    "47.4": 526,
+    "47.5": 527,
+    "47.6": 527,
+    "48.1": 531,
+    "48.2": 532,
+    "48.3": 534,
+    "48.4": 535,
+    "48.5": 535,
+    "48.6": 536,
+    "48.7": 536,
+    "48.8": 537,
+    "48.9": 538,
+    "48.10": 538,
+    "48.11": 539,
+    "48.12": 539,
+    "48.13": 540,
+    "48.14": 540,
+    "48.15": 541,
+    "48.16": 541,
+    "48.17": 542,
+    "49.1": 548,
+    "49.2": 549,
+    "49.3": 551,
+    "49.4": 552,
+    "49.5": 552,
+    "49.6": 553,
+    "49.7": 553,
+    "49.8": 554,
+    "49.9": 554,
+    "49.10": 555,
+    "50.1": 558,
+    "50.2": 559,
+    "50.3": 560,
+    "50.4": 561,
+    "50.5": 562,
+    "50.6": 563,
+    "50.7": 563,
+    "50.8": 564,
+    "50.9": 565,
+    "50.10": 565,
+    "50.11": 566,
+    "50.12": 566,
+    "50.13": 567,
+    "50.14": 568,
+    "51.1": 572,
+    "51.2": 573,
+    "51.3": 574,
+    "51.4": 574,
+    "51.5": 575,
+    "51.6": 575,
+    "51.7": 576,
+    "52.1": 580,
+    "52.2": 582,
+    "52.3": 583,
+    "52.4": 584,
+    "52.5": 585,
+    "52.6": 586,
+    "52.7": 586,
+    "52.8": 587,
+    "53.1": 594,
+    "53.2": 596,
+    "53.3": 598,
+    "53.4": 598,
+    "53.5": 598,
+    "53.6": 599,
+    "53.7": 599,
+    "53.8": 599,
+    "53.9": 600,
+    "53.10": 602,
+    "53.11": 602,
+    "53.12": 603,
+    "53.13": 603,
+    "53.14": 604,
+    "54.1": 608,
+    "54.2": 609,
+    "54.3": 610,
+    "54.4": 612,
+    "54.5": 612,
+    "54.6": 613,
+    "54.7": 613,
+    "54.8": 614,
+    "54.9": 615,
+    "55.1": 618,
+    "55.2": 619,
+    "55.3": 620,
+    "55.4": 620,
+    "55.5": 621,
+    "55.6": 621,
+    "55.7": 622,
+    "55.8": 622,
+    "55.9": 624,
+    "55.10": 624,
+    "55.11": 625,
+    "56.1": 630,
+    "56.2": 631,
+    "56.3": 632,
+    "57.1": 636,
+    "57.2": 637,
+    "57.3": 638,
+    "58.1": 642,
+    "58.2": 642,
+    "58.3": 643,
+    "58.4": 643,
+    "58.5": 644,
+    "58.6": 645,
+    "58.7": 646
+  },
+  "website_patches": {
+    "ch09/basics1.pd": {
+      "figures": [
+        "9.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch09/basics2.pd": {
+      "figures": [
+        "9.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch09/basics3.pd": {
+      "figures": [
+        "9.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch09/basics4.pd": {
+      "figures": [
+        "9.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch09/arrays-tabreadwrite.pd": {
+      "figures": [
+        "9.11",
+        "9.13"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics5.pd": {
+      "figures": [
+        "10.1"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics6.pd": {
+      "figures": [
+        "10.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/evaluation-order.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Additional ordering example; exact figure unresolved."
+    },
+    "ch10/basics7.pd": {
+      "figures": [
+        "10.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics8.pd": {
+      "figures": [
+        "10.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics9.pd": {
+      "figures": [
+        "10.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics10.pd": {
+      "figures": [
+        "10.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics11.pd": {
+      "figures": [
+        "10.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics12.pd": {
+      "figures": [
+        "10.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics13.pd": {
+      "figures": [
+        "10.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics14.pd": {
+      "figures": [
+        "10.10"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics23.pd": {
+      "figures": [
+        "10.11"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics24.pd": {
+      "figures": [
+        "10.12"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics15.pd": {
+      "figures": [
+        "10.13"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics16.pd": {
+      "figures": [
+        "10.14"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics26.pd": {
+      "figures": [
+        "10.15"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics20.pd": {
+      "figures": [
+        "10.16"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics21.pd": {
+      "figures": [
+        "10.17"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics27.pd": {
+      "figures": [
+        "10.18"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics25.pd": {
+      "figures": [
+        "10.19"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics17.pd": {
+      "figures": [
+        "10.20"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics19.pd": {
+      "figures": [
+        "10.21"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/midi-noteout.pd": {
+      "figures": [
+        "10.22"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics22.pd": {
+      "figures": [
+        "10.26"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/counter.pd": {
+      "figures": [
+        "10.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/constrained-counter.pd": {
+      "figures": [
+        "10.28"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/accumulator.pd": {
+      "figures": [
+        "10.29"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/scale.pd": {
+      "figures": [
+        "10.31"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/chebyshev-until.pd": {
+      "figures": [
+        "10.32"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/basics28.pd": {
+      "figures": [
+        "10.33"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/message-reciprocal-inverse.pd": {
+      "figures": [
+        "10.34"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/weighted-random.pd": {
+      "figures": [
+        "10.36"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/delay-cascade.pd": {
+      "figures": [
+        "10.37"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/last-average.pd": {
+      "figures": [
+        "10.38"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/running-max.pd": {
+      "figures": [
+        "10.39"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch10/message-lowpass.pd": {
+      "figures": [
+        "10.40"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch11/basics29.pd": {
+      "figures": [
+        "11.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch11/basics30.pd": {
+      "figures": [
+        "11.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch11/basics1.pd": {
+      "figures": [
+        "11.6"
+      ],
+      "mapping": "caption",
+      "status": "not started",
+      "note": "Broken mirror link. Bulk ABOUTPD/midi-monosynth.pd is the candidate source for fig. 11.6."
+    },
+    "ch12/anenvelope.pd": {
+      "figures": [
+        "12.1",
+        "12.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/anenvelope-subpatch.pd": {
+      "figures": [
+        "12.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/anenvelope2.pd": {
+      "figures": [
+        "12.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/table-oscillator.pd": {
+      "figures": [
+        "12.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/my-tabosc.pd": {
+      "figures": [
+        "12.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/wavetablesynth2.pd": {
+      "figures": [
+        "12.9",
+        "12.11"
+      ],
+      "mapping": "topic",
+      "status": "not started",
+      "note": "Website repeats this link under Editing abstractions and Abstraction instances; verify which revision illustrates fig. 12.9 versus 12.11."
+    },
+    "ch12/my-tabosc2.pd": {
+      "figures": [
+        "12.10"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/GOP-hardsynth.pd": {
+      "figures": [
+        "12.12"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/use-gop.pd": {
+      "figures": [
+        "12.13"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/preconditioner-patch.pd": {
+      "figures": [
+        "12.14"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/unpack-patch.pd": {
+      "figures": [
+        "12.15"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/programmer.pd": {
+      "figures": [
+        "12.16"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/storingparams.pd": {
+      "figures": [
+        "12.17"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/summation-chains.pd": {
+      "figures": [
+        "12.18"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch12/routed-parameters.pd": {
+      "figures": [
+        "12.19"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-scale.pd": {
+      "figures": [
+        "13.1"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-arithmetic.pd": {
+      "figures": [],
+      "mapping": "website-only",
+      "status": "not started"
+    },
+    "ch13/shaping-shift.pd": {
+      "figures": [
+        "13.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-invert.pd": {
+      "figures": [
+        "13.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-complement.pd": {
+      "figures": [
+        "13.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-reciprocal.pd": {
+      "figures": [
+        "13.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/signal-reciprocal.pd": {
+      "figures": [
+        "13.5"
+      ],
+      "mapping": "topic",
+      "status": "not started"
+    },
+    "ch13/shaping-minmax.pd": {
+      "figures": [
+        "13.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-division.pd": {
+      "figures": [],
+      "mapping": "website-only",
+      "status": "not started"
+    },
+    "ch13/shaping-squarewave.pd": {
+      "figures": [
+        "13.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-triangle.pd": {
+      "figures": [
+        "13.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-triangle2.pd": {
+      "figures": [
+        "13.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-square-roots.pd": {
+      "figures": [
+        "13.10"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-envelopes.pd": {
+      "figures": [
+        "13.11"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-wrapping.pd": {
+      "figures": [
+        "13.12"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-wrap-a-line.pd": {
+      "figures": [
+        "13.13"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-cos.pd": {
+      "figures": [
+        "13.14"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-polynomials.pd": {
+      "figures": [
+        "13.15"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-expressions.pd": {
+      "figures": [
+        "13.16"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-delays.pd": {
+      "figures": [
+        "13.17"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/basics1.pd": {
+      "figures": [
+        "13.18"
+      ],
+      "mapping": "caption",
+      "status": "not started",
+      "note": "Broken mirror link. Inspect embedded page code / bulk SHAPING/shaping-antiphase.pd for fig. 13.18."
+    },
+    "ch13/shaping-filters.pd": {
+      "figures": [
+        "13.19"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-integration.pd": {
+      "figures": [
+        "13.20"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch13/shaping-differentiation.pd": {
+      "figures": [
+        "13.21"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/signal-switch.pd": {
+      "figures": [
+        "14.1"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/direct-level.pd": {
+      "figures": [
+        "14.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/direct-log-level.pd": {
+      "figures": [
+        "14.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/level.pd": {
+      "figures": [
+        "14.4"
+      ],
+      "mapping": "topic",
+      "status": "not started"
+    },
+    "ch14/signal-dbtorms-level.pd": {
+      "figures": [
+        "14.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/midi-level.pd": {
+      "figures": [
+        "14.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/midi-level2.pd": {
+      "figures": [
+        "14.5"
+      ],
+      "mapping": "topic",
+      "status": "not started"
+    },
+    "ch14/signal-mute-level.pd": {
+      "figures": [
+        "14.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/simpanner.pd": {
+      "figures": [
+        "14.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/sqrtpanner.pd": {
+      "figures": [
+        "14.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/cospanner.pd": {
+      "figures": [
+        "14.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/midi-pan.pd": {
+      "figures": [
+        "14.11"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/xfader.pd": {
+      "figures": [
+        "14.12"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/demultiplex.pd": {
+      "figures": [
+        "14.13"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/sampler.pd": {
+      "figures": [
+        "14.14"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/sampler-help.pd": {
+      "figures": [
+        "14.15"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/writefile.pd": {
+      "figures": [
+        "14.17"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/file-writer.pd": {
+      "figures": [
+        "14.16"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/loop-sample-player.pd": {
+      "figures": [
+        "14.18"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/simple-timebase.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Unnumbered timebase example around p. 227; compare with numbered fig. 14.19."
+    },
+    "ch14/timebase.pd": {
+      "figures": [
+        "14.19"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/sequencer-select.pd": {
+      "figures": [
+        "14.20"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/barmoses.pd": {
+      "figures": [
+        "14.21"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/timediv.pd": {
+      "figures": [
+        "14.22"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/lfos.pd": {
+      "figures": [
+        "14.23"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/listsequencer.pd": {
+      "figures": [
+        "14.24"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/textfileseq.pd": {
+      "figures": [
+        "14.25"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/chorus-abstraction.pd": {
+      "figures": [
+        "14.26"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/simple-chorus.pd": {
+      "figures": [
+        "14.27"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch14/reverb.pd": {
+      "figures": [
+        "14.28"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch17/blit-dodge.pd": {
+      "figures": [
+        "17.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch17/moorer-dsf2.pd": {
+      "figures": [
+        "17.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch17/precompute.pd": {
+      "figures": [
+        "17.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch18/wavetable1.pd": {
+      "figures": [
+        "18.1"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch18/wavetable2.pd": {
+      "figures": [
+        "18.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch18/wavetable3.pd": {
+      "figures": [
+        "18.2"
+      ],
+      "mapping": "topic",
+      "status": "not started"
+    },
+    "ch18/vector1.pd": {
+      "figures": [
+        "18.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch18/wavescanner.pd": {
+      "figures": [
+        "18.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch19/shaper-sound.pd": {
+      "figures": [
+        "19.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch19/parabolicshaping.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Companion extension; no exact numbered diagram identified."
+    },
+    "ch19/pulseshaping.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Companion extension; no exact numbered diagram identified."
+    },
+    "ch19/cheby1.pd": {
+      "figures": [
+        "19.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch19/cheby2.pd": {
+      "figures": [
+        "19.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch19/cheby3.pd": {
+      "figures": [
+        "19.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch19/cheby4.pd": {
+      "figures": [
+        "19.11"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch20/multiplication.pd": {
+      "figures": [
+        "20.1"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch20/am.pd": {
+      "figures": [
+        "20.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch20/2bandam.pd": {
+      "figures": [
+        "20.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch20/complexam2.pd": {
+      "figures": [
+        "20.7"
+      ],
+      "mapping": "topic",
+      "status": "not started"
+    },
+    "ch20/complexam.pd": {
+      "figures": [
+        "20.7"
+      ],
+      "mapping": "topic",
+      "status": "not started"
+    },
+    "ch20/singlesideband.pd": {
+      "figures": [
+        "20.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch20/fm-basic03.pd": {
+      "figures": [
+        "20.11"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch20/fm-basic02.pd": {
+      "figures": [
+        "20.12"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch20/simplefm1.pd": {
+      "figures": [
+        "20.14"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch20/simplefm2.pd": {
+      "figures": [
+        "20.15"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch20/simplefm3.pd": {
+      "figures": [
+        "20.16"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch20/complexfm.pd": {
+      "figures": [
+        "20.19"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch20/phasemod.pd": {
+      "figures": [
+        "20.21"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch21/granular1.pd": {
+      "figures": [
+        "21.2",
+        "21.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch21/grainvoice.pd": {
+      "figures": [
+        "21.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch21/granular2.pd": {
+      "figures": [
+        "21.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch21/timestretch-voice.pd": {
+      "figures": [
+        "21.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "ch21/timestretch1.pd": {
+      "figures": [
+        "21.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p01/pedestrian-beep.pd": {
+      "figures": [
+        "24.4"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "Pedestrians",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "pedestrians",
+        "pedestrians-controls"
+      ]
+    },
+    "p02/busy-signal.pd": {
+      "figures": [
+        "25.5"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "PhoneTones",
+      "evidence": "audio/artificial-sounds.md"
+    },
+    "p02/dialtone1.pd": {
+      "figures": [
+        "25.2"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "PhoneTones",
+      "evidence": "audio/artificial-sounds.md"
+    },
+    "p02/dialtone2.pd": {
+      "figures": [
+        "25.3",
+        "25.4"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "PhoneTones",
+      "evidence": "audio/artificial-sounds.md"
+    },
+    "p02/pulsedial.pd": {
+      "figures": [
+        "25.6"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "PhoneTones",
+      "evidence": "audio/artificial-sounds.md"
+    },
+    "p02/ringingtone.pd": {
+      "figures": [
+        "25.5"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "PhoneTones",
+      "evidence": "audio/artificial-sounds.md"
+    },
+    "p03/dtmf.pd": {
+      "figures": [
+        "26.2",
+        "26.3"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "DTMFTones",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "dtmf",
+        "dtmf-retrigger"
+      ]
+    },
+    "p04/alarm01.pd": {
+      "figures": [
+        "24.4"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "note": "Preliminary variation of the pedestrian graph (800 Hz / 300 ms); no separate numbered chapter 27 diagram.",
+      "component": "AlarmGenerator(1)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "alarm01"
+      ]
+    },
+    "p04/alarm02.pd": {
+      "figures": [
+        "27.1"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "AlarmGenerator(2)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "alarm02"
+      ]
+    },
+    "p04/alarm03.pd": {
+      "figures": [
+        "27.2"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "AlarmGenerator(3)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "alarm03"
+      ]
+    },
+    "p04/alarm04.pd": {
+      "figures": [
+        "27.3"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "AlarmGenerator(4)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "alarm04"
+      ]
+    },
+    "p04/alarm05.pd": {
+      "figures": [
+        "27.3"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "AlarmGenerator(5)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "alarm05"
+      ]
+    },
+    "p04/alarm06.pd": {
+      "figures": [
+        "27.4",
+        "27.5"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "AlarmGenerator(6)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "alarm06"
+      ]
+    },
+    "p04/alarm07.pd": {
+      "figures": [
+        "27.6",
+        "27.7"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "AlarmGenerator(7)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "alarm07"
+      ]
+    },
+    "p05/police_siren.pd": {
+      "figures": [
+        "28.9"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "Police",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "police",
+        "police-legacy"
+      ],
+      "note": "Current website pow~ wiring and historical/bulk inlet convention are separate reference variants. See component and full-siren fixtures at both sample rates."
+    },
+    "p05/logosc.pd": {
+      "figures": [
+        "28.6"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "Police::LogOsc",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "police-logosc",
+        "police-logosc-legacy"
+      ],
+      "note": "Current website pow~ wiring and historical/bulk inlet convention are separate reference variants. See component and full-siren fixtures at both sample rates."
+    },
+    "p05/plastichorn.pd": {
+      "figures": [
+        "28.7"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "Police::Horn",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "police-horn"
+      ],
+      "note": "See component and full-siren fixtures at both sample rates."
+    },
+    "p05/environment.pd": {
+      "figures": [
+        "28.8"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "Police::Environment",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "police-environment"
+      ],
+      "note": "See component and full-siren fixtures at both sample rates."
+    },
+    "p05/logosc_graph.pd": {
+      "figures": [
+        "28.6"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "Police::LogOsc (graph)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "police-graph",
+        "police-graph-legacy"
+      ],
+      "note": "Current website pow~ wiring and historical/bulk inlet convention are separate reference variants. Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port."
+    },
+    "p05/triangle_logosc_compare.pd": {
+      "figures": [
+        "28.10"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "component": "Police::LogOsc (triangle / graph)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "police-triangle",
+        "police-compare-log"
+      ],
+      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port."
+    },
+    "p06/telephonebell.pd": {
+      "figures": [
+        "29.12",
+        "29.14",
+        "29.15"
+      ],
+      "mapping": "caption",
+      "status": "trial validated"
+    },
+    "p06/bellosc.pd": {
+      "figures": [
+        "29.7"
+      ],
+      "mapping": "caption",
+      "status": "trial validated"
+    },
+    "p06/bellenv.pd": {
+      "figures": [
+        "29.8"
+      ],
+      "mapping": "caption",
+      "status": "trial validated"
+    },
+    "p06/partialgroup.pd": {
+      "figures": [
+        "29.9",
+        "29.10",
+        "29.11"
+      ],
+      "mapping": "caption",
+      "status": "trial validated"
+    },
+    "p06/ratios.pd": {
+      "figures": [
+        "29.13"
+      ],
+      "mapping": "caption",
+      "status": "trial validated"
+    },
+    "p07/bouncing.pd": {
+      "figures": [
+        "30.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p08/rolling1.pd": {
+      "figures": [
+        "31.3",
+        "31.6",
+        "31.8"
+      ],
+      "mapping": "topic",
+      "status": "not started",
+      "note": "Website repeats rolling1.pd for Separate struck tin can; a separate can patch may need recovery."
+    },
+    "p08/uneven2.pd": {
+      "figures": [
+        "31.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p09/doorcreaker.pd": {
+      "figures": [
+        "32.3",
+        "32.4",
+        "32.5",
+        "32.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p09/dfbef.pd": {
+      "figures": [
+        "32.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p10/twang.pd": {
+      "figures": [
+        "33.2",
+        "33.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p11/fire_crackling1.pd": {
+      "figures": [
+        "34.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p11/fire_crackling2.pd": {
+      "figures": [
+        "34.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p11/fire_crackling3.pd": {
+      "figures": [
+        "34.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p11/fire_hissing1.pd": {
+      "figures": [
+        "34.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p11/fire_hissing2.pd": {
+      "figures": [
+        "34.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p11/fire_hissing3.pd": {
+      "figures": [
+        "34.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p11/fire_lapping1.pd": {
+      "figures": [
+        "34.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p11/fire_lapping2.pd": {
+      "figures": [
+        "34.10"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p11/fire_lapping3.pd": {
+      "figures": [
+        "34.11"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p11/fire_generator.pd": {
+      "figures": [
+        "34.12"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p11/fire_all.pd": {
+      "figures": [
+        "34.13"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p12/bubbles1.pd": {
+      "figures": [
+        "35.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p12/bubbles2.pd": {
+      "figures": [
+        "35.12"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p12/dripfactory.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Cave/drip extension; distinguish from the polyphonic bubble factory in fig. 35.12."
+    },
+    "p12/adenv2~.pd": {
+      "figures": [
+        "35.10"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p12/adenv~.pd": {
+      "figures": [
+        "35.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p12/expcurve~.pd": {
+      "figures": [
+        "35.3",
+        "35.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p12/bubblepattern.pd": {
+      "figures": [
+        "35.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p12/bubblesound2.pd": {
+      "figures": [
+        "35.11"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p12/bubblesound.pd": {
+      "figures": [
+        "35.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p12/cycleround.pd": {
+      "figures": [
+        "35.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p12/cmverb~.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Supporting cave reverberation; no exact numbered diagram identified."
+    },
+    "p13/running_water1.pd": {
+      "figures": [
+        "36.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p13/running_water2.pd": {
+      "figures": [
+        "36.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p13/running_water3.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Experimental rig using delta~; source differs from the final waterflow algorithm."
+    },
+    "p13/waterflow.pd": {
+      "figures": [
+        "36.5",
+        "36.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p14/pour1.pd": {
+      "figures": [
+        "37.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p15/rain1.pd": {
+      "figures": [
+        "38.10"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p15/cpraingen.pd": {
+      "figures": [
+        "38.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p15/cpulse.pd": {
+      "figures": [
+        "38.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p15/rain_on_leaf.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Parabolic noise extension; locate exact book discussion rather than assign a guessed figure."
+    },
+    "p15/spikerain.pd": {
+      "figures": [
+        "38.12"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p15/drops.pd": {
+      "figures": [
+        "38.11"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p15/rain_on_water.pd": {
+      "figures": [
+        "38.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p15/windywindow.pd": {
+      "figures": [
+        "38.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p15/dropsig.pd": {
+      "figures": [
+        "38.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p15/glasswindow.pd": {
+      "figures": [
+        "38.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p15/gaussianoise.pd": {
+      "figures": [
+        "38.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p16/hum1.pd": {
+      "figures": [
+        "39.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p16/humandsparks.pd": {
+      "figures": [
+        "39.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p16/chplz.pd": {
+      "figures": [
+        "39.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p16/comb1.pd": {
+      "figures": [
+        "39.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p16/randgate.pd": {
+      "figures": [
+        "39.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p16/snap.pd": {
+      "figures": [
+        "39.6",
+        "39.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p17/thunder4.pd": {
+      "figures": [
+        "40.5",
+        "40.7",
+        "40.8",
+        "40.9",
+        "40.10",
+        "40.13"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p17/strike-sound.pd": {
+      "figures": [
+        "40.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p17/distance.pd": {
+      "figures": [
+        "40.11"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p17/udly.pd": {
+      "figures": [
+        "40.12"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p18/wind0.pd": {
+      "figures": [
+        "41.5",
+        "41.6",
+        "41.7",
+        "41.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p18/wind1.pd": {
+      "figures": [
+        "41.10"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p18/wind2.pd": {
+      "figures": [
+        "41.14"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p18/wind4.pd": {
+      "figures": [
+        "41.5",
+        "41.6",
+        "41.7",
+        "41.8",
+        "41.10",
+        "41.11",
+        "41.12",
+        "41.13",
+        "41.14"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p18/fcpan.pd": {
+      "figures": [
+        "41.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p19/switch001.pd": {
+      "figures": [
+        "42.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p19/slideswitch.pd": {
+      "figures": [
+        "42.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p19/switch3.pd": {
+      "figures": [
+        "42.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p19/switchclick.pd": {
+      "figures": [
+        "42.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p19/pnoise.pd": {
+      "figures": [
+        "42.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p19/shortping.pd": {
+      "figures": [
+        "42.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p19/slideclunk.pd": {
+      "figures": [
+        "42.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p20/clock_all.pd": {
+      "figures": [
+        "43.12"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p20/bodyresonance~.pd": {
+      "figures": [
+        "43.10"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p20/clockhand.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Supporting clock hand component; exact diagram unresolved."
+    },
+    "p20/clocktick2.pd": {
+      "figures": [
+        "43.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p20/clocktick.pd": {
+      "figures": [
+        "43.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p20/escapement.pd": {
+      "figures": [
+        "43.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p20/expdec.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Exponential envelope variant; fig. 43.2 explicitly shows square decay."
+    },
+    "p20/sqdec.pd": {
+      "figures": [
+        "43.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p20/mclick.pd": {
+      "figures": [
+        "43.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p20/bangburst.pd": {
+      "figures": [
+        "43.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p21/motor1.pd": {
+      "figures": [
+        "44.3",
+        "44.4",
+        "44.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p21/motor2.pd": {
+      "figures": [
+        "44.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p21/motorenv.pd": {
+      "figures": [
+        "44.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p22/toy_boat_engine.pd": {
+      "figures": [
+        "45.3"
+      ],
+      "mapping": "caption",
+      "status": "existing port; comparison pending"
+    },
+    "p22/pulse_demo.pd": {
+      "figures": [
+        "45.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p22/jitter_engine.pd": {
+      "figures": [
+        "45.5"
+      ],
+      "mapping": "caption",
+      "status": "existing port; comparison pending"
+    },
+    "p22/waveguide_engine.pd": {
+      "figures": [
+        "45.6",
+        "45.7",
+        "45.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p23/fan1.pd": {
+      "figures": [
+        "46.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p23/fan2.pd": {
+      "figures": [
+        "46.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p23/fan3.pd": {
+      "figures": [
+        "46.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p23/fan4.pd": {
+      "figures": [
+        "46.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p23/fan5.pd": {
+      "figures": [
+        "46.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p24/jetengine1.pd": {
+      "figures": [
+        "47.4",
+        "47.5",
+        "47.6"
+      ],
+      "mapping": "caption",
+      "status": "existing adaptation; comparison pending",
+      "klang_file": "../sounds/Harrier.h",
+      "note": "Existing Harrier turbine/combustion adaptation; correspondence and full model comparison remain to establish."
+    },
+    "p25/heli1.pd": {
+      "figures": [
+        "48.8",
+        "48.13",
+        "48.14",
+        "48.15",
+        "48.16",
+        "48.17"
+      ],
+      "mapping": "caption",
+      "status": "existing adaptation; comparison pending",
+      "klang_file": "../sounds/Helicopter.h",
+      "note": "Existing game helicopter; calibrate against the Farnell reference before counting a faithful port."
+    },
+    "p25/mainrotor.pd": {
+      "figures": [
+        "48.9",
+        "48.10",
+        "48.12"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p25/mdel.pd": {
+      "figures": [
+        "48.11"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p25/vrdel.pd": {
+      "figures": [
+        "48.11"
+      ],
+      "mapping": "topic",
+      "status": "not started"
+    },
+    "p26/foot1.pd": {
+      "figures": [
+        "49.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p26/foot2.pd": {
+      "figures": [
+        "49.5",
+        "49.6",
+        "49.7",
+        "49.8",
+        "49.9",
+        "49.10"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p26/splitphase.pd": {
+      "figures": [
+        "49.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p27/cicada1.pd": {
+      "figures": [
+        "50.10"
+      ],
+      "mapping": "topic",
+      "status": "not started"
+    },
+    "p27/cicarda_sustained.pd": {
+      "figures": [
+        "50.10"
+      ],
+      "mapping": "topic",
+      "status": "not started"
+    },
+    "p27/cricket_chirp.pd": {
+      "figures": [
+        "50.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p27/cricket_scratch.pd": {
+      "figures": [
+        "50.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p27/locust.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Additional insect variant; exact numbered diagram unresolved."
+    },
+    "p27/wing_demo_data.pd": {
+      "figures": [
+        "50.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p27/wing_demo.pd": {
+      "figures": [
+        "50.13"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p27/buzzing-housefly.pd": {
+      "figures": [
+        "50.14"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p27/insectsall.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Composite insect ambience, including dependencies beyond a single book figure."
+    },
+    "p28/birdcall.pd": {
+      "figures": [
+        "51.6",
+        "51.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p28/avian-syrinx-model.pd": {
+      "figures": [
+        "51.2",
+        "51.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p28/trachea.pd": {
+      "figures": [
+        "51.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p28/vposc.pd": {
+      "figures": [
+        "51.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p29/creature_factory.pd": {
+      "figures": [
+        "52.2",
+        "52.3",
+        "52.5"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p29/articulate.pd": {
+      "figures": [
+        "52.4"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p29/vowels.pd": {
+      "figures": [
+        "52.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p30/guns1.pd": {
+      "figures": [
+        "53.3",
+        "53.4",
+        "53.5",
+        "53.6",
+        "53.7",
+        "53.8",
+        "53.9",
+        "53.14"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p30/bpar8~.pd": {
+      "figures": [
+        "53.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p30/bp-programmer.pd": {
+      "figures": [
+        "53.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p30/reload.pd": {
+      "figures": [
+        "53.10",
+        "53.11",
+        "53.12",
+        "53.13"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p30/combsweep.pd": {
+      "figures": [
+        "53.13"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p30/shellcasings.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Shell ejection extension; exact numbered diagram unresolved."
+    },
+    "p30/shortping.pd": {
+      "figures": [
+        "53.12"
+      ],
+      "mapping": "topic",
+      "status": "not started"
+    },
+    "p31/explosion-factory1.pd": {
+      "figures": [
+        "54.4",
+        "54.5",
+        "54.6",
+        "54.7",
+        "54.8",
+        "54.9"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p31/sdel~.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "status": "not started",
+      "note": "Supporting static delay; no separate numbered diagram identified."
+    },
+    "p31/combsweep.pd": {
+      "figures": [
+        "54.8"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p32/rocket.pd": {
+      "figures": [
+        "55.1",
+        "55.2",
+        "55.3",
+        "55.4",
+        "55.5",
+        "55.6",
+        "55.7",
+        "55.8",
+        "55.9",
+        "55.10",
+        "55.11"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p33/transporter_TOS.pd": {
+      "figures": [
+        "56.2",
+        "56.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p34/R2D2.pd": {
+      "figures": [
+        "57.3"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p34/demo_random_slide.pd": {
+      "figures": [
+        "57.1"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p34/demo_fm_synth.pd": {
+      "figures": [
+        "57.2"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p35/TOS_redalert.pd": {
+      "figures": [
+        "58.7"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    },
+    "p35/dfbe.pd": {
+      "figures": [
+        "58.6"
+      ],
+      "mapping": "caption",
+      "status": "not started"
+    }
+  },
+  "bulk_patches": {
+    "pd/ABOUTPD/dataflow-example.pd": {
+      "chapter": 9,
+      "figures": [
+        "9.4"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ABOUTPD/gui-objects.pd": {
+      "chapter": 9,
+      "figures": [
+        "9.10"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ABOUTPD/last-lowpass-filter.pd": {
+      "chapter": 10,
+      "figures": [
+        "10.40"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ABOUTPD/rounding.pd": {
+      "chapter": 10,
+      "figures": [
+        "10.30"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ABOUTPD/subpatches-example.pd": {
+      "chapter": 12,
+      "figures": [
+        "12.4",
+        "12.5",
+        "12.6"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ABSTRACTIONS/list-parameters.pd": {
+      "chapter": 12,
+      "figures": [
+        "12.16"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ABSTRACTIONS/list-parameters2.pd": {
+      "chapter": 12,
+      "figures": [
+        "12.17"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ABSTRACTIONS/wavetablesynth3.pd": {
+      "chapter": 12,
+      "figures": [
+        "12.11"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ABSTRACTIONS/wavetablesynthpd.pd": {
+      "chapter": 12,
+      "figures": [
+        "12.9"
+      ],
+      "mapping": "topic"
+    },
+    "pd/SHAPING/shaping-addsubtract.pd": {
+      "chapter": 13,
+      "figures": [
+        "13.1",
+        "13.2"
+      ],
+      "mapping": "topic"
+    },
+    "pd/SHAPING/shaping-delayfilter.pd": {
+      "chapter": 13,
+      "figures": [
+        "13.17",
+        "13.18"
+      ],
+      "mapping": "topic"
+    },
+    "pd/SHAPING/shaping-wrap-a-cos.pd": {
+      "chapter": 13,
+      "figures": [
+        "13.12",
+        "13.14"
+      ],
+      "mapping": "topic"
+    },
+    "pd/SHAPING/sound-cosine.pd": {
+      "chapter": 13,
+      "figures": [
+        "13.14"
+      ],
+      "mapping": "topic"
+    },
+    "pd/SHAPING/square~.pd": {
+      "chapter": 13,
+      "figures": [
+        "13.7"
+      ],
+      "mapping": "topic"
+    },
+    "pd/PD-COMMON/direct-dbtorms-level.pd": {
+      "chapter": 14,
+      "figures": [
+        "14.4"
+      ],
+      "mapping": "topic"
+    },
+    "pd/PD-COMMON/loop-sample-player-help.pd": {
+      "chapter": 14,
+      "figures": [
+        "14.18"
+      ],
+      "mapping": "topic"
+    },
+    "pd/TECHNIQUE/fm-basic01.pd": {
+      "chapter": 20,
+      "figures": [
+        "20.11"
+      ],
+      "mapping": "topic"
+    },
+    "pd/TECHNIQUE/negativesidebands.pd": {
+      "chapter": 20,
+      "figures": [
+        "20.18",
+        "20.20"
+      ],
+      "mapping": "topic"
+    },
+    "pd/SHAPING/shaping-FM.pd": {
+      "chapter": 20,
+      "figures": [
+        "20.11",
+        "20.12"
+      ],
+      "mapping": "topic"
+    },
+    "pd/SHAPING/shaping-modulation-am.pd": {
+      "chapter": 20,
+      "figures": [
+        "20.3"
+      ],
+      "mapping": "topic"
+    },
+    "pd/SHAPING/shaping-modulation2-am.pd": {
+      "chapter": 20,
+      "figures": [
+        "20.5"
+      ],
+      "mapping": "topic"
+    },
+    "pd/PHONETONES/telephone-line.pd": {
+      "chapter": 25,
+      "figures": [
+        "25.3",
+        "25.6"
+      ],
+      "mapping": "caption",
+      "status": "trial validated",
+      "note": "PhoneTones::Line; pulse and normal line variants are covered by the retained trial.",
+      "component": "PhoneTones::Line",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "ringback-bulk"
+      ]
+    },
+    "pd/ALARMS/telephone-line.pd": {
+      "chapter": 25,
+      "figures": [
+        "25.3",
+        "25.6"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "PhoneTones::Line",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "ringback-bulk"
+      ]
+    },
+    "pd/ALARMS/dial-remotering.pd": {
+      "chapter": 25,
+      "figures": [
+        "25.5"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "PhoneTones",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "ringback-bulk"
+      ]
+    },
+    "pd/ALARMS/phone-effects.pd": {
+      "chapter": 25,
+      "figures": [
+        "25.2",
+        "25.3",
+        "25.4",
+        "25.5",
+        "25.6"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "PhoneEffects",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "phone-effects",
+        "phone-match"
+      ],
+      "klang_file": "klang/Artificial Sounds/Phone Tones/phoneeffects.k",
+      "note": "Audio, keypad and number-match fixtures validated using a documented Vanilla reconstruction of the absent list-emath/list-dotprod matchers; original source retained unchanged."
+    },
+    "pd/ALARMS/decode-tone.pd": {
+      "chapter": 26,
+      "figures": [
+        "26.1",
+        "26.2",
+        "26.3"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "DTMFTones::Detector",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "dtmf-detector"
+      ]
+    },
+    "pd/ALARMS/dtmf.pd": {
+      "chapter": 26,
+      "figures": [
+        "26.2",
+        "26.3"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "DTMFTones",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "dtmf-bulk"
+      ]
+    },
+    "pd/ALARMS/dtmf00.pd": {
+      "chapter": 26,
+      "figures": [
+        "26.2",
+        "26.3"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "DTMFTones",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "dtmf-study"
+      ]
+    },
+    "pd/ALARMS/dtmfdec.pd": {
+      "chapter": 26,
+      "figures": [
+        "26.1",
+        "26.2",
+        "26.3"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "DTMFTones::Decoder",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "dtmf-decoder"
+      ],
+      "note": "All eight tone-detector states compared. The source display emits a symbol-to-float trigger error for letter/star/hash keys; detector outputs are unaffected. Klang exposes the decoded key directly."
+    },
+    "pd/ALARMS/dt-call-recogniser.pd": {
+      "chapter": 26,
+      "figures": [
+        "26.1",
+        "26.2",
+        "26.3"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "PhoneEffects",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "call-recogniser",
+        "call-match"
+      ],
+      "klang_file": "klang/Artificial Sounds/Phone Tones/phoneeffects.k",
+      "note": "Audio, keypad and number-match fixtures validated using a documented Vanilla reconstruction of the absent list-emath/list-dotprod matchers; original source retained unchanged."
+    },
+    "pd/POLICE/logosc~.pd": {
+      "chapter": 28,
+      "figures": [
+        "28.6"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "Police::LogOsc (legacy)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "police-osc-bulk"
+      ],
+      "note": "See component and full-siren fixtures at both sample rates."
+    },
+    "pd/POLICE/police00.pd": {
+      "chapter": 28,
+      "figures": [
+        "28.9"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "Police::LogOsc (graph / legacy)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "police00"
+      ],
+      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port."
+    },
+    "pd/POLICE/police01.pd": {
+      "chapter": 28,
+      "figures": [
+        "28.9"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "Police::LogOsc (graph / legacy)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "police01"
+      ],
+      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port."
+    },
+    "pd/POLICE/police1.pd": {
+      "chapter": 28,
+      "figures": [
+        "28.9"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "Police::LogOsc (graph / legacy)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "police1"
+      ],
+      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port."
+    },
+    "pd/POLICE/police3.pd": {
+      "chapter": 28,
+      "figures": [
+        "28.9"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "Police",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "police3"
+      ],
+      "note": "See component and full-siren fixtures at both sample rates."
+    },
+    "pd/BELL/A0-bell-oscillator.pd": {
+      "chapter": 29,
+      "figures": [
+        "29.7"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BELL/A1-bell-envelope.pd": {
+      "chapter": 29,
+      "figures": [
+        "29.8"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BELL/A2-bell-partial.pd": {
+      "chapter": 29,
+      "figures": [
+        "29.9"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BELL/A3-bell-ratio.pd": {
+      "chapter": 29,
+      "figures": [
+        "29.13"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BELL/A3-bell-scale.pd": {
+      "chapter": 29,
+      "figures": [
+        "29.13"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BELL/A4-bell-telephone.pd": {
+      "chapter": 29,
+      "figures": [
+        "29.15"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BELL/group.pd": {
+      "chapter": 29,
+      "figures": [
+        "29.10"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BELL/partial.pd": {
+      "chapter": 29,
+      "figures": [
+        "29.9"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BELL/testgroup.pd": {
+      "chapter": 29,
+      "figures": [
+        "29.11"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BOUNCINGBALL/bb1.pd": {
+      "chapter": 30,
+      "figures": [
+        "30.2"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ROLLING/tincan.pd": {
+      "chapter": 31,
+      "figures": [
+        "31.3",
+        "31.4",
+        "31.5"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ROLLING/uneven.pd": {
+      "chapter": 31,
+      "figures": [
+        "31.7"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BUBBLES/adenv.pd": {
+      "chapter": 35,
+      "figures": [
+        "35.6"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BUBBLES/bubblefactory.pd": {
+      "chapter": 35,
+      "figures": [
+        "35.12"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BUBBLES/expcurve.pd": {
+      "chapter": 35,
+      "figures": [
+        "35.3",
+        "35.7"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BUBBLES/vead~.pd": {
+      "chapter": 35,
+      "figures": [
+        "35.10"
+      ],
+      "mapping": "topic"
+    },
+    "pd/WATER/abs-bubble.pd": {
+      "chapter": 35,
+      "figures": [
+        "35.2"
+      ],
+      "mapping": "topic"
+    },
+    "pd/WATER/bubble1.pd": {
+      "chapter": 35,
+      "figures": [
+        "35.2"
+      ],
+      "mapping": "topic"
+    },
+    "pd/WATER/bubble2a.pd": {
+      "chapter": 35,
+      "figures": [
+        "35.2"
+      ],
+      "mapping": "topic"
+    },
+    "pd/WATER/bubble2b.pd": {
+      "chapter": 35,
+      "figures": [
+        "35.2"
+      ],
+      "mapping": "topic"
+    },
+    "pd/WATER/bubble2c.pd": {
+      "chapter": 35,
+      "figures": [
+        "35.2"
+      ],
+      "mapping": "topic"
+    },
+    "pd/WATER/env-4pow-up.pd": {
+      "chapter": 35,
+      "figures": [
+        "35.3"
+      ],
+      "mapping": "topic"
+    },
+    "pd/RUNNINGWATER/running-water2.pd": {
+      "chapter": 36,
+      "figures": [
+        "36.4"
+      ],
+      "mapping": "topic"
+    },
+    "pd/RUNNINGWATER/water2.pd": {
+      "chapter": 36,
+      "figures": [
+        "36.4"
+      ],
+      "mapping": "topic"
+    },
+    "pd/RUNNINGWATER/water3.pd": {
+      "chapter": 36,
+      "figures": [
+        "36.6"
+      ],
+      "mapping": "topic"
+    },
+    "pd/RUNNINGWATER/water4.pd": {
+      "chapter": 36,
+      "figures": [
+        "36.6"
+      ],
+      "mapping": "topic"
+    },
+    "pd/RAIN/raindrops.pd": {
+      "chapter": 38,
+      "figures": [
+        "38.11"
+      ],
+      "mapping": "topic"
+    },
+    "pd/RAIN/rainforwater.pd": {
+      "chapter": 38,
+      "figures": [
+        "38.7"
+      ],
+      "mapping": "topic"
+    },
+    "pd/RAIN/rainonwater.pd": {
+      "chapter": 38,
+      "figures": [
+        "38.7"
+      ],
+      "mapping": "topic"
+    },
+    "pd/RAIN/rainwindow.pd": {
+      "chapter": 38,
+      "figures": [
+        "38.6"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ELECTRICITY/chirpulse.pd": {
+      "chapter": 39,
+      "figures": [
+        "39.4"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ELECTRICITY/spark6formant.pd": {
+      "chapter": 39,
+      "figures": [
+        "39.6"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ELECTRICITY/sparks1.pd": {
+      "chapter": 39,
+      "figures": [
+        "39.7"
+      ],
+      "mapping": "topic"
+    },
+    "pd/THUNDER/cheap-nwave-aftershock.pd": {
+      "chapter": 40,
+      "figures": [
+        "40.9"
+      ],
+      "mapping": "topic"
+    },
+    "pd/THUNDER/nwave.pd": {
+      "chapter": 40,
+      "figures": [
+        "40.9"
+      ],
+      "mapping": "topic"
+    },
+    "pd/THUNDER/quickpolytap.pd": {
+      "chapter": 40,
+      "figures": [
+        "40.7"
+      ],
+      "mapping": "topic"
+    },
+    "pd/THUNDER/rumble.pd": {
+      "chapter": 40,
+      "figures": [
+        "40.8"
+      ],
+      "mapping": "topic"
+    },
+    "pd/THUNDER/strike-decay.pd": {
+      "chapter": 40,
+      "figures": [
+        "40.6"
+      ],
+      "mapping": "topic"
+    },
+    "pd/THUNDER/strike-pattern.pd": {
+      "chapter": 40,
+      "figures": [
+        "40.5"
+      ],
+      "mapping": "topic"
+    },
+    "pd/WIND/warmwind.pd": {
+      "chapter": 41,
+      "figures": [
+        "41.10"
+      ],
+      "mapping": "topic"
+    },
+    "pd/WIND/wind11.pd": {
+      "chapter": 41,
+      "figures": [
+        "41.10"
+      ],
+      "mapping": "topic"
+    },
+    "pd/WIND/wind3.pd": {
+      "chapter": 41,
+      "figures": [
+        "41.14"
+      ],
+      "mapping": "topic"
+    },
+    "pd/WIND/wind35.pd": {
+      "chapter": 41,
+      "figures": [
+        "41.14"
+      ],
+      "mapping": "topic"
+    },
+    "pd/WIND/window2.pd": {
+      "chapter": 41,
+      "figures": [],
+      "mapping": "unmapped",
+      "note": "Window/knock supplement; do not infer the tree-leaf figure from the parent wind folder."
+    },
+    "pd/WIND/windowknock.pd": {
+      "chapter": 41,
+      "figures": [],
+      "mapping": "unmapped",
+      "note": "Window/knock supplement; do not infer the tree-leaf figure from the parent wind folder."
+    },
+    "pd/CLOCK/bodyresonance.pd": {
+      "chapter": 43,
+      "figures": [
+        "43.10"
+      ],
+      "mapping": "topic"
+    },
+    "pd/CLOCK/bodyscale.pd": {
+      "chapter": 43,
+      "figures": [
+        "43.11"
+      ],
+      "mapping": "topic"
+    },
+    "pd/CLOCK/clock1.pd": {
+      "chapter": 43,
+      "figures": [
+        "43.12"
+      ],
+      "mapping": "topic"
+    },
+    "pd/CLOCK/clock2.pd": {
+      "chapter": 43,
+      "figures": [
+        "43.12"
+      ],
+      "mapping": "topic"
+    },
+    "pd/CLOCK/clock3.pd": {
+      "chapter": 43,
+      "figures": [
+        "43.12"
+      ],
+      "mapping": "topic"
+    },
+    "pd/CLOCK/clock4.pd": {
+      "chapter": 43,
+      "figures": [
+        "43.12"
+      ],
+      "mapping": "topic"
+    },
+    "pd/CLOCK/clocktick-test.pd": {
+      "chapter": 43,
+      "figures": [
+        "43.7"
+      ],
+      "mapping": "topic"
+    },
+    "pd/CLOCK/mclick~.pd": {
+      "chapter": 43,
+      "figures": [
+        "43.4"
+      ],
+      "mapping": "topic"
+    },
+    "pd/CLOCK/multiclick-test.pd": {
+      "chapter": 43,
+      "figures": [
+        "43.4",
+        "43.5"
+      ],
+      "mapping": "topic"
+    },
+    "pd/CLOCK/sqdec-test.pd": {
+      "chapter": 43,
+      "figures": [
+        "43.3"
+      ],
+      "mapping": "topic"
+    },
+    "pd/MOTORS/motor-env-test.pd": {
+      "chapter": 44,
+      "figures": [
+        "44.2"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ENGINES/four-stroke-engine.pd": {
+      "chapter": 45,
+      "figures": [
+        "45.5"
+      ],
+      "mapping": "topic"
+    },
+    "pd/ENGINES/phase-position-shaping.pd": {
+      "chapter": 45,
+      "figures": [
+        "45.4"
+      ],
+      "mapping": "topic"
+    },
+    "pd/INSECTS/flywing.pd": {
+      "chapter": 50,
+      "figures": [
+        "50.13"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BIRDS/bird1.pd": {
+      "chapter": 51,
+      "figures": [
+        "51.6",
+        "51.7"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BIRDS/articulate.pd": {
+      "chapter": 51,
+      "figures": [
+        "51.6"
+      ],
+      "mapping": "topic"
+    },
+    "pd/BIRDS/lin3.pd": {
+      "chapter": 51,
+      "figures": [
+        "51.6"
+      ],
+      "mapping": "topic"
+    },
+    "pd/MAMMALS/roar.pd": {
+      "chapter": 52,
+      "figures": [
+        "52.2",
+        "52.3",
+        "52.5"
+      ],
+      "mapping": "topic"
+    },
+    "pd/EXPLOSIONS/explosive1.pd": {
+      "chapter": 54,
+      "figures": [
+        "54.9"
+      ],
+      "mapping": "topic"
+    },
+    "pd/EXPLOSIONS/nwave2.pd": {
+      "chapter": 54,
+      "figures": [
+        "54.8"
+      ],
+      "mapping": "topic"
+    },
+    "pd/EXPLOSIONS/udly.pd": {
+      "chapter": 54,
+      "figures": [
+        "54.8"
+      ],
+      "mapping": "topic"
+    },
+    "pd/REDALERT/ud.pd": {
+      "chapter": 58,
+      "figures": [
+        "58.6"
+      ],
+      "mapping": "topic"
+    },
+    "pd/RUNNINGWATER/running-water4.pd": {
+      "figures": [],
+      "mapping": "unmapped",
+      "note": "Empty canvas in bulk; complete older three-waterflow version is parked at pd/old/RUNNINGWATER/running-water4.pd.",
+      "problem": "Empty PD canvas"
+    },
+    "pd/ALARMS/2tone-15.pd": {
+      "chapter": 27,
+      "figures": [
+        "27.4",
+        "27.5"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "AlarmGenerator(6)",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "alarm15"
+      ],
+      "note": "Earlier UI layout of the four-phase alarm; the same explicit programme lists are compared against alarm06."
+    },
+    "pd/ALARMS/2tone-20.pd": {
+      "chapter": 27,
+      "figures": [
+        "27.3",
+        "27.4"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "AlarmGenerator::Bank",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "alarm-bank"
+      ],
+      "note": "Bulk eight-control extension of three-phase sequencing and odd/even waveshaping; separate Bank implementation and fixtures."
+    },
+    "pd/ALARMS/sand.pd": {
+      "chapter": 26,
+      "figures": [
+        "26.1"
+      ],
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "DTMFTones::Decoder",
+      "evidence": "audio/artificial-sounds.md",
+      "comparison_cases": [
+        "dtmf-decoder",
+        "phone-match",
+        "call-match"
+      ],
+      "klang_file": "klang/Artificial Sounds/DTMF Tones/dtmftones.k",
+      "note": "Bulk decoder conjunction/change helper; fig. 26.1 supplies tone-pair context, not a separate helper diagram."
+    }
+  },
+  "book_patches": [
+    {
+      "chapter": 10,
+      "name": "random-selection",
+      "description": "Equal-probability random selection example",
+      "figures": [
+        "10.35"
+      ],
+      "mapping": "diagram",
+      "status": "not started",
+      "note": "Diagram inspected at printed p. 182. No standalone source located in the active collection; bubbles2 contains a related random/select pair. Recover or reconstruct the teaching example separately."
+    },
+    {
+      "chapter": 11,
+      "name": "signal-fanout",
+      "description": "Signal fan-out example",
+      "figures": [
+        "11.2"
+      ],
+      "mapping": "diagram",
+      "status": "not started",
+      "note": "Diagram inspected at printed p. 186: phasor feeding two branches. No matching supplied patch located; recover or reconstruct a minimal reference."
+    },
+    {
+      "chapter": 11,
+      "name": "signal-merging",
+      "description": "Implicit summing of signals",
+      "figures": [
+        "11.3"
+      ],
+      "mapping": "diagram",
+      "status": "not started",
+      "note": "Diagram inspected at printed p. 187: two oscillators feed one inlet. SHAPING/sound-superposition.pd instead uses an explicit adder; locate or reconstruct this distinct example."
+    }
+  ]
+}

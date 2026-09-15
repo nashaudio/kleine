@@ -1,0 +1,911 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound -  Practical 14: Poured Water
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Practical 14: Poured Water </h2>
+
+ <h2>Pure Data</h2>
+
+<h3>Water - poured liquid model</h3>
+<pre>
+#N canvas 108 13 672 499 10;
+#X obj 418 133 line;
+#X obj 341 458 dac~;
+#X obj 6 14 bng 15 250 50 0 empty empty fill-em-up 0 -6 1 8 -262144
+-1 -1;
+#N canvas 202 87 227 371 waterflow 0;
+#X obj 5 173 osc~;
+#X obj 5 146 line~;
+#X obj 46 290 *~;
+#X obj 62 269 *~;
+#X obj 5 44 metro 6;
+#X obj 5 105 + 800;
+#X obj 62 244 *~ 0.9;
+#X obj 62 224 lop~ 10;
+#N canvas 0 0 450 300 bilexp 0;
+#X obj 56 166 expr exp($f1);
+#X obj 55 71 random 8192;
+#X obj 56 139 * 9;
+#X obj 55 116 / 4096;
+#X obj 123 91 > 4096;
+#X obj 123 113 sel 0 1;
+#X msg 115 141 -1;
+#X msg 147 141 1;
+#X obj 56 199 *;
+#X obj 56 224 / 23000;
+#X obj 55 45 t b;
+#X obj 55 21 inlet;
+#X obj 56 248 outlet;
+#X obj 55 92 mod 4096;
+#X connect 0 0 8 0;
+#X connect 1 0 4 0;
+#X connect 1 0 13 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 6 0 8 1;
+#X connect 7 0 8 1;
+#X connect 8 0 9 0;
+#X connect 9 0 12 0;
+#X connect 10 0 1 0;
+#X connect 11 0 10 0;
+#X connect 13 0 3 0;
+#X restore 5 64 pd bilexp;
+#X obj 62 204 clip~ 0 1;
+#X obj 5 125 pack 1 2.689;
+#X obj 5 85 * 1600;
+#X msg 5 24 1;
+#X obj 5 4 loadbang;
+#X obj 62 183 fexpr~ $x1 - $x1[-1];
+#X obj 46 316 *~ 0.3;
+#X obj 46 338 outlet~;
+#X obj 69 3 inlet rate;
+#X obj 143 3 inlet depth;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 1 0 14 0;
+#X connect 2 0 15 0;
+#X connect 3 0 2 1;
+#X connect 4 0 8 0;
+#X connect 5 0 10 0;
+#X connect 6 0 3 0;
+#X connect 6 0 3 1;
+#X connect 7 0 6 0;
+#X connect 8 0 11 0;
+#X connect 9 0 7 0;
+#X connect 10 0 1 0;
+#X connect 11 0 5 0;
+#X connect 12 0 4 0;
+#X connect 13 0 12 0;
+#X connect 14 0 9 0;
+#X connect 15 0 16 0;
+#X connect 17 0 4 1;
+#X connect 18 0 5 1;
+#X restore 339 295 pd waterflow;
+#X msg 418 111 0 \, 1 9000;
+#X obj 418 177 swap 1;
+#X obj 418 200 -;
+#X obj 418 220 * 300;
+#X obj 418 240 + 600;
+#X obj 418 155 trigger float float;
+#X obj 546 203 + 100;
+#X obj 546 183 * 2000;
+#X obj 269 85 trigger bang bang bang;
+#X obj 343 108 del 9000;
+#X obj 321 163 line;
+#X msg 343 131 1 800;
+#X msg 269 109 0 800;
+#X obj 321 186 * 24;
+#X obj 321 207 + 4;
+#X obj 546 224 s cavitylength;
+#X obj 412 321 r cavitylength;
+#N canvas 266 175 309 287 openpipe 0;
+#X obj 146 117 * 3;
+#X obj 179 117 * 5;
+#X obj 213 117 * 7;
+#X obj 113 117 * 1;
+#X obj 63 71 inlet~;
+#X obj 63 237 outlet~;
+#X obj 113 71 inlet length;
+#X obj 63 142 bp~ 1 30;
+#X obj 74 161 bp~ 1 30;
+#X obj 84 181 bp~ 1 30;
+#X obj 97 201 bp~ 1 30;
+#X obj 113 93 trigger f f f f;
+#X connect 0 0 8 1;
+#X connect 1 0 9 1;
+#X connect 2 0 10 1;
+#X connect 3 0 7 1;
+#X connect 4 0 7 0;
+#X connect 4 0 8 0;
+#X connect 4 0 9 0;
+#X connect 4 0 10 0;
+#X connect 6 0 11 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
+#X connect 9 0 5 0;
+#X connect 10 0 5 0;
+#X connect 11 0 3 0;
+#X connect 11 1 0 0;
+#X connect 11 2 1 0;
+#X connect 11 3 2 0;
+#X restore 340 344 pd openpipe;
+#N canvas 202 87 227 371 waterflow 0;
+#X obj 5 173 osc~;
+#X obj 5 146 line~;
+#X obj 46 290 *~;
+#X obj 62 269 *~;
+#X obj 5 44 metro 6;
+#X obj 5 105 + 800;
+#X obj 62 244 *~ 0.9;
+#X obj 62 224 lop~ 10;
+#N canvas 0 0 450 300 bilexp 0;
+#X obj 56 166 expr exp($f1);
+#X obj 55 71 random 8192;
+#X obj 56 139 * 9;
+#X obj 55 116 / 4096;
+#X obj 123 91 > 4096;
+#X obj 123 113 sel 0 1;
+#X msg 115 141 -1;
+#X msg 147 141 1;
+#X obj 56 199 *;
+#X obj 56 224 / 23000;
+#X obj 55 45 t b;
+#X obj 55 21 inlet;
+#X obj 56 248 outlet;
+#X obj 55 92 mod 4096;
+#X connect 0 0 8 0;
+#X connect 1 0 4 0;
+#X connect 1 0 13 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 6 0 8 1;
+#X connect 7 0 8 1;
+#X connect 8 0 9 0;
+#X connect 9 0 12 0;
+#X connect 10 0 1 0;
+#X connect 11 0 10 0;
+#X connect 13 0 3 0;
+#X restore 5 64 pd bilexp;
+#X obj 62 204 clip~ 0 1;
+#X obj 5 125 pack 1 2.689;
+#X obj 5 85 * 1600;
+#X msg 5 24 1;
+#X obj 5 4 loadbang;
+#X obj 62 183 fexpr~ $x1 - $x1[-1];
+#X obj 46 316 *~ 0.3;
+#X obj 46 338 outlet~;
+#X obj 69 3 inlet rate;
+#X obj 143 3 inlet depth;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 1 0 14 0;
+#X connect 2 0 15 0;
+#X connect 3 0 2 1;
+#X connect 4 0 8 0;
+#X connect 5 0 10 0;
+#X connect 6 0 3 0;
+#X connect 6 0 3 1;
+#X connect 7 0 6 0;
+#X connect 8 0 11 0;
+#X connect 9 0 7 0;
+#X connect 10 0 1 0;
+#X connect 11 0 5 0;
+#X connect 12 0 4 0;
+#X connect 13 0 12 0;
+#X connect 14 0 9 0;
+#X connect 15 0 16 0;
+#X connect 17 0 4 1;
+#X connect 18 0 5 1;
+#X restore 309 273 pd waterflow;
+#X obj 341 431 *~;
+#X obj 357 408 lop~ 0.5;
+#X obj 357 385 sig~;
+#X obj 120 61 trigger bang bang bang;
+#X obj 194 110 del 9000;
+#X obj 172 165 line;
+#X msg 120 111 1 300;
+#X msg 194 133 0 1200;
+#X obj 172 188 s amplitude;
+#X obj 357 364 r amplitude;
+#N canvas 0 0 394 492 bubblefactory 0;
+#X obj 49 13 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#N canvas 0 0 570 560 bubble 0;
+#X obj 60 405 osc~;
+#X obj 60 444 *~;
+#X obj 30 61 inlet;
+#X obj 60 469 outlet~;
+#N canvas 231 126 209 211 env4pow 0;
+#X obj 54 61 vline~;
+#X obj 53 87 *~;
+#X obj 53 112 *~;
+#X obj 5 149 -~;
+#X obj 5 173 outlet~;
+#X msg 54 34 1 0 0 \, 0 \$1 0;
+#X obj 54 10 inlet;
+#X obj 4 111 sig~ 1;
+#X obj 63 173 outlet~;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 1;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 5 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 3 0;
+#X restore 60 325 pd env4pow;
+#X obj 30 83 unpack f f;
+#X obj 125 347 *~;
+#X obj 30 146 spigot;
+#X obj 67 123 != 0;
+#X obj 30 240 swap 1;
+#X obj 124 369 lop~ 120;
+#X obj 30 263 /;
+#X obj 30 189 + 0.4;
+#X obj 124 395 *~;
+#X obj 186 325 swap 1;
+#X obj 186 348 -;
+#X obj 30 168 t f f f;
+#X obj 186 369 + 0.1;
+#X obj 141 179 / 3;
+#X obj 141 199 + 0.6;
+#X obj 60 370 +~;
+#X obj 60 347 *~ 2000;
+#X obj 306 88 inlet base;
+#X obj 306 138 * 2;
+#X obj 76 274 *;
+#X obj 76 296 +;
+#X obj 306 113 * 800;
+#X obj 225 128 swap 1;
+#X obj 226 153 -;
+#X obj 29 287 *;
+#X obj 224 177 * 80;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 4 0 21 0;
+#X connect 4 1 6 0;
+#X connect 5 0 7 0;
+#X connect 5 1 8 0;
+#X connect 5 1 18 0;
+#X connect 6 0 10 0;
+#X connect 7 0 16 0;
+#X connect 8 0 7 1;
+#X connect 9 0 11 0;
+#X connect 9 1 11 1;
+#X connect 10 0 13 0;
+#X connect 11 0 29 0;
+#X connect 12 0 9 0;
+#X connect 13 0 1 1;
+#X connect 14 0 15 0;
+#X connect 14 1 15 1;
+#X connect 15 0 17 0;
+#X connect 16 0 12 0;
+#X connect 16 1 24 0;
+#X connect 16 2 14 0;
+#X connect 17 0 13 1;
+#X connect 18 0 19 0;
+#X connect 19 0 6 1;
+#X connect 20 0 0 0;
+#X connect 21 0 20 0;
+#X connect 22 0 26 0;
+#X connect 22 0 27 0;
+#X connect 23 0 24 1;
+#X connect 24 0 25 0;
+#X connect 25 0 20 1;
+#X connect 26 0 23 0;
+#X connect 26 0 25 1;
+#X connect 27 0 28 0;
+#X connect 27 1 28 0;
+#X connect 28 0 30 0;
+#X connect 29 0 4 0;
+#X connect 30 0 29 1;
+#X restore 28 345 pd bubble;
+#X obj 99 104 random 1000;
+#X obj 99 127 / 1000;
+#X obj 28 295 pack f f f;
+#X obj 28 167 pack f f;
+#X obj 28 254 poly 4 1;
+#X obj 28 320 route 1 2 3 4;
+#X obj 14 104 random 1000;
+#X obj 14 127 / 1000;
+#X obj 28 199 spigot;
+#X obj 183 103 random 100;
+#X obj 49 59 t b b b;
+#X obj 49 33 metro 20;
+#X obj 183 148 > 70;
+#N canvas 0 0 570 560 bubble 0;
+#X obj 60 405 osc~;
+#X obj 60 444 *~;
+#X obj 30 61 inlet;
+#X obj 60 469 outlet~;
+#N canvas 0 0 450 300 env4pow 0;
+#X obj 210 157 vline~;
+#X obj 209 183 *~;
+#X obj 209 208 *~;
+#X obj 161 245 -~;
+#X obj 161 269 outlet~;
+#X msg 210 130 1 0 0 \, 0 \$1 0;
+#X obj 210 106 inlet;
+#X obj 160 207 sig~ 1;
+#X obj 219 269 outlet~;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 1;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 5 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 3 0;
+#X restore 60 325 pd env4pow;
+#X obj 30 83 unpack f f;
+#X obj 125 347 *~;
+#X obj 30 146 spigot;
+#X obj 67 123 != 0;
+#X obj 30 240 swap 1;
+#X obj 124 369 lop~ 120;
+#X obj 30 263 /;
+#X obj 30 189 + 0.4;
+#X obj 124 395 *~;
+#X obj 186 325 swap 1;
+#X obj 186 348 -;
+#X obj 30 168 t f f f;
+#X obj 186 369 + 0.1;
+#X obj 141 179 / 3;
+#X obj 141 199 + 0.6;
+#X obj 60 370 +~;
+#X obj 60 347 *~ 2000;
+#X obj 306 88 inlet base;
+#X obj 306 138 * 2;
+#X obj 76 274 *;
+#X obj 76 296 +;
+#X obj 306 113 * 800;
+#X obj 225 128 swap 1;
+#X obj 226 153 -;
+#X obj 29 287 *;
+#X obj 224 177 * 80;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 4 0 21 0;
+#X connect 4 1 6 0;
+#X connect 5 0 7 0;
+#X connect 5 1 8 0;
+#X connect 5 1 18 0;
+#X connect 6 0 10 0;
+#X connect 7 0 16 0;
+#X connect 8 0 7 1;
+#X connect 9 0 11 0;
+#X connect 9 1 11 1;
+#X connect 10 0 13 0;
+#X connect 11 0 29 0;
+#X connect 12 0 9 0;
+#X connect 13 0 1 1;
+#X connect 14 0 15 0;
+#X connect 14 1 15 1;
+#X connect 15 0 17 0;
+#X connect 16 0 12 0;
+#X connect 16 1 24 0;
+#X connect 16 2 14 0;
+#X connect 17 0 13 1;
+#X connect 18 0 19 0;
+#X connect 19 0 6 1;
+#X connect 20 0 0 0;
+#X connect 21 0 20 0;
+#X connect 22 0 26 0;
+#X connect 22 0 27 0;
+#X connect 23 0 24 1;
+#X connect 24 0 25 0;
+#X connect 25 0 20 1;
+#X connect 26 0 23 0;
+#X connect 26 0 25 1;
+#X connect 27 0 28 0;
+#X connect 27 1 28 0;
+#X connect 28 0 30 0;
+#X connect 29 0 4 0;
+#X connect 30 0 29 1;
+#X restore 38 355 pd bubble;
+#N canvas 0 0 570 560 bubble 0;
+#X obj 60 405 osc~;
+#X obj 60 444 *~;
+#X obj 30 61 inlet;
+#X obj 60 469 outlet~;
+#N canvas 0 0 450 300 env4pow 0;
+#X obj 210 157 vline~;
+#X obj 209 183 *~;
+#X obj 209 208 *~;
+#X obj 161 245 -~;
+#X obj 161 269 outlet~;
+#X msg 210 130 1 0 0 \, 0 \$1 0;
+#X obj 210 106 inlet;
+#X obj 160 207 sig~ 1;
+#X obj 219 269 outlet~;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 1;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 5 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 3 0;
+#X restore 60 325 pd env4pow;
+#X obj 30 83 unpack f f;
+#X obj 125 347 *~;
+#X obj 30 146 spigot;
+#X obj 67 123 != 0;
+#X obj 30 240 swap 1;
+#X obj 124 369 lop~ 120;
+#X obj 30 263 /;
+#X obj 30 189 + 0.4;
+#X obj 124 395 *~;
+#X obj 186 325 swap 1;
+#X obj 186 348 -;
+#X obj 30 168 t f f f;
+#X obj 186 369 + 0.1;
+#X obj 141 179 / 3;
+#X obj 141 199 + 0.6;
+#X obj 60 370 +~;
+#X obj 60 347 *~ 2000;
+#X obj 306 88 inlet base;
+#X obj 306 138 * 2;
+#X obj 76 274 *;
+#X obj 76 296 +;
+#X obj 306 113 * 800;
+#X obj 225 128 swap 1;
+#X obj 226 153 -;
+#X obj 29 287 *;
+#X obj 224 177 * 80;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 4 0 21 0;
+#X connect 4 1 6 0;
+#X connect 5 0 7 0;
+#X connect 5 1 8 0;
+#X connect 5 1 18 0;
+#X connect 6 0 10 0;
+#X connect 7 0 16 0;
+#X connect 8 0 7 1;
+#X connect 9 0 11 0;
+#X connect 9 1 11 1;
+#X connect 10 0 13 0;
+#X connect 11 0 29 0;
+#X connect 12 0 9 0;
+#X connect 13 0 1 1;
+#X connect 14 0 15 0;
+#X connect 14 1 15 1;
+#X connect 15 0 17 0;
+#X connect 16 0 12 0;
+#X connect 16 1 24 0;
+#X connect 16 2 14 0;
+#X connect 17 0 13 1;
+#X connect 18 0 19 0;
+#X connect 19 0 6 1;
+#X connect 20 0 0 0;
+#X connect 21 0 20 0;
+#X connect 22 0 26 0;
+#X connect 22 0 27 0;
+#X connect 23 0 24 1;
+#X connect 24 0 25 0;
+#X connect 25 0 20 1;
+#X connect 26 0 23 0;
+#X connect 26 0 25 1;
+#X connect 27 0 28 0;
+#X connect 27 1 28 0;
+#X connect 28 0 30 0;
+#X connect 29 0 4 0;
+#X connect 30 0 29 1;
+#X restore 48 365 pd bubble;
+#N canvas 0 0 570 560 bubble 0;
+#X obj 60 405 osc~;
+#X obj 60 444 *~;
+#X obj 30 61 inlet;
+#X obj 60 469 outlet~;
+#N canvas 0 0 450 300 env4pow 0;
+#X obj 210 157 vline~;
+#X obj 209 183 *~;
+#X obj 209 208 *~;
+#X obj 161 245 -~;
+#X obj 161 269 outlet~;
+#X msg 210 130 1 0 0 \, 0 \$1 0;
+#X obj 210 106 inlet;
+#X obj 160 207 sig~ 1;
+#X obj 219 269 outlet~;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 1;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 5 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 3 0;
+#X restore 60 325 pd env4pow;
+#X obj 30 83 unpack f f;
+#X obj 125 347 *~;
+#X obj 30 146 spigot;
+#X obj 67 123 != 0;
+#X obj 30 240 swap 1;
+#X obj 124 369 lop~ 120;
+#X obj 30 263 /;
+#X obj 30 189 + 0.4;
+#X obj 124 395 *~;
+#X obj 186 325 swap 1;
+#X obj 186 348 -;
+#X obj 30 168 t f f f;
+#X obj 186 369 + 0.1;
+#X obj 141 179 / 3;
+#X obj 141 199 + 0.6;
+#X obj 60 370 +~;
+#X obj 60 347 *~ 2000;
+#X obj 306 88 inlet base;
+#X obj 306 138 * 2;
+#X obj 76 274 *;
+#X obj 76 296 +;
+#X obj 306 113 * 800;
+#X obj 225 128 swap 1;
+#X obj 226 153 -;
+#X obj 29 287 *;
+#X obj 224 177 * 80;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 4 0 21 0;
+#X connect 4 1 6 0;
+#X connect 5 0 7 0;
+#X connect 5 1 8 0;
+#X connect 5 1 18 0;
+#X connect 6 0 10 0;
+#X connect 7 0 16 0;
+#X connect 8 0 7 1;
+#X connect 9 0 11 0;
+#X connect 9 1 11 1;
+#X connect 10 0 13 0;
+#X connect 11 0 29 0;
+#X connect 12 0 9 0;
+#X connect 13 0 1 1;
+#X connect 14 0 15 0;
+#X connect 14 1 15 1;
+#X connect 15 0 17 0;
+#X connect 16 0 12 0;
+#X connect 16 1 24 0;
+#X connect 16 2 14 0;
+#X connect 17 0 13 1;
+#X connect 18 0 19 0;
+#X connect 19 0 6 1;
+#X connect 20 0 0 0;
+#X connect 21 0 20 0;
+#X connect 22 0 26 0;
+#X connect 22 0 27 0;
+#X connect 23 0 24 1;
+#X connect 24 0 25 0;
+#X connect 25 0 20 1;
+#X connect 26 0 23 0;
+#X connect 26 0 25 1;
+#X connect 27 0 28 0;
+#X connect 27 1 28 0;
+#X connect 28 0 30 0;
+#X connect 29 0 4 0;
+#X connect 30 0 29 1;
+#X restore 58 375 pd bubble;
+#X obj 163 268 inlet average pitch;
+#X obj 71 13 loadbang;
+#X obj 29 460 outlet~;
+#X obj 206 124 inlet bubble intensity;
+#X connect 0 0 13 0;
+#X connect 1 0 20 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 1;
+#X connect 4 0 7 0;
+#X connect 5 0 10 0;
+#X connect 6 0 4 0;
+#X connect 6 1 4 1;
+#X connect 6 2 4 2;
+#X connect 7 0 1 0;
+#X connect 7 1 15 0;
+#X connect 7 2 16 0;
+#X connect 7 3 17 0;
+#X connect 8 0 9 0;
+#X connect 9 0 5 0;
+#X connect 10 0 6 0;
+#X connect 11 0 14 0;
+#X connect 12 0 8 0;
+#X connect 12 1 2 0;
+#X connect 12 2 11 0;
+#X connect 13 0 12 0;
+#X connect 14 0 10 1;
+#X connect 15 0 20 0;
+#X connect 16 0 20 0;
+#X connect 17 0 20 0;
+#X connect 18 0 1 1;
+#X connect 18 0 15 1;
+#X connect 18 0 16 1;
+#X connect 18 0 17 1;
+#X connect 19 0 13 0;
+#X connect 21 0 14 1;
+#X restore 191 274 pd bubblefactory;
+#X obj 6 85 line;
+#X obj 6 35 trigger bang bang;
+#X msg 6 61 0 \, 1 9000;
+#X obj 6 106 s bubblesize;
+#X obj 191 253 r bubblesize;
+#X obj 191 296 *~ 0.05;
+#X connect 0 0 9 0;
+#X connect 2 0 35 0;
+#X connect 3 0 21 0;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 5 1 6 1;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 3 1;
+#X connect 8 0 22 1;
+#X connect 9 0 5 0;
+#X connect 9 1 11 0;
+#X connect 10 0 19 0;
+#X connect 11 0 10 0;
+#X connect 12 0 16 0;
+#X connect 12 1 13 0;
+#X connect 12 2 4 0;
+#X connect 13 0 15 0;
+#X connect 14 0 17 0;
+#X connect 15 0 14 0;
+#X connect 16 0 14 0;
+#X connect 17 0 18 0;
+#X connect 18 0 3 0;
+#X connect 18 0 22 0;
+#X connect 20 0 21 1;
+#X connect 21 0 23 0;
+#X connect 22 0 21 0;
+#X connect 23 0 1 0;
+#X connect 23 0 1 1;
+#X connect 24 0 23 1;
+#X connect 25 0 24 0;
+#X connect 26 0 29 0;
+#X connect 26 1 27 0;
+#X connect 26 2 12 0;
+#X connect 27 0 30 0;
+#X connect 28 0 31 0;
+#X connect 29 0 28 0;
+#X connect 30 0 28 0;
+#X connect 32 0 25 0;
+#X connect 33 0 39 0;
+#X connect 34 0 37 0;
+#X connect 35 0 36 0;
+#X connect 35 1 26 0;
+#X connect 36 0 34 0;
+#X connect 38 0 33 0;
+#X connect 39 0 21 0;
+</pre>
+<p>Download <a href="p14/pour1.pd">pour1.pd</a>.</p>
+
+
+<h2>Audio</h2>
+<h3>Poured water effects</h3>
+<p>There are two parts to this example. The first is a four stream concurrent poured model that accentuates the change in rate of flow, as if poured from a teapot to a cup. The second modells a different vessel, a long/deep test tube, by  accentuating the vessel cavity resonance and the change in bubble size as predicted by the penetration depth and surfacing time when poured from a fixed height relative to the stationary test tube (a varying height above the rising fluid surface).  </p>
+<p>Download <a href="p14/poured_water.wav">poured_water.wav</a>.</p>
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

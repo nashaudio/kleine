@@ -1,0 +1,736 @@
+{
+  "pd_version": "Pd-0.55.2 (\"\") compiled 12:02:42 Nov 17 2024",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "cpu": "Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz",
+  "compiler": "MSVC 19.51.36257.0, CMake x64-release",
+  "python": "3.12.4",
+  "sample_rates": [
+    48000,
+    44100
+  ],
+  "retained_audio_sample_rate": 48000,
+  "block_size": 64,
+  "voices": 1,
+  "fixtures_per_rate": 39,
+  "source_sha256": {
+    "farnell\\klang\\Artificial Sounds\\Alarm Generator\\alarmgenerator.k": "ff913c7b68b9725db320ec3e33a0034ec58acb7b142227976263ffe584667879",
+    "farnell\\klang\\Artificial Sounds\\DTMF Tones\\dtmftones.k": "9b5c49225ff31e45fc15c42bbbe1336963d1c4522d4b7e98772e58306ff1ee68",
+    "farnell\\klang\\Artificial Sounds\\Pedestrians\\pedestrians.k": "627953ba52d3e9b80f8dae681be469e22eeaa5f6d8e928a64ca3eb3d15a3347c",
+    "farnell\\klang\\Artificial Sounds\\Phone Tones\\phoneeffects.k": "4acc34b4056920a0f8cc1412f18e1892abf125028d81ac4161ae98dcbebdb5b6",
+    "farnell\\klang\\Artificial Sounds\\Phone Tones\\phonetones.k": "02c105d5ae4d8fa1fa3748f6d058afc489826bce4b4b5d105a68ce01dc7b66aa",
+    "farnell\\klang\\Artificial Sounds\\Police\\police.k": "122ea4606b5e0b60613ac75f5c5c7a43d1cd71180e29edc989b83427b4bf0d4a",
+    "farnell\\render.h": "fb9a6b4f1499c9492dc17cad4eafda6692e944de68923ff1400437ad499eae0d",
+    "include\\klang.h": "18227099c3e3de84fbdef47aa7b7375c455acc722405af8125db5b82fb6660e2",
+    "include\\klang\\pd.h": "c9a7b064cfe1a9f7c8da2ac835a564a0d893bee0c7f40b41cc90382635d1906d",
+    "tests\\pd\\primitive.h": "503f6059c5afd7b7c2c617edfa7ba9d7dc27a588056eb5e9df4aab67e3524928",
+    "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+    "tools\\render_artificial.py": "02d3070522f3005df97748f41b16f24281858f7450732a384b3d5a9473608496",
+    "tools\\package_artificial.py": "afe8422647606f5d974cc256084c92dbd560427e251f752a1ba6122812c3a19b",
+    "tools\\compare_audio.py": "11d642d666355b12417a0168daeab1d33948f2e5b0d448a35f5a4c24f782f19d"
+  },
+  "excerpts": [
+    {
+      "source": "farnell\\zip\\p01\\pedestrian-beeps.wav",
+      "source_sha256": "786216ced2f33086dc77810e957e2d2839e7990be51b6eeb99851ce0b4e725a1",
+      "file": "24-pedestrians/pedestrians-online.wav",
+      "start_seconds": 0.05,
+      "stop_seconds": 5.2,
+      "sample_rate": 48000,
+      "channels": 2,
+      "gain": 1
+    },
+    {
+      "source": "farnell\\zip\\p03\\dtmf.wav",
+      "source_sha256": "17d72cccb1a59b74cecbac29a62c012c904cff8b65e4a1706c2ac5a3f25fedc5",
+      "file": "26-dtmf-tones/dtmf-online.wav",
+      "start_seconds": 0.2,
+      "stop_seconds": 9.9,
+      "sample_rate": 48000,
+      "channels": 2,
+      "gain": 1
+    },
+    {
+      "source": "farnell\\zip\\p04\\alarms.wav",
+      "source_sha256": "a8a8ebbcc15a80d32beaffbf22b48fad27b66e1d8deede178eb3e0cf8c7d6c3e",
+      "file": "27-alarms/alarms-online.wav",
+      "start_seconds": 0.4,
+      "stop_seconds": 52.9,
+      "sample_rate": 48000,
+      "channels": 2,
+      "gain": 1
+    },
+    {
+      "source": "farnell\\zip\\p04\\alarms.wav",
+      "source_sha256": "a8a8ebbcc15a80d32beaffbf22b48fad27b66e1d8deede178eb3e0cf8c7d6c3e",
+      "file": "27-alarms/alarm07-online.wav",
+      "start_seconds": 35.1,
+      "stop_seconds": 52.9,
+      "sample_rate": 48000,
+      "channels": 2,
+      "gain": 1
+    },
+    {
+      "source": "farnell\\zip\\p05\\police.wav",
+      "source_sha256": "2ad943fe94df67536c7d5bce3d5e1442336c8fcf4ab7c6d2a8455a028c4512e8",
+      "file": "28-police/police-online.wav",
+      "start_seconds": 0.02,
+      "stop_seconds": 22.8,
+      "sample_rate": 48000,
+      "channels": 2,
+      "gain": 1
+    }
+  ],
+  "montages": [
+    {
+      "file": "27-alarms\\alarms-pd.wav",
+      "gap_seconds": 0.5,
+      "timeline": [
+        {
+          "case": "alarm01",
+          "start_seconds": 0.0,
+          "stop_seconds": 4.0
+        },
+        {
+          "case": "alarm02",
+          "start_seconds": 4.5,
+          "stop_seconds": 8.5
+        },
+        {
+          "case": "alarm03",
+          "start_seconds": 9.0,
+          "stop_seconds": 13.0
+        },
+        {
+          "case": "alarm04",
+          "start_seconds": 13.5,
+          "stop_seconds": 17.5
+        },
+        {
+          "case": "alarm05",
+          "start_seconds": 18.0,
+          "stop_seconds": 22.0
+        },
+        {
+          "case": "alarm06",
+          "start_seconds": 22.5,
+          "stop_seconds": 26.5
+        },
+        {
+          "case": "alarm07",
+          "start_seconds": 27.0,
+          "stop_seconds": 39.0
+        }
+      ]
+    },
+    {
+      "file": "27-alarms\\alarms-kleine.wav",
+      "gap_seconds": 0.5,
+      "timeline": [
+        {
+          "case": "alarm01",
+          "start_seconds": 0.0,
+          "stop_seconds": 4.0
+        },
+        {
+          "case": "alarm02",
+          "start_seconds": 4.5,
+          "stop_seconds": 8.5
+        },
+        {
+          "case": "alarm03",
+          "start_seconds": 9.0,
+          "stop_seconds": 13.0
+        },
+        {
+          "case": "alarm04",
+          "start_seconds": 13.5,
+          "stop_seconds": 17.5
+        },
+        {
+          "case": "alarm05",
+          "start_seconds": 18.0,
+          "stop_seconds": 22.0
+        },
+        {
+          "case": "alarm06",
+          "start_seconds": 22.5,
+          "stop_seconds": 26.5
+        },
+        {
+          "case": "alarm07",
+          "start_seconds": 27.0,
+          "stop_seconds": 39.0
+        }
+      ]
+    }
+  ],
+  "audio": {
+    "24-pedestrians\\pedestrians-kleine.wav": {
+      "sha256": "89c31ab6d39c9de09c0f46571e3833d8ae7c64de8613acb5185ec0e61ece4cdd",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999998807907104,
+      "rms": 0.09999992104081444,
+      "dc": -2.364486526573728e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "24-pedestrians\\pedestrians-online.wav": {
+      "sha256": "ceaeb4538658b3fe3d4481688078a3ccd26f455bd1ed5dd262fa8afd35f8ca3f",
+      "channels": 2,
+      "subtype": "PCM_16",
+      "sample_rate": 48000,
+      "frames": 247200,
+      "seconds": 5.15,
+      "peak": 0.199981689453125,
+      "rms": 0.09853023892123146,
+      "dc": 2.733249108768204e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "24-pedestrians\\pedestrians-pd.wav": {
+      "sha256": "84f2bbe6820f4edc64bd85e1ee9e1c1e6f31f0108beb0a5ed0ca836a3c7806db",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999998807907104,
+      "rms": 0.09999992104081444,
+      "dc": -2.364486526573728e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\phone-effects-kleine.wav": {
+      "sha256": "8101fe34cabb9f8404a7d60007c2f0dd84496015de38d0f5c6b3d8f64c9e89b8",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 768000,
+      "seconds": 16.0,
+      "peak": 0.36998409032821655,
+      "rms": 0.0978072274857704,
+      "dc": -3.327636941831544e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\phone-effects-pd.wav": {
+      "sha256": "ca9411c65d500abe10f899e370bb631f95b420be7520d102384e28cce45fc20a",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 768000,
+      "seconds": 16.0,
+      "peak": 0.3699836730957031,
+      "rms": 0.09780709548372071,
+      "dc": -3.327607003526799e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\ringback-bulk-kleine.wav": {
+      "sha256": "d81858beb0796770b8af3720f2d1b051c5ac5cdeae919fed929b064ffc70afee",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 576000,
+      "seconds": 12.0,
+      "peak": 0.18909472227096558,
+      "rms": 0.07887048385067034,
+      "dc": -4.97117393164827e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\ringback-bulk-pd.wav": {
+      "sha256": "e556337013f13551321b4a779a65e1d641668eedb744d6c0d7c9f18f545f44db",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 576000,
+      "seconds": 12.0,
+      "peak": 0.18909373879432678,
+      "rms": 0.07887037238953196,
+      "dc": -4.971093923162849e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "26-dtmf-tones\\call-recogniser-kleine.wav": {
+      "sha256": "465d3160b19dd63d863388d441bf0b3d7c1bf3a7737cfce91ef18ea43876e394",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 768000,
+      "seconds": 16.0,
+      "peak": 0.24586406350135803,
+      "rms": 0.0399103504058032,
+      "dc": 1.9318688497467527e-12,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "26-dtmf-tones\\call-recogniser-pd.wav": {
+      "sha256": "ec0112aaae2604bbbfc56ebfd283125ed250d9a2b89e11a8c81272c1ffb21375",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 768000,
+      "seconds": 16.0,
+      "peak": 0.24586406350135803,
+      "rms": 0.0399103504058032,
+      "dc": 1.9318688497467527e-12,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "26-dtmf-tones\\dtmf-bulk-kleine.wav": {
+      "sha256": "a61eaaa92b4fff167e6a754744916c605fe5f390fcba625d440ee9c8e763063e",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 288000,
+      "seconds": 6.0,
+      "peak": 0.5980402231216431,
+      "rms": 0.21771778350647866,
+      "dc": 1.882249885121201e-11,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "26-dtmf-tones\\dtmf-bulk-pd.wav": {
+      "sha256": "071d899b665509d471f8855b8e1691ef010c1a2f055fbd3bd4e48e2fc9304c5c",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 288000,
+      "seconds": 6.0,
+      "peak": 0.5980402231216431,
+      "rms": 0.21771778350647866,
+      "dc": 1.882249885121201e-11,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "26-dtmf-tones\\dtmf-kleine.wav": {
+      "sha256": "7df6c5074417ad7195b8d406353e1719205445d1d15176f9fb09d2a2d02b1a2b",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 288000,
+      "seconds": 6.0,
+      "peak": 0.4983668327331543,
+      "rms": 0.18143147878806226,
+      "dc": 8.851675805912309e-12,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "26-dtmf-tones\\dtmf-online.wav": {
+      "sha256": "101830cc60fb6475e99383aecd46873866509b0d833333dfac4f10c2a5fedb8d",
+      "channels": 2,
+      "subtype": "PCM_16",
+      "sample_rate": 48000,
+      "frames": 465600,
+      "seconds": 9.7,
+      "peak": 0.501373291015625,
+      "rms": 0.1435690882155261,
+      "dc": -4.686440798834837e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "26-dtmf-tones\\dtmf-pd.wav": {
+      "sha256": "e5ce97e47cda8b5fee21ccf91bbc37e9eb7dc2d82e6505e9c386ef5573a30f36",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 288000,
+      "seconds": 6.0,
+      "peak": 0.4983668327331543,
+      "rms": 0.18143147878806226,
+      "dc": 8.851675805912309e-12,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "26-dtmf-tones\\dtmf-study-kleine.wav": {
+      "sha256": "7947ff2546a08c74d6b2924e55491deb6d00d1cd62b7ad3c49e93c18f5380110",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.25,
+      "rms": 0.08948250637005709,
+      "dc": -1.920378119469509e-05,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "26-dtmf-tones\\dtmf-study-pd.wav": {
+      "sha256": "bea472fb5fc1791aa98c83a91d905eb4fe7c46a89dc81caa2f9c108270129e91",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.25,
+      "rms": 0.08948250637005709,
+      "dc": -1.920378119469509e-05,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm-bank-kleine.wav": {
+      "sha256": "e44cde9f1e0ff672cf00aad516594a45bd9327085e257079ecd6a6fbce3fd0a3",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 288000,
+      "seconds": 6.0,
+      "peak": 0.2459542602300644,
+      "rms": 0.06492128482200853,
+      "dc": 9.648803826792078e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm-bank-pd.wav": {
+      "sha256": "9714f38ed7aa767a9aec60c110c2d38a03e0ee299661b3d74d5d0f00ccbbf1c8",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 288000,
+      "seconds": 6.0,
+      "peak": 0.2459542602300644,
+      "rms": 0.06492128456928033,
+      "dc": 9.64879674789165e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm01-kleine.wav": {
+      "sha256": "a6ed2f4c2ef7c381994a8531858a05f2ed4ec69f7ee7f9c3746bf7d3aed61b18",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999997317790985,
+      "rms": 0.097467866099372,
+      "dc": -5.657848305418156e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm01-pd.wav": {
+      "sha256": "a9a7b9a62dd94d3cf709f83c048c87384dff6e0b43dbed7f244ada4d7201eda9",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999997317790985,
+      "rms": 0.097467866099372,
+      "dc": -5.657848305418156e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm02-kleine.wav": {
+      "sha256": "f8fe6c8aa170cf9163033034c4046531f458db5baf47cfb04b16cf7efb923b89",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.1999993622303009,
+      "rms": 0.09945922967961107,
+      "dc": -1.4648993737992869e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm02-pd.wav": {
+      "sha256": "c9d662216ed0c026ac7b979e41fb3195779477f354d2748b357601462d464e2a",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.1999993622303009,
+      "rms": 0.09945922835999081,
+      "dc": -1.46491062237922e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm03-kleine.wav": {
+      "sha256": "08775e19c093e2312f12db480aa9e95505c9fe073768cc99900b5efe52b20d8c",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.20000000298023224,
+      "rms": 0.14066498156992957,
+      "dc": 6.837639780635137e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm03-pd.wav": {
+      "sha256": "ac55a0ea3e6ecd0a914dd056c026290da89d2ec906011559e2628b2af929f4c5",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.20000000298023224,
+      "rms": 0.14066498090848512,
+      "dc": 6.838309704200647e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm04-kleine.wav": {
+      "sha256": "6f97a3dbef7b9a13a95e7a134597d63c92a2c5d64ec327573d7ecc17e1b0758f",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.2499999850988388,
+      "rms": 0.12499979527451661,
+      "dc": 6.356564584678246e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm04-pd.wav": {
+      "sha256": "a83dfa2dbf0fd8e3d9d352421d5547bd6d6fa988a8baa92ab3d7f7094f3e3fae",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.2499999850988388,
+      "rms": 0.12499979527451661,
+      "dc": 6.356564584678246e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm05-kleine.wav": {
+      "sha256": "f6f5c4bcac343ac40958b15c418abc30d1c610c1b91099ae9969b209d7c209f7",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999955594539642,
+      "rms": 0.14109517942355698,
+      "dc": -3.2555168004891517e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm05-pd.wav": {
+      "sha256": "eb9ed4555aad1578e98bafe53f5d761965d7151009d7050d625e6447e0fe2c84",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999955594539642,
+      "rms": 0.14109517855219475,
+      "dc": -3.2555098235468688e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm06-kleine.wav": {
+      "sha256": "8dc1e68b26051bff911a9f1673cf0c45a97f66e120c3e22480dd022505b1a51b",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.05939903482794762,
+      "rms": 0.013706952787705846,
+      "dc": 8.855143505033987e-13,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm06-pd.wav": {
+      "sha256": "2fd4aeb36050a3fe72598064dab903a5c7ab49c31c434ac212485e95251aa795",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.05939903482794762,
+      "rms": 0.013706952787705846,
+      "dc": 8.855143505033987e-13,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm07-kleine.wav": {
+      "sha256": "eb4be082637a12553dc93559e3eea819e1ac154bc98505f2230a4f1ca84198c4",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 576000,
+      "seconds": 12.0,
+      "peak": 0.16044200956821442,
+      "rms": 0.040746209847017094,
+      "dc": 5.6642014766788365e-14,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm07-online.wav": {
+      "sha256": "875b63fa1912418752b6af80f5639ba1a43889bcec689a88b46bda9ad6fcb612",
+      "channels": 2,
+      "subtype": "PCM_16",
+      "sample_rate": 48000,
+      "frames": 854400,
+      "seconds": 17.8,
+      "peak": 0.214447021484375,
+      "rms": 0.0443080898993588,
+      "dc": 3.411082292763928e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm07-pd.wav": {
+      "sha256": "656fbe89da4ba205267b740c3f480b079f6a7b0291fa37b646dac7748da7881b",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 576000,
+      "seconds": 12.0,
+      "peak": 0.16044200956821442,
+      "rms": 0.040746209847017094,
+      "dc": 5.6642014766788365e-14,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm15-kleine.wav": {
+      "sha256": "8dc1e68b26051bff911a9f1673cf0c45a97f66e120c3e22480dd022505b1a51b",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.05939903482794762,
+      "rms": 0.013706952787705846,
+      "dc": 8.855143505033987e-13,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarm15-pd.wav": {
+      "sha256": "2fd4aeb36050a3fe72598064dab903a5c7ab49c31c434ac212485e95251aa795",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.05939903482794762,
+      "rms": 0.013706952787705846,
+      "dc": 8.855143505033987e-13,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarms-kleine.wav": {
+      "sha256": "f31fa9cd154ad068d6a5e5e3d6cffbdf2aa29abc8822d8583742266308f56e23",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 1872000,
+      "seconds": 39.0,
+      "peak": 0.2499999850988388,
+      "rms": 0.09051431404643816,
+      "dc": -3.49400259550987e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarms-online.wav": {
+      "sha256": "52fe3df91423efd5c5877c9c5c07cd5cf03a5028575edde3cf6835973209f1d2",
+      "channels": 2,
+      "subtype": "PCM_16",
+      "sample_rate": 48000,
+      "frames": 2520000,
+      "seconds": 52.5,
+      "peak": 0.25006103515625,
+      "rms": 0.07713122260218463,
+      "dc": 3.0059814453125e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "27-alarms\\alarms-pd.wav": {
+      "sha256": "fc1bd54e29495174367d36318daa4ce8052d75e4a678cb1d9edd15993ad10549",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 1872000,
+      "seconds": 39.0,
+      "peak": 0.2499999850988388,
+      "rms": 0.09051431365297667,
+      "dc": -3.4939382665674074e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "28-police\\police-kleine.wav": {
+      "sha256": "b9d1e7feae2c5340ca1832c10bacf892025426a8730257e1dd883663b5dcabf2",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 768000,
+      "seconds": 16.0,
+      "peak": 0.15665565431118011,
+      "rms": 0.1002593576442404,
+      "dc": 0.09678398638920484,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "28-police\\police-legacy-kleine.wav": {
+      "sha256": "cd07ac15298c891271208ab2a2c1636db6c70e0e0b0d6b5921707c9517ba7e87",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 768000,
+      "seconds": 16.0,
+      "peak": 0.22006875276565552,
+      "rms": 0.09225454884898106,
+      "dc": 0.04399960309235259,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "28-police\\police-legacy-pd.wav": {
+      "sha256": "ce40ff6dbecaf3b6fe303560492b229bb89ca4daee653df347d8e9ff71f39e12",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 768000,
+      "seconds": 16.0,
+      "peak": 0.22006891667842865,
+      "rms": 0.09225471285270531,
+      "dc": 0.04399966576288343,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "28-police\\police-online.wav": {
+      "sha256": "8c136cf3ac5458ea4e3bf417a3c00e763026a5c6095f317a9df1869d0078c98f",
+      "channels": 2,
+      "subtype": "PCM_16",
+      "sample_rate": 48000,
+      "frames": 1093440,
+      "seconds": 22.78,
+      "peak": 0.251190185546875,
+      "rms": 0.15867214785824227,
+      "dc": 0.15214683558112668,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "28-police\\police-pd.wav": {
+      "sha256": "83c2bbff857c6f29a365b147cac63a7566cd2de87b00726f0e885e480304d490",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 768000,
+      "seconds": 16.0,
+      "peak": 0.1566559374332428,
+      "rms": 0.1002595089300251,
+      "dc": 0.0967841349574407,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "reconstruction": "Combined phone demos replace missing list-emath/list-dotprod number matchers with tests/pd/number-match.pd; original PD files are unchanged.",
+  "notes": [
+    "Original PCM excerpt samples retained exactly; no normalisation, resampling, fades or post-processing.",
+    "Scripts disable saved GUI startup values where controls are explicitly scheduled.",
+    "Events use a shared 64-sample grid; PD delay timestamps sit 0.25 samples inside that block to avoid floating-point boundary ambiguity.",
+    "Police legacy means explicit pow~ inlet swaps (or the correctly wired bulk source), not an old PD executable.",
+    "Graph/FFT display patches are covered by their waveform outputs and the external analysis tools; no general rfft~/GUI port is claimed."
+  ]
+}

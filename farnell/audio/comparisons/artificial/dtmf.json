@@ -1,0 +1,46 @@
+{
+  "files": {
+    "farnell\\audio\\26-dtmf-tones\\dtmf-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 288000,
+      "seconds": 6.0,
+      "peak": 0.4983668327331543,
+      "rms": 0.18143147878806226,
+      "dc": 8.851675805912309e-12,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\26-dtmf-tones\\dtmf-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 288000,
+      "seconds": 6.0,
+      "peak": 0.4983668327331543,
+      "rms": 0.18143147878806226,
+      "dc": 8.851675805912309e-12,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\26-dtmf-tones\\dtmf-online.wav": {
+      "sample_rate": 48000,
+      "frames": 465600,
+      "seconds": 9.7,
+      "peak": 0.501373291015625,
+      "rms": 0.1435690882155261,
+      "dc": -4.686440798834837e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 16384,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 1.0,
+  "aligned_error_rms": 4.976842827643564e-21,
+  "identical_samples": false,
+  "relative_error_db": -240.0,
+  "rms_difference_db": 0.0,
+  "envelope_relative_error": 1.2264918250507799e-20,
+  "active_spectrum_median_abs_db": 0.0
+}

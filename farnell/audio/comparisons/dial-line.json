@@ -1,0 +1,36 @@
+{
+  "files": {
+    "farnell\\audio\\25-phone-tones\\dial-line-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.136755108833313,
+      "rms": 0.07832055914689491,
+      "dc": -8.338915634908516e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\25-phone-tones\\dial-line-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.13675495982170105,
+      "rms": 0.0783204551953197,
+      "dc": -8.33898057968933e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 16384,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 0.9999999999869638,
+  "aligned_error_rms": 4.132113003835594e-07,
+  "identical_samples": false,
+  "relative_error_db": -105.55407178710404,
+  "rms_difference_db": -1.1528422665658983e-05,
+  "envelope_relative_error": 1.926457059229725e-06,
+  "active_spectrum_median_abs_db": 2.1850442867468232e-05
+}

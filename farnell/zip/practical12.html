@@ -1,0 +1,768 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound -  Practical 12: Bubbles
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Practical 12: Bubbles</h2>
+
+ <h2>Pure Data</h2>
+
+<h3>Bubbles - bubbles with prime distribution</h3>
+<pre>
+#N canvas 129 108 125 138 10;
+#X obj 1 1 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1;
+#X obj 2 101 dac~;
+#X obj 1 23 cycleround 200;
+#X obj 1 47 bubblepattern 50;
+#X obj 1 71 bubblesound 600;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 4 0 1 1;
+</pre>
+<p>Download <a href="p12/bubbles1.pd">bubbles1.pd</a>.</p>
+
+<h3>Bubbles - bubble factory</h3>
+<pre>
+#N canvas 136 565 236 207 10;
+#X obj 17 -26 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X obj 59 163 dac~;
+#X obj 17 -6 cycleround 200;
+#X obj 17 15 bubblepattern 50;
+#X obj 59 138 *~ 0.25;
+#X obj 17 36 random 4;
+#X obj 17 58 select 0 1 2 3;
+#X obj -1 85 bubblesound 240;
+#X obj -1 107 bubblesound 260;
+#X obj 119 85 bubblesound 250;
+#X obj 119 107 bubblesound 270;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
+#X connect 4 0 1 1;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 6 2 10 0;
+#X connect 6 3 9 0;
+#X connect 7 0 4 0;
+#X connect 8 0 4 0;
+#X connect 9 0 4 0;
+#X connect 10 0 4 0;
+</pre>
+<p>Download <a href="p12/bubbles2.pd">bubbles2.pd</a>.</p>
+
+<h3>Bubbles - drips in cave</h3>
+<pre>
+#N canvas 828 383 268 282 10;
+#X obj 12 236 dac~;
+#N canvas 392 323 314 499 dripfactory 0;
+#N canvas 0 0 425 653 bubble 0;
+#X obj 60 475 osc~;
+#X obj 60 514 *~;
+#X obj 30 61 inlet;
+#X obj 60 539 outlet~;
+#N canvas 231 126 209 211 env4pow 0;
+#X obj 54 61 vline~;
+#X obj 53 87 *~;
+#X obj 53 112 *~;
+#X obj 5 149 -~;
+#X obj 5 173 outlet~;
+#X msg 54 34 1 0 0 \, 0 \$1 0;
+#X obj 54 10 inlet;
+#X obj 4 111 sig~ 1;
+#X obj 63 173 outlet~;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 1;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 5 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 3 0;
+#X restore 60 395 pd env4pow;
+#X obj 30 83 unpack f f;
+#X obj 125 417 *~;
+#X obj 30 240 swap 1;
+#X obj 124 439 lop~ 120;
+#X obj 30 263 /;
+#X obj 30 189 + 0.4;
+#X obj 124 465 *~;
+#X obj 186 395 swap 1;
+#X obj 186 418 -;
+#X obj 30 168 t f f f;
+#X obj 186 439 + 0.1;
+#X obj 141 179 / 3;
+#X obj 141 199 + 0.6;
+#X obj 60 440 +~;
+#X obj 306 88 inlet base;
+#X obj 306 138 * 2;
+#X obj 76 274 *;
+#X obj 76 296 +;
+#X obj 225 128 swap 1;
+#X obj 226 153 -;
+#X obj 29 287 *;
+#X obj 306 113 * 300;
+#X obj 224 177 * 20;
+#X obj 33 352 expcurve~ 100;
+#X obj 60 417 *~ 1000;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 4 1 6 0;
+#X connect 5 0 14 0;
+#X connect 5 1 16 0;
+#X connect 6 0 8 0;
+#X connect 7 0 9 0;
+#X connect 7 1 9 1;
+#X connect 8 0 11 0;
+#X connect 9 0 25 0;
+#X connect 10 0 7 0;
+#X connect 11 0 1 1;
+#X connect 12 0 13 0;
+#X connect 12 1 13 1;
+#X connect 13 0 15 0;
+#X connect 14 0 10 0;
+#X connect 14 1 21 0;
+#X connect 14 2 12 0;
+#X connect 15 0 11 1;
+#X connect 16 0 17 0;
+#X connect 17 0 6 1;
+#X connect 18 0 0 0;
+#X connect 19 0 23 0;
+#X connect 19 0 26 0;
+#X connect 20 0 21 1;
+#X connect 21 0 22 0;
+#X connect 22 0 18 1;
+#X connect 23 0 24 0;
+#X connect 23 1 24 0;
+#X connect 24 0 27 0;
+#X connect 25 0 4 0;
+#X connect 25 0 28 0;
+#X connect 26 0 20 0;
+#X connect 26 0 22 1;
+#X connect 27 0 25 1;
+#X connect 28 0 29 0;
+#X connect 29 0 18 0;
+#X restore 96 388 pd bubble;
+#X obj 224 159 random 1000;
+#X obj 224 182 / 1000;
+#X obj 139 159 random 1000;
+#X obj 139 182 / 1000;
+#X obj 0 137 random 100;
+#X obj 113 75 metro 20;
+#X obj 0 182 > 70;
+#X obj 126 326 inlet average pitch;
+#X obj 113 54 loadbang;
+#X obj -1 419 outlet~;
+#X obj 0 249 f;
+#X obj 30 249 + 1;
+#X obj 0 274 mod 4;
+#X obj 113 101 t b b b b;
+#X obj 0 211 sel 1;
+#X obj 0 326 route 0 1 2 3;
+#X obj 0 301 pack f f f;
+#X obj 0 388 bubblesound2;
+#X obj 23 158 inlet intensity;
+#X connect 0 0 10 0;
+#X connect 1 0 2 0;
+#X connect 2 0 17 2;
+#X connect 3 0 4 0;
+#X connect 4 0 17 1;
+#X connect 5 0 7 0;
+#X connect 6 0 14 0;
+#X connect 7 0 15 0;
+#X connect 8 0 0 1;
+#X connect 8 0 18 1;
+#X connect 9 0 6 0;
+#X connect 11 0 12 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 1;
+#X connect 13 0 17 0;
+#X connect 14 0 5 0;
+#X connect 14 1 3 0;
+#X connect 14 2 1 0;
+#X connect 15 0 11 0;
+#X connect 16 0 18 0;
+#X connect 16 0 0 0;
+#X connect 17 0 16 0;
+#X connect 18 0 10 0;
+#X connect 19 0 7 1;
+#X restore 34 62 pd dripfactory;
+#X obj 129 7 loadbang;
+#X msg 129 41 0.01;
+#X msg 34 38 90;
+#X obj 34 147 cmverb~;
+#X msg 175 39 110;
+#X obj 79 171 *~ 0.1;
+#X obj 26 190 *~ 0.1;
+#X obj 34 89 *~ 0.23;
+#X msg 210 38 6;
+#X connect 1 0 9 0;
+#X connect 2 0 4 0;
+#X connect 2 0 3 0;
+#X connect 2 0 6 0;
+#X connect 2 0 10 0;
+#X connect 3 0 1 1;
+#X connect 4 0 1 0;
+#X connect 5 0 8 0;
+#X connect 5 1 7 0;
+#X connect 6 0 5 2;
+#X connect 7 0 0 1;
+#X connect 8 0 0 0;
+#X connect 9 0 5 0;
+#X connect 9 0 5 1;
+#X connect 9 0 0 0;
+#X connect 9 0 0 1;
+#X connect 10 0 5 3;
+</pre>
+<p>Download <a href="p12/dripfactory.pd">dripfactory.pd</a>.</p>
+
+<h3>Bubbles - required envelope abstraction</h3>
+<pre>
+#N canvas 0 0 450 300 10;
+#X obj -1 152 vline~;
+#X msg -1 130 0 0 0 \, 1 \$1 0 \, 0 \$2 \$1;
+#X obj -1 108 pack f f;
+#X obj -1 45 f \$1;
+#X obj 50 45 f \$2;
+#X obj -1 21 t b b;
+#X obj -1 -2 inlet trigger;
+#X obj -1 174 outlet~;
+#X obj 125 0 inlet scale;
+#X obj 125 21 t f f;
+#X obj -1 76 * 1;
+#X obj 50 80 * 1;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 10 0;
+#X connect 4 0 11 0;
+#X connect 5 0 3 0;
+#X connect 5 1 4 0;
+#X connect 6 0 5 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 1;
+#X connect 9 1 11 1;
+#X connect 10 0 2 0;
+#X connect 11 0 2 1;
+</pre>
+<p>Download <a href="p12/adenv2~.pd">adenv2~.pd</a>.</p>
+
+<h3>Bubbles - another required envelope abstraction</h3>
+<pre>
+#N canvas 188 455 161 154 10;
+#X obj -1 112 vline~;
+#X msg -1 90 0 0 0 \, 1 \$1 0 \, 0 \$2 \$1;
+#X obj -1 68 pack f f;
+#X obj -1 45 f \$1;
+#X obj 50 45 f \$2;
+#X obj -1 21 t b b;
+#X obj -1 -2 inlet trigger;
+#X obj -1 134 outlet~;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 1;
+#X connect 5 0 3 0;
+#X connect 5 1 4 0;
+#X connect 6 0 5 0;
+</pre>
+<p>Download <a href="p12/adenv~.pd">adenv~.pd</a>.</p>
+
+<h3>Bubbles - exponential curve envelope abstraction</h3>
+<pre>
+#N canvas 290 60 129 200 10;
+#X obj 28 108 vline~;
+#X obj 5 174 outlet~ signal;
+#X msg 28 84 0 0 0 \, 1 \$1 0;
+#X obj 51 39 f \$1;
+#X obj 51 18 loadbang;
+#X obj 28 -3 inlet trigger;
+#X obj 28 62 f 10;
+#X obj 5 131 sig~ 2.71828;
+#X obj 5 153 pow~;
+#X connect 0 0 8 1;
+#X connect 2 0 0 0;
+#X connect 3 0 6 1;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+</pre>
+<p>Download <a href="p12/expcurve~.pd">expcurve~.pd</a>.</p>
+
+<h3>Bubbles - pattern generator</h3>
+<pre>
+#N canvas 0 0 275 151 10;
+#X obj 99 65 random 100;
+#X obj 99 86 moses 50;
+#X msg 99 109 bang;
+#X obj 1 28 sel 29 37 47 67 89 113 157 197;
+#X obj 1 1 inlet numbers &lt; 200;
+#X obj 150 1 inlet probability;
+#X obj 99 131 outlet bangs;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 6 0;
+#X connect 3 0 0 0;
+#X connect 3 1 0 0;
+#X connect 3 2 0 0;
+#X connect 3 3 0 0;
+#X connect 3 4 0 0;
+#X connect 3 5 0 0;
+#X connect 3 6 0 0;
+#X connect 3 7 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 1 1;
+</pre>
+<p>Download <a href="p12/bubblepattern.pd">bubblepattern.pd</a>.</p>
+
+<h3>Bubbles - sound gen abstraction</h3>
+<pre>
+#N canvas 95 236 283 429 10;
+#X obj 45 362 hip~ 40;
+#X obj 45 385 outlet~;
+#X obj 23 12 inlet trigger;
+#X obj 45 316 *~;
+#X obj 45 224 expcurve~ 200;
+#X obj 45 270 phasor~;
+#X obj 45 293 cos~;
+#X obj 45 247 *~;
+#X obj 101 248 del 110;
+#X obj 113 85 inlet base;
+#X obj 44 175 +;
+#X obj 101 269 adenv2~ 10 80;
+#X obj 23 111 t b f f b f;
+#X obj 23 35 unpack f f;
+#X obj 23 59 * 0.3;
+#X obj 23 82 + 0.3;
+#X obj 113 108 * 2000;
+#X obj 45 154 * 1000;
+#X obj 45 339 *~ 0.1;
+#X obj 101 186 random 50;
+#X connect 0 0 1 0;
+#X connect 2 0 13 0;
+#X connect 3 0 18 0;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 7 0 5 0;
+#X connect 8 0 11 0;
+#X connect 9 0 16 0;
+#X connect 10 0 7 1;
+#X connect 11 0 3 1;
+#X connect 12 0 4 0;
+#X connect 12 1 17 0;
+#X connect 12 3 19 0;
+#X connect 12 4 11 1;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 12 0;
+#X connect 16 0 10 1;
+#X connect 17 0 10 0;
+#X connect 18 0 0 0;
+#X connect 19 0 8 0;
+</pre>
+<p>Download <a href="p12/bubblesound2.pd">bubblesound2.pd</a>.</p>
+
+<h3>Bubbles - sound gen abstraction</h3>
+<pre>
+#N canvas 42 508 144 226 10;
+#X obj 0 184 hip~ 40;
+#X obj 0 23 t b b;
+#X obj 0 207 outlet~;
+#X obj 0 0 inlet trigger;
+#X obj 0 161 *~ 0.1;
+#X obj 0 138 *~;
+#X obj 0 69 *~ \$1;
+#X obj 0 92 phasor~;
+#X obj 0 115 cos~;
+#X obj 56 91 adenv~ 10 80;
+#X obj 0 46 expcurve~ 100;
+#X obj 56 70 del 3;
+#X connect 0 0 2 0;
+#X connect 1 0 10 0;
+#X connect 1 1 11 0;
+#X connect 3 0 1 0;
+#X connect 4 0 0 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 5 0;
+#X connect 9 0 5 1;
+#X connect 10 0 6 0;
+#X connect 11 0 9 0;
+</pre>
+<p>Download <a href="p12/bubblesound.pd">bubblesound.pd</a>.</p>
+
+<h3>Bubbles - round robin voice allocator</h3>
+<pre>
+#N canvas 0 0 89 109 10;
+#X obj 0 45 f 0;
+#X obj 31 45 + 1;
+#X obj 0 22 metro 15;
+#X obj 0 90 outlet;
+#X obj 0 -1 inlet;
+#X obj 51 -1 inlet;
+#X obj 0 68 mod \$1;
+#X connect 0 0 1 0;
+#X connect 0 0 6 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 1;
+#X connect 6 0 3 0;
+</pre>
+<p>Download <a href="p12/cycleround.pd">cycleround.pd</a>.</p>
+
+<h3>Bubbles - simple reverb for cave drips</h3>
+<pre>
+#N canvas 56 628 450 300 10;
+#X obj 37 101 hip~ 20;
+#X obj 97 101 hip~ 20;
+#N canvas 0 0 731 555 cmreverb 0;
+#X obj 25 22 inlet~;
+#X obj 85 22 inlet~;
+#X obj 397 5 inlet;
+#X obj 227 148 delread~ \$0-A 100;
+#X obj 257 168 delread~ \$0-B 161.8;
+#X obj 287 188 delread~ \$0-C 261.8;
+#X obj 317 208 delread~ \$0-D 61.8;
+#X obj 173 202 +~;
+#X obj 215 202 +~;
+#X obj 10 273 outlet~;
+#X obj 80 273 outlet~;
+#X obj 158 252 +~;
+#X obj 262 253 +~;
+#X obj 200 252 -~;
+#X obj 302 252 -~;
+#X obj 157 308 +~;
+#X obj 201 309 +~;
+#X obj 245 310 -~;
+#X obj 284 310 -~;
+#X obj 244 392 *~ 0;
+#X obj 202 391 *~ 0;
+#X obj 157 390 *~ 0;
+#X obj 285 393 *~ 0;
+#X obj 284 413 delwrite~ \$0-D 1000;
+#X obj 245 436 delwrite~ \$0-C 1000;
+#X obj 203 459 delwrite~ \$0-B 1000;
+#X obj 158 481 delwrite~ \$0-A 1000;
+#X obj 227 127 * 1;
+#X obj 257 127 * 1.618;
+#X obj 317 127 * 2.618;
+#X obj 377 127 / 1.618;
+#X obj 397 31 route /feedback /delay;
+#X text 187 38 Claude M;
+#X obj 384 298 f;
+#X obj 442 70 * 381;
+#X obj 409 250 / 2;
+#X connect 0 0 7 0;
+#X connect 1 0 8 0;
+#X connect 2 0 31 0;
+#X connect 3 0 7 1;
+#X connect 4 0 8 1;
+#X connect 5 0 14 0;
+#X connect 5 0 12 0;
+#X connect 6 0 14 1;
+#X connect 6 0 12 1;
+#X connect 7 0 9 0;
+#X connect 7 0 11 0;
+#X connect 7 0 13 0;
+#X connect 8 0 10 0;
+#X connect 8 0 11 1;
+#X connect 8 0 13 1;
+#X connect 11 0 15 0;
+#X connect 11 0 17 0;
+#X connect 12 0 17 1;
+#X connect 12 0 15 1;
+#X connect 13 0 16 0;
+#X connect 13 0 18 0;
+#X connect 14 0 16 1;
+#X connect 14 0 18 1;
+#X connect 15 0 21 0;
+#X connect 16 0 20 0;
+#X connect 17 0 19 0;
+#X connect 18 0 22 0;
+#X connect 19 0 24 0;
+#X connect 20 0 25 0;
+#X connect 21 0 26 0;
+#X connect 22 0 23 0;
+#X connect 27 0 3 0;
+#X connect 28 0 4 0;
+#X connect 29 0 5 0;
+#X connect 30 0 6 0;
+#X connect 31 0 35 0;
+#X connect 31 1 34 0;
+#X connect 33 0 22 1;
+#X connect 33 0 19 1;
+#X connect 33 0 20 1;
+#X connect 33 0 21 1;
+#X connect 34 0 27 0;
+#X connect 34 0 28 0;
+#X connect 34 0 29 0;
+#X connect 34 0 30 0;
+#X connect 35 0 33 0;
+#X restore 38 141 pd cmreverb;
+#X obj 36 51 inlet~;
+#X obj 97 53 inlet~;
+#X obj 248 35 loadbang;
+#X obj 38 187 outlet~;
+#X obj 111 187 outlet~;
+#X obj 170 -20 inlet;
+#X msg 164 98 /feedback \$1;
+#X msg 284 124 /delay \$1;
+#X obj 313 -12 inlet;
+#X text 222 159 Simple verb by Claude H;
+#X obj 284 102 f 0.15;
+#X obj 198 71 f 0.1;
+#X obj 313 34 clip 0 1;
+#X obj 170 34 clip 0 1;
+#X obj 170 2 / 127;
+#X obj 313 10 / 127;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 6 0;
+#X connect 2 1 7 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 14 0;
+#X connect 5 0 13 0;
+#X connect 8 0 17 0;
+#X connect 9 0 2 2;
+#X connect 10 0 2 2;
+#X connect 11 0 18 0;
+#X connect 13 0 10 0;
+#X connect 14 0 9 0;
+#X connect 15 0 13 0;
+#X connect 16 0 14 0;
+#X connect 17 0 16 0;
+#X connect 18 0 15 0;
+</pre>
+<p>Download <a href="p12/cmverb~.pd">cmverb~.pd</a>.</p>
+
+
+
+<h2>Audio</h2>
+<h3>Bubble effects</h3>
+<p>Example contains three parts. First is a single bubble. Next is a stream of bubbles of constant size, but using a random voice allocation which cuts off some bubbles early. Lastly is a stream of random sized bubbles chosen from a 10 voice source with round robin allocation. </p>
+<p>Download <a href="p12/bubbles.wav">bubbles.wav</a>.</p>
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

@@ -7,12 +7,16 @@
 //
 
 #include "kleine.h"
+#include "farnell/render.h"
 
 #include "DX7.k"		// klang synth plugin emulating the Yamaha DX7
 #include "PingPong.k"	// klang effect plugin implementing a stereo (ping-pong) delay
 
 int main(int argc, char** argv)
 {
+	if (argc > 1)
+		return farnell::render(argc, argv);
+
 	// create and configure the audio, synth, effect
 	Engine engine;
 	engine.start();

@@ -1,0 +1,1254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound - Chapter 12: Abstraction
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Chapter 12: Abstraction</h2>
+
+<h3>AD Envelope</h3>
+<img src="ch12/anenvelope.gif" alt="anenvelope" />
+<pre>
+#N canvas 70 564 226 135 10;
+#N canvas 73 160 290 192 envelope 1;
+#X obj 105 5 inlet attack;
+#X obj 201 5 inlet decay;
+#X obj 58 146 line~;
+#X msg 58 114 1 \$1;
+#X msg 98 114 0 \$1;
+#X obj 4 5 inlet trigger;
+#X obj 4 37 t b b;
+#X obj 58 91 f;
+#X obj 98 91 f;
+#X obj 98 69 del;
+#X obj 58 170 outlet~ envelope;
+#X connect 0 0 7 1;
+#X connect 0 0 9 1;
+#X connect 1 0 8 1;
+#X connect 2 0 10 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 9 0;
+#X connect 7 0 3 0;
+#X connect 8 0 4 0;
+#X connect 9 0 8 0;
+#X restore 77 40 pd envelope;
+#X floatatom 113 9 4 0 0 0 - - -;
+#X floatatom 149 9 5 0 0 0 - - -;
+#X obj 77 9 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1 -1
+;
+#X obj 11 40 osc~ 440;
+#X obj 39 84 *~;
+#X obj 39 110 dac~;
+#X connect 0 0 5 1;
+#X connect 1 0 0 1;
+#X connect 2 0 0 2;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+</pre>
+<p>Download <a href="ch12/anenvelope.pd">anenvelope.pd</a>.</p>
+
+<h3>AD Envelope subpatch</h3>
+<img src="ch12/anenvelopesubpatch.gif" alt="anenvelopesubpatch" />
+<pre>
+#N canvas 67 315 617 209 10;
+#N canvas 73 160 290 192 envelope 0;
+#X obj 105 5 inlet attack;
+#X obj 201 5 inlet decay;
+#X obj 58 146 line~;
+#X msg 58 114 1 \$1;
+#X msg 98 114 0 \$1;
+#X obj 4 5 inlet trigger;
+#X obj 4 37 t b b;
+#X obj 58 91 f;
+#X obj 98 91 f;
+#X obj 98 69 del;
+#X obj 58 170 outlet~ envelope;
+#X connect 0 0 7 1;
+#X connect 0 0 9 1;
+#X connect 1 0 8 1;
+#X connect 2 0 10 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 9 0;
+#X connect 7 0 3 0;
+#X connect 8 0 4 0;
+#X connect 9 0 8 0;
+#X restore 77 40 pd envelope;
+#X floatatom 113 9 4 0 0 0 - - -;
+#X floatatom 149 9 5 0 0 0 - - -;
+#X obj 77 9 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1 -1
+;
+#X obj 5 73 osc~ 440;
+#X obj 33 117 *~;
+#X obj 82 182 dac~;
+#N canvas 73 160 290 192 envelope 0;
+#X obj 105 5 inlet attack;
+#X obj 201 5 inlet decay;
+#X obj 58 146 line~;
+#X msg 58 114 1 \$1;
+#X msg 98 114 0 \$1;
+#X obj 4 5 inlet trigger;
+#X obj 4 37 t b b;
+#X obj 58 91 f;
+#X obj 98 91 f;
+#X obj 98 69 del;
+#X obj 58 170 outlet~ envelope;
+#X connect 0 0 7 1;
+#X connect 0 0 9 1;
+#X connect 1 0 8 1;
+#X connect 2 0 10 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 9 0;
+#X connect 7 0 3 0;
+#X connect 8 0 4 0;
+#X connect 9 0 8 0;
+#X restore 199 41 pd envelope;
+#X floatatom 235 10 4 0 0 0 - - -;
+#X floatatom 271 10 5 0 0 0 - - -;
+#X obj 199 10 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 160 113 *~;
+#X obj 132 69 osc~ 660;
+#X obj 83 151 +~;
+#X text 211 103 We can make lots of copies of this subpatch;
+#X connect 0 0 5 1;
+#X connect 1 0 0 1;
+#X connect 2 0 0 2;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 13 0;
+#X connect 7 0 11 1;
+#X connect 8 0 7 1;
+#X connect 9 0 7 2;
+#X connect 10 0 7 0;
+#X connect 11 0 13 1;
+#X connect 12 0 11 0;
+#X connect 13 0 6 0;
+#X connect 13 0 6 1;
+</pre>
+<p>Download <a href="ch12/anenvelope-subpatch.pd">anenvelope-subpatch.pd</a>.</p>
+
+<h3>MIDI monosynth using envelope subpatch</h3>
+<img src="ch12/asynth.gif" alt="asynth" />
+<pre>
+#N canvas 397 158 244 308 10;
+#N canvas 73 160 290 192 envelope 1;
+#X obj 105 5 inlet attack;
+#X obj 201 5 inlet decay;
+#X obj 58 146 line~;
+#X msg 58 114 1 \$1;
+#X msg 98 114 0 \$1;
+#X obj 4 5 inlet trigger;
+#X obj 4 37 t b b;
+#X obj 58 91 f;
+#X obj 98 91 f;
+#X obj 98 69 del;
+#X obj 58 170 outlet~ envelope;
+#X connect 0 0 7 1;
+#X connect 0 0 9 1;
+#X connect 1 0 8 1;
+#X connect 2 0 10 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 9 0;
+#X connect 7 0 3 0;
+#X connect 8 0 4 0;
+#X connect 9 0 8 0;
+#X restore -2 119 pd envelope;
+#X floatatom 34 88 4 0 0 0 - - -;
+#X floatatom 70 88 5 0 0 0 - - -;
+#X obj -2 245 *~;
+#X obj -2 271 dac~;
+#N canvas 73 160 290 192 envelope 1;
+#X obj 105 5 inlet attack;
+#X obj 201 5 inlet decay;
+#X obj 58 146 line~;
+#X msg 58 114 1 \$1;
+#X msg 98 114 0 \$1;
+#X obj 4 5 inlet trigger;
+#X obj 4 37 t b b;
+#X obj 58 91 f;
+#X obj 98 91 f;
+#X obj 98 69 del;
+#X obj 58 170 outlet~ envelope;
+#X connect 0 0 7 1;
+#X connect 0 0 9 1;
+#X connect 1 0 8 1;
+#X connect 2 0 10 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 9 0;
+#X connect 7 0 3 0;
+#X connect 8 0 4 0;
+#X connect 9 0 8 0;
+#X restore 112 118 pd envelope;
+#X floatatom 148 87 4 0 0 0 - - -;
+#X floatatom 184 87 5 0 0 0 - - -;
+#X obj -2 62 trigger bang bang;
+#X obj 14 201 vcf~ 1 1;
+#X obj 112 166 *~ 2000;
+#X obj 14 170 phasor~ 55;
+#X obj 14 -9 notein;
+#X obj 14 150 mtof;
+#X obj 32 12 > 0;
+#X obj 32 35 sel 1;
+#X connect 0 0 3 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 2;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 5 0 10 0;
+#X connect 6 0 5 1;
+#X connect 7 0 5 2;
+#X connect 8 0 0 0;
+#X connect 8 1 5 0;
+#X connect 9 0 3 1;
+#X connect 10 0 9 1;
+#X connect 11 0 9 0;
+#X connect 12 0 13 0;
+#X connect 12 1 14 0;
+#X connect 13 0 11 0;
+#X connect 14 0 15 0;
+#X connect 15 0 8 0;
+</pre>
+<p>Download <a href="ch12/anenvelope2.pd">anenvelope2.pd</a>.</p>
+
+<h3>Table oscillator (example of using an abstraction)</h3>
+<img src="ch12/table-oscillator.gif" alt="table-oscillator" />
+<pre>
+#N canvas 122 214 234 156 10;
+#N canvas 0 0 450 300 graph3 0;
+#X array \$0-array1 67 float 1;
+#A 0 -0.0980171 0 0.0980171 0.19509 0.290284 0.382683 0.471396 0.55557
+0.634393 0.707106 0.77301 0.831469 0.881921 0.923879 0.95694 0.980785
+0.995185 1 0.995185 0.980786 0.956941 0.92388 0.881922 0.831471 0.773012
+0.707108 0.634395 0.555572 0.471399 0.382686 0.290287 0.195093 0.0980197
+2.65359e-06 -0.0980144 -0.195088 -0.290282 -0.382681 -0.471394 -0.555568
+-0.634391 -0.707104 -0.773008 -0.831468 -0.88192 -0.923878 -0.956939
+-0.980785 -0.995184 -1 -0.995185 -0.980786 -0.956942 -0.923881 -0.881923
+-0.831472 -0.773013 -0.70711 -0.634397 -0.555574 -0.471401 -0.382688
+-0.29029 -0.195095 -0.0980223 -5.30718e-06 0.0980118;
+#X coords 0 1 66 -1 80 80 1;
+#X restore 56 70 graph;
+#X obj 136 -1 loadbang;
+#X obj -1 21 tabosc4~ \$0-array1;
+#X obj -1 -1 inlet pitch;
+#X msg 136 21 sinesum 64 1;
+#X obj 136 44 s \$0-array1;
+#X obj -1 43 outlet~;
+#X connect 1 0 4 0;
+#X connect 2 0 6 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+</pre>
+<p>Download <a href="ch12/table-oscillator.pd">table-oscillator.pd</a>.</p>
+
+<h3>Table oscillator (abstraction used)</h3>
+<img src="ch12/my-tabosc.gif" alt="my-tabosc" />
+<pre>
+#N canvas 122 214 234 156 10;
+#N canvas 0 0 450 300 graph3 0;
+#X array \$0-array1 67 float 1;
+#A 0 -0.0980171 0 0.0980171 0.19509 0.290284 0.382683 0.471396 0.55557
+0.634393 0.707106 0.77301 0.831469 0.881921 0.923879 0.95694 0.980785
+0.995185 1 0.995185 0.980786 0.956941 0.92388 0.881922 0.831471 0.773012
+0.707108 0.634395 0.555572 0.471399 0.382686 0.290287 0.195093 0.0980197
+2.65359e-06 -0.0980144 -0.195088 -0.290282 -0.382681 -0.471394 -0.555568
+-0.634391 -0.707104 -0.773008 -0.831468 -0.88192 -0.923878 -0.956939
+-0.980785 -0.995184 -1 -0.995185 -0.980786 -0.956942 -0.923881 -0.881923
+-0.831472 -0.773013 -0.70711 -0.634397 -0.555574 -0.471401 -0.382688
+-0.29029 -0.195095 -0.0980223 -5.30718e-06 0.0980118;
+#X coords 0 1 66 -1 80 80 1;
+#X restore 56 70 graph;
+#X obj 136 -1 loadbang;
+#X obj -1 21 tabosc4~ \$0-array1;
+#X obj -1 -1 inlet pitch;
+#X msg 136 21 sinesum 64 1;
+#X obj 136 44 s \$0-array1;
+#X obj -1 43 outlet~;
+#X connect 1 0 4 0;
+#X connect 2 0 6 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+</pre>
+<p>Download <a href="ch12/my-tabosc.pd">my-tabosc.pd</a>.</p>
+
+<h3>Editing abstractions</h3>
+<img src="ch12/wavetablesynth.gif" alt="wavetablesynth" />
+<pre>
+#N canvas 229 514 411 110 10;
+#X obj -4 -3 my-tabosc2 640 0;
+#X obj 113 -3 my-tabosc2 1280 1;
+#X obj 238 -3 my-tabosc2 1920 0;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array A 100 float 0;
+#X coords 0 1 99 -1 70 70 1;
+#X restore 100 100 graph;
+#X obj 210 209 tabwrite~ A;
+#X obj 289 155 inlet~;
+#X obj 210 130 loadbang;
+#X obj 278 131 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 217 178 s b;
+#X obj 210 155 metro 200;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 0;
+#X connect 7 0 2 0;
+#X connect 7 0 6 0;
+#X coords 0 -1 1 1 70 70 1 100 100;
+#X restore 19 28 pd grapha;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array B 100 float 0;
+#X coords 0 1 99 -1 70 70 1;
+#X restore 100 100 graph;
+#X obj 289 155 inlet~;
+#X obj 210 130 loadbang;
+#X obj 278 131 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 217 178 s b;
+#X obj 210 155 metro 200;
+#X obj 210 209 tabwrite~ B;
+#X connect 2 0 7 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
+#X connect 6 0 7 0;
+#X coords 0 -1 1 1 70 70 1 100 100;
+#X restore 135 28 pd grapha;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array C 100 float 0;
+#X coords 0 1 99 -1 70 70 1;
+#X restore 100 100 graph;
+#X obj 289 155 inlet~;
+#X obj 210 130 loadbang;
+#X obj 278 131 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 217 178 s b;
+#X obj 210 155 metro 200;
+#X obj 210 209 tabwrite~ C;
+#X connect 2 0 7 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
+#X connect 6 0 7 0;
+#X coords 0 -1 1 1 70 70 1 100 100;
+#X restore 262 29 pd grapha;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 2 0 5 0;
+</pre>
+<p>Download <a href="ch12/wavetablesynth2.pd">wavetablesynth2.pd</a>.</p>
+
+<h3>Initialising abstractions</h3>
+<img src="ch12/my-tabosc2.gif" alt="my-tabosc2" />
+<pre>
+#N canvas 122 214 516 225 10;
+#N canvas 0 0 450 300 graph3 0;
+#X array \$0-array1 67 float 1;
+#A 0 -0.185181 0 0.185181 0.353002 0.489677 0.587529 0.645805 0.669681
+0.667922 0.650072 0.624077 0.594995 0.564957 0.534092 0.501833 0.468005
+0.433284 0.399 0.366524 0.336628 0.309186 0.283325 0.257931 0.232217
+0.206081 0.180072 0.155022 0.131541 0.109657 0.0887629 0.0679085 0.0462634
+0.0235163 6.39515e-07 -0.0235151 -0.0462622 -0.0679073 -0.0887618 -0.109656
+-0.13154 -0.15502 -0.180071 -0.20608 -0.232216 -0.25793 -0.283324 -0.309184
+-0.336626 -0.366522 -0.398999 -0.433282 -0.468003 -0.501832 -0.53409
+-0.564956 -0.594993 -0.624075 -0.650071 -0.667922 -0.669681 -0.645807
+-0.587533 -0.489684 -0.35301 -0.18519 -1.01739e-05 0.185171;
+#X coords 0 1 66 -1 80 80 1;
+#X restore 7 140 graph;
+#X obj 141 1 loadbang;
+#X obj 7 78 tabosc4~ \$0-array1;
+#X obj 7 34 inlet pitch;
+#X obj 141 144 s \$0-array1;
+#X obj 7 100 outlet~;
+#X obj 106 32 f \$1;
+#X obj 141 31 f \$2;
+#X msg 141 77 sinesum 64 1 0 0.333 0 0.2 0 0.143 0 0.111 0 0.0909;
+#X msg 160 98 sinesum 64 0.5 0.25 0.125 0.062 0.031 0.015 0.007;
+#X msg 179 119 sinesum 64 1;
+#X obj 141 53 sel 0 1 2;
+#X connect 1 0 7 0;
+#X connect 1 0 6 0;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 6 0 2 0;
+#X connect 7 0 11 0;
+#X connect 8 0 4 0;
+#X connect 9 0 4 0;
+#X connect 10 0 4 0;
+#X connect 11 0 8 0;
+#X connect 11 1 9 0;
+#X connect 11 2 10 0;
+</pre>
+<p>Download <a href="ch12/my-tabosc2.pd">my-tabosc2.pd</a>.</p>
+
+<h3>Abstraction instances</h3>
+<img src="ch12/wavetablesynth2.gif" alt="wavetablesynth2" />
+<pre>
+#N canvas 229 514 411 110 10;
+#X obj -4 -3 my-tabosc2 640 0;
+#X obj 113 -3 my-tabosc2 1280 1;
+#X obj 238 -3 my-tabosc2 1920 0;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array A 100 float 0;
+#X coords 0 1 99 -1 70 70 1;
+#X restore 100 100 graph;
+#X obj 210 209 tabwrite~ A;
+#X obj 289 155 inlet~;
+#X obj 210 130 loadbang;
+#X obj 278 131 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 217 178 s b;
+#X obj 210 155 metro 200;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 0;
+#X connect 7 0 2 0;
+#X connect 7 0 6 0;
+#X coords 0 -1 1 1 70 70 1 100 100;
+#X restore 19 28 pd grapha;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array B 100 float 0;
+#X coords 0 1 99 -1 70 70 1;
+#X restore 100 100 graph;
+#X obj 289 155 inlet~;
+#X obj 210 130 loadbang;
+#X obj 278 131 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 217 178 s b;
+#X obj 210 155 metro 200;
+#X obj 210 209 tabwrite~ B;
+#X connect 2 0 7 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
+#X connect 6 0 7 0;
+#X coords 0 -1 1 1 70 70 1 100 100;
+#X restore 135 28 pd grapha;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array C 100 float 0;
+#X coords 0 1 99 -1 70 70 1;
+#X restore 100 100 graph;
+#X obj 289 155 inlet~;
+#X obj 210 130 loadbang;
+#X obj 278 131 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 217 178 s b;
+#X obj 210 155 metro 200;
+#X obj 210 209 tabwrite~ C;
+#X connect 2 0 7 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
+#X connect 6 0 7 0;
+#X coords 0 -1 1 1 70 70 1 100 100;
+#X restore 262 29 pd grapha;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 2 0 5 0;
+</pre>
+<p>Download <a href="ch12/wavetablesynth2.pd">wavetablesynth2.pd</a>.</p>
+
+<h3>Graph on parent example</h3>
+<img src="ch12/GOP-hardsynth.gif" alt="GOP-hardsynth" />
+<pre>
+#N canvas 299 174 280 125 10;
+#X obj 106 120 hsl 128 15 0 127 0 1 empty empty Clobber 40 7 1 8 -262144
+-1 -1 0 1;
+#X obj 106 140 hsl 128 15 0 127 0 1 empty empty Ooomph 40 7 1 8 -262144
+-1 -1 0 1;
+#X obj 106 160 hsl 128 15 0 127 0 1 empty empty Knarleyness 40 7 1
+8 -262144 -1 -1 0 1;
+#N canvas 0 0 450 300 hardsynth 0;
+#X obj 115 56 inlet;
+#X obj 160 56 inlet;
+#X obj 206 55 inlet;
+#X obj 148 127 outlet~;
+#X obj 66 56 inlet;
+#X restore 24 189 pd hardsynth;
+#X obj 24 101 inlet midi note;
+#X connect 0 0 3 1;
+#X connect 1 0 3 2;
+#X connect 2 0 3 3;
+#X connect 4 0 3 0;
+#X coords 0 -1 1 1 140 80 1 100 100;
+</pre>
+<p>Download <a href="ch12/GOP-hardsynth.pd">GOP-hardsynth.pd</a>.</p>
+
+<h3>GOP appearance</h3>
+<img src="ch12/usegop.gif" alt="usegop" />
+<pre>
+#N canvas 206 560 159 89 10;
+#X obj 8 3 GOP-hardsynth;
+</pre>
+<p>Download <a href="ch12/use-gop.pd">use-gop.pd</a>.</p>
+
+<h3>Preconditioning parameters</h3>
+<img src="ch12/preconditioner-patch.gif" alt="preconditioner-patch" />
+<pre>
+#N canvas 0 0 450 300 10;
+#X obj 0 1 inlet f1;
+#X obj 0 74 osc~;
+#X obj 64 74 osc~;
+#X obj 64 49 + 1;
+#X obj 64 1 inlet f2;
+#X obj 127 74 osc~;
+#X obj 190 74 osc~;
+#X obj 190 1 inlet f4;
+#X obj 127 1 inlet f3;
+#N canvas 0 0 450 300 ringmod 0;
+#X obj 98 42 inlet~;
+#X obj 148 42 inlet~;
+#X obj 117 130 outlet~;
+#X obj 116 78 *~;
+#X obj 117 103 +~;
+#X connect 0 0 3 0;
+#X connect 0 0 4 1;
+#X connect 1 0 3 1;
+#X connect 1 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore 0 101 pd ringmod;
+#N canvas 0 0 450 300 ringmod 0;
+#X obj 98 42 inlet~;
+#X obj 148 42 inlet~;
+#X obj 117 130 outlet~;
+#X obj 116 78 *~;
+#X obj 117 103 +~;
+#X connect 0 0 3 0;
+#X connect 0 0 4 1;
+#X connect 1 0 3 1;
+#X connect 1 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore 126 99 pd ringmod;
+#N canvas 0 0 450 300 ringmod 0;
+#X obj 98 42 inlet~;
+#X obj 148 42 inlet~;
+#X obj 117 130 outlet~;
+#X obj 116 78 *~;
+#X obj 117 103 +~;
+#X connect 0 0 3 0;
+#X connect 0 0 4 1;
+#X connect 1 0 3 1;
+#X connect 1 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore 0 138 pd ringmod;
+#X obj 0 187 outlet~;
+#X obj 127 26 * 2000;
+#X obj 127 49 + 10;
+#X obj 0 26 * 100;
+#X obj 0 49 + 0.1;
+#X obj 64 26 * 500;
+#X obj 190 26 * 5000;
+#X obj 190 49 + 100;
+#X obj 0 162 *~ 0.05;
+#X connect 0 0 15 0;
+#X connect 1 0 9 0;
+#X connect 2 0 9 1;
+#X connect 3 0 2 0;
+#X connect 4 0 17 0;
+#X connect 5 0 10 0;
+#X connect 6 0 10 1;
+#X connect 7 0 18 0;
+#X connect 8 0 13 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 1;
+#X connect 11 0 20 0;
+#X connect 13 0 14 0;
+#X connect 14 0 5 0;
+#X connect 15 0 16 0;
+#X connect 16 0 1 0;
+#X connect 17 0 3 0;
+#X connect 18 0 19 0;
+#X connect 19 0 6 0;
+#X connect 20 0 12 0;
+</pre>
+<p>Download <a href="ch12/preconditioner-patch.pd">preconditioner-patch.pd</a>.</p>
+
+<h3>Unpacking parameter lists</h3>
+<img src="ch12/list-unpack.gif" alt="list-unpack" />
+<pre>
+#N canvas 525 559 450 300 10;
+#X obj -3 105 osc~;
+#X obj 61 105 osc~;
+#X obj 61 80 + 1;
+#X obj 124 105 osc~;
+#X obj 187 105 osc~;
+#N canvas 0 0 450 300 ringmod 0;
+#X obj 98 42 inlet~;
+#X obj 148 42 inlet~;
+#X obj 117 130 outlet~;
+#X obj 116 78 *~;
+#X obj 117 103 +~;
+#X connect 0 0 3 0;
+#X connect 0 0 4 1;
+#X connect 1 0 3 1;
+#X connect 1 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore -3 132 pd ringmod;
+#N canvas 0 0 450 300 ringmod 0;
+#X obj 98 42 inlet~;
+#X obj 148 42 inlet~;
+#X obj 117 130 outlet~;
+#X obj 116 78 *~;
+#X obj 117 103 +~;
+#X connect 0 0 3 0;
+#X connect 0 0 4 1;
+#X connect 1 0 3 1;
+#X connect 1 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore 123 130 pd ringmod;
+#N canvas 0 0 450 300 ringmod 0;
+#X obj 98 42 inlet~;
+#X obj 148 42 inlet~;
+#X obj 117 130 outlet~;
+#X obj 116 78 *~;
+#X obj 117 103 +~;
+#X connect 0 0 3 0;
+#X connect 0 0 4 1;
+#X connect 1 0 3 1;
+#X connect 1 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore -3 169 pd ringmod;
+#X obj -3 218 outlet~;
+#X obj 124 57 * 2000;
+#X obj 124 80 + 10;
+#X obj -3 57 * 100;
+#X obj -3 80 + 0.1;
+#X obj 61 57 * 500;
+#X obj 187 57 * 5000;
+#X obj 187 80 + 100;
+#X obj -3 193 *~ 0.05;
+#X obj 42 21 unpack f f f f;
+#X obj 42 -2 inlet params;
+#X connect 0 0 5 0;
+#X connect 1 0 5 1;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 1;
+#X connect 5 0 7 0;
+#X connect 6 0 7 1;
+#X connect 7 0 16 0;
+#X connect 9 0 10 0;
+#X connect 10 0 3 0;
+#X connect 11 0 12 0;
+#X connect 12 0 0 0;
+#X connect 13 0 2 0;
+#X connect 14 0 15 0;
+#X connect 15 0 4 0;
+#X connect 16 0 8 0;
+#X connect 17 0 11 0;
+#X connect 17 1 13 0;
+#X connect 17 2 9 0;
+#X connect 17 3 14 0;
+#X connect 18 0 17 0;
+</pre>
+<p>Download <a href="ch12/unpack-patch.pd">unpack-patch.pd</a>.</p>
+
+<h3>Packing parameter lists (patch programmer)</h3>
+<img src="ch12/programmer.gif" alt="programmer" />
+<pre>
+#N canvas 0 0 450 300 10;
+#X obj 179 70 hsl 128 15 0 1 0 1 empty empty freq_2 30 7 1 8 -262144
+-1 -1 2500 1;
+#X obj 179 50 hsl 128 15 0 1 0 1 empty empty freq_1 30 7 1 8 -262144
+-1 -1 2100 1;
+#X obj 179 90 hsl 128 15 0 1 0 1 empty empty freq_3 30 7 1 8 -262144
+-1 -1 2100 1;
+#X obj 179 110 hsl 128 15 0 1 0 1 empty empty freq_4 30 7 1 8 -262144
+-1 -1 1400 1;
+#X obj 82 198 pack f f f f;
+#X obj 64 141 t b f;
+#X obj 104 141 t b f;
+#X obj 144 141 t b f;
+#X obj 82 222 outlet;
+#X obj 140 223 print;
+#X connect 0 0 5 0;
+#X connect 1 0 4 0;
+#X connect 2 0 6 0;
+#X connect 3 0 7 0;
+#X connect 4 0 8 0;
+#X connect 4 0 9 0;
+#X connect 5 0 4 0;
+#X connect 5 1 4 1;
+#X connect 6 0 4 0;
+#X connect 6 1 4 2;
+#X connect 7 0 4 0;
+#X connect 7 1 4 3;
+</pre>
+<p>Download <a href="ch12/programmer.pd">programmer.pd</a>.</p>
+
+<h3>Storing parameter lists (patch programmer)</h3>
+<img src="ch12/programmer2.gif" alt="programmer2" />
+<pre>
+#N canvas 276 535 450 300 10;
+#N canvas 110 49 235 238 patch 0;
+#X obj -3 105 osc~;
+#X obj 61 105 osc~;
+#X obj 61 80 + 1;
+#X obj 124 105 osc~;
+#X obj 187 105 osc~;
+#N canvas 0 0 450 300 ringmod 0;
+#X obj 98 42 inlet~;
+#X obj 148 42 inlet~;
+#X obj 117 130 outlet~;
+#X obj 116 78 *~;
+#X obj 117 103 +~;
+#X connect 0 0 3 0;
+#X connect 0 0 4 1;
+#X connect 1 0 3 1;
+#X connect 1 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore -3 132 pd ringmod;
+#N canvas 0 0 450 300 ringmod 0;
+#X obj 98 42 inlet~;
+#X obj 148 42 inlet~;
+#X obj 117 130 outlet~;
+#X obj 116 78 *~;
+#X obj 117 103 +~;
+#X connect 0 0 3 0;
+#X connect 0 0 4 1;
+#X connect 1 0 3 1;
+#X connect 1 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore 123 130 pd ringmod;
+#N canvas 0 0 450 300 ringmod 0;
+#X obj 98 42 inlet~;
+#X obj 148 42 inlet~;
+#X obj 117 130 outlet~;
+#X obj 116 78 *~;
+#X obj 117 103 +~;
+#X connect 0 0 3 0;
+#X connect 0 0 4 1;
+#X connect 1 0 3 1;
+#X connect 1 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore -3 169 pd ringmod;
+#X obj -3 218 outlet~;
+#X obj 124 57 * 2000;
+#X obj 124 80 + 10;
+#X obj -3 57 * 100;
+#X obj -3 80 + 0.1;
+#X obj 61 57 * 500;
+#X obj 187 57 * 5000;
+#X obj 187 80 + 100;
+#X obj -3 193 *~ 0.05;
+#X obj 42 21 unpack f f f f;
+#X obj 42 -2 inlet params;
+#X connect 0 0 5 0;
+#X connect 1 0 5 1;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 1;
+#X connect 5 0 7 0;
+#X connect 6 0 7 1;
+#X connect 7 0 16 0;
+#X connect 9 0 10 0;
+#X connect 10 0 3 0;
+#X connect 11 0 12 0;
+#X connect 12 0 0 0;
+#X connect 13 0 2 0;
+#X connect 14 0 15 0;
+#X connect 15 0 4 0;
+#X connect 16 0 8 0;
+#X connect 17 0 11 0;
+#X connect 17 1 13 0;
+#X connect 17 2 9 0;
+#X connect 17 3 14 0;
+#X connect 18 0 17 0;
+#X restore 2 165 pd patch;
+#X obj 3 192 dac~;
+#N canvas 113 84 314 357 programer 0;
+#X obj 106 140 hsl 128 15 0 1 0 1 empty empty freq_2 30 7 1 8 -262144
+-1 -1 3200 1;
+#X obj 106 120 hsl 128 15 0 1 0 1 empty empty freq_1 30 7 1 8 -262144
+-1 -1 2700 1;
+#X obj 106 160 hsl 128 15 0 1 0 1 empty empty freq_3 30 7 1 8 -262144
+-1 -1 2600 1;
+#X obj 106 180 hsl 128 15 0 1 0 1 empty empty freq_4 30 7 1 8 -262144
+-1 -1 1900 1;
+#X obj 9 268 pack f f f f;
+#X obj -9 211 t b f;
+#X obj 31 211 t b f;
+#X obj 71 211 t b f;
+#X obj 9 292 outlet;
+#X connect 0 0 5 0;
+#X connect 1 0 4 0;
+#X connect 2 0 6 0;
+#X connect 3 0 7 0;
+#X connect 4 0 8 0;
+#X connect 5 0 4 0;
+#X connect 5 1 4 1;
+#X connect 6 0 4 0;
+#X connect 6 1 4 2;
+#X connect 7 0 4 0;
+#X connect 7 1 4 3;
+#X coords 0 -1 1 1 140 100 1 100 100;
+#X restore 2 2 pd programer;
+#X msg 22 137 0.212598 0.251969 0.204724 0.149606;
+#X msg 168 89;
+#X msg 168 110;
+#X msg 80 163 0.346 0.251 0.22 0.1653;
+#X msg 26 110 set \$1 \$2 \$3 \$4;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 2 0 0 0;
+#X connect 2 0 7 0;
+#X connect 3 0 0 0;
+#X connect 7 0 3 0;
+</pre>
+<p>Download <a href="ch12/storingparams.pd">storingparams.pd</a>.</p>
+
+<h3>Stacking voices (summation chaining)</h3>
+<img src="ch12/summation-chains.gif" alt="summation-chains" />
+<pre>
+#N canvas 231 193 632 245 10;
+#N canvas 0 0 450 300 harmonic 0;
+#X obj 109 48 inlet~;
+#X obj 110 117 +~;
+#X obj 110 146 outlet~;
+#X obj 166 73 osc~;
+#X obj 166 47 inlet f;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 1;
+#X connect 4 0 3 0;
+#X restore 129 43 pd harmonic;
+#X obj 2 44 inlet~;
+#X obj 3 113 +~;
+#X obj 3 142 outlet~;
+#X obj 19 87 osc~;
+#X obj 19 67 inlet f;
+#N canvas 0 0 450 300 harmonic 0;
+#X obj 109 48 inlet~;
+#X obj 110 117 +~;
+#X obj 110 146 outlet~;
+#X obj 166 73 osc~;
+#X obj 166 47 inlet f;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 1;
+#X connect 4 0 3 0;
+#X restore 129 66 pd harmonic;
+#N canvas 0 0 450 300 harmonic 0;
+#X obj 109 48 inlet~;
+#X obj 110 117 +~;
+#X obj 110 146 outlet~;
+#X obj 166 73 osc~;
+#X obj 166 47 inlet f;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 1;
+#X connect 4 0 3 0;
+#X restore 129 89 pd harmonic;
+#N canvas 0 0 450 300 harmonic 0;
+#X obj 109 48 inlet~;
+#X obj 110 117 +~;
+#X obj 110 146 outlet~;
+#X obj 166 73 osc~;
+#X obj 166 47 inlet f;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 1;
+#X connect 4 0 3 0;
+#X restore 129 112 pd harmonic;
+#X obj 201 21 unpack f f f f;
+#X obj 129 138 *~ 0.25;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array A 100 float 0;
+#X coords 0 1 99 -1 70 70 1;
+#X restore 100 100 graph;
+#X obj 210 209 tabwrite~ A;
+#X obj 289 155 inlet~;
+#X obj 210 130 loadbang;
+#X obj 278 131 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 217 178 s b;
+#X obj 210 155 metro 200;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 0;
+#X connect 7 0 2 0;
+#X connect 7 0 6 0;
+#X coords 0 -1 1 1 70 70 1 100 100;
+#X restore 153 170 pd grapha;
+#N canvas 0 0 450 300 harmonic 0;
+#X obj 109 48 inlet~;
+#X obj 110 117 +~;
+#X obj 110 146 outlet~;
+#X obj 166 73 osc~;
+#X obj 166 47 inlet f;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 1;
+#X connect 4 0 3 0;
+#X restore 357 50 pd harmonic;
+#N canvas 0 0 450 300 harmonic 0;
+#X obj 109 48 inlet~;
+#X obj 110 117 +~;
+#X obj 110 146 outlet~;
+#X obj 166 73 osc~;
+#X obj 166 47 inlet f;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 1;
+#X connect 4 0 3 0;
+#X restore 388 71 pd harmonic;
+#N canvas 0 0 450 300 harmonic 0;
+#X obj 109 48 inlet~;
+#X obj 110 117 +~;
+#X obj 110 146 outlet~;
+#X obj 166 73 osc~;
+#X obj 166 47 inlet f;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 1;
+#X connect 4 0 3 0;
+#X restore 419 93 pd harmonic;
+#N canvas 0 0 450 300 harmonic 0;
+#X obj 109 48 inlet~;
+#X obj 110 117 +~;
+#X obj 110 146 outlet~;
+#X obj 166 73 osc~;
+#X obj 166 47 inlet f;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 1;
+#X connect 4 0 3 0;
+#X restore 450 116 pd harmonic;
+#X obj 429 25 unpack f f f f;
+#X obj 410 146 *~ 0.25;
+#X text 475 146 instead of doing this;
+#X msg 201 0 1000 2000 3000 4000;
+#X text 209 140 so you can do this;
+#X text 3 169 each harmonic is like this inside;
+#X msg 429 0 1000 2000 3000 4000;
+#X connect 0 0 6 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 4 0 2 1;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 9 0 0 1;
+#X connect 9 1 6 1;
+#X connect 9 2 7 1;
+#X connect 9 3 8 1;
+#X connect 10 0 11 0;
+#X connect 12 0 17 0;
+#X connect 13 0 17 0;
+#X connect 14 0 17 0;
+#X connect 15 0 17 0;
+#X connect 16 0 12 1;
+#X connect 16 1 13 1;
+#X connect 16 2 14 1;
+#X connect 16 3 15 1;
+#X connect 19 0 9 0;
+#X connect 22 0 16 0;
+</pre>
+<p>Download <a href="ch12/summation-chains.pd">summation-chains.pd</a>.</p>
+
+<h3>Routing named parameters</h3>
+<img src="ch12/route-parameters.gif" alt="route-parameters" />
+<pre>
+#N canvas 233 194 389 383 10;
+#X msg 16 26 badger 100;
+#X floatatom 7 161 5 0 0 0 - - -;
+#X obj 61 330 route button breakfast;
+#X floatatom 61 357 5 0 0 0 - - -;
+#X floatatom 210 355 5 0 0 0 - - -;
+#X floatatom 135 356 5 0 0 0 - - -;
+#X msg 27 50 mushroom 10;
+#X msg 38 74 mushroom button 50;
+#X obj 116 285 route viper rattle;
+#X obj 7 137 route badger mushroom snake bird;
+#X floatatom 116 308 5 0 0 0 - - -;
+#X floatatom 176 308 5 0 0 0 - - -;
+#X floatatom 237 307 5 0 0 0 - - -;
+#X floatatom 320 202 5 0 0 0 - - -;
+#X obj 171 181 route swallow starling;
+#X obj 171 226 route african european;
+#X floatatom 245 203 5 0 0 0 - - -;
+#X obj 245 252 route laden unladen;
+#X floatatom 309 274 5 0 0 0 - - -;
+#X msg 47 100 bird swallow european unladen 25;
+#X floatatom 226 160 5 0 0 0 - - -;
+#X msg 7 3 1;
+#X connect 0 0 9 0;
+#X connect 2 0 3 0;
+#X connect 2 1 5 0;
+#X connect 2 2 4 0;
+#X connect 6 0 9 0;
+#X connect 7 0 9 0;
+#X connect 8 0 10 0;
+#X connect 8 1 11 0;
+#X connect 8 2 12 0;
+#X connect 9 0 1 0;
+#X connect 9 1 2 0;
+#X connect 9 2 8 0;
+#X connect 9 3 14 0;
+#X connect 9 4 20 0;
+#X connect 14 0 15 0;
+#X connect 14 1 16 0;
+#X connect 14 2 13 0;
+#X connect 15 1 17 0;
+#X connect 17 1 18 0;
+#X connect 19 0 9 0;
+#X connect 21 0 9 0;
+</pre>
+<p>Download <a href="ch12/routed-parameters.pd">routed-parameters.pd</a>.</p>
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

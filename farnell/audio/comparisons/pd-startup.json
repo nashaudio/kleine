@@ -1,0 +1,23 @@
+{
+  "command": [
+    "C:/Program Files/Pd/bin/pd.exe",
+    "-nogui",
+    "-stderr",
+    "-noprefs",
+    "-noaudio",
+    "-nomidi",
+    "-batch",
+    "-r",
+    "48000",
+    "-open",
+    "F:\\klang\\sfx\\kleine\\build\\trials\\startup\\empty.pd"
+  ],
+  "elapsed_seconds": 1.0600242000000435,
+  "sampled_cpu_seconds": 0.625,
+  "sampled_peak_rss_bytes": 26255360,
+  "stdout": "",
+  "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\n",
+  "patch": "#N canvas 0 0 200 150 10;\n#X obj 20 20 loadbang;\n#X msg 20 50 \\; pd quit;\n#X connect 0 0 1 0;\n",
+  "pd_version": "0.55.2",
+  "note": "Exploratory empty-patch startup check; same machine/session as the main renders."
+}

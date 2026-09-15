@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound - Practical 19: Switches
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Practical 19: Switches</h2>
+
+ <h2>Pure Data</h2>
+
+<h3>Switches - simple filter based click</h3>
+<pre>
+#N canvas 182 183 99 159 10;
+#X obj 0 141 dac~;
+#X obj 0 110 *~;
+#X obj 0 22 vline~;
+#X obj 0 44 *~;
+#X msg 0 0 1 1 0 \, 0 20 2;
+#X obj 16 66 noise~;
+#X obj 16 88 bp~ 5000 12;
+#X connect 1 0 0 0;
+#X connect 1 0 0 1;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 1;
+</pre>
+<p>Download <a href="p19/switch001.pd">switch001.pd</a>.</p>
+
+<h3>Switches - slide type switch</h3>
+<pre>
+#N canvas 115 49 219 372 10;
+#X obj 0 353 dac~;
+#X obj 0 1 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1 -1
+;
+#X obj 27 211 delwrite~ a 40;
+#X obj 0 183 +~;
+#X obj 1 305 +~;
+#X obj 27 304 s~ fba;
+#X obj 26 183 r~ fba;
+#X obj 26 254 lop~ 400;
+#X obj 27 232 delread~ a 25;
+#X obj 27 279 *~ 0.3;
+#X obj 0 328 *~ 0.3;
+#X obj 75 123 shortping 10500 9453;
+#X msg 22 82 4345 2480 4795;
+#X msg 0 62 3345 2980 4790;
+#X obj 0 42 del 200;
+#X obj 0 123 slideclunk;
+#X obj 0 144 *~ 0.2;
+#X obj 0 20 t b b b;
+#X obj 75 103 del 300;
+#X connect 1 0 17 0;
+#X connect 3 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 10 0;
+#X connect 6 0 2 0;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 9 0 5 0;
+#X connect 9 0 4 1;
+#X connect 10 0 0 0;
+#X connect 10 0 0 1;
+#X connect 11 0 3 1;
+#X connect 12 0 15 0;
+#X connect 13 0 15 0;
+#X connect 14 0 13 0;
+#X connect 15 0 16 0;
+#X connect 16 0 3 0;
+#X connect 17 0 14 0;
+#X connect 17 1 12 0;
+#X connect 17 2 18 0;
+#X connect 18 0 11 0;
+</pre>
+<p>Download <a href="p19/slideswitch.pd">slideswitch.pd</a>.</p>
+
+<h3>Switches - push button type switch</h3>
+<pre>
+#N canvas 177 238 343 262 10;
+#X obj 0 0 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1 -1
+;
+#X obj 222 235 dac~;
+#X obj 0 19 t b b b b;
+#X obj 38 81 del 30;
+#X obj 19 182 throw~ body;
+#X obj 0 244 throw~ body;
+#X obj 38 121 throw~ body;
+#X obj 58 60 throw~ body;
+#X obj 221 55 catch~ body;
+#X obj 239 76 r~ bodyfb;
+#X obj 235 188 s~ bodyfb;
+#X obj 221 98 delwrite~ body 50;
+#X obj 221 118 delread~ body 50;
+#X obj 235 168 bp~ 700 3;
+#X obj 221 142 *~ 0.1;
+#X obj 0 203 del 150;
+#X obj 19 142 del 140;
+#X obj 221 209 *~ 10;
+#X obj 38 101 switchclick 1 50 3000;
+#X obj 19 162 switchclick 1 20 4000;
+#X obj 58 40 switchclick 1 20 4000;
+#X obj 0 224 switchclick 1 20 7000;
+#X connect 0 0 2 0;
+#X connect 2 0 15 0;
+#X connect 2 1 16 0;
+#X connect 2 2 3 0;
+#X connect 2 3 20 0;
+#X connect 3 0 18 0;
+#X connect 8 0 11 0;
+#X connect 9 0 11 0;
+#X connect 12 0 14 0;
+#X connect 13 0 10 0;
+#X connect 14 0 13 0;
+#X connect 14 0 17 0;
+#X connect 15 0 21 0;
+#X connect 16 0 19 0;
+#X connect 17 0 1 0;
+#X connect 17 0 1 1;
+#X connect 18 0 6 0;
+#X connect 19 0 4 0;
+#X connect 20 0 7 0;
+#X connect 21 0 5 0;
+</pre>
+<p>Download <a href="p19/switch3.pd">switch3.pd</a>.</p>
+
+<h3>Switches - click (<em>abstraction used by above</em>)</h3>
+<pre>
+#N canvas 239 226 112 213 10;
+#X obj -4 170 *~;
+#X obj -4 82 vline~;
+#X obj -4 104 *~;
+#X obj 12 126 noise~;
+#X obj -4 -4 inlet;
+#X msg -4 60 1 \$1 0 \, 0 \$2 \$1;
+#X obj -4 16 t b;
+#X obj -4 39 pack \$1 \$2;
+#X obj -4 191 outlet~;
+#X obj 12 148 bp~ \$3 8;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 0 0;
+#X connect 3 0 9 0;
+#X connect 4 0 6 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 9 0 0 1;
+</pre>
+<p>Download <a href="p19/switchclick.pd">switchclick.pd</a>.</p>
+
+<h3>Switches - dense phasor noise (<em>abstraction used by above</em>)</h3>
+<pre>
+#N canvas 80 59 226 251 10;
+#X obj 89 125 +~;
+#X obj 73 151 +~;
+#X obj 58 172 +~;
+#X obj 35 81 *~;
+#X obj 58 212 hip~ 1000;
+#X obj 58 106 *~;
+#X obj 111 80 *~;
+#X obj 58 192 cos~;
+#X obj 50 22 unpack f f f;
+#X obj 50 -1 inlet;
+#X obj 58 232 outlet~;
+#X obj -2 47 phasor~;
+#X obj 89 46 phasor~;
+#X obj 171 46 phasor~;
+#X connect 0 0 1 1;
+#X connect 1 0 2 1;
+#X connect 2 0 7 0;
+#X connect 3 0 5 0;
+#X connect 4 0 10 0;
+#X connect 5 0 2 0;
+#X connect 6 0 5 1;
+#X connect 7 0 4 0;
+#X connect 8 0 11 0;
+#X connect 8 1 12 0;
+#X connect 8 2 13 0;
+#X connect 9 0 8 0;
+#X connect 11 0 3 0;
+#X connect 11 0 1 0;
+#X connect 12 0 3 1;
+#X connect 12 0 6 0;
+#X connect 12 0 0 0;
+#X connect 13 0 6 1;
+#X connect 13 0 0 1;
+</pre>
+<p>Download <a href="p19/pnoise.pd">pnoise.pd</a>.</p>
+
+<h3>Switches - ping sound (<em>abstraction used by above</em>)</h3>
+<pre>
+#N canvas 0 0 115 150 10;
+#X obj 48 83 +~;
+#X obj 0 42 vline~;
+#X obj 0 64 *~;
+#X obj 0 87 *~;
+#X obj 0 111 *~;
+#X msg 0 21 1 0 0 \, 0 50 0;
+#X obj 0 132 outlet~;
+#X obj 49 42 osc~ \$1;
+#X obj 63 62 osc~ \$2;
+#X obj 0 0 inlet;
+#X connect 0 0 4 1;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 5 0 1 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 1;
+#X connect 9 0 5 0;
+</pre>
+<p>Download <a href="p19/shortping.pd">shortping.pd</a>.</p>
+
+<h3>Switches - slide effect (<em>abstraction used by above</em>)</h3>
+<pre>
+#N canvas 63 66 232 222 10;
+#X obj 0 67 vline~;
+#X obj 0 97 *~;
+#X obj 0 120 *~;
+#X obj 0 141 *~;
+#X obj 0 162 rpole~ 0.65;
+#X obj 0 183 rpole~ 0.62;
+#X msg 0 45 0 \, 0.46 100 0 \, 1 0 100 \, 0 50 101;
+#X obj 31 122 pnoise;
+#X obj 0 22 t b a;
+#X obj 0 0 inlet f1 f2 f3;
+#X obj 0 204 outlet~;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 10 0;
+#X connect 6 0 0 0;
+#X connect 7 0 3 1;
+#X connect 8 0 6 0;
+#X connect 8 1 7 0;
+#X connect 9 0 8 0;
+</pre>
+<p>Download <a href="p19/slideclunk.pd">slideclunk.pd</a>.</p>
+
+
+
+<h2>Audio</h2>
+<h3>Switch sounds</h3>
+<p>Three examples given here are; two clicks from a simple band-pass filter and noise source (low level of detail), a second switch sound using several sines added to give a modal "plastic" click, and a composite switch made using filtered noise and additive clicks.  </p>
+<p>Download <a href="p19/switches.wav">switches.wav</a>.</p>
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound -  Practical 17: Thunder
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Practical 17: Thunder</h2>
+
+ <h2>Pure Data</h2>
+
+<h3>Thunder - combined thunder effect</h3>
+<pre>
+#N canvas 580 76 601 372 10;
+#X obj 248 113 *~ 0.9;
+#N canvas 152 29 188 323 afterimage 0;
+#X obj 1 114 noise~;
+#X obj 16 176 noise~;
+#X obj 1 199 *~;
+#X obj 1 241 bp~ 333 4;
+#X obj 1 135 lop~ 3;
+#X obj 1 220 clip~ -1 1;
+#X obj 52 68 line;
+#X obj 52 109 + 3;
+#X obj 52 89 * 30;
+#X obj 1 156 *~ 80;
+#X obj 117 67 line;
+#X obj 1 263 *~;
+#X msg 52 48 1 \, 0 600;
+#X msg 117 47 1 \, 0 6000;
+#X obj 1 283 *~ 0.9;
+#X obj 85 23 del 200;
+#X obj 85 1 inlet;
+#X obj 1 303 outlet~;
+#X connect 0 0 4 0;
+#X connect 1 0 2 1;
+#X connect 2 0 5 0;
+#X connect 3 0 11 0;
+#X connect 4 0 9 0;
+#X connect 5 0 3 0;
+#X connect 6 0 8 0;
+#X connect 7 0 4 1;
+#X connect 8 0 7 0;
+#X connect 9 0 2 0;
+#X connect 10 0 11 1;
+#X connect 11 0 14 0;
+#X connect 12 0 6 0;
+#X connect 13 0 10 0;
+#X connect 14 0 17 0;
+#X connect 15 0 12 0;
+#X connect 15 0 13 0;
+#X connect 16 0 15 0;
+#X restore 248 91 pd afterimage;
+#X obj 272 262 distance;
+#X obj 323 238 line;
+#X obj 11 71 r go;
+#X obj 248 68 r go;
+#X obj 350 66 r go;
+#X obj 128 70 r go;
+#X obj 186 49 line;
+#X msg 186 26 1 \, 0 9000;
+#X obj 186 4 r go;
+#X obj 323 193 r go;
+#X obj 272 348 dac~;
+#X obj 286 288 s~ udly;
+#N canvas 265 516 402 108 box 1;
+#X obj 319 51 switch~;
+#X obj 319 29 inlet;
+#X obj 1 7 udly 12000;
+#X obj 11 17 udly 12000;
+#X obj 21 27 udly 12000;
+#X obj 31 37 udly 12000;
+#X obj 41 47 udly 12000;
+#X obj 51 57 udly 12000;
+#X obj 61 67 udly 12000;
+#X obj 71 77 udly 12000;
+#X obj 87 7 udly 12000;
+#X obj 97 17 udly 12000;
+#X obj 107 27 udly 12000;
+#X obj 117 37 udly 12000;
+#X obj 127 47 udly 12000;
+#X obj 137 57 udly 12000;
+#X obj 147 67 udly 12000;
+#X obj 157 77 udly 12000;
+#X obj 172 6 udly 12000;
+#X obj 182 16 udly 12000;
+#X obj 192 26 udly 12000;
+#X obj 202 36 udly 12000;
+#X obj 212 46 udly 12000;
+#X obj 222 56 udly 12000;
+#X obj 232 66 udly 12000;
+#X obj 242 76 udly 12000;
+#X connect 1 0 0 0;
+#X restore 465 135 pd box of delays;
+#X obj 126 264 catch~ la;
+#X obj 368 263 catch~ ra;
+#X obj 465 115 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X obj 490 112 s shake;
+#X obj 490 91 r go;
+#X obj 12 12 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 12 34 s go;
+#X obj 186 71 * 2000;
+#X msg 323 215 0 \, 1 12000;
+#X obj 248 135 throw~ out;
+#X obj 197 264 catch~ out;
+#X obj 350 135 throw~ distance;
+#X obj 129 135 throw~ distance;
+#X obj 272 173 catch~ distance;
+#N canvas 132 138 177 510 rumble 0;
+#X obj 17 110 noise~;
+#X obj 33 314 -~ 0.5;
+#X obj 33 339 *~;
+#X obj 33 359 *~ -4;
+#X obj 33 379 +~ 1;
+#X obj 33 399 *~ 0.5;
+#X obj 75 28 noise~;
+#X obj 75 89 max~ 0;
+#X obj 17 172 samphold~;
+#X msg 938 102 0.54;
+#X obj 75 151 phasor~;
+#X obj 75 111 *~ 3000;
+#X obj 17 419 *~;
+#X obj 17 439 hip~ 100;
+#X obj 17 192 rpole~ 0.99;
+#X obj 17 212 *~ 0.04;
+#X obj 75 131 +~ 1;
+#X obj 81 -12 inlet density;
+#X obj 17 131 lop~;
+#X obj 17 152 lop~;
+#X obj 75 68 lop~;
+#X obj 75 48 lop~;
+#X obj 1 480 outlet~;
+#X obj 17 241 min~ 0;
+#X obj 17 263 *~ -1;
+#X obj 65 240 max~ 0;
+#X obj 17 286 +~;
+#X obj 1 28 vline~;
+#X obj 1 459 *~;
+#X obj 1 -12 inlet trig;
+#X msg 1 8 1 50 \, 0 8000 50;
+#X connect 0 0 18 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 12 1;
+#X connect 6 0 21 0;
+#X connect 7 0 11 0;
+#X connect 8 0 14 0;
+#X connect 10 0 8 1;
+#X connect 11 0 16 0;
+#X connect 12 0 13 0;
+#X connect 13 0 28 1;
+#X connect 14 0 15 0;
+#X connect 15 0 25 0;
+#X connect 15 0 23 0;
+#X connect 16 0 10 0;
+#X connect 17 0 20 1;
+#X connect 17 0 21 1;
+#X connect 17 0 18 1;
+#X connect 17 0 19 1;
+#X connect 18 0 19 0;
+#X connect 19 0 8 0;
+#X connect 20 0 7 0;
+#X connect 21 0 20 0;
+#X connect 23 0 24 0;
+#X connect 24 0 26 0;
+#X connect 25 0 26 1;
+#X connect 26 0 1 0;
+#X connect 26 0 12 0;
+#X connect 27 0 28 0;
+#X connect 28 0 22 0;
+#X connect 29 0 30 0;
+#X connect 30 0 27 0;
+#X restore 128 93 pd rumble;
+#N canvas 264 575 152 190 strike 0;
+#X obj 0 172 outlet~;
+#X obj 1 44 route 0 1 2 3;
+#X obj 1 0 inlet;
+#X obj 1 23 strike-pattern;
+#X obj 1 67 strike-sound;
+#X obj 22 87 strike-sound;
+#X obj 44 107 strike-sound;
+#X obj 65 126 strike-sound;
+#X connect 1 0 4 0;
+#X connect 1 1 5 0;
+#X connect 1 2 6 0;
+#X connect 1 3 7 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X restore 11 94 pd strike sound;
+#N canvas 148 116 232 212 deep 0;
+#X obj 8 -8 noise~;
+#X obj 7 161 *~;
+#X obj 84 115 *~;
+#X obj 84 49 del 1000;
+#X obj 84 28 inlet;
+#X obj 7 181 outlet~;
+#X obj 84 91 vline~;
+#X msg 84 70 1 2000 \, 0 20000 2000;
+#X obj 8 12 lop~ 80;
+#X obj 8 32 lop~ 80;
+#X obj 8 52 hip~ 15;
+#X obj 8 92 clip~ -1 1;
+#X obj 8 72 *~ 12;
+#X obj 8 112 lop~ 80;
+#X obj 8 132 lop~ 80;
+#X connect 0 0 8 0;
+#X connect 1 0 5 0;
+#X connect 2 0 1 1;
+#X connect 3 0 7 0;
+#X connect 4 0 3 0;
+#X connect 6 0 2 0;
+#X connect 6 0 2 1;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 12 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 1 0;
+#X restore 350 88 pd deep;
+#X obj 11 135 throw~ out;
+#X obj 11 115 *~ 0.3;
+#X obj 129 114 *~ 0.3;
+#X obj 350 111 *~ 0.5;
+#X connect 0 0 24 0;
+#X connect 1 0 0 0;
+#X connect 2 0 12 0;
+#X connect 2 0 12 1;
+#X connect 2 0 13 0;
+#X connect 3 0 2 1;
+#X connect 4 0 30 0;
+#X connect 5 0 1 0;
+#X connect 6 0 31 0;
+#X connect 7 0 29 0;
+#X connect 8 0 22 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;
+#X connect 11 0 23 0;
+#X connect 15 0 12 0;
+#X connect 16 0 12 1;
+#X connect 17 0 14 0;
+#X connect 19 0 18 0;
+#X connect 20 0 21 0;
+#X connect 22 0 29 1;
+#X connect 23 0 3 0;
+#X connect 25 0 12 0;
+#X connect 25 0 12 1;
+#X connect 28 0 2 0;
+#X connect 29 0 34 0;
+#X connect 30 0 33 0;
+#X connect 31 0 35 0;
+#X connect 33 0 32 0;
+#X connect 34 0 27 0;
+#X connect 35 0 26 0;
+</pre>
+<p>Download <a href="p17/thunder4.pd">thunder4.pd</a>.</p>
+
+<h3>Thunder - strike sound (<em>abstraction needed by above</em>)</h3>
+<pre>
+#N canvas 95 82 204 321 10;
+#X obj 0 154 noise~;
+#X obj 39 207 *~;
+#X obj 55 175 vline~;
+#X obj 136 96 + 100;
+#X obj 87 302 outlet~;
+#X obj 55 0 inlet;
+#X obj 39 265 bp~ 1 3;
+#X obj 144 266 bp~ 1 3;
+#X obj 166 140 * 0.5;
+#X obj 55 45 swap 1;
+#X obj 55 68 -;
+#X msg 55 153 1 \, 0 \$1 0;
+#X obj 55 22 t f f;
+#X obj 55 110 pow 5;
+#X obj 55 89 + 0.4;
+#X obj 136 117 t f f;
+#X obj 136 75 * 1200;
+#X obj 55 132 * 200;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 1 0 7 0;
+#X connect 2 0 1 1;
+#X connect 3 0 15 0;
+#X connect 5 0 12 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 1;
+#X connect 9 0 10 0;
+#X connect 9 1 10 1;
+#X connect 10 0 14 0;
+#X connect 11 0 2 0;
+#X connect 12 0 9 0;
+#X connect 12 1 16 0;
+#X connect 13 0 17 0;
+#X connect 14 0 13 0;
+#X connect 15 0 6 1;
+#X connect 15 1 8 0;
+#X connect 16 0 3 0;
+#X connect 17 0 11 0;
+</pre>
+<p>Download <a href="p17/strike-sound.pd">strike-sound.pd</a>.</p>
+
+<h3>Thunder - distancing function (<em>abstraction needed by above</em>)</h3>
+<pre>
+#N canvas 0 0 450 300 10;
+#N canvas 0 0 205 392 distance 0;
+#X obj 5 93 inlet~;
+#X obj 4 370 outlet~;
+#X obj 5 346 +~;
+#X obj 32 199 delwrite~ distance 1000;
+#X obj 21 243 sig~;
+#X obj 5 115 lop~ 100;
+#X obj 21 303 vd~ distance;
+#X obj 21 323 *~ 0.5;
+#X obj 67 2 inlet;
+#X obj 87 29 swap 1;
+#X obj 87 50 -;
+#X obj 87 92 + 50;
+#X obj 5 137 lop~ 100;
+#X obj 5 159 lop~ 100;
+#X obj 21 283 +~ 2;
+#X obj 21 263 *~ 3;
+#X obj 87 71 * 6000;
+#X connect 0 0 5 0;
+#X connect 2 0 1 0;
+#X connect 4 0 15 0;
+#X connect 5 0 12 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 1;
+#X connect 8 0 4 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 1 10 1;
+#X connect 10 0 16 0;
+#X connect 11 0 5 1;
+#X connect 11 0 12 1;
+#X connect 11 0 13 1;
+#X connect 12 0 13 0;
+#X connect 13 0 2 0;
+#X connect 13 0 3 0;
+#X connect 14 0 6 0;
+#X connect 15 0 14 0;
+#X connect 16 0 11 0;
+#X restore 71 128 pd distance;
+#X obj 71 88 inlet~;
+#X obj 72 162 outlet~;
+#X obj 143 108 inlet distance;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 3 0 0 1;
+</pre>
+<p>Download <a href="p17/distance.pd">distance.pd</a>.</p>
+
+<h3>Thunder - delay unit (<em>abstraction needed by above</em>)</h3>
+<pre>
+#N canvas 128 91 234 472 10;
+#X obj 82 24 delwrite~ \$0-a \$1;
+#X obj 5 234 delread~ \$0-a;
+#X obj 82 1 r~ udly;
+#X obj 5 1 r shake;
+#X obj 5 387 *~;
+#X obj 20 163 \$1;
+#X obj 20 189 -;
+#X obj 20 211 / \$1;
+#X obj 5 22 t b b;
+#X obj 5 89 random;
+#X obj 35 45 \$1;
+#X obj 35 66 * 10000;
+#X obj 5 109 / 10000;
+#N canvas 0 0 450 300 cpan 0;
+#X obj -2 -2 inlet~ signal;
+#X obj 88 192 *~;
+#X obj -2 192 *~;
+#X obj 104 110 cos~;
+#X obj 104 87 -~ 0.25;
+#X obj 104 65 *~ 0.25;
+#X obj -2 220 outlet~ left;
+#X obj 88 220 outlet~ right;
+#X obj 14 166 cos~;
+#X obj 14 142 -~ 0.25;
+#X obj 107 37 inlet~;
+#X connect 0 0 2 0;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 2 0 6 0;
+#X connect 3 0 1 1;
+#X connect 4 0 3 0;
+#X connect 4 0 9 0;
+#X connect 5 0 4 0;
+#X connect 8 0 2 1;
+#X connect 9 0 8 0;
+#X connect 10 0 5 0;
+#X restore 5 410 pd cpan;
+#X obj 5 449 throw~ la;
+#X obj 75 448 throw~ ra;
+#X obj 59 160 random 10000;
+#X obj 21 267 *;
+#X obj 5 130 t f b f b;
+#X obj 59 183 / 20000;
+#X obj 59 206 + 0.5;
+#X obj 36 315 * 400;
+#X obj 36 337 + 400;
+#X obj 5 364 bp~ 1000 2;
+#X connect 1 0 23 0;
+#X connect 2 0 0 0;
+#X connect 3 0 8 0;
+#X connect 4 0 13 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 17 0;
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 9 0 12 0;
+#X connect 10 0 11 0;
+#X connect 11 0 9 1;
+#X connect 12 0 18 0;
+#X connect 13 0 14 0;
+#X connect 13 1 15 0;
+#X connect 16 0 19 0;
+#X connect 17 0 4 1;
+#X connect 17 0 13 1;
+#X connect 17 0 21 0;
+#X connect 18 0 1 0;
+#X connect 18 1 5 0;
+#X connect 18 2 6 1;
+#X connect 18 3 16 0;
+#X connect 19 0 20 0;
+#X connect 20 0 17 1;
+#X connect 21 0 22 0;
+#X connect 22 0 23 1;
+#X connect 23 0 4 0;
+</pre>
+<p>Download <a href="p17/udly.pd">udly.pd</a>.</p>
+
+
+<h2>Audio</h2>
+<h3>Thunder sounds</h3>
+<p>Three strikes showing different levels of detail. First is a highly efficient castle thunder using only four subtractive bands, high crash, middle, mid-low rumble, sub-boom. Next is a cheap N-Wave and multi-tap delay model. Finally is a composite N-Wave and large environment model made from several multi-taps and reverbs to model different environment features. </p>
+<p>Download <a href="p17/thunder.wav">thunder.wav</a>.</p>
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

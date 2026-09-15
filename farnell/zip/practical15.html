@@ -1,0 +1,695 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound -  Practical 15: Rain
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Practical 15: Rain</h2>
+
+ <h2>Pure Data</h2>
+
+<h3>Rain - simple pulse model</h3>
+<pre>
+#N canvas 265 179 157 217 10;
+#X obj 1 195 dac~;
+#X obj 1 127 catch~ rain;
+#X obj 1 22 throw~ rain;
+#X obj 1 65 throw~ rain;
+#X obj 1 107 throw~ rain;
+#X obj 1 42 cpraingen 60 12 0.2;
+#X obj 1 169 hip~ 900;
+#X obj 1 0 cpraingen 50 12 0.15;
+#X obj 1 84 cpraingen 70 12 0.4;
+#X obj 1 148 *~ 0.2;
+#X connect 1 0 9 0;
+#X connect 5 0 3 0;
+#X connect 6 0 0 1;
+#X connect 6 0 0 0;
+#X connect 7 0 2 0;
+#X connect 8 0 4 0;
+#X connect 9 0 6 0;
+</pre>
+<p>Download <a href="p15/rain1.pd">rain1.pd</a>.</p>
+
+<h3>Rain - <em>abstraction needed by pulse model</em></h3>
+<pre>
+#N canvas 791 232 243 317 10;
+#X obj 2 282 del;
+#X obj 90 213 / 100;
+#X obj 60 170 t b b;
+#X obj 2 3 loadbang;
+#X obj 68 3 inlet rate;
+#X obj 148 170 inlet fspread;
+#X obj 113 233 inlet fbase;
+#X obj 90 254 + \$3;
+#X obj 90 193 random \$2;
+#X obj 90 297 outlet~;
+#X obj 2 113 random;
+#X obj 39 70 f \$1;
+#X obj 2 28 t b b;
+#X obj 2 234 exp;
+#X obj 2 171 / 15;
+#X obj 2 141 + 7;
+#X obj 2 256 + 40;
+#X obj 2 199 + 2.718;
+#X obj 39 92 clip 30 90;
+#X obj 90 276 cpulse;
+#X connect 0 0 2 0;
+#X connect 1 0 7 0;
+#X connect 2 0 10 0;
+#X connect 2 1 8 0;
+#X connect 3 0 12 0;
+#X connect 4 0 11 0;
+#X connect 5 0 8 1;
+#X connect 6 0 7 1;
+#X connect 7 0 19 0;
+#X connect 8 0 1 0;
+#X connect 10 0 15 0;
+#X connect 11 0 18 0;
+#X connect 12 0 10 0;
+#X connect 12 1 11 0;
+#X connect 13 0 16 0;
+#X connect 14 0 17 0;
+#X connect 15 0 14 0;
+#X connect 16 0 0 0;
+#X connect 17 0 13 0;
+#X connect 18 0 10 1;
+#X connect 19 0 9 0;
+</pre>
+<p>Download <a href="p15/cpraingen.pd">cpraingen.pd</a>.</p>
+
+<h3>Rain - pulse generator abstraction (<em>needed by above model</em>)</h3>
+<pre>
+#N canvas 1080 462 117 214 10;
+#X obj 2 63 vline~;
+#X msg 2 43 1 \, 0 \$1 0;
+#X obj 2 189 outlet~;
+#X obj 2 -3 inlet;
+#X obj 2 83 -~ 0.5;
+#X obj 2 106 *~;
+#X obj 2 126 *~ -4;
+#X obj 2 147 +~ 1;
+#X obj 53 146 sqrt;
+#X obj 2 169 *~;
+#X obj 2 17 t f f;
+#X obj 53 83 + 0.1;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 3 0 10 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 9 0;
+#X connect 8 0 9 1;
+#X connect 9 0 2 0;
+#X connect 10 0 1 0;
+#X connect 10 1 11 0;
+#X connect 11 0 8 0;
+</pre>
+<p>Download <a href="p15/cpulse.pd">cpulse.pd</a>.</p>
+
+<h3>Rain - parabolic shaped noise algorithm</h3>
+<pre>
+#N canvas 676 292 211 504 10;
+#X obj 5 100 dac~;
+#X obj 5 -146 phasor~;
+#X obj 5 -83 *~;
+#X obj 5 -125 -~ 0.25;
+#X obj 5 -104 cos~;
+#X obj 21 -249 *~;
+#X obj 5 -278 lop~ 500;
+#X obj 5 -188 *~ 80;
+#X obj 5 -167 +~ 40;
+#X obj 21 -228 *~ 10;
+#X obj 5 -297 bp~ 50 0.4;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array A 2048 float 0;
+#X coords 0 1 2047 -1 100 100 1;
+#X restore 100 100 graph;
+#X obj 210 209 tabwrite~ A;
+#X obj 289 155 inlet~;
+#X obj 210 130 loadbang;
+#X obj 278 131 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 217 178 s b;
+#X obj 210 155 metro 200;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 0;
+#X connect 7 0 2 0;
+#X connect 7 0 6 0;
+#X coords 0 -1 1 1 100 100 1 100 100;
+#X restore 83 -43 pd grapha;
+#N canvas 0 0 450 300 grapha 0;
+#X obj 100 100 cnv 15 100 100 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#N canvas 0 0 450 300 graph3 0;
+#X array B 2048 float 0;
+#X coords 0 1 2047 -1 100 100 1;
+#X restore 100 100 graph;
+#X obj 289 155 inlet~;
+#X obj 210 182 tabwrite~ B;
+#X obj 210 156 r b;
+#X connect 2 0 3 0;
+#X connect 4 0 3 0;
+#X coords 0 -1 1 1 100 100 1 100 100;
+#X restore 84 70 pd grapha;
+#X obj 5 -12 -~ 0.35;
+#X obj 5 -33 max~ 0.35;
+#X obj 5 29 *~ 0.5;
+#X obj 5 51 hip~ 500;
+#X obj 5 73 hip~ 500;
+#X obj 5 -320 gaussianoise 0.4;
+#X connect 1 0 3 0;
+#X connect 2 0 11 0;
+#X connect 2 0 14 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 9 0;
+#X connect 6 0 7 0;
+#X connect 6 0 5 0;
+#X connect 6 0 5 1;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X connect 9 0 2 1;
+#X connect 10 0 6 0;
+#X connect 13 0 15 0;
+#X connect 13 0 12 0;
+#X connect 14 0 13 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 0 0;
+#X connect 17 0 0 1;
+#X connect 18 0 10 0;
+</pre>
+<p>Download <a href="p15/rain_on_leaf.pd">rain_on_leaf.pd</a>.</p>
+
+<h3>Rain - impulse model (noisy rain)</h3>
+<pre>
+#N canvas 864 641 223 124 10;
+#X obj 1 92 dac~;
+#X obj 57 26 + 0.004;
+#X obj 57 6 / 20;
+#X obj 60 -12 hsl 128 15 0 1 0 0 empty empty rain-rain-go-away 12 7
+1 8 -262144 -1 -1 0 1;
+#X obj 1 70 hip~ 2000;
+#X obj 1 46 drops 7.7 0.013 0.16 3;
+#X connect 1 0 5 1;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 0 0;
+#X connect 4 0 0 1;
+#X connect 5 0 4 0;
+</pre>
+<p>Download <a href="p15/spikerain.pd">spikerain.pd</a>.</p>
+
+<h3>Rain - <em>abstraction needed by above patch</em></h3>
+<pre>
+#N canvas 180 245 151 246 10;
+#X obj 5 12 *~;
+#X obj 5 35 *~;
+#X obj 5 -59 clip~ 0 1;
+#X obj 63 -108 inlet q;
+#X obj 83 -87 inlet t;
+#X obj 94 -65 inlet a;
+#X obj 5 78 outlet~;
+#X obj 5 -36 max~ \$3;
+#X obj 5 -13 -~ \$3;
+#X obj 5 57 *~ \$4;
+#X obj 5 -81 bp~ \$1 \$2;
+#X obj 34 -128 inlet f;
+#X obj 6 -147 noise~;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 1 0 9 0;
+#X connect 2 0 7 0;
+#X connect 3 0 10 2;
+#X connect 4 0 7 1;
+#X connect 4 0 8 1;
+#X connect 5 0 9 1;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 8 0 0 1;
+#X connect 9 0 6 0;
+#X connect 10 0 2 0;
+#X connect 11 0 10 1;
+#X connect 12 0 10 0;
+</pre>
+<p>Download <a href="p15/drops.pd">drops.pd</a>.</p>
+
+<h3>Rain - rain on water, alternative droplet model</h3>
+<pre>
+#N canvas 599 163 297 465 10;
+#X obj 85 277 osc~;
+#X obj 85 256 *~;
+#X obj 40 302 *~;
+#X obj 41 389 dac~;
+#X obj 2 223 *~;
+#X obj 111 138 vline~;
+#X obj 111 -31 threshold~ 0.01 1 0.01 1;
+#X obj 111 93 f;
+#X obj 2 247 *~;
+#X obj 2 175 sig~ 1;
+#X obj 2 199 -~;
+#X msg 111 114 0 \, 1 \$1;
+#X obj 40 323 *~;
+#X obj 174 81 + 2;
+#X obj 208 102 + 400;
+#X obj 2 269 lop~ 12;
+#X obj 141 11 random 1000;
+#X obj 174 59 / 100;
+#X obj 241 123 / 1000;
+#X obj 208 81 / 5;
+#X obj 141 35 trigger f f f f;
+#X obj 141 59 / 7;
+#X obj 40 344 lop~ 1000;
+#X obj 111 180 delread~ a 3;
+#X obj 111 159 delwrite~ a 3;
+#X obj 111 -52 raindrops 20 0.1;
+#X obj 111 -10 t b b;
+#X obj 85 237 pow~;
+#X obj 41 365 *~ 0.1;
+#X obj 84 208 sig~;
+#X connect 0 0 2 1;
+#X connect 1 0 0 0;
+#X connect 2 0 12 0;
+#X connect 4 0 8 0;
+#X connect 4 0 8 1;
+#X connect 5 0 10 1;
+#X connect 5 0 24 0;
+#X connect 6 0 26 0;
+#X connect 7 0 11 0;
+#X connect 8 0 15 0;
+#X connect 9 0 10 0;
+#X connect 10 0 4 0;
+#X connect 10 0 4 1;
+#X connect 11 0 5 0;
+#X connect 12 0 22 0;
+#X connect 13 0 29 0;
+#X connect 14 0 1 1;
+#X connect 15 0 2 0;
+#X connect 16 0 20 0;
+#X connect 17 0 13 0;
+#X connect 18 0 12 1;
+#X connect 19 0 14 0;
+#X connect 20 0 21 0;
+#X connect 20 1 17 0;
+#X connect 20 2 19 0;
+#X connect 20 3 18 0;
+#X connect 21 0 7 1;
+#X connect 22 0 28 0;
+#X connect 23 0 27 1;
+#X connect 25 0 6 0;
+#X connect 26 0 7 0;
+#X connect 26 1 16 0;
+#X connect 27 0 1 0;
+#X connect 28 0 3 1;
+#X connect 28 0 3 0;
+#X connect 29 0 27 0;
+</pre>
+<p>Download <a href="p15/rain_on_water.pd">rain_on_water.pd</a>.</p>
+
+<h3>Rain - rain against glass (<em>use with wind patch later</em>)</h3>
+<pre>
+#N canvas 99 23 443 256 10;
+#X obj -21 66 dac~;
+#X obj -19 -45 hip~ 9000;
+#X obj -19 -92 noise~;
+#X obj -20 2 glasswindow 2007 1994 1986 1969 254 669 443 551 3.7 4.2
+0.61 2.3;
+#X obj -19 -69 dropsig 7.7 0.002 0.1 1;
+#X obj 32 -145 delread~ a;
+#X obj 33 -119 *~ 24;
+#X obj 33 -96 +~ 6;
+#X obj -21 40 *~ 0.35;
+#X obj -20 -23 *~ 20;
+#X connect 1 0 9 0;
+#X connect 2 0 4 0;
+#X connect 3 0 8 0;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 8 0 0 0;
+#X connect 8 0 0 1;
+#X connect 9 0 3 0;
+</pre>
+<p>Download <a href="p15/windywindow.pd">windywindow.pd</a>.</p>
+
+<h3>Rain - <em>abstraction needed by rain on window patch</em></h3>
+<pre>
+#N canvas 0 0 197 235 10;
+#X obj 6 -2 *~;
+#X obj 6 21 *~;
+#X obj 6 -72 clip~ 0 1;
+#X obj 75 -72 inlet t;
+#X obj 79 -49 inlet a;
+#X obj 6 64 outlet~;
+#X obj 6 -152 inlet~ s;
+#X obj 6 -49 max~ \$3;
+#X obj 6 -28 -~ \$3;
+#X obj 6 43 *~ \$4;
+#X obj 45 -133 inlet~ f;
+#X obj 114 -142 loadbang;
+#X msg 114 -121 0.01;
+#X obj 6 -93 vcf~ \$1 0.01;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 1 0 9 0;
+#X connect 2 0 7 0;
+#X connect 3 0 7 1;
+#X connect 3 0 8 1;
+#X connect 4 0 9 1;
+#X connect 6 0 13 0;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 8 0 0 1;
+#X connect 9 0 5 0;
+#X connect 10 0 13 1;
+#X connect 11 0 12 0;
+#X connect 12 0 13 2;
+#X connect 13 0 2 0;
+</pre>
+<p>Download <a href="p15/dropsig.pd">dropsig.pd</a>.</p>
+
+<h3>Rain - window model, <em>needed by above patch</em></h3>
+<pre>
+#N canvas 71 186 388 231 10;
+#X obj -23 192 *~;
+#X obj 62 191 *~;
+#X obj 190 189 *~;
+#X obj 276 192 *~;
+#X obj -23 171 osc~ \$5;
+#X obj 62 168 osc~ \$6;
+#X obj 190 166 osc~ \$7;
+#X obj 276 169 osc~ \$8;
+#X obj -7 104 *~ \$11;
+#X obj 78 103 *~ \$11;
+#X obj 206 101 *~ \$11;
+#X obj 292 104 *~ \$11;
+#X obj -7 128 bp~ \$1 \$12;
+#X obj 78 128 bp~ \$2 \$12;
+#X obj 206 130 bp~ \$3 \$12;
+#X obj 292 131 bp~ \$4 \$12;
+#X obj 77 26 catch~ \$0-a;
+#X obj 208 26 catch~ \$0-b;
+#X obj -23 213 throw~ \$0-b;
+#X obj 62 213 throw~ \$0-a;
+#X obj 190 213 throw~ \$0-b;
+#X obj 276 213 throw~ \$0-a;
+#X obj 152 0 inlet~;
+#X obj 122 161 outlet~;
+#X obj 78 80 delread~ \$0-a \$9;
+#X obj 77 56 delwrite~ \$0-a 300;
+#X obj 206 78 delread~ \$0-b \$10;
+#X obj 208 57 delwrite~ \$0-b 300;
+#X connect 0 0 18 0;
+#X connect 1 0 19 0;
+#X connect 2 0 20 0;
+#X connect 3 0 21 0;
+#X connect 4 0 0 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 3 0;
+#X connect 8 0 12 0;
+#X connect 9 0 13 0;
+#X connect 9 0 23 0;
+#X connect 10 0 14 0;
+#X connect 10 0 23 0;
+#X connect 11 0 15 0;
+#X connect 12 0 0 1;
+#X connect 13 0 1 1;
+#X connect 14 0 2 1;
+#X connect 15 0 3 1;
+#X connect 16 0 25 0;
+#X connect 17 0 27 0;
+#X connect 22 0 25 0;
+#X connect 22 0 27 0;
+#X connect 24 0 8 0;
+#X connect 24 0 9 0;
+#X connect 26 0 10 0;
+#X connect 26 0 11 0;
+</pre>
+<p>Download <a href="p15/glasswindow.pd">glasswindow.pd</a>.</p>
+
+<h3>Rain - Gaussian noise generator</h3>
+<pre>
+#N canvas 767 150 181 279 10;
+#X obj 0 -98 noise~;
+#X obj 99 76 noise~;
+#X obj 35 138 *~;
+#X obj 35 58 ln~;
+#X obj 35 79 *~ -2;
+#X obj 35 158 outlet~;
+#X obj 98 -46 sig~ 1;
+#X obj 98 -21 -~;
+#X obj 35 12 *~;
+#X obj 35 36 +~;
+#X obj 0 -67 max~ 0;
+#X obj 51 -67 min~ 0;
+#X obj 51 -45 *~ -1;
+#X obj 35 -14 +~;
+#X obj 114 -73 sig~ \$1;
+#X obj 99 99 cos~;
+#X obj 35 100 q8_sqrt~;
+#X connect 0 0 10 0;
+#X connect 0 0 11 0;
+#X connect 1 0 15 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 16 0;
+#X connect 6 0 7 0;
+#X connect 7 0 9 1;
+#X connect 8 0 9 0;
+#X connect 9 0 3 0;
+#X connect 10 0 13 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 1;
+#X connect 13 0 8 0;
+#X connect 14 0 8 1;
+#X connect 14 0 7 1;
+#X connect 15 0 2 1;
+#X connect 16 0 2 0;
+</pre>
+<p>Download <a href="p15/gaussianoise.pd">gaussianoise.pd</a>.</p>
+
+
+
+<h2>Audio</h2>
+<h3>Rain effects</h3>
+<p>The example contains a moving mixture. Initially you can hear only Gaussian distributed parabolic pulses, then these excite a range of noise band frequencies. Droplets for entrained water bubbles are added. Finally the sound of drop signatures exciting a glass lamina (rain on window) is heard. </p>
+<p>Download <a href="p15/rain.wav">rain.wav</a>.</p>
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

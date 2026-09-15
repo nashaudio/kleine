@@ -1,0 +1,27 @@
+#N canvas 0 0 450 300 10;
+#X obj 179 70 hsl 128 15 0 1 0 1 empty empty freq_2 30 7 1 8 -262144
+-1 -1 2500 1;
+#X obj 179 50 hsl 128 15 0 1 0 1 empty empty freq_1 30 7 1 8 -262144
+-1 -1 2100 1;
+#X obj 179 90 hsl 128 15 0 1 0 1 empty empty freq_3 30 7 1 8 -262144
+-1 -1 2100 1;
+#X obj 179 110 hsl 128 15 0 1 0 1 empty empty freq_4 30 7 1 8 -262144
+-1 -1 1400 1;
+#X obj 82 198 pack f f f f;
+#X obj 64 141 t b f;
+#X obj 104 141 t b f;
+#X obj 144 141 t b f;
+#X obj 82 222 outlet;
+#X obj 140 223 print;
+#X connect 0 0 5 0;
+#X connect 1 0 4 0;
+#X connect 2 0 6 0;
+#X connect 3 0 7 0;
+#X connect 4 0 8 0;
+#X connect 4 0 9 0;
+#X connect 5 0 4 0;
+#X connect 5 1 4 1;
+#X connect 6 0 4 0;
+#X connect 6 1 4 2;
+#X connect 7 0 4 0;
+#X connect 7 1 4 3;

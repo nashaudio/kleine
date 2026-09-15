@@ -1,0 +1,46 @@
+{
+  "files": {
+    "farnell\\audio\\25-phone-tones\\dial-web-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.25,
+      "rms": 0.12499988058088772,
+      "dc": -6.917265422975068e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\25-phone-tones\\dial-web-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.25,
+      "rms": 0.12499988058088772,
+      "dc": -6.917265422975068e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\25-phone-tones\\dial-web-online.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.25006103515625,
+      "rms": 0.12499670042473032,
+      "dc": 6.642341613769531e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 16384,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 1.0,
+  "aligned_error_rms": 0.0,
+  "identical_samples": true,
+  "relative_error_db": -240.0,
+  "rms_difference_db": 0.0,
+  "envelope_relative_error": 0.0,
+  "active_spectrum_median_abs_db": 0.0
+}

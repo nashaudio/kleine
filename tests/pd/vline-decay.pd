@@ -1,0 +1,8 @@
+#N canvas 0 0 450 250 10;
+#X obj 30 30 loadbang;
+#X msg 30 65 1 \, 0 10 0;
+#X obj 30 100 vline~;
+#X obj 30 135 outlet~;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;

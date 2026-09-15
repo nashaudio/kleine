@@ -1,0 +1,394 @@
+{
+  "dial": {
+    "source": "farnell\\pd\\PHONETONES\\dialtone1.pd",
+    "source_sha256": "d217affc21abc006916a6ccb8a03f8b9a16f93631aa47c7d42758db9025b1b61",
+    "duration": 4,
+    "sample_rate": 48000,
+    "pd_compatibility": "0.55",
+    "pd": {
+      "command": [
+        "C:/Program Files/Pd/bin/pd.exe",
+        "-nogui",
+        "-stderr",
+        "-noprefs",
+        "-noaudio",
+        "-nomidi",
+        "-batch",
+        "-r",
+        "48000",
+        "-compatibility",
+        "0.55",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+        "-open",
+        "F:\\klang\\sfx\\kleine\\build\\trials\\dial\\render.pd"
+      ],
+      "elapsed_seconds": 0.6126705000024231,
+      "sampled_cpu_seconds": 0.546875,
+      "sampled_peak_rss_bytes": 26284032,
+      "stdout": "",
+      "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/farnell/audio/25-phone-tones/dial-pd.wav: biggest amplitude = 0.250000\n"
+    },
+    "kleine": {
+      "command": [
+        "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+        "--render",
+        "dial",
+        "F:\\klang\\sfx\\kleine\\farnell\\audio\\25-phone-tones\\dial-kleine.wav",
+        "4",
+        "48000",
+        "1"
+      ],
+      "elapsed_seconds": 0.019850900000164984,
+      "sampled_cpu_seconds": 0,
+      "sampled_peak_rss_bytes": 4902912,
+      "stdout": "{\"model\":\"dial\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.002514}\n",
+      "stderr": ""
+    }
+  },
+  "dial-web": {
+    "source": "farnell\\reference\\p02\\dialtone1.pd",
+    "source_sha256": "d945e91d814b8b0be298e61217a03f750e71a242004e3f976c8b1b5589728ab9",
+    "duration": 4,
+    "sample_rate": 48000,
+    "pd_compatibility": "0.55",
+    "pd": {
+      "command": [
+        "C:/Program Files/Pd/bin/pd.exe",
+        "-nogui",
+        "-stderr",
+        "-noprefs",
+        "-noaudio",
+        "-nomidi",
+        "-batch",
+        "-r",
+        "48000",
+        "-compatibility",
+        "0.55",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+        "-open",
+        "F:\\klang\\sfx\\kleine\\build\\trials\\dial-web\\render.pd"
+      ],
+      "elapsed_seconds": 0.585935300001438,
+      "sampled_cpu_seconds": 0.59375,
+      "sampled_peak_rss_bytes": 26296320,
+      "stdout": "",
+      "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/farnell/audio/25-phone-tones/dial-web-pd.wav: biggest amplitude = 0.250000\n"
+    },
+    "kleine": {
+      "command": [
+        "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+        "--render",
+        "dial-web",
+        "F:\\klang\\sfx\\kleine\\farnell\\audio\\25-phone-tones\\dial-web-kleine.wav",
+        "4",
+        "48000",
+        "1"
+      ],
+      "elapsed_seconds": 0.020989700002246536,
+      "sampled_cpu_seconds": 0,
+      "sampled_peak_rss_bytes": 4915200,
+      "stdout": "{\"model\":\"dial-web\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.001949}\n",
+      "stderr": ""
+    }
+  },
+  "dial-line": {
+    "source": "farnell\\pd\\PHONETONES\\dialtone2.pd",
+    "source_sha256": "998b308aa82859c53b12084f74af564a207aec1229d9c40bbf83c7f61df7044f",
+    "duration": 4,
+    "sample_rate": 48000,
+    "pd_compatibility": "0.55",
+    "pd": {
+      "command": [
+        "C:/Program Files/Pd/bin/pd.exe",
+        "-nogui",
+        "-stderr",
+        "-noprefs",
+        "-noaudio",
+        "-nomidi",
+        "-batch",
+        "-r",
+        "48000",
+        "-compatibility",
+        "0.55",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+        "-open",
+        "F:\\klang\\sfx\\kleine\\build\\trials\\dial-line\\render.pd"
+      ],
+      "elapsed_seconds": 0.5802468000001682,
+      "sampled_cpu_seconds": 0.59375,
+      "sampled_peak_rss_bytes": 26263552,
+      "stdout": "",
+      "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/farnell/audio/25-phone-tones/dial-line-pd.wav: biggest amplitude = 0.136755\n"
+    },
+    "kleine": {
+      "command": [
+        "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+        "--render",
+        "dial-line",
+        "F:\\klang\\sfx\\kleine\\farnell\\audio\\25-phone-tones\\dial-line-kleine.wav",
+        "4",
+        "48000",
+        "1"
+      ],
+      "elapsed_seconds": 0.032559900002524955,
+      "sampled_cpu_seconds": 0.015625,
+      "sampled_peak_rss_bytes": 4915200,
+      "stdout": "{\"model\":\"dial-line\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.007165}\n",
+      "stderr": ""
+    }
+  },
+  "busy": {
+    "source": "farnell\\reference\\p02\\busy-signal.pd",
+    "source_sha256": "a5191f81b84e5197a5efe1d51ee94435c8ff52ed6de49cb782eecdb0133cc889",
+    "duration": 4,
+    "sample_rate": 48000,
+    "pd_compatibility": "0.55",
+    "pd": {
+      "command": [
+        "C:/Program Files/Pd/bin/pd.exe",
+        "-nogui",
+        "-stderr",
+        "-noprefs",
+        "-noaudio",
+        "-nomidi",
+        "-batch",
+        "-r",
+        "48000",
+        "-compatibility",
+        "0.55",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+        "-open",
+        "F:\\klang\\sfx\\kleine\\build\\trials\\busy\\render.pd"
+      ],
+      "elapsed_seconds": 0.5628488000002108,
+      "sampled_cpu_seconds": 0.515625,
+      "sampled_peak_rss_bytes": 26234880,
+      "stdout": "",
+      "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/farnell/audio/25-phone-tones/busy-pd.wav: biggest amplitude = 0.200000\n"
+    },
+    "kleine": {
+      "command": [
+        "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+        "--render",
+        "busy",
+        "F:\\klang\\sfx\\kleine\\farnell\\audio\\25-phone-tones\\busy-kleine.wav",
+        "4",
+        "48000",
+        "1"
+      ],
+      "elapsed_seconds": 0.021288299998559523,
+      "sampled_cpu_seconds": 0,
+      "sampled_peak_rss_bytes": 4902912,
+      "stdout": "{\"model\":\"busy\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.004044}\n",
+      "stderr": ""
+    }
+  },
+  "busy-archive": {
+    "source": "farnell\\pd\\PHONETONES\\busy-signal.pd",
+    "source_sha256": "c02439b9bec83fac0bcb10732e0c50421c2afbdeedb873b95c82bf2cbaf8e8c6",
+    "duration": 4,
+    "sample_rate": 48000,
+    "pd_compatibility": "0.55",
+    "pd": {
+      "command": [
+        "C:/Program Files/Pd/bin/pd.exe",
+        "-nogui",
+        "-stderr",
+        "-noprefs",
+        "-noaudio",
+        "-nomidi",
+        "-batch",
+        "-r",
+        "48000",
+        "-compatibility",
+        "0.55",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+        "-open",
+        "F:\\klang\\sfx\\kleine\\build\\trials\\busy-archive\\render.pd"
+      ],
+      "elapsed_seconds": 0.5539719000007608,
+      "sampled_cpu_seconds": 0.578125,
+      "sampled_peak_rss_bytes": 26386432,
+      "stdout": "",
+      "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/farnell/audio/25-phone-tones/busy-archive-pd.wav: biggest amplitude = 0.200000\n"
+    },
+    "kleine": {
+      "command": [
+        "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+        "--render",
+        "busy-archive",
+        "F:\\klang\\sfx\\kleine\\farnell\\audio\\25-phone-tones\\busy-archive-kleine.wav",
+        "4",
+        "48000",
+        "1"
+      ],
+      "elapsed_seconds": 0.016785899999376852,
+      "sampled_cpu_seconds": 0,
+      "sampled_peak_rss_bytes": 4894720,
+      "stdout": "{\"model\":\"busy-archive\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.002931}\n",
+      "stderr": ""
+    }
+  },
+  "ringback": {
+    "source": "farnell\\pd\\PHONETONES\\ringingtone.pd",
+    "source_sha256": "56f9c251074f4815d331ebd575c7dcace5acf5379e2cf24f1b68de99badfcb8b",
+    "duration": 12,
+    "sample_rate": 48000,
+    "pd_compatibility": "0.55",
+    "pd": {
+      "command": [
+        "C:/Program Files/Pd/bin/pd.exe",
+        "-nogui",
+        "-stderr",
+        "-noprefs",
+        "-noaudio",
+        "-nomidi",
+        "-batch",
+        "-r",
+        "48000",
+        "-compatibility",
+        "0.55",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+        "-open",
+        "F:\\klang\\sfx\\kleine\\build\\trials\\ringback\\render.pd"
+      ],
+      "elapsed_seconds": 0.6442249000028824,
+      "sampled_cpu_seconds": 0.5625,
+      "sampled_peak_rss_bytes": 28467200,
+      "stdout": "",
+      "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/farnell/audio/25-phone-tones/ringback-pd.wav: biggest amplitude = 0.116807\n"
+    },
+    "kleine": {
+      "command": [
+        "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+        "--render",
+        "ringback",
+        "F:\\klang\\sfx\\kleine\\farnell\\audio\\25-phone-tones\\ringback-kleine.wav",
+        "12",
+        "48000",
+        "1"
+      ],
+      "elapsed_seconds": 0.05663699999786331,
+      "sampled_cpu_seconds": 0.03125,
+      "sampled_peak_rss_bytes": 6438912,
+      "stdout": "{\"model\":\"ringback\",\"sample_rate\":48000,\"frames\":576000,\"gain\":1,\"processing_wall_seconds\":0.029232}\n",
+      "stderr": ""
+    }
+  },
+  "pulse": {
+    "source": "farnell\\pd\\PHONETONES\\pulsedial.pd",
+    "source_sha256": "0aa333083ada8502b8f6887ccb6225241c26af51f6b98baa7a532f0859d51ab0",
+    "duration": 4,
+    "sample_rate": 48000,
+    "pd_compatibility": "0.55",
+    "pd": {
+      "command": [
+        "C:/Program Files/Pd/bin/pd.exe",
+        "-nogui",
+        "-stderr",
+        "-noprefs",
+        "-noaudio",
+        "-nomidi",
+        "-batch",
+        "-r",
+        "48000",
+        "-compatibility",
+        "0.55",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+        "-open",
+        "F:\\klang\\sfx\\kleine\\build\\trials\\pulse\\render.pd"
+      ],
+      "elapsed_seconds": 0.6028631000008318,
+      "sampled_cpu_seconds": 0.5625,
+      "sampled_peak_rss_bytes": 26238976,
+      "stdout": "",
+      "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/farnell/audio/25-phone-tones/pulse-pd.wav: biggest amplitude = 0.047392\n"
+    },
+    "kleine": {
+      "command": [
+        "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+        "--render",
+        "pulse",
+        "F:\\klang\\sfx\\kleine\\farnell\\audio\\25-phone-tones\\pulse-kleine.wav",
+        "4",
+        "48000",
+        "1"
+      ],
+      "elapsed_seconds": 0.03173070000048028,
+      "sampled_cpu_seconds": 0,
+      "sampled_peak_rss_bytes": 4898816,
+      "stdout": "{\"model\":\"pulse\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.006901}\n",
+      "stderr": ""
+    }
+  },
+  "bell": {
+    "source": "farnell\\pd\\BELL\\striker.pd",
+    "source_sha256": "c7fb5de34ad421039cedb92d43e39a62c726dee56864631106d26ce597e9eec2",
+    "duration": 10,
+    "sample_rate": 48000,
+    "pd_compatibility": "0.55",
+    "pd": {
+      "command": [
+        "C:/Program Files/Pd/bin/pd.exe",
+        "-nogui",
+        "-stderr",
+        "-noprefs",
+        "-noaudio",
+        "-nomidi",
+        "-batch",
+        "-r",
+        "48000",
+        "-compatibility",
+        "0.55",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+        "-path",
+        "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+        "-open",
+        "F:\\klang\\sfx\\kleine\\build\\trials\\bell\\render.pd"
+      ],
+      "elapsed_seconds": 2.6270590999993146,
+      "sampled_cpu_seconds": 0.703125,
+      "sampled_peak_rss_bytes": 28188672,
+      "stdout": "",
+      "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/farnell/audio/29-telephone-bell/bell-pd.wav: biggest amplitude = 0.208684\n"
+    },
+    "kleine": {
+      "command": [
+        "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+        "--render",
+        "bell",
+        "F:\\klang\\sfx\\kleine\\farnell\\audio\\29-telephone-bell\\bell-kleine.wav",
+        "10",
+        "48000",
+        "1"
+      ],
+      "elapsed_seconds": 0.10436509999999544,
+      "sampled_cpu_seconds": 0.09375,
+      "sampled_peak_rss_bytes": 6111232,
+      "stdout": "{\"model\":\"bell\",\"sample_rate\":48000,\"frames\":480000,\"gain\":1,\"processing_wall_seconds\":0.085687}\n",
+      "stderr": ""
+    }
+  }
+}

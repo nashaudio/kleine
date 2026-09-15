@@ -1,0 +1,46 @@
+{
+  "files": {
+    "farnell\\audio\\25-phone-tones\\busy-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999955594539642,
+      "rms": 0.07043526876168121,
+      "dc": -3.2320682101337054e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\25-phone-tones\\busy-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999955594539642,
+      "rms": 0.07043526909805181,
+      "dc": -3.2321091620374794e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "farnell\\audio\\25-phone-tones\\busy-online.wav": {
+      "sample_rate": 48000,
+      "frames": 336000,
+      "seconds": 7.0,
+      "peak": 0.200042724609375,
+      "rms": 0.06919666311424104,
+      "dc": -9.398687453497023e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 16384,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 0.9999999999999993,
+  "aligned_error_rms": 3.0799113136795738e-09,
+  "identical_samples": false,
+  "relative_error_db": -147.18503929915374,
+  "rms_difference_db": 4.1480324079425646e-08,
+  "envelope_relative_error": 3.2108948247639436e-08,
+  "active_spectrum_median_abs_db": 4.168237867644438e-07
+}

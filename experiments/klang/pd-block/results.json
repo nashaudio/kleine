@@ -1,0 +1,132 @@
+{
+  "platform": "Windows-10-10.0.19045-SP0",
+  "compiler": "MSVC 19.51.36257.0, /std:c++17 /O2",
+  "lifecycle_checks": "Lifecycle, callback, deadline and 72 audio comparisons passed; buffer-only nested failure reproduced.",
+  "prototype_audio_comparisons": 72,
+  "pd_fixture_comparisons": [
+    {
+      "rate": 48000,
+      "controls": false,
+      "pd_fixture": "build/artificial/48000/pedestrians/pd.wav",
+      "pd_sha256": "84f2bbe6820f4edc64bd85e1ee9e1c1e6f31f0108beb0a5ed0ca836a3c7806db",
+      "comparison": {
+        "pd_peak": 0.19999998807907104,
+        "klang_peak": 0.19999998807907104,
+        "pd_dc": -2.364486526573728e-09,
+        "klang_dc": -2.364486526573728e-09,
+        "pd_rms": 0.09999992104081444,
+        "klang_rms": 0.09999992104081444,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      }
+    },
+    {
+      "rate": 48000,
+      "controls": true,
+      "pd_fixture": "build/artificial/48000/pedestrians-controls/pd.wav",
+      "pd_sha256": "1198e86b609cca5f71e3e86f88940f16ad06d64bc1617e1f8d98fd6a958dd6a5",
+      "comparison": {
+        "pd_peak": 0.19999997317790985,
+        "klang_peak": 0.19999997317790985,
+        "pd_dc": -3.5164305575676735e-06,
+        "klang_dc": -3.5164305575676735e-06,
+        "pd_rms": 0.09875916352343486,
+        "klang_rms": 0.09875916352343486,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      }
+    },
+    {
+      "rate": 44100,
+      "controls": false,
+      "pd_fixture": "build/artificial/44100/pedestrians/pd.wav",
+      "pd_sha256": "d7be79d87c6d36d2d118f115728e8816ba5ac83e8442ec6366b469b67a1497c1",
+      "comparison": {
+        "pd_peak": 0.19999998807907104,
+        "klang_peak": 0.19999998807907104,
+        "pd_dc": 2.888033724582148e-06,
+        "klang_dc": 2.888033724582148e-06,
+        "pd_rms": 0.10003233958382467,
+        "klang_rms": 0.10003233958382467,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      }
+    },
+    {
+      "rate": 44100,
+      "controls": true,
+      "pd_fixture": "build/artificial/44100/pedestrians-controls/pd.wav",
+      "pd_sha256": "64b08ad37f41b05121ab6c249b4cc098dd7eb01a5d9f43d24290935039e794a7",
+      "comparison": {
+        "pd_peak": 0.19999997317790985,
+        "klang_peak": 0.19999997317790985,
+        "pd_dc": 6.167672860377802e-06,
+        "klang_dc": 6.167672860377802e-06,
+        "pd_rms": 0.09872657287459492,
+        "klang_rms": 0.09872657287459492,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      }
+    }
+  ],
+  "ideal_comparisons": [
+    {
+      "rate": 48000,
+      "native_sample_timing_vs_reference": {
+        "pd_peak": 0.19999998807907104,
+        "klang_peak": 0.19999998807907104,
+        "pd_dc": -2.364486526573728e-09,
+        "klang_dc": -2.364486526573728e-09,
+        "pd_rms": 0.09999992104081444,
+        "klang_rms": 0.09999992104081444,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      }
+    },
+    {
+      "rate": 44100,
+      "native_sample_timing_vs_reference": {
+        "pd_peak": 0.19999998807907104,
+        "klang_peak": 0.19999998807907104,
+        "pd_dc": 2.888033724582148e-06,
+        "klang_dc": -3.1588862010208117e-09,
+        "pd_rms": 0.10003233958382467,
+        "klang_rms": 0.09999992150067537,
+        "level_delta_db": -0.0028153448193912536,
+        "error_rms": 0.011985011126213202,
+        "relative_error_db": -18.43003969556126,
+        "max_abs_error": 0.19991832971572876,
+        "identical_samples": false
+      }
+    }
+  ],
+  "source_sha256": {
+    "experiments/klang/pd-block/prototypes.h": "9c319f038dacf8f36b479dcc28aa71e08d22732deeeedd58734cb282c0b9956e",
+    "experiments/klang/pd-block/probe.cpp": "045030101b995794bf1cdf702e55066e1ebd2b36ad5b7557d8196964388ff58b",
+    "experiments/klang/pd-block/report.py": "c121293bf2604b1300ac9fe97ffeb0133e18e1e74799c8cc17528a7b9bffbe1b",
+    "include/klang.h": "18227099c3e3de84fbdef47aa7b7375c455acc722405af8125db5b82fb6660e2",
+    "include/klang/pd.h": "c9a7b064cfe1a9f7c8da2ac835a564a0d893bee0c7f40b41cc90382635d1906d",
+    "farnell/klang/Artificial Sounds/Pedestrians/pedestrians.k": "627953ba52d3e9b80f8dae681be469e22eeaa5f6d8e928a64ca3eb3d15a3347c"
+  },
+  "notes": [
+    "PD WAVs are cached 0.55.2 fixtures from render_artificial.py, not new PD executions.",
+    "72 comparisons: 2 rates x 2 control recipes x 3 host partitions x 6 evaluation variants.",
+    "Buffer-only automatic dispatch fails when nested, as an expected negative check.",
+    "This is evidence for the design paper, not a published primitive or performance benchmark."
+  ]
+}

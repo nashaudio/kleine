@@ -1,0 +1,516 @@
+{
+  "pd_version": "Pd-0.55.2 (\"\") compiled 12:02:42 Nov 17 2024",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "cpu": "Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz",
+  "python": "3.12.4",
+  "sample_rate": 48000,
+  "pd_block_size": 64,
+  "voices": 1,
+  "gain": 1,
+  "noise_seed": 404933,
+  "source_files": {
+    "CMakeLists.txt": "cb2ffc4518aafbcb39a60e6202c02cad12442d93569738f02e472c08e3ab4a82",
+    "CMakePresets.json": "001df3060be8a3cf351958f7c061467980905c820b1cfd2737fe1b06e90dfea3",
+    "farnell\\klang\\Artificial Sounds\\Phone Tones\\phonetones.k": "44663efb2ff9b93adebaa56903b6c4180dd5752aefc2b283cef1a88d4f9bbb7b",
+    "farnell\\klang\\Idiophonics\\Telephone Bell\\telephonebell.k": "98319dcb6f2dba514275ef86978501c12fc39adfc0814403f82e0b217f71d309",
+    "farnell\\pd\\BELL\\A0-bell-oscillator.pd": "3f25d3441761b7f05fbe8b32f3aa853186669712da646f8c4a48f23c53e7c174",
+    "farnell\\pd\\BELL\\A1-bell-envelope.pd": "3000f91e97d9dc45c33fe1ed23b651ec74496dad4d5d4dd4a28a8d5b56517242",
+    "farnell\\pd\\BELL\\A2-bell-partial.pd": "9d98ff9d09450be7caa928f5e99c9f42fe143306f7c6604683020dcf7eaa9ed4",
+    "farnell\\pd\\BELL\\A3-bell-ratio.pd": "74a6592e5ba99edebcc042b5ba079ad95bf54aa78a7f82b24c59d4718d1cbd80",
+    "farnell\\pd\\BELL\\A3-bell-scale.pd": "4dca1809afcace06654b5716d59079f8155e5398e43955ac3f02b4eedef8b6c3",
+    "farnell\\pd\\BELL\\A4-bell-telephone.pd": "fa26236abc0c9d1dbbcb083494e2769703a97ebc56b6e8c6e9d94ebdf481c364",
+    "farnell\\pd\\BELL\\bellenv.pd": "b8e21fb598953109572b1face19c31e4867f1a5343b4a89b2ea991659dda3b4f",
+    "farnell\\pd\\BELL\\bellosc.pd": "12069b67dc071e9248d0f3d76f1b50839c3f3d76efba7472bee9d1db3f6c7ab0",
+    "farnell\\pd\\BELL\\group.pd": "9149985e0e27a276c2b56eca566f90266926bccd2bb88f0031f0c293a3180a69",
+    "farnell\\pd\\BELL\\partial.pd": "c30132d53e3140a0f52a8f865c2a693a902534339c0a36fd67fa52c3ccfab7f3",
+    "farnell\\pd\\BELL\\partialgroup.pd": "87f91406fd62346017749f1a076adbb886e3f1fe12a90625952a5885cc64bd99",
+    "farnell\\pd\\BELL\\ratios.pd": "4f2e4f01f19852816ca19d8b2b0b0a243c78ddfd6789742c748c937b3ca90d77",
+    "farnell\\pd\\BELL\\striker.pd": "c7fb5de34ad421039cedb92d43e39a62c726dee56864631106d26ce597e9eec2",
+    "farnell\\pd\\BELL\\testgroup.pd": "b8ce580d9351b1c387b861de93be37e6dadc28a497f9e491fd26bab280d0fe51",
+    "farnell\\pd\\PHONETONES\\busy-signal.pd": "c02439b9bec83fac0bcb10732e0c50421c2afbdeedb873b95c82bf2cbaf8e8c6",
+    "farnell\\pd\\PHONETONES\\dialtone1.pd": "d217affc21abc006916a6ccb8a03f8b9a16f93631aa47c7d42758db9025b1b61",
+    "farnell\\pd\\PHONETONES\\dialtone2.pd": "998b308aa82859c53b12084f74af564a207aec1229d9c40bbf83c7f61df7044f",
+    "farnell\\pd\\PHONETONES\\pulsedial.pd": "0aa333083ada8502b8f6887ccb6225241c26af51f6b98baa7a532f0859d51ab0",
+    "farnell\\pd\\PHONETONES\\ringingtone.pd": "56f9c251074f4815d331ebd575c7dcace5acf5379e2cf24f1b68de99badfcb8b",
+    "farnell\\pd\\PHONETONES\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535",
+    "farnell\\reference\\p02\\busy-signal.pd": "a5191f81b84e5197a5efe1d51ee94435c8ff52ed6de49cb782eecdb0133cc889",
+    "farnell\\reference\\p02\\dialtone1.pd": "d945e91d814b8b0be298e61217a03f750e71a242004e3f976c8b1b5589728ab9",
+    "farnell\\render.h": "8e518a6c758e7e5e5ad04a86569034dcebe5d16712d277674be240cfbf69ce4e",
+    "include\\klang\\audio.h": "ba54814786b187deaced768a55afda4377ddbf31cb8b826a4baee9b6fce7428f",
+    "include\\klang\\engine.h": "e129f68267475feec1646250596c1269dda87483429a0372cd6abcf91a5c94d7",
+    "include\\klang\\pd.h": "f738c7ef79c9313ca10299b6adbac6c4d562c346af5ebc3a52124d524a668b08",
+    "include\\klang.h": "18227099c3e3de84fbdef47aa7b7375c455acc722405af8125db5b82fb6660e2",
+    "kleine.cpp": "9900942e2337b7600acdaa7afb83ef53622b673e943847c9def5421e2f529ca5",
+    "kleine.h": "7ee27e017cdecee0f8c0ab0baace4ed3d296433f648c7b79a3ac8a418519c65c",
+    "tests\\pd\\bp.pd": "897c4495cca243604b8d071616f2d83fbd9863cec0fd36772deecdd15b42a643",
+    "tests\\pd\\hip.pd": "06b215b91176c0260a3f2c021bacb2c05734e70dfa76f70bf7393a0460f44d01",
+    "tests\\pd\\lop.pd": "9af71f1be06e8087d4ca014aa68f830b1be6487d1360a09a2918ef796589ed9e",
+    "tests\\pd\\noise.pd": "c957948965b65eb34dbac4680a9589afa8475192d29498361802d55e8c6bb676",
+    "tests\\pd\\osc-fm-offset.pd": "8a722428d1c180bd7221c406575c594703f6258084e0e8819c497ae23c6f1827",
+    "tests\\pd\\osc-fm.pd": "545141476aa5c7e8b9d87b5b4a5fa66b4c9873b5d0da0132d5eb7e62cfb3f325",
+    "tests\\pd\\osc.pd": "ade0c4b3f7c751a3aee4e4df682d4ed115cf61c23acbc139aef74c969b2ab30b",
+    "tests\\pd\\primitive.h": "db5a5bd50356eab4b67a54db03dfabde24a13b994f19401f6e5f8fe043b09696",
+    "tests\\pd\\vline-decay.pd": "9e542c9e4ac23eb740387371c2e734e89b7af7c628b4e9610b9fdc19bb065e7b",
+    "tools\\check_pd_primitives.py": "36808f29e94f9c631a1e98043928631fa9d5f51171af71707139bfcf972a964b",
+    "tools\\check_reference_levels.py": "c0839d9eefcba91823b37e458765c3eb3bf9bb6f1866ebcbdf47d4c0b5f35e33",
+    "tools\\compare_audio.py": "11d642d666355b12417a0168daeab1d33948f2e5b0d448a35f5a4c24f782f19d",
+    "tools\\package_farnell.py": "4462dafe1970fc72a0f44085d625d7cf5cbf692dad18eb506e59d710078fc67b",
+    "tools\\render_farnell.py": "f4134c02826ed08ea84d0327b75d1600d1d6041c8ecc0c4e711a3a16654e74b4"
+  },
+  "upstream": {
+    "02/phonetones.wav": {
+      "url": "https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/8375/designing_sound.zip/p02/phonetones.wav",
+      "sha256": "61b0fc766cc1a6453ef1fa9cce070d890712659a94b25b64cbbb06071795d810",
+      "bytes": 6521372,
+      "local_mirror": "farnell\\zip\\p02\\phonetones.wav"
+    },
+    "06/telephonebell.wav": {
+      "url": "https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/8375/designing_sound.zip/p06/telephonebell.wav",
+      "sha256": "9a6226e2f849cd5e5b95d96243eee230bc5572ffe88fd95f90afe230a37c540f",
+      "bytes": 2704684,
+      "local_mirror": "farnell\\zip\\p06\\telephonebell.wav"
+    }
+  },
+  "excerpts": [
+    {
+      "file": "25-phone-tones\\dial-web-online.wav",
+      "source": "02/phonetones.wav",
+      "start_seconds": 1,
+      "stop_seconds": 5,
+      "gain": 1,
+      "channels": "original stereo"
+    },
+    {
+      "file": "25-phone-tones\\pulse-online.wav",
+      "source": "02/phonetones.wav",
+      "start_seconds": 7.5,
+      "stop_seconds": 14.5,
+      "gain": 1,
+      "channels": "original stereo"
+    },
+    {
+      "file": "25-phone-tones\\ringback-online.wav",
+      "source": "02/phonetones.wav",
+      "start_seconds": 14.5,
+      "stop_seconds": 25,
+      "gain": 1,
+      "channels": "original stereo"
+    },
+    {
+      "file": "25-phone-tones\\busy-online.wav",
+      "source": "02/phonetones.wav",
+      "start_seconds": 26,
+      "stop_seconds": 33,
+      "gain": 1,
+      "channels": "original stereo"
+    },
+    {
+      "file": "29-telephone-bell\\bell-online.wav",
+      "source": "06/telephonebell.wav",
+      "start_seconds": 0,
+      "stop_seconds": 4.8,
+      "gain": 1,
+      "channels": "original stereo"
+    }
+  ],
+  "montages": [
+    {
+      "file": "25-phone-tones\\phone-tones-pd.wav",
+      "gap_seconds": 0.5,
+      "timeline": [
+        {
+          "case": "dial-web",
+          "start_seconds": 0.0,
+          "stop_seconds": 4.0
+        },
+        {
+          "case": "pulse",
+          "start_seconds": 4.5,
+          "stop_seconds": 8.5
+        },
+        {
+          "case": "ringback",
+          "start_seconds": 9.0,
+          "stop_seconds": 21.0
+        },
+        {
+          "case": "busy",
+          "start_seconds": 21.5,
+          "stop_seconds": 25.5
+        }
+      ]
+    },
+    {
+      "file": "25-phone-tones\\phone-tones-kleine.wav",
+      "gap_seconds": 0.5,
+      "timeline": [
+        {
+          "case": "dial-web",
+          "start_seconds": 0.0,
+          "stop_seconds": 4.0
+        },
+        {
+          "case": "pulse",
+          "start_seconds": 4.5,
+          "stop_seconds": 8.5
+        },
+        {
+          "case": "ringback",
+          "start_seconds": 9.0,
+          "stop_seconds": 21.0
+        },
+        {
+          "case": "busy",
+          "start_seconds": 21.5,
+          "stop_seconds": 25.5
+        }
+      ]
+    },
+    {
+      "file": "25-phone-tones\\phone-tones-online.wav",
+      "gap_seconds": 0.5,
+      "timeline": [
+        {
+          "case": "dial-web",
+          "start_seconds": 0.0,
+          "stop_seconds": 4.0
+        },
+        {
+          "case": "pulse",
+          "start_seconds": 4.5,
+          "stop_seconds": 11.5
+        },
+        {
+          "case": "ringback",
+          "start_seconds": 12.0,
+          "stop_seconds": 22.5
+        },
+        {
+          "case": "busy",
+          "start_seconds": 23.0,
+          "stop_seconds": 30.0
+        }
+      ]
+    }
+  ],
+  "audio": {
+    "25-phone-tones\\busy-archive-kleine.wav": {
+      "sha256": "fab1d961b3b12ae34e65ddcbcdfd9d07dda90c0a602a80ccaa800d2194d27dd8",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.20000000298023224,
+      "rms": 0.07071062136541442,
+      "dc": -3.566814494337124e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\busy-archive-pd.wav": {
+      "sha256": "d1d146b91d46aa4d782a429b04f07adf6c7093a8b2a5b6218ed9264531282b95",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.20000000298023224,
+      "rms": 0.07071062136541442,
+      "dc": -3.566814494337124e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\busy-kleine.wav": {
+      "sha256": "7373fae3bbd03f02120b2633d17da625caa975c0d3a138796b6286568f699c3d",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999955594539642,
+      "rms": 0.07043526909805181,
+      "dc": -3.2321091620374794e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\busy-online.wav": {
+      "sha256": "fe251bb1692d55591ca073f88bd3fa2a92e5d03d4fe1bdfdee8dcb69f6e1930d",
+      "channels": 2,
+      "subtype": "PCM_16",
+      "sample_rate": 48000,
+      "frames": 336000,
+      "seconds": 7.0,
+      "peak": 0.200042724609375,
+      "rms": 0.06919666311424104,
+      "dc": -9.398687453497023e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\busy-pd.wav": {
+      "sha256": "2d29b55e9462977214d322c41d1555b057cc1fd69116ed49e24873706d39a671",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.19999955594539642,
+      "rms": 0.07043526876168121,
+      "dc": -3.2320682101337054e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\dial-kleine.wav": {
+      "sha256": "0e372e3bca0b4aba194bd4f9c4a3bef4caf68d4feb9d7c719adcbb612c802df0",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.25,
+      "rms": 0.12499988643189652,
+      "dc": -4.378854403815542e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\dial-line-kleine.wav": {
+      "sha256": "a6af71d70390f7f7ff38777d67343b3a53d8ce7f8eaa20089d6e8b334f9c3894",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.13675495982170105,
+      "rms": 0.0783204551953197,
+      "dc": -8.33898057968933e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\dial-line-pd.wav": {
+      "sha256": "82e9fb5160c99df1908c1bcedcab02b62e9065d36ef9505c8e6341bff50d8ed5",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.136755108833313,
+      "rms": 0.07832055914689491,
+      "dc": -8.338915634908516e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\dial-pd.wav": {
+      "sha256": "a16241dea7bd42086fcf22c0d3f92dc7d153decd6dc32e8933c33e36800c5858",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.25,
+      "rms": 0.12499988643189652,
+      "dc": -4.378854403815542e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\dial-web-kleine.wav": {
+      "sha256": "bdf51c572610dc9ddd8e065d927145a54e9ffd023fe3dc6de34292c00b88f2b6",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.25,
+      "rms": 0.12499988058088772,
+      "dc": -6.917265422975068e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\dial-web-online.wav": {
+      "sha256": "8e6c08093c2249bb60b36f28ba0f62decd33b18b74fae0833e09cc9896dbb9ef",
+      "channels": 2,
+      "subtype": "PCM_16",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.25006103515625,
+      "rms": 0.12499670042473032,
+      "dc": 6.642341613769531e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\dial-web-pd.wav": {
+      "sha256": "a2a988059e4671ef2b9507ecdd78165916d4cd2cf316b10bdf11b34c278bead0",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.25,
+      "rms": 0.12499988058088772,
+      "dc": -6.917265422975068e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\phone-tones-kleine.wav": {
+      "sha256": "1709b838a25faf8b66f77288a5e4dadfaf1adb05e04acc529fe7792c47d35d71",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 1224000,
+      "seconds": 25.5,
+      "peak": 0.25,
+      "rms": 0.06556577338806843,
+      "dc": -1.8713547687938224e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\phone-tones-online.wav": {
+      "sha256": "0dc5b29738374b7a3e74cbef52a38e01f9e36dc4fbc29c8da65fe2182845f396",
+      "channels": 2,
+      "subtype": "PCM_16",
+      "sample_rate": 48000,
+      "frames": 1440000,
+      "seconds": 30.0,
+      "peak": 0.25006103515625,
+      "rms": 0.06438992872724109,
+      "dc": -1.3203091091579862e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\phone-tones-pd.wav": {
+      "sha256": "215d50c7cf37ca6a0c12e9392f1465538922dc25392dc38818761edaa0ae54b7",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 1224000,
+      "seconds": 25.5,
+      "peak": 0.25,
+      "rms": 0.06556579641010964,
+      "dc": -1.8713524058852752e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\pulse-kleine.wav": {
+      "sha256": "6bb63a4ca43310a75cbc9786abce7fa1e0fd57ee6685e85fcfdb04df76c991cd",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.047391366213560104,
+      "rms": 0.0039565502619693165,
+      "dc": -2.700495637727775e-12,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\pulse-online.wav": {
+      "sha256": "f92541508a08578f4ba0641cbf904c522eb22fbddfcfa9283c50c51f8bf47aca",
+      "channels": 2,
+      "subtype": "PCM_16",
+      "sample_rate": 48000,
+      "frames": 336000,
+      "seconds": 7.0,
+      "peak": 0.09356689453125,
+      "rms": 0.008345194820816748,
+      "dc": -8.628481910342262e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\pulse-pd.wav": {
+      "sha256": "b02e7eed6884a87d72b3f6c1b37b8990cea1929ff2ff52868fd94ed3cdde60ad",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.04739164933562279,
+      "rms": 0.003956559144023836,
+      "dc": 7.35747364472653e-13,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\ringback-kleine.wav": {
+      "sha256": "28b3d469b2fb2291837d302149943fc484bf40c0bdb05fa61e15007346263ac0",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 576000,
+      "seconds": 12.0,
+      "peak": 0.11680632084608078,
+      "rms": 0.04762194438742652,
+      "dc": -2.896952507701509e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\ringback-online.wav": {
+      "sha256": "fda2569c018b96a5c336cfe62bce548dc94dc9f68f2f8f2c1d5df1e3812e31a1",
+      "channels": 2,
+      "subtype": "PCM_16",
+      "sample_rate": 48000,
+      "frames": 504000,
+      "seconds": 10.5,
+      "peak": 0.11822509765625,
+      "rms": 0.05152941271739344,
+      "dc": 2.0587255084325395e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "25-phone-tones\\ringback-pd.wav": {
+      "sha256": "2a139c15930e69a7ede954fa448f9cf904c4f66a295894edd3b43e620553acda",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 576000,
+      "seconds": 12.0,
+      "peak": 0.11680681258440018,
+      "rms": 0.047622011662708845,
+      "dc": -2.896962282569771e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "29-telephone-bell\\bell-kleine.wav": {
+      "sha256": "3d5493fde8015f83df1bef807f0fcacf46c0f78c756e08ac8fb8ec8430f52932",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 480000,
+      "seconds": 10.0,
+      "peak": 0.20868362486362457,
+      "rms": 0.02189470956815514,
+      "dc": 8.901685393604646e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "29-telephone-bell\\bell-online.wav": {
+      "sha256": "a0f4c2cfb550632ac5bff3428212e114269b67d8b25e578b7a516cc8309dfa92",
+      "channels": 2,
+      "subtype": "PCM_16",
+      "sample_rate": 48000,
+      "frames": 230400,
+      "seconds": 4.8,
+      "peak": 0.399627685546875,
+      "rms": 0.044282539211561917,
+      "dc": -5.097462071312798e-05,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "29-telephone-bell\\bell-pd.wav": {
+      "sha256": "2dbc2a59eadcd76f1f832bf4afbbd16fcf43da877c780de53ab993450c36c909",
+      "channels": 1,
+      "subtype": "FLOAT",
+      "sample_rate": 48000,
+      "frames": 480000,
+      "seconds": 10.0,
+      "peak": 0.20868384838104248,
+      "rms": 0.021894749879290364,
+      "dc": 8.901908578417973e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "notes": [
+    "No normalisation, resampling, fades or post-processing.",
+    "Online performance timings and oscillator/noise states differ; residual metrics compare PD and Kleine only.",
+    "CPU and peak RSS are sampled every 5 ms for the whole process, including startup and I/O; lower bounds.",
+    "Kleine processing_wall_seconds measures Processor::process only, including per-block preparation."
+  ]
+}

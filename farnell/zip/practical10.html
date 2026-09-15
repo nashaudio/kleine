@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta name="resource-type" content="document" />
+
+ <meta name="language" content="English" />
+
+ <meta name="description" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <meta name="keywords" content="sound design book andy farnell game audio film television radio programming DSP sound effects music Pure Data Foley synthesis procedural audio behavioural audio virtual reality SFX physical modelling" />
+
+ <title>
+  ASPress - Designing Sound -  Practical 10: Boing
+ </title>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+</head>
+
+
+
+<body class="page0">
+
+
+
+ <div id="wrapper"> <!-- Begin Wrapper -->
+
+
+
+  <div id="header"> <!-- Begin Header -->
+
+  <img src="img/asp_banner.gif" width="1024" height="128" alt="Applied Scientific Press" />
+
+ </div> <!-- End Header -->
+
+
+  <div id="subheader"> <!-- Begin Sub Header -->
+
+  <img src="ds/img/ds_banner.gif" width="1024" height="128" alt="Designing Sound - Procedural Audio for Games and Film." />
+
+  <h1>
+   Code examples for &ldquo;Designing Sound&rdquo; textbook
+  </h1>
+
+ </div> <!-- End Sub Header -->
+
+
+
+ <div id="rightcolumn"> <!-- Begin Right Column -->
+
+ <h2>Practical 10: Boing</h2>
+
+ <h2>Pure Data</h2>
+
+<h3>Boingy effect</h3>
+<pre>
+#N canvas 322 177 419 652 10;
+#X obj 89 480 noise~;
+#X obj 87 623 dac~;
+#X obj 89 502 *~;
+#X obj 10 5 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1 -1
+;
+#X msg 210 209 0;
+#X obj 145 282 *~;
+#X obj 145 231 phasor~ 20;
+#X obj 145 208 *~ -1;
+#X obj 145 348 *~;
+#X obj 88 576 hip~ 90;
+#X obj 145 121 *~ 6;
+#N canvas 78 280 337 375 clamped-modes 0;
+#X msg 98 30 1 6.267 17.55 34.39;
+#X obj 113 116 *~;
+#X obj 98 51 unpack f f f f;
+#X obj 144 116 *~;
+#X obj 175 115 *~;
+#X obj 82 153 cos~;
+#X obj 113 153 cos~;
+#X obj 144 153 cos~;
+#X obj 175 153 cos~;
+#X obj 82 116 *~;
+#X obj 144 334 *~;
+#X obj 82 177 *~ 0.5;
+#X obj 113 196 *~ 0.25;
+#X obj 144 215 *~ 0.125;
+#X obj 175 234 *~ 0.0625;
+#X obj 8 6 inlet~ drive;
+#X obj 176 267 inlet env;
+#X obj 98 6 loadbang;
+#X text 244 27 Olsen pp. 76;
+#X msg 176 288 1500;
+#N canvas 0 0 186 198 quenv 0;
+#X msg 8 28 0 \, 1 0 0 \, 0 \$1 0;
+#X obj 8 50 vline~;
+#X obj 8 75 *~;
+#X obj 8 5 inlet;
+#X obj 8 126 outlet~;
+#X obj 8 101 *~;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 5 0;
+#X connect 2 0 5 1;
+#X connect 3 0 0 0;
+#X connect 5 0 4 0;
+#X restore 176 309 pd quenv;
+#X obj 143 356 outlet~;
+#X connect 0 0 2 0;
+#X connect 1 0 6 0;
+#X connect 2 0 9 1;
+#X connect 2 1 1 1;
+#X connect 2 2 3 1;
+#X connect 2 3 4 1;
+#X connect 3 0 7 0;
+#X connect 4 0 8 0;
+#X connect 5 0 11 0;
+#X connect 6 0 12 0;
+#X connect 7 0 13 0;
+#X connect 8 0 14 0;
+#X connect 9 0 5 0;
+#X connect 10 0 21 0;
+#X connect 11 0 10 0;
+#X connect 12 0 10 0;
+#X connect 13 0 10 0;
+#X connect 14 0 10 0;
+#X connect 15 0 1 0;
+#X connect 15 0 3 0;
+#X connect 15 0 4 0;
+#X connect 15 0 9 0;
+#X connect 16 0 19 0;
+#X connect 17 0 0 0;
+#X connect 19 0 20 0;
+#X connect 20 0 10 1;
+#X restore 240 312 pd clamped-modes;
+#N canvas 0 0 478 298 free-modes 0;
+#X obj 107 53 unpack f f f f f f;
+#X obj 4 127 inlet~;
+#X obj 155 249 outlet~;
+#X msg 107 32 1 2.7565 5.40392 8.93295 13.3443 18.6379;
+#X obj 107 9 loadbang;
+#X text 177 10 from Benson pp.128;
+#X obj 356 120 inlet res;
+#X obj 4 206 vcf~ 1 1;
+#X obj 64 206 vcf~ 1 1;
+#X obj 124 206 vcf~ 1 1;
+#X obj 184 206 vcf~ 1 1;
+#X obj 244 206 vcf~ 1 1;
+#X obj 305 206 vcf~ 1 1;
+#X obj 89 124 *~;
+#X obj 119 124 *~;
+#X obj 149 124 *~;
+#X obj 179 124 *~;
+#X obj 209 124 *~;
+#X obj 239 124 *~;
+#X obj 35 37 inlet~;
+#X connect 0 0 13 1;
+#X connect 0 1 14 1;
+#X connect 0 2 15 1;
+#X connect 0 3 16 1;
+#X connect 0 4 17 1;
+#X connect 0 5 18 1;
+#X connect 1 0 7 0;
+#X connect 1 0 8 0;
+#X connect 1 0 9 0;
+#X connect 1 0 10 0;
+#X connect 1 0 11 0;
+#X connect 1 0 12 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 6 0 7 2;
+#X connect 6 0 8 2;
+#X connect 6 0 9 2;
+#X connect 6 0 10 2;
+#X connect 6 0 11 2;
+#X connect 6 0 12 2;
+#X connect 7 0 2 0;
+#X connect 8 0 2 0;
+#X connect 9 0 2 0;
+#X connect 10 0 2 0;
+#X connect 11 0 2 0;
+#X connect 12 0 2 0;
+#X connect 13 0 7 1;
+#X connect 14 0 8 1;
+#X connect 15 0 9 1;
+#X connect 16 0 10 1;
+#X connect 17 0 11 1;
+#X connect 18 0 12 1;
+#X connect 19 0 13 0;
+#X connect 19 0 14 0;
+#X connect 19 0 15 0;
+#X connect 19 0 16 0;
+#X connect 19 0 17 0;
+#X connect 19 0 18 0;
+#X restore 89 548 pd free-modes;
+#X obj 89 524 lop~ 4000;
+#X obj 145 187 +~;
+#X obj 210 186 r trig;
+#X obj 10 24 s trig;
+#X obj 347 289 r trig;
+#X obj 131 26 r trig;
+#X msg 175 526 80;
+#X obj 175 506 loadbang;
+#X obj 240 360 *~ 0.2;
+#X obj 88 597 *~ 4;
+#X msg 131 47 7000;
+#X obj 12 80 sig~;
+#X obj 12 197 s~ freq;
+#X obj 161 144 r~ freq;
+#X obj 161 165 /~ 4;
+#X obj 164 389 r~ freq;
+#X obj 147 410 *~ 0.1;
+#X obj 132 431 *~;
+#X obj 131 452 +~;
+#X obj 12 175 +~;
+#X obj 29 153 *~;
+#X obj 45 135 nbx 5 12 1 6 0 1 empty empty vibrato 0 -6 1 8 -262144
+-1 -1 6 256;
+#X obj 12 63 nbx 5 12 20 800 0 1 empty empty frequency 0 -6 1 8 -262144
+-1 -1 426 256;
+#X obj 29 100 osc~ 5;
+#X obj 131 93 *~ 3;
+#N canvas 0 0 243 468 env16p 0;
+#X msg 8 28 0 \, 1 0 0 \, 0 \$1 0;
+#X obj 8 50 vline~;
+#X obj 8 75 *~;
+#X obj 8 5 inlet;
+#X obj 8 211 outlet~;
+#X obj 8 101 *~;
+#X obj 8 125 *~;
+#X obj 8 147 *~;
+#X obj 8 167 *~;
+#X obj 8 189 *~;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 5 0;
+#X connect 2 0 5 1;
+#X connect 3 0 0 0;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+#X connect 6 0 7 0;
+#X connect 6 0 7 1;
+#X connect 7 0 8 0;
+#X connect 7 0 8 1;
+#X connect 8 0 9 0;
+#X connect 8 0 9 1;
+#X connect 9 0 4 0;
+#X restore 131 68 pd env16p;
+#X connect 0 0 2 0;
+#X connect 2 0 13 0;
+#X connect 3 0 16 0;
+#X connect 4 0 6 1;
+#X connect 5 0 8 0;
+#X connect 6 0 11 0;
+#X connect 6 0 5 0;
+#X connect 6 0 5 1;
+#X connect 7 0 6 0;
+#X connect 8 0 2 1;
+#X connect 9 0 22 0;
+#X connect 10 0 14 0;
+#X connect 11 0 21 0;
+#X connect 11 0 8 1;
+#X connect 12 0 9 0;
+#X connect 13 0 12 0;
+#X connect 14 0 7 0;
+#X connect 15 0 4 0;
+#X connect 17 0 11 1;
+#X connect 18 0 23 0;
+#X connect 19 0 12 2;
+#X connect 20 0 19 0;
+#X connect 21 0 9 0;
+#X connect 22 0 1 0;
+#X connect 22 0 1 1;
+#X connect 23 0 38 0;
+#X connect 24 0 32 0;
+#X connect 26 0 27 0;
+#X connect 27 0 14 1;
+#X connect 28 0 29 0;
+#X connect 28 0 31 1;
+#X connect 29 0 30 1;
+#X connect 30 0 31 0;
+#X connect 31 0 12 1;
+#X connect 32 0 25 0;
+#X connect 33 0 32 1;
+#X connect 34 0 33 1;
+#X connect 35 0 24 0;
+#X connect 36 0 33 0;
+#X connect 37 0 10 0;
+#X connect 37 0 30 0;
+#X connect 38 0 37 0;
+</pre>
+<p>Download <a href="p10/twang.pd">twang.pd</a>.</p>
+
+<h2>Audio</h2>
+<h3>Boing</h3>
+<p>Download <a href="p10/boing.wav">boing.wav</a>.</p>
+
+
+
+ </div> <!-- End Right Column -->
+
+
+
+ <div id="leftcolumn"> <!-- Begin Left Column -->
+
+
+
+   <ul class="nobullet2">  <!-- Begin Idex -->
+
+   <li><strong>Index</strong>
+    <ul>
+     <li><a href="index.html">Tarball</a></li>
+     <li><a href="http://puredata.info/">Pure Data</a></li>
+     <li><a href="https://mitpress.mit.edu/9780262014410/">Designing Sound - Book</a></li>
+    </ul>
+   </li>
+   
+   <li>Chapters 9 to 14
+    <ul>
+     <li><strong>Introductory Pure Data</strong></li>
+     <li><span class="numeral leftspace">9: </span><a href="chapter09.html">Starting with Pure Data</a></li>
+     <li><span class="numeral">10: </span><a href="chapter10.html">Using Pure Data</a></li>
+     <li><span class="numeral">11: </span><a href="chapter11.html">Pure Data Audio</a></li>
+     <li><span class="numeral">12: </span><a href="chapter12.html">Abstraction</a></li>
+     <li><span class="numeral">13: </span><a href="chapter13.html">Shaping Sound</a></li>
+     <li><span class="numeral">14: </span><a href="chapter14.html">Pure Data Essentials</a></li>
+    </ul>
+   </li>
+
+   <li>Chapters 17 to 21
+    <ul>
+     <li><strong>Techniques</strong></li>
+     <li><span class="numeral">17: </span><a href="chapter17.html">Summation</a></li>
+     <li><span class="numeral">18: </span><a href="chapter18.html">Tables</a></li>
+     <li><span class="numeral">19: </span><a href="chapter19.html">Non-linear</a></li>
+     <li><span class="numeral">20: </span><a href="chapter20.html">Modulation</a></li>
+     <li><span class="numeral">21: </span><a href="chapter21.html">Granular Methods</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 1
+    <ul>
+     <li><strong>Artificial Sounds</strong></li>
+     <li><span class="numeral leftspace">1: </span><a href="practical01.html">Pedestrian Crossing</a></li>
+     <li><span class="numeral leftspace">2: </span><a href="practical02.html">Telephone Siganlling Tones</a></li>
+     <li><span class="numeral leftspace">3: </span><a href="practical03.html">DTMF Dialling Tones</a></li>
+     <li><span class="numeral leftspace">4: </span><a href="practical04.html">Alarm and Menu Sounds</a></li>
+     <li><span class="numeral leftspace">5: </span><a href="practical05.html">Police Siren</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 2
+    <ul>
+     <li><strong>Idiophonics</strong></li>
+     <li><span class="numeral leftspace">6: </span><a href="practical06.html">Telephone Bell</a></li>
+     <li><span class="numeral leftspace">7: </span><a href="practical07.html">Bouncing Ball</a></li>
+     <li><span class="numeral leftspace">8: </span><a href="practical08.html">Rolling Tin Can</a></li>
+     <li><span class="numeral leftspace">9: </span><a href="practical09.html">Creaking Door</a></li>
+     <li><span class="numeral">10: </span><a href="practical10.html">Boingy Sound</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 3
+    <ul>
+     <li><strong>Nature</strong></li>
+     <li><span class="numeral">11: </span><a href="practical11.html">Fire</a></li>
+     <li><span class="numeral">12: </span><a href="practical12.html">Bubbles</a></li>
+     <li><span class="numeral">13: </span><a href="practical13.html">Running Water</a></li>
+     <li><span class="numeral">14: </span><a href="practical14.html">Pouring</a></li>
+     <li><span class="numeral">15: </span><a href="practical15.html">Rain</a></li>
+     <li><span class="numeral">16: </span><a href="practical16.html">Electricity</a></li>
+     <li><span class="numeral">17: </span><a href="practical17.html">Thunder</a></li>
+     <li><span class="numeral">18: </span><a href="practical18.html">Wind</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 4
+    <ul>
+     <li><strong>Machines</strong></li>
+     <li><span class="numeral">19: </span><a href="practical19.html">Switches</a></li>
+     <li><span class="numeral">20: </span><a href="practical20.html">Clocks</a></li>
+     <li><span class="numeral">21: </span><a href="practical21.html">Motors</a></li>
+     <li><span class="numeral">22: </span><a href="practical22.html">Cars</a></li>
+     <li><span class="numeral">23: </span><a href="practical23.html">Fans</a></li>
+     <li><span class="numeral">24: </span><a href="practical24.html">Jet Engine</a></li>
+     <li><span class="numeral">25: </span><a href="practical25.html">Helicopter</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 5
+    <ul>
+     <li><strong>Lifeforms</strong></li>
+     <li><span class="numeral">26: </span><a href="practical26.html">Footsteps</a></li>
+     <li><span class="numeral">27: </span><a href="practical27.html">Insects</a></li>
+     <li><span class="numeral">28: </span><a href="practical28.html">Birds</a></li>
+     <li><span class="numeral">29: </span><a href="practical29.html">Mammals</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 6
+    <ul>
+     <li><strong>Project Mayhem</strong></li>
+     <li><span class="numeral">30: </span><a href="practical30.html">Guns</a></li>
+     <li><span class="numeral">31: </span><a href="practical31.html">Explosions</a></li>
+     <li><span class="numeral">32: </span><a href="practical32.html">Rocket Launcher</a></li>
+    </ul>
+   </li>
+
+   <li>Practical Series 7
+    <ul>
+     <li><strong>Science Fiction</strong></li>
+     <li><span class="numeral">33: </span><a href="practical33.html">Transporter</a></li>
+     <li><span class="numeral">34: </span><a href="practical34.html">R2D2</a></li>
+     <li><span class="numeral">35: </span><a href="practical35.html">Red Alert</a></li>
+    </ul>
+   </li>
+
+  </ul>  <!-- End Index -->
+
+
+ </div> <!-- End Left Column -->
+
+
+
+  <div id="footer"> <!-- Begin Footer -->
+
+  <p>
+
+   <a href="http://www.w3.org/WAI/WCAG2AAA-Conformance">
+    <img src="img/wai-aaa-lvl2.gif" alt="Level AAA Conformance to Web Content Accessibility Guidelines 2.0" title="This site conforms to the Triple A standard of the W3C-WAI Web Content Accessibility Guidelines version 2.0 " height="15" width="80" />
+   </a>
+
+   <a href="http://validator.w3.org/check?uri=referer">
+    <img src="img/xhtml-10.png" alt="Valid XHTML 1.0 Strict" title="This side is valid XHTML 1.0 Strict" height="15" width="80" />
+   </a>
+
+   <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img src="img/css-21.png" alt="Valid CSS 2.1" title="This site is built with valid CSS 2.1" height="15" width="80" />
+   </a>
+
+    <a href="http://www.section508.gov/">
+    <img src="img/sec508.gif" alt="Conforms to US Section 508 Accessibility Guidlines" title="This site conforms to the US Government Section 508 Accessibility Guidelines" height="15" width="80" />
+   </a>
+
+  </p>
+
+ </div> <!-- End Footer -->
+
+</div><!-- End Wrapper -->
+
+
+
+</body>
+
+
+
+</html>

@@ -23,6 +23,7 @@ target_compile_options(kleine PRIVATE
 
 # Disable CRT insecure warnings for MSVC compilers.
 target_compile_definitions(kleine PRIVATE
+    $<$<PLATFORM_ID:Windows>:NOMINMAX>
     $<$<C_COMPILER_ID:MSVC>:_CRT_SECURE_NO_WARNINGS>
     $<$<CXX_COMPILER_ID:MSVC>:_CRT_SECURE_NO_WARNINGS>
 )
