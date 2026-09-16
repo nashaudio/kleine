@@ -41,20 +41,25 @@ BUILTINS = ARITHMETIC | CONTROL | GUI | HOST | set("osc~ hip~ lop~ bp~ noise~ vc
 # Bundled Vanilla abstractions are dependencies, not C primitives.
 BUNDLED = {"hilbert~", "rev3~"}
 PORTS = {
+    "delay": ("Tested port", "pd::del", "Complete object messages/tempo units within sample polling: 52 isolated control cases. Shared-clock ordering, synchronous feedback and block delivery are separate; tests/pd/del.md."),
+    "metro": ("Partial port", "pd::metro", "Reusable sample-timed polling: 16 event-count fixtures. Tempo units, synchronous outlet feedback and block delivery remain; tests/pd/metro.md."),
     "osc~": ("Tested port", "pd::osc", "Phase, negative frequency and FM fixtures; exact decoded samples in tested cases."),
     "hip~": ("Tested port", "pd::hip", "Impulse / zero cutoff / high cutoff / legacy normalisation fixtures."),
     "noise~": ("Tested port", "pd::noise", "Explicit-seed sample parity; default global seed order remains an integration concern."),
-    "lop~": ("Tested port", "pd::lop", "100 Hz impulse at two rates; broader modulation/reset coverage remains."),
-    "bp~": ("Tested port", "pd::bpf", "Two frequency/Q fixtures; keep existing name until reviewed."),
-    "vcf~": ("Present, unvalidated", "pd::vcf", "Audit real/imaginary outlets, Q, frequency modulation and coefficient refresh; K-005."),
-    "vline~": ("Limited model helper", "TelephoneBell::Decay", "Only immediate attack plus linear decay is tested; no queued/delayed ramp contract. K-007."),
-    "delread~": ("Limited model helper", "TelephoneBell::Delay / Police::Environment", "Fixed taps and routing delays tested; arbitrary delay/control/reset semantics remain. K-008."),
-    "delwrite~": ("Limited model helper", "TelephoneBell::Delay / Police::Environment", "Police feedback impulse is sample-identical at both rates; no general named-buffer port. K-008."),
+    "lop~": ("Tested port", "pd::lop", "0.1/20/100 Hz impulse fixtures at both rates; source arithmetic retained."),
+    "bp~": ("Tested port", "pd::bpf", "Four frequency/Q impulse fixtures, including Q123/Q400; source constants and arithmetic retained."),
+    "vcf~": ("Tested port", "pd::vcf", "PD table/gain arithmetic; real/imaginary FM and Q0/Q80 fixtures at both rates. K-005."),
+    "samphold~": ("Tested port", "pd::samphold", "Seeded noise sampled on a descending phasor edge at both rates."),
+    "rzero~": ("Tested port", "pd::rzero", "Seeded first-difference fixture at coefficient 0.99, both rates."),
+    "vline~": ("Tested port", "pd::vline", "Complete float/list, cold-inlet, stop and queue contract: 50 isolated cases. Explicit host clock sync; pure models remain sample-timed. tests/pd/vline.md. K-007."),
+    "delread~": ("Limited model helper", "TelephoneBell::Delay / Police::Environment / SampleDelay", "Pure fixed taps now omit implicit block routing; new listening review pending. General delay/control/reset semantics remain. K-008."),
+    "delwrite~": ("Limited model helper", "TelephoneBell::Delay / Police::Environment / SampleDelay", "Prior retained routing fixtures describe the old model. Pure feedback paths need review; no general named-buffer port. K-008."),
     "phasor~": ("Tested port", "pd::phasor", "Positive/negative frequency, initial phase and wrap at 48/44.1 kHz; preserve 64-sample phase maintenance."),
     "cos~": ("Tested port", "pd::cos", "Negative/positive cycle lookup; exact fixture samples and alarm waveshaping comparisons."),
     "wrap~": ("Tested port", "pd::wrap", "Signed phase ramp including negative integers; finite-input fixture scope."),
     "line~": ("Tested port", "pd::line", "64-sample grid; short ramp, retarget, stop, immediate set at both rates. No arbitrary block size contract."),
-    "env~": ("Tested port", "pd::env", "Default 1024-point Hann/512-sample hop only; detector states match. Configurable windows remain outside this port's scope."),
+    "line": ("Tested port", "pd::line (three-argument set)", "Control grain, retarget, stop/reset, duration/grain inlets, legacy stop and repeated emissions: 20 fixtures. Polled values/counts; no synchronous outlet callbacks. tests/pd/line.md."),
+    "env~": ("Tested port", "pd::env", "Default 1024/512 only; out/updated publish together at the next block boundary. Raw output plus 8 event cases pass without offsets: tests/pd/env-output-results.json. Configurable windows remain outside scope."),
     "pow~": ("Native subset validated", "Police::LogOsc / std::pow", "Both police inlet conventions compared with PD; other domains and legacy numeric approximations remain."),
     "vd~": ("Not ported", "candidate: Klang Delay", "PD interpolation, minimum delay and block ordering must be checked. K-008."),
     "sig~": ("Native candidate", "signal / param", "Preserve PD block quantisation where audible; pulse trial uses host event rounding."),
@@ -163,7 +168,7 @@ def primitive_role(name):
     status = PORTS.get(name, ("",))[0]
     if status == "Tested port":
         return "complete"
-    if status in ("Present, unvalidated", "Limited model helper", "Native subset validated"):
+    if status in ("Present, unvalidated", "Partial port", "Limited model helper", "Native subset validated"):
         return "current"
     if name in GUI:
         return "none"
@@ -301,7 +306,7 @@ def coverage(meta, sources, web, rows, graph, missing):
              "Companion records: [PD primitive status](PD-PRIMITIVES.md) and [Klang review backlog](KLANG-REVIEW.md). [Curated metadata](catalogue.json) and [generator](../tools/catalogue_farnell.py) keep IDs, figure references and status separate from the rendered tables.", "",
              "## Overview", "",
              f"All **58 book chapters**, **35 website practicals**, **11 website teaching/technique chapters**, **300 distinct website patch links** (298 local files; two missing links), **434 bulk patches**, and **35 practical WAVs** are accounted for. The two source trees contain {len(set(map(sha, sources.values())))} byte-distinct patch contents. The parked `pd/old` archive is excluded from active counts and remains available for recovery.", "",
-             f"There are {len(rows)} patch work items, including bulk supplements and {sum(r.get('book_only', False) for r in rows)} book patch diagrams awaiting sources. **Artificial Sounds (24–28) is trial validated: 37/37 items**, including documented reference variants and reconstructed matchers for two bulk demos with missing external abstractions. Chapter 29 has five website items covered. Two chapter 45 items have existing Chris Nash ports awaiting this comparison workflow. See the [Artificial Sounds evidence and limits](audio/artificial-sounds.md).", "",
+             f"There are {len(rows)} patch work items, including bulk supplements and {sum(r.get('book_only', False) for r in rows)} book patch diagrams awaiting sources. **Artificial Sounds (24–28) is trial validated: 37/37 items**, including documented reference variants and reconstructed matchers for two bulk demos with missing external abstractions. **Idiophonics (29-33) has 23/23 items trial validated**, including earlier bell studies and the revised moving-force creaking demonstration. Numerical/visual scope and listening limits are recorded in the [Idiophonics evidence](audio/idiophonics.md). Two chapter 45 items have existing Chris Nash ports awaiting this comparison workflow. See the [Artificial Sounds evidence and limits](audio/artificial-sounds.md).", "",
              f"Mapping gaps: **{mapping_counts['unmapped']} patches need a figure reference**; **{sum(r.get('book_only', False) for r in rows)} inspected patch diagrams need a PD source**. See [mapping gaps](#mapping-gaps). Ordinary diagrams, plots and photographs do not require patches. The {mapping_counts['website-only']} explicitly website-only examples are exempt from book-figure matching.", "",
              "`Trial validated` means the retained 48 kHz fixtures and relevant controls were compared; it does not certify every historical revision, GUI action, sample rate, or parameter. Bulk variants remain work even when the main model exists. See [trial evidence](audio/README.md).", "",
              STATUS_LEGEND, "",
@@ -339,14 +344,17 @@ def coverage(meta, sources, web, rows, graph, missing):
          f"{chapters[r['chapter']]['page_start']}–{chapters[r['chapter']]['page_end']}" if r["chapter"] else "Unassigned",
          badge("problem", r.get("note", "Find the figure, or confirm an outside-book supplement."))]
         for r in rows if r["mapping"] == "unmapped"])
-    lines += ["", "</details>", "", "## Chapter index", ""]
+    lines += ["", "</details>", "", "## Chapter index", "",
+              "Patch counts show active work items, with any excluded no-work entries listed separately. Completion uses only the active count; excluded source patches remain in the detailed inventory.", ""]
     summary = []
     for number, c in chapters.items():
-        count = len(by_chapter[number])
         roles = [patch_role(r) for r in by_chapter[number]]
+        excluded = roles.count("none")
+        count = len(roles) - excluded
+        items = f"{count} (+{excluded} exc)" if excluded else count if count else badge("none")
         summary.append([link(c["id"] + " — " + c["title"], "#" + c["id"]),
                         f"{c['page_start']}–{c['page_end']}", f"P{number-23:02}" if number >= 24 else "—",
-                        count if count else badge("none"), group_status(roles), progress(roles)])
+                        items, group_status(roles), progress(roles)])
     lines += table(["Chapter / ID", "Printed pages", "Website practical", "Patch items", "Status", "Completion"], summary)
     for number in list(chapters) + ([0] if by_chapter[0] else []):
         c = chapters.get(number, {"id": "extra", "title": "Unassigned bulk supplements", "klang_file": "TBD", "page_start": "?", "page_end": "?"})
@@ -423,7 +431,7 @@ def primitives(meta, sources, rows, graph, missing, stems):
     lines = ["# PD primitive coverage and usage", "", "Snapshot: " + meta["snapshot"] + ". See [model coverage](COVERAGE.md), [Klang review backlog](KLANG-REVIEW.md), and [isolated comparison evidence](../tests/pd/README.md).", "",
              "## Overview", "",
              f"The active inventory contains **{len(sources)} patch files**: {len(web)} website files and {len(sources)-len(web)} bulk files, representing **{len(unique)} byte-distinct contents**. The parked `pd/old` archive is excluded. There are **{len(builtin_names)} distinct normalised Vanilla node names used**, plus bundled abstractions and non-Vanilla/local/dynamic objects listed separately.", "",
-             "Eleven dedicated structs exist in [include/klang/pd.h](../include/klang/pd.h). **Ten have isolated comparison fixtures; `vcf` remains unvalidated.** New ports are `phasor`, `cos`, `wrap`, `line` and the default-window `env`. The bell's limited decay helper also has a fixture, but is not a full `vline~` port. All 40 retained cases passed across 48/44.1 kHz on PD 0.55.2; this describes those fixtures, not universal parity. [Results](../tests/pd/results.json) and [source revisions](../tests/pd/sources.json) preserve the evidence.", "",
+             "All sixteen primitive classes in [include/klang/pd.h](../include/klang/pd.h) have isolated comparison fixtures. The original suite retains 58 passing cases at 48/44.1 kHz on PD 0.55.2, including `vcf`, `samphold`, `rzero` and source filter arithmetic. The complete `pd::vline` ramp/message port replaces Gesture and adds [50 isolated cases](../tests/pd/vline.md); explicit host clock synchronisation is tested separately from pure model timing. The reusable `pd::del` control clock adds [52 message/tempo cases](../tests/pd/del.md). Metro and control-line fixtures are also documented below. This describes the retained fixtures, not universal parity. [Original results](../tests/pd/results.json) and [source revisions](../tests/pd/sources.json) preserve the evidence.", "",
              STATUS_LEGEND, "",
              "**Node coverage:** " + progress(primitive_role(name) for name in builtin_names), "",
              "Green means validated within the retained fixture scope; amber means an existing implementation/helper still needs work. White includes native/control candidates whose PD semantics have not yet been checked. Grey GUI rows need no dedicated primitive port and are excluded from the percentage; model control translation still applies. Each remaining node counts once, regardless of usage frequency. Red in the dependency table marks unresolved source requirements, not a failed audio test.", "",
@@ -431,7 +439,7 @@ def primitives(meta, sources, rows, graph, missing, stems):
              "`Web patches` counts files containing the node at least once; `Web nodes` counts saved object boxes in all 298 website patches. `All patches/nodes` counts one representative of each exact-content hash across both active trees. Changed revisions remain distinct. Aliases (`t/trigger`, `f/float`, `i/int`, `b/bang`, `s/send`, `r/receive`, signal send/receive, `del/delay`, `sel/select`) are combined. Embedded subpatch contents are counted once as saved; an abstraction called ten times is not expanded ten times. These are source usage counts, not runtime instances or CPU cost.", "",
              "Message boxes, comments, array data and GUI atom boxes are not primitives. Named GUI objects such as `hsl` are counted but separated from DSP work. Local abstractions and bundled `hilbert~`/`rev3~` are not misclassified as primitive ports. Whole-graph scheduling, summing and inlet semantics still need preserving when replacing PD glue with native code.", "",
              "## Next port work", "",
-             "Prioritise `vcf~` verification, queued `vline~` ramps and general delays (`vd~`, `delread~`, `delwrite~`), then `samphold~`, `rzero~` and further noise/envelope work as required by the next practical. The Artificial Sounds trial now covers `phasor~`, `cos~`, `wrap~`, block-64 `line~` and default `env~`. High counts alone do not justify porting every control object: arithmetic, lists and GUI logic often translate more clearly into Klang/C++. Police fixtures distinguish the two `pow~` inlet conventions; wider numeric-domain compatibility remains open.", "",
+             "Prioritise general delays (`vd~`, `delread~`, `delwrite~`), broader ramp/queue semantics and further noise/envelope work as required by the next practical. Idiophonics now supplies `vcf~`, `samphold~`, `rzero~` and finite gesture/panel-delay evidence. The Artificial Sounds trial now covers `phasor~`, `cos~`, `wrap~`, block-64 `line~` and default `env~`. High counts alone do not justify porting every control object: arithmetic, lists and GUI logic often translate more clearly into Klang/C++. Police fixtures distinguish the two `pow~` inlet conventions; wider numeric-domain compatibility remains open.", "",
              "## Vanilla node inventory", ""]
     entries = []
     for name in builtin_names:
@@ -468,6 +476,10 @@ def primitives(meta, sources, rows, graph, missing, stems):
     lines += ["", "## Maintenance", "",
               "Rebuild both inventories with `python tools/catalogue_farnell.py` after changing source collections. Update the port registry in that script only when implementation and evidence warrant the new status. Add isolated patches under `tests/pd` for each new/changed primitive; record level/residual, rate, block size, relevant parameter events and source revision. Preserve explicit compatibility variants. Aggregate Klang implementation issues in the review backlog at the end of a practical series or when requested.", "",
               "Vanilla classification uses the installed PD 0.55.2 reference help and local source evidence, with legacy `q8_sqrt~` retained as a compatibility item. A headless no-preferences creation probe confirmed that `init` and `>~` are unavailable in this Vanilla installation; they remain unresolved/external dependencies. The installed `unops-tilde-help.pd` documents the sqrt algorithm change in 0.55 and the current q8 aliases. This is a working dependency inventory, not a complete list of all Vanilla objects. No primitive code was changed by this inventory."]
+    lines[4:4] = [
+        "## Interface policy and current review", "",
+        "Aim for complete reusable PD ports, with documented gaps. Review tilde/non-tilde pairs individually, preferring polymorphism where the interfaces fit. `pd::line` uses two-argument `set(target, duration)` for audio and three-argument `set(target, duration, grain)` for control output; both times are milliseconds. Two `{timeMs,value}` endpoints are also accepted. See [line API and 20 control fixtures](../tests/pd/line.md).", "",
+        "The [topology review](KLANG-TOPOLOGY-REVIEW.md) removes hidden model-level block workarounds and records the remaining primitive work. The polling metro has 16 isolated cases, but tempo units and synchronous outlet feedback remain incomplete. PD primitives retain Doxygen API descriptions and examples; models use short `//` object descriptions with at most one longer Doxygen overview per file. Run `doxygen tools/Doxyfile.pd` from the repository root.", ""]
     return re.sub(r"\bK-(\d{3})\b", lambda m: link(m[0], "KLANG-REVIEW.md#k-" + m[1]), "\n".join(lines)) + "\n"
 
 

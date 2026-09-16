@@ -1,0 +1,23 @@
+{
+  "compiler": "MSVC 19.51.36257.0, C++17, /O2",
+  "source_sha256": {
+    "include/klang.h": "18227099c3e3de84fbdef47aa7b7375c455acc722405af8125db5b82fb6660e2",
+    "experiments/klang/signal-flow/inline-route.cpp": "093d9867fc54b0d8a0a720407e052a5de0cea54183887e77c319f9e19584c6a8"
+  },
+  "direct_inline_route": {
+    "compiles": false,
+    "expected_diagnostic": "C2593: operator >> is ambiguous",
+    "candidates": [
+      "Generic::Output<signal>::operator>>",
+      "klang::operator>>(SOURCE&, DESTINATION&)",
+      "klang::operator>>(const SOURCE&, DESTINATION&)"
+    ]
+  },
+  "explicit_signal_conversion": {
+    "compiles": true,
+    "runs": true,
+    "result": 4,
+    "generator_evaluations": 1,
+    "modifier_evaluations": 1
+  }
+}

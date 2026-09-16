@@ -1,0 +1,46 @@
+{
+  "files": {
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\30-bouncing\\bouncing-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 432000,
+      "seconds": 9.0,
+      "peak": 0.19784381985664368,
+      "rms": 0.02562185260661771,
+      "dc": 1.2996099043908926e-05,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\30-bouncing\\bouncing-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 432000,
+      "seconds": 9.0,
+      "peak": 0.19784383475780487,
+      "rms": 0.025621860539354935,
+      "dc": 1.3003307893702476e-05,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\30-bouncing\\bouncing-online.wav": {
+      "sample_rate": 48000,
+      "frames": 332199,
+      "seconds": 6.9208125,
+      "peak": 0.199981689453125,
+      "rms": 0.029173070408369518,
+      "dc": 0.00014189062969174727,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 2048,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 0.9999999991267355,
+  "aligned_error_rms": 1.0708054735112437e-06,
+  "identical_samples": false,
+  "relative_error_db": -87.57799892136502,
+  "rms_difference_db": 2.6892227700263654e-06,
+  "envelope_relative_error": 4.287359372155441e-06,
+  "active_spectrum_median_abs_db": 0.0002855264166499293
+}

@@ -1,0 +1,52 @@
+{
+  "scipy_version": "1.18.1",
+  "script_sha256": "5335d455836b58551b08da38e716c3406dc29dd6b7c3ba34b0d694f62c43dc4b",
+  "method": "resample_poly, ratios 147/160 then 160/147, Kaiser beta 10",
+  "gain_applied": 1,
+  "onset_seconds": 0.1,
+  "measurements": {
+    "Default gate phase": {
+      "source": "farnell\\audio\\24-pedestrians\\pedestrians-pd.wav",
+      "sha256": "84f2bbe6820f4edc64bd85e1ee9e1c1e6f31f0108beb0a5ed0ca836a3c7806db",
+      "variants": {
+        "Original 48 kHz samples": {
+          "sample_rate": 48000,
+          "pre_onset_peak": 0.0,
+          "first_onset_sample": 0.19999998807907104
+        },
+        "Converted to 44.1 kHz": {
+          "sample_rate": 44100,
+          "pre_onset_peak": 0.0028373996159092524,
+          "first_onset_sample": 0.19187526256174375
+        },
+        "Converted back to 48 kHz": {
+          "sample_rate": 48000,
+          "pre_onset_peak": 0.008472687712730551,
+          "first_onset_sample": 0.19187513398541398
+        }
+      }
+    },
+    "Online-matching gate phase": {
+      "source": "farnell\\audio\\24-pedestrians\\review\\pedestrians-phase-pd055.wav",
+      "sha256": "97a8f291483c1d8809182b9430d22b103aa3a2923fbcc085f1e7e99d4e61f5cf",
+      "variants": {
+        "Original 48 kHz samples": {
+          "sample_rate": 48000,
+          "pre_onset_peak": 0.0,
+          "first_onset_sample": -0.0693386122584343
+        },
+        "Converted to 44.1 kHz": {
+          "sample_rate": 44100,
+          "pre_onset_peak": 0.000691391529130476,
+          "first_onset_sample": -0.06522874367683774
+        },
+        "Converted back to 48 kHz": {
+          "sample_rate": 48000,
+          "pre_onset_peak": 0.004159329884824152,
+          "first_onset_sample": -0.06522869996681309
+        }
+      }
+    }
+  },
+  "note": "Illustrative zero-phase FIR conversion, not a reproduction of Audition or a device driver. All plotted dots are actual samples of the indicated array. Original WAVs are not modified."
+}

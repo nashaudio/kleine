@@ -1,5 +1,7 @@
 # Designing Sound listening bundles
 
+The **[Idiophonics trial](idiophonics.md)** completes chapters 29-33: the remaining bell studies, Bouncing, Rolling, Creaking and Boing. Start there for their models, paired audio, website recordings and 48/44.1 kHz evidence.
+
 The completed **[Artificial Sounds extended trial](artificial-sounds.md)** covers chapters 24–28, including the earlier chapter 25 work. Start there for the new Klang files, website excerpts, paired bounces, comparison plots and reference findings. The original chapter 25/29 trial and its retained evidence are described below.
 
 First trial 14 September 2026; refactored and revalidated 15 September. These WAVs are deliberately retained deliverables. Scratch renders and diagnostic outputs stay under `build/`; full companion audio is now available in the tracked local site mirror, `farnell/zip/`.

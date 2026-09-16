@@ -23,8 +23,12 @@ CASES = {
     'hip-high': ('hip', '2000'),
     'hip-legacy': ('hip', '90'),
     'lop': ('lop', '100'),
+    'lop-slow': ('lop', '.1'),
+    'lop-ground': ('lop', '20'),
     'bp-wire': ('bp', '2000 12'),
     'bp-speaker': ('bp', '400 7'),
+    'bp-can': ('bp', '359 123'),
+    'bp-ground': ('bp', '632 400'),
     'noise': ('noise', '404933'),
     'vline-decay': ('vline-decay', ''),
     'phasor': ('phasor', '440 0'),
@@ -33,6 +37,11 @@ CASES = {
     'wrap': ('wrap', ''),
     'line': ('line', ''),
     'env': ('env', ''),
+    'vcf': ('vcf', '80 0'),
+    'vcf-im': ('vcf', '80 1'),
+    'vcf-zero': ('vcf', '0 0'),
+    'samphold': ('samphold', ''),
+    'rzero': ('rzero', ''),
 }
 
 
@@ -117,7 +126,7 @@ def main():
                   tests=results, compatibility_comparisons=versions, fm_dc_experiment=fm_offsets,
                   source_sha256={str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths},
                   tolerance=dict(level_db=.002, relative_error_db=-70),
-                  notes=['No gain fitting or time alignment.',
+                  notes=['No gain fitting, time alignment or delivery projection.',
                          'Compatibility 0.43 runs older routines inside Pd 0.55.2, not an old executable.',
                          'In compatibility comparisons, klang_* denotes the legacy PD output.',
                          'vline-decay tests only the model helper ramp, not a complete vline~ implementation.'])

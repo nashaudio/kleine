@@ -1,0 +1,46 @@
+{
+  "files": {
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\31-rolling\\rolling-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 384000,
+      "seconds": 8.0,
+      "peak": 0.0902276560664177,
+      "rms": 0.00270688941043006,
+      "dc": 4.854744473360648e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\31-rolling\\rolling-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 384000,
+      "seconds": 8.0,
+      "peak": 0.0902276560664177,
+      "rms": 0.0027068119797144783,
+      "dc": 4.855114284402273e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\31-rolling\\rolling-online.wav": {
+      "sample_rate": 48000,
+      "frames": 598208,
+      "seconds": 12.462666666666667,
+      "peak": 0.73321533203125,
+      "rms": 0.023789876979282688,
+      "dc": -5.206590389024387e-07,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 16384,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 0.9999883256615264,
+  "aligned_error_rms": 1.3079858615725776e-05,
+  "identical_samples": false,
+  "relative_error_db": -46.31734927013103,
+  "rms_difference_db": -0.00024846388882991314,
+  "envelope_relative_error": 0.0038307390975875254,
+  "active_spectrum_median_abs_db": 0.0013810290268317972
+}

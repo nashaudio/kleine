@@ -12,7 +12,7 @@ On 15 September 2026, MSVC 19.51 with `/std:c++17 /O2` passed:
 - **4 sample-identical comparisons with cached PD 0.55.2 WAVs**, covering the two rates and recipes. These are separately checked against the unchanged reference-source hashes.
 - An expected negative check at each rate/recipe: an automatic event implemented only in `process(buffer)` is skipped during nested signal evaluation. This establishes a limitation, not a passing implementation for nested use.
 
-The sample-timed ideal has the same output for the default 100 ms interval at 48 kHz, where that period is exactly 75 blocks. It differs at 44.1 kHz. The report retains its raw residual as evidence that changing timing can defeat sample comparison; no listening or perceptual acceptance claim follows from that value.
+The sample-timed callback baseline (`IdealPedestrians`) has the same output for the default 100 ms interval at 48 kHz, where that period is exactly 75 blocks. It differs at 44.1 kHz. The report retains its raw residual as evidence that changing timing can defeat sample comparison; no listening or perceptual acceptance claim follows from that value. The paper now prefers Chris's conditional `if (metro(100))` presentation; these existing probes do not yet implement or validate that revised API.
 
 The probe uses heap-owned sound instances as Kleine does, since Klang's plugin controls/presets make stacking many instances in one test function unnecessarily large. It does not measure steady-state CPU/memory cost. It does not test arbitrary block sizes in the underlying PD primitives, live rate changes, external controls arriving midway through a logical PD block, or automatic parent/child clock sharing.
 

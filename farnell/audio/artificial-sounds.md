@@ -1,6 +1,8 @@
 # Artificial Sounds extended trial
 
-Chapters 24–28 are implemented, including the bulk supplements: **37/37 inventory items** within the validation scope below. The extended trial has **39 paired fixtures at each of 48 and 44.1 kHz**, plus the existing chapter 25 comparisons. Every new pair passes a raw residual below −70 dB and a level difference below 0.002 dB; the measured residuals are all below −100 dB or sample-identical. These are reproducible numerical comparisons, not a claim to have reproduced every author performance or an independent listening verdict.
+> **Topology review, 16 September 2026:** retained audio, controls and validation claims below describe the pre-review implementation. Current pure-form changes and pending listening decisions are documented in [the topology review](../KLANG-TOPOLOGY-REVIEW.md). Original recordings remain unchanged.
+
+Chapters 24–28 are implemented, including the bulk supplements: **37/37 inventory items** within the validation scope below. The extended trial has **39 paired fixtures at each of 48 and 44.1 kHz**, plus the existing chapter 25 comparisons. All pairs except the deliberately sample-timed Pedestrians cases at 44.1 kHz have raw residuals below −100 dB or sample-identical output, with level differences below 0.002 dB. Pedestrians now checks bounded gate-timing differences and identical overlapping carrier samples at that rate; PD block delivery is deferred. These are reproducible numerical comparisons, not a claim to have reproduced every author performance or an independent listening verdict.
 
 ## Listening files
 
@@ -21,6 +23,8 @@ The bulk [remote ringback](25-phone-tones/ringback-bulk-kleine.wav), [combined p
 
 ## Evidence and findings
 
+[Pedestrians listening review](24-pedestrians/README.md): gate phase explains the main online transition difference. An actual PD 0.42-5 executable matches the recording to approximately its PCM16 noise floor after phase adjustment, without fitted gain or EQ. Thirty-minute simulations also measure the slow phase drift. The review retains transition plots and separate phase-adjusted listening variants.
+
 [Measurement tables](comparisons/artificial/tables.md), [raw runs and event recipes](comparisons/artificial/render-results.json), and the [manifest](artificial-manifest.json) retain source hashes, exact controls/times, audio hashes, CPU/memory observations and platform details. Plots include [pedestrians](comparisons/artificial/pedestrians.png), [DTMF](comparisons/artificial/dtmf.png), [all alarm studies](comparisons/artificial/alarms.png), [programmed alarms](comparisons/artificial/alarm07.png), and both police laws: [website](comparisons/artificial/police.png) / [historical](comparisons/artificial/police-legacy.png). FFT 16384/Hann/hop 1024 remains the default; pedestrians, DTMF and programmed alarms also have `-2048.png` transient views.
 
 - **Message timing:** `line~` rounds its duration down to whole DSP blocks, with a minimum of one block. At 48 kHz, the requested 1 ms DTMF fade therefore lasts 64 samples. Shared scripts put controls on the same grid in both renderers. The PD wrapper schedules a quarter-sample inside the intended block to avoid float millisecond rounding moving an exact-boundary message one block early.
@@ -35,7 +39,7 @@ The bulk [remote ringback](25-phone-tones/ringback-bulk-kleine.wav), [combined p
 
 | Model / component | Controls |
 | --- | --- |
-| `Pedestrians` | `set(hz, intervalMs, gain)`; `start(bool)` controls the metro. Defaults: 2500 Hz, 100 ms, 0.2. |
+| `Pedestrians` | `set(param on)` controls the metro through `metro = on`. The patch's values are hardcoded: 2500 Hz, 100 ms, 0.2. |
 | `DTMFTones` | `dial(char)` accepts `123A456B789C*0#D`; `set(durationMs, gain, filter)` defaults to 200 ms, 0.25, highpass enabled. `tones(highHz, lowHz)` and `gate(value)` support the initial study. |
 | `DTMFTones::Detector` / `Decoder` / `Number` | Default-window tone detection, keypad interpretation and fixed-length digit matching. These preserve the tested simple detector, not a general robust telephony decoder specification. |
 | `AlarmGenerator(study)` | Studies 1–7. For 6/7: `set(durationMs, cycles, hz1, hz2, hz3, hz4, spectrum)`, then `trigger()`. `start(bool)` controls studies 1/5. Nested `Bank` implements the eight-control bulk prototype. |

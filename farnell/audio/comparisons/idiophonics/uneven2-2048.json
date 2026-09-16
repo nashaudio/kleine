@@ -1,0 +1,36 @@
+{
+  "files": {
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\31-rolling\\uneven2-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 384000,
+      "seconds": 8.0,
+      "peak": 0.04836776852607727,
+      "rms": 0.00637138400879039,
+      "dc": 4.0354595797950266e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\31-rolling\\uneven2-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 384000,
+      "seconds": 8.0,
+      "peak": 0.04836776852607727,
+      "rms": 0.006371384010680713,
+      "dc": 4.035459229764207e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 2048,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 0.9999999999921492,
+  "aligned_error_rms": 2.5247014720798312e-08,
+  "identical_samples": false,
+  "relative_error_db": -108.04047495806608,
+  "rms_difference_db": 2.577012790241658e-09,
+  "envelope_relative_error": 1.632409725886863e-07,
+  "active_spectrum_median_abs_db": 1.4246261376580024e-06
+}

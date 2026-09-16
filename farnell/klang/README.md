@@ -1,45 +1,74 @@
 # Klang models from Designing Sound
 
-**Artificial Sounds (chapters 24–28) is trial validated**, including documented bulk variants and reconstructed number matchers for the two demos with missing external dependencies. See the [series guide](../audio/artificial-sounds.md) for all implementations, controls, paired audio, comparison limits and reproduction commands. Models include `Pedestrians`, `PhoneTones`, `DTMFTones`, `AlarmGenerator`, `Police`, and the supplemental `PhoneEffects`.
+The implemented Artificial Sounds (24–28) and Idiophonics (29–33) models have
+undergone a [PD topology review](../KLANG-TOPOLOGY-REVIEW.md). The current code
+favours the pure patch form. Removed implicit block timing is awaiting Chris's
+one-by-one sound review; the earlier retained WAVs and parity results describe
+the previous implementation, not blanket acceptance of the revised code.
 
-Design study: [PD block timing and the Pedestrians API](../PD-BLOCK.md) compares ways to hide compatibility scheduling from model authors, with separate C++17 probes. It proposes APIs for review; the validated models continue to use their existing implementations.
+The [Artificial Sounds](../audio/artificial-sounds.md) and
+[Idiophonics](../audio/idiophonics.md) guides retain source/variant and recording
+evidence. [Current raw comparisons](../audio/comparisons/klang-topology-review.json)
+record the effects of this pass. Original PD files and retained audio are unchanged.
+Core `include/klang.h` is unchanged; the reusable primitives are in
+[pd.h](../../include/klang/pd.h).
 
-[phonetones.k](Artificial%20Sounds/Phone%20Tones/phonetones.k) implements chapter 25, figures 25.2–25.6. [telephonebell.k](Idiophonics/Telephone%20Bell/telephonebell.k) implements chapter 29, figures 29.7–29.15. Both use `klang::optimised` and the PD primitives in [pd.h](../../include/klang/pd.h). Models are grouped by book section and practical. Core `include/klang.h` is unchanged.
+## Style and primitive interfaces
 
-Start with the [audio bundle](../audio/README.md): website excerpts and paired PD/Kleine renders at 48 kHz. Attribution is to Andy Farnell, *Designing Sound* (MIT Press, 2010); project licensing remains as described in the [root README](../../README.md#licensing-and-attribution).
+Match the specific PD source's objects, constants, controls and signal flow.
+Inline single-use generators and short chains; keep reused values and names for
+complex stages. Use `object.out` to reuse an evaluated sample. Keep statements on
+separate lines and discuss genuinely borderline readability choices.
 
-## Phone tones
+Use `set(param on)` / `metro = on` for start/stop. Cache simple parameters; inline
+configuration where inexpensive. Preserve fixed patch values. Alternate implementations
+live in separate development files under each model's `variants/` directory;
+provenance and selection belong in the [comparison notes](VARIANTS.md) and renderer.
+Keep selectors for distinct sounds and studies. PD block workarounds must be explicit and
+separable from the pure model. See [PD-BLOCK.md](../PD-BLOCK.md).
 
-`farnell::PhoneTones` is a mono `Sound`. Select a mode with `set(mode, dialHz = 440, smoothBusy = true)` before processing. `dial(digit)` triggers pulse dialling; zero means ten pulses. `PhoneTones::Line` is its nested handset/line filter with distinct normal and pulse-dial settings.
+Aim for complete PD primitive ports, documenting remaining limits. Review
+tilde/non-tilde pairs individually, favouring polymorphism. `pd::line` now supports:
 
-| Mode / CLI name | Default signal and behaviour | PD reference |
-| --- | --- | --- |
-| `Dial` / `dial` | 350 + 440 Hz, each at 0.125 | `PHONETONES/dialtone1.pd` |
-| `Dial` / `dial-web` | 350 + 450 Hz, each at 0.125 | Updated `reference/p02/dialtone1.pd` |
-| `DialLine` / `dial-line` | 350 + 450 Hz through the clipped, filtered line; enabled continuously | `PHONETONES/dialtone2.pd` |
-| `Busy` / `busy` | 480 + 620 Hz, each at 0.1; clipped 2 Hz cosine gate, smoothed at 100 Hz | Updated `reference/p02/busy-signal.pd` |
-| `Busy` / `busy-archive` | Same carriers, unsmoothed gate | `PHONETONES/busy-signal.pd`; unused manual 600 Hz test tone is not triggered |
-| `Ringback` / `ringback` | 480 + 440 Hz through the line; 3 s off, 3 s on | `PHONETONES/ringingtone.pd` |
-| `Pulse` / `pulse` | 40 ms contacts every 100 ms, through the pulse line, output gain 0.8 | `PHONETONES/pulsedial.pd` + `telephone-line.pd` |
+```cpp
+line.set(target, duration);        // Audio ramp: line~.
+line.set(target, duration, grain); // Control ramp: line; times in ms.
+line = { {0, 1}, {3000, 0}, 20 }; // Equivalent start/end breakpoint notation.
+```
 
-The Klang controls are `Tone` (0–4 in the enum order), `Dial frequency` (second oscillator, Hz; default 440), and `Smooth busy` (default on). The CLI selects 450 Hz for `dial-line`, following its source patch. These are reference sound generators, not a complete telephone state machine. Mode changes are not crossfaded.
+`pd::vline` supplies the complete queued audio-ramp message interface and replaces
+Gesture. Use `set(target, durationMs, delayMs)` for delayed segments; both time
+inlets are consumed by the next target. [Port and timing notes](../../tests/pd/vline.md)
+explain queue replacement and explicit host timestamps. Pure models remain
+sample-timed; no new 64-sample adapter is embedded in their signal flow.
 
-## Telephone bell
+PD primitives retain Doxygen API descriptions and usage examples. Models use
+minimal comments and self-documenting code: one short `//` description per object,
+with at most one longer Doxygen overview before the main model.
+[Line API tests](../../tests/pd/line.md) explain control emissions and
+remaining scheduling limits. The earlier
+[style-only comparison](../audio/comparisons/klang-style-review.json) remains
+historical evidence; this deeper topology pass deliberately changes some signals.
 
-`farnell::TelephoneBell` is a mono `Sound`. `ring(true/false)` runs/stops its alternating striker; `strike()` excites one bell and advances to the other. Stopping the striker preserves the ringing tail. Each bell has five groups of three inharmonic partials, grouped squared decay envelopes, and a shared short noise hammer. Both bells drive the clipped resonant casing network.
+## Current model controls
 
-| Control | Default | Unit / range |
-| --- | ---: | --- |
-| Ring | 0 | Off/on |
-| Fundamental | 650 | Hz, 100–1000 |
-| Detune | 3 | Second bell offset in Hz, 0–30 |
-| Strength | 1 | Partial amplitude multiplier, 0–2 |
-| Decay | 2000 | Base envelope duration in ms, 10–4000; each group applies its own ratio |
-| Strike interval | 60 | ms, 10–200 |
+| Model | Control / source selection |
+| --- | --- |
+| Pedestrians | `set(on)`; fixed 2500 Hz, 100 ms metro, gain 0.2. |
+| PhoneTones | Constructor `(Tone)` selects 350/450 Hz dial, smoothed busy, brighter ringback or pulse sounds; `dial(count)` for pulse mode. Listening choices recorded in the [review](../audio/25-phone-tones/README.md). |
+| DTMFTones | `dial(key)`; `tones(highHz,lowHz)` and `gate(value)` expose the oscillator/envelope inlets. Fixed 200 ms release, gain 0.25 and highpass. |
+| AlarmGenerator | Constructor study 1–7; `set(on)` for 1/5. Programme `set(durationMs,cycles,hz1,hz2,hz3,hz4,colour)` then `trigger()` for 6/7. |
+| Police | `set(sweepHz)`; fixed 300 Hz base, 800 Hz depth and echo network. |
+| TelephoneBell | `set(on)` or `strike()`; fixed 650/653 Hz, strength 1, base decay 2000 ms, metro 60 ms. Dry diagnostics live in the renderer. |
+| Bouncing | `trigger()`; fixed fourth-power pitch, 3000 ms height decay and output 0.2. |
+| Rolling | `trigger()`; `set(1)` selects struck-can source, `set(0)` rolling. |
+| Creaking | `set(force)` in 0..1, slewed over 100 ms. Performances are supplied externally. |
+| Boing | `set(frequencyHz)` or `set(frequencyHz, vibratoDepthHz)` and `trigger()`. Vibrato rate 5 Hz and gain 4 remain fixed. |
 
-Fundamental, detune, strength and decay apply at the next strike. Like the patch, the hammer has fixed 10 ms decay and 0.1 gain; `Strength` controls the tonal partials. `casingMix = 0` exposes the dry bells/hammer for diagnostics; default 1 reproduces the patch.
-
-The reference is `pd/BELL/striker.pd`, byte-identical to the website's `telephonebell.pd`, with the supplied `bellosc`, `bellenv`, `partialgroup` and `ratios` abstractions. `A4-bell-telephone.pd` is a different implementation. The casing retains measured PD scheduling at block size 64: 64 samples for the width delay at 48 kHz, 42 for length, 64 in the material feedback, and 128 around the enclosing send/receive route. Those delays affect phase and timbre. Construct the model after setting `klang::fs`; its reference fidelity is established at 48 kHz and block size 64, not every PD version/rate/block size.
+PhoneEffects and BellStudies preserve their distinct supplemental source patches;
+their headers document controls. Fixed tuning/filter preparation remains in
+`prepare()` where appropriate. Set `klang::fs` before constructing delay models;
+the Processor prepares attached sounds before each buffer.
 
 ## Reproduce the trials
 

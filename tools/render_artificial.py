@@ -23,8 +23,8 @@ PRESETS = [
 KEYS = '123A456B789C*0#D'
 ROWS, COLUMNS = [697, 770, 852, 941], [1209, 1336, 1477, 1633]
 VARIANTS = {
-    'dtmf-bulk': ('dtmf', 'pd/ALARMS/dtmf.pd'),
-    'dtmf-study': ('dtmf', 'pd/ALARMS/dtmf00.pd'),
+    'dtmf-bulk': ('dtmf-bulk', 'pd/ALARMS/dtmf.pd'),
+    'dtmf-study': ('dtmf-study', 'pd/ALARMS/dtmf00.pd'),
     'alarm15': ('alarm06', 'pd/ALARMS/2tone-15.pd'),
     'alarm-bank': ('alarm-bank', 'pd/ALARMS/2tone-20.pd'),
     'ringback-bulk': ('ringback-bulk', 'pd/ALARMS/dial-remotering.pd'),
@@ -284,7 +284,8 @@ def pd_message(action, values):
 
 
 def render_case(case, rate, args):
-    work = ROOT/'build/artificial'/str(rate)/case
+    output_root = getattr(args, 'output_root', ROOT/'build/artificial')
+    work = output_root/str(rate)/case
     work.mkdir(parents=True, exist_ok=True)
     sources = patch(case, work)
     duration, recipe_events = recipe(case)
@@ -292,7 +293,8 @@ def render_case(case, rate, args):
     events = [(int(round(t*rate))//64*64, action, values) for t,action,values in recipe_events]
     pd_audio, klang_audio = work/'pd.wav', work/'kleine.wav'
     lines, count = expose_output(wrapper('artificial', frames, rate, pd_audio))
-    if case in ['pedestrians', 'alarm01', 'alarm05'] or case.endswith('-controls'):
+    explicit_start = any(f == 0 and a == 'start' for f,a,v in events)
+    if (case in ['pedestrians', 'alarm01', 'alarm05'] or case.endswith('-controls')) and not explicit_start:
         lines += ['#X msg 700 20 \\; audit-start 1;', f'#X connect 0 0 {count} 0;']; count += 1
     for frame, action, values in events:
         if action in ('dtmf','gain'): continue # Klang configuration; source already has these constants.
@@ -310,7 +312,7 @@ def render_case(case, rate, args):
                   f'#X connect {count+3} 0 {count+2} 0;', f'#X connect {count+2} 0 3 0;']
     if case in ('dtmf-detector','dtmf-decoder'):
         # Use the already verified dialler waveform to isolate detector behaviour.
-        fixture=ROOT/f'build/artificial/{rate}/dtmf/pd.wav'
+        fixture=output_root/str(rate)/'dtmf/pd.wav'
         if not fixture.exists():raise ValueError('Render dtmf at this rate before its detector fixtures')
         lines += ['#X obj 700 20 array define input;',f'#X msg 700 50 read -resize {fixture.as_posix()} input;',
                   '#X obj 700 80 soundfiler;','#X obj 700 110 tabplay~ input;','#X obj 700 140 t b b;',
@@ -336,9 +338,26 @@ def render_case(case, rate, args):
                   pd=p, kleine=k, comparison=m,
                   pd_clipped_samples=int(np.count_nonzero(np.abs(a) >= 1)),
                   kleine_clipped_samples=int(np.count_nonzero(np.abs(b) >= 1)))
+    if case.startswith('pedestrians'):
+        def edges(y):
+            active = abs(y) > 1e-9
+            active[1:-1] |= active[:-2] & active[2:] # bridge isolated carrier zero crossings
+            return np.flatnonzero(np.diff(np.r_[False, active, False].astype(int)))
+        pe, ke = edges(a), edges(b)
+        assert len(pe) == len(ke), 'Pedestrians gate event count changed'
+        shift = ke-pe
+        assert np.all((shift >= 0) & (shift < 64)), 'Unexpected metro timing discrepancy'
+        overlap = (abs(a) > 1e-9) & (abs(b) > 1e-9)
+        assert np.array_equal(a[overlap], b[overlap]), 'Pedestrians carrier changed'
+        result['metro_timing'] = dict(pd='control events delivered before their 64-sample DSP block',
+            klang='sample-timed polling; PD block delivery intentionally deferred',
+            gate_edge_delays_samples=shift.tolist(), common_active_samples_identical=True)
+    raw_parity_required = not case.startswith('pedestrians') or rate == 48000
+    result['passed'] = not raw_parity_required or (abs(m['level_delta_db']) < .002 and m['relative_error_db'] < -70)
+    result['review_only'] = getattr(args, 'review', False)
     (work/'result.json').write_text(json.dumps(result,indent=2)+'\n')
     print(f'{case}: residual {m["relative_error_db"]:.2f} dB; level {m["level_delta_db"]:.5f} dB; peaks {m["pd_peak"]:.3f}/{m["klang_peak"]:.3f}', flush=True)
-    if abs(m['level_delta_db']) >= .002 or m['relative_error_db'] >= -70:
+    if not result['passed'] and not result['review_only']:
         raise RuntimeError(f'{case} failed the deterministic fixture limits; see {work / "result.json"}')
     if args.retain and case in PRIMARY_CASES + ['dtmf-bulk','dtmf-study','alarm15','alarm-bank','ringback-bulk','phone-effects','call-recogniser']:
         chapter = '24-pedestrians' if case.startswith('pedestrians') else '26-dtmf-tones' if case.startswith('dtmf') or case=='call-recogniser' else '27-alarms' if case.startswith('alarm') else '25-phone-tones' if case in ('ringback-bulk','phone-effects') else '28-police'
@@ -352,11 +371,16 @@ def main():
     parser.add_argument('--pd', default='C:/Program Files/Pd/bin/pd.exe')
     parser.add_argument('--kleine', type=Path, default=ROOT/'build/x64-release/kleine.exe')
     parser.add_argument('--rate', type=int, default=48000)
+    parser.add_argument('--output-root', type=Path, default=ROOT/'build/artificial',
+                        help='Scratch output directory (use a fresh one while existing WAVs are open)')
     parser.add_argument('--cases', nargs='+', choices=ALL_CASES, default=ALL_CASES)
     parser.add_argument('--retain', action='store_true')
+    parser.add_argument('--review', action='store_true', help='Collect raw differences without accepting failed parity; cannot retain audio')
     args = parser.parse_args()
+    args.output_root = args.output_root.resolve()
+    if args.review and args.retain: parser.error('--review cannot be combined with --retain')
     results = {case: render_case(case,args.rate,args) for case in args.cases}
-    dest = ROOT/'build/artificial'/str(args.rate)/'results.json'
+    dest = args.output_root/str(args.rate)/'results.json'
     existing = json.loads(dest.read_text()) if dest.exists() else {}
     existing.update(results); dest.write_text(json.dumps(existing,indent=2)+'\n')
 

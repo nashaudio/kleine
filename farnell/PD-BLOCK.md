@@ -1,14 +1,49 @@
 # PD block timing in Klang: a Pedestrians design study
 
+**16 September update:** the [topology review](KLANG-TOPOLOGY-REVIEW.md) extends the pure-model approach across the implemented series. Model-local block rounding, lookahead and routing padding have been removed. Any required replacement must be explicit and separable, following the planned per-sound review.
+
 Design paper, 15 September 2026. Related review items: [K-007](KLANG-REVIEW.md#k-007) and [K-009](KLANG-REVIEW.md#k-009).
 
-This paper compares the code a sound author would write, starting with the desired Klang presentation and progressively accommodating PD timing. Examples using `Metro`, `pd::block` or `pd::sound` describe **proposed APIs**, not objects already provided by Klang. Small [C++17 probes](../experiments/klang/pd-block/prototypes.h) implement the principal alternatives under `block_trial` so that syntax and dispatch claims can be checked without changing the language or the validated models.
+**Implementation update:** Chris selected the pure polling form below, with `set(param on)` and `metro = on`. It now compiles in [Pedestrians](klang/Artificial%20Sounds/Pedestrians/pedestrians.k), including the inline oscillator expression and the patch's hardcoded values. [pd::metro](../tests/pd/metro.md) owns the clock and supports `operator=(param)`. Sixteen event-count fixtures pass; PD block delivery remains deliberately separate. The block alternatives and earlier manual implementation below remain design history.
+
+This paper compares the code a sound author would write, starting with the desired Klang presentation and progressively accommodating PD timing. The pure `pd::metro` form is now implemented. Examples using `Metro`, `pd::block` or `pd::sound` remain **proposed APIs**. Small [C++17 probes](../experiments/klang/pd-block/prototypes.h) implement those alternatives under `block_trial`; they retain the earlier callback presentation.
 
 ## 1. Start with the sound we want to teach
 
 The [PD patch](pd/PEDESTRIANS/pedestrian-beep.pd), associated with Designing Sound figure 24.4, contains a 100 ms metro, a counter modulo two, a 2500 Hz oscillator and an output multiplier of 0.2. There is no visible block object. Starting the metro emits its first count immediately, initially leaving the gate at zero; stopping holds the last gate value. A stopped metro is therefore not necessarily silence. Those behaviours belong to the model even if we remove PD's timing quantisation.
 
-An ideal Klang presentation would make the two rates clear without explaining any DSP block:
+Chris's revised ideal makes the two rates clear through ordinary control flow, without explaining any DSP block:
+
+```cpp
+// Alternating pedestrian-crossing beeps, starting with a silent half-cycle.
+struct Pedestrians : Sound {
+    pd::osc osc;
+    pd::metro metro;
+    signal gate = 0;
+    int count = 0;
+
+    void set(param on) override {
+        metro = on;
+    }
+    void process() override {
+        if (metro(100))
+            gate = count++ % 2;
+        osc(2500) * gate * 0.2f >> out;
+    }
+};
+```
+
+This is the preferred teaching target. `metro(100)` asks whether a 100 ms metronome ticks on this sample; the oscillator runs on every sample, including the silent half-cycle. The counter belongs to the model, matching the patch's separate counter and modulo objects. It must be declared and incremented: `count % 2` alone would leave the gate unchanged. Post-increment makes the first tick select zero. Neither a callback, a `prepare()` override nor an intermediate oscillator value belongs in this ideal merely to accommodate today's implementation.
+
+The metro starts disabled. Assigning a nonzero `param` arms a first tick for the next sample evaluation; assigning zero cancels it. Each `metro(100)` call advances one sample and returns a bang count, used as a condition here, even while timekeeping continues disabled. An unchanged interval does not restart the timer. The counter survives stop/restart, and stopping holds the gate. Fractional deadlines belong inside the metro. The initial tick is returned on the first evaluation, not after waiting 100 ms, so the initially silent half-cycle lasts 100 ms.
+
+This polling interface applies the start event when `process()` next runs; PD sends its first bang synchronously in the start message. That distinction is harmless for the intended single start/stop control between audio samples when only the subsequent audio is observed. Multiple start/stop messages before evaluation, immediate inspection of the gate, and sub-sample periods need an explicit contract before claiming a general PD-compatible primitive. A boolean reports at most one event per call; it cannot silently stand in for draining several events in a block.
+
+For Pedestrians, a metro could also own its timing quantisation internally and preserve this same model source. That possibility should be tried before requiring a model-level `block()` handler. Shared scheduling between several objects remains a separate question. The inline oscillator expression now compiles in this arithmetic context; [K-002](KLANG-REVIEW.md#k-002) still records other inline-output routing friction. The implementation update above links current validation.
+
+### Callback baseline used by the existing probes
+
+The following is the earlier executable design baseline. It remains here so that the block variants and their recorded measurements can be traced to the code actually tested:
 
 ```cpp
 // Alternating pedestrian-crossing beeps, starting with a silent half-cycle.
@@ -33,9 +68,9 @@ Here `Metro` is a proposed ordinary sample-timed helper. It owns elapsed time, f
 
 The examples use the patch defaults to keep the comparison about syntax. The current model's frequency, interval and gain setters would remain available in an implementation. Its stop/restart behaviour is retained in the probes. `Metro` is deliberately labelled proposed: changing `Sound` alone cannot make the current manual metronome disappear.
 
-## 2. What the current implementation adds
+## 2. What the previous implementation added
 
-The [current Pedestrians source](klang/Artificial%20Sounds/Pedestrians/pedestrians.k) implements its own metronome. A sample-timed version using the same state would contain:
+The previous Pedestrians source implemented its own metronome. A sample-timed version using the same state would contain:
 
 ```cpp
 if (running && frame >= nextTick) {
@@ -54,10 +89,10 @@ The precise block-specific cost is **two divisions by 64, a conversion, and the 
 
 | Visible machinery | Natural owner |
 | --- | --- |
-| Period, running state, fractional next deadline, count, restart policy | `Metro` or a scoped `pd::metro` if its semantics specifically require that name |
+| Period, running state, fractional next deadline, restart policy | `pd::metro` (the earlier `Metro` probe also packages a counter) |
 | Position within an internal block, block length, enabled state | `pd::block` |
 | Calling a model's block handler at the correct point | `pd::sound` / common evaluation entry point |
-| Counter modulo two, oscillator and gain | `Pedestrians` |
+| Counter, modulo two, held gate, oscillator and gain | `Pedestrians` in the revised ideal |
 
 The purpose is to recover that separation, not merely shorten an `if` expression.
 
@@ -80,7 +115,7 @@ This look-ahead applies to already scheduled model events. It cannot predict a l
 
 ### A. The developer adds a block member
 
-This is the most local extension of the ideal source:
+This is the most local extension of the callback baseline:
 
 ```cpp
 // Pedestrian beeps with explicit ownership of a PD timing clock.
@@ -159,7 +194,7 @@ struct Pedestrians : pd::sound {
 };
 ```
 
-Compared with the ideal model, the visible additions are the `pd::sound` base, a `block()` event and one `blocks` argument. The author does not declare a clock, remember to advance it, or write a numerical block size. `event` is already Klang's alias for `void`; it communicates the same sort of role as `on` and `off` in notes.
+Compared with the callback baseline, the visible additions are the `pd::sound` base, a `block()` event and one `blocks` argument. Compared with the revised conditional ideal, this version also retains the callback metro API and oscillator conversion workaround. The author does not declare a clock, remember to advance it, or write a numerical block size. `event` is already Klang's alias for `void`; it communicates the same sort of role as `on` and `off` in notes.
 
 Two defaults produce this **same model source**:
 
@@ -299,13 +334,14 @@ Changing this clock to 128 also does not automatically reconfigure the existing 
 
 ## 8. Decision and evidence
 
-**The target author-facing API should be C: `pd::sound` supplies the state and an optional `block()` event.** Keep a standalone `pd::block` available for ordinary `Sound`/component authors and multiple independent clocks. Default the configured size to 64; let the default handler disable itself after the first runtime call. Reserve zero for explicitly disabling events, while audio processing continues. Let authors override `block()` without a separate enable flag, clock declaration or constructor.
+**Pedestrians' preferred author-facing target is the conditional `pd::metro` ideal in section 1.** First explore whether its timing requirements can stay inside the metro. For models that need an explicit block event, the preferred candidate remains C: `pd::sound` supplies the state and an optional `block()` event. Keep a standalone `pd::block` available for ordinary `Sound`/component authors and multiple independent clocks. Default the configured size to 64; let the default handler disable itself after the first runtime call. Reserve zero for explicitly disabling events, while audio processing continues. Let authors override `block()` without a separate enable flag, clock declaration or constructor.
 
 On the current header, **B is the safe immediate implementation if we insist on retaining `process()` syntax everywhere**. The automatic buffer-only prototype is suitable for exploring Pedestrians, but must not be promoted as a universal nested-sound facility. The working `sample()` alternative makes the remaining design choice concrete: accept one renamed method in PD-oriented models, or add a reviewed common evaluation hook to preserve existing Klang syntax. A prototype does not justify imposing an unreliable automatic API on the collection.
 
 | Form | Extra clock declaration | Extra work in sample body | Works nested on current Klang? |
 | --- | --- | --- | --- |
-| Ideal sample-timed metro | None | Ordinary metro call | Yes |
+| Revised conditional ideal | None | Ordinary metro condition | Proposed; no buffer-only dependency in its presentation |
+| Earlier sample-timed callback baseline | None | Ordinary metro call | Yes; tested |
 | A: developer-owned member | `pd::block blocks;` | Condition or immediate action | Yes |
 | B: inherited member | None | Condition or immediate action | Yes |
 | C: automatic buffer event | None | None; new `block()` handler | No; demonstrated failure |
@@ -314,6 +350,6 @@ On the current header, **B is the safe immediate implementation if we insist on 
 
 The [probe source](../experiments/klang/pd-block/probe.cpp) checks the self-disabling/empty default policies, sizes 0/1/64/128, a runtime size change, persistent phase across unequal host buffers, callback/lambda forms, exact-boundary deadlines and multiple metro events within a block. It compares member, inherited, automatic-buffer and automatic-sample presentations against the current validated Pedestrians model at 48 and 44.1 kHz, with continuous and stop/restart recipes. Nested evaluation is exercised separately.
 
-Measured results and reproduction commands are in the [probe README](../experiments/klang/pd-block/README.md). The 72 prototype comparisons and four cached PD comparisons are sample-identical. The sample-timed ideal is also identical at 48 kHz for the default period, but gives a raw relative residual of **−18.43 dB at 44.1 kHz**. That large change in a null comparison reflects shifted gate edges; it is not a measured perceptual penalty. These checks establish the explored syntax and timing, not a perceptual benefit, CPU improvement, portable optimiser result or complete PD block implementation. The ideal remains an explicit counterexample for later listening.
+Measured results and reproduction commands are in the [probe README](../experiments/klang/pd-block/README.md). The 72 prototype comparisons and four cached PD comparisons are sample-identical. The earlier sample-timed callback baseline (`IdealPedestrians` in the probe) is also identical at 48 kHz for the default period, but gives a raw relative residual of **−18.43 dB at 44.1 kHz**. That large change in a null comparison reflects shifted gate edges; it is not a measured perceptual penalty. These checks establish the explored syntax and timing, not a perceptual benefit, CPU improvement, portable optimiser result or complete PD block implementation. They do not validate the revised boolean-returning `pd::metro` API. The sample-timed baseline remains an explicit counterexample for later listening.
 
-The next decision is about the desired **sample method spelling and common evaluation entry**, not whether Pedestrians can be made shorter. Once that is settled, the combined phone model supplies a useful second case for pending control publication. Bell/police routing-delay adaptations remain a separate question about effective acoustic delays and feedback.
+The next experiment should implement the conditional metro presentation and compare its start/stop and timing behaviour, then decide whether Pedestrians needs any visible block handling. For models needing automatic block events, the desired **sample method spelling and common evaluation entry** remain open decisions. The combined phone model supplies a useful second case for pending control publication. Bell/police routing-delay adaptations remain a separate question about effective acoustic delays and feedback.

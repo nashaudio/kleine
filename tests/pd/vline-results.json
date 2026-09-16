@@ -1,0 +1,2644 @@
+{
+  "pd_version": "0.55.2",
+  "source_tag": "0.55-2",
+  "upstream": "https://github.com/pure-data/pure-data/blob/0.55-2/src/d_ctl.c",
+  "upstream_sha256": {
+    "d_ctl.c": "c2f5ffbeeccfaad71aef934c4cc8423fe5e3897b00f0d4cc86bc9bc6a33553d9",
+    "m_sched.c": "5adae8ce3ce03e84a6e5f69dc8e21131d29ee70438d8d8ad90180e2408f535b5"
+  },
+  "platform": "Windows-10-10.0.19045-SP0",
+  "compiler": "MSVC C++17 /O2 /fp:precise",
+  "source_sha256": {
+    "include/klang/pd.h": "5ee3c18d40ff45234fbe718b633bda48abbf467fbc4f6208cbc217e4cce692b1",
+    "tests/pd/vline.cpp": "cd0ca1f156c923ba2178aa021912544c38a91d0bcb5171502c180b4eccc73bc8",
+    "tests/pd/vline.pd": "e9db622ce242ee22276bb6b157b640d146c65b383da315e64163b8aa010b98b5",
+    "tools/check_pd_vline.py": "ce18b375134e69c3b4977871d41cb793a6f600ef67da91e8567f052f4081a35e"
+  },
+  "alignment_samples": 0,
+  "gain": 1,
+  "tests": [
+    {
+      "case": "silence",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.0,
+      "klang_peak": 0.0,
+      "pd_rms": 0.0,
+      "klang_rms": 0.0,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\silence\\render.pd"
+        ],
+        "elapsed_seconds": 0.6647568000043975,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 20987904,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/silence/pd.wav: biggest amplitude = 0.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\silence\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\silence\\klang.f32"
+        ],
+        "elapsed_seconds": 0.0628656999906525,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 3272704,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "jump",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 1 0.69999998807907104 0 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.699999988079071,
+      "klang_peak": 0.699999988079071,
+      "pd_rms": 0.699999988079071,
+      "klang_rms": 0.699999988079071,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\jump\\render.pd"
+        ],
+        "elapsed_seconds": 0.5797576000040863,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21295104,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/jump/pd.wav: biggest amplitude = 0.700000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\jump\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\jump\\klang.f32"
+        ],
+        "elapsed_seconds": 0.020911900006467476,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 13 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.9743099186890755,
+      "klang_rms": 0.9743099186890755,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\ramp\\render.pd"
+        ],
+        "elapsed_seconds": 0.5754457000002731,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 21270528,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/ramp/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\ramp\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\ramp\\klang.f32"
+        ],
+        "elapsed_seconds": 0.014661999986856245,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3051520,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "jump-slide",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 1 1 0 0",
+        "0 0 0 2 0 13 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.9983974099159241,
+      "klang_peak": 0.9983974099159241,
+      "pd_rms": 0.1591528276552679,
+      "klang_rms": 0.1591528276552679,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\jump-slide\\render.pd"
+        ],
+        "elapsed_seconds": 0.575430700002471,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21106688,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/jump-slide/pd.wav: biggest amplitude = 0.998397\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\jump-slide\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\jump-slide\\klang.f32"
+        ],
+        "elapsed_seconds": 0.021055300006992184,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "delayed",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 0.80000001192092896 17 9"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.800000011920929,
+      "klang_peak": 0.800000011920929,
+      "pd_rms": 0.750858904799073,
+      "klang_rms": 0.750858904799073,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\delayed\\render.pd"
+        ],
+        "elapsed_seconds": 0.573364700001548,
+        "sampled_cpu_seconds": 0.3125,
+        "sampled_peak_rss_bytes": 20848640,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/delayed/pd.wav: biggest amplitude = 0.800000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\delayed\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\delayed\\klang.f32"
+        ],
+        "elapsed_seconds": 0.016029400008847006,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3256320,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "queue",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 11 0",
+        "0 0 0 3 -0.5 7 18",
+        "0 0 0 3 0.25 0 31",
+        "0 0 0 3 0 9 37"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.29129107420339884,
+      "klang_rms": 0.29129107420339884,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\queue\\render.pd"
+        ],
+        "elapsed_seconds": 0.5696124999958556,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21237760,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/queue/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\queue\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\queue\\klang.f32"
+        ],
+        "elapsed_seconds": 0.015433299995493144,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 2957312,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "replace-first",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 5 11",
+        "0 0 0 3 0.69999998807907104 9 22",
+        "0 0 0 3 -0.5 13 3"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.4826234796722635,
+      "klang_rms": 0.4826234796722635,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\replace-first\\render.pd"
+        ],
+        "elapsed_seconds": 0.5575870999891777,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 20930560,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/replace-first/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\replace-first\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\replace-first\\klang.f32"
+        ],
+        "elapsed_seconds": 0.015089399996213615,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3051520,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "replace-tail",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 5 3",
+        "0 0 0 3 0.69999998807907104 9 22",
+        "0 0 0 3 0 7 41",
+        "0 0 0 3 -0.5 13 11"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.5111221830064492,
+      "klang_rms": 0.5111221830064492,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\replace-tail\\render.pd"
+        ],
+        "elapsed_seconds": 0.631813100000727,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21139456,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/replace-tail/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\replace-tail\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\replace-tail\\klang.f32"
+        ],
+        "elapsed_seconds": 0.014783699996769428,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3051520,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "same-time-ramps",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 9 7",
+        "0 0 0 3 -0.5 11 7"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.4785594785963342,
+      "klang_rms": 0.4785594785963342,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-ramps\\render.pd"
+        ],
+        "elapsed_seconds": 0.5893273999972735,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21356544,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/same-time-ramps/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-ramps\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-ramps\\klang.f32"
+        ],
+        "elapsed_seconds": 0.015443800002685748,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3022848,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "same-time-jumps",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 0 7",
+        "0 0 0 3 -0.5 0 7"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.48963873799976243,
+      "klang_rms": 0.48963873799976243,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-jumps\\render.pd"
+        ],
+        "elapsed_seconds": 0.5798008999990998,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 20975616,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/same-time-jumps/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-jumps\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-jumps\\klang.f32"
+        ],
+        "elapsed_seconds": 0.015520799992373213,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3051520,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "same-time-jump-slide",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 0 7",
+        "0 0 0 3 0 9 7"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.9976851940155029,
+      "klang_peak": 0.9976851940155029,
+      "pd_rms": 0.13235232305929712,
+      "klang_rms": 0.13235232305929712,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-jump-slide\\render.pd"
+        ],
+        "elapsed_seconds": 0.5743138999969233,
+        "sampled_cpu_seconds": 0.296875,
+        "sampled_peak_rss_bytes": 21065728,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/same-time-jump-slide/pd.wav: biggest amplitude = 0.997685\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-jump-slide\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-jump-slide\\klang.f32"
+        ],
+        "elapsed_seconds": 0.015266900009009987,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3047424,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "same-time-ramp-jump",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 9 7",
+        "0 0 0 3 -0.5 0 7"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.48963873799976243,
+      "klang_rms": 0.48963873799976243,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-ramp-jump\\render.pd"
+        ],
+        "elapsed_seconds": 0.5943205000075977,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 21151744,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/same-time-ramp-jump/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-ramp-jump\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\same-time-ramp-jump\\klang.f32"
+        ],
+        "elapsed_seconds": 0.015019500002381392,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3031040,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "interrupt",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 53 0",
+        "0 0 0 3 -0.20000000298023224 7 71",
+        "1088 22.671875 0 2 -0.5 17 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.4552838968550752,
+      "klang_rms": 0.4552838968550752,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\interrupt\\render.pd"
+        ],
+        "elapsed_seconds": 0.6012885000091046,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21168128,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/interrupt/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\interrupt\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\interrupt\\klang.f32"
+        ],
+        "elapsed_seconds": 0.015103400000953116,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 3051520,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "stop",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 53 0",
+        "0 0 0 3 -0.20000000298023224 7 71",
+        "1088 22.671875 3 0 0 0 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.42806604504585266,
+      "klang_peak": 0.42806604504585266,
+      "pd_rms": 0.4086714955806461,
+      "klang_rms": 0.4086714955806461,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\stop\\render.pd"
+        ],
+        "elapsed_seconds": 0.6070012999989558,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 21241856,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/stop/pd.wav: biggest amplitude = 0.428066\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\stop\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\stop\\klang.f32"
+        ],
+        "elapsed_seconds": 0.020404599999892525,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "stop-restart",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 53 0",
+        "1088 22.671875 3 0 0 0 0",
+        "1856 38.671875 0 2 -0.30000001192092896 11 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.42806604504585266,
+      "klang_peak": 0.42806604504585266,
+      "pd_rms": 0.30365180837321265,
+      "klang_rms": 0.30365180837321265,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\stop-restart\\render.pd"
+        ],
+        "elapsed_seconds": 0.5877947999979369,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 21135360,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/stop-restart/pd.wav: biggest amplitude = 0.428066\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\stop-restart\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\stop-restart\\klang.f32"
+        ],
+        "elapsed_seconds": 0.01476429999456741,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 3051520,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "stop-clears-inlets",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 1 1 99 0 0",
+        "0 0 2 1 77 0 0",
+        "0 0 3 0 0 0 0",
+        "0 0 0 1 0.40000000596046448 0 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.4000000059604645,
+      "klang_peak": 0.4000000059604645,
+      "pd_rms": 0.4000000059604645,
+      "klang_rms": 0.4000000059604645,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\stop-clears-inlets\\render.pd"
+        ],
+        "elapsed_seconds": 0.5944634000043152,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21106688,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/stop-clears-inlets/pd.wav: biggest amplitude = 0.400000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\stop-clears-inlets\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\stop-clears-inlets\\klang.f32"
+        ],
+        "elapsed_seconds": 0.014900800000759773,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3055616,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "cold-inlets",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 1 1 11 0 0",
+        "0 0 2 1 7 0 0",
+        "0 0 0 1 0.80000001192092896 0 0",
+        "1216 25.338541030883789 0 1 -0.20000000298023224 0 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.800000011920929,
+      "klang_peak": 0.800000011920929,
+      "pd_rms": 0.2745024391355556,
+      "klang_rms": 0.2745024391355556,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\cold-inlets\\render.pd"
+        ],
+        "elapsed_seconds": 0.6212961999990512,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 21258240,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/cold-inlets/pd.wav: biggest amplitude = 0.800000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\cold-inlets\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\cold-inlets\\klang.f32"
+        ],
+        "elapsed_seconds": 0.015167600009590387,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 3051520,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "two-argument-cold-delay",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 2 1 7 0 0",
+        "0 0 0 2 0.80000001192092896 11 0",
+        "1216 25.338541030883789 0 2 -0.20000000298023224 5 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.800000011920929,
+      "klang_peak": 0.800000011920929,
+      "pd_rms": 0.2814951453236684,
+      "klang_rms": 0.2814951453236684,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\two-argument-cold-delay\\render.pd"
+        ],
+        "elapsed_seconds": 0.6042734000075143,
+        "sampled_cpu_seconds": 0.453125,
+        "sampled_peak_rss_bytes": 20971520,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/two-argument-cold-delay/pd.wav: biggest amplitude = 0.800000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\two-argument-cold-delay\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\two-argument-cold-delay\\klang.f32"
+        ],
+        "elapsed_seconds": 0.014616500004194677,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 3055616,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "negative-duration",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 0.5 -10 3"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.4955859852235533,
+      "klang_rms": 0.4955859852235533,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\negative-duration\\render.pd"
+        ],
+        "elapsed_seconds": 0.6303112999885343,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21319680,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/negative-duration/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\negative-duration\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\negative-duration\\klang.f32"
+        ],
+        "elapsed_seconds": 0.015382199999294244,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3244032,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "negative-delay",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 53 0",
+        "0 0 0 3 -0.5 7 71",
+        "1088 22.671875 0 3 0.40000000596046448 31 -1"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.42767295241355896,
+      "klang_peak": 0.42767295241355896,
+      "pd_rms": 0.38322120320967096,
+      "klang_rms": 0.38322120320967096,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\negative-delay\\render.pd"
+        ],
+        "elapsed_seconds": 0.6244410000072094,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 20922368,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/negative-delay/pd.wav: biggest amplitude = 0.427673\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\negative-delay\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\negative-delay\\klang.f32"
+        ],
+        "elapsed_seconds": 0.015020200007711537,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3059712,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "sanitise-large-small",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 1 1.0000000150474662e+30 0 0",
+        "256 5.3385415077209473 0 1 1 0 0",
+        "512 10.671875 0 1 1.0000000031710769e-30 0 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.1767766952966369,
+      "klang_rms": 0.1767766952966369,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\sanitise-large-small\\render.pd"
+        ],
+        "elapsed_seconds": 0.6098493000026792,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21069824,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/sanitise-large-small/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\sanitise-large-small\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\sanitise-large-small\\klang.f32"
+        ],
+        "elapsed_seconds": 0.014412100004847161,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3051520,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "fractional-start-end",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 0.04791666567325592 0.0072916666977107525",
+        "0 0 0 3 0 0.087499998509883881 0.065624997019767761"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.017999435766348056,
+      "klang_rms": 0.017999435766348056,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\fractional-start-end\\render.pd"
+        ],
+        "elapsed_seconds": 0.7630892000015592,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21123072,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/fractional-start-end/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\fractional-start-end\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\fractional-start-end\\klang.f32"
+        ],
+        "elapsed_seconds": 0.016003800003090873,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3051520,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "multiple-in-sample",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 0 0.0031250000465661287",
+        "0 0 0 3 0 0.0062500000931322575 0.0031250000465661287",
+        "0 0 0 3 -0.5 0 0.01354166679084301"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.5,
+      "klang_rms": 0.5,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\multiple-in-sample\\render.pd"
+        ],
+        "elapsed_seconds": 0.801207800002885,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 20926464,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/multiple-in-sample/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\multiple-in-sample\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\multiple-in-sample\\klang.f32"
+        ],
+        "elapsed_seconds": 0.0159739999944577,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 3153920,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "fractional-message",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "448 9.6947917938232422 0 2 1 3 0",
+        "576 12.117708206176758 0 2 -0.20000000298023224 7 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.8090171813964844,
+      "klang_peak": 0.8090171813964844,
+      "pd_rms": 0.21427083911197448,
+      "klang_rms": 0.21427083911197448,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\fractional-message\\render.pd"
+        ],
+        "elapsed_seconds": 0.7566350999986753,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 20918272,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/fractional-message/pd.wav: biggest amplitude = 0.809017\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\fractional-message\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\fractional-message\\klang.f32"
+        ],
+        "elapsed_seconds": 0.014516099996399134,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 3051520,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "block-boundary",
+      "sample_rate": 48000,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 0 1.3333333730697632",
+        "0 0 0 3 0 8 2.6666667461395264"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.1528938152488507,
+      "klang_rms": 0.1528938152488507,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\block-boundary\\render.pd"
+        ],
+        "elapsed_seconds": 0.7754169000108959,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 20918272,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/48000/block-boundary/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "48000",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\block-boundary\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\48000\\block-boundary\\klang.f32"
+        ],
+        "elapsed_seconds": 0.014487499996903352,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 3055616,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "silence",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.0,
+      "klang_peak": 0.0,
+      "pd_rms": 0.0,
+      "klang_rms": 0.0,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\silence\\render.pd"
+        ],
+        "elapsed_seconds": 0.8076148999971338,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 21118976,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/silence/pd.wav: biggest amplitude = 0.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\silence\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\silence\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009936200003721751,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1658880,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "jump",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 1 0.69999998807907104 0 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.699999988079071,
+      "klang_peak": 0.699999988079071,
+      "pd_rms": 0.699999988079071,
+      "klang_rms": 0.699999988079071,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\jump\\render.pd"
+        ],
+        "elapsed_seconds": 0.8070609999995213,
+        "sampled_cpu_seconds": 0.453125,
+        "sampled_peak_rss_bytes": 21123072,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/jump/pd.wav: biggest amplitude = 0.700000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\jump\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\jump\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009621200006222352,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 13 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.9764249855146412,
+      "klang_rms": 0.9764249855146412,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\ramp\\render.pd"
+        ],
+        "elapsed_seconds": 0.7107895000081044,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21286912,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/ramp/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\ramp\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\ramp\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009354399997391738,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "jump-slide",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 1 1 0 0",
+        "0 0 0 2 0 13 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.998255729675293,
+      "klang_peak": 0.998255729675293,
+      "pd_rms": 0.15253405253143487,
+      "klang_rms": 0.15253405253143487,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\jump-slide\\render.pd"
+        ],
+        "elapsed_seconds": 0.7215626999968663,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21041152,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/jump-slide/pd.wav: biggest amplitude = 0.998256\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\jump-slide\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\jump-slide\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009608399996068329,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "delayed",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 0.80000001192092896 17 9"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.800000011920929,
+      "klang_peak": 0.800000011920929,
+      "pd_rms": 0.7549731013077157,
+      "klang_rms": 0.7549731013077157,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\delayed\\render.pd"
+        ],
+        "elapsed_seconds": 0.8096274999988964,
+        "sampled_cpu_seconds": 0.453125,
+        "sampled_peak_rss_bytes": 21213184,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/delayed/pd.wav: biggest amplitude = 0.800000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\delayed\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\delayed\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009536800003843382,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1646592,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "queue",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 11 0",
+        "0 0 0 3 -0.5 7 18",
+        "0 0 0 3 0.25 0 31",
+        "0 0 0 3 0 9 37"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.27920398208237784,
+      "klang_rms": 0.27920398208237784,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\queue\\render.pd"
+        ],
+        "elapsed_seconds": 0.6216236999898683,
+        "sampled_cpu_seconds": 0.28125,
+        "sampled_peak_rss_bytes": 16093184,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/queue/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\queue\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\queue\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009704800002509728,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "replace-first",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 5 11",
+        "0 0 0 3 0.69999998807907104 9 22",
+        "0 0 0 3 -0.5 13 3"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.48405987319129934,
+      "klang_rms": 0.48405987319129934,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\replace-first\\render.pd"
+        ],
+        "elapsed_seconds": 0.6334874000021955,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21065728,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/replace-first/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\replace-first\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\replace-first\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009380599993164651,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "replace-tail",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 5 3",
+        "0 0 0 3 0.69999998807907104 9 22",
+        "0 0 0 3 0 7 41",
+        "0 0 0 3 -0.5 13 11"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.5102286437724654,
+      "klang_rms": 0.5102286437724654,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\replace-tail\\render.pd"
+        ],
+        "elapsed_seconds": 0.6052518999931635,
+        "sampled_cpu_seconds": 0.40625,
+        "sampled_peak_rss_bytes": 21082112,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/replace-tail/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\replace-tail\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\replace-tail\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009704299998702481,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1638400,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "same-time-ramps",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 9 7",
+        "0 0 0 3 -0.5 11 7"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.4803385242720714,
+      "klang_rms": 0.4803385242720714,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-ramps\\render.pd"
+        ],
+        "elapsed_seconds": 0.71990409999853,
+        "sampled_cpu_seconds": 0.5,
+        "sampled_peak_rss_bytes": 21020672,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/same-time-ramps/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-ramps\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-ramps\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009632600005716085,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "same-time-jumps",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 0 7",
+        "0 0 0 3 -0.5 0 7"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.4905105360106957,
+      "klang_rms": 0.4905105360106957,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-jumps\\render.pd"
+        ],
+        "elapsed_seconds": 0.6876938999921549,
+        "sampled_cpu_seconds": 0.40625,
+        "sampled_peak_rss_bytes": 21315584,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/same-time-jumps/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-jumps\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-jumps\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009063199991942383,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "same-time-jump-slide",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 0 7",
+        "0 0 0 3 0 9 7"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.9992441534996033,
+      "klang_peak": 0.9992441534996033,
+      "pd_rms": 0.1271782362911034,
+      "klang_rms": 0.1271782362911034,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-jump-slide\\render.pd"
+        ],
+        "elapsed_seconds": 0.6189335999952164,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 21073920,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/same-time-jump-slide/pd.wav: biggest amplitude = 0.999244\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-jump-slide\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-jump-slide\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009838199999649078,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1617920,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "same-time-ramp-jump",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 9 7",
+        "0 0 0 3 -0.5 0 7"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.4905105360106957,
+      "klang_rms": 0.4905105360106957,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-ramp-jump\\render.pd"
+        ],
+        "elapsed_seconds": 0.6019449000013992,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 21032960,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/same-time-ramp-jump/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-ramp-jump\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\same-time-ramp-jump\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009963200005586259,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "interrupt",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 53 0",
+        "0 0 0 3 -0.20000000298023224 7 71",
+        "1088 24.676870346069336 0 2 -0.5 17 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.4589846460909161,
+      "klang_rms": 0.4589846460909161,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\interrupt\\render.pd"
+        ],
+        "elapsed_seconds": 0.6276840000064112,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 16125952,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/interrupt/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\interrupt\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\interrupt\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009843400010140613,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1646592,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "stop",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 53 0",
+        "0 0 0 3 -0.20000000298023224 7 71",
+        "1088 24.676870346069336 3 0 0 0 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.46592220664024353,
+      "klang_peak": 0.46592220664024353,
+      "pd_rms": 0.44481249468458106,
+      "klang_rms": 0.44481249468458106,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\stop\\render.pd"
+        ],
+        "elapsed_seconds": 0.6107761000021128,
+        "sampled_cpu_seconds": 0.3125,
+        "sampled_peak_rss_bytes": 21127168,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/stop/pd.wav: biggest amplitude = 0.465922\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\stop\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\stop\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009332099987659603,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "stop-restart",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 53 0",
+        "1088 24.676870346069336 3 0 0 0 0",
+        "1856 42.091835021972656 0 2 -0.30000001192092896 11 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.46592220664024353,
+      "klang_peak": 0.46592220664024353,
+      "pd_rms": 0.3123076900027567,
+      "klang_rms": 0.3123076900027567,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\stop-restart\\render.pd"
+        ],
+        "elapsed_seconds": 0.6020558000018355,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21118976,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/stop-restart/pd.wav: biggest amplitude = 0.465922\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\stop-restart\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\stop-restart\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009457700012717396,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1601536,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "stop-clears-inlets",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 1 1 99 0 0",
+        "0 0 2 1 77 0 0",
+        "0 0 3 0 0 0 0",
+        "0 0 0 1 0.40000000596046448 0 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.4000000059604645,
+      "klang_peak": 0.4000000059604645,
+      "pd_rms": 0.4000000059604645,
+      "klang_rms": 0.4000000059604645,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\stop-clears-inlets\\render.pd"
+        ],
+        "elapsed_seconds": 0.6404687999893213,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 21221376,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/stop-clears-inlets/pd.wav: biggest amplitude = 0.400000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\stop-clears-inlets\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\stop-clears-inlets\\klang.f32"
+        ],
+        "elapsed_seconds": 0.010724499996285886,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "cold-inlets",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 1 1 11 0 0",
+        "0 0 2 1 7 0 0",
+        "0 0 0 1 0.80000001192092896 0 0",
+        "1216 27.579364776611328 0 1 -0.20000000298023224 0 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.800000011920929,
+      "klang_peak": 0.800000011920929,
+      "pd_rms": 0.282345095577467,
+      "klang_rms": 0.282345095577467,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\cold-inlets\\render.pd"
+        ],
+        "elapsed_seconds": 0.6067416000005323,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 21323776,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/cold-inlets/pd.wav: biggest amplitude = 0.800000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\cold-inlets\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\cold-inlets\\klang.f32"
+        ],
+        "elapsed_seconds": 0.008933500008424744,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "two-argument-cold-delay",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 2 1 7 0 0",
+        "0 0 0 2 0.80000001192092896 11 0",
+        "1216 27.579364776611328 0 2 -0.20000000298023224 5 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.800000011920929,
+      "klang_peak": 0.800000011920929,
+      "pd_rms": 0.2885988548533449,
+      "klang_rms": 0.2885988548533449,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\two-argument-cold-delay\\render.pd"
+        ],
+        "elapsed_seconds": 0.6117073999921558,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 21082112,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/two-argument-cold-delay/pd.wav: biggest amplitude = 0.800000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\two-argument-cold-delay\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\two-argument-cold-delay\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009105000004637986,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1601536,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "negative-duration",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 0.5 -10 3"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.4959553202532462,
+      "klang_rms": 0.4959553202532462,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\negative-duration\\render.pd"
+        ],
+        "elapsed_seconds": 0.6238817000121344,
+        "sampled_cpu_seconds": 0.40625,
+        "sampled_peak_rss_bytes": 21147648,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/negative-duration/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\negative-duration\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\negative-duration\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009890200002701022,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "negative-delay",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 2 1 53 0",
+        "0 0 0 3 -0.5 7 71",
+        "1088 24.676870346069336 0 3 0.40000000596046448 31 -1"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.4654943645000458,
+      "klang_peak": 0.4654943645000458,
+      "pd_rms": 0.38517016968675305,
+      "klang_rms": 0.38517016968675305,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\negative-delay\\render.pd"
+        ],
+        "elapsed_seconds": 0.6202877000032458,
+        "sampled_cpu_seconds": 0.453125,
+        "sampled_peak_rss_bytes": 21323776,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/negative-delay/pd.wav: biggest amplitude = 0.465494\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\negative-delay\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\negative-delay\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009058700001332909,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "sanitise-large-small",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 1 1.0000000150474662e+30 0 0",
+        "256 5.8106575012207031 0 1 1 0 0",
+        "512 11.615646362304688 0 1 1.0000000031710769e-30 0 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.1767766952966369,
+      "klang_rms": 0.1767766952966369,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\sanitise-large-small\\render.pd"
+        ],
+        "elapsed_seconds": 0.6196316999994451,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 21020672,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/sanitise-large-small/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\sanitise-large-small\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\sanitise-large-small\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009348299994599074,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1617920,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "fractional-start-end",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 0.052154194563627243 0.0079365083947777748",
+        "0 0 0 3 0 0.095238097012042999 0.071428574621677399"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.017999436429217527,
+      "klang_rms": 0.017999436429217527,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\fractional-start-end\\render.pd"
+        ],
+        "elapsed_seconds": 0.6035999000014272,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21073920,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/fractional-start-end/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\fractional-start-end\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\fractional-start-end\\klang.f32"
+        ],
+        "elapsed_seconds": 0.00947410000662785,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "multiple-in-sample",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 0 0.0034013604745268822",
+        "0 0 0 3 0 0.0068027209490537643 0.0034013604745268822",
+        "0 0 0 3 -0.5 0 0.014739229343831539"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.5,
+      "klang_peak": 0.5,
+      "pd_rms": 0.5,
+      "klang_rms": 0.5,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\multiple-in-sample\\render.pd"
+        ],
+        "elapsed_seconds": 0.7022114999999758,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21000192,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/multiple-in-sample/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\multiple-in-sample\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\multiple-in-sample\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009675099994638003,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "fractional-message",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "448 10.552154541015625 0 2 1 3 0",
+        "576 13.189342498779297 0 2 -0.20000000298023224 7 0"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 0.8804816603660583,
+      "klang_peak": 0.8804816603660583,
+      "pd_rms": 0.2176335633292378,
+      "klang_rms": 0.2176335633292378,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\fractional-message\\render.pd"
+        ],
+        "elapsed_seconds": 0.686526599994977,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21094400,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/fractional-message/pd.wav: biggest amplitude = 0.880482\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\fractional-message\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\fractional-message\\klang.f32"
+        ],
+        "elapsed_seconds": 0.010656099999323487,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "block-boundary",
+      "sample_rate": 44100,
+      "frames": 8192,
+      "block_size": 64,
+      "events": [
+        "0 0 0 3 1 0 1.4512472152709961",
+        "0 0 0 3 0 8 2.9024944305419922"
+      ],
+      "max_error": 0.0,
+      "rms_error": 0.0,
+      "pd_peak": 1.0,
+      "klang_peak": 1.0,
+      "pd_rms": 0.14868420309240357,
+      "klang_rms": 0.14868420309240357,
+      "tolerance": 2e-06,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\block-boundary\\render.pd"
+        ],
+        "elapsed_seconds": 0.7049752000020817,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 20987904,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/vline-review/44100/block-boundary/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\vline.exe",
+          "44100",
+          "8192",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\block-boundary\\events.tsv",
+          "F:\\klang\\sfx\\kleine\\build\\vline-review\\44100\\block-boundary\\klang.f32"
+        ],
+        "elapsed_seconds": 0.009126899996772408,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1617920,
+        "stdout": "",
+        "stderr": ""
+      }
+    }
+  ],
+  "notes": [
+    "PD logical messages are delivered before their containing DSP block; absolute timestamps remain fractional.",
+    "The driver explicitly syncs the audio clock using PD m_sched.c/d_ctl.c block anchoring; pure models do not.",
+    "No reblocking/DSP pause-resume emulation; queue and ramp logic are independent of host block size."
+  ]
+}

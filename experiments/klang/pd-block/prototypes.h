@@ -16,7 +16,9 @@ struct Block {
         float value = samples;
         if (!std::isfinite(value) || value < 0 || value > 1048576 || std::floor(value) != value)
             throw std::invalid_argument("block size must be an integer from 0 to 1048576");
-        length = int(value); remaining = 0; enabled = length != 0;
+        length = int(value);
+        remaining = 0;
+        enabled = length != 0;
     }
     int samples() const { return length; }
     void disable() { enabled = false; }
@@ -42,12 +44,18 @@ struct Metro {
     double period() const { return double(float(interval)) * float(fs) / 1000; }
     template<class F> void start(bool enabled, F&& tick) {
         running = enabled;
-        if (enabled) { tick(count++); next = now + period(); }
+        if (enabled) {
+            tick(count++);
+            next = now + period();
+        }
     }
     template<class F> void advance(int samples, F&& tick) {
         if (samples <= 0 || interval <= 0) throw std::invalid_argument("invalid metro interval/span");
         const double end = now + samples;
-        while (running && next < end) { tick(count++); next += period(); }
+        while (running && next < end) {
+            tick(count++);
+            next += period();
+        }
         now = end;
     }
     template<class F> void operator()(F&& tick) { advance(1, std::forward<F>(tick)); }
@@ -98,8 +106,7 @@ struct IdealPedestrians : Sound {
     void prepare() override { tone.set(2500); }
     void process() override {
         metro([&](int count) { gate = count % 2; });
-        signal wave = tone;
-        wave * gate * 0.2f >> out;
+        tone * gate * 0.2f >> out;
     }
 };
 
@@ -114,8 +121,7 @@ struct MemberPedestrians : Sound {
     event update() { metro(blocks, [&](int count) { gate = count % 2; }); }
     void process() override {
         blocks(&MemberPedestrians::update, this);
-        signal wave = tone;
-        wave * gate * 0.2f >> out;
+        tone * gate * 0.2f >> out;
     }
 };
 
@@ -129,8 +135,7 @@ struct EquippedPedestrians : EquippedSound {
     event update() { metro(blocks, [&](int count) { gate = count % 2; }); }
     void process() override {
         blocks([&] { update(); });
-        signal wave = tone;
-        wave * gate * 0.2f >> out;
+        tone * gate * 0.2f >> out;
     }
 };
 
@@ -143,8 +148,7 @@ struct EventPedestrians : BufferSound {
     void prepare() override { tone.set(2500); }
     event block() override { metro(blocks, [&](int count) { gate = count % 2; }); }
     void process() override {
-        signal wave = tone;
-        wave * gate * 0.2f >> out;
+        tone * gate * 0.2f >> out;
     }
 };
 
@@ -157,8 +161,7 @@ struct SamplePedestrians : SampleSound {
     void prepare() override { tone.set(2500); }
     event block() override { metro(blocks, [&](int count) { gate = count % 2; }); }
     void sample() override {
-        signal wave = tone;
-        wave * gate * 0.2f >> out;
+        tone * gate * 0.2f >> out;
     }
 };
 }

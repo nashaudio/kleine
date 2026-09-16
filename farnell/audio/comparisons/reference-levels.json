@@ -5,17 +5,78 @@
   "method": "Integer-sample cross-correlation then least-squares scalar gain; original left channel, no resampling.",
   "local_pd_versus_klang": {
     "pd_peak": 0.04739164933562279,
-    "klang_peak": 0.047391366213560104,
+    "klang_peak": 0.04739164933562279,
     "pd_dc": 7.35747364472653e-13,
-    "klang_dc": -2.700495637727775e-12,
+    "klang_dc": 7.35747364472653e-13,
     "pd_rms": 0.003956559144023836,
-    "klang_rms": 0.0039565502619693165,
-    "level_delta_db": -1.949892042661084e-05,
-    "error_rms": 1.8692050951065412e-07,
-    "relative_error_db": -86.51321411874135,
-    "max_abs_error": 1.679858542047441e-06,
+    "klang_rms": 0.003956559144023836,
+    "level_delta_db": 0.0,
+    "error_rms": 3.452510614727051e-21,
+    "relative_error_db": -300.0,
+    "max_abs_error": 1.0754211332953712e-19,
     "identical_samples": false
   },
+  "collection_versus_website_patch": {
+    "pd_peak": 0.04739164933562279,
+    "klang_peak": 0.04739164933562279,
+    "pd_dc": 7.35747364472653e-13,
+    "klang_dc": 7.35747364472653e-13,
+    "pd_rms": 0.003956559144023836,
+    "klang_rms": 0.003956559144023836,
+    "level_delta_db": 0.0,
+    "error_rms": 0.0,
+    "relative_error_db": -300.0,
+    "max_abs_error": 0.0,
+    "identical_samples": true
+  },
+  "current_runs": {
+    "kleine": {
+      "command": [
+        "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+        "--render",
+        "pulse",
+        "F:\\klang\\sfx\\kleine\\build\\levels\\current\\kleine.wav",
+        "4",
+        "48000",
+        "1"
+      ],
+      "elapsed_seconds": 0.061025899995001964,
+      "sampled_cpu_seconds": 0,
+      "sampled_peak_rss_bytes": 5021696,
+      "stdout": "{\"model\":\"pulse\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.005698}\n",
+      "stderr": ""
+    },
+    "website_patch": {
+      "command": [
+        "C:/Program Files/Pd/bin/pd.exe",
+        "-nogui",
+        "-stderr",
+        "-noprefs",
+        "-noaudio",
+        "-nomidi",
+        "-batch",
+        "-r",
+        "48000",
+        "-compatibility",
+        "0.55",
+        "-open",
+        "F:\\klang\\sfx\\kleine\\build\\levels\\current\\render.pd"
+      ],
+      "elapsed_seconds": 0.5911731999949552,
+      "sampled_cpu_seconds": 0.359375,
+      "sampled_peak_rss_bytes": 21475328,
+      "stdout": "",
+      "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/levels/current/website-patch.wav: biggest amplitude = 0.047392\n"
+    }
+  },
+  "source_sha256": {
+    "farnell\\zip\\p02\\pulsedial.pd": "935d70939e2bb51ae73f666760b5db5c1d131faacecc63f78a51767819e04deb",
+    "farnell\\pd\\PHONETONES\\pulsedial.pd": "0aa333083ada8502b8f6887ccb6225241c26af51f6b98baa7a532f0859d51ab0",
+    "farnell\\pd\\PHONETONES\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535",
+    "farnell\\audio\\25-phone-tones\\pulse-online.wav": "f92541508a08578f4ba0641cbf904c522eb22fbddfcfa9283c50c51f8bf47aca",
+    "tools\\check_reference_levels.py": "4747ffb0a236fa6d775e4b8f62224863c134e0615717c1342466c20982a6cba6"
+  },
+  "executable_sha256": "debdc38d8b871f84b988597d07fceeb4be41671f2ee9745e643aeca174834a79",
   "pd_current_versus_legacy": {
     "pd_peak": 0.04739164933562279,
     "klang_peak": 0.04795494303107262,

@@ -1,0 +1,46 @@
+{
+  "files": {
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\33-boing\\boing-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 480000,
+      "seconds": 10.0,
+      "peak": 0.7784920334815979,
+      "rms": 0.06261389762322603,
+      "dc": 1.01764623479907e-12,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\33-boing\\boing-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 480000,
+      "seconds": 10.0,
+      "peak": 0.7784920334815979,
+      "rms": 0.06261384707518988,
+      "dc": -4.613662202735082e-13,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\33-boing\\boing-online.wav": {
+      "sample_rate": 48000,
+      "frames": 261882,
+      "seconds": 5.455875,
+      "peak": 0.7572021484375,
+      "rms": 0.08629625486967864,
+      "dc": -1.782936380936834e-08,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 2048,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 0.9999999997610529,
+  "aligned_error_rms": 1.3697209964036478e-06,
+  "identical_samples": false,
+  "relative_error_db": -93.2007725144853,
+  "rms_difference_db": -7.0120988664492545e-06,
+  "envelope_relative_error": 1.3062997798441325e-06,
+  "active_spectrum_median_abs_db": 2.7785413622779042e-05
+}

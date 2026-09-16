@@ -1,0 +1,917 @@
+{
+  "tests": [
+    {
+      "case": "ramp",
+      "rate": 48000,
+      "frames": 12032,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp\\render.pd"
+        ],
+        "elapsed_seconds": 0.7637164999905508,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 16220160,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/48000/ramp/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp\\kleine.wav",
+          "0.25066666666666665",
+          "48000"
+        ],
+        "elapsed_seconds": 0.04089870001189411,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1605632,
+        "stdout": "{\"model\":\"pd-ramp\",\"sample_rate\":48000,\"frames\":12032,\"gain\":1,\"processing_wall_seconds\":0.000172}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-zero-grain",
+      "rate": 48000,
+      "frames": 12032,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-zero-grain\\render.pd"
+        ],
+        "elapsed_seconds": 0.633166399988113,
+        "sampled_cpu_seconds": 0.296875,
+        "sampled_peak_rss_bytes": 21118976,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/48000/ramp-zero-grain/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-zero-grain",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-zero-grain\\kleine.wav",
+          "0.25066666666666665",
+          "48000"
+        ],
+        "elapsed_seconds": 0.010404999993625097,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1634304,
+        "stdout": "{\"model\":\"pd-ramp-zero-grain\",\"sample_rate\":48000,\"frames\":12032,\"gain\":1,\"processing_wall_seconds\":0.000152}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-negative-grain",
+      "rate": 48000,
+      "frames": 12032,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-negative-grain\\render.pd"
+        ],
+        "elapsed_seconds": 0.6273179999989225,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 21073920,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/48000/ramp-negative-grain/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-negative-grain",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-negative-grain\\kleine.wav",
+          "0.25066666666666665",
+          "48000"
+        ],
+        "elapsed_seconds": 0.013507600000593811,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "{\"model\":\"pd-ramp-negative-grain\",\"sample_rate\":48000,\"frames\":12032,\"gain\":1,\"processing_wall_seconds\":0.000138}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-fast",
+      "rate": 48000,
+      "frames": 12032,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-fast\\render.pd"
+        ],
+        "elapsed_seconds": 0.6277755000046454,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21155840,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/48000/ramp-fast/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-fast",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-fast\\kleine.wav",
+          "0.25066666666666665",
+          "48000"
+        ],
+        "elapsed_seconds": 0.013797999999951571,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1634304,
+        "stdout": "{\"model\":\"pd-ramp-fast\",\"sample_rate\":48000,\"frames\":12032,\"gain\":1,\"processing_wall_seconds\":0.000157}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-retarget",
+      "rate": 48000,
+      "frames": 12032,
+      "max_projected_error": 4.60892915725708e-05,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-retarget\\render.pd"
+        ],
+        "elapsed_seconds": 0.6975379000068642,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 21352448,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/48000/ramp-retarget/pd.wav: biggest amplitude = 0.700000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-retarget",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-retarget\\kleine.wav",
+          "0.25066666666666665",
+          "48000"
+        ],
+        "elapsed_seconds": 0.01127049999195151,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "{\"model\":\"pd-ramp-retarget\",\"sample_rate\":48000,\"frames\":12032,\"gain\":1,\"processing_wall_seconds\":0.000168}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-stop",
+      "rate": 48000,
+      "frames": 12032,
+      "max_projected_error": 4.607439041137695e-05,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-stop\\render.pd"
+        ],
+        "elapsed_seconds": 0.6029055999970296,
+        "sampled_cpu_seconds": 0.3125,
+        "sampled_peak_rss_bytes": 16310272,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/48000/ramp-stop/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-stop",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-stop\\kleine.wav",
+          "0.25066666666666665",
+          "48000"
+        ],
+        "elapsed_seconds": 0.014774900002521463,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1646592,
+        "stdout": "{\"model\":\"pd-ramp-stop\",\"sample_rate\":48000,\"frames\":12032,\"gain\":1,\"processing_wall_seconds\":0.000150}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-legacy",
+      "rate": 48000,
+      "frames": 12032,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.47",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-legacy\\render.pd"
+        ],
+        "elapsed_seconds": 0.6475701999879675,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 16228352,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/48000/ramp-legacy/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-legacy",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-legacy\\kleine.wav",
+          "0.25066666666666665",
+          "48000"
+        ],
+        "elapsed_seconds": 0.014218800002709031,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "{\"model\":\"pd-ramp-legacy\",\"sample_rate\":48000,\"frames\":12032,\"gain\":1,\"processing_wall_seconds\":0.000160}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-reset",
+      "rate": 48000,
+      "frames": 12032,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-reset\\render.pd"
+        ],
+        "elapsed_seconds": 0.6035087000054773,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 16228352,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/48000/ramp-reset/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-reset",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-reset\\kleine.wav",
+          "0.25066666666666665",
+          "48000"
+        ],
+        "elapsed_seconds": 0.015187900004093535,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "{\"model\":\"pd-ramp-reset\",\"sample_rate\":48000,\"frames\":12032,\"gain\":1,\"processing_wall_seconds\":0.000155}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-inlets",
+      "rate": 48000,
+      "frames": 12032,
+      "max_projected_error": 4.60892915725708e-05,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-inlets\\render.pd"
+        ],
+        "elapsed_seconds": 0.683850799992797,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 16084992,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/48000/ramp-inlets/pd.wav: biggest amplitude = 0.700000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-inlets",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-inlets\\kleine.wav",
+          "0.25066666666666665",
+          "48000"
+        ],
+        "elapsed_seconds": 0.014812100009294227,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1609728,
+        "stdout": "{\"model\":\"pd-ramp-inlets\",\"sample_rate\":48000,\"frames\":12032,\"gain\":1,\"processing_wall_seconds\":0.000176}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-repeat",
+      "rate": 48000,
+      "frames": 12032,
+      "max_projected_error": 0.0,
+      "tolerance": 0,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-repeat\\render.pd"
+        ],
+        "elapsed_seconds": 0.5936215999972774,
+        "sampled_cpu_seconds": 0.296875,
+        "sampled_peak_rss_bytes": 16240640,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/48000/ramp-repeat/pd.wav: biggest amplitude = 7.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-repeat",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\48000\\ramp-repeat\\kleine.wav",
+          "0.25066666666666665",
+          "48000"
+        ],
+        "elapsed_seconds": 0.014311000006273389,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1634304,
+        "stdout": "{\"model\":\"pd-ramp-repeat\",\"sample_rate\":48000,\"frames\":12032,\"gain\":1,\"processing_wall_seconds\":0.000257}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp",
+      "rate": 44100,
+      "frames": 11072,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp\\render.pd"
+        ],
+        "elapsed_seconds": 0.6157892000046559,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 16162816,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/44100/ramp/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp\\kleine.wav",
+          "0.2510657596371882",
+          "44100"
+        ],
+        "elapsed_seconds": 0.014099300009547733,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "{\"model\":\"pd-ramp\",\"sample_rate\":44100,\"frames\":11072,\"gain\":1,\"processing_wall_seconds\":0.000141}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-zero-grain",
+      "rate": 44100,
+      "frames": 11072,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-zero-grain\\render.pd"
+        ],
+        "elapsed_seconds": 0.6030457000015303,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 16150528,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/44100/ramp-zero-grain/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-zero-grain",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-zero-grain\\kleine.wav",
+          "0.2510657596371882",
+          "44100"
+        ],
+        "elapsed_seconds": 0.016601199997239746,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1662976,
+        "stdout": "{\"model\":\"pd-ramp-zero-grain\",\"sample_rate\":44100,\"frames\":11072,\"gain\":1,\"processing_wall_seconds\":0.000147}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-negative-grain",
+      "rate": 44100,
+      "frames": 11072,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-negative-grain\\render.pd"
+        ],
+        "elapsed_seconds": 0.6006446000101278,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 16130048,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/44100/ramp-negative-grain/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-negative-grain",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-negative-grain\\kleine.wav",
+          "0.2510657596371882",
+          "44100"
+        ],
+        "elapsed_seconds": 0.01443450000078883,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1646592,
+        "stdout": "{\"model\":\"pd-ramp-negative-grain\",\"sample_rate\":44100,\"frames\":11072,\"gain\":1,\"processing_wall_seconds\":0.000129}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-fast",
+      "rate": 44100,
+      "frames": 11072,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-fast\\render.pd"
+        ],
+        "elapsed_seconds": 0.6178195000102278,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 21401600,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/44100/ramp-fast/pd.wav: biggest amplitude = 1.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-fast",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-fast\\kleine.wav",
+          "0.2510657596371882",
+          "44100"
+        ],
+        "elapsed_seconds": 0.01367440000467468,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1609728,
+        "stdout": "{\"model\":\"pd-ramp-fast\",\"sample_rate\":44100,\"frames\":11072,\"gain\":1,\"processing_wall_seconds\":0.000144}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-retarget",
+      "rate": 44100,
+      "frames": 11072,
+      "max_projected_error": 5.015730857849121e-05,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-retarget\\render.pd"
+        ],
+        "elapsed_seconds": 0.6175529999891296,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21372928,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/44100/ramp-retarget/pd.wav: biggest amplitude = 0.700000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-retarget",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-retarget\\kleine.wav",
+          "0.2510657596371882",
+          "44100"
+        ],
+        "elapsed_seconds": 0.01599670000723563,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1646592,
+        "stdout": "{\"model\":\"pd-ramp-retarget\",\"sample_rate\":44100,\"frames\":11072,\"gain\":1,\"processing_wall_seconds\":0.000152}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-stop",
+      "rate": 44100,
+      "frames": 11072,
+      "max_projected_error": 5.0187110900878906e-05,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-stop\\render.pd"
+        ],
+        "elapsed_seconds": 0.6339134000008926,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 21446656,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/44100/ramp-stop/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-stop",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-stop\\kleine.wav",
+          "0.2510657596371882",
+          "44100"
+        ],
+        "elapsed_seconds": 0.014450499991653487,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1650688,
+        "stdout": "{\"model\":\"pd-ramp-stop\",\"sample_rate\":44100,\"frames\":11072,\"gain\":1,\"processing_wall_seconds\":0.000151}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-legacy",
+      "rate": 44100,
+      "frames": 11072,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.47",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-legacy\\render.pd"
+        ],
+        "elapsed_seconds": 0.6272371000086423,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 21417984,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/44100/ramp-legacy/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-legacy",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-legacy\\kleine.wav",
+          "0.2510657596371882",
+          "44100"
+        ],
+        "elapsed_seconds": 0.01492560000042431,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "{\"model\":\"pd-ramp-legacy\",\"sample_rate\":44100,\"frames\":11072,\"gain\":1,\"processing_wall_seconds\":0.000158}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-reset",
+      "rate": 44100,
+      "frames": 11072,
+      "max_projected_error": 0.0,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-reset\\render.pd"
+        ],
+        "elapsed_seconds": 0.6308250000001863,
+        "sampled_cpu_seconds": 0.5,
+        "sampled_peak_rss_bytes": 21180416,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/44100/ramp-reset/pd.wav: biggest amplitude = 0.500000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-reset",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-reset\\kleine.wav",
+          "0.2510657596371882",
+          "44100"
+        ],
+        "elapsed_seconds": 0.014500600009341724,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "{\"model\":\"pd-ramp-reset\",\"sample_rate\":44100,\"frames\":11072,\"gain\":1,\"processing_wall_seconds\":0.000148}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-inlets",
+      "rate": 44100,
+      "frames": 11072,
+      "max_projected_error": 5.015730857849121e-05,
+      "tolerance": 0.0001,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-inlets\\render.pd"
+        ],
+        "elapsed_seconds": 0.6184995000076015,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21323776,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/44100/ramp-inlets/pd.wav: biggest amplitude = 0.700000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-inlets",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-inlets\\kleine.wav",
+          "0.2510657596371882",
+          "44100"
+        ],
+        "elapsed_seconds": 0.025849999990896322,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "{\"model\":\"pd-ramp-inlets\",\"sample_rate\":44100,\"frames\":11072,\"gain\":1,\"processing_wall_seconds\":0.000152}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "ramp-repeat",
+      "rate": 44100,
+      "frames": 11072,
+      "max_projected_error": 0.0,
+      "tolerance": 0,
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-repeat\\render.pd"
+        ],
+        "elapsed_seconds": 0.6329366999998456,
+        "sampled_cpu_seconds": 0.40625,
+        "sampled_peak_rss_bytes": 21331968,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/line-review/44100/ramp-repeat/pd.wav: biggest amplitude = 7.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-ramp-repeat",
+          "F:\\klang\\sfx\\kleine\\build\\line-review\\44100\\ramp-repeat\\kleine.wav",
+          "0.2510657596371882",
+          "44100"
+        ],
+        "elapsed_seconds": 0.013745800009928644,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1662976,
+        "stdout": "{\"model\":\"pd-ramp-repeat\",\"sample_rate\":44100,\"frames\":11072,\"gain\":1,\"processing_wall_seconds\":0.000143}\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "block_size": 64,
+  "source_sha256": {
+    "include/klang/pd.h": "d80e882d227ac6b184bf85623d52898c7d9fb08aed0fc98e4e0887f1ae1ae80b",
+    "tests/pd/line-control.h": "79255e07e440028c6ef618af383b46bc242b3ac0ad4939c1ea4941763d364d31",
+    "tests/pd/line-control.pd": "8a369665b5e25578cf038897bde325cc9665fc060906f11aef524dc723fb5c74",
+    "tools/check_pd_line.py": "41974e6baf1cea8996ac51f21c92e1b588d7fbf38ddc85da3b46f8524b02f650",
+    "farnell/render.h": "d881d9d4583fa624055be689ffea8d52957264b246957f3d3ca4702bf879310c"
+  },
+  "notes": [
+    "Control WAVs hold emitted values; repeat case counts emissions.",
+    "Last-sample block projection is analysis only.",
+    "Legacy stop is modern PD compatibility 0.47, not the historical executable."
+  ]
+}

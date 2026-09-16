@@ -15,8 +15,8 @@
       "frames": 192000,
       "seconds": 4.0,
       "peak": 0.19999955594539642,
-      "rms": 0.14109517942355698,
-      "dc": -3.2555168004891517e-06,
+      "rms": 0.14109517855219475,
+      "dc": -3.2555098235468688e-06,
       "nonfinite": 0,
       "samples_over_full_scale": 0
     }
@@ -26,11 +26,11 @@
   "window": "hann",
   "envelope_ms": 10,
   "alignment_lag_samples_pd_minus_klang": 0,
-  "aligned_correlation": 0.9999999999999978,
-  "aligned_error_rms": 9.156713769755365e-09,
-  "identical_samples": false,
-  "relative_error_db": -143.75545069417063,
-  "rms_difference_db": 5.364149240932762e-08,
-  "envelope_relative_error": 4.848074194868732e-08,
-  "active_spectrum_median_abs_db": 2.098021591973373e-06
+  "aligned_correlation": 1.0,
+  "aligned_error_rms": 0.0,
+  "identical_samples": true,
+  "relative_error_db": -240.0,
+  "rms_difference_db": 0.0,
+  "envelope_relative_error": 0.0,
+  "active_spectrum_median_abs_db": 0.0
 }

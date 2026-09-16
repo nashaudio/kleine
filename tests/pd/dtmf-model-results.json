@@ -1,0 +1,4303 @@
+{
+  "tests": [
+    {
+      "rate": 48000,
+      "case": "dtmf",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "dtmf",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf\\before.wav",
+          "6",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf\\events.tsv"
+        ],
+        "elapsed_seconds": 0.10513490000448655,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5869568,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.005253}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 48000,
+        "duration": 6,
+        "frames": 288000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 26368,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 40768,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 55168,
+            "action": "key",
+            "values": [
+              3
+            ]
+          },
+          {
+            "frame": 69568,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 83968,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 98368,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 112768,
+            "action": "key",
+            "values": [
+              7
+            ]
+          },
+          {
+            "frame": 127168,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 141568,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 155968,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 170368,
+            "action": "key",
+            "values": [
+              11
+            ]
+          },
+          {
+            "frame": 184768,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 199168,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 213568,
+            "action": "key",
+            "values": [
+              14
+            ]
+          },
+          {
+            "frame": 227968,
+            "action": "key",
+            "values": [
+              15
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf\\render.pd"
+          ],
+          "elapsed_seconds": 0.7144960000005085,
+          "sampled_cpu_seconds": 0.28125,
+          "sampled_peak_rss_bytes": 18862080,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/del-review/models/48000/dtmf/pd.wav: biggest amplitude = 0.498367\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "dtmf",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf\\kleine.wav",
+            "6",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf\\events.tsv"
+          ],
+          "elapsed_seconds": 0.05338559999654535,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 5578752,
+          "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.005631}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.4983668327331543,
+          "klang_peak": 0.4983668327331543,
+          "pd_dc": 8.851675805912309e-12,
+          "klang_dc": 8.851675805912309e-12,
+          "pd_rms": 0.18143147878806226,
+          "klang_rms": 0.18143147878806226,
+          "level_delta_db": 0.0,
+          "error_rms": 4.976842827643564e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0839761195337302e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "dtmf-study",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "dtmf-study",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-study\\before.wav",
+          "4",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-study\\events.tsv"
+        ],
+        "elapsed_seconds": 0.020591599997715093,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5177344,
+        "stdout": "{\"model\":\"dtmf-study\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.002398}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 48000,
+        "duration": 4,
+        "frames": 192000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\dtmf00.pd": "a2187f5b0ef61cba65b8269ea76625aa2d94981ce23bf0cbf345e03443bd7626"
+        },
+        "events": [
+          {
+            "frame": 0,
+            "action": "dtmf",
+            "values": [
+              200,
+              0.125,
+              0
+            ]
+          },
+          {
+            "frame": 11968,
+            "action": "tones",
+            "values": [
+              300,
+              400
+            ]
+          },
+          {
+            "frame": 11968,
+            "action": "gate",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 38400,
+            "action": "gate",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 48000,
+            "action": "tones",
+            "values": [
+              200,
+              250
+            ]
+          },
+          {
+            "frame": 48000,
+            "action": "gate",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 81600,
+            "action": "tones",
+            "values": [
+              500,
+              250
+            ]
+          },
+          {
+            "frame": 120000,
+            "action": "gate",
+            "values": [
+              0
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-study\\render.pd"
+          ],
+          "elapsed_seconds": 0.7526087000005646,
+          "sampled_cpu_seconds": 0.390625,
+          "sampled_peak_rss_bytes": 21938176,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/del-review/models/48000/dtmf-study/pd.wav: biggest amplitude = 0.250000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "dtmf-study",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-study\\kleine.wav",
+            "4",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-study\\events.tsv"
+          ],
+          "elapsed_seconds": 0.019415200004004873,
+          "sampled_cpu_seconds": 0,
+          "sampled_peak_rss_bytes": 5144576,
+          "stdout": "{\"model\":\"dtmf-study\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.002617}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.25,
+          "klang_peak": 0.25,
+          "pd_dc": -1.920378119469509e-05,
+          "klang_dc": -1.920378119469509e-05,
+          "pd_rms": 0.08948250637005709,
+          "klang_rms": 0.08948250637005709,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "dtmf-retrigger",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "dtmf",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-retrigger\\before.wav",
+          "4",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-retrigger\\events.tsv"
+        ],
+        "elapsed_seconds": 0.021301800006767735,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5132288,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.003721}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 48000,
+        "duration": 4,
+        "frames": 192000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 16768,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 19200,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 48000,
+            "action": "key",
+            "values": [
+              15
+            ]
+          },
+          {
+            "frame": 48960,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 96000,
+            "action": "key",
+            "values": [
+              13
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-retrigger\\render.pd"
+          ],
+          "elapsed_seconds": 0.6265944000042509,
+          "sampled_cpu_seconds": 0.28125,
+          "sampled_peak_rss_bytes": 18116608,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/del-review/models/48000/dtmf-retrigger/pd.wav: biggest amplitude = 0.499570\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "dtmf",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-retrigger\\kleine.wav",
+            "4",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-retrigger\\events.tsv"
+          ],
+          "elapsed_seconds": 0.020245499996235594,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 5128192,
+          "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.003881}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.499569833278656,
+          "klang_peak": 0.499569833278656,
+          "pd_dc": 1.4981006774535821e-12,
+          "klang_dc": 1.4981006773675347e-12,
+          "pd_rms": 0.10907377531647842,
+          "klang_rms": 0.10907377531647842,
+          "level_delta_db": 0.0,
+          "error_rms": 2.643592902741081e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0839596405449645e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "dtmf-detector",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "dtmf-detector",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-detector\\before.wav",
+          "6",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-detector\\events.tsv"
+        ],
+        "elapsed_seconds": 0.06735149999440182,
+        "sampled_cpu_seconds": 0.046875,
+        "sampled_peak_rss_bytes": 6156288,
+        "stdout": "{\"model\":\"dtmf-detector\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.040703}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 48000,
+        "duration": 6,
+        "frames": 288000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 26368,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 40768,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 55168,
+            "action": "key",
+            "values": [
+              3
+            ]
+          },
+          {
+            "frame": 69568,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 83968,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 98368,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 112768,
+            "action": "key",
+            "values": [
+              7
+            ]
+          },
+          {
+            "frame": 127168,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 141568,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 155968,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 170368,
+            "action": "key",
+            "values": [
+              11
+            ]
+          },
+          {
+            "frame": 184768,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 199168,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 213568,
+            "action": "key",
+            "values": [
+              14
+            ]
+          },
+          {
+            "frame": 227968,
+            "action": "key",
+            "values": [
+              15
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-detector\\render.pd"
+          ],
+          "elapsed_seconds": 0.6600337999989279,
+          "sampled_cpu_seconds": 0.46875,
+          "sampled_peak_rss_bytes": 21000192,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/del-review/models/48000/dtmf-detector/pd.wav: biggest amplitude = 1.000000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "dtmf-detector",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-detector\\kleine.wav",
+            "6",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-detector\\events.tsv"
+          ],
+          "elapsed_seconds": 0.0510404000087874,
+          "sampled_cpu_seconds": 0.03125,
+          "sampled_peak_rss_bytes": 6172672,
+          "stdout": "{\"model\":\"dtmf-detector\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.032145}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 1.0,
+          "klang_peak": 1.0,
+          "pd_dc": 0.13333333333333333,
+          "klang_dc": 0.13333333333333333,
+          "pd_rms": 0.3651483716701107,
+          "klang_rms": 0.3651483716701107,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 38400,
+        "kleine_clipped_samples": 38400,
+        "passed": true,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "dtmf-decoder",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "dtmf-decoder",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-decoder\\before.wav",
+          "6",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-decoder\\events.tsv"
+        ],
+        "elapsed_seconds": 0.06712479999987409,
+        "sampled_cpu_seconds": 0.046875,
+        "sampled_peak_rss_bytes": 6164480,
+        "stdout": "{\"model\":\"dtmf-decoder\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.040372}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 48000,
+        "duration": 6,
+        "frames": 288000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\dtmfdec.pd": "2f0582d3ddea02bf423282f3a2f001fc15c552f426e6fa47d5f4666651682799",
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 26368,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 40768,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 55168,
+            "action": "key",
+            "values": [
+              3
+            ]
+          },
+          {
+            "frame": 69568,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 83968,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 98368,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 112768,
+            "action": "key",
+            "values": [
+              7
+            ]
+          },
+          {
+            "frame": 127168,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 141568,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 155968,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 170368,
+            "action": "key",
+            "values": [
+              11
+            ]
+          },
+          {
+            "frame": 184768,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 199168,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 213568,
+            "action": "key",
+            "values": [
+              14
+            ]
+          },
+          {
+            "frame": 227968,
+            "action": "key",
+            "values": [
+              15
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-decoder\\render.pd"
+          ],
+          "elapsed_seconds": 0.6617051999928663,
+          "sampled_cpu_seconds": 0.484375,
+          "sampled_peak_rss_bytes": 21299200,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nF:/klang/sfx/kleine/build/del-review/models/48000/dtmf-decoder/pd.wav: biggest amplitude = 136.000000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "dtmf-decoder",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-decoder\\kleine.wav",
+            "6",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\dtmf-decoder\\events.tsv"
+          ],
+          "elapsed_seconds": 0.05013150000013411,
+          "sampled_cpu_seconds": 0.03125,
+          "sampled_peak_rss_bytes": 6168576,
+          "stdout": "{\"model\":\"dtmf-decoder\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.032377}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 136.0,
+          "klang_peak": 136.0,
+          "pd_dc": 34.437333333333335,
+          "klang_dc": 34.437333333333335,
+          "pd_rms": 56.51161532522909,
+          "klang_rms": 56.51161532522909,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 156160,
+        "kleine_clipped_samples": 156160,
+        "passed": true,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "phone-effects",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "phone-effects",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\phone-effects\\before.wav",
+          "16",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\phone-effects\\events.tsv"
+        ],
+        "elapsed_seconds": 0.251261199999135,
+        "sampled_cpu_seconds": 0.234375,
+        "sampled_peak_rss_bytes": 8740864,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.232236}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 48000,
+        "duration": 16,
+        "frames": 768000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\phone-effects.pd": "7daf57537361623da5581f0eb6afe9e4fcbb807b12e41da7dd69d511eb53f2b2",
+          "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+          "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+          "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "ringer",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 96000,
+            "action": "ringer",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 192000,
+            "action": "ringer",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 278400,
+            "action": "source",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 288000,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 302400,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 316800,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 331200,
+            "action": "key",
+            "values": [
+              3
+            ]
+          },
+          {
+            "frame": 345600,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 360000,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 374400,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 388800,
+            "action": "key",
+            "values": [
+              7
+            ]
+          },
+          {
+            "frame": 403200,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 417600,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 432000,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 446400,
+            "action": "key",
+            "values": [
+              11
+            ]
+          },
+          {
+            "frame": 460800,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 475200,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 489600,
+            "action": "key",
+            "values": [
+              14
+            ]
+          },
+          {
+            "frame": 504000,
+            "action": "key",
+            "values": [
+              15
+            ]
+          },
+          {
+            "frame": 528000,
+            "action": "source",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 624000,
+            "action": "source",
+            "values": [
+              1
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\phone-effects\\render.pd"
+          ],
+          "elapsed_seconds": 0.7838067999982741,
+          "sampled_cpu_seconds": 0.390625,
+          "sampled_peak_rss_bytes": 22917120,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/del-review/models/48000/phone-effects/pd.wav: biggest amplitude = 0.369984\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "phone-effects",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\phone-effects\\kleine.wav",
+            "16",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\phone-effects\\events.tsv"
+          ],
+          "elapsed_seconds": 0.23078159999568015,
+          "sampled_cpu_seconds": 0.21875,
+          "sampled_peak_rss_bytes": 8744960,
+          "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.207368}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.3699836730957031,
+          "klang_peak": 0.3699836730957031,
+          "pd_dc": -3.327607003526799e-06,
+          "klang_dc": -3.327605895270798e-06,
+          "pd_rms": 0.09780709548372071,
+          "klang_rms": 0.09780419276780909,
+          "level_delta_db": -0.00025778338547010753,
+          "error_rms": 0.032123179280964045,
+          "relative_error_db": -9.671036811840882,
+          "max_abs_error": 0.24833521246910095,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "phone-match",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "phone-effects",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\phone-match\\before.wav",
+          "33",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\phone-match\\events.tsv"
+        ],
+        "elapsed_seconds": 0.4988221999956295,
+        "sampled_cpu_seconds": 0.484375,
+        "sampled_peak_rss_bytes": 12050432,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":48000,\"frames\":1584000,\"gain\":1,\"processing_wall_seconds\":0.475799}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 48000,
+        "duration": 33,
+        "frames": 1584000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\phone-effects.pd": "7daf57537361623da5581f0eb6afe9e4fcbb807b12e41da7dd69d511eb53f2b2",
+          "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+          "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+          "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 26368,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 40768,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 55168,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 69568,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 83968,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 98368,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 112768,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 127168,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 141568,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 443968,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 458368,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 472768,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 487168,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 501568,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 515968,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 530368,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 544768,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 559168,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 573568,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 875968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 890368,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 904768,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 919168,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 933568,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 947968,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 962368,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 976768,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 991168,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 1005568,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 1307968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1322368,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1336768,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1351168,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1365568,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1379968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1394368,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1408768,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1423168,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1437568,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1451968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\phone-match\\render.pd"
+          ],
+          "elapsed_seconds": 0.8063238000031561,
+          "sampled_cpu_seconds": 0.578125,
+          "sampled_peak_rss_bytes": 29609984,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 1\na: 0\na: 0\na: 2\na: 0\na: 0\na: 3\na: 0\na: 0\na: 0\na: 9\na: 8\na: 7\na: 6\na: 5\na: 4\na: 3\na: 2\na: 1\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/del-review/models/48000/phone-match/pd.wav: biggest amplitude = 0.289371\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "phone-effects",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\phone-match\\kleine.wav",
+            "33",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\phone-match\\events.tsv"
+          ],
+          "elapsed_seconds": 0.4505224000022281,
+          "sampled_cpu_seconds": 0.421875,
+          "sampled_peak_rss_bytes": 12017664,
+          "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":48000,\"frames\":1584000,\"gain\":1,\"processing_wall_seconds\":0.425883}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.2893710434436798,
+          "klang_peak": 0.2893710434436798,
+          "pd_dc": -1.264489426606685e-12,
+          "klang_dc": -3.2946585751399154e-13,
+          "pd_rms": 0.05447993941258361,
+          "klang_rms": 0.054473966054141405,
+          "level_delta_db": -0.0009524015137835553,
+          "error_rms": 0.01155786502815244,
+          "relative_error_db": -13.467179948421222,
+          "max_abs_error": 0.2248234674334526,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "call-recogniser",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "call-recogniser",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\call-recogniser\\before.wav",
+          "16",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\call-recogniser\\events.tsv"
+        ],
+        "elapsed_seconds": 0.2126062000024831,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 8728576,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.192994}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 48000,
+        "duration": 16,
+        "frames": 768000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\dt-call-recogniser.pd": "656e5cb350b7a107adec9b7d2c06f3f9f537792760fb9a739c906c7298386a40",
+          "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+          "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+          "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535",
+          "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "ringer",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 96000,
+            "action": "ringer",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 192000,
+            "action": "ringer",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 288000,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 302400,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 316800,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 331200,
+            "action": "key",
+            "values": [
+              3
+            ]
+          },
+          {
+            "frame": 345600,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 360000,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 374400,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 388800,
+            "action": "key",
+            "values": [
+              7
+            ]
+          },
+          {
+            "frame": 403200,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 417600,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 432000,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 446400,
+            "action": "key",
+            "values": [
+              11
+            ]
+          },
+          {
+            "frame": 460800,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 475200,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 489600,
+            "action": "key",
+            "values": [
+              14
+            ]
+          },
+          {
+            "frame": 504000,
+            "action": "key",
+            "values": [
+              15
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\call-recogniser\\render.pd"
+          ],
+          "elapsed_seconds": 0.7398156000126619,
+          "sampled_cpu_seconds": 0.453125,
+          "sampled_peak_rss_bytes": 23003136,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/del-review/models/48000/call-recogniser/pd.wav: biggest amplitude = 0.245864\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "call-recogniser",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\call-recogniser\\kleine.wav",
+            "16",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\call-recogniser\\events.tsv"
+          ],
+          "elapsed_seconds": 0.20235950000642333,
+          "sampled_cpu_seconds": 0.234375,
+          "sampled_peak_rss_bytes": 8740864,
+          "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.180283}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.24586406350135803,
+          "klang_peak": 0.24586406350135803,
+          "pd_dc": 1.9318688497467527e-12,
+          "klang_dc": 1.5492992821417072e-12,
+          "pd_rms": 0.0399103504058032,
+          "klang_rms": 0.03992518191696463,
+          "level_delta_db": 0.003227256507168784,
+          "error_rms": 0.02655592608371675,
+          "relative_error_db": -3.5384817935303916,
+          "max_abs_error": 0.3600996732711792,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "call-match",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "call-recogniser",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\call-match\\before.wav",
+          "33",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\call-match\\events.tsv"
+        ],
+        "elapsed_seconds": 0.4265835000114748,
+        "sampled_cpu_seconds": 0.40625,
+        "sampled_peak_rss_bytes": 12009472,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":48000,\"frames\":1584000,\"gain\":1,\"processing_wall_seconds\":0.405716}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 48000,
+        "duration": 33,
+        "frames": 1584000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\dt-call-recogniser.pd": "656e5cb350b7a107adec9b7d2c06f3f9f537792760fb9a739c906c7298386a40",
+          "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+          "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+          "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535",
+          "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 26368,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 40768,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 55168,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 69568,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 83968,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 98368,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 112768,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 127168,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 141568,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 155968,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 443968,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 458368,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 472768,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 487168,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 501568,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 515968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 530368,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 544768,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 559168,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 573568,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 587968,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 875968,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 890368,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 904768,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 919168,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 933568,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 947968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 962368,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 976768,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 991168,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 1005568,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 1019968,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 1307968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1322368,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1336768,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1351168,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1365568,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1379968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1394368,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1408768,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1423168,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1437568,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1451968,
+            "action": "key",
+            "values": [
+              0
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\call-match\\render.pd"
+          ],
+          "elapsed_seconds": 0.8231119999982184,
+          "sampled_cpu_seconds": 0.484375,
+          "sampled_peak_rss_bytes": 33505280,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 7\na: 8\na: 1\na: 4\na: 8\na: 3\na: 2\na: 2\na: 1\na: 2\na: 0\na: 7\na: 7\na: 8\na: 7\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 0\na: 7\na: 8\na: 9\na: 0\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/del-review/models/48000/call-match/pd.wav: biggest amplitude = 0.245864\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "call-recogniser",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\call-match\\kleine.wav",
+            "33",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\48000\\call-match\\events.tsv"
+          ],
+          "elapsed_seconds": 0.4254655999975512,
+          "sampled_cpu_seconds": 0.40625,
+          "sampled_peak_rss_bytes": 12025856,
+          "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":48000,\"frames\":1584000,\"gain\":1,\"processing_wall_seconds\":0.398596}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.24586406350135803,
+          "klang_peak": 0.24586406350135803,
+          "pd_dc": 3.451077360347643e-14,
+          "klang_dc": 3.3246660433628636e-13,
+          "pd_rms": 0.028103991521696906,
+          "klang_rms": 0.02811068628225284,
+          "level_delta_db": 0.0020688529718095577,
+          "error_rms": 0.01848482850927208,
+          "relative_error_db": -3.6390515990731247,
+          "max_abs_error": 0.3600066900253296,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "dtmf",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "dtmf",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf\\before.wav",
+          "6",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf\\events.tsv"
+        ],
+        "elapsed_seconds": 0.020241099991835654,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 5427200,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.004946}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 44100,
+        "duration": 6,
+        "frames": 264600,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 24192,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 37440,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 50688,
+            "action": "key",
+            "values": [
+              3
+            ]
+          },
+          {
+            "frame": 63936,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 77120,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 90368,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 103616,
+            "action": "key",
+            "values": [
+              7
+            ]
+          },
+          {
+            "frame": 116864,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 130048,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 143296,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 156544,
+            "action": "key",
+            "values": [
+              11
+            ]
+          },
+          {
+            "frame": 169728,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 182976,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 196224,
+            "action": "key",
+            "values": [
+              14
+            ]
+          },
+          {
+            "frame": 209472,
+            "action": "key",
+            "values": [
+              15
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf\\render.pd"
+          ],
+          "elapsed_seconds": 0.8480198999895947,
+          "sampled_cpu_seconds": 0.4375,
+          "sampled_peak_rss_bytes": 18919424,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/del-review/models/44100/dtmf/pd.wav: biggest amplitude = 0.498386\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "dtmf",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf\\kleine.wav",
+            "6",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf\\events.tsv"
+          ],
+          "elapsed_seconds": 0.025454399990849197,
+          "sampled_cpu_seconds": 0,
+          "sampled_peak_rss_bytes": 5431296,
+          "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.005237}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.4983859360218048,
+          "klang_peak": 0.4983859360218048,
+          "pd_dc": -1.4389444234288446e-12,
+          "klang_dc": -3.1839703629154854e-13,
+          "pd_rms": 0.1808859862261446,
+          "klang_rms": 0.18130867197130032,
+          "level_delta_db": 0.020273095241081715,
+          "error_rms": 0.008311947046028402,
+          "relative_error_db": -26.75404308676544,
+          "max_abs_error": 0.40042689722031355,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "dtmf-study",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "dtmf-study",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-study\\before.wav",
+          "4",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-study\\events.tsv"
+        ],
+        "elapsed_seconds": 0.020451000003959052,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 5111808,
+        "stdout": "{\"model\":\"dtmf-study\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.002096}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 44100,
+        "duration": 4,
+        "frames": 176400,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\dtmf00.pd": "a2187f5b0ef61cba65b8269ea76625aa2d94981ce23bf0cbf345e03443bd7626"
+        },
+        "events": [
+          {
+            "frame": 0,
+            "action": "dtmf",
+            "values": [
+              200,
+              0.125,
+              0
+            ]
+          },
+          {
+            "frame": 11008,
+            "action": "tones",
+            "values": [
+              300,
+              400
+            ]
+          },
+          {
+            "frame": 11008,
+            "action": "gate",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 35264,
+            "action": "gate",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 44096,
+            "action": "tones",
+            "values": [
+              200,
+              250
+            ]
+          },
+          {
+            "frame": 44096,
+            "action": "gate",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 74944,
+            "action": "tones",
+            "values": [
+              500,
+              250
+            ]
+          },
+          {
+            "frame": 110208,
+            "action": "gate",
+            "values": [
+              0
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-study\\render.pd"
+          ],
+          "elapsed_seconds": 0.6784167000005255,
+          "sampled_cpu_seconds": 0.453125,
+          "sampled_peak_rss_bytes": 17850368,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/del-review/models/44100/dtmf-study/pd.wav: biggest amplitude = 0.250000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "dtmf-study",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-study\\kleine.wav",
+            "4",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-study\\events.tsv"
+          ],
+          "elapsed_seconds": 0.021832799990079366,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 5083136,
+          "stdout": "{\"model\":\"dtmf-study\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.002410}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.25,
+          "klang_peak": 0.25,
+          "pd_dc": -2.674624299063757e-05,
+          "klang_dc": -2.674624299063757e-05,
+          "pd_rms": 0.08942167938630526,
+          "klang_rms": 0.08942167938630526,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "dtmf-retrigger",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "dtmf",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-retrigger\\before.wav",
+          "4",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-retrigger\\events.tsv"
+        ],
+        "elapsed_seconds": 0.020259800003259443,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 5070848,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.003110}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 44100,
+        "duration": 4,
+        "frames": 176400,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 15424,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 17600,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 44096,
+            "action": "key",
+            "values": [
+              15
+            ]
+          },
+          {
+            "frame": 44928,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 88192,
+            "action": "key",
+            "values": [
+              13
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-retrigger\\render.pd"
+          ],
+          "elapsed_seconds": 0.7106708000064828,
+          "sampled_cpu_seconds": 0.4375,
+          "sampled_peak_rss_bytes": 21667840,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/del-review/models/44100/dtmf-retrigger/pd.wav: biggest amplitude = 0.498584\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "dtmf",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-retrigger\\kleine.wav",
+            "4",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-retrigger\\events.tsv"
+          ],
+          "elapsed_seconds": 0.02099119999911636,
+          "sampled_cpu_seconds": 0,
+          "sampled_peak_rss_bytes": 5070848,
+          "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.003429}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.4985838234424591,
+          "klang_peak": 0.4985838234424591,
+          "pd_dc": -3.2241011028587214e-12,
+          "klang_dc": -3.2227180534612394e-12,
+          "pd_rms": 0.10868872110200056,
+          "klang_rms": 0.108814102859956,
+          "level_delta_db": 0.010014143384649269,
+          "error_rms": 0.0032966385970786692,
+          "relative_error_db": -30.362262791279996,
+          "max_abs_error": 0.2567505016922951,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "dtmf-detector",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "dtmf-detector",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-detector\\before.wav",
+          "6",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-detector\\events.tsv"
+        ],
+        "elapsed_seconds": 0.05497040000045672,
+        "sampled_cpu_seconds": 0.03125,
+        "sampled_peak_rss_bytes": 6062080,
+        "stdout": "{\"model\":\"dtmf-detector\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.037260}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 44100,
+        "duration": 6,
+        "frames": 264600,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 24192,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 37440,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 50688,
+            "action": "key",
+            "values": [
+              3
+            ]
+          },
+          {
+            "frame": 63936,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 77120,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 90368,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 103616,
+            "action": "key",
+            "values": [
+              7
+            ]
+          },
+          {
+            "frame": 116864,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 130048,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 143296,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 156544,
+            "action": "key",
+            "values": [
+              11
+            ]
+          },
+          {
+            "frame": 169728,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 182976,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 196224,
+            "action": "key",
+            "values": [
+              14
+            ]
+          },
+          {
+            "frame": 209472,
+            "action": "key",
+            "values": [
+              15
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-detector\\render.pd"
+          ],
+          "elapsed_seconds": 0.6266738999984227,
+          "sampled_cpu_seconds": 0.421875,
+          "sampled_peak_rss_bytes": 20582400,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/del-review/models/44100/dtmf-detector/pd.wav: biggest amplitude = 1.000000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "dtmf-detector",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-detector\\kleine.wav",
+            "6",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-detector\\events.tsv"
+          ],
+          "elapsed_seconds": 0.05722309999691788,
+          "sampled_cpu_seconds": 0.03125,
+          "sampled_peak_rss_bytes": 6066176,
+          "stdout": "{\"model\":\"dtmf-detector\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.029727}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 1.0,
+          "klang_peak": 1.0,
+          "pd_dc": 0.13351473922902493,
+          "klang_dc": 0.13351473922902493,
+          "pd_rms": 0.3653966874904929,
+          "klang_rms": 0.3653966874904929,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 35328,
+        "kleine_clipped_samples": 35328,
+        "passed": true,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "dtmf-decoder",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "dtmf-decoder",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-decoder\\before.wav",
+          "6",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-decoder\\events.tsv"
+        ],
+        "elapsed_seconds": 0.05578530000639148,
+        "sampled_cpu_seconds": 0.03125,
+        "sampled_peak_rss_bytes": 6074368,
+        "stdout": "{\"model\":\"dtmf-decoder\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.037120}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 44100,
+        "duration": 6,
+        "frames": 264600,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\dtmfdec.pd": "2f0582d3ddea02bf423282f3a2f001fc15c552f426e6fa47d5f4666651682799",
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 24192,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 37440,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 50688,
+            "action": "key",
+            "values": [
+              3
+            ]
+          },
+          {
+            "frame": 63936,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 77120,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 90368,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 103616,
+            "action": "key",
+            "values": [
+              7
+            ]
+          },
+          {
+            "frame": 116864,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 130048,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 143296,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 156544,
+            "action": "key",
+            "values": [
+              11
+            ]
+          },
+          {
+            "frame": 169728,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 182976,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 196224,
+            "action": "key",
+            "values": [
+              14
+            ]
+          },
+          {
+            "frame": 209472,
+            "action": "key",
+            "values": [
+              15
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-decoder\\render.pd"
+          ],
+          "elapsed_seconds": 0.6439646000071662,
+          "sampled_cpu_seconds": 0.3125,
+          "sampled_peak_rss_bytes": 20762624,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nF:/klang/sfx/kleine/build/del-review/models/44100/dtmf-decoder/pd.wav: biggest amplitude = 136.000000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "dtmf-decoder",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-decoder\\kleine.wav",
+            "6",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\dtmf-decoder\\events.tsv"
+          ],
+          "elapsed_seconds": 0.04862590000266209,
+          "sampled_cpu_seconds": 0.03125,
+          "sampled_peak_rss_bytes": 6078464,
+          "stdout": "{\"model\":\"dtmf-decoder\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.029709}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 136.0,
+          "klang_peak": 136.0,
+          "pd_dc": 34.27845804988662,
+          "klang_dc": 34.328767951625096,
+          "pd_rms": 56.456011813103395,
+          "klang_rms": 56.46595051576907,
+          "level_delta_db": 0.0015289581042024407,
+          "error_rms": 1.0593855804248489,
+          "relative_error_db": -34.533122759122506,
+          "max_abs_error": 24.0,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 142336,
+        "kleine_clipped_samples": 143360,
+        "passed": false,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "phone-effects",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "phone-effects",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\phone-effects\\before.wav",
+          "16",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\phone-effects\\events.tsv"
+        ],
+        "elapsed_seconds": 0.2309545000025537,
+        "sampled_cpu_seconds": 0.21875,
+        "sampled_peak_rss_bytes": 8486912,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.213784}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 44100,
+        "duration": 16,
+        "frames": 705600,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\phone-effects.pd": "7daf57537361623da5581f0eb6afe9e4fcbb807b12e41da7dd69d511eb53f2b2",
+          "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+          "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+          "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "ringer",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 88192,
+            "action": "ringer",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 176384,
+            "action": "ringer",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 255744,
+            "action": "source",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 264576,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 277824,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 291008,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 304256,
+            "action": "key",
+            "values": [
+              3
+            ]
+          },
+          {
+            "frame": 317504,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 330688,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 343936,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 357184,
+            "action": "key",
+            "values": [
+              7
+            ]
+          },
+          {
+            "frame": 370432,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 383616,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 396864,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 410112,
+            "action": "key",
+            "values": [
+              11
+            ]
+          },
+          {
+            "frame": 423360,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 436544,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 449792,
+            "action": "key",
+            "values": [
+              14
+            ]
+          },
+          {
+            "frame": 463040,
+            "action": "key",
+            "values": [
+              15
+            ]
+          },
+          {
+            "frame": 485056,
+            "action": "source",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 573248,
+            "action": "source",
+            "values": [
+              1
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\phone-effects\\render.pd"
+          ],
+          "elapsed_seconds": 0.7269546000025002,
+          "sampled_cpu_seconds": 0.453125,
+          "sampled_peak_rss_bytes": 22458368,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/del-review/models/44100/phone-effects/pd.wav: biggest amplitude = 0.376456\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "phone-effects",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\phone-effects\\kleine.wav",
+            "16",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\phone-effects\\events.tsv"
+          ],
+          "elapsed_seconds": 0.21711209999921266,
+          "sampled_cpu_seconds": 0.203125,
+          "sampled_peak_rss_bytes": 8499200,
+          "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.195694}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.37645620107650757,
+          "klang_peak": 0.38109201192855835,
+          "pd_dc": -3.3218532400397967e-06,
+          "klang_dc": -3.321852453766248e-06,
+          "pd_rms": 0.09775079190234152,
+          "klang_rms": 0.09804722255382599,
+          "level_delta_db": 0.02630022473389952,
+          "error_rms": 0.04080160448108887,
+          "relative_error_db": -7.588860855913423,
+          "max_abs_error": 0.2715277671813965,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "phone-match",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "phone-effects",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\phone-match\\before.wav",
+          "33",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\phone-match\\events.tsv"
+        ],
+        "elapsed_seconds": 0.45690710000053514,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 11534336,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":44100,\"frames\":1455300,\"gain\":1,\"processing_wall_seconds\":0.435091}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 44100,
+        "duration": 33,
+        "frames": 1455300,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\phone-effects.pd": "7daf57537361623da5581f0eb6afe9e4fcbb807b12e41da7dd69d511eb53f2b2",
+          "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+          "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+          "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 24192,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 37440,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 50688,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 63936,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 77120,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 90368,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 103616,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 116864,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 130048,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 407872,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 421120,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 434368,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 447552,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 460800,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 474048,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 487296,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 500480,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 513728,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 526976,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 804800,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 818048,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 831232,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 844480,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 857728,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 870912,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 884160,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 897408,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 910656,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 923840,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 1201664,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1214912,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1228160,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1241408,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1254592,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1267840,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1281088,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1294272,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1307520,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1320768,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1334016,
+            "action": "key",
+            "values": [
+              0
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\phone-match\\render.pd"
+          ],
+          "elapsed_seconds": 1.0680084999912651,
+          "sampled_cpu_seconds": 0.484375,
+          "sampled_peak_rss_bytes": 32411648,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 1\na: 0\na: 0\na: 2\na: 0\na: 0\na: 3\na: 0\na: 0\na: 0\na: 9\na: 8\na: 7\na: 6\na: 5\na: 4\na: 3\na: 2\na: 1\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/del-review/models/44100/phone-match/pd.wav: biggest amplitude = 0.288466\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "phone-effects",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\phone-match\\kleine.wav",
+            "33",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\phone-match\\events.tsv"
+          ],
+          "elapsed_seconds": 0.4431693000078667,
+          "sampled_cpu_seconds": 0.421875,
+          "sampled_peak_rss_bytes": 11497472,
+          "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":44100,\"frames\":1455300,\"gain\":1,\"processing_wall_seconds\":0.418329}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.2884659767150879,
+          "klang_peak": 0.2884659767150879,
+          "pd_dc": 4.871159648408386e-12,
+          "klang_dc": -3.306642036997056e-12,
+          "pd_rms": 0.054705972097505544,
+          "klang_rms": 0.05456021704276362,
+          "level_delta_db": -0.02317300677470794,
+          "error_rms": 0.01714749780335007,
+          "relative_error_db": -10.076679674714313,
+          "max_abs_error": 0.27141883969306946,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "call-recogniser",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "call-recogniser",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\call-recogniser\\before.wav",
+          "16",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\call-recogniser\\events.tsv"
+        ],
+        "elapsed_seconds": 0.19746419999864884,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 8577024,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.177245}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 44100,
+        "duration": 16,
+        "frames": 705600,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\dt-call-recogniser.pd": "656e5cb350b7a107adec9b7d2c06f3f9f537792760fb9a739c906c7298386a40",
+          "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+          "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+          "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535",
+          "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "ringer",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 88192,
+            "action": "ringer",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 176384,
+            "action": "ringer",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 264576,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 277824,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 291008,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 304256,
+            "action": "key",
+            "values": [
+              3
+            ]
+          },
+          {
+            "frame": 317504,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 330688,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 343936,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 357184,
+            "action": "key",
+            "values": [
+              7
+            ]
+          },
+          {
+            "frame": 370432,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 383616,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 396864,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 410112,
+            "action": "key",
+            "values": [
+              11
+            ]
+          },
+          {
+            "frame": 423360,
+            "action": "key",
+            "values": [
+              12
+            ]
+          },
+          {
+            "frame": 436544,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 449792,
+            "action": "key",
+            "values": [
+              14
+            ]
+          },
+          {
+            "frame": 463040,
+            "action": "key",
+            "values": [
+              15
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\call-recogniser\\render.pd"
+          ],
+          "elapsed_seconds": 0.7298667999857571,
+          "sampled_cpu_seconds": 0.5,
+          "sampled_peak_rss_bytes": 26247168,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/del-review/models/44100/call-recogniser/pd.wav: biggest amplitude = 0.246107\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "call-recogniser",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\call-recogniser\\kleine.wav",
+            "16",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\call-recogniser\\events.tsv"
+          ],
+          "elapsed_seconds": 0.17507199999818113,
+          "sampled_cpu_seconds": 0.15625,
+          "sampled_peak_rss_bytes": 8499200,
+          "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.153037}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.24610665440559387,
+          "klang_peak": 0.25344204902648926,
+          "pd_dc": 2.2382672793511214e-12,
+          "klang_dc": 3.4178265462169418e-12,
+          "pd_rms": 0.039295128120896354,
+          "klang_rms": 0.04111986861402469,
+          "level_delta_db": 0.39426018429761445,
+          "error_rms": 0.04180418577894035,
+          "relative_error_db": 0.5376211993759328,
+          "max_abs_error": 0.43444424867630005,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "call-match",
+      "baseline_audio_identical": true,
+      "baseline_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\before\\kleine.exe",
+          "--render",
+          "call-recogniser",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\call-match\\before.wav",
+          "33",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\call-match\\events.tsv"
+        ],
+        "elapsed_seconds": 0.3853699999890523,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 11538432,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":44100,\"frames\":1455300,\"gain\":1,\"processing_wall_seconds\":0.363218}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "sample_rate": 44100,
+        "duration": 33,
+        "frames": 1455300,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\dt-call-recogniser.pd": "656e5cb350b7a107adec9b7d2c06f3f9f537792760fb9a739c906c7298386a40",
+          "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+          "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+          "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+          "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535",
+          "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 24192,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 37440,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 50688,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 63936,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 77120,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 90368,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 103616,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 116864,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 130048,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 143296,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 407872,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 421120,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 434368,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 447552,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 460800,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 474048,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 487296,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 500480,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 513728,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 526976,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 540224,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 804800,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 818048,
+            "action": "key",
+            "values": [
+              8
+            ]
+          },
+          {
+            "frame": 831232,
+            "action": "key",
+            "values": [
+              9
+            ]
+          },
+          {
+            "frame": 844480,
+            "action": "key",
+            "values": [
+              10
+            ]
+          },
+          {
+            "frame": 857728,
+            "action": "key",
+            "values": [
+              13
+            ]
+          },
+          {
+            "frame": 870912,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 884160,
+            "action": "key",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 897408,
+            "action": "key",
+            "values": [
+              2
+            ]
+          },
+          {
+            "frame": 910656,
+            "action": "key",
+            "values": [
+              4
+            ]
+          },
+          {
+            "frame": 923840,
+            "action": "key",
+            "values": [
+              5
+            ]
+          },
+          {
+            "frame": 937088,
+            "action": "key",
+            "values": [
+              6
+            ]
+          },
+          {
+            "frame": 1201664,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1214912,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1228160,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1241408,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1254592,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1267840,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1281088,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1294272,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1307520,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1320768,
+            "action": "key",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 1334016,
+            "action": "key",
+            "values": [
+              0
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\call-match\\render.pd"
+          ],
+          "elapsed_seconds": 0.7817981999978656,
+          "sampled_cpu_seconds": 0.484375,
+          "sampled_peak_rss_bytes": 32387072,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 7\na: 8\na: 1\na: 4\na: 8\na: 3\na: 2\na: 2\na: 1\na: 2\na: 0\na: 7\na: 7\na: 8\na: 7\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 0\na: 7\na: 8\na: 9\na: 0\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/del-review/models/44100/call-match/pd.wav: biggest amplitude = 0.259502\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "call-recogniser",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\call-match\\kleine.wav",
+            "33",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\del-review\\models\\44100\\call-match\\events.tsv"
+          ],
+          "elapsed_seconds": 0.34133130000554956,
+          "sampled_cpu_seconds": 0.328125,
+          "sampled_peak_rss_bytes": 11513856,
+          "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":44100,\"frames\":1455300,\"gain\":1,\"processing_wall_seconds\":0.320892}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.25950178503990173,
+          "klang_peak": 0.24633245170116425,
+          "pd_dc": 1.571756093958669e-12,
+          "klang_dc": 1.3151584273422059e-12,
+          "pd_rms": 0.028891925467483776,
+          "klang_rms": 0.02808874966088758,
+          "level_delta_db": -0.2448815667749971,
+          "error_rms": 0.0274443748789322,
+          "relative_error_db": -0.4464628572031515,
+          "max_abs_error": 0.4342697560787201,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      }
+    }
+  ],
+  "machine": "Windows-10-10.0.19045-SP0",
+  "processor": "Intel64 Family 6 Model 165 Stepping 5, GenuineIntel",
+  "baseline_executable_sha256": "c47dc166916b76801092b09c7cb1f05fdc9e2e9446667b862ddca7140f0b3338",
+  "current_executable_sha256": "97e61c1d6a436da0a40ae18a64d00b9a5991f05df405b9efb1bc55865f94584b",
+  "source_sha256": {
+    "include/klang/pd.h": "0d7ce6fbf0768eb53fa09629bad38a4f4da9634bcb5f1875ac5787d973ab611b",
+    "farnell/klang/Artificial Sounds/DTMF Tones/dtmftones.k": "3cc416199f466e2edd571959addcbdf8c972c312efe60c3ef8b76280354fc1ba",
+    "farnell/klang/Artificial Sounds/Phone Tones/phoneeffects.k": "2a0f545051186355ce5a2e7fe426b9a153fbda94b3223709376c44d0977c7c11",
+    "tools/render_artificial.py": "67f010a9fa722c129b4d4d4a6dc301036c6ec0efaad6e0d3dc4ccae2740dc19f",
+    "tools/review_dtmf_topology.py": "e504ebcd66ac0c5c008742b01f02ad6d617645a1b18c5ee3732107a059eb5e15"
+  },
+  "notes": [
+    "MSVC x64 Release; PD 0.55.2; one voice; 64-sample PD blocks; raw mono float32 WAVs.",
+    "Identical baseline audio applies to these existing non-overlapping-key recipes; decoder overlap/repetition behaviour intentionally changed.",
+    "Run records retain total elapsed time, sampled process CPU/RSS and Kleine processing wall time. Startup, file I/O and process memory are not DSP-only cost.",
+    "No level matching, alignment, resampling, new block adapter or retained listening WAV replacement."
+  ]
+}

@@ -22,7 +22,7 @@ The old collection contains 470 files (450 patches). A [content-based audit](ref
 
 Chris also supplied the full companion-site mirror in [zip/](zip/): 537 files including 35 full WAV examples and 298 patches. Its `p02/phonetones.wav`, `p06/telephonebell.wav` and `examples.tar.gz` hashes match the files downloaded for the first trial. The packager now prefers those local WAVs and verifies their hashes before extracting audio. The redundant compressed `examples.tar.gz` stays local/ignored; extracted site resources and the old collection are tracked.
 
-PD-Vanilla 0.55.2 remains the initial executable reference. The [isolated primitive investigation](../tests/pd/README.md) checks current and 0.43-compatibility routines, including highpass gain and oscillator/FM differences. Original-release binaries have not yet been exercised. Do not replace a collection or dismiss a recording-level difference without recording the evidence.
+PD-Vanilla 0.55.2 remains the initial executable reference. The [isolated primitive investigation](../tests/pd/README.md) checks current and 0.43-compatibility routines, including highpass gain and oscillator/FM differences. The [Pedestrians review](audio/24-pedestrians/README.md) now also runs the original PD 0.42-5 Windows executable from 2009: phase adjustment matches its output to approximately the online recording's PCM16 noise floor, and thirty-minute trials quantify oscillator drift. That historical executable result is specific to this patch. Do not replace a collection or dismiss a recording-level difference without recording the evidence.
 
 ## Rain investigation
 

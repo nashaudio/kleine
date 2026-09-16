@@ -121,7 +121,8 @@ struct Harrier : Sound {
 		param brake = controls[3].smooth();
 		
         lop.set(11000 * (1 - speed * 0.5));
-		turbine(speed) * (0.03 * (1-speed * 0.5)) + burn(speed, altitude) >> lop >> out;
+		signal whine = turbine(speed);
+		whine * (0.03 * (1-speed * 0.5)) + burn(speed, altitude) >> lop >> out;
         
 
         bpf.set(min(10000, 500 - max(500, altitude / 10.0) + speed * 200), root2);

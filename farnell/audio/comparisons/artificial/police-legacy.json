@@ -14,9 +14,9 @@
       "sample_rate": 48000,
       "frames": 768000,
       "seconds": 16.0,
-      "peak": 0.22006875276565552,
-      "rms": 0.09225454884898106,
-      "dc": 0.04399960309235259,
+      "peak": 0.22006884217262268,
+      "rms": 0.0922547120544531,
+      "dc": 0.043999669173126144,
       "nonfinite": 0,
       "samples_over_full_scale": 0
     },
@@ -36,11 +36,11 @@
   "window": "hann",
   "envelope_ms": 10,
   "alignment_lag_samples_pd_minus_klang": 0,
-  "aligned_correlation": 0.9999999999964728,
-  "aligned_error_rms": 2.94727582404309e-07,
+  "aligned_correlation": 0.9999999999995868,
+  "aligned_error_rms": 8.350331458225179e-08,
   "identical_samples": false,
-  "relative_error_db": -109.91135559502332,
-  "rms_difference_db": -1.5441157110484358e-05,
-  "envelope_relative_error": 1.8071417521074909e-06,
-  "active_spectrum_median_abs_db": 1.9321086157870643e-05
+  "relative_error_db": -120.8656969341838,
+  "rms_difference_db": -7.51563869970353e-08,
+  "envelope_relative_error": 1.4060826754839282e-07,
+  "active_spectrum_median_abs_db": 1.7200240133963454e-06
 }

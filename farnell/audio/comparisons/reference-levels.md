@@ -1,10 +1,11 @@
 # Website levels and PD compatibility
 
-Measured 15 September 2026. **PD and Kleine agree in pulse level. Both are quieter than the online example. The tested PD-version changes do not explain the website's roughly 6 dB increase.**
+Rechecked 16 September 2026 against the current Release build and the latest local website patch. **PD and Kleine agree in pulse level. Both are quieter than the online example. The tested PD-version changes do not explain the website's roughly 6 dB increase.**
 
 | Comparison at 48 kHz | Measured level difference |
 | --- | ---: |
-| Kleine pulse versus current PD pulse | −0.0000195 dB |
+| Kleine pulse versus current PD pulse | 0 dB; negligible filter-tail differences |
+| Latest website pulse patch versus original collection patch | Sample-identical |
 | Website pulse versus current PD, matched individual contacts | +5.902 dB (about 1.973× amplitude) |
 | Legacy PD compatibility versus current PD, full pulse patch | +0.102632 dB |
 | Legacy versus current `osc~ 440` | −0.0000919 dB |

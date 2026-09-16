@@ -1,0 +1,10 @@
+bouncing retrigger 48000 Hz: peak 0.197059 RMS 0.027242
+rolling repeated push 48000 Hz: peak 0.054408 RMS 0.001245
+creaking force retarget 48000 Hz: peak 0.261161 RMS 0.010568
+boing retune/retrigger 48000 Hz: peak 1.004817 RMS 0.026904
+Harrier shared-filter smoke 48000 Hz: peak 10.887731 RMS 2.679032
+bouncing retrigger 44100 Hz: peak 0.199396 RMS 0.027476
+rolling repeated push 44100 Hz: peak 0.056041 RMS 0.001344
+creaking force retarget 44100 Hz: peak 0.264891 RMS 0.010505
+boing retune/retrigger 44100 Hz: peak 0.806436 RMS 0.025711
+Harrier shared-filter smoke 44100 Hz: peak 12.615189 RMS 2.783643

@@ -1,0 +1,12 @@
+#N canvas 0 0 480 360 10;
+#X obj 10 10 r audit-line;
+#X obj 10 100 line 0 20;
+#X obj 10 130 sig~;
+#X obj 10 160 outlet~;
+#X obj 150 10 r audit-duration;
+#X obj 300 10 r audit-grain;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 4 0 1 1;
+#X connect 5 0 1 2;

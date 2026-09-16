@@ -19,6 +19,9 @@ struct Primitive : Sound {
     pd::wrap wrapping;
     pd::line ramp;
     pd::env meter;
+    pd::vcf resonator;
+    pd::samphold hold;
+    pd::rzero difference;
     farnell::TelephoneBell::Decay envelope;
     int frame = 0;
 
@@ -34,14 +37,20 @@ struct Primitive : Sound {
         else if (name == "hip-high") highpass.set(2000);
         else if (name == "hip-legacy") { highpass.set(90); highpass.legacy = true; }
         else if (name == "lop") lowpass.set(100);
+        else if (name == "lop-slow") lowpass.set(.1f);
+        else if (name == "lop-ground") lowpass.set(20);
         else if (name == "bp-wire") bandpass.set(2000, 12);
         else if (name == "bp-speaker") bandpass.set(400, 7);
+        else if (name == "bp-can") bandpass.set(359, 123);
+        else if (name == "bp-ground") bandpass.set(632, 400);
         else if (name == "vline-decay") envelope.trigger(10);
         else if (name == "phasor") phase.set(440);
         else if (name == "phasor-negative") { phase.set(-440); phase.phase(0.25f); }
         else if (name == "cos" || name == "wrap") phase.set(-440);
         else if (name == "line") ramp.set(1, 1);
         else if (name == "env") oscillator.set(697);
+        else if (name.rfind("vcf", 0) == 0) { modulator.set(13); oscillator.set(997); resonator.set(426, 80); }
+        else if (name == "samphold" || name == "rzero") { phase.set(137); difference.set(.99f); }
         else if (name != "noise") throw std::runtime_error("unknown primitive");
     }
 
@@ -51,9 +60,20 @@ struct Primitive : Sound {
             signal modulation = modulator;
             signal carrier = oscillator(1000 + modulation * 2000);
             carrier >> out;
+        } else if (name.rfind("vcf", 0) == 0) {
+            signal wave = oscillator;
+            signal hz = modulator;
+            wave >> resonator(hz * 9000 + 6000, name == "vcf-zero" ? 0 : 80) >> out;
+            if (name == "vcf-im") out = resonator.im;
+        } else if (name == "samphold") {
+            signal wave = noise, trigger = phase;
+            wave >> hold(trigger) >> out;
+        } else if (name == "rzero") {
+            signal wave = noise;
+            wave >> difference >> out;
         } else if (name.rfind("osc", 0) == 0) oscillator >> out;
         else if (name.rfind("hip", 0) == 0) impulse >> highpass >> out;
-        else if (name == "lop") impulse >> lowpass >> out;
+        else if (name.rfind("lop", 0) == 0) impulse >> lowpass >> out;
         else if (name.rfind("bp", 0) == 0) impulse >> bandpass >> out;
         else if (name == "noise") noise >> out;
         else if (name == "env") { signal wave = oscillator; wave * 0.25f >> meter >> out; }

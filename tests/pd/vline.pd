@@ -1,0 +1,10 @@
+#N canvas 0 0 480 280 10;
+#X obj 10 10 r audit-vline;
+#X obj 10 100 vline~;
+#X obj 10 150 outlet~;
+#X obj 150 10 r audit-duration;
+#X obj 300 10 r audit-delay;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 1;
+#X connect 4 0 1 2;

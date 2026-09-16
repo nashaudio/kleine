@@ -1,0 +1,120 @@
+{
+  "chapter25_29": {
+    "dial": {
+      "pd_peak": 0.25,
+      "klang_peak": 0.25,
+      "pd_dc": -4.378854403815542e-09,
+      "klang_dc": -4.378854403815542e-09,
+      "pd_rms": 0.12499988643189652,
+      "klang_rms": 0.12499988643189652,
+      "level_delta_db": 0.0,
+      "error_rms": 0.0,
+      "relative_error_db": -300.0,
+      "max_abs_error": 0.0,
+      "identical_samples": true
+    },
+    "dial-web": {
+      "pd_peak": 0.25,
+      "klang_peak": 0.25,
+      "pd_dc": -6.917265422975068e-09,
+      "klang_dc": -6.917265422975068e-09,
+      "pd_rms": 0.12499988058088772,
+      "klang_rms": 0.12499988058088772,
+      "level_delta_db": 0.0,
+      "error_rms": 0.0,
+      "relative_error_db": -300.0,
+      "max_abs_error": 0.0,
+      "identical_samples": true
+    },
+    "dial-line": {
+      "pd_peak": 0.136755108833313,
+      "klang_peak": 0.136755108833313,
+      "pd_dc": -8.338915634908516e-06,
+      "klang_dc": -8.338915634908516e-06,
+      "pd_rms": 0.07832055914689491,
+      "klang_rms": 0.07832055914689491,
+      "level_delta_db": 0.0,
+      "error_rms": 0.0,
+      "relative_error_db": -300.0,
+      "max_abs_error": 0.0,
+      "identical_samples": true
+    },
+    "busy": {
+      "pd_peak": 0.19999955594539642,
+      "klang_peak": 0.19999955594539642,
+      "pd_dc": -3.2320682101337054e-06,
+      "klang_dc": -3.2320682101337038e-06,
+      "pd_rms": 0.07043526876168121,
+      "klang_rms": 0.07043526876168121,
+      "level_delta_db": 0.0,
+      "error_rms": 5.525400163840165e-21,
+      "relative_error_db": -300.0,
+      "max_abs_error": 1.0582624993341804e-19,
+      "identical_samples": false
+    },
+    "busy-archive": {
+      "pd_peak": 0.20000000298023224,
+      "klang_peak": 0.20000000298023224,
+      "pd_dc": -3.566814494337124e-09,
+      "klang_dc": -3.566814494337124e-09,
+      "pd_rms": 0.07071062136541442,
+      "klang_rms": 0.07071062136541442,
+      "level_delta_db": 0.0,
+      "error_rms": 0.0,
+      "relative_error_db": -300.0,
+      "max_abs_error": 0.0,
+      "identical_samples": true
+    },
+    "ringback": {
+      "pd_peak": 0.11680681258440018,
+      "klang_peak": 0.11680681258440018,
+      "pd_dc": -2.896962282569771e-06,
+      "klang_dc": -2.896962282569771e-06,
+      "pd_rms": 0.047622011662708845,
+      "klang_rms": 0.047622011662708845,
+      "level_delta_db": 0.0,
+      "error_rms": 9.553497141587052e-22,
+      "relative_error_db": -300.0,
+      "max_abs_error": 1.0944098397383502e-19,
+      "identical_samples": false
+    },
+    "pulse": {
+      "pd_peak": 0.04739164933562279,
+      "klang_peak": 0.04739164933562279,
+      "pd_dc": 7.35747364472653e-13,
+      "klang_dc": 7.35747364472653e-13,
+      "pd_rms": 0.003956559144023836,
+      "klang_rms": 0.003956559144023836,
+      "level_delta_db": 0.0,
+      "error_rms": 3.452510614727051e-21,
+      "relative_error_db": -300.0,
+      "max_abs_error": 1.0754211332953712e-19,
+      "identical_samples": false
+    },
+    "bell": {
+      "pd_peak": 0.20868384838104248,
+      "klang_peak": 0.20868362486362457,
+      "pd_dc": 8.901908578417973e-06,
+      "klang_dc": 8.901765820907803e-06,
+      "pd_rms": 0.021894749879290364,
+      "klang_rms": 0.021894707378365824,
+      "level_delta_db": -1.6860603587407917e-05,
+      "error_rms": 1.375869713095556e-07,
+      "relative_error_db": -104.0352535520585,
+      "max_abs_error": 2.9727816581726074e-06,
+      "identical_samples": false
+    }
+  },
+  "artificial_cases_per_rate": 39,
+  "primitive_cases": 58,
+  "release_and_debug_build": "passed",
+  "smoke_source_sha256": "69a580ff7d4223a6ab813c94df7ff08a8012c64ffcef54fe0aeac7c616ad79b1",
+  "notes": [
+    "Harrier smoke proves finite processing at the tested controls, not full-scale safety; raw peaks exceed unity.",
+    "Chapter 25/29 residuals are raw without alignment or gain fitting. Artificial regressions preserve their original per-case gates."
+  ],
+  "creaking_default_matches_script_sample_rates": [
+    48000,
+    44100
+  ]
+}

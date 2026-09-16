@@ -1,0 +1,36 @@
+{
+  "files": {
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\31-rolling\\tincan-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.24000000953674316,
+      "rms": 0.015376186478488275,
+      "dc": 4.066143540759843e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\31-rolling\\tincan-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 192000,
+      "seconds": 4.0,
+      "peak": 0.24000000953674316,
+      "rms": 0.015376057211105165,
+      "dc": 4.0670538196377225e-06,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 16384,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 0.999999999344295,
+  "aligned_error_rms": 5.716298558050545e-07,
+  "identical_samples": false,
+  "relative_error_db": -88.59467467556895,
+  "rms_difference_db": -7.302245877293587e-05,
+  "envelope_relative_error": 2.0812110241676095e-05,
+  "active_spectrum_median_abs_db": 0.0001539396506789637
+}

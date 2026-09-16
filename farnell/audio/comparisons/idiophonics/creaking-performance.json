@@ -1,0 +1,57 @@
+{
+  "sample_rate": 48000,
+  "channel_mix": "arithmetic mean; no gain applied",
+  "regularisation": 1e-05,
+  "peak_height": 0.12,
+  "peak_prominence": 0.09,
+  "min_peak_distance_ms": 2.5,
+  "valid_interval_ms": [
+    2,
+    49
+  ],
+  "force_estimate": "1 - (interval_ms - 3)/63",
+  "bin_duration_ms": 100,
+  "results": {
+    "Held-force test": {
+      "force_mae_where_both_active": 0.3197153270291568,
+      "activity_mismatch_fraction": 0.2878787878787879,
+      "envelope_relative_error_100ms": 0.7447572134677602,
+      "first_contact": {
+        "relative_error": 0.0017691272402183412,
+        "residual_db": -55.04481860763434,
+        "gain": 0.9931994342594549,
+        "fractional_alignment_samples": 0.0400000000000027,
+        "online_start_sample": 11941,
+        "render_start_sample": 15065,
+        "duration": 0.035
+      }
+    },
+    "Revised movement": {
+      "force_mae_where_both_active": 0.015861612844370605,
+      "activity_mismatch_fraction": 0.0,
+      "envelope_relative_error_100ms": 0.14434667985484623,
+      "first_contact": {
+        "relative_error": 0.0017659460660968882,
+        "residual_db": -55.06045128758338,
+        "gain": 0.9932340744135585,
+        "fractional_alignment_samples": 0.0400000000000027,
+        "online_start_sample": 11941,
+        "render_start_sample": 11737,
+        "duration": 0.035
+      }
+    }
+  },
+  "sources": {
+    "farnell\\zip\\p09\\creaking.wav": "a2a14944c14ba92c40234fb581980b4d1989ad5ac985f5030d991829ceb13a4f",
+    "build\\idiophonics\\48000\\creaking-controls\\pd.wav": "d1431b96377f93d5ec629675eaf3911ce534990a652b06193dfad8a1451e8b4e",
+    "build\\idiophonics\\48000\\creaking\\kleine.wav": "add265c4d233991e2b8544005b05b06348e0299f87bc84029230fe63c4a5bc39",
+    "build\\idiophonics\\48000\\creaking-wood\\pd.wav": "e288b7e7ae19d7f0449cb509a2919f4b76ec4a65863c27289d5b122942d3ff4f",
+    "build\\idiophonics\\48000\\creaking-panel\\pd.wav": "3629e6377431e2bec6538c1e15d6da05c33864de3731047a0ae04e4e0d26d69e"
+  },
+  "notes": [
+    "Control estimates assume the supplied stick/slip model and average its interval jitter.",
+    "The revised movement was guided by the online recording; this is a fitted demonstration, not an independent model validation.",
+    "Whole-file sample residuals against the website are not meaningful with unknown seed and messages.",
+    "The first-contact check explicitly fits gain and sub-sample alignment; other metrics use raw level and original time."
+  ]
+}

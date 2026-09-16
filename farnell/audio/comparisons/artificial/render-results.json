@@ -25,9 +25,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\pedestrians\\render.pd"
         ],
-        "elapsed_seconds": 1.047996699999203,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 26198016,
+        "elapsed_seconds": 0.7875049999856856,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 21602304,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/pedestrians/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -42,10 +42,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\pedestrians\\events.tsv"
         ],
-        "elapsed_seconds": 0.02096900000469759,
+        "elapsed_seconds": 0.020839500008150935,
         "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 5177344,
-        "stdout": "{\"model\":\"pedestrians\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.001508}\n",
+        "sampled_peak_rss_bytes": 5099520,
+        "stdout": "{\"model\":\"pedestrians\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.001781}\n",
         "stderr": ""
       },
       "comparison": {
@@ -62,7 +62,54 @@
         "identical_samples": true
       },
       "pd_clipped_samples": 0,
-      "kleine_clipped_samples": 0
+      "kleine_clipped_samples": 0,
+      "metro_timing": {
+        "pd": "control events delivered before their 64-sample DSP block",
+        "klang": "sample-timed polling; PD block delivery intentionally deferred",
+        "gate_edge_delays_samples": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "common_active_samples_identical": true
+      }
     },
     "dtmf": {
       "sample_rate": 48000,
@@ -202,9 +249,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf\\render.pd"
         ],
-        "elapsed_seconds": 0.6474610999939614,
-        "sampled_cpu_seconds": 0.65625,
-        "sampled_peak_rss_bytes": 26238976,
+        "elapsed_seconds": 0.3140432999935001,
+        "sampled_cpu_seconds": 0.171875,
+        "sampled_peak_rss_bytes": 22052864,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/dtmf/pd.wav: biggest amplitude = 0.498367\n"
       },
@@ -219,10 +266,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf\\events.tsv"
         ],
-        "elapsed_seconds": 0.02041609999287175,
+        "elapsed_seconds": 0.020099100001971237,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5496832,
-        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.005026}\n",
+        "sampled_peak_rss_bytes": 5513216,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.004852}\n",
         "stderr": ""
       },
       "comparison": {
@@ -266,9 +313,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm01\\render.pd"
         ],
-        "elapsed_seconds": 0.6122771000009379,
-        "sampled_cpu_seconds": 0.6875,
-        "sampled_peak_rss_bytes": 26165248,
+        "elapsed_seconds": 0.3254175000038231,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 20930560,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/alarm01/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -283,10 +330,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm01\\events.tsv"
         ],
-        "elapsed_seconds": 0.020472400006838143,
+        "elapsed_seconds": 0.02100780000910163,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5193728,
-        "stdout": "{\"model\":\"alarm01\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.001860}\n",
+        "sampled_peak_rss_bytes": 5070848,
+        "stdout": "{\"model\":\"alarm01\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.002061}\n",
         "stderr": ""
       },
       "comparison": {
@@ -330,9 +377,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm02\\render.pd"
         ],
-        "elapsed_seconds": 0.5938564999960363,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 26234880,
+        "elapsed_seconds": 0.30223130001104437,
+        "sampled_cpu_seconds": 0.296875,
+        "sampled_peak_rss_bytes": 21164032,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/alarm02/pd.wav: biggest amplitude = 0.199999\n"
       },
@@ -347,23 +394,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm02\\events.tsv"
         ],
-        "elapsed_seconds": 0.021510899998247623,
+        "elapsed_seconds": 0.020311699990998022,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5038080,
-        "stdout": "{\"model\":\"alarm02\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.003642}\n",
+        "sampled_peak_rss_bytes": 5058560,
+        "stdout": "{\"model\":\"alarm02\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.003714}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.1999993622303009,
         "klang_peak": 0.1999993622303009,
         "pd_dc": -1.46491062237922e-06,
-        "klang_dc": -1.4648993737992869e-06,
+        "klang_dc": -1.46491062237922e-06,
         "pd_rms": 0.09945922835999081,
-        "klang_rms": 0.09945922967961107,
-        "level_delta_db": 1.1524396471302013e-07,
-        "error_rms": 9.507340439756573e-09,
-        "relative_error_db": -140.39172080103393,
-        "max_abs_error": 1.7881393432617188e-07,
+        "klang_rms": 0.09945922835999081,
+        "level_delta_db": 0.0,
+        "error_rms": 5.0415564881205886e-21,
+        "relative_error_db": -300.0,
+        "max_abs_error": 1.0838128159862363e-19,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -394,9 +441,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm03\\render.pd"
         ],
-        "elapsed_seconds": 0.6059167999992496,
-        "sampled_cpu_seconds": 0.640625,
-        "sampled_peak_rss_bytes": 26152960,
+        "elapsed_seconds": 0.3103149999951711,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 21151744,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/alarm03/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -411,24 +458,24 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm03\\events.tsv"
         ],
-        "elapsed_seconds": 0.02100829999835696,
+        "elapsed_seconds": 0.02006190000975039,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5038080,
-        "stdout": "{\"model\":\"alarm03\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.004268}\n",
+        "sampled_peak_rss_bytes": 5074944,
+        "stdout": "{\"model\":\"alarm03\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.004119}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.20000000298023224,
         "klang_peak": 0.20000000298023224,
         "pd_dc": 6.838309704200647e-07,
-        "klang_dc": 6.837639780635137e-07,
+        "klang_dc": 6.838309704200647e-07,
         "pd_rms": 0.14066498090848512,
-        "klang_rms": 0.14066498156992957,
-        "level_delta_db": 4.084338193347576e-08,
-        "error_rms": 1.5621604972991765e-08,
-        "relative_error_db": -139.0892068018268,
-        "max_abs_error": 3.334134817123413e-07,
-        "identical_samples": false
+        "klang_rms": 0.14066498090848512,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
       },
       "pd_clipped_samples": 0,
       "kleine_clipped_samples": 0
@@ -458,9 +505,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm04\\render.pd"
         ],
-        "elapsed_seconds": 0.6070929999987129,
-        "sampled_cpu_seconds": 0.625,
-        "sampled_peak_rss_bytes": 26238976,
+        "elapsed_seconds": 0.31571830000029877,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 21131264,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/alarm04/pd.wav: biggest amplitude = 0.250000\n"
       },
@@ -475,10 +522,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm04\\events.tsv"
         ],
-        "elapsed_seconds": 0.02534929999819724,
-        "sampled_cpu_seconds": 0.046875,
-        "sampled_peak_rss_bytes": 5038080,
-        "stdout": "{\"model\":\"alarm04\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.008797}\n",
+        "elapsed_seconds": 0.02721550001297146,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5120000,
+        "stdout": "{\"model\":\"alarm04\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.008097}\n",
         "stderr": ""
       },
       "comparison": {
@@ -522,9 +569,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm05\\render.pd"
         ],
-        "elapsed_seconds": 0.5934913000019151,
-        "sampled_cpu_seconds": 0.5625,
-        "sampled_peak_rss_bytes": 26120192,
+        "elapsed_seconds": 0.32531009998638183,
+        "sampled_cpu_seconds": 0.171875,
+        "sampled_peak_rss_bytes": 21200896,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/alarm05/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -539,24 +586,24 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm05\\events.tsv"
         ],
-        "elapsed_seconds": 0.02473679999820888,
-        "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 5427200,
-        "stdout": "{\"model\":\"alarm05\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.006074}\n",
+        "elapsed_seconds": 0.019389099994441494,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 5066752,
+        "stdout": "{\"model\":\"alarm05\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.005097}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.19999955594539642,
         "klang_peak": 0.19999955594539642,
         "pd_dc": -3.2555098235468688e-06,
-        "klang_dc": -3.2555168004891517e-06,
+        "klang_dc": -3.2555098235468688e-06,
         "pd_rms": 0.14109517855219475,
-        "klang_rms": 0.14109517942355698,
-        "level_delta_db": 5.364149433798254e-08,
-        "error_rms": 9.156713769755365e-09,
-        "relative_error_db": -143.75545069417066,
-        "max_abs_error": 2.2351741790771484e-07,
-        "identical_samples": false
+        "klang_rms": 0.14109517855219475,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
       },
       "pd_clipped_samples": 0,
       "kleine_clipped_samples": 0
@@ -613,9 +660,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm06\\render.pd"
         ],
-        "elapsed_seconds": 0.6003194000004441,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 26267648,
+        "elapsed_seconds": 0.3203734999988228,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 21225472,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/alarm06/pd.wav: biggest amplitude = 0.059399\n"
       },
@@ -630,10 +677,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm06\\events.tsv"
         ],
-        "elapsed_seconds": 0.050813299996661954,
-        "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 5107712,
-        "stdout": "{\"model\":\"alarm06\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.020560}\n",
+        "elapsed_seconds": 0.03902640000160318,
+        "sampled_cpu_seconds": 0.03125,
+        "sampled_peak_rss_bytes": 5332992,
+        "stdout": "{\"model\":\"alarm06\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.018904}\n",
         "stderr": ""
       },
       "comparison": {
@@ -808,9 +855,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm07\\render.pd"
         ],
-        "elapsed_seconds": 0.6193645000021206,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 28614656,
+        "elapsed_seconds": 0.3308800999948289,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 24276992,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/alarm07/pd.wav: biggest amplitude = 0.160442\n"
       },
@@ -825,10 +872,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm07\\events.tsv"
         ],
-        "elapsed_seconds": 0.08579430000099819,
+        "elapsed_seconds": 0.08773859999200795,
         "sampled_cpu_seconds": 0.0625,
-        "sampled_peak_rss_bytes": 6680576,
-        "stdout": "{\"model\":\"alarm07\",\"sample_rate\":48000,\"frames\":576000,\"gain\":1,\"processing_wall_seconds\":0.061738}\n",
+        "sampled_peak_rss_bytes": 6684672,
+        "stdout": "{\"model\":\"alarm07\",\"sample_rate\":48000,\"frames\":576000,\"gain\":1,\"processing_wall_seconds\":0.056450}\n",
         "stderr": ""
       },
       "comparison": {
@@ -890,9 +937,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police\\render.pd"
         ],
-        "elapsed_seconds": 0.7508407999994233,
-        "sampled_cpu_seconds": 0.765625,
-        "sampled_peak_rss_bytes": 30765056,
+        "elapsed_seconds": 0.4740501999913249,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 26431488,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police/pd.wav: biggest amplitude = 0.156656\n"
       },
@@ -907,23 +954,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police\\events.tsv"
         ],
-        "elapsed_seconds": 0.09222440000303322,
+        "elapsed_seconds": 0.09288389999710489,
         "sampled_cpu_seconds": 0.078125,
-        "sampled_peak_rss_bytes": 7495680,
-        "stdout": "{\"model\":\"police\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.073893}\n",
+        "sampled_peak_rss_bytes": 7528448,
+        "stdout": "{\"model\":\"police\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.066505}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.1566559374332428,
-        "klang_peak": 0.15665565431118011,
+        "klang_peak": 0.15665586292743683,
         "pd_dc": 0.0967841349574407,
-        "klang_dc": 0.09678398638920484,
+        "klang_dc": 0.09678413470077038,
         "pd_rms": 0.1002595089300251,
-        "klang_rms": 0.1002593576442404,
-        "level_delta_db": -1.310651363741389e-05,
-        "error_rms": 2.020195006502195e-07,
-        "relative_error_db": -113.91464559648665,
-        "max_abs_error": 7.227063179016113e-07,
+        "klang_rms": 0.10025950858489985,
+        "level_delta_db": -2.989960575076472e-08,
+        "error_rms": 5.322495496122108e-08,
+        "relative_error_db": -125.50020541001318,
+        "max_abs_error": 3.5762786865234375e-07,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -972,9 +1019,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-legacy\\render.pd"
         ],
-        "elapsed_seconds": 0.7522931999992579,
-        "sampled_cpu_seconds": 0.8125,
-        "sampled_peak_rss_bytes": 30658560,
+        "elapsed_seconds": 0.4685968999983743,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 26423296,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police-legacy/pd.wav: biggest amplitude = 0.220069\n"
       },
@@ -989,23 +1036,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-legacy\\events.tsv"
         ],
-        "elapsed_seconds": 0.07544039999629604,
-        "sampled_cpu_seconds": 0.0625,
-        "sampled_peak_rss_bytes": 7499776,
-        "stdout": "{\"model\":\"police-legacy\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.055073}\n",
+        "elapsed_seconds": 0.06756320000567939,
+        "sampled_cpu_seconds": 0.046875,
+        "sampled_peak_rss_bytes": 7532544,
+        "stdout": "{\"model\":\"police-legacy\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.049942}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.22006891667842865,
-        "klang_peak": 0.22006875276565552,
+        "klang_peak": 0.22006884217262268,
         "pd_dc": 0.04399966576288343,
-        "klang_dc": 0.04399960309235259,
+        "klang_dc": 0.043999669173126144,
         "pd_rms": 0.09225471285270531,
-        "klang_rms": 0.09225454884898106,
-        "level_delta_db": -1.5441157110484358e-05,
-        "error_rms": 2.94727582404309e-07,
-        "relative_error_db": -109.91135559502331,
-        "max_abs_error": 1.4454126358032227e-06,
+        "klang_rms": 0.0922547120544531,
+        "level_delta_db": -7.515638410405288e-08,
+        "error_rms": 8.350331458225179e-08,
+        "relative_error_db": -120.86569693418377,
+        "max_abs_error": 5.513429641723633e-07,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -1036,9 +1083,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-environment\\render.pd"
         ],
-        "elapsed_seconds": 0.6107817000010982,
-        "sampled_cpu_seconds": 0.5625,
-        "sampled_peak_rss_bytes": 26402816,
+        "elapsed_seconds": 0.3209826999955112,
+        "sampled_cpu_seconds": 0.171875,
+        "sampled_peak_rss_bytes": 21032960,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police-environment/pd.wav: biggest amplitude = 0.700000\n"
       },
@@ -1053,10 +1100,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-environment\\events.tsv"
         ],
-        "elapsed_seconds": 0.027958500002569053,
+        "elapsed_seconds": 0.03623969999898691,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 1609728,
-        "stdout": "{\"model\":\"police-environment\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.000986}\n",
+        "sampled_peak_rss_bytes": 1605632,
+        "stdout": "{\"model\":\"police-environment\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.000959}\n",
         "stderr": ""
       },
       "comparison": {
@@ -1101,9 +1148,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-horn\\render.pd"
         ],
-        "elapsed_seconds": 0.6086566000012681,
-        "sampled_cpu_seconds": 0.65625,
-        "sampled_peak_rss_bytes": 26140672,
+        "elapsed_seconds": 0.3149626999947941,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 20758528,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police-horn/pd.wav: biggest amplitude = 0.171419\n"
       },
@@ -1118,24 +1165,24 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-horn\\events.tsv"
         ],
-        "elapsed_seconds": 0.019772899999225046,
-        "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4755456,
-        "stdout": "{\"model\":\"police-horn\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.004940}\n",
+        "elapsed_seconds": 0.020633200008887798,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 4780032,
+        "stdout": "{\"model\":\"police-horn\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.004860}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.17141886055469513,
-        "klang_peak": 0.17141857743263245,
+        "klang_peak": 0.17141886055469513,
         "pd_dc": 0.10609733304941983,
-        "klang_dc": 0.10609717025756618,
+        "klang_dc": 0.10609733304941983,
         "pd_rms": 0.11367014080024518,
-        "klang_rms": 0.1136699674998107,
-        "level_delta_db": -1.3242436271543581e-05,
-        "error_rms": 2.817815684270255e-07,
-        "relative_error_db": -112.11467631629483,
-        "max_abs_error": 8.940696716308594e-07,
-        "identical_samples": false
+        "klang_rms": 0.11367014080024518,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
       },
       "pd_clipped_samples": 0,
       "kleine_clipped_samples": 0
@@ -1165,9 +1212,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-logosc\\render.pd"
         ],
-        "elapsed_seconds": 0.6020079000008991,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 26243072,
+        "elapsed_seconds": 0.31691579999460373,
+        "sampled_cpu_seconds": 0.21875,
+        "sampled_peak_rss_bytes": 21086208,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police-logosc/pd.wav: biggest amplitude = 1.000000\n"
       },
@@ -1182,10 +1229,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-logosc\\events.tsv"
         ],
-        "elapsed_seconds": 0.020318000002589542,
-        "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 4739072,
-        "stdout": "{\"model\":\"police-logosc\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.003424}\n",
+        "elapsed_seconds": 0.02024110000638757,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 4784128,
+        "stdout": "{\"model\":\"police-logosc\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.003422}\n",
         "stderr": ""
       },
       "comparison": {
@@ -1229,9 +1276,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-logosc-legacy\\render.pd"
         ],
-        "elapsed_seconds": 0.5904685999994399,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 26140672,
+        "elapsed_seconds": 0.31825080000271555,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 20844544,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police-logosc-legacy/pd.wav: biggest amplitude = 1.069559\n"
       },
@@ -1246,10 +1293,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-logosc-legacy\\events.tsv"
         ],
-        "elapsed_seconds": 0.02108369999768911,
+        "elapsed_seconds": 0.020550999994156882,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4763648,
-        "stdout": "{\"model\":\"police-logosc-legacy\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.002401}\n",
+        "sampled_peak_rss_bytes": 4771840,
+        "stdout": "{\"model\":\"police-logosc-legacy\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.002413}\n",
         "stderr": ""
       },
       "comparison": {
@@ -1293,9 +1340,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-graph\\render.pd"
         ],
-        "elapsed_seconds": 0.5964611000017612,
-        "sampled_cpu_seconds": 0.53125,
-        "sampled_peak_rss_bytes": 26275840,
+        "elapsed_seconds": 0.32678269999451004,
+        "sampled_cpu_seconds": 0.21875,
+        "sampled_peak_rss_bytes": 20975616,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police-graph/pd.wav: biggest amplitude = 1.000000\n"
       },
@@ -1310,10 +1357,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-graph\\events.tsv"
         ],
-        "elapsed_seconds": 0.019526500000210945,
+        "elapsed_seconds": 0.02071799999976065,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4743168,
-        "stdout": "{\"model\":\"police-graph\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.003235}\n",
+        "sampled_peak_rss_bytes": 4763648,
+        "stdout": "{\"model\":\"police-graph\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.003242}\n",
         "stderr": ""
       },
       "comparison": {
@@ -1357,9 +1404,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-graph-legacy\\render.pd"
         ],
-        "elapsed_seconds": 0.5985818999979529,
-        "sampled_cpu_seconds": 0.546875,
-        "sampled_peak_rss_bytes": 26279936,
+        "elapsed_seconds": 0.3302255000016885,
+        "sampled_cpu_seconds": 0.21875,
+        "sampled_peak_rss_bytes": 20979712,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police-graph-legacy/pd.wav: biggest amplitude = 2.436560\n"
       },
@@ -1374,9 +1421,9 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-graph-legacy\\events.tsv"
         ],
-        "elapsed_seconds": 0.015772800004924648,
+        "elapsed_seconds": 0.021390299996710382,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4755456,
+        "sampled_peak_rss_bytes": 4841472,
         "stdout": "{\"model\":\"police-graph-legacy\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.002355}\n",
         "stderr": ""
       },
@@ -1421,9 +1468,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-triangle\\render.pd"
         ],
-        "elapsed_seconds": 0.6126807000036933,
-        "sampled_cpu_seconds": 0.65625,
-        "sampled_peak_rss_bytes": 26234880,
+        "elapsed_seconds": 0.3280287999950815,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 20983808,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police-triangle/pd.wav: biggest amplitude = 1.000000\n"
       },
@@ -1438,10 +1485,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-triangle\\events.tsv"
         ],
-        "elapsed_seconds": 0.014540700001816731,
+        "elapsed_seconds": 0.04551150000770576,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 1609728,
-        "stdout": "{\"model\":\"police-triangle\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.001076}\n",
+        "sampled_peak_rss_bytes": 1658880,
+        "stdout": "{\"model\":\"police-triangle\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.001046}\n",
         "stderr": ""
       },
       "comparison": {
@@ -1607,9 +1654,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf-bulk\\render.pd"
         ],
-        "elapsed_seconds": 0.6020538000011584,
-        "sampled_cpu_seconds": 0.53125,
-        "sampled_peak_rss_bytes": 26066944,
+        "elapsed_seconds": 0.322449700004654,
+        "sampled_cpu_seconds": 0.171875,
+        "sampled_peak_rss_bytes": 22077440,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/dtmf-bulk/pd.wav: biggest amplitude = 0.598040\n"
       },
@@ -1624,10 +1671,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf-bulk\\events.tsv"
         ],
-        "elapsed_seconds": 0.0213690000018687,
+        "elapsed_seconds": 0.03528389999701176,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5484544,
-        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.004990}\n",
+        "sampled_peak_rss_bytes": 5509120,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.004913}\n",
         "stderr": ""
       },
       "comparison": {
@@ -1733,9 +1780,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf-study\\render.pd"
         ],
-        "elapsed_seconds": 0.5928179000038654,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 26181632,
+        "elapsed_seconds": 0.3091835999948671,
+        "sampled_cpu_seconds": 0.171875,
+        "sampled_peak_rss_bytes": 17743872,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/dtmf-study/pd.wav: biggest amplitude = 0.250000\n"
       },
@@ -1750,10 +1797,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf-study\\events.tsv"
         ],
-        "elapsed_seconds": 0.020242700004018843,
-        "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 5103616,
-        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.002481}\n",
+        "elapsed_seconds": 0.021733799992944114,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 5136384,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.002255}\n",
         "stderr": ""
       },
       "comparison": {
@@ -1824,9 +1871,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm15\\render.pd"
         ],
-        "elapsed_seconds": 0.6125269999974989,
-        "sampled_cpu_seconds": 0.65625,
-        "sampled_peak_rss_bytes": 26066944,
+        "elapsed_seconds": 0.3294356999977026,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 21221376,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/alarm15/pd.wav: biggest amplitude = 0.059399\n"
       },
@@ -1841,10 +1888,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm15\\events.tsv"
         ],
-        "elapsed_seconds": 0.03751840000040829,
+        "elapsed_seconds": 0.03902169999491889,
         "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 5107712,
-        "stdout": "{\"model\":\"alarm06\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.020419}\n",
+        "sampled_peak_rss_bytes": 5332992,
+        "stdout": "{\"model\":\"alarm06\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.018714}\n",
         "stderr": ""
       },
       "comparison": {
@@ -1931,9 +1978,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm-bank\\render.pd"
         ],
-        "elapsed_seconds": 0.6131458000018029,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 26394624,
+        "elapsed_seconds": 0.3246486999996705,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 22175744,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/alarm-bank/pd.wav: biggest amplitude = 0.245954\n"
       },
@@ -1948,23 +1995,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm-bank\\events.tsv"
         ],
-        "elapsed_seconds": 0.04543940000439761,
+        "elapsed_seconds": 0.04348010000830982,
         "sampled_cpu_seconds": 0.03125,
-        "sampled_peak_rss_bytes": 5488640,
-        "stdout": "{\"model\":\"alarm-bank\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.026855}\n",
+        "sampled_peak_rss_bytes": 5513216,
+        "stdout": "{\"model\":\"alarm-bank\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.023590}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.2459542602300644,
         "klang_peak": 0.2459542602300644,
         "pd_dc": 9.64879674789165e-06,
-        "klang_dc": 9.648803826792078e-06,
+        "klang_dc": 9.64879674789165e-06,
         "pd_rms": 0.06492128456928033,
-        "klang_rms": 0.06492128482200853,
-        "level_delta_db": 3.3812782847149285e-08,
-        "error_rms": 7.4147490519423714e-09,
-        "relative_error_db": -138.84581294555383,
-        "max_abs_error": 4.76837158203125e-07,
+        "klang_rms": 0.06492128456928033,
+        "level_delta_db": 0.0,
+        "error_rms": 5.291141680391969e-21,
+        "relative_error_db": -300.0,
+        "max_abs_error": 1.0825668751885783e-19,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -1996,9 +2043,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\ringback-bulk\\render.pd"
         ],
-        "elapsed_seconds": 1.03784689999884,
-        "sampled_cpu_seconds": 0.421875,
-        "sampled_peak_rss_bytes": 20873216,
+        "elapsed_seconds": 0.32898770000610966,
+        "sampled_cpu_seconds": 0.21875,
+        "sampled_peak_rss_bytes": 24301568,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/ringback-bulk/pd.wav: biggest amplitude = 0.189094\n"
       },
@@ -2013,23 +2060,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\ringback-bulk\\events.tsv"
         ],
-        "elapsed_seconds": 0.044911299999512266,
-        "sampled_cpu_seconds": 0.03125,
-        "sampled_peak_rss_bytes": 6619136,
-        "stdout": "{\"model\":\"ringback-bulk\",\"sample_rate\":48000,\"frames\":576000,\"gain\":1,\"processing_wall_seconds\":0.026686}\n",
+        "elapsed_seconds": 0.04363060000468977,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 6639616,
+        "stdout": "{\"model\":\"ringback-bulk\",\"sample_rate\":48000,\"frames\":576000,\"gain\":1,\"processing_wall_seconds\":0.026262}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.18909373879432678,
-        "klang_peak": 0.18909472227096558,
+        "klang_peak": 0.18909373879432678,
         "pd_dc": -4.971093923162849e-06,
-        "klang_dc": -4.97117393164827e-06,
+        "klang_dc": -4.971093923162849e-06,
         "pd_rms": 0.07887037238953196,
-        "klang_rms": 0.07887048385067034,
-        "level_delta_db": 1.2275058852640773e-05,
-        "error_rms": 6.5233916233306e-07,
-        "relative_error_db": -101.64880879519467,
-        "max_abs_error": 4.503875970840454e-06,
+        "klang_rms": 0.07887037238953196,
+        "level_delta_db": 0.0,
+        "error_rms": 1.1565289902423153e-21,
+        "relative_error_db": -300.0,
+        "max_abs_error": 1.0615792350965766e-19,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -2060,9 +2107,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police00\\render.pd"
         ],
-        "elapsed_seconds": 0.6167742000034195,
-        "sampled_cpu_seconds": 0.703125,
-        "sampled_peak_rss_bytes": 26099712,
+        "elapsed_seconds": 0.33128369999758434,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 20987904,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police00/pd.wav: biggest amplitude = 2.436560\n"
       },
@@ -2077,10 +2124,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police00\\events.tsv"
         ],
-        "elapsed_seconds": 0.020692400001280475,
-        "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4739072,
-        "stdout": "{\"model\":\"police-graph-legacy\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.002366}\n",
+        "elapsed_seconds": 0.019033000004128553,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 4784128,
+        "stdout": "{\"model\":\"police-graph-legacy\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.002441}\n",
         "stderr": ""
       },
       "comparison": {
@@ -2124,9 +2171,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police01\\render.pd"
         ],
-        "elapsed_seconds": 0.6196377999949618,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 26230784,
+        "elapsed_seconds": 0.32597209999221377,
+        "sampled_cpu_seconds": 0.25,
+        "sampled_peak_rss_bytes": 20881408,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police01/pd.wav: biggest amplitude = 2.436560\n"
       },
@@ -2141,10 +2188,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police01\\events.tsv"
         ],
-        "elapsed_seconds": 0.020326700003352016,
-        "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 4775936,
-        "stdout": "{\"model\":\"police-graph-legacy-inverted\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.002434}\n",
+        "elapsed_seconds": 0.021629099996061996,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 4780032,
+        "stdout": "{\"model\":\"police-graph-legacy-inverted\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.002491}\n",
         "stderr": ""
       },
       "comparison": {
@@ -2188,9 +2235,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police1\\render.pd"
         ],
-        "elapsed_seconds": 0.6089357999953791,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 26279936,
+        "elapsed_seconds": 0.32348320000164676,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 21049344,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police1/pd.wav: biggest amplitude = 2.436560\n"
       },
@@ -2205,10 +2252,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police1\\events.tsv"
         ],
-        "elapsed_seconds": 0.01989039999898523,
+        "elapsed_seconds": 0.02038860000902787,
         "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 4763648,
-        "stdout": "{\"model\":\"police-graph-compare-legacy\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.002430}\n",
+        "sampled_peak_rss_bytes": 4833280,
+        "stdout": "{\"model\":\"police-graph-compare-legacy\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.002445}\n",
         "stderr": ""
       },
       "comparison": {
@@ -2270,9 +2317,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police3\\render.pd"
         ],
-        "elapsed_seconds": 0.7418351999949664,
-        "sampled_cpu_seconds": 0.78125,
-        "sampled_peak_rss_bytes": 30744576,
+        "elapsed_seconds": 0.4972279000066919,
+        "sampled_cpu_seconds": 0.3125,
+        "sampled_peak_rss_bytes": 22974464,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police3/pd.wav: biggest amplitude = 0.220069\n"
       },
@@ -2287,23 +2334,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police3\\events.tsv"
         ],
-        "elapsed_seconds": 0.08561319999716943,
+        "elapsed_seconds": 0.0853270999941742,
         "sampled_cpu_seconds": 0.046875,
-        "sampled_peak_rss_bytes": 7507968,
-        "stdout": "{\"model\":\"police-legacy\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.057880}\n",
+        "sampled_peak_rss_bytes": 7540736,
+        "stdout": "{\"model\":\"police-legacy\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.052758}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.22006891667842865,
-        "klang_peak": 0.22006875276565552,
+        "klang_peak": 0.22006884217262268,
         "pd_dc": 0.04399966576288343,
-        "klang_dc": 0.04399960309235259,
+        "klang_dc": 0.043999669173126144,
         "pd_rms": 0.09225471285270531,
-        "klang_rms": 0.09225454884898106,
-        "level_delta_db": -1.5441157110484358e-05,
-        "error_rms": 2.94727582404309e-07,
-        "relative_error_db": -109.91135559502331,
-        "max_abs_error": 1.4454126358032227e-06,
+        "klang_rms": 0.0922547120544531,
+        "level_delta_db": -7.515638410405288e-08,
+        "error_rms": 8.350331458225179e-08,
+        "relative_error_db": -120.86569693418377,
+        "max_abs_error": 5.513429641723633e-07,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -2334,9 +2381,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-osc-bulk\\render.pd"
         ],
-        "elapsed_seconds": 0.60049699999945,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 26128384,
+        "elapsed_seconds": 0.3130239000020083,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 20918272,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police-osc-bulk/pd.wav: biggest amplitude = 1.069559\n"
       },
@@ -2351,10 +2398,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-osc-bulk\\events.tsv"
         ],
-        "elapsed_seconds": 0.02023439999902621,
-        "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 4456448,
-        "stdout": "{\"model\":\"police-logosc-legacy\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.002411}\n",
+        "elapsed_seconds": 0.019203499992727302,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 4771840,
+        "stdout": "{\"model\":\"police-logosc-legacy\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.002400}\n",
         "stderr": ""
       },
       "comparison": {
@@ -2398,9 +2445,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-compare-log\\render.pd"
         ],
-        "elapsed_seconds": 0.5988799999977346,
-        "sampled_cpu_seconds": 0.578125,
-        "sampled_peak_rss_bytes": 26251264,
+        "elapsed_seconds": 0.322759100003168,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 17088512,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/police-compare-log/pd.wav: biggest amplitude = 1.000000\n"
       },
@@ -2415,10 +2462,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\police-compare-log\\events.tsv"
         ],
-        "elapsed_seconds": 0.020298099996580277,
-        "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 4739072,
-        "stdout": "{\"model\":\"police-graph-compare\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.003221}\n",
+        "elapsed_seconds": 0.020090000005438924,
+        "sampled_cpu_seconds": 0.03125,
+        "sampled_peak_rss_bytes": 4784128,
+        "stdout": "{\"model\":\"police-graph-compare\",\"sample_rate\":48000,\"frames\":96000,\"gain\":1,\"processing_wall_seconds\":0.003259}\n",
         "stderr": ""
       },
       "comparison": {
@@ -2575,9 +2622,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf-detector\\render.pd"
         ],
-        "elapsed_seconds": 0.5978073000005679,
-        "sampled_cpu_seconds": 0.671875,
-        "sampled_peak_rss_bytes": 28352512,
+        "elapsed_seconds": 0.33337829999800306,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 24264704,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/dtmf-detector/pd.wav: biggest amplitude = 1.000000\n"
       },
@@ -2592,10 +2639,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf-detector\\events.tsv"
         ],
-        "elapsed_seconds": 0.0635368999937782,
+        "elapsed_seconds": 0.05891279999923427,
         "sampled_cpu_seconds": 0.046875,
-        "sampled_peak_rss_bytes": 6131712,
-        "stdout": "{\"model\":\"dtmf-detector\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.042447}\n",
+        "sampled_peak_rss_bytes": 6205440,
+        "stdout": "{\"model\":\"dtmf-detector\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.039481}\n",
         "stderr": ""
       },
       "comparison": {
@@ -2753,9 +2800,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf-decoder\\render.pd"
         ],
-        "elapsed_seconds": 1.110216399996716,
-        "sampled_cpu_seconds": 0.71875,
-        "sampled_peak_rss_bytes": 28610560,
+        "elapsed_seconds": 0.345732699992368,
+        "sampled_cpu_seconds": 0.25,
+        "sampled_peak_rss_bytes": 24522752,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nF:/klang/sfx/kleine/build/artificial/48000/dtmf-decoder/pd.wav: biggest amplitude = 136.000000\n"
       },
@@ -2770,10 +2817,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf-decoder\\events.tsv"
         ],
-        "elapsed_seconds": 0.06228270000428893,
-        "sampled_cpu_seconds": 0.046875,
-        "sampled_peak_rss_bytes": 6123520,
-        "stdout": "{\"model\":\"dtmf-decoder\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.041554}\n",
+        "elapsed_seconds": 0.05971750000026077,
+        "sampled_cpu_seconds": 0.03125,
+        "sampled_peak_rss_bytes": 6160384,
+        "stdout": "{\"model\":\"dtmf-decoder\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.039898}\n",
         "stderr": ""
       },
       "comparison": {
@@ -2976,9 +3023,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\phone-effects\\render.pd"
         ],
-        "elapsed_seconds": 0.7082033000042429,
-        "sampled_cpu_seconds": 0.421875,
-        "sampled_peak_rss_bytes": 22679552,
+        "elapsed_seconds": 0.4027446999971289,
+        "sampled_cpu_seconds": 0.28125,
+        "sampled_peak_rss_bytes": 26005504,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/artificial/48000/phone-effects/pd.wav: biggest amplitude = 0.369984\n"
       },
@@ -2993,23 +3040,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\phone-effects\\events.tsv"
         ],
-        "elapsed_seconds": 0.25348090000625234,
-        "sampled_cpu_seconds": 0.234375,
-        "sampled_peak_rss_bytes": 8704000,
-        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.233306}\n",
+        "elapsed_seconds": 0.2629393999959575,
+        "sampled_cpu_seconds": 0.25,
+        "sampled_peak_rss_bytes": 8777728,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.237295}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.3699836730957031,
-        "klang_peak": 0.36998409032821655,
+        "klang_peak": 0.3699836730957031,
         "pd_dc": -3.327607003526799e-06,
-        "klang_dc": -3.327636941831544e-06,
+        "klang_dc": -3.327605581074718e-06,
         "pd_rms": 0.09780709548372071,
-        "klang_rms": 0.0978072274857704,
-        "level_delta_db": 1.1722610269529068e-05,
-        "error_rms": 7.802297790257651e-07,
-        "relative_error_db": -101.96295680236526,
-        "max_abs_error": 6.638467311859131e-06,
+        "klang_rms": 0.09780709548358489,
+        "level_delta_db": -1.206180795165689e-11,
+        "error_rms": 7.578197160534858e-10,
+        "relative_error_db": -162.2160892416287,
+        "max_abs_error": 2.9802322387695312e-08,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -3179,9 +3226,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\call-recogniser\\render.pd"
         ],
-        "elapsed_seconds": 0.6756182000026456,
-        "sampled_cpu_seconds": 0.703125,
-        "sampled_peak_rss_bytes": 30130176,
+        "elapsed_seconds": 0.3891262999968603,
+        "sampled_cpu_seconds": 0.25,
+        "sampled_peak_rss_bytes": 26435584,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/artificial/48000/call-recogniser/pd.wav: biggest amplitude = 0.245864\n"
       },
@@ -3196,10 +3243,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\call-recogniser\\events.tsv"
         ],
-        "elapsed_seconds": 0.22414800000115065,
-        "sampled_cpu_seconds": 0.1875,
-        "sampled_peak_rss_bytes": 8687616,
-        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.193526}\n",
+        "elapsed_seconds": 0.21610279999731574,
+        "sampled_cpu_seconds": 0.171875,
+        "sampled_peak_rss_bytes": 8712192,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.182913}\n",
         "stderr": ""
       },
       "comparison": {
@@ -3535,9 +3582,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\phone-match\\render.pd"
         ],
-        "elapsed_seconds": 0.8570382999969297,
-        "sampled_cpu_seconds": 0.8125,
-        "sampled_peak_rss_bytes": 36937728,
+        "elapsed_seconds": 0.5696812000096543,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 32833536,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 1\na: 0\na: 0\na: 2\na: 0\na: 0\na: 3\na: 0\na: 0\na: 0\na: 9\na: 8\na: 7\na: 6\na: 5\na: 4\na: 3\na: 2\na: 1\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/artificial/48000/phone-match/pd.wav: biggest amplitude = 0.289371\n"
       },
@@ -3552,23 +3599,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\phone-match\\events.tsv"
         ],
-        "elapsed_seconds": 0.5001586999933352,
-        "sampled_cpu_seconds": 0.484375,
-        "sampled_peak_rss_bytes": 11997184,
-        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":48000,\"frames\":1584000,\"gain\":1,\"processing_wall_seconds\":0.476400}\n",
+        "elapsed_seconds": 0.48809820000315085,
+        "sampled_cpu_seconds": 0.46875,
+        "sampled_peak_rss_bytes": 11976704,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":48000,\"frames\":1584000,\"gain\":1,\"processing_wall_seconds\":0.460482}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.2893710434436798,
-        "klang_peak": 0.2893713116645813,
+        "klang_peak": 0.2893710434436798,
         "pd_dc": -1.264489426606685e-12,
-        "klang_dc": -2.1612761103803137e-13,
+        "klang_dc": -1.083946689981665e-12,
         "pd_rms": 0.05447993941258361,
-        "klang_rms": 0.05448000617352244,
-        "level_delta_db": 1.0643877318559746e-05,
-        "error_rms": 4.1589643514870637e-07,
-        "relative_error_db": -102.34502836185897,
-        "max_abs_error": 5.21540641784668e-06,
+        "klang_rms": 0.054479939411405165,
+        "level_delta_db": -1.878828132930086e-10,
+        "error_rms": 3.574182045659412e-10,
+        "relative_error_db": -163.66119894091736,
+        "max_abs_error": 1.4901161193847656e-08,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -3913,9 +3960,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\call-match\\render.pd"
         ],
-        "elapsed_seconds": 0.7304290999963996,
-        "sampled_cpu_seconds": 0.78125,
-        "sampled_peak_rss_bytes": 36880384,
+        "elapsed_seconds": 0.4543738000065787,
+        "sampled_cpu_seconds": 0.296875,
+        "sampled_peak_rss_bytes": 29257728,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 7\na: 8\na: 1\na: 4\na: 8\na: 3\na: 2\na: 2\na: 1\na: 2\na: 0\na: 7\na: 7\na: 8\na: 7\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 0\na: 7\na: 8\na: 9\na: 0\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/artificial/48000/call-match/pd.wav: biggest amplitude = 0.245864\n"
       },
@@ -3930,10 +3977,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\call-match\\events.tsv"
         ],
-        "elapsed_seconds": 0.41416530000424245,
+        "elapsed_seconds": 0.41104820001055487,
         "sampled_cpu_seconds": 0.390625,
-        "sampled_peak_rss_bytes": 11964416,
-        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":48000,\"frames\":1584000,\"gain\":1,\"processing_wall_seconds\":0.394523}\n",
+        "sampled_peak_rss_bytes": 11988992,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":48000,\"frames\":1584000,\"gain\":1,\"processing_wall_seconds\":0.386408}\n",
         "stderr": ""
       },
       "comparison": {
@@ -4020,9 +4067,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\pedestrians-controls\\render.pd"
         ],
-        "elapsed_seconds": 0.5895948999968823,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 26071040,
+        "elapsed_seconds": 0.6555366999964463,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 18014208,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/pedestrians-controls/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -4037,19 +4084,19 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\pedestrians-controls\\events.tsv"
         ],
-        "elapsed_seconds": 0.019881300002452917,
+        "elapsed_seconds": 0.019365600004675798,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5103616,
-        "stdout": "{\"model\":\"pedestrians\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.001488}\n",
+        "sampled_peak_rss_bytes": 5136384,
+        "stdout": "{\"model\":\"pedestrians\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.001782}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.19999997317790985,
         "klang_peak": 0.19999997317790985,
-        "pd_dc": -3.5164305575676735e-06,
-        "klang_dc": -3.5164305575676735e-06,
-        "pd_rms": 0.09875916352343486,
-        "klang_rms": 0.09875916352343486,
+        "pd_dc": -1.6479509667988169e-09,
+        "klang_dc": -1.6479509667988169e-09,
+        "pd_rms": 0.09486825570753896,
+        "klang_rms": 0.09486825570753896,
         "level_delta_db": 0.0,
         "error_rms": 0.0,
         "relative_error_db": -300.0,
@@ -4057,7 +4104,42 @@
         "identical_samples": true
       },
       "pd_clipped_samples": 0,
-      "kleine_clipped_samples": 0
+      "kleine_clipped_samples": 0,
+      "metro_timing": {
+        "pd": "control events delivered before their 64-sample DSP block",
+        "klang": "sample-timed polling; PD block delivery intentionally deferred",
+        "gate_edge_delays_samples": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "common_active_samples_identical": true
+      }
     },
     "alarm01-controls": {
       "sample_rate": 48000,
@@ -4127,9 +4209,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm01-controls\\render.pd"
         ],
-        "elapsed_seconds": 2.5849634000041988,
-        "sampled_cpu_seconds": 0.625,
-        "sampled_peak_rss_bytes": 26107904,
+        "elapsed_seconds": 0.3472711999929743,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 21192704,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/alarm01-controls/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -4144,10 +4226,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm01-controls\\events.tsv"
         ],
-        "elapsed_seconds": 0.020647299999836832,
+        "elapsed_seconds": 0.02108609999413602,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5111808,
-        "stdout": "{\"model\":\"alarm01\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.001844}\n",
+        "sampled_peak_rss_bytes": 5128192,
+        "stdout": "{\"model\":\"alarm01\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.001865}\n",
         "stderr": ""
       },
       "comparison": {
@@ -4234,9 +4316,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm05-controls\\render.pd"
         ],
-        "elapsed_seconds": 1.022407700002077,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 26206208,
+        "elapsed_seconds": 0.3078979999991134,
+        "sampled_cpu_seconds": 0.21875,
+        "sampled_peak_rss_bytes": 20955136,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/alarm05-controls/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -4251,24 +4333,24 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\alarm05-controls\\events.tsv"
         ],
-        "elapsed_seconds": 0.03215690000070026,
-        "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5103616,
-        "stdout": "{\"model\":\"alarm05\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.006081}\n",
+        "elapsed_seconds": 0.02604889999201987,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5124096,
+        "stdout": "{\"model\":\"alarm05\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.005415}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.1999998390674591,
         "klang_peak": 0.1999998390674591,
         "pd_dc": 9.099950417906418e-07,
-        "klang_dc": 9.099787134996262e-07,
+        "klang_dc": 9.099950417906418e-07,
         "pd_rms": 0.14108830347343881,
-        "klang_rms": 0.14108830431858668,
-        "level_delta_db": 5.203025937222265e-08,
-        "error_rms": 9.108157603889092e-09,
-        "relative_error_db": -143.80120948853462,
-        "max_abs_error": 2.1606683731079102e-07,
-        "identical_samples": false
+        "klang_rms": 0.14108830347343881,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
       },
       "pd_clipped_samples": 0,
       "kleine_clipped_samples": 0
@@ -4341,9 +4423,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf-retrigger\\render.pd"
         ],
-        "elapsed_seconds": 0.558069799997611,
-        "sampled_cpu_seconds": 0.5625,
-        "sampled_peak_rss_bytes": 26193920,
+        "elapsed_seconds": 0.31989250000333413,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 21274624,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/dtmf-retrigger/pd.wav: biggest amplitude = 0.499570\n"
       },
@@ -4358,10 +4440,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\dtmf-retrigger\\events.tsv"
         ],
-        "elapsed_seconds": 0.020267199994123075,
+        "elapsed_seconds": 0.019481199997244403,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5115904,
-        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.003302}\n",
+        "sampled_peak_rss_bytes": 5132288,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.003239}\n",
         "stderr": ""
       },
       "comparison": {
@@ -4407,9 +4489,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\pedestrians\\render.pd"
         ],
-        "elapsed_seconds": 1.0560960000002524,
-        "sampled_cpu_seconds": 0.640625,
-        "sampled_peak_rss_bytes": 26193920,
+        "elapsed_seconds": 0.7175050000078045,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 17907712,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/pedestrians/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -4424,27 +4506,74 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\pedestrians\\events.tsv"
         ],
-        "elapsed_seconds": 0.020097799999348354,
+        "elapsed_seconds": 0.049034399999072775,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5181440,
-        "stdout": "{\"model\":\"pedestrians\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.001397}\n",
+        "sampled_peak_rss_bytes": 5128192,
+        "stdout": "{\"model\":\"pedestrians\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.001645}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.19999998807907104,
         "klang_peak": 0.19999998807907104,
         "pd_dc": 2.888033724582148e-06,
-        "klang_dc": 2.888033724582148e-06,
+        "klang_dc": -3.1588862010208117e-09,
         "pd_rms": 0.10003233958382467,
-        "klang_rms": 0.10003233958382467,
-        "level_delta_db": 0.0,
-        "error_rms": 0.0,
-        "relative_error_db": -300.0,
-        "max_abs_error": 0.0,
-        "identical_samples": true
+        "klang_rms": 0.09999992150067537,
+        "level_delta_db": -0.0028153448193912536,
+        "error_rms": 0.011985011126213202,
+        "relative_error_db": -18.43003969556126,
+        "max_abs_error": 0.19991832971572876,
+        "identical_samples": false
       },
       "pd_clipped_samples": 0,
-      "kleine_clipped_samples": 0
+      "kleine_clipped_samples": 0,
+      "metro_timing": {
+        "pd": "control events delivered before their 64-sample DSP block",
+        "klang": "sample-timed polling; PD block delivery intentionally deferred",
+        "gate_edge_delays_samples": [
+          58,
+          52,
+          46,
+          40,
+          34,
+          28,
+          22,
+          16,
+          10,
+          4,
+          62,
+          56,
+          50,
+          44,
+          38,
+          32,
+          26,
+          20,
+          14,
+          8,
+          2,
+          60,
+          54,
+          48,
+          42,
+          36,
+          30,
+          24,
+          18,
+          12,
+          6,
+          0,
+          58,
+          52,
+          46,
+          40,
+          34,
+          28,
+          22,
+          16
+        ],
+        "common_active_samples_identical": true
+      }
     },
     "dtmf": {
       "sample_rate": 44100,
@@ -4584,9 +4713,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf\\render.pd"
         ],
-        "elapsed_seconds": 0.6041631000043708,
-        "sampled_cpu_seconds": 0.671875,
-        "sampled_peak_rss_bytes": 26177536,
+        "elapsed_seconds": 0.3227677999966545,
+        "sampled_cpu_seconds": 0.125,
+        "sampled_peak_rss_bytes": 21753856,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/dtmf/pd.wav: biggest amplitude = 0.498386\n"
       },
@@ -4601,10 +4730,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf\\events.tsv"
         ],
-        "elapsed_seconds": 0.019188699996448122,
+        "elapsed_seconds": 0.035552600005757995,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5390336,
-        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.004549}\n",
+        "sampled_peak_rss_bytes": 5423104,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.004481}\n",
         "stderr": ""
       },
       "comparison": {
@@ -4648,9 +4777,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm01\\render.pd"
         ],
-        "elapsed_seconds": 0.598166299998411,
-        "sampled_cpu_seconds": 0.5625,
-        "sampled_peak_rss_bytes": 26021888,
+        "elapsed_seconds": 0.3220147999963956,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 20840448,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/alarm01/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -4665,10 +4794,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm01\\events.tsv"
         ],
-        "elapsed_seconds": 0.020885500001895707,
+        "elapsed_seconds": 0.01982560000033118,
         "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 5062656,
-        "stdout": "{\"model\":\"alarm01\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.001862}\n",
+        "sampled_peak_rss_bytes": 5136384,
+        "stdout": "{\"model\":\"alarm01\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.001739}\n",
         "stderr": ""
       },
       "comparison": {
@@ -4712,9 +4841,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm02\\render.pd"
         ],
-        "elapsed_seconds": 0.5993525999947451,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 26095616,
+        "elapsed_seconds": 0.3315167999971891,
+        "sampled_cpu_seconds": 0.171875,
+        "sampled_peak_rss_bytes": 17690624,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/alarm02/pd.wav: biggest amplitude = 0.199999\n"
       },
@@ -4729,23 +4858,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm02\\events.tsv"
         ],
-        "elapsed_seconds": 0.01955219999945257,
+        "elapsed_seconds": 0.024593599999207072,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4976640,
-        "stdout": "{\"model\":\"alarm02\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.003350}\n",
+        "sampled_peak_rss_bytes": 4997120,
+        "stdout": "{\"model\":\"alarm02\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.003540}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.19999940693378448,
         "klang_peak": 0.19999940693378448,
         "pd_dc": -1.4188137541032167e-06,
-        "klang_dc": -1.418818639554031e-06,
+        "klang_dc": -1.4188137541032167e-06,
         "pd_rms": 0.09946263111411315,
-        "klang_rms": 0.09946263178744931,
-        "level_delta_db": 5.8801215203850454e-08,
-        "error_rms": 8.609734104039512e-09,
-        "relative_error_db": -141.25340408601625,
-        "max_abs_error": 2.086162567138672e-07,
+        "klang_rms": 0.09946263111411315,
+        "level_delta_db": 0.0,
+        "error_rms": 5.141572299910409e-21,
+        "relative_error_db": -300.0,
+        "max_abs_error": 1.0832496869348467e-19,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -4776,9 +4905,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm03\\render.pd"
         ],
-        "elapsed_seconds": 0.5945353999995859,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 26218496,
+        "elapsed_seconds": 0.3846183999994537,
+        "sampled_cpu_seconds": 0.21875,
+        "sampled_peak_rss_bytes": 17670144,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/alarm03/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -4793,24 +4922,24 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm03\\events.tsv"
         ],
-        "elapsed_seconds": 0.02023709999775747,
+        "elapsed_seconds": 0.044251999992411584,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4988928,
-        "stdout": "{\"model\":\"alarm03\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.004657}\n",
+        "sampled_peak_rss_bytes": 5005312,
+        "stdout": "{\"model\":\"alarm03\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.005117}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.20000000298023224,
         "klang_peak": 0.20000000298023224,
         "pd_dc": 6.619991610866634e-07,
-        "klang_dc": 6.619506217875225e-07,
+        "klang_dc": 6.619991610866634e-07,
         "pd_rms": 0.14066565353804053,
-        "klang_rms": 0.1406656537683881,
-        "level_delta_db": 1.4223612182007579e-08,
-        "error_rms": 1.47378947321407e-08,
-        "relative_error_db": -139.59505236236893,
-        "max_abs_error": 3.7066638469696045e-07,
-        "identical_samples": false
+        "klang_rms": 0.14066565353804053,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
       },
       "pd_clipped_samples": 0,
       "kleine_clipped_samples": 0
@@ -4840,9 +4969,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm04\\render.pd"
         ],
-        "elapsed_seconds": 0.5973717000015313,
-        "sampled_cpu_seconds": 0.65625,
-        "sampled_peak_rss_bytes": 26161152,
+        "elapsed_seconds": 0.33327220000501256,
+        "sampled_cpu_seconds": 0.140625,
+        "sampled_peak_rss_bytes": 21151744,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/alarm04/pd.wav: biggest amplitude = 0.249979\n"
       },
@@ -4857,10 +4986,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm04\\events.tsv"
         ],
-        "elapsed_seconds": 0.02676160000555683,
+        "elapsed_seconds": 0.026458799999090843,
         "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 5025792,
-        "stdout": "{\"model\":\"alarm04\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.008087}\n",
+        "sampled_peak_rss_bytes": 5001216,
+        "stdout": "{\"model\":\"alarm04\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.008788}\n",
         "stderr": ""
       },
       "comparison": {
@@ -4904,9 +5033,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm05\\render.pd"
         ],
-        "elapsed_seconds": 0.6007723000002443,
-        "sampled_cpu_seconds": 0.625,
-        "sampled_peak_rss_bytes": 26185728,
+        "elapsed_seconds": 0.3311773000023095,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 21045248,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/alarm05/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -4921,24 +5050,24 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm05\\events.tsv"
         ],
-        "elapsed_seconds": 0.019698199997947086,
+        "elapsed_seconds": 0.02753919998940546,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4976640,
-        "stdout": "{\"model\":\"alarm05\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.005756}\n",
+        "sampled_peak_rss_bytes": 5156864,
+        "stdout": "{\"model\":\"alarm05\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.005164}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.19999971985816956,
         "klang_peak": 0.19999971985816956,
         "pd_dc": -1.700636534196367e-06,
-        "klang_dc": -1.7006215046417443e-06,
+        "klang_dc": -1.700636534196367e-06,
         "pd_rms": 0.1410865485488639,
-        "klang_rms": 0.14108654898580025,
-        "level_delta_db": 2.6899665841364267e-08,
-        "error_rms": 8.247106482379793e-09,
-        "relative_error_db": -144.66368014615418,
-        "max_abs_error": 2.384185791015625e-07,
-        "identical_samples": false
+        "klang_rms": 0.1410865485488639,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
       },
       "pd_clipped_samples": 0,
       "kleine_clipped_samples": 0
@@ -4995,9 +5124,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm06\\render.pd"
         ],
-        "elapsed_seconds": 0.5981070000052569,
-        "sampled_cpu_seconds": 0.6875,
-        "sampled_peak_rss_bytes": 26066944,
+        "elapsed_seconds": 0.3237592999939807,
+        "sampled_cpu_seconds": 0.15625,
+        "sampled_peak_rss_bytes": 21147648,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/alarm06/pd.wav: biggest amplitude = 0.059408\n"
       },
@@ -5012,10 +5141,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm06\\events.tsv"
         ],
-        "elapsed_seconds": 0.03795720000198344,
-        "sampled_cpu_seconds": 0.03125,
-        "sampled_peak_rss_bytes": 5193728,
-        "stdout": "{\"model\":\"alarm06\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.018808}\n",
+        "elapsed_seconds": 0.03636919999553356,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5070848,
+        "stdout": "{\"model\":\"alarm06\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.017774}\n",
         "stderr": ""
       },
       "comparison": {
@@ -5190,9 +5319,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm07\\render.pd"
         ],
-        "elapsed_seconds": 0.6103520999968168,
-        "sampled_cpu_seconds": 0.625,
-        "sampled_peak_rss_bytes": 28020736,
+        "elapsed_seconds": 0.3433418999920832,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 23867392,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/alarm07/pd.wav: biggest amplitude = 0.154080\n"
       },
@@ -5207,10 +5336,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm07\\events.tsv"
         ],
-        "elapsed_seconds": 0.07486670000071172,
-        "sampled_cpu_seconds": 0.0625,
-        "sampled_peak_rss_bytes": 6451200,
-        "stdout": "{\"model\":\"alarm07\",\"sample_rate\":44100,\"frames\":529200,\"gain\":1,\"processing_wall_seconds\":0.056598}\n",
+        "elapsed_seconds": 0.080025499992189,
+        "sampled_cpu_seconds": 0.046875,
+        "sampled_peak_rss_bytes": 6516736,
+        "stdout": "{\"model\":\"alarm07\",\"sample_rate\":44100,\"frames\":529200,\"gain\":1,\"processing_wall_seconds\":0.053166}\n",
         "stderr": ""
       },
       "comparison": {
@@ -5272,9 +5401,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police\\render.pd"
         ],
-        "elapsed_seconds": 0.7359645000033197,
-        "sampled_cpu_seconds": 0.671875,
-        "sampled_peak_rss_bytes": 29949952,
+        "elapsed_seconds": 0.4575710000062827,
+        "sampled_cpu_seconds": 0.265625,
+        "sampled_peak_rss_bytes": 22474752,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police/pd.wav: biggest amplitude = 0.156121\n"
       },
@@ -5289,23 +5418,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police\\events.tsv"
         ],
-        "elapsed_seconds": 0.0814477000021725,
+        "elapsed_seconds": 0.08568150000064634,
         "sampled_cpu_seconds": 0.0625,
-        "sampled_peak_rss_bytes": 7249920,
-        "stdout": "{\"model\":\"police\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.062996}\n",
+        "sampled_peak_rss_bytes": 7278592,
+        "stdout": "{\"model\":\"police\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.060819}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.15612125396728516,
-        "klang_peak": 0.15612106025218964,
+        "klang_peak": 0.1561211794614792,
         "pd_dc": 0.09690308323283059,
-        "klang_dc": 0.09690297659734022,
+        "klang_dc": 0.09690308312989673,
         "pd_rms": 0.1003914057056745,
-        "klang_rms": 0.10039129718683228,
-        "level_delta_db": -9.389082560930038e-06,
-        "error_rms": 1.5817086495582962e-07,
-        "relative_error_db": -116.05140091620359,
-        "max_abs_error": 6.556510925292969e-07,
+        "klang_rms": 0.10039140556171558,
+        "level_delta_db": -1.245536157160886e-08,
+        "error_rms": 5.038099057380667e-08,
+        "relative_error_db": -125.98859666359026,
+        "max_abs_error": 4.246830940246582e-07,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -5354,9 +5483,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-legacy\\render.pd"
         ],
-        "elapsed_seconds": 0.7355028999954811,
-        "sampled_cpu_seconds": 0.75,
-        "sampled_peak_rss_bytes": 30248960,
+        "elapsed_seconds": 0.46517799999855924,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 25935872,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police-legacy/pd.wav: biggest amplitude = 0.218551\n"
       },
@@ -5371,23 +5500,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-legacy\\events.tsv"
         ],
-        "elapsed_seconds": 0.06740319999516942,
-        "sampled_cpu_seconds": 0.0625,
-        "sampled_peak_rss_bytes": 7294976,
-        "stdout": "{\"model\":\"police-legacy\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.047306}\n",
+        "elapsed_seconds": 0.0663901999942027,
+        "sampled_cpu_seconds": 0.046875,
+        "sampled_peak_rss_bytes": 7270400,
+        "stdout": "{\"model\":\"police-legacy\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.045957}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.21855100989341736,
-        "klang_peak": 0.21855075657367706,
+        "klang_peak": 0.2185509204864502,
         "pd_dc": 0.04401506259193874,
-        "klang_dc": 0.04401501703642566,
+        "klang_dc": 0.04401506432751674,
         "pd_rms": 0.09233738803289764,
-        "klang_rms": 0.09233726600899186,
-        "level_delta_db": -1.1478415207700022e-05,
-        "error_rms": 2.39585381127943e-07,
-        "relative_error_db": -111.71834540789953,
-        "max_abs_error": 1.2293457984924316e-06,
+        "klang_rms": 0.0923373876319733,
+        "level_delta_db": -3.771369974908936e-08,
+        "error_rms": 7.312126697065081e-08,
+        "relative_error_db": -122.02667755214574,
+        "max_abs_error": 5.364418029785156e-07,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -5418,9 +5547,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-environment\\render.pd"
         ],
-        "elapsed_seconds": 0.5960292000017944,
-        "sampled_cpu_seconds": 0.578125,
-        "sampled_peak_rss_bytes": 26116096,
+        "elapsed_seconds": 0.32023779999872204,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 21094400,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police-environment/pd.wav: biggest amplitude = 0.700000\n"
       },
@@ -5435,10 +5564,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-environment\\events.tsv"
         ],
-        "elapsed_seconds": 0.02664820000063628,
+        "elapsed_seconds": 0.030259799998020753,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 1605632,
-        "stdout": "{\"model\":\"police-environment\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.000882}\n",
+        "sampled_peak_rss_bytes": 1634304,
+        "stdout": "{\"model\":\"police-environment\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.000857}\n",
         "stderr": ""
       },
       "comparison": {
@@ -5483,9 +5612,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-horn\\render.pd"
         ],
-        "elapsed_seconds": 0.5973839999933261,
-        "sampled_cpu_seconds": 0.625,
-        "sampled_peak_rss_bytes": 26136576,
+        "elapsed_seconds": 0.3177404000016395,
+        "sampled_cpu_seconds": 0.21875,
+        "sampled_peak_rss_bytes": 20979712,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police-horn/pd.wav: biggest amplitude = 0.171705\n"
       },
@@ -5500,24 +5629,24 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-horn\\events.tsv"
         ],
-        "elapsed_seconds": 0.021114799994393252,
+        "elapsed_seconds": 0.020007800005259924,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4722688,
-        "stdout": "{\"model\":\"police-horn\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.004571}\n",
+        "sampled_peak_rss_bytes": 4743168,
+        "stdout": "{\"model\":\"police-horn\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.004537}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.1717054545879364,
-        "klang_peak": 0.17170527577400208,
+        "klang_peak": 0.1717054545879364,
         "pd_dc": 0.10612063802376943,
-        "klang_dc": 0.10612052131887438,
+        "klang_dc": 0.10612063802376943,
         "pd_rms": 0.11380264099904151,
-        "klang_rms": 0.1138025152015682,
-        "level_delta_db": -9.601390303571935e-06,
-        "error_rms": 2.2895947995431147e-07,
-        "relative_error_db": -113.92787421582716,
-        "max_abs_error": 8.344650268554688e-07,
-        "identical_samples": false
+        "klang_rms": 0.11380264099904151,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
       },
       "pd_clipped_samples": 0,
       "kleine_clipped_samples": 0
@@ -5547,9 +5676,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-logosc\\render.pd"
         ],
-        "elapsed_seconds": 0.5970491999978549,
-        "sampled_cpu_seconds": 0.640625,
-        "sampled_peak_rss_bytes": 26247168,
+        "elapsed_seconds": 0.31927100000029895,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 21114880,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police-logosc/pd.wav: biggest amplitude = 0.999987\n"
       },
@@ -5564,10 +5693,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-logosc\\events.tsv"
         ],
-        "elapsed_seconds": 0.020828799999435432,
-        "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4710400,
-        "stdout": "{\"model\":\"police-logosc\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.003097}\n",
+        "elapsed_seconds": 0.02093930001137778,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 4751360,
+        "stdout": "{\"model\":\"police-logosc\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.003327}\n",
         "stderr": ""
       },
       "comparison": {
@@ -5611,9 +5740,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-logosc-legacy\\render.pd"
         ],
-        "elapsed_seconds": 0.6002306000009412,
-        "sampled_cpu_seconds": 0.671875,
-        "sampled_peak_rss_bytes": 26136576,
+        "elapsed_seconds": 0.3188979999977164,
+        "sampled_cpu_seconds": 0.171875,
+        "sampled_peak_rss_bytes": 21086208,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police-logosc-legacy/pd.wav: biggest amplitude = 1.069559\n"
       },
@@ -5628,10 +5757,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-logosc-legacy\\events.tsv"
         ],
-        "elapsed_seconds": 0.019862399996782187,
+        "elapsed_seconds": 0.020560199991450645,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4771840,
-        "stdout": "{\"model\":\"police-logosc-legacy\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002201}\n",
+        "sampled_peak_rss_bytes": 4743168,
+        "stdout": "{\"model\":\"police-logosc-legacy\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002268}\n",
         "stderr": ""
       },
       "comparison": {
@@ -5675,9 +5804,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-graph\\render.pd"
         ],
-        "elapsed_seconds": 0.587774100000388,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 26148864,
+        "elapsed_seconds": 0.33002560000750236,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 21086208,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police-graph/pd.wav: biggest amplitude = 1.000000\n"
       },
@@ -5692,10 +5821,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-graph\\events.tsv"
         ],
-        "elapsed_seconds": 0.020172600001387764,
-        "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4702208,
-        "stdout": "{\"model\":\"police-graph\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002969}\n",
+        "elapsed_seconds": 0.019453000000794418,
+        "sampled_cpu_seconds": 0.0625,
+        "sampled_peak_rss_bytes": 4743168,
+        "stdout": "{\"model\":\"police-graph\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.003054}\n",
         "stderr": ""
       },
       "comparison": {
@@ -5739,9 +5868,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-graph-legacy\\render.pd"
         ],
-        "elapsed_seconds": 0.5956179999993765,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 26189824,
+        "elapsed_seconds": 0.32316610000270884,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 21032960,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police-graph-legacy/pd.wav: biggest amplitude = 2.432108\n"
       },
@@ -5756,10 +5885,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-graph-legacy\\events.tsv"
         ],
-        "elapsed_seconds": 0.02125299999897834,
+        "elapsed_seconds": 0.020523099999991246,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4780032,
-        "stdout": "{\"model\":\"police-graph-legacy\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002155}\n",
+        "sampled_peak_rss_bytes": 4526080,
+        "stdout": "{\"model\":\"police-graph-legacy\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002191}\n",
         "stderr": ""
       },
       "comparison": {
@@ -5803,9 +5932,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-triangle\\render.pd"
         ],
-        "elapsed_seconds": 0.6033749999987776,
-        "sampled_cpu_seconds": 0.640625,
-        "sampled_peak_rss_bytes": 26206208,
+        "elapsed_seconds": 0.31360639999911655,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 20918272,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police-triangle/pd.wav: biggest amplitude = 1.000000\n"
       },
@@ -5820,10 +5949,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-triangle\\events.tsv"
         ],
-        "elapsed_seconds": 0.014235200003895443,
+        "elapsed_seconds": 0.033162100007757545,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 1638400,
-        "stdout": "{\"model\":\"police-triangle\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.000972}\n",
+        "sampled_peak_rss_bytes": 1875968,
+        "stdout": "{\"model\":\"police-triangle\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.000951}\n",
         "stderr": ""
       },
       "comparison": {
@@ -5989,9 +6118,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf-bulk\\render.pd"
         ],
-        "elapsed_seconds": 0.5998510999997961,
-        "sampled_cpu_seconds": 0.578125,
-        "sampled_peak_rss_bytes": 26206208,
+        "elapsed_seconds": 0.3233654999930877,
+        "sampled_cpu_seconds": 0.21875,
+        "sampled_peak_rss_bytes": 21843968,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/dtmf-bulk/pd.wav: biggest amplitude = 0.598063\n"
       },
@@ -6006,10 +6135,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf-bulk\\events.tsv"
         ],
-        "elapsed_seconds": 0.02002329999959329,
+        "elapsed_seconds": 0.019672099995659664,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5394432,
-        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.004603}\n",
+        "sampled_peak_rss_bytes": 5423104,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.004510}\n",
         "stderr": ""
       },
       "comparison": {
@@ -6115,9 +6244,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf-study\\render.pd"
         ],
-        "elapsed_seconds": 0.6072779999958584,
-        "sampled_cpu_seconds": 0.640625,
-        "sampled_peak_rss_bytes": 26173440,
+        "elapsed_seconds": 0.3233631999901263,
+        "sampled_cpu_seconds": 0.234375,
+        "sampled_peak_rss_bytes": 20803584,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/dtmf-study/pd.wav: biggest amplitude = 0.250000\n"
       },
@@ -6132,10 +6261,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf-study\\events.tsv"
         ],
-        "elapsed_seconds": 0.02169040000444511,
+        "elapsed_seconds": 0.0206867999950191,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5050368,
-        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.002217}\n",
+        "sampled_peak_rss_bytes": 5070848,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.002109}\n",
         "stderr": ""
       },
       "comparison": {
@@ -6206,9 +6335,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm15\\render.pd"
         ],
-        "elapsed_seconds": 0.623396999995748,
-        "sampled_cpu_seconds": 0.578125,
-        "sampled_peak_rss_bytes": 26214400,
+        "elapsed_seconds": 0.3207345999981044,
+        "sampled_cpu_seconds": 0.28125,
+        "sampled_peak_rss_bytes": 20992000,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/alarm15/pd.wav: biggest amplitude = 0.059408\n"
       },
@@ -6223,10 +6352,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm15\\events.tsv"
         ],
-        "elapsed_seconds": 0.037176600002567284,
-        "sampled_cpu_seconds": 0.03125,
-        "sampled_peak_rss_bytes": 5115904,
-        "stdout": "{\"model\":\"alarm06\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.018819}\n",
+        "elapsed_seconds": 0.03808240000216756,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5079040,
+        "stdout": "{\"model\":\"alarm06\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.017207}\n",
         "stderr": ""
       },
       "comparison": {
@@ -6313,9 +6442,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm-bank\\render.pd"
         ],
-        "elapsed_seconds": 0.595897999999579,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 26185728,
+        "elapsed_seconds": 0.3386970999999903,
+        "sampled_cpu_seconds": 0.125,
+        "sampled_peak_rss_bytes": 18452480,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/alarm-bank/pd.wav: biggest amplitude = 0.247153\n"
       },
@@ -6330,23 +6459,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm-bank\\events.tsv"
         ],
-        "elapsed_seconds": 0.04964060000202153,
-        "sampled_cpu_seconds": 0.046875,
-        "sampled_peak_rss_bytes": 5398528,
-        "stdout": "{\"model\":\"alarm-bank\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.023288}\n",
+        "elapsed_seconds": 0.041361300012795255,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5443584,
+        "stdout": "{\"model\":\"alarm-bank\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.021631}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.2471529096364975,
         "klang_peak": 0.2471529096364975,
         "pd_dc": 9.233862439792265e-06,
-        "klang_dc": 9.23386784385442e-06,
+        "klang_dc": 9.233862439792265e-06,
         "pd_rms": 0.06491878565866414,
-        "klang_rms": 0.06491878602437486,
-        "level_delta_db": 4.893071997589585e-08,
-        "error_rms": 7.596381336746954e-09,
-        "relative_error_db": -138.63527258821566,
-        "max_abs_error": 4.76837158203125e-07,
+        "klang_rms": 0.06491878565866414,
+        "level_delta_db": 0.0,
+        "error_rms": 5.2914906055146356e-21,
+        "relative_error_db": -300.0,
+        "max_abs_error": 1.0827142167351893e-19,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -6378,9 +6507,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\ringback-bulk\\render.pd"
         ],
-        "elapsed_seconds": 0.6034809999982826,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 28160000,
+        "elapsed_seconds": 0.32895940000889823,
+        "sampled_cpu_seconds": 0.234375,
+        "sampled_peak_rss_bytes": 23814144,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/ringback-bulk/pd.wav: biggest amplitude = 0.190674\n"
       },
@@ -6395,23 +6524,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\ringback-bulk\\events.tsv"
         ],
-        "elapsed_seconds": 0.043469399999594316,
-        "sampled_cpu_seconds": 0.03125,
-        "sampled_peak_rss_bytes": 6471680,
-        "stdout": "{\"model\":\"ringback-bulk\",\"sample_rate\":44100,\"frames\":529200,\"gain\":1,\"processing_wall_seconds\":0.024654}\n",
+        "elapsed_seconds": 0.04402289999416098,
+        "sampled_cpu_seconds": 0.0625,
+        "sampled_peak_rss_bytes": 6451200,
+        "stdout": "{\"model\":\"ringback-bulk\",\"sample_rate\":44100,\"frames\":529200,\"gain\":1,\"processing_wall_seconds\":0.024288}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.19067373871803284,
-        "klang_peak": 0.19067445397377014,
+        "klang_peak": 0.19067373871803284,
         "pd_dc": -4.995639078824231e-06,
-        "klang_dc": -4.995613488610382e-06,
+        "klang_dc": -4.995639078824231e-06,
         "pd_rms": 0.07896864114405121,
-        "klang_rms": 0.07896876719518985,
-        "level_delta_db": 1.3864559263946673e-05,
-        "error_rms": 6.425908401572239e-07,
-        "relative_error_db": -101.79040268701425,
-        "max_abs_error": 4.975125193595886e-06,
+        "klang_rms": 0.07896864114405121,
+        "level_delta_db": 0.0,
+        "error_rms": 1.1673056493510818e-21,
+        "relative_error_db": -300.0,
+        "max_abs_error": 1.0690485467809597e-19,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -6442,9 +6571,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police00\\render.pd"
         ],
-        "elapsed_seconds": 0.6814697000008891,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 26312704,
+        "elapsed_seconds": 0.32266879999951925,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 21020672,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police00/pd.wav: biggest amplitude = 2.432108\n"
       },
@@ -6459,10 +6588,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police00\\events.tsv"
         ],
-        "elapsed_seconds": 0.02029459999903338,
-        "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 4706304,
-        "stdout": "{\"model\":\"police-graph-legacy\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002398}\n",
+        "elapsed_seconds": 0.02058759999636095,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 4755456,
+        "stdout": "{\"model\":\"police-graph-legacy\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002205}\n",
         "stderr": ""
       },
       "comparison": {
@@ -6506,9 +6635,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police01\\render.pd"
         ],
-        "elapsed_seconds": 0.6390382000026875,
-        "sampled_cpu_seconds": 0.578125,
-        "sampled_peak_rss_bytes": 26112000,
+        "elapsed_seconds": 0.3215840999910142,
+        "sampled_cpu_seconds": 0.15625,
+        "sampled_peak_rss_bytes": 21012480,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police01/pd.wav: biggest amplitude = 2.432108\n"
       },
@@ -6523,10 +6652,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police01\\events.tsv"
         ],
-        "elapsed_seconds": 0.022224799999094103,
+        "elapsed_seconds": 0.022003200007020496,
         "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 4706304,
-        "stdout": "{\"model\":\"police-graph-legacy-inverted\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002456}\n",
+        "sampled_peak_rss_bytes": 4759552,
+        "stdout": "{\"model\":\"police-graph-legacy-inverted\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002317}\n",
         "stderr": ""
       },
       "comparison": {
@@ -6570,9 +6699,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police1\\render.pd"
         ],
-        "elapsed_seconds": 0.660632799997984,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 26255360,
+        "elapsed_seconds": 0.3400762999954168,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 20996096,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police1/pd.wav: biggest amplitude = 2.404561\n"
       },
@@ -6587,10 +6716,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police1\\events.tsv"
         ],
-        "elapsed_seconds": 0.02023380000173347,
-        "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 4775936,
-        "stdout": "{\"model\":\"police-graph-compare-legacy\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002154}\n",
+        "elapsed_seconds": 0.020722499990370125,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 4747264,
+        "stdout": "{\"model\":\"police-graph-compare-legacy\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002265}\n",
         "stderr": ""
       },
       "comparison": {
@@ -6652,9 +6781,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police3\\render.pd"
         ],
-        "elapsed_seconds": 0.7839423000041279,
-        "sampled_cpu_seconds": 0.796875,
-        "sampled_peak_rss_bytes": 30203904,
+        "elapsed_seconds": 0.4681221000064397,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 25968640,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police3/pd.wav: biggest amplitude = 0.218551\n"
       },
@@ -6669,23 +6798,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police3\\events.tsv"
         ],
-        "elapsed_seconds": 0.06730129999778,
-        "sampled_cpu_seconds": 0.0625,
-        "sampled_peak_rss_bytes": 7282688,
-        "stdout": "{\"model\":\"police-legacy\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.047692}\n",
+        "elapsed_seconds": 0.09729689999949187,
+        "sampled_cpu_seconds": 0.046875,
+        "sampled_peak_rss_bytes": 7266304,
+        "stdout": "{\"model\":\"police-legacy\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.051294}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.21855100989341736,
-        "klang_peak": 0.21855075657367706,
+        "klang_peak": 0.2185509204864502,
         "pd_dc": 0.04401506259193874,
-        "klang_dc": 0.04401501703642566,
+        "klang_dc": 0.04401506432751674,
         "pd_rms": 0.09233738803289764,
-        "klang_rms": 0.09233726600899186,
-        "level_delta_db": -1.1478415207700022e-05,
-        "error_rms": 2.39585381127943e-07,
-        "relative_error_db": -111.71834540789953,
-        "max_abs_error": 1.2293457984924316e-06,
+        "klang_rms": 0.0923373876319733,
+        "level_delta_db": -3.771369974908936e-08,
+        "error_rms": 7.312126697065081e-08,
+        "relative_error_db": -122.02667755214574,
+        "max_abs_error": 5.364418029785156e-07,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -6716,9 +6845,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-osc-bulk\\render.pd"
         ],
-        "elapsed_seconds": 0.7213035000022501,
-        "sampled_cpu_seconds": 0.703125,
-        "sampled_peak_rss_bytes": 26238976,
+        "elapsed_seconds": 0.30732269999862183,
+        "sampled_cpu_seconds": 0.171875,
+        "sampled_peak_rss_bytes": 17002496,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police-osc-bulk/pd.wav: biggest amplitude = 1.069559\n"
       },
@@ -6733,10 +6862,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-osc-bulk\\events.tsv"
         ],
-        "elapsed_seconds": 0.021346100002119783,
-        "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 4775936,
-        "stdout": "{\"model\":\"police-logosc-legacy\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002271}\n",
+        "elapsed_seconds": 0.020583100005751476,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 4616192,
+        "stdout": "{\"model\":\"police-logosc-legacy\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002214}\n",
         "stderr": ""
       },
       "comparison": {
@@ -6780,9 +6909,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-compare-log\\render.pd"
         ],
-        "elapsed_seconds": 0.729891700000735,
-        "sampled_cpu_seconds": 0.765625,
-        "sampled_peak_rss_bytes": 26525696,
+        "elapsed_seconds": 0.32757529999071267,
+        "sampled_cpu_seconds": 0.125,
+        "sampled_peak_rss_bytes": 17063936,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/police-compare-log/pd.wav: biggest amplitude = 1.000000\n"
       },
@@ -6797,10 +6926,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\police-compare-log\\events.tsv"
         ],
-        "elapsed_seconds": 0.02181910000217613,
-        "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 4714496,
-        "stdout": "{\"model\":\"police-graph-compare\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.003056}\n",
+        "elapsed_seconds": 0.020463199994992465,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 4747264,
+        "stdout": "{\"model\":\"police-graph-compare\",\"sample_rate\":44100,\"frames\":88200,\"gain\":1,\"processing_wall_seconds\":0.002980}\n",
         "stderr": ""
       },
       "comparison": {
@@ -6957,9 +7086,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf-detector\\render.pd"
         ],
-        "elapsed_seconds": 0.6388233999969088,
-        "sampled_cpu_seconds": 0.671875,
-        "sampled_peak_rss_bytes": 27885568,
+        "elapsed_seconds": 0.3696681000001263,
+        "sampled_cpu_seconds": 0.171875,
+        "sampled_peak_rss_bytes": 20508672,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/dtmf-detector/pd.wav: biggest amplitude = 1.000000\n"
       },
@@ -6974,10 +7103,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf-detector\\events.tsv"
         ],
-        "elapsed_seconds": 0.05703779999748804,
-        "sampled_cpu_seconds": 0.046875,
-        "sampled_peak_rss_bytes": 6041600,
-        "stdout": "{\"model\":\"dtmf-detector\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.038318}\n",
+        "elapsed_seconds": 0.055378599994583055,
+        "sampled_cpu_seconds": 0.03125,
+        "sampled_peak_rss_bytes": 6066176,
+        "stdout": "{\"model\":\"dtmf-detector\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.036283}\n",
         "stderr": ""
       },
       "comparison": {
@@ -7135,9 +7264,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf-decoder\\render.pd"
         ],
-        "elapsed_seconds": 0.9732881999952951,
-        "sampled_cpu_seconds": 0.4375,
-        "sampled_peak_rss_bytes": 20561920,
+        "elapsed_seconds": 0.3396738000010373,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 20627456,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nerror: trigger: generic messages can only be converted to 'b' or 'a'\nF:/klang/sfx/kleine/build/artificial/44100/dtmf-decoder/pd.wav: biggest amplitude = 136.000000\n"
       },
@@ -7152,10 +7281,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf-decoder\\events.tsv"
         ],
-        "elapsed_seconds": 0.05645689999801107,
-        "sampled_cpu_seconds": 0.046875,
-        "sampled_peak_rss_bytes": 6029312,
-        "stdout": "{\"model\":\"dtmf-decoder\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.038220}\n",
+        "elapsed_seconds": 0.053747500001918525,
+        "sampled_cpu_seconds": 0.03125,
+        "sampled_peak_rss_bytes": 6062080,
+        "stdout": "{\"model\":\"dtmf-decoder\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.036809}\n",
         "stderr": ""
       },
       "comparison": {
@@ -7358,9 +7487,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\phone-effects\\render.pd"
         ],
-        "elapsed_seconds": 0.7653859999991255,
-        "sampled_cpu_seconds": 0.90625,
-        "sampled_peak_rss_bytes": 29802496,
+        "elapsed_seconds": 0.41074370000569616,
+        "sampled_cpu_seconds": 0.28125,
+        "sampled_peak_rss_bytes": 22315008,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/artificial/44100/phone-effects/pd.wav: biggest amplitude = 0.376456\n"
       },
@@ -7375,23 +7504,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\phone-effects\\events.tsv"
         ],
-        "elapsed_seconds": 0.22918860000208952,
-        "sampled_cpu_seconds": 0.21875,
-        "sampled_peak_rss_bytes": 8482816,
-        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.208941}\n",
+        "elapsed_seconds": 0.22303500000271015,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 8495104,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.199376}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.37645620107650757,
-        "klang_peak": 0.3764573037624359,
+        "klang_peak": 0.37645620107650757,
         "pd_dc": -3.3218532400397967e-06,
-        "klang_dc": -3.3218944541245044e-06,
+        "klang_dc": -3.321854212030035e-06,
         "pd_rms": 0.09775079190234152,
-        "klang_rms": 0.09775093631482264,
-        "level_delta_db": 1.2832120562822096e-05,
-        "error_rms": 6.908786903434607e-07,
-        "relative_error_db": -103.01436974030663,
-        "max_abs_error": 5.21540641784668e-06,
+        "klang_rms": 0.09775079190257926,
+        "level_delta_db": 2.112455748229062e-11,
+        "error_rms": 7.445118893649631e-10,
+        "relative_error_db": -162.36497293728107,
+        "max_abs_error": 2.9802322387695312e-08,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -7561,9 +7690,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\call-recogniser\\render.pd"
         ],
-        "elapsed_seconds": 0.6765598000056343,
-        "sampled_cpu_seconds": 0.65625,
-        "sampled_peak_rss_bytes": 29827072,
+        "elapsed_seconds": 0.38313360000029206,
+        "sampled_cpu_seconds": 0.265625,
+        "sampled_peak_rss_bytes": 25927680,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/artificial/44100/call-recogniser/pd.wav: biggest amplitude = 0.246107\n"
       },
@@ -7578,10 +7707,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\call-recogniser\\events.tsv"
         ],
-        "elapsed_seconds": 0.19504139999480685,
+        "elapsed_seconds": 0.22225530000287108,
         "sampled_cpu_seconds": 0.1875,
-        "sampled_peak_rss_bytes": 8441856,
-        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.176737}\n",
+        "sampled_peak_rss_bytes": 8470528,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.175337}\n",
         "stderr": ""
       },
       "comparison": {
@@ -7917,9 +8046,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\phone-match\\render.pd"
         ],
-        "elapsed_seconds": 0.7778458000029786,
-        "sampled_cpu_seconds": 0.78125,
-        "sampled_peak_rss_bytes": 35926016,
+        "elapsed_seconds": 0.4820292999938829,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 31629312,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 1\na: 0\na: 0\na: 2\na: 0\na: 0\na: 3\na: 0\na: 0\na: 0\na: 9\na: 8\na: 7\na: 6\na: 5\na: 4\na: 3\na: 2\na: 1\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/artificial/44100/phone-match/pd.wav: biggest amplitude = 0.288466\n"
       },
@@ -7934,23 +8063,23 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\phone-match\\events.tsv"
         ],
-        "elapsed_seconds": 0.45819769999798154,
-        "sampled_cpu_seconds": 0.453125,
-        "sampled_peak_rss_bytes": 11505664,
-        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":44100,\"frames\":1455300,\"gain\":1,\"processing_wall_seconds\":0.434358}\n",
+        "elapsed_seconds": 0.46240380000381265,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 11468800,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":44100,\"frames\":1455300,\"gain\":1,\"processing_wall_seconds\":0.428756}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.2884659767150879,
-        "klang_peak": 0.28846508264541626,
+        "klang_peak": 0.2884659767150879,
         "pd_dc": 4.871159648408386e-12,
-        "klang_dc": 6.427070259673868e-12,
+        "klang_dc": 4.74914741583041e-12,
         "pd_rms": 0.054705972097505544,
-        "klang_rms": 0.05470604688132408,
-        "level_delta_db": 1.187372284175195e-05,
-        "error_rms": 3.75733315168239e-07,
-        "relative_error_db": -103.26310070492707,
-        "max_abs_error": 5.21540641784668e-06,
+        "klang_rms": 0.054705972097203515,
+        "level_delta_db": -4.795407625689423e-11,
+        "error_rms": 3.6691095285420963e-10,
+        "relative_error_db": -163.469481266529,
+        "max_abs_error": 2.9802322387695312e-08,
         "identical_samples": false
       },
       "pd_clipped_samples": 0,
@@ -8295,9 +8424,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\call-match\\render.pd"
         ],
-        "elapsed_seconds": 0.736079599999357,
-        "sampled_cpu_seconds": 0.734375,
-        "sampled_peak_rss_bytes": 35819520,
+        "elapsed_seconds": 0.5093892000004416,
+        "sampled_cpu_seconds": 0.28125,
+        "sampled_peak_rss_bytes": 28282880,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 7\na: 8\na: 1\na: 4\na: 8\na: 3\na: 2\na: 2\na: 1\na: 2\na: 0\na: 7\na: 7\na: 8\na: 7\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 0\na: 7\na: 8\na: 9\na: 0\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/artificial/44100/call-match/pd.wav: biggest amplitude = 0.259502\n"
       },
@@ -8312,10 +8441,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\call-match\\events.tsv"
         ],
-        "elapsed_seconds": 0.391999700004817,
+        "elapsed_seconds": 0.39241169999877457,
         "sampled_cpu_seconds": 0.375,
-        "sampled_peak_rss_bytes": 11452416,
-        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":44100,\"frames\":1455300,\"gain\":1,\"processing_wall_seconds\":0.372448}\n",
+        "sampled_peak_rss_bytes": 11476992,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":44100,\"frames\":1455300,\"gain\":1,\"processing_wall_seconds\":0.364110}\n",
         "stderr": ""
       },
       "comparison": {
@@ -8402,9 +8531,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\pedestrians-controls\\render.pd"
         ],
-        "elapsed_seconds": 0.5954772000040975,
-        "sampled_cpu_seconds": 0.578125,
-        "sampled_peak_rss_bytes": 26214400,
+        "elapsed_seconds": 0.6258573999948567,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21630976,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/pedestrians-controls/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -8419,27 +8548,62 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\pedestrians-controls\\events.tsv"
         ],
-        "elapsed_seconds": 0.02028730000165524,
-        "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5099520,
-        "stdout": "{\"model\":\"pedestrians\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.001367}\n",
+        "elapsed_seconds": 0.01967879998846911,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5070848,
+        "stdout": "{\"model\":\"pedestrians\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.001668}\n",
         "stderr": ""
       },
       "comparison": {
-        "pd_peak": 0.19999997317790985,
-        "klang_peak": 0.19999997317790985,
-        "pd_dc": 6.167672860377802e-06,
-        "klang_dc": 6.167672860377802e-06,
-        "pd_rms": 0.09872657287459492,
-        "klang_rms": 0.09872657287459492,
-        "level_delta_db": 0.0,
-        "error_rms": 0.0,
-        "relative_error_db": -300.0,
-        "max_abs_error": 0.0,
-        "identical_samples": true
+        "pd_peak": 0.19999995827674866,
+        "klang_peak": 0.19999995827674866,
+        "pd_dc": -6.899976621903564e-06,
+        "klang_dc": 1.5655238444804976e-06,
+        "pd_rms": 0.09489409326675506,
+        "klang_rms": 0.09486943684198647,
+        "level_delta_db": -0.002257156425070392,
+        "error_rms": 0.010740007495946738,
+        "relative_error_db": -18.924691918001322,
+        "max_abs_error": 0.19999700784683228,
+        "identical_samples": false
       },
       "pd_clipped_samples": 0,
-      "kleine_clipped_samples": 0
+      "kleine_clipped_samples": 0,
+      "metro_timing": {
+        "pd": "control events delivered before their 64-sample DSP block",
+        "klang": "sample-timed polling; PD block delivery intentionally deferred",
+        "gate_edge_delays_samples": [
+          58,
+          52,
+          46,
+          40,
+          34,
+          28,
+          0,
+          58,
+          52,
+          46,
+          40,
+          34,
+          28,
+          0,
+          58,
+          52,
+          46,
+          40,
+          34,
+          28,
+          22,
+          16,
+          10,
+          4,
+          62,
+          56,
+          50,
+          44
+        ],
+        "common_active_samples_identical": true
+      }
     },
     "alarm01-controls": {
       "sample_rate": 44100,
@@ -8509,9 +8673,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm01-controls\\render.pd"
         ],
-        "elapsed_seconds": 0.5914131999961683,
-        "sampled_cpu_seconds": 0.609375,
-        "sampled_peak_rss_bytes": 26198016,
+        "elapsed_seconds": 0.30874009999388363,
+        "sampled_cpu_seconds": 0.15625,
+        "sampled_peak_rss_bytes": 21086208,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/alarm01-controls/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -8526,10 +8690,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm01-controls\\events.tsv"
         ],
-        "elapsed_seconds": 0.020886300000711344,
-        "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5054464,
-        "stdout": "{\"model\":\"alarm01\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.001854}\n",
+        "elapsed_seconds": 0.021182199998293072,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5066752,
+        "stdout": "{\"model\":\"alarm01\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.001716}\n",
         "stderr": ""
       },
       "comparison": {
@@ -8616,9 +8780,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm05-controls\\render.pd"
         ],
-        "elapsed_seconds": 0.5805465000012191,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 26165248,
+        "elapsed_seconds": 0.30690550000872463,
+        "sampled_cpu_seconds": 0.234375,
+        "sampled_peak_rss_bytes": 21004288,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/alarm05-controls/pd.wav: biggest amplitude = 0.200000\n"
       },
@@ -8633,24 +8797,24 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\alarm05-controls\\events.tsv"
         ],
-        "elapsed_seconds": 0.020489299997279886,
+        "elapsed_seconds": 0.020522899998468347,
         "sampled_cpu_seconds": 0,
-        "sampled_peak_rss_bytes": 5042176,
-        "stdout": "{\"model\":\"alarm05\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.005780}\n",
+        "sampled_peak_rss_bytes": 5066752,
+        "stdout": "{\"model\":\"alarm05\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.004623}\n",
         "stderr": ""
       },
       "comparison": {
         "pd_peak": 0.19999967515468597,
-        "klang_peak": 0.1999998837709427,
+        "klang_peak": 0.19999967515468597,
         "pd_dc": -1.4947403648094591e-06,
-        "klang_dc": -1.4947260734510576e-06,
+        "klang_dc": -1.4947403648094591e-06,
         "pd_rms": 0.14110307327198535,
-        "klang_rms": 0.14110307374379016,
-        "level_delta_db": 2.9042914487355947e-08,
-        "error_rms": 8.239169341304967e-09,
-        "relative_error_db": -144.6730608768942,
-        "max_abs_error": 2.2351741790771484e-07,
-        "identical_samples": false
+        "klang_rms": 0.14110307327198535,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
       },
       "pd_clipped_samples": 0,
       "kleine_clipped_samples": 0
@@ -8723,9 +8887,9 @@
           "-open",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf-retrigger\\render.pd"
         ],
-        "elapsed_seconds": 0.5866415000054985,
-        "sampled_cpu_seconds": 0.59375,
-        "sampled_peak_rss_bytes": 26157056,
+        "elapsed_seconds": 0.3070788999903016,
+        "sampled_cpu_seconds": 0.171875,
+        "sampled_peak_rss_bytes": 21131264,
         "stdout": "",
         "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/dtmf-retrigger/pd.wav: biggest amplitude = 0.498584\n"
       },
@@ -8740,10 +8904,10 @@
           "1",
           "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\dtmf-retrigger\\events.tsv"
         ],
-        "elapsed_seconds": 0.020737900005769916,
-        "sampled_cpu_seconds": 0.015625,
-        "sampled_peak_rss_bytes": 5042176,
-        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.003044}\n",
+        "elapsed_seconds": 0.025669599999673665,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 5066752,
+        "stdout": "{\"model\":\"dtmf\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.002988}\n",
         "stderr": ""
       },
       "comparison": {

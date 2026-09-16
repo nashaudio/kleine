@@ -116,12 +116,12 @@
     }
   ],
   "source_sha256": {
-    "experiments/klang/pd-block/prototypes.h": "9c319f038dacf8f36b479dcc28aa71e08d22732deeeedd58734cb282c0b9956e",
+    "experiments/klang/pd-block/prototypes.h": "db79fa8fe47b6ff604782d1375fed1fba19d34b7b6bc52ff5e325df3e4086383",
     "experiments/klang/pd-block/probe.cpp": "045030101b995794bf1cdf702e55066e1ebd2b36ad5b7557d8196964388ff58b",
     "experiments/klang/pd-block/report.py": "c121293bf2604b1300ac9fe97ffeb0133e18e1e74799c8cc17528a7b9bffbe1b",
     "include/klang.h": "18227099c3e3de84fbdef47aa7b7375c455acc722405af8125db5b82fb6660e2",
-    "include/klang/pd.h": "c9a7b064cfe1a9f7c8da2ac835a564a0d893bee0c7f40b41cc90382635d1906d",
-    "farnell/klang/Artificial Sounds/Pedestrians/pedestrians.k": "627953ba52d3e9b80f8dae681be469e22eeaa5f6d8e928a64ca3eb3d15a3347c"
+    "include/klang/pd.h": "9a1aeb8ba7790380303ebe4df908b7e491d47991b6f75f9cd8bd80f939d949be",
+    "farnell/klang/Artificial Sounds/Pedestrians/pedestrians.k": "227e0208700e7b6f41c5c7bb996c4bfdcc79188f3cab58948df7922b05965115"
   },
   "notes": [
     "PD WAVs are cached 0.55.2 fixtures from render_artificial.py, not new PD executions.",

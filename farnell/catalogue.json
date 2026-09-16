@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "snapshot": "2026-09-15",
+  "snapshot": "2026-09-16",
   "book_pdf_page_offset": 25,
   "chapters": [
     {
@@ -165,53 +165,53 @@
     },
     {
       "number": 17,
-      "title": "Technique 1—Summation",
+      "title": "Technique 1â€”Summation",
       "page_start": 267,
       "page_end": 276,
       "series": "Techniques",
       "id": "17-technique1summation",
       "website": "chapter17.html",
-      "klang_file": "klang/Techniques/Technique 1—Summation/technique1summation.k"
+      "klang_file": "klang/Techniques/Technique 1â€”Summation/technique1summation.k"
     },
     {
       "number": 18,
-      "title": "Technique 2—Tables",
+      "title": "Technique 2â€”Tables",
       "page_start": 277,
       "page_end": 282,
       "series": "Techniques",
       "id": "18-technique2tables",
       "website": "chapter18.html",
-      "klang_file": "klang/Techniques/Technique 2—Tables/technique2tables.k"
+      "klang_file": "klang/Techniques/Technique 2â€”Tables/technique2tables.k"
     },
     {
       "number": 19,
-      "title": "Technique 3—Nonlinear Functions",
+      "title": "Technique 3â€”Nonlinear Functions",
       "page_start": 283,
       "page_end": 290,
       "series": "Techniques",
       "id": "19-technique3nonlinearfunctions",
       "website": "chapter19.html",
-      "klang_file": "klang/Techniques/Technique 3—Nonlinear Functions/technique3nonlinearfunctions.k"
+      "klang_file": "klang/Techniques/Technique 3â€”Nonlinear Functions/technique3nonlinearfunctions.k"
     },
     {
       "number": 20,
-      "title": "Technique 4—Modulation",
+      "title": "Technique 4â€”Modulation",
       "page_start": 291,
       "page_end": 304,
       "series": "Techniques",
       "id": "20-technique4modulation",
       "website": "chapter20.html",
-      "klang_file": "klang/Techniques/Technique 4—Modulation/technique4modulation.k"
+      "klang_file": "klang/Techniques/Technique 4â€”Modulation/technique4modulation.k"
     },
     {
       "number": 21,
-      "title": "Technique 5—Grains",
+      "title": "Technique 5â€”Grains",
       "page_start": 305,
       "page_end": 314,
       "series": "Techniques",
       "id": "21-technique5grains",
       "website": "chapter21.html",
-      "klang_file": "klang/Techniques/Technique 5—Grains/technique5grains.k"
+      "klang_file": "klang/Techniques/Technique 5â€”Grains/technique5grains.k"
     },
     {
       "number": 22,
@@ -2157,7 +2157,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "Pedestrians",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "audio/24-pedestrians/README.md",
       "comparison_cases": [
         "pedestrians",
         "pedestrians-controls"
@@ -2169,8 +2169,10 @@
       ],
       "mapping": "caption",
       "status": "trial validated",
-      "component": "PhoneTones",
-      "evidence": "audio/artificial-sounds.md"
+      "component": "PhoneTones::Busy",
+      "evidence": "audio/artificial-sounds.md",
+      "klang_file": "klang/Artificial Sounds/Phone Tones/phonetones.k",
+      "note": " Selected companion-site implementation; listening choice accepted 16 September. See audio/25-phone-tones/README.md."
     },
     "p02/dialtone1.pd": {
       "figures": [
@@ -2178,8 +2180,10 @@
       ],
       "mapping": "caption",
       "status": "trial validated",
-      "component": "PhoneTones",
-      "evidence": "audio/artificial-sounds.md"
+      "component": "PhoneTones::Dial",
+      "evidence": "audio/artificial-sounds.md",
+      "klang_file": "klang/Artificial Sounds/Phone Tones/phonetones.k",
+      "note": " Selected companion-site implementation; listening choice accepted 16 September. See audio/25-phone-tones/README.md."
     },
     "p02/dialtone2.pd": {
       "figures": [
@@ -2217,24 +2221,27 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "DTMFTones",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "audio/26-dtmf-tones/README.md",
       "comparison_cases": [
         "dtmf",
         "dtmf-retrigger"
-      ]
+      ],
+      "previous_evidence": "audio/artificial-sounds.md",
+      "note": "Current 48 kHz PD/Kleine diallers accepted as sounding the same, with numerical parity including retriggers. Online uses longer irregular keypress spacing. The dialler now uses pd::del{200}, validated with 52 isolated cases; existing audio is sample-identical before/after. The 44.1 kHz block-timing comparison remains a separate review."
     },
     "p04/alarm01.pd": {
       "figures": [
         "24.4"
       ],
       "mapping": "topic",
-      "status": "trial validated",
-      "note": "Preliminary variation of the pedestrian graph (800 Hz / 300 ms); no separate numbered chapter 27 diagram.",
+      "status": "topology review",
+      "note": "Preliminary variation of the pedestrian graph (800 Hz / 300 ms); no separate numbered chapter 27 diagram. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
       "component": "AlarmGenerator(1)",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
       "comparison_cases": [
         "alarm01"
-      ]
+      ],
+      "previous_evidence": "audio/artificial-sounds.md"
     },
     "p04/alarm02.pd": {
       "figures": [
@@ -2277,12 +2284,14 @@
         "27.3"
       ],
       "mapping": "caption",
-      "status": "trial validated",
+      "status": "topology review",
       "component": "AlarmGenerator(5)",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
       "comparison_cases": [
         "alarm05"
-      ]
+      ],
+      "previous_evidence": "audio/artificial-sounds.md",
+      "note": "Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged."
     },
     "p04/alarm06.pd": {
       "figures": [
@@ -2315,14 +2324,15 @@
         "28.9"
       ],
       "mapping": "caption",
-      "status": "trial validated",
+      "status": "topology review",
       "component": "Police",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
       "comparison_cases": [
         "police",
         "police-legacy"
       ],
-      "note": "Current website pow~ wiring and historical/bulk inlet convention are separate reference variants. See component and full-siren fixtures at both sample rates."
+      "note": "Current website pow~ wiring and historical/bulk inlet convention are separate reference variants. See component and full-siren fixtures at both sample rates. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
+      "previous_evidence": "audio/artificial-sounds.md"
     },
     "p05/logosc.pd": {
       "figures": [
@@ -2356,13 +2366,14 @@
         "28.8"
       ],
       "mapping": "caption",
-      "status": "trial validated",
+      "status": "topology review",
       "component": "Police::Environment",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
       "comparison_cases": [
         "police-environment"
       ],
-      "note": "See component and full-siren fixtures at both sample rates."
+      "note": "See component and full-siren fixtures at both sample rates. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
+      "previous_evidence": "audio/artificial-sounds.md"
     },
     "p05/logosc_graph.pd": {
       "figures": [
@@ -2370,13 +2381,14 @@
       ],
       "mapping": "caption",
       "status": "trial validated",
-      "component": "Police::LogOsc (graph)",
+      "component": "variants::PowerOsc / variants::SymmetricExponentialOsc",
       "evidence": "audio/artificial-sounds.md",
       "comparison_cases": [
         "police-graph",
         "police-graph-legacy"
       ],
-      "note": "Current website pow~ wiring and historical/bulk inlet convention are separate reference variants. Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port."
+      "note": "Current website pow~ wiring and historical/bulk inlet convention are separate reference variants. Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port. Separate development implementation; see klang/VARIANTS.md for the complete mapping.",
+      "klang_file": "klang/Artificial Sounds/Police/variants/oscillators.k"
     },
     "p05/triangle_logosc_compare.pd": {
       "figures": [
@@ -2384,13 +2396,14 @@
       ],
       "mapping": "caption",
       "status": "trial validated",
-      "component": "Police::LogOsc (triangle / graph)",
+      "component": "variants::TriangleOsc / variants::PowerOsc",
       "evidence": "audio/artificial-sounds.md",
       "comparison_cases": [
         "police-triangle",
         "police-compare-log"
       ],
-      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port."
+      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port. Separate development implementation; see klang/VARIANTS.md for the complete mapping.",
+      "klang_file": "klang/Artificial Sounds/Police/variants/oscillators.k"
     },
     "p06/telephonebell.pd": {
       "figures": [
@@ -2436,7 +2449,14 @@
         "30.2"
       ],
       "mapping": "caption",
-      "status": "not started"
+      "status": "topology review",
+      "component": "Bouncing",
+      "comparison_cases": [
+        "bouncing"
+      ],
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "note": "Website fourth-power pitch; bulk exponential and historical inlet variants compared separately. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
+      "previous_evidence": "audio/idiophonics.md"
     },
     "p08/rolling1.pd": {
       "figures": [
@@ -2445,15 +2465,29 @@
         "31.8"
       ],
       "mapping": "topic",
-      "status": "not started",
-      "note": "Website repeats rolling1.pd for Separate struck tin can; a separate can patch may need recovery."
+      "status": "trial validated",
+      "note": "Separate struck-can source recovered as bulk ROLLING/tincan.pd; periodic edges and sampled ground noise are trial validated.",
+      "component": "Rolling",
+      "comparison_cases": [
+        "rolling",
+        "rolling-bulk"
+      ],
+      "evidence": "audio/idiophonics.md"
     },
     "p08/uneven2.pd": {
       "figures": [
         "31.7"
       ],
       "mapping": "caption",
-      "status": "not started"
+      "status": "topology review",
+      "component": "Rolling::Uneven",
+      "comparison_cases": [
+        "uneven2",
+        "uneven2-bulk"
+      ],
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "note": "Separate ground/three-mode can; both active source revisions compared. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
+      "previous_evidence": "audio/idiophonics.md"
     },
     "p09/doorcreaker.pd": {
       "figures": [
@@ -2463,14 +2497,32 @@
         "32.6"
       ],
       "mapping": "caption",
-      "status": "not started"
+      "status": "topology review",
+      "component": "Creaking",
+      "comparison_cases": [
+        "creaking",
+        "creaking-controls",
+        "creaking-pulse",
+        "creaking-wood",
+        "creaking-panel"
+      ],
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "note": "Moving-force performance fitted to website contact timing after listening review exposed a poor held-force demo. Both performances and wood/panel response compared at two rates; small pulse timing approximation remains. Revised listening/realism verdict open; see evidence. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
+      "previous_evidence": "audio/idiophonics.md"
     },
     "p09/dfbef.pd": {
       "figures": [
         "32.5"
       ],
       "mapping": "caption",
-      "status": "not started"
+      "status": "topology review",
+      "component": "Creaking::Reflection",
+      "comparison_cases": [
+        "creaking-delay"
+      ],
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "note": "Impulse response is sample-identical at both rates; feedback includes the send/receive block. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
+      "previous_evidence": "audio/idiophonics.md"
     },
     "p10/twang.pd": {
       "figures": [
@@ -2478,7 +2530,16 @@
         "33.3"
       ],
       "mapping": "caption",
-      "status": "not started"
+      "status": "topology review",
+      "component": "Boing",
+      "comparison_cases": [
+        "boing",
+        "boing-bulk",
+        "boing-legacy"
+      ],
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "note": "Website env16p is a 64th power. Bulk modern/historical pow~ conventions are separate variants; raw bulk overload retained with quieter audition copies. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
+      "previous_evidence": "audio/idiophonics.md"
     },
     "p11/fire_crackling1.pd": {
       "figures": [
@@ -3566,12 +3627,13 @@
       ],
       "mapping": "caption",
       "status": "trial validated",
-      "note": "PhoneTones::Line; pulse and normal line variants are covered by the retained trial.",
+      "note": "Both telephone-line.pd copies are byte-identical and implemented by PhoneTones::Line in pulse mode. Current 48 kHz pulse render agrees with PD apart from negligible filter tails; latest website embedded handset renders identically to the collection patch. Pulse scheduling at 44.1 kHz is a separate model-level follow-up.",
       "component": "PhoneTones::Line",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "audio/comparisons/reference-levels.md",
       "comparison_cases": [
-        "ringback-bulk"
-      ]
+        "pulse"
+      ],
+      "previous_evidence": "audio/artificial-sounds.md"
     },
     "pd/ALARMS/telephone-line.pd": {
       "chapter": 25,
@@ -3582,10 +3644,12 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "PhoneTones::Line",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "audio/comparisons/reference-levels.md",
       "comparison_cases": [
-        "ringback-bulk"
-      ]
+        "pulse"
+      ],
+      "previous_evidence": "audio/artificial-sounds.md",
+      "note": "Both telephone-line.pd copies are byte-identical and implemented by PhoneTones::Line in pulse mode. Current 48 kHz pulse render agrees with PD apart from negligible filter tails; latest website embedded handset renders identically to the collection patch. Pulse scheduling at 44.1 kHz is a separate model-level follow-up."
     },
     "pd/ALARMS/dial-remotering.pd": {
       "chapter": 25,
@@ -3593,12 +3657,15 @@
         "25.5"
       ],
       "mapping": "topic",
-      "status": "trial validated",
-      "component": "PhoneTones",
-      "evidence": "audio/artificial-sounds.md",
+      "status": "no work",
+      "component": "validation::RingbackHandset",
+      "evidence": "audio/25-phone-tones/README.md",
       "comparison_cases": [
         "ringback-bulk"
-      ]
+      ],
+      "previous_evidence": "audio/artificial-sounds.md",
+      "note": "Rejected as duller in the listening review; excluded from active completion work. Retained solely as a historical comparison fixture.",
+      "klang_file": "../tests/pd/phone-tones-archive.h"
     },
     "pd/ALARMS/phone-effects.pd": {
       "chapter": 25,
@@ -3612,13 +3679,14 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "PhoneEffects",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "audio/25-phone-tones/README.md",
       "comparison_cases": [
         "phone-effects",
         "phone-match"
       ],
       "klang_file": "klang/Artificial Sounds/Phone Tones/phoneeffects.k",
-      "note": "Audio, keypad and number-match fixtures validated using a documented Vanilla reconstruction of the absent list-emath/list-dotprod matchers; original source retained unchanged."
+      "note": "Current build PhoneEffects listening review accepted: Chris reports matching envelopes and no apparent difference on simultaneous playback of the four PD/Klang files. Event traces at 48/44.1 kHz match digit and effective ringtone sequences; offsets of at most 64 samples are retained as diagnostics, not an audible failure. Number matching uses a documented reconstruction of missing list-emath/list-dotprod objects. Standalone call-recogniser acceptance is separate.",
+      "previous_evidence": "audio/artificial-sounds.md"
     },
     "pd/ALARMS/decode-tone.pd": {
       "chapter": 26,
@@ -3642,12 +3710,15 @@
         "26.3"
       ],
       "mapping": "topic",
-      "status": "trial validated",
-      "component": "DTMFTones",
-      "evidence": "audio/artificial-sounds.md",
+      "status": "no work",
+      "component": "validation::DTMFLevel03",
+      "evidence": "audio/26-dtmf-tones/README.md",
       "comparison_cases": [
         "dtmf-bulk"
-      ]
+      ],
+      "previous_evidence": "audio/artificial-sounds.md",
+      "note": "Discarded by Chris as perceptually identical to the retained companion-site dialler. Excluded from active completion work; gain-0.3 implementation retained solely as a historical comparison fixture.",
+      "klang_file": "../tests/pd/dtmf-archive.h"
     },
     "pd/ALARMS/dtmf00.pd": {
       "chapter": 26,
@@ -3657,11 +3728,13 @@
       ],
       "mapping": "topic",
       "status": "trial validated",
-      "component": "DTMFTones",
+      "component": "variants::DTMFUnfiltered",
       "evidence": "audio/artificial-sounds.md",
       "comparison_cases": [
         "dtmf-study"
-      ]
+      ],
+      "klang_file": "klang/Artificial Sounds/DTMF Tones/variants/dtmf-unfiltered.k",
+      "note": " Separate development implementation; see klang/VARIANTS.md for the complete mapping."
     },
     "pd/ALARMS/dtmfdec.pd": {
       "chapter": 26,
@@ -3673,11 +3746,12 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "DTMFTones::Decoder",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../tests/pd/dtmf-messages.md",
       "comparison_cases": [
         "dtmf-decoder"
       ],
-      "note": "All eight tone-detector states compared. The source display emits a symbol-to-float trigger error for letter/star/hash keys; detector outputs are unaffected. Klang exposes the decoded key directly."
+      "note": "Explicit source graphs now replace unique-pair snapshot decoding: Decoder preserves standalone AND/select repetition; DigitDecoder composes ten Sand instances with shared change/moses. All 56 shared-input cases at 48/44.1 kHz match detector states and both output message streams, including switches and overlaps. Isolated Sand messages match; 18 existing audio recipes are sample-identical before/after.",
+      "previous_evidence": "audio/artificial-sounds.md"
     },
     "pd/ALARMS/dt-call-recogniser.pd": {
       "chapter": 26,
@@ -3689,13 +3763,14 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "PhoneEffects",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "audio/26-dtmf-tones/README.md",
       "comparison_cases": [
         "call-recogniser",
         "call-match"
       ],
       "klang_file": "klang/Artificial Sounds/Phone Tones/phoneeffects.k",
-      "note": "Audio, keypad and number-match fixtures validated using a documented Vanilla reconstruction of the absent list-emath/list-dotprod matchers; original source retained unchanged."
+      "note": "Chris accepts both current 48 kHz call-recogniser and call-match PD/Kleine listening pairs as sounding the same. Scope covers personalised ringers and the automatic number-triggered recipe, using the documented Vanilla reconstruction of absent list-emath/list-dotprod matchers. Original patches are unchanged. Numerical timing residuals are diagnostic; 44.1 kHz listening acceptance is not claimed.",
+      "previous_evidence": "audio/artificial-sounds.md"
     },
     "pd/POLICE/logosc~.pd": {
       "chapter": 28,
@@ -3704,12 +3779,13 @@
       ],
       "mapping": "topic",
       "status": "trial validated",
-      "component": "Police::LogOsc (legacy)",
+      "component": "variants::ExponentialOsc",
       "evidence": "audio/artificial-sounds.md",
       "comparison_cases": [
         "police-osc-bulk"
       ],
-      "note": "See component and full-siren fixtures at both sample rates."
+      "note": "See component and full-siren fixtures at both sample rates. Separate development implementation; see klang/VARIANTS.md for the complete mapping.",
+      "klang_file": "klang/Artificial Sounds/Police/variants/oscillators.k"
     },
     "pd/POLICE/police00.pd": {
       "chapter": 28,
@@ -3718,12 +3794,13 @@
       ],
       "mapping": "topic",
       "status": "trial validated",
-      "component": "Police::LogOsc (graph / legacy)",
+      "component": "variants::SymmetricExponentialOsc",
       "evidence": "audio/artificial-sounds.md",
       "comparison_cases": [
         "police00"
       ],
-      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port."
+      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port. Separate development implementation; see klang/VARIANTS.md for the complete mapping.",
+      "klang_file": "klang/Artificial Sounds/Police/variants/oscillators.k"
     },
     "pd/POLICE/police01.pd": {
       "chapter": 28,
@@ -3732,12 +3809,13 @@
       ],
       "mapping": "topic",
       "status": "trial validated",
-      "component": "Police::LogOsc (graph / legacy)",
+      "component": "variants::InvertedExponentialOsc",
       "evidence": "audio/artificial-sounds.md",
       "comparison_cases": [
         "police01"
       ],
-      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port."
+      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port. Separate development implementation; see klang/VARIANTS.md for the complete mapping.",
+      "klang_file": "klang/Artificial Sounds/Police/variants/oscillators.k"
     },
     "pd/POLICE/police1.pd": {
       "chapter": 28,
@@ -3746,12 +3824,13 @@
       ],
       "mapping": "topic",
       "status": "trial validated",
-      "component": "Police::LogOsc (graph / legacy)",
+      "component": "variants::SymmetricExponentialOsc",
       "evidence": "audio/artificial-sounds.md",
       "comparison_cases": [
         "police1"
       ],
-      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port."
+      "note": "Waveform outputs compared; FFT/display analysis is supplied by the comparison tools, not a GUI or rfft~ port. Separate development implementation; see klang/VARIANTS.md for the complete mapping.",
+      "klang_file": "klang/Artificial Sounds/Police/variants/oscillators.k"
     },
     "pd/POLICE/police3.pd": {
       "chapter": 28,
@@ -3759,83 +3838,169 @@
         "28.9"
       ],
       "mapping": "topic",
-      "status": "trial validated",
-      "component": "Police",
-      "evidence": "audio/artificial-sounds.md",
+      "status": "topology review",
+      "component": "variants::PoliceExponential",
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
       "comparison_cases": [
         "police3"
       ],
-      "note": "See component and full-siren fixtures at both sample rates."
+      "note": "See component and full-siren fixtures at both sample rates. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged. Separate development implementation; see klang/VARIANTS.md for the complete mapping.",
+      "previous_evidence": "audio/artificial-sounds.md",
+      "klang_file": "klang/Artificial Sounds/Police/variants/police-exponential.k"
     },
     "pd/BELL/A0-bell-oscillator.pd": {
       "chapter": 29,
       "figures": [
         "29.7"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "pd::osc / BellStudies::Partials",
+      "comparison_cases": [
+        "bell-a0"
+      ],
+      "evidence": "audio/idiophonics.md",
+      "note": "Standalone frequency/amplitude study.",
+      "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
     "pd/BELL/A1-bell-envelope.pd": {
       "chapter": 29,
       "figures": [
         "29.8"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "Gesture / BellStudies::Partials",
+      "comparison_cases": [
+        "bell-a1"
+      ],
+      "evidence": "audio/idiophonics.md",
+      "note": "Standalone squared finite-decay study.",
+      "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
     "pd/BELL/A2-bell-partial.pd": {
       "chapter": 29,
       "figures": [
         "29.9"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "BellStudies::Partials",
+      "comparison_cases": [
+        "bell-a2"
+      ],
+      "evidence": "audio/idiophonics.md",
+      "note": "Retains the earlier 0.5 sum gain.",
+      "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
     "pd/BELL/A3-bell-ratio.pd": {
       "chapter": 29,
       "figures": [
         "29.13"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "topology review",
+      "component": "BellStudies::Ratios",
+      "comparison_cases": [
+        "bell-a3"
+      ],
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "note": "Retains the disconnected middle group, unused even ringer outlet and double-burst cadence. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
+      "klang_file": "klang/Idiophonics/Telephone Bell/studies.k",
+      "previous_evidence": "audio/idiophonics.md"
     },
     "pd/BELL/A3-bell-scale.pd": {
       "chapter": 29,
       "figures": [
         "29.13"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "topology review",
+      "component": "BellStudies::Ratios (ratio scaling)",
+      "comparison_cases": [
+        "bell-a3"
+      ],
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "note": "Dynamic numeric argument object boxes load successfully on PD 0.55.2; exercised by A3 without reconstruction. Static scanner cannot expand arbitrary instance arguments. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
+      "klang_file": "klang/Idiophonics/Telephone Bell/studies.k",
+      "previous_evidence": "audio/idiophonics.md"
     },
     "pd/BELL/A4-bell-telephone.pd": {
       "chapter": 29,
       "figures": [
         "29.15"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "BellStudies::Telephone",
+      "comparison_cases": [
+        "bell-a4"
+      ],
+      "evidence": "audio/idiophonics.md",
+      "note": "Earlier mixed envelope powers and 59 ms body resonance; separate from final TelephoneBell.",
+      "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
     "pd/BELL/group.pd": {
       "chapter": 29,
       "figures": [
         "29.10"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "BellStudies::Partials",
+      "comparison_cases": [
+        "bell-group"
+      ],
+      "evidence": "audio/idiophonics.md",
+      "note": "Independent partial decays and 0.3333 group gain.",
+      "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
     "pd/BELL/partial.pd": {
       "chapter": 29,
       "figures": [
         "29.9"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "BellStudies::Partials (one partial)",
+      "comparison_cases": [
+        "bell-partial"
+      ],
+      "evidence": "audio/idiophonics.md",
+      "note": "Independent frequency, amplitude and decay.",
+      "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
     "pd/BELL/testgroup.pd": {
       "chapter": 29,
       "figures": [
         "29.11"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "BellStudies::Partials",
+      "comparison_cases": [
+        "bell-testgroup"
+      ],
+      "evidence": "audio/idiophonics.md",
+      "note": "Final shared-envelope group at the supplied 0.3 listening gain.",
+      "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
     "pd/BOUNCINGBALL/bb1.pd": {
       "chapter": 30,
       "figures": [
         "30.2"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "topology review",
+      "component": "variants::BouncingExponential / variants::BouncingPower",
+      "comparison_cases": [
+        "bouncing-bulk",
+        "bouncing-legacy"
+      ],
+      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "note": "Modern exponent/base wiring and explicit historical inlet swap rendered separately. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged. Separate development implementation; see klang/VARIANTS.md for the complete mapping.",
+      "previous_evidence": "audio/idiophonics.md",
+      "klang_file": "klang/Idiophonics/Bouncing/variants/bouncing-exponential.k"
     },
     "pd/ROLLING/tincan.pd": {
       "chapter": 31,
@@ -3844,14 +4009,28 @@
         "31.4",
         "31.5"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "Rolling::Can (struck)",
+      "comparison_cases": [
+        "tincan"
+      ],
+      "evidence": "audio/idiophonics.md",
+      "note": "Recovered separate struck can; different modal weights and clip limit from rolling1."
     },
     "pd/ROLLING/uneven.pd": {
       "chapter": 31,
       "figures": [
         "31.7"
       ],
-      "mapping": "topic"
+      "mapping": "topic",
+      "status": "trial validated",
+      "component": "Rolling::Study",
+      "comparison_cases": [
+        "uneven"
+      ],
+      "evidence": "audio/idiophonics.md",
+      "note": "Audible random gesture path implemented; disconnected noise/phasor experiments do not feed the output. Rendering copy enables the saved spigot control explicitly."
     },
     "pd/BUBBLES/adenv.pd": {
       "chapter": 35,
@@ -4284,15 +4463,16 @@
       ],
       "mapping": "topic",
       "status": "trial validated",
-      "component": "DTMFTones::Decoder",
-      "evidence": "audio/artificial-sounds.md",
+      "component": "DTMFTones::Sand / DigitDecoder",
+      "evidence": "../tests/pd/dtmf-messages.md",
       "comparison_cases": [
         "dtmf-decoder",
         "phone-match",
         "call-match"
       ],
       "klang_file": "klang/Artificial Sounds/DTMF Tones/dtmftones.k",
-      "note": "Bulk decoder conjunction/change helper; fig. 26.1 supplies tone-pair context, not a separate helper diagram."
+      "note": "Explicit source graphs now replace unique-pair snapshot decoding: Decoder preserves standalone AND/select repetition; DigitDecoder composes ten Sand instances with shared change/moses. All 56 shared-input cases at 48/44.1 kHz match detector states and both output message streams, including switches and overlaps. Isolated Sand messages match; 18 existing audio recipes are sample-identical before/after.",
+      "previous_evidence": "audio/artificial-sounds.md"
     }
   },
   "book_patches": [

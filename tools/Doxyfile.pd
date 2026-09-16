@@ -1,0 +1,17 @@
+PROJECT_NAME           = "Klang PD primitives and Farnell models"
+OUTPUT_DIRECTORY       = build/pd-docs
+INPUT                  = include/klang/pd.h farnell/klang
+RECURSIVE              = YES
+FILE_PATTERNS          = *.h *.k
+EXTENSION_MAPPING      = k=C++
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+HIDE_UNDOC_MEMBERS      = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+SOURCE_BROWSER         = YES
+HAVE_DOT               = NO
+QUIET                  = YES
+WARN_IF_UNDOCUMENTED   = NO
+WARN_LOGFILE           = build/pd-docs-warnings.log
+FULL_PATH_NAMES        = NO

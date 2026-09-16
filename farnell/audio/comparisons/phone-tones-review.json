@@ -1,0 +1,3486 @@
+{
+  "date": "2026-09-16",
+  "pd_version": "Pd-0.55.2 (\"\") compiled 12:02:42 Nov 17 2024",
+  "comparisons": [
+    {
+      "case": "dial",
+      "group": "tones",
+      "source": "farnell\\pd\\PHONETONES\\dialtone1.pd",
+      "source_sha256": "d217affc21abc006916a6ccb8a03f8b9a16f93631aa47c7d42758db9025b1b61",
+      "duration": 4,
+      "sample_rate": 48000,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\dial\\render.pd"
+        ],
+        "elapsed_seconds": 0.6869661999953678,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21487616,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/48000/25-phone-tones/dial-pd.wav: biggest amplitude = 0.250000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "dial",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\48000\\25-phone-tones\\dial-kleine.wav",
+          "4",
+          "48000",
+          "1"
+        ],
+        "elapsed_seconds": 0.01985509999212809,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 4997120,
+        "stdout": "{\"model\":\"dial\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.002247}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.25,
+        "klang_peak": 0.25,
+        "pd_dc": -4.378854403815542e-09,
+        "klang_dc": -4.378854403815542e-09,
+        "pd_rms": 0.12499988643189652,
+        "klang_rms": 0.12499988643189652,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "dial-web",
+      "group": "tones",
+      "source": "farnell\\reference\\p02\\dialtone1.pd",
+      "source_sha256": "d945e91d814b8b0be298e61217a03f750e71a242004e3f976c8b1b5589728ab9",
+      "duration": 4,
+      "sample_rate": 48000,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\dial-web\\render.pd"
+        ],
+        "elapsed_seconds": 0.5935223999986192,
+        "sampled_cpu_seconds": 0.28125,
+        "sampled_peak_rss_bytes": 21819392,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/48000/25-phone-tones/dial-web-pd.wav: biggest amplitude = 0.250000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "dial-web",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\48000\\25-phone-tones\\dial-web-kleine.wav",
+          "4",
+          "48000",
+          "1"
+        ],
+        "elapsed_seconds": 0.016748399997595698,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 4997120,
+        "stdout": "{\"model\":\"dial-web\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.002245}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.25,
+        "klang_peak": 0.25,
+        "pd_dc": -6.917265422975068e-09,
+        "klang_dc": -6.917265422975068e-09,
+        "pd_rms": 0.12499988058088772,
+        "klang_rms": 0.12499988058088772,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "dial-line",
+      "group": "tones",
+      "source": "farnell\\pd\\PHONETONES\\dialtone2.pd",
+      "source_sha256": "998b308aa82859c53b12084f74af564a207aec1229d9c40bbf83c7f61df7044f",
+      "duration": 4,
+      "sample_rate": 48000,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\dial-line\\render.pd"
+        ],
+        "elapsed_seconds": 0.5795618999982253,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21819392,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/48000/25-phone-tones/dial-line-pd.wav: biggest amplitude = 0.136755\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "dial-line",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\48000\\25-phone-tones\\dial-line-kleine.wav",
+          "4",
+          "48000",
+          "1"
+        ],
+        "elapsed_seconds": 0.025541700000758283,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5066752,
+        "stdout": "{\"model\":\"dial-line\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.007460}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.136755108833313,
+        "klang_peak": 0.136755108833313,
+        "pd_dc": -8.338915634908516e-06,
+        "klang_dc": -8.338915634908516e-06,
+        "pd_rms": 0.07832055914689491,
+        "klang_rms": 0.07832055914689491,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "busy",
+      "group": "tones",
+      "source": "farnell\\reference\\p02\\busy-signal.pd",
+      "source_sha256": "a5191f81b84e5197a5efe1d51ee94435c8ff52ed6de49cb782eecdb0133cc889",
+      "duration": 4,
+      "sample_rate": 48000,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\busy\\render.pd"
+        ],
+        "elapsed_seconds": 0.5832999999984168,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 21622784,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/48000/25-phone-tones/busy-pd.wav: biggest amplitude = 0.200000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "busy",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\48000\\25-phone-tones\\busy-kleine.wav",
+          "4",
+          "48000",
+          "1"
+        ],
+        "elapsed_seconds": 0.020705599992652424,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 5001216,
+        "stdout": "{\"model\":\"busy\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.004421}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.19999955594539642,
+        "klang_peak": 0.19999955594539642,
+        "pd_dc": -3.2320682101337054e-06,
+        "klang_dc": -3.2320682101337038e-06,
+        "pd_rms": 0.07043526876168121,
+        "klang_rms": 0.07043526876168121,
+        "level_delta_db": 0.0,
+        "error_rms": 5.525400163840165e-21,
+        "relative_error_db": -300.0,
+        "max_abs_error": 1.0582624993341804e-19,
+        "identical_samples": false
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "busy-archive",
+      "group": "tones",
+      "source": "farnell\\pd\\PHONETONES\\busy-signal.pd",
+      "source_sha256": "c02439b9bec83fac0bcb10732e0c50421c2afbdeedb873b95c82bf2cbaf8e8c6",
+      "duration": 4,
+      "sample_rate": 48000,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\busy-archive\\render.pd"
+        ],
+        "elapsed_seconds": 0.5731095999944955,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 21925888,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/48000/25-phone-tones/busy-archive-pd.wav: biggest amplitude = 0.200000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "busy-archive",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\48000\\25-phone-tones\\busy-archive-kleine.wav",
+          "4",
+          "48000",
+          "1"
+        ],
+        "elapsed_seconds": 0.02073750000272412,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 5001216,
+        "stdout": "{\"model\":\"busy-archive\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.003203}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.20000000298023224,
+        "klang_peak": 0.20000000298023224,
+        "pd_dc": -3.566814494337124e-09,
+        "klang_dc": -3.566814494337124e-09,
+        "pd_rms": 0.07071062136541442,
+        "klang_rms": 0.07071062136541442,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "ringback",
+      "group": "tones",
+      "source": "farnell\\pd\\PHONETONES\\ringingtone.pd",
+      "source_sha256": "56f9c251074f4815d331ebd575c7dcace5acf5379e2cf24f1b68de99badfcb8b",
+      "duration": 12,
+      "sample_rate": 48000,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\ringback\\render.pd"
+        ],
+        "elapsed_seconds": 0.5959882000024663,
+        "sampled_cpu_seconds": 0.3125,
+        "sampled_peak_rss_bytes": 24444928,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/48000/25-phone-tones/ringback-pd.wav: biggest amplitude = 0.116807\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "ringback",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\48000\\25-phone-tones\\ringback-kleine.wav",
+          "12",
+          "48000",
+          "1"
+        ],
+        "elapsed_seconds": 0.0448783000028925,
+        "sampled_cpu_seconds": 0.03125,
+        "sampled_peak_rss_bytes": 6533120,
+        "stdout": "{\"model\":\"ringback\",\"sample_rate\":48000,\"frames\":576000,\"gain\":1,\"processing_wall_seconds\":0.024190}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.11680681258440018,
+        "klang_peak": 0.11680681258440018,
+        "pd_dc": -2.896962282569771e-06,
+        "klang_dc": -2.896962282569771e-06,
+        "pd_rms": 0.047622011662708845,
+        "klang_rms": 0.047622011662708845,
+        "level_delta_db": 0.0,
+        "error_rms": 9.553497141587052e-22,
+        "relative_error_db": -300.0,
+        "max_abs_error": 1.0944098397383502e-19,
+        "identical_samples": false
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "pulse",
+      "group": "tones",
+      "source": "farnell\\pd\\PHONETONES\\pulsedial.pd",
+      "source_sha256": "0aa333083ada8502b8f6887ccb6225241c26af51f6b98baa7a532f0859d51ab0",
+      "duration": 4,
+      "sample_rate": 48000,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\pulse\\render.pd"
+        ],
+        "elapsed_seconds": 0.5760800999996718,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 21667840,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/48000/25-phone-tones/pulse-pd.wav: biggest amplitude = 0.047392\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pulse",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\48000\\25-phone-tones\\pulse-kleine.wav",
+          "4",
+          "48000",
+          "1"
+        ],
+        "elapsed_seconds": 0.020042100004502572,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 5013504,
+        "stdout": "{\"model\":\"pulse\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.005663}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.04739164933562279,
+        "klang_peak": 0.04739164933562279,
+        "pd_dc": 7.35747364472653e-13,
+        "klang_dc": 7.35747364472653e-13,
+        "pd_rms": 0.003956559144023836,
+        "klang_rms": 0.003956559144023836,
+        "level_delta_db": 0.0,
+        "error_rms": 3.452510614727051e-21,
+        "relative_error_db": -300.0,
+        "max_abs_error": 1.0754211332953712e-19,
+        "identical_samples": false
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "ringback-bulk",
+      "group": "tones",
+      "sample_rate": 48000,
+      "duration": 12,
+      "frames": 576000,
+      "block_size": 64,
+      "sources": {
+        "farnell\\pd\\ALARMS\\dial-remotering.pd": "4ac3cd0fc76c2b1eed83ea918437622cba40da5910571ef58bb102e7367e74b8",
+        "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535"
+      },
+      "events": [],
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\ringback-bulk\\render.pd"
+        ],
+        "elapsed_seconds": 0.6963190999958897,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 21045248,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/48000/ringback-bulk/pd.wav: biggest amplitude = 0.189094\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "ringback-bulk",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\ringback-bulk\\kleine.wav",
+          "12",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\ringback-bulk\\events.tsv"
+        ],
+        "elapsed_seconds": 0.042637499995180406,
+        "sampled_cpu_seconds": 0.03125,
+        "sampled_peak_rss_bytes": 6660096,
+        "stdout": "{\"model\":\"ringback-bulk\",\"sample_rate\":48000,\"frames\":576000,\"gain\":1,\"processing_wall_seconds\":0.023666}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.18909373879432678,
+        "klang_peak": 0.18909373879432678,
+        "pd_dc": -4.971093923162849e-06,
+        "klang_dc": -4.971093923162849e-06,
+        "pd_rms": 0.07887037238953196,
+        "klang_rms": 0.07887037238953196,
+        "level_delta_db": 0.0,
+        "error_rms": 1.1565289902423153e-21,
+        "relative_error_db": -300.0,
+        "max_abs_error": 1.0615792350965766e-19,
+        "identical_samples": false
+      },
+      "pd_clipped_samples": 0,
+      "kleine_clipped_samples": 0,
+      "passed": true,
+      "review_only": true
+    },
+    {
+      "case": "phone-effects",
+      "group": "supplements",
+      "sample_rate": 48000,
+      "duration": 16,
+      "frames": 768000,
+      "block_size": 64,
+      "sources": {
+        "farnell\\pd\\ALARMS\\phone-effects.pd": "7daf57537361623da5581f0eb6afe9e4fcbb807b12e41da7dd69d511eb53f2b2",
+        "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+        "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+        "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+        "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535"
+      },
+      "events": [
+        {
+          "frame": 11968,
+          "action": "ringer",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 96000,
+          "action": "ringer",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 192000,
+          "action": "ringer",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 278400,
+          "action": "source",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 288000,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 302400,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 316800,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 331200,
+          "action": "key",
+          "values": [
+            3
+          ]
+        },
+        {
+          "frame": 345600,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 360000,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 374400,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 388800,
+          "action": "key",
+          "values": [
+            7
+          ]
+        },
+        {
+          "frame": 403200,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 417600,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 432000,
+          "action": "key",
+          "values": [
+            10
+          ]
+        },
+        {
+          "frame": 446400,
+          "action": "key",
+          "values": [
+            11
+          ]
+        },
+        {
+          "frame": 460800,
+          "action": "key",
+          "values": [
+            12
+          ]
+        },
+        {
+          "frame": 475200,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 489600,
+          "action": "key",
+          "values": [
+            14
+          ]
+        },
+        {
+          "frame": 504000,
+          "action": "key",
+          "values": [
+            15
+          ]
+        },
+        {
+          "frame": 528000,
+          "action": "source",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 624000,
+          "action": "source",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\phone-effects\\render.pd"
+        ],
+        "elapsed_seconds": 0.7459494000067934,
+        "sampled_cpu_seconds": 0.453125,
+        "sampled_peak_rss_bytes": 23044096,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/artificial/48000/phone-effects/pd.wav: biggest amplitude = 0.369984\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "phone-effects",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\phone-effects\\kleine.wav",
+          "16",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\phone-effects\\events.tsv"
+        ],
+        "elapsed_seconds": 0.26052339999296237,
+        "sampled_cpu_seconds": 0.234375,
+        "sampled_peak_rss_bytes": 8781824,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.235077}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.3699836730957031,
+        "klang_peak": 0.3699836730957031,
+        "pd_dc": -3.327607003526799e-06,
+        "klang_dc": -3.327605895270798e-06,
+        "pd_rms": 0.09780709548372071,
+        "klang_rms": 0.09780419276780909,
+        "level_delta_db": -0.00025778338547010753,
+        "error_rms": 0.032123179280964045,
+        "relative_error_db": -9.671036811840882,
+        "max_abs_error": 0.24833521246910095,
+        "identical_samples": false
+      },
+      "pd_clipped_samples": 0,
+      "kleine_clipped_samples": 0,
+      "passed": false,
+      "review_only": true
+    },
+    {
+      "case": "call-recogniser",
+      "group": "supplements",
+      "sample_rate": 48000,
+      "duration": 16,
+      "frames": 768000,
+      "block_size": 64,
+      "sources": {
+        "farnell\\pd\\ALARMS\\dt-call-recogniser.pd": "656e5cb350b7a107adec9b7d2c06f3f9f537792760fb9a739c906c7298386a40",
+        "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+        "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+        "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+        "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535",
+        "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+      },
+      "events": [
+        {
+          "frame": 11968,
+          "action": "ringer",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 96000,
+          "action": "ringer",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 192000,
+          "action": "ringer",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 288000,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 302400,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 316800,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 331200,
+          "action": "key",
+          "values": [
+            3
+          ]
+        },
+        {
+          "frame": 345600,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 360000,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 374400,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 388800,
+          "action": "key",
+          "values": [
+            7
+          ]
+        },
+        {
+          "frame": 403200,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 417600,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 432000,
+          "action": "key",
+          "values": [
+            10
+          ]
+        },
+        {
+          "frame": 446400,
+          "action": "key",
+          "values": [
+            11
+          ]
+        },
+        {
+          "frame": 460800,
+          "action": "key",
+          "values": [
+            12
+          ]
+        },
+        {
+          "frame": 475200,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 489600,
+          "action": "key",
+          "values": [
+            14
+          ]
+        },
+        {
+          "frame": 504000,
+          "action": "key",
+          "values": [
+            15
+          ]
+        }
+      ],
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\call-recogniser\\render.pd"
+        ],
+        "elapsed_seconds": 0.676020700004301,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 26710016,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/artificial/48000/call-recogniser/pd.wav: biggest amplitude = 0.245864\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "call-recogniser",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\call-recogniser\\kleine.wav",
+          "16",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\call-recogniser\\events.tsv"
+        ],
+        "elapsed_seconds": 0.21564470000157598,
+        "sampled_cpu_seconds": 0.203125,
+        "sampled_peak_rss_bytes": 8728576,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":48000,\"frames\":768000,\"gain\":1,\"processing_wall_seconds\":0.194520}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.24586406350135803,
+        "klang_peak": 0.24586406350135803,
+        "pd_dc": 1.9318688497467527e-12,
+        "klang_dc": 1.5492992821417072e-12,
+        "pd_rms": 0.0399103504058032,
+        "klang_rms": 0.03992518191696463,
+        "level_delta_db": 0.003227256507168784,
+        "error_rms": 0.02655592608371675,
+        "relative_error_db": -3.5384817935303916,
+        "max_abs_error": 0.3600996732711792,
+        "identical_samples": false
+      },
+      "pd_clipped_samples": 0,
+      "kleine_clipped_samples": 0,
+      "passed": false,
+      "review_only": true
+    },
+    {
+      "case": "phone-match",
+      "group": "supplements",
+      "sample_rate": 48000,
+      "duration": 33,
+      "frames": 1584000,
+      "block_size": 64,
+      "sources": {
+        "farnell\\pd\\ALARMS\\phone-effects.pd": "7daf57537361623da5581f0eb6afe9e4fcbb807b12e41da7dd69d511eb53f2b2",
+        "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+        "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+        "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+        "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535"
+      },
+      "events": [
+        {
+          "frame": 11968,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 26368,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 40768,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 55168,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 69568,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 83968,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 98368,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 112768,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 127168,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 141568,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 443968,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 458368,
+          "action": "key",
+          "values": [
+            10
+          ]
+        },
+        {
+          "frame": 472768,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 487168,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 501568,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 515968,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 530368,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 544768,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 559168,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 573568,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 875968,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 890368,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 904768,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 919168,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 933568,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 947968,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 962368,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 976768,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 991168,
+          "action": "key",
+          "values": [
+            10
+          ]
+        },
+        {
+          "frame": 1005568,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 1307968,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1322368,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1336768,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1351168,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1365568,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1379968,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1394368,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1408768,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1423168,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1437568,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1451968,
+          "action": "key",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\phone-match\\render.pd"
+        ],
+        "elapsed_seconds": 0.7920279000099981,
+        "sampled_cpu_seconds": 0.46875,
+        "sampled_peak_rss_bytes": 29495296,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 1\na: 0\na: 0\na: 2\na: 0\na: 0\na: 3\na: 0\na: 0\na: 0\na: 9\na: 8\na: 7\na: 6\na: 5\na: 4\na: 3\na: 2\na: 1\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/artificial/48000/phone-match/pd.wav: biggest amplitude = 0.289371\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "phone-effects",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\phone-match\\kleine.wav",
+          "33",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\phone-match\\events.tsv"
+        ],
+        "elapsed_seconds": 0.5039985000039451,
+        "sampled_cpu_seconds": 0.484375,
+        "sampled_peak_rss_bytes": 12025856,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":48000,\"frames\":1584000,\"gain\":1,\"processing_wall_seconds\":0.481200}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.2893710434436798,
+        "klang_peak": 0.2893710434436798,
+        "pd_dc": -1.264489426606685e-12,
+        "klang_dc": -3.2946585751399154e-13,
+        "pd_rms": 0.05447993941258361,
+        "klang_rms": 0.054473966054141405,
+        "level_delta_db": -0.0009524015137835553,
+        "error_rms": 0.01155786502815244,
+        "relative_error_db": -13.467179948421222,
+        "max_abs_error": 0.2248234674334526,
+        "identical_samples": false
+      },
+      "pd_clipped_samples": 0,
+      "kleine_clipped_samples": 0,
+      "passed": false,
+      "review_only": true
+    },
+    {
+      "case": "call-match",
+      "group": "supplements",
+      "sample_rate": 48000,
+      "duration": 33,
+      "frames": 1584000,
+      "block_size": 64,
+      "sources": {
+        "farnell\\pd\\ALARMS\\dt-call-recogniser.pd": "656e5cb350b7a107adec9b7d2c06f3f9f537792760fb9a739c906c7298386a40",
+        "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+        "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+        "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+        "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535",
+        "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+      },
+      "events": [
+        {
+          "frame": 11968,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 26368,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 40768,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 55168,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 69568,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 83968,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 98368,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 112768,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 127168,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 141568,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 155968,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 443968,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 458368,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 472768,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 487168,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 501568,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 515968,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 530368,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 544768,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 559168,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 573568,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 587968,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 875968,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 890368,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 904768,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 919168,
+          "action": "key",
+          "values": [
+            10
+          ]
+        },
+        {
+          "frame": 933568,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 947968,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 962368,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 976768,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 991168,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 1005568,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 1019968,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 1307968,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1322368,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1336768,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1351168,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1365568,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1379968,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1394368,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1408768,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1423168,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1437568,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1451968,
+          "action": "key",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\call-match\\render.pd"
+        ],
+        "elapsed_seconds": 0.7234738999977708,
+        "sampled_cpu_seconds": 0.53125,
+        "sampled_peak_rss_bytes": 29470720,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 7\na: 8\na: 1\na: 4\na: 8\na: 3\na: 2\na: 2\na: 1\na: 2\na: 0\na: 7\na: 7\na: 8\na: 7\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 0\na: 7\na: 8\na: 9\na: 0\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/artificial/48000/call-match/pd.wav: biggest amplitude = 0.245864\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "call-recogniser",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\call-match\\kleine.wav",
+          "33",
+          "48000",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\48000\\call-match\\events.tsv"
+        ],
+        "elapsed_seconds": 0.4211992999917129,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 12038144,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":48000,\"frames\":1584000,\"gain\":1,\"processing_wall_seconds\":0.398852}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.24586406350135803,
+        "klang_peak": 0.24586406350135803,
+        "pd_dc": 3.451077360347643e-14,
+        "klang_dc": 3.3246660433628636e-13,
+        "pd_rms": 0.028103991521696906,
+        "klang_rms": 0.02811068628225284,
+        "level_delta_db": 0.0020688529718095577,
+        "error_rms": 0.01848482850927208,
+        "relative_error_db": -3.6390515990731247,
+        "max_abs_error": 0.3600066900253296,
+        "identical_samples": false
+      },
+      "pd_clipped_samples": 0,
+      "kleine_clipped_samples": 0,
+      "passed": false,
+      "review_only": true
+    },
+    {
+      "case": "dial",
+      "group": "tones",
+      "source": "farnell\\pd\\PHONETONES\\dialtone1.pd",
+      "source_sha256": "d217affc21abc006916a6ccb8a03f8b9a16f93631aa47c7d42758db9025b1b61",
+      "duration": 4,
+      "sample_rate": 44100,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\dial\\render.pd"
+        ],
+        "elapsed_seconds": 0.7716664000035962,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 21233664,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/44100/25-phone-tones/dial-pd.wav: biggest amplitude = 0.250000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "dial",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\44100\\25-phone-tones\\dial-kleine.wav",
+          "4",
+          "44100",
+          "1"
+        ],
+        "elapsed_seconds": 0.025084499997319654,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 4980736,
+        "stdout": "{\"model\":\"dial\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.002086}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.25,
+        "klang_peak": 0.25,
+        "pd_dc": -1.1547503712040091e-08,
+        "klang_dc": -1.1547503712040091e-08,
+        "pd_rms": 0.12499990000066018,
+        "klang_rms": 0.12499990000066018,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "dial-web",
+      "group": "tones",
+      "source": "farnell\\reference\\p02\\dialtone1.pd",
+      "source_sha256": "d945e91d814b8b0be298e61217a03f750e71a242004e3f976c8b1b5589728ab9",
+      "duration": 4,
+      "sample_rate": 44100,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\dial-web\\render.pd"
+        ],
+        "elapsed_seconds": 0.623692299996037,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 21725184,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/44100/25-phone-tones/dial-web-pd.wav: biggest amplitude = 0.250000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "dial-web",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\44100\\25-phone-tones\\dial-web-kleine.wav",
+          "4",
+          "44100",
+          "1"
+        ],
+        "elapsed_seconds": 0.019262300003902055,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 4964352,
+        "stdout": "{\"model\":\"dial-web\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.002063}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.25,
+        "klang_peak": 0.25,
+        "pd_dc": -1.0011060366115602e-08,
+        "klang_dc": -1.0011060366115602e-08,
+        "pd_rms": 0.12499990377284356,
+        "klang_rms": 0.12499990377284356,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "dial-line",
+      "group": "tones",
+      "source": "farnell\\pd\\PHONETONES\\dialtone2.pd",
+      "source_sha256": "998b308aa82859c53b12084f74af564a207aec1229d9c40bbf83c7f61df7044f",
+      "duration": 4,
+      "sample_rate": 44100,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\dial-line\\render.pd"
+        ],
+        "elapsed_seconds": 0.5851136000128463,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21475328,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/44100/25-phone-tones/dial-line-pd.wav: biggest amplitude = 0.137121\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "dial-line",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\44100\\25-phone-tones\\dial-line-kleine.wav",
+          "4",
+          "44100",
+          "1"
+        ],
+        "elapsed_seconds": 0.02778809999290388,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 5066752,
+        "stdout": "{\"model\":\"dial-line\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.007177}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.13712133467197418,
+        "klang_peak": 0.13712133467197418,
+        "pd_dc": -8.292683349799792e-06,
+        "klang_dc": -8.292683349799792e-06,
+        "pd_rms": 0.07847170539179629,
+        "klang_rms": 0.07847170539179629,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "busy",
+      "group": "tones",
+      "source": "farnell\\reference\\p02\\busy-signal.pd",
+      "source_sha256": "a5191f81b84e5197a5efe1d51ee94435c8ff52ed6de49cb782eecdb0133cc889",
+      "duration": 4,
+      "sample_rate": 44100,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\busy\\render.pd"
+        ],
+        "elapsed_seconds": 0.7332000000023982,
+        "sampled_cpu_seconds": 0.40625,
+        "sampled_peak_rss_bytes": 20811776,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/44100/25-phone-tones/busy-pd.wav: biggest amplitude = 0.200000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "busy",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\44100\\25-phone-tones\\busy-kleine.wav",
+          "4",
+          "44100",
+          "1"
+        ],
+        "elapsed_seconds": 0.020506599990767427,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 4943872,
+        "stdout": "{\"model\":\"busy\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.004031}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.1999995857477188,
+        "klang_peak": 0.1999995857477188,
+        "pd_dc": -3.2025409769971905e-06,
+        "klang_dc": -3.2025409769971905e-06,
+        "pd_rms": 0.07043749075556002,
+        "klang_rms": 0.07043749075556002,
+        "level_delta_db": 0.0,
+        "error_rms": 5.473659160407583e-21,
+        "relative_error_db": -300.0,
+        "max_abs_error": 1.0497789866706248e-19,
+        "identical_samples": false
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "busy-archive",
+      "group": "tones",
+      "source": "farnell\\pd\\PHONETONES\\busy-signal.pd",
+      "source_sha256": "c02439b9bec83fac0bcb10732e0c50421c2afbdeedb873b95c82bf2cbaf8e8c6",
+      "duration": 4,
+      "sample_rate": 44100,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\busy-archive\\render.pd"
+        ],
+        "elapsed_seconds": 0.6741308000055142,
+        "sampled_cpu_seconds": 0.453125,
+        "sampled_peak_rss_bytes": 21823488,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/44100/25-phone-tones/busy-archive-pd.wav: biggest amplitude = 0.200000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "busy-archive",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\44100\\25-phone-tones\\busy-archive-kleine.wav",
+          "4",
+          "44100",
+          "1"
+        ],
+        "elapsed_seconds": 0.019667200002004392,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 4939776,
+        "stdout": "{\"model\":\"busy-archive\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.002984}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.20000000298023224,
+        "klang_peak": 0.20000000298023224,
+        "pd_dc": 2.809015220881687e-10,
+        "klang_dc": 2.809015220881687e-10,
+        "pd_rms": 0.07071061806106879,
+        "klang_rms": 0.07071061806106879,
+        "level_delta_db": 0.0,
+        "error_rms": 0.0,
+        "relative_error_db": -300.0,
+        "max_abs_error": 0.0,
+        "identical_samples": true
+      },
+      "passed": true,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "ringback",
+      "group": "tones",
+      "source": "farnell\\pd\\PHONETONES\\ringingtone.pd",
+      "source_sha256": "56f9c251074f4815d331ebd575c7dcace5acf5379e2cf24f1b68de99badfcb8b",
+      "duration": 12,
+      "sample_rate": 44100,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\ringback\\render.pd"
+        ],
+        "elapsed_seconds": 0.5924181000009412,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 24551424,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/44100/25-phone-tones/ringback-pd.wav: biggest amplitude = 0.117817\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "ringback",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\44100\\25-phone-tones\\ringback-kleine.wav",
+          "12",
+          "44100",
+          "1"
+        ],
+        "elapsed_seconds": 0.04249560000607744,
+        "sampled_cpu_seconds": 0.03125,
+        "sampled_peak_rss_bytes": 6352896,
+        "stdout": "{\"model\":\"ringback\",\"sample_rate\":44100,\"frames\":529200,\"gain\":1,\"processing_wall_seconds\":0.022504}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.11781664192676544,
+        "klang_peak": 0.11711179465055466,
+        "pd_dc": -2.9279097558806588e-06,
+        "klang_dc": -2.8930596639090317e-06,
+        "pd_rms": 0.047747867822758853,
+        "klang_rms": 0.04774486381921882,
+        "level_delta_db": -0.0005464801934346247,
+        "error_rms": 0.00047532098071106514,
+        "relative_error_db": -40.03933996903303,
+        "max_abs_error": 0.04590269923210144,
+        "identical_samples": false
+      },
+      "passed": false,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "pulse",
+      "group": "tones",
+      "source": "farnell\\pd\\PHONETONES\\pulsedial.pd",
+      "source_sha256": "0aa333083ada8502b8f6887ccb6225241c26af51f6b98baa7a532f0859d51ab0",
+      "duration": 4,
+      "sample_rate": 44100,
+      "pd_compatibility": "0.55",
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\BELL",
+          "-path",
+          "F:\\klang\\sfx\\kleine\\farnell\\pd\\PHONETONES",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\trials\\pulse\\render.pd"
+        ],
+        "elapsed_seconds": 0.6060655000037514,
+        "sampled_cpu_seconds": 0.265625,
+        "sampled_peak_rss_bytes": 21544960,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/phone-review/44100/25-phone-tones/pulse-pd.wav: biggest amplitude = 0.047442\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pulse",
+          "F:\\klang\\sfx\\kleine\\build\\phone-review\\44100\\25-phone-tones\\pulse-kleine.wav",
+          "4",
+          "44100",
+          "1"
+        ],
+        "elapsed_seconds": 0.02941280000959523,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 4943872,
+        "stdout": "{\"model\":\"pulse\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.005211}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.04744243249297142,
+        "klang_peak": 0.04744233563542366,
+        "pd_dc": 3.223961281629045e-13,
+        "klang_dc": 1.2410796889821314e-12,
+        "pd_rms": 0.00396086499040971,
+        "klang_rms": 0.003960854985277612,
+        "level_delta_db": -2.1940556718042343e-05,
+        "error_rms": 0.004134700899359092,
+        "relative_error_db": 0.37308118395689543,
+        "max_abs_error": 0.07350336015224457,
+        "identical_samples": false
+      },
+      "passed": false,
+      "samples_at_or_above_unity": 0,
+      "block_size": 64,
+      "alignment_samples": 0,
+      "output_gain": 1
+    },
+    {
+      "case": "ringback-bulk",
+      "group": "tones",
+      "sample_rate": 44100,
+      "duration": 12,
+      "frames": 529200,
+      "block_size": 64,
+      "sources": {
+        "farnell\\pd\\ALARMS\\dial-remotering.pd": "4ac3cd0fc76c2b1eed83ea918437622cba40da5910571ef58bb102e7367e74b8",
+        "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535"
+      },
+      "events": [],
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\ringback-bulk\\render.pd"
+        ],
+        "elapsed_seconds": 0.690146699998877,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 24379392,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/artificial/44100/ringback-bulk/pd.wav: biggest amplitude = 0.190674\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "ringback-bulk",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\ringback-bulk\\kleine.wav",
+          "12",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\ringback-bulk\\events.tsv"
+        ],
+        "elapsed_seconds": 0.03823259999626316,
+        "sampled_cpu_seconds": 0.03125,
+        "sampled_peak_rss_bytes": 6418432,
+        "stdout": "{\"model\":\"ringback-bulk\",\"sample_rate\":44100,\"frames\":529200,\"gain\":1,\"processing_wall_seconds\":0.022375}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.19067373871803284,
+        "klang_peak": 0.1893211305141449,
+        "pd_dc": -4.995639078824231e-06,
+        "klang_dc": -4.990228280861553e-06,
+        "pd_rms": 0.07896864114405121,
+        "klang_rms": 0.07896372876272377,
+        "level_delta_db": -0.0005403376408414045,
+        "error_rms": 0.0006698306274048519,
+        "relative_error_db": -41.42979327109234,
+        "max_abs_error": 0.05399042367935181,
+        "identical_samples": false
+      },
+      "pd_clipped_samples": 0,
+      "kleine_clipped_samples": 0,
+      "passed": false,
+      "review_only": true
+    },
+    {
+      "case": "phone-effects",
+      "group": "supplements",
+      "sample_rate": 44100,
+      "duration": 16,
+      "frames": 705600,
+      "block_size": 64,
+      "sources": {
+        "farnell\\pd\\ALARMS\\phone-effects.pd": "7daf57537361623da5581f0eb6afe9e4fcbb807b12e41da7dd69d511eb53f2b2",
+        "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+        "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+        "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+        "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535"
+      },
+      "events": [
+        {
+          "frame": 11008,
+          "action": "ringer",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 88192,
+          "action": "ringer",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 176384,
+          "action": "ringer",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 255744,
+          "action": "source",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 264576,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 277824,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 291008,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 304256,
+          "action": "key",
+          "values": [
+            3
+          ]
+        },
+        {
+          "frame": 317504,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 330688,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 343936,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 357184,
+          "action": "key",
+          "values": [
+            7
+          ]
+        },
+        {
+          "frame": 370432,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 383616,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 396864,
+          "action": "key",
+          "values": [
+            10
+          ]
+        },
+        {
+          "frame": 410112,
+          "action": "key",
+          "values": [
+            11
+          ]
+        },
+        {
+          "frame": 423360,
+          "action": "key",
+          "values": [
+            12
+          ]
+        },
+        {
+          "frame": 436544,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 449792,
+          "action": "key",
+          "values": [
+            14
+          ]
+        },
+        {
+          "frame": 463040,
+          "action": "key",
+          "values": [
+            15
+          ]
+        },
+        {
+          "frame": 485056,
+          "action": "source",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 573248,
+          "action": "source",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\phone-effects\\render.pd"
+        ],
+        "elapsed_seconds": 0.6629800999944564,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 26128384,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/artificial/44100/phone-effects/pd.wav: biggest amplitude = 0.376456\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "phone-effects",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\phone-effects\\kleine.wav",
+          "16",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\phone-effects\\events.tsv"
+        ],
+        "elapsed_seconds": 0.2403560000093421,
+        "sampled_cpu_seconds": 0.234375,
+        "sampled_peak_rss_bytes": 8585216,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.214631}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.37645620107650757,
+        "klang_peak": 0.38109201192855835,
+        "pd_dc": -3.3218532400397967e-06,
+        "klang_dc": -3.321852453766248e-06,
+        "pd_rms": 0.09775079190234152,
+        "klang_rms": 0.09804722255382599,
+        "level_delta_db": 0.02630022473389952,
+        "error_rms": 0.04080160448108887,
+        "relative_error_db": -7.588860855913423,
+        "max_abs_error": 0.2715277671813965,
+        "identical_samples": false
+      },
+      "pd_clipped_samples": 0,
+      "kleine_clipped_samples": 0,
+      "passed": false,
+      "review_only": true
+    },
+    {
+      "case": "call-recogniser",
+      "group": "supplements",
+      "sample_rate": 44100,
+      "duration": 16,
+      "frames": 705600,
+      "block_size": 64,
+      "sources": {
+        "farnell\\pd\\ALARMS\\dt-call-recogniser.pd": "656e5cb350b7a107adec9b7d2c06f3f9f537792760fb9a739c906c7298386a40",
+        "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+        "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+        "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+        "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535",
+        "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+      },
+      "events": [
+        {
+          "frame": 11008,
+          "action": "ringer",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 88192,
+          "action": "ringer",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 176384,
+          "action": "ringer",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 264576,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 277824,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 291008,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 304256,
+          "action": "key",
+          "values": [
+            3
+          ]
+        },
+        {
+          "frame": 317504,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 330688,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 343936,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 357184,
+          "action": "key",
+          "values": [
+            7
+          ]
+        },
+        {
+          "frame": 370432,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 383616,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 396864,
+          "action": "key",
+          "values": [
+            10
+          ]
+        },
+        {
+          "frame": 410112,
+          "action": "key",
+          "values": [
+            11
+          ]
+        },
+        {
+          "frame": 423360,
+          "action": "key",
+          "values": [
+            12
+          ]
+        },
+        {
+          "frame": 436544,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 449792,
+          "action": "key",
+          "values": [
+            14
+          ]
+        },
+        {
+          "frame": 463040,
+          "action": "key",
+          "values": [
+            15
+          ]
+        }
+      ],
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\call-recogniser\\render.pd"
+        ],
+        "elapsed_seconds": 0.6557162999961292,
+        "sampled_cpu_seconds": 0.40625,
+        "sampled_peak_rss_bytes": 26312704,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\nF:/klang/sfx/kleine/build/artificial/44100/call-recogniser/pd.wav: biggest amplitude = 0.246107\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "call-recogniser",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\call-recogniser\\kleine.wav",
+          "16",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\call-recogniser\\events.tsv"
+        ],
+        "elapsed_seconds": 0.20311020000372082,
+        "sampled_cpu_seconds": 0.1875,
+        "sampled_peak_rss_bytes": 8478720,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":44100,\"frames\":705600,\"gain\":1,\"processing_wall_seconds\":0.177233}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.24610665440559387,
+        "klang_peak": 0.25344204902648926,
+        "pd_dc": 2.2382672793511214e-12,
+        "klang_dc": 3.4178265462169418e-12,
+        "pd_rms": 0.039295128120896354,
+        "klang_rms": 0.04111986861402469,
+        "level_delta_db": 0.39426018429761445,
+        "error_rms": 0.04180418577894035,
+        "relative_error_db": 0.5376211993759328,
+        "max_abs_error": 0.43444424867630005,
+        "identical_samples": false
+      },
+      "pd_clipped_samples": 0,
+      "kleine_clipped_samples": 0,
+      "passed": false,
+      "review_only": true
+    },
+    {
+      "case": "phone-match",
+      "group": "supplements",
+      "sample_rate": 44100,
+      "duration": 33,
+      "frames": 1455300,
+      "block_size": 64,
+      "sources": {
+        "farnell\\pd\\ALARMS\\phone-effects.pd": "7daf57537361623da5581f0eb6afe9e4fcbb807b12e41da7dd69d511eb53f2b2",
+        "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+        "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+        "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+        "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535"
+      },
+      "events": [
+        {
+          "frame": 11008,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 24192,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 37440,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 50688,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 63936,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 77120,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 90368,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 103616,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 116864,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 130048,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 407872,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 421120,
+          "action": "key",
+          "values": [
+            10
+          ]
+        },
+        {
+          "frame": 434368,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 447552,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 460800,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 474048,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 487296,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 500480,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 513728,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 526976,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 804800,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 818048,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 831232,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 844480,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 857728,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 870912,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 884160,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 897408,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 910656,
+          "action": "key",
+          "values": [
+            10
+          ]
+        },
+        {
+          "frame": 923840,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 1201664,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1214912,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1228160,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1241408,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1254592,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1267840,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1281088,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1294272,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1307520,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1320768,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1334016,
+          "action": "key",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\phone-match\\render.pd"
+        ],
+        "elapsed_seconds": 0.7412091000005603,
+        "sampled_cpu_seconds": 0.53125,
+        "sampled_peak_rss_bytes": 32264192,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 1\na: 0\na: 0\na: 2\na: 0\na: 0\na: 3\na: 0\na: 0\na: 0\na: 9\na: 8\na: 7\na: 6\na: 5\na: 4\na: 3\na: 2\na: 1\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 7\na: 8\na: 9\na: 0\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/artificial/44100/phone-match/pd.wav: biggest amplitude = 0.288466\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "phone-effects",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\phone-match\\kleine.wav",
+          "33",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\phone-match\\events.tsv"
+        ],
+        "elapsed_seconds": 0.45740150001074653,
+        "sampled_cpu_seconds": 0.453125,
+        "sampled_peak_rss_bytes": 11489280,
+        "stdout": "{\"model\":\"phone-effects\",\"sample_rate\":44100,\"frames\":1455300,\"gain\":1,\"processing_wall_seconds\":0.437763}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.2884659767150879,
+        "klang_peak": 0.2884659767150879,
+        "pd_dc": 4.871159648408386e-12,
+        "klang_dc": -3.306642036997056e-12,
+        "pd_rms": 0.054705972097505544,
+        "klang_rms": 0.05456021704276362,
+        "level_delta_db": -0.02317300677470794,
+        "error_rms": 0.01714749780335007,
+        "relative_error_db": -10.076679674714313,
+        "max_abs_error": 0.27141883969306946,
+        "identical_samples": false
+      },
+      "pd_clipped_samples": 0,
+      "kleine_clipped_samples": 0,
+      "passed": false,
+      "review_only": true
+    },
+    {
+      "case": "call-match",
+      "group": "supplements",
+      "sample_rate": 44100,
+      "duration": 33,
+      "frames": 1455300,
+      "block_size": 64,
+      "sources": {
+        "farnell\\pd\\ALARMS\\dt-call-recogniser.pd": "656e5cb350b7a107adec9b7d2c06f3f9f537792760fb9a739c906c7298386a40",
+        "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
+        "farnell\\pd\\ALARMS\\decode-tone.pd": "f093e017cb3359aa98de31cc9ae7aadbf996cd6195851414e960a742f3d4ff2f",
+        "farnell\\pd\\ALARMS\\sand.pd": "9cb5c650315acd8900b19d87fded5e9c32f1d5644d64e49be8e18c667745607c",
+        "farnell\\pd\\ALARMS\\telephone-line.pd": "7d189b86d19dcbdd3e21db37cc6f0697e1a0443059e75cf24339589f21ce6535",
+        "farnell\\zip\\p03\\dtmf.pd": "e9ee12c07030f43e3f8daa69b4d81d36fd67fc484a8b1543e2f3c927682fb99c"
+      },
+      "events": [
+        {
+          "frame": 11008,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 24192,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 37440,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 50688,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 63936,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 77120,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 90368,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 103616,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 116864,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 130048,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 143296,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 407872,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 421120,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 434368,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 447552,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 460800,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 474048,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 487296,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 500480,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 513728,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 526976,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 540224,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 804800,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 818048,
+          "action": "key",
+          "values": [
+            8
+          ]
+        },
+        {
+          "frame": 831232,
+          "action": "key",
+          "values": [
+            9
+          ]
+        },
+        {
+          "frame": 844480,
+          "action": "key",
+          "values": [
+            10
+          ]
+        },
+        {
+          "frame": 857728,
+          "action": "key",
+          "values": [
+            13
+          ]
+        },
+        {
+          "frame": 870912,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 884160,
+          "action": "key",
+          "values": [
+            1
+          ]
+        },
+        {
+          "frame": 897408,
+          "action": "key",
+          "values": [
+            2
+          ]
+        },
+        {
+          "frame": 910656,
+          "action": "key",
+          "values": [
+            4
+          ]
+        },
+        {
+          "frame": 923840,
+          "action": "key",
+          "values": [
+            5
+          ]
+        },
+        {
+          "frame": 937088,
+          "action": "key",
+          "values": [
+            6
+          ]
+        },
+        {
+          "frame": 1201664,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1214912,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1228160,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1241408,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1254592,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1267840,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1281088,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1294272,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1307520,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1320768,
+          "action": "key",
+          "values": [
+            0
+          ]
+        },
+        {
+          "frame": 1334016,
+          "action": "key",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\call-match\\render.pd"
+        ],
+        "elapsed_seconds": 0.7137071000033757,
+        "sampled_cpu_seconds": 0.515625,
+        "sampled_peak_rss_bytes": 32116736,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\na: 0\na: 7\na: 8\na: 1\na: 4\na: 8\na: 3\na: 2\na: 2\na: 1\na: 2\na: 0\na: 7\na: 7\na: 8\na: 7\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 0\na: 7\na: 8\na: 9\na: 0\na: 1\na: 2\na: 3\na: 4\na: 5\na: 6\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\na: 1\nF:/klang/sfx/kleine/build/artificial/44100/call-match/pd.wav: biggest amplitude = 0.259502\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "call-recogniser",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\call-match\\kleine.wav",
+          "33",
+          "44100",
+          "1",
+          "F:\\klang\\sfx\\kleine\\build\\artificial\\44100\\call-match\\events.tsv"
+        ],
+        "elapsed_seconds": 0.38732080000045244,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 11546624,
+        "stdout": "{\"model\":\"call-recogniser\",\"sample_rate\":44100,\"frames\":1455300,\"gain\":1,\"processing_wall_seconds\":0.364633}\n",
+        "stderr": ""
+      },
+      "comparison": {
+        "pd_peak": 0.25950178503990173,
+        "klang_peak": 0.24633245170116425,
+        "pd_dc": 1.571756093958669e-12,
+        "klang_dc": 1.3151584273422059e-12,
+        "pd_rms": 0.028891925467483776,
+        "klang_rms": 0.02808874966088758,
+        "level_delta_db": -0.2448815667749971,
+        "error_rms": 0.0274443748789322,
+        "relative_error_db": -0.4464628572031515,
+        "max_abs_error": 0.4342697560787201,
+        "identical_samples": false
+      },
+      "pd_clipped_samples": 0,
+      "kleine_clipped_samples": 0,
+      "passed": false,
+      "review_only": true
+    }
+  ],
+  "source_sha256": {
+    "farnell/klang/Artificial Sounds/Phone Tones/phoneeffects.k": "e0bb5aea70bac089d96aa83d6f5b7cea85550b1adc24a94d9ea028434032f339",
+    "farnell/klang/Artificial Sounds/Phone Tones/phonetones.k": "9d418ad8e6de4c882ae0d8551647f7283e4b8c94a7f6eb1f68eadda8205f816b",
+    "farnell/klang/Artificial Sounds/Phone Tones/variants/busy-smoothed.k": "43038ba739ff252a2d429ebf70b5283edf10e65d49deac4d30808f12f741c672",
+    "farnell/klang/Artificial Sounds/Phone Tones/variants/dial450.k": "f3a9c4d5de4504e73b73fe748397d9acd8a5af5224f6fe7e9d8aa82dff0ffa73",
+    "farnell/klang/Artificial Sounds/Phone Tones/variants/ringback-handset.k": "af2112866776911688c0450e010513b862a9d14a70dc6e9e2e045a4c25882761",
+    "include/klang/pd.h": "5ee3c18d40ff45234fbe718b633bda48abbf467fbc4f6208cbc217e4cce692b1",
+    "farnell/render.h": "74985f323e2dd4ab19c53967b4fa96d3d5d5ad57bc071f189b2d2fa196501d17",
+    "farnell/variants.h": "cd6d7d270d9024a6c9c3ce5886c91d7a0e9f417668fa1946d8199d90cd97e6b0",
+    "tools/render_farnell.py": "f4134c02826ed08ea84d0327b75d1600d1d6041c8ecc0c4e711a3a16654e74b4",
+    "tools/render_artificial.py": "fa4638229968ef2a10875c3a59421a092d992d15da7ff31bd881e9159718e6a7",
+    "tools/review_phone_tones.py": "f8b36f9aeeb7231428b3902c90d308b4bd80271892cd21c7d15f8ac50a850a0b"
+  },
+  "executable_sha256": "cc67c82fc4bb440e239efe9ce67511c542e8142104da5a9f80a6b2662dee9939",
+  "notes": [
+    "Raw mono float32 renders, unity gain; no resampling, alignment or level matching.",
+    "Core tone recipes: 4 seconds, ringbacks: 12 seconds; pulse counts 1,5,7 at 0.25,0.75,1.75 seconds.",
+    "Pulse starts are rounded to the PD block by the existing harness; subsequent Klang contacts are sample-timed.",
+    "Historical parity limits: absolute level delta <0.002 dB and PD-relative RMS error <-70 dB; these are diagnostic, not listening gates.",
+    "Tiny (~1e-19) filter-tail discrepancies are insignificant; -300 dB is the reporting floor.",
+    "Supplemental number matchers are reconstructed reference copies, not unchanged upstream patches.",
+    "PD/Kleine process CPU, wall time and RSS are recorded in each run; they include startup and I/O, not isolated DSP cost.",
+    "These tests do not choose a preferred variant or establish perceptual acceptance. Retained listening WAVs are unchanged."
+  ]
+}

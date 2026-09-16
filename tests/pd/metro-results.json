@@ -1,0 +1,775 @@
+{
+  "tests": [
+    {
+      "case": "metro",
+      "rate": 48000,
+      "pd_arguments": 100,
+      "frames": 48000,
+      "block_projected_identical": true,
+      "raw_identical": true,
+      "max_projected_error": 0.0,
+      "pd_final_count": 10.0,
+      "klang_final_count": 10.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro\\render.pd"
+        ],
+        "elapsed_seconds": 0.6044680999912089,
+        "sampled_cpu_seconds": 0.265625,
+        "sampled_peak_rss_bytes": 16183296,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/48000/metro/pd.wav: biggest amplitude = 10.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro\\kleine.wav",
+          "1.0",
+          "48000"
+        ],
+        "elapsed_seconds": 0.039136000006692484,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1671168,
+        "stdout": "{\"model\":\"pd-metro\",\"sample_rate\":48000,\"frames\":48000,\"gain\":1,\"processing_wall_seconds\":0.000501}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-fractional",
+      "rate": 48000,
+      "pd_arguments": 37.5,
+      "frames": 48000,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 27.0,
+      "klang_final_count": 27.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-fractional\\render.pd"
+        ],
+        "elapsed_seconds": 0.6323543999897083,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 16273408,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/48000/metro-fractional/pd.wav: biggest amplitude = 27.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-fractional",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-fractional\\kleine.wav",
+          "1.0",
+          "48000"
+        ],
+        "elapsed_seconds": 0.014673400000901893,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1638400,
+        "stdout": "{\"model\":\"pd-metro-fractional\",\"sample_rate\":48000,\"frames\":48000,\"gain\":1,\"processing_wall_seconds\":0.000362}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-fast",
+      "rate": 48000,
+      "pd_arguments": 0.25,
+      "frames": 48000,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 4000.0,
+      "klang_final_count": 4000.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-fast\\render.pd"
+        ],
+        "elapsed_seconds": 0.5990110999991884,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 16322560,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/48000/metro-fast/pd.wav: biggest amplitude = 4000.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-fast",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-fast\\kleine.wav",
+          "1.0",
+          "48000"
+        ],
+        "elapsed_seconds": 0.0267809000069974,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1650688,
+        "stdout": "{\"model\":\"pd-metro-fast\",\"sample_rate\":48000,\"frames\":48000,\"gain\":1,\"processing_wall_seconds\":0.000402}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-zero",
+      "rate": 48000,
+      "pd_arguments": 0,
+      "frames": 48000,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 1000.0,
+      "klang_final_count": 1000.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-zero\\render.pd"
+        ],
+        "elapsed_seconds": 0.6117955999943661,
+        "sampled_cpu_seconds": 0.28125,
+        "sampled_peak_rss_bytes": 16158720,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/48000/metro-zero/pd.wav: biggest amplitude = 1000.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-zero",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-zero\\kleine.wav",
+          "1.0",
+          "48000"
+        ],
+        "elapsed_seconds": 0.02479710000625346,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "{\"model\":\"pd-metro-zero\",\"sample_rate\":48000,\"frames\":48000,\"gain\":1,\"processing_wall_seconds\":0.000354}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-negative",
+      "rate": 48000,
+      "pd_arguments": -5,
+      "frames": 48000,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 1000.0,
+      "klang_final_count": 1000.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-negative\\render.pd"
+        ],
+        "elapsed_seconds": 0.5941007999936119,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 16179200,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/48000/metro-negative/pd.wav: biggest amplitude = 1000.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-negative",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-negative\\kleine.wav",
+          "1.0",
+          "48000"
+        ],
+        "elapsed_seconds": 0.01594959999783896,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1634304,
+        "stdout": "{\"model\":\"pd-metro-negative\",\"sample_rate\":48000,\"frames\":48000,\"gain\":1,\"processing_wall_seconds\":0.000350}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-controls",
+      "rate": 48000,
+      "pd_arguments": 100,
+      "frames": 48000,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 456.0,
+      "klang_final_count": 456.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-controls\\render.pd"
+        ],
+        "elapsed_seconds": 0.6203964000014821,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 16130048,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/48000/metro-controls/pd.wav: biggest amplitude = 456.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-controls",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-controls\\kleine.wav",
+          "1.0",
+          "48000"
+        ],
+        "elapsed_seconds": 0.024508899994543754,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 3956736,
+        "stdout": "{\"model\":\"pd-metro-controls\",\"sample_rate\":48000,\"frames\":48000,\"gain\":1,\"processing_wall_seconds\":0.000430}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-legacy",
+      "rate": 48000,
+      "pd_arguments": 1,
+      "frames": 48000,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 1000.0,
+      "klang_final_count": 1000.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-legacy\\render.pd"
+        ],
+        "elapsed_seconds": 0.5982223999890266,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 16269312,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/48000/metro-legacy/pd.wav: biggest amplitude = 1000.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-legacy",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-legacy\\kleine.wav",
+          "1.0",
+          "48000"
+        ],
+        "elapsed_seconds": 0.01390920000267215,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "{\"model\":\"pd-metro-legacy\",\"sample_rate\":48000,\"frames\":48000,\"gain\":1,\"processing_wall_seconds\":0.000326}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-stopped",
+      "rate": 48000,
+      "pd_arguments": 100,
+      "frames": 48000,
+      "block_projected_identical": true,
+      "raw_identical": true,
+      "max_projected_error": 0.0,
+      "pd_final_count": 0.0,
+      "klang_final_count": 0.0,
+      "first_sample_count": 0.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-stopped\\render.pd"
+        ],
+        "elapsed_seconds": 0.583585199987283,
+        "sampled_cpu_seconds": 0.25,
+        "sampled_peak_rss_bytes": 16072704,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/48000/metro-stopped/pd.wav: biggest amplitude = 0.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-stopped",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\48000\\metro-stopped\\kleine.wav",
+          "1.0",
+          "48000"
+        ],
+        "elapsed_seconds": 0.013351500005228445,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1605632,
+        "stdout": "{\"model\":\"pd-metro-stopped\",\"sample_rate\":48000,\"frames\":48000,\"gain\":1,\"processing_wall_seconds\":0.000316}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro",
+      "rate": 44100,
+      "pd_arguments": 100,
+      "frames": 44160,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 11.0,
+      "klang_final_count": 11.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro\\render.pd"
+        ],
+        "elapsed_seconds": 0.5909895000077086,
+        "sampled_cpu_seconds": 0.265625,
+        "sampled_peak_rss_bytes": 16117760,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/44100/metro/pd.wav: biggest amplitude = 11.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro\\kleine.wav",
+          "1.0013605442176872",
+          "44100"
+        ],
+        "elapsed_seconds": 0.014876500004902482,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "{\"model\":\"pd-metro\",\"sample_rate\":44100,\"frames\":44160,\"gain\":1,\"processing_wall_seconds\":0.000292}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-fractional",
+      "rate": 44100,
+      "pd_arguments": 37.5,
+      "frames": 44160,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 27.0,
+      "klang_final_count": 27.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-fractional\\render.pd"
+        ],
+        "elapsed_seconds": 0.6401952000014717,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 16089088,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/44100/metro-fractional/pd.wav: biggest amplitude = 27.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-fractional",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-fractional\\kleine.wav",
+          "1.0013605442176872",
+          "44100"
+        ],
+        "elapsed_seconds": 0.014377899991814047,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1605632,
+        "stdout": "{\"model\":\"pd-metro-fractional\",\"sample_rate\":44100,\"frames\":44160,\"gain\":1,\"processing_wall_seconds\":0.000290}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-fast",
+      "rate": 44100,
+      "pd_arguments": 0.25,
+      "frames": 44160,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 4006.0,
+      "klang_final_count": 4006.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-fast\\render.pd"
+        ],
+        "elapsed_seconds": 0.5827179000043543,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 16031744,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/44100/metro-fast/pd.wav: biggest amplitude = 4006.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-fast",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-fast\\kleine.wav",
+          "1.0013605442176872",
+          "44100"
+        ],
+        "elapsed_seconds": 0.0135774000082165,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1658880,
+        "stdout": "{\"model\":\"pd-metro-fast\",\"sample_rate\":44100,\"frames\":44160,\"gain\":1,\"processing_wall_seconds\":0.000335}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-zero",
+      "rate": 44100,
+      "pd_arguments": 0,
+      "frames": 44160,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 1002.0,
+      "klang_final_count": 1002.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-zero\\render.pd"
+        ],
+        "elapsed_seconds": 0.6657245999958832,
+        "sampled_cpu_seconds": 0.3125,
+        "sampled_peak_rss_bytes": 16183296,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/44100/metro-zero/pd.wav: biggest amplitude = 1002.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-zero",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-zero\\kleine.wav",
+          "1.0013605442176872",
+          "44100"
+        ],
+        "elapsed_seconds": 0.015340099998866208,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "{\"model\":\"pd-metro-zero\",\"sample_rate\":44100,\"frames\":44160,\"gain\":1,\"processing_wall_seconds\":0.000319}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-negative",
+      "rate": 44100,
+      "pd_arguments": -5,
+      "frames": 44160,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 1002.0,
+      "klang_final_count": 1002.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-negative\\render.pd"
+        ],
+        "elapsed_seconds": 0.5817421000101604,
+        "sampled_cpu_seconds": 0.296875,
+        "sampled_peak_rss_bytes": 16044032,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/44100/metro-negative/pd.wav: biggest amplitude = 1002.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-negative",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-negative\\kleine.wav",
+          "1.0013605442176872",
+          "44100"
+        ],
+        "elapsed_seconds": 0.013521300003048964,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1605632,
+        "stdout": "{\"model\":\"pd-metro-negative\",\"sample_rate\":44100,\"frames\":44160,\"gain\":1,\"processing_wall_seconds\":0.000331}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-controls",
+      "rate": 44100,
+      "pd_arguments": 100,
+      "frames": 44160,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 532.0,
+      "klang_final_count": 532.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-controls\\render.pd"
+        ],
+        "elapsed_seconds": 0.5988193999946816,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 16195584,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/44100/metro-controls/pd.wav: biggest amplitude = 532.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-controls",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-controls\\kleine.wav",
+          "1.0013605442176872",
+          "44100"
+        ],
+        "elapsed_seconds": 0.015644800005247816,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1642496,
+        "stdout": "{\"model\":\"pd-metro-controls\",\"sample_rate\":44100,\"frames\":44160,\"gain\":1,\"processing_wall_seconds\":0.000392}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-legacy",
+      "rate": 44100,
+      "pd_arguments": 1,
+      "frames": 44160,
+      "block_projected_identical": true,
+      "raw_identical": false,
+      "max_projected_error": 0.0,
+      "pd_final_count": 1002.0,
+      "klang_final_count": 1002.0,
+      "first_sample_count": 1.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-legacy\\render.pd"
+        ],
+        "elapsed_seconds": 0.653695200002403,
+        "sampled_cpu_seconds": 0.296875,
+        "sampled_peak_rss_bytes": 16146432,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/44100/metro-legacy/pd.wav: biggest amplitude = 1002.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-legacy",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-legacy\\kleine.wav",
+          "1.0013605442176872",
+          "44100"
+        ],
+        "elapsed_seconds": 0.027733299997635186,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1617920,
+        "stdout": "{\"model\":\"pd-metro-legacy\",\"sample_rate\":44100,\"frames\":44160,\"gain\":1,\"processing_wall_seconds\":0.000293}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "case": "metro-stopped",
+      "rate": 44100,
+      "pd_arguments": 100,
+      "frames": 44160,
+      "block_projected_identical": true,
+      "raw_identical": true,
+      "max_projected_error": 0.0,
+      "pd_final_count": 0.0,
+      "klang_final_count": 0.0,
+      "first_sample_count": 0.0,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-stopped\\render.pd"
+        ],
+        "elapsed_seconds": 0.583390200001304,
+        "sampled_cpu_seconds": 0.3125,
+        "sampled_peak_rss_bytes": 16064512,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/44100/metro-stopped/pd.wav: biggest amplitude = 0.000000\n"
+      },
+      "kleine": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+          "--render",
+          "pd-metro-stopped",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\44100\\metro-stopped\\kleine.wav",
+          "1.0013605442176872",
+          "44100"
+        ],
+        "elapsed_seconds": 0.010603799993987195,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1605632,
+        "stdout": "{\"model\":\"pd-metro-stopped\",\"sample_rate\":44100,\"frames\":44160,\"gain\":1,\"processing_wall_seconds\":0.000290}\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "block_size": 64,
+  "sample_rates": [
+    48000,
+    44100
+  ],
+  "source_sha256": {
+    "include/klang/pd.h": "d80e882d227ac6b184bf85623d52898c7d9fb08aed0fc98e4e0887f1ae1ae80b",
+    "tests/pd/metro.h": "1ad76bdbf0dbf2dfa88a1fc6dc2040db9b477d3c8057336e7ee425d2895f6dc6",
+    "tests/pd/metro.pd": "cd9c085f175be7b6321b25de5374d72ac7c6fec21cd16572d1d772166b9072bf",
+    "farnell/render.h": "d881d9d4583fa624055be689ffea8d52957264b246957f3d3ca4702bf879310c",
+    "tools/check_pd_metro.py": "eecc2551aa29f0eb4539a549f1a1651db0f5729c46cf183bc87d26998bc6fda1"
+  },
+  "notes": [
+    "WAVs encode counts, not listening audio; no gain fitting or alignment.",
+    "Block projection is analysis only; the metro and WAVs remain sample-timed.",
+    "Legacy case compares its 0.25 ms input, clamped to 1 ms, with PD metro 1.",
+    "Polled starts are delivered at next evaluation; stop cancels an unobserved start.",
+    "No synchronous outlet feedback or shared PD message scheduler is claimed."
+  ]
+}

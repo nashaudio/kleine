@@ -1,5 +1,7 @@
 # klang/sfx — Kleine
 
+The **[Idiophonics trial](farnell/audio/idiophonics.md)** completes chapters 29-33, including the earlier bell studies, Bouncing, Rolling, Creaking and Boing. It retains paired audio, website references, 33 comparisons per rate, source differences and reproduction commands.
+
 Procedural sound models in C++17 using [Klang](https://github.com/nashaudio/klang) and the [Kleine](https://github.com/nashaudio/kleine) audio-enabled console framework. The project recreates and adapts Andy Farnell's *Designing Sound* examples and develops sounds for This Little World and the Future Sound of Bristol demo.
 
 See [AGENTS.md](AGENTS.md) for implementation principles, the evolving comparison process, and game priorities; see [farnell/README.md](farnell/README.md) for reference provenance and PD-version findings.

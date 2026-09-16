@@ -1,16 +1,24 @@
 #pragma once
 
 // Andy Farnell, Designing Sound (2010), chapter 29, practical 6.
-// Figures 29.7-29.15; BELL/striker.pd equals the website telephonebell.pd.
+// Figures 29.7-29.15.
 // Attribution/licensing: ../../../../README.md.
 #include <klang/pd.h>
 
 namespace farnell {
 using namespace klang::optimised;
 
-// Two alternating inharmonic bells with a noise hammer and resonant casing.
+/** @brief Two alternating inharmonic bells, noise hammer and resonant casing.
+ * @code
+ * auto* bell = new farnell::TelephoneBell;
+ * processor.attach(bell);
+ * bell->set(1); // Start the 60 ms striker; set(0) stops, preserving the tail.
+ * @endcode
+ * strike() fires one alternating bell. Tuning 650/653 Hz, strength 1 and 2000 ms
+ * base decay are fixed by the PD messages. Set klang::fs before construction.
+ */
 struct TelephoneBell : Sound {
-    // Finite linear decay used by the struck partials and hammer (vline~ ramp).
+    // Finite linear decay helper, not a complete vline~ port.
     struct Decay : Generator {
         double remaining = 0, length = 1;
         void trigger(param ms) { remaining = length = std::max(1.0, double(float(ms)) * float(fs) / 1000); }
@@ -20,18 +28,24 @@ struct TelephoneBell : Sound {
         }
     } hammer;
 
-    // Read-before-write integer delay for the casing's explicit feedback paths.
+    // Integer sample delay for explicit casing feedback paths.
     struct Delay {
         std::vector<signal> samples;
         int position = 0;
-        void set(param count) { samples.assign(std::max(1, int(count)), 0); position = 0; }
+        void set(param count) {
+            samples.assign(std::max(1, int(count)), 0);
+            position = 0;
+        }
         signal read() const { return samples[position]; }
-        void write(signal value) { samples[position] = value; position = (position + 1) % int(samples.size()); }
-    } casingRoute;
+        void write(signal value) {
+            samples[position] = value;
+            position = (position + 1) % int(samples.size());
+        }
+    };
 
-    // Five partial groups sharing one bell's tuning, strike and decay controls.
+    // Five inharmonic partial groups sharing strike controls.
     struct Bell : Generator {
-        // Three inharmonic partials sharing a squared decay envelope.
+        // Three partials under a shared squared decay envelope.
         struct Group : Generator {
             pd::osc partial[3];
             param amplitude[3]{};
@@ -49,8 +63,7 @@ struct TelephoneBell : Sound {
             void process() override {
                 signal mix = 0;
                 for (int i = 0; i < 3; ++i) mix += partial[i] * amplitude[i];
-                signal shape = envelope;
-                mix * 0.333f * shape * shape >> out;
+                mix * 0.333f * (signal(envelope) ^ 2) >> out;
             }
         } group[5];
 
@@ -75,14 +88,13 @@ struct TelephoneBell : Sound {
         }
     } bell[2];
 
-    // Clipped material resonances and delays, preserving Pd's 64-sample schedule.
+    // Clipped material modes and the 0.77/0.88 ms casing delay paths.
     struct Casing : Modifier {
-        Delay width, length, materialReturn;
+        Delay width, length;
         pd::bpf material[3];
         Casing() {
-            width.set(std::max(64, int(float(fs) * 0.00077f + 0.5f)));
+            width.set(int(float(fs) * 0.00077f + 0.5f));
             length.set(int(float(fs) * 0.00088f + 0.5f));
-            materialReturn.set(64);
             material[0].set(1243, 12);
             material[1].set(287, 12);
             material[2].set(431, 12);
@@ -92,61 +104,26 @@ struct TelephoneBell : Sound {
             out = length.read();
             signal resonances = (across >> material[0]) + (across >> material[1]) + (across >> material[2]);
             width.write(in + 0.7f * out);
-            length.write(in + materialReturn.read());
-            materialReturn.write(std::clamp(float(resonances), -0.3f, 0.3f));
+            length.write(in + std::clamp(float(resonances), -0.3f, 0.3f));
         }
     } casing;
 
     pd::noise noise;
-    bool ringing = false;
-    int nextBell = 0, untilStrike = 0;
-    param casingMix = 1;
+    pd::metro metro;
+    int nextBell = 0;
 
-    TelephoneBell() {
-        casingRoute.set(128); // Two enclosing send~/receive~ block delays.
-        controls = {
-            klang::Dial("Ring", 0, 1, 0),
-            klang::Dial("Fundamental", 100, 1000, 650),
-            klang::Dial("Detune", 0, 30, 3),
-            klang::Dial("Strength", 0, 2, 1),
-            klang::Dial("Decay (ms)", 10, 4000, 2000),
-            klang::Dial("Strike interval (ms)", 10, 200, 60)
-        };
-    }
-
-    void ring(bool enabled) {
-        controls.set(enabled ? 1.0f : 0.0f, float(controls[1]), float(controls[2]),
-                     float(controls[3]), float(controls[4]), float(controls[5]));
-    }
-
-    void prepare() override {
-        const bool enabled = float(controls[0]) >= 0.5f;
-        if (enabled && !ringing) untilStrike = 0;
-        ringing = enabled;
-    }
+    void set(param on) override { metro = on; }
 
     void strike() {
-        Frequency fundamental = controls[1];
-        param detune = controls[2];
-        bell[nextBell].strike(fundamental + nextBell * detune, controls[3], controls[4]);
+        bell[nextBell].strike(nextBell ? 653 : 650, 1, 2000);
         hammer.trigger(10);
         nextBell ^= 1;
     }
 
     void process() override {
-        if (ringing) {
-            if (!untilStrike) {
-                strike();
-                untilStrike = std::max(1, int(double(float(controls[5])) * float(fs) / 1000));
-            }
-            --untilStrike;
-        }
-        signal envelope = hammer;
-        signal click = noise * envelope * envelope * envelope * envelope * 0.1f;
-        signal direct = bell[0] + bell[1] + click;
-        signal resonated = casingRoute.read() >> casing;
-        casingRoute.write(direct);
-        direct + casingMix * resonated >> out;
+        if (metro(60)) strike();
+        signal direct = bell[0] + bell[1] + (signal(hammer) ^ 4) * noise * 0.1f;
+        direct + (direct >> casing) >> out;
     }
 };
 }

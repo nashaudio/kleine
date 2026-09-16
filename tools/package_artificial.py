@@ -95,7 +95,9 @@ def main():
     table=['# Artificial Sounds measurements','',
            'PD 0.55.2, block 64; raw residuals have no alignment or gain fitting. '
            'Component waveforms and encoded detector states are diagnostics, not listening fixtures. '
-           'Both sample rates construct fresh models; live sample-rate changes are not established.','',
+           'Both sample rates construct fresh models; live sample-rate changes are not established. '
+           'Pedestrians is intentionally sample-timed: its 44.1 kHz residual includes bounded gate-edge shifts; '
+           'see 24-pedestrians/README.md and tests/pd/metro.md.','',
            '| Case | 48 kHz residual (dB) | 44.1 kHz residual (dB) | 48 kHz level delta (dB) |',
            '| --- | ---: | ---: | ---: |']
     def residual(m):return 'identical' if m['identical_samples'] else f"{m['relative_error_db']:.2f}"
@@ -121,8 +123,8 @@ def main():
         assert np.isfinite(samples).all() and np.any(samples) and np.max(abs(samples))<1
         audio[str(path.relative_to(AUDIO))]=dict(sha256=sha(path),channels=samples.shape[1],subtype=sf.info(path).subtype,**describe(samples,rate))
     sources=list((ROOT/'farnell/klang/Artificial Sounds').rglob('*.k'))
-    sources += [ROOT/p for p in ['farnell/render.h','include/klang.h','include/klang/pd.h','tests/pd/primitive.h',
-                                'tests/pd/number-match.pd','tools/render_artificial.py','tools/package_artificial.py','tools/compare_audio.py']]
+    sources += [ROOT/p for p in ['farnell/render.h','farnell/variants.h','include/klang.h','include/klang/pd.h','tests/pd/primitive.h',
+                                'tests/pd/number-match.pd','tests/pd/phone-tones-archive.h','tests/pd/dtmf-archive.h','tools/render_artificial.py','tools/package_artificial.py','tools/compare_audio.py']]
     version=subprocess.run(['C:/Program Files/Pd/bin/pd.exe','-version'],capture_output=True,text=True,timeout=10)
     cpu=platform.processor()
     if platform.system()=='Windows':

@@ -1,16 +1,22 @@
 # PD primitive coverage and usage
 
-Snapshot: 2026-09-15. See [model coverage](COVERAGE.md), [Klang review backlog](KLANG-REVIEW.md), and [isolated comparison evidence](../tests/pd/README.md).
+Snapshot: 2026-09-16. See [model coverage](COVERAGE.md), [Klang review backlog](KLANG-REVIEW.md), and [isolated comparison evidence](../tests/pd/README.md).
+
+## Interface policy and current review
+
+Aim for complete reusable PD ports, with documented gaps. Review tilde/non-tilde pairs individually, preferring polymorphism where the interfaces fit. `pd::line` uses two-argument `set(target, duration)` for audio and three-argument `set(target, duration, grain)` for control output; both times are milliseconds. Two `{timeMs,value}` endpoints are also accepted. See [line API and 20 control fixtures](../tests/pd/line.md).
+
+The [topology review](KLANG-TOPOLOGY-REVIEW.md) removes hidden model-level block workarounds and records the remaining primitive work. The polling metro has 16 isolated cases, but tempo units and synchronous outlet feedback remain incomplete. PD primitives retain Doxygen API descriptions and examples; models use short `//` object descriptions with at most one longer Doxygen overview per file. Run `doxygen tools/Doxyfile.pd` from the repository root.
 
 ## Overview
 
 The active inventory contains **732 patch files**: 298 website files and 434 bulk files, representing **486 byte-distinct contents**. The parked `pd/old` archive is excluded. There are **127 distinct normalised Vanilla node names used**, plus bundled abstractions and non-Vanilla/local/dynamic objects listed separately.
 
-Eleven dedicated structs exist in [include/klang/pd.h](../include/klang/pd.h). **Ten have isolated comparison fixtures; `vcf` remains unvalidated.** New ports are `phasor`, `cos`, `wrap`, `line` and the default-window `env`. The bell's limited decay helper also has a fixture, but is not a full `vline~` port. All 40 retained cases passed across 48/44.1 kHz on PD 0.55.2; this describes those fixtures, not universal parity. [Results](../tests/pd/results.json) and [source revisions](../tests/pd/sources.json) preserve the evidence.
+All sixteen primitive classes in [include/klang/pd.h](../include/klang/pd.h) have isolated comparison fixtures. The original suite retains 58 passing cases at 48/44.1 kHz on PD 0.55.2, including `vcf`, `samphold`, `rzero` and source filter arithmetic. The complete `pd::vline` ramp/message port replaces Gesture and adds [50 isolated cases](../tests/pd/vline.md); explicit host clock synchronisation is tested separately from pure model timing. The reusable `pd::del` control clock adds [52 message/tempo cases](../tests/pd/del.md). Metro and control-line fixtures are also documented below. This describes the retained fixtures, not universal parity. [Original results](../tests/pd/results.json) and [source revisions](../tests/pd/sources.json) preserve the evidence.
 
 ![Complete](status/complete.svg) · ![Current](status/current.svg) · ![Problem](status/problem.svg) · ![Not started](status/not-started.svg) · ![—](status/none.svg)
 
-**Node coverage:** ![8.5% (10/118) complete; 5 current, 0 problematic, 103 not started](status/progress-10-5-0-103.svg)
+**Node coverage:** ![13.6% (16/118) complete; 4 current, 0 problematic, 98 not started](status/progress-16-4-0-98.svg)
 
 Green means validated within the retained fixture scope; amber means an existing implementation/helper still needs work. White includes native/control candidates whose PD semantics have not yet been checked. Grey GUI rows need no dedicated primitive port and are excluded from the percentage; model control translation still applies. Each remaining node counts once, regardless of usage frequency. Red in the dependency table marks unresolved source requirements, not a failed audio test.
 
@@ -22,7 +28,7 @@ Message boxes, comments, array data and GUI atom boxes are not primitives. Named
 
 ## Next port work
 
-Prioritise `vcf~` verification, queued `vline~` ramps and general delays (`vd~`, `delread~`, `delwrite~`), then `samphold~`, `rzero~` and further noise/envelope work as required by the next practical. The Artificial Sounds trial now covers `phasor~`, `cos~`, `wrap~`, block-64 `line~` and default `env~`. High counts alone do not justify porting every control object: arithmetic, lists and GUI logic often translate more clearly into Klang/C++. Police fixtures distinguish the two `pow~` inlet conventions; wider numeric-domain compatibility remains open.
+Prioritise general delays (`vd~`, `delread~`, `delwrite~`), broader ramp/queue semantics and further noise/envelope work as required by the next practical. Idiophonics now supplies `vcf~`, `samphold~`, `rzero~` and finite gesture/panel-delay evidence. The Artificial Sounds trial now covers `phasor~`, `cos~`, `wrap~`, block-64 `line~` and default `env~`. High counts alone do not justify porting every control object: arithmetic, lists and GUI logic often translate more clearly into Klang/C++. Police fixtures distinguish the two `pow~` inlet conventions; wider numeric-domain compatibility remains open.
 
 ## Vanilla node inventory
 
@@ -39,8 +45,8 @@ Prioritise `vcf~` verification, queued `vline~` ramps and general delays (`vd~`,
 | `trigger` | 77 | 292 | 144 | 571 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
 | `sig~` | 76 | 184 | 117 | 290 | ![Not started](status/not-started.svg) Native candidate | signal / param | Preserve PD block quantisation where audible; pulse trial uses host event rounding. |
 | `-~` | 75 | 216 | 125 | 375 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
-| `metro` | 73 | 93 | 107 | 147 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
-| `lop~` | 72 | 220 | 118 | 339 | ![Complete](status/complete.svg) Tested port | pd::lop | 100 Hz impulse at two rates; broader modulation/reset coverage remains. |
+| `metro` | 73 | 93 | 107 | 147 | ![Current](status/current.svg) Partial port | pd::metro | Reusable sample-timed polling: 16 event-count fixtures. Tempo units, synchronous outlet feedback and block delivery remain; tests/pd/metro.md. |
+| `lop~` | 72 | 220 | 118 | 339 | ![Complete](status/complete.svg) Tested port | pd::lop | 0.1/20/100 Hz impulse fixtures at both rates; source arithmetic retained. |
 | `loadbang` | 70 | 122 | 103 | 180 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
 | `bng` | 68 | 111 | 109 | 225 | ![—](status/none.svg) Host/UI translation | Controls / native state | No DSP port; preserve defaults, ranges and event behaviour. |
 | `*` | 67 | 386 | 110 | 577 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
@@ -50,20 +56,20 @@ Prioritise `vcf~` verification, queued `vline~` ramps and general delays (`vd~`,
 | `phasor~` | 61 | 121 | 89 | 154 | ![Complete](status/complete.svg) Tested port | pd::phasor | Positive/negative frequency, initial phase and wrap at 48/44.1 kHz; preserve 64-sample phase maintenance. |
 | `send` | 60 | 119 | 82 | 223 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
 | `float` | 58 | 111 | 103 | 213 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
-| `bp~` | 53 | 213 | 99 | 419 | ![Complete](status/complete.svg) Tested port | pd::bpf | Two frequency/Q fixtures; keep existing name until reviewed. |
-| `vline~` | 44 | 79 | 79 | 135 | ![Current](status/current.svg) Limited model helper | TelephoneBell::Decay | Only immediate attack plus linear decay is tested; no queued/delayed ramp contract. [K-007](KLANG-REVIEW.md#k-007). |
+| `bp~` | 53 | 213 | 99 | 419 | ![Complete](status/complete.svg) Tested port | pd::bpf | Four frequency/Q impulse fixtures, including Q123/Q400; source constants and arithmetic retained. |
+| `vline~` | 44 | 79 | 79 | 135 | ![Complete](status/complete.svg) Tested port | pd::vline | Complete float/list, cold-inlet, stop and queue contract: 50 isolated cases. Explicit host clock sync; pure models remain sample-timed. tests/pd/vline.md. [K-007](KLANG-REVIEW.md#k-007). |
 | `clip~` | 44 | 120 | 78 | 210 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
 | `tabwrite~` | 42 | 98 | 63 | 137 | ![Not started](status/not-started.svg) Not ported | — | Add isolated fixture when first required; assess existing Klang equivalents. |
 | `tgl` | 41 | 61 | 68 | 104 | ![—](status/none.svg) Host/UI translation | Controls / native state | No DSP port; preserve defaults, ranges and event behaviour. |
 | `cos~` | 41 | 104 | 67 | 173 | ![Complete](status/complete.svg) Tested port | pd::cos | Negative/positive cycle lookup; exact fixture samples and alarm waveshaping comparisons. |
 | `receive~` | 41 | 102 | 58 | 134 | ![Not started](status/not-started.svg) Host/scheduling gap | Kleine / model wiring | Check block delays, fan-in, feedback, events and graph enable/disable; [K-009](KLANG-REVIEW.md#k-009). |
 | `send~` | 41 | 79 | 55 | 101 | ![Not started](status/not-started.svg) Host/scheduling gap | Kleine / model wiring | Check block delays, fan-in, feedback, events and graph enable/disable; [K-009](KLANG-REVIEW.md#k-009). |
-| `delwrite~` | 36 | 63 | 60 | 103 | ![Current](status/current.svg) Limited model helper | TelephoneBell::Delay / Police::Environment | Police feedback impulse is sample-identical at both rates; no general named-buffer port. [K-008](KLANG-REVIEW.md#k-008). |
+| `delwrite~` | 36 | 63 | 60 | 103 | ![Current](status/current.svg) Limited model helper | TelephoneBell::Delay / Police::Environment / SampleDelay | Prior retained routing fixtures describe the old model. Pure feedback paths need review; no general named-buffer port. [K-008](KLANG-REVIEW.md#k-008). |
 | `/` | 35 | 103 | 58 | 151 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
 | `hsl` | 33 | 155 | 59 | 264 | ![—](status/none.svg) Host/UI translation | Controls / native state | No DSP port; preserve defaults, ranges and event behaviour. |
 | `select` | 31 | 53 | 56 | 137 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
 | `cnv` | 29 | 76 | 34 | 85 | ![—](status/none.svg) Host/UI translation | Controls / native state | No DSP port; preserve defaults, ranges and event behaviour. |
-| `delay` | 28 | 108 | 54 | 242 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
+| `delay` | 28 | 108 | 54 | 242 | ![Complete](status/complete.svg) Tested port | pd::del | Complete object messages/tempo units within sample polling: 52 isolated control cases. Shared-clock ordering, synchronous feedback and block delivery are separate; tests/pd/del.md. |
 | `/~` | 27 | 61 | 36 | 83 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
 | `max~` | 26 | 32 | 48 | 60 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
 | `random` | 26 | 110 | 47 | 164 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
@@ -71,14 +77,14 @@ Prioritise `vcf~` verification, queued `vline~` ramps and general delays (`vd~`,
 | `-` | 26 | 65 | 42 | 92 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
 | `pack` | 23 | 46 | 48 | 80 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
 | `line~` | 21 | 37 | 35 | 59 | ![Complete](status/complete.svg) Tested port | pd::line | 64-sample grid; short ramp, retarget, stop, immediate set at both rates. No arbitrary block size contract. |
-| `delread~` | 20 | 45 | 36 | 74 | ![Current](status/current.svg) Limited model helper | TelephoneBell::Delay / Police::Environment | Fixed taps and routing delays tested; arbitrary delay/control/reset semantics remain. [K-008](KLANG-REVIEW.md#k-008). |
+| `delread~` | 20 | 45 | 36 | 74 | ![Current](status/current.svg) Limited model helper | TelephoneBell::Delay / Police::Environment / SampleDelay | Pure fixed taps now omit implicit block routing; new listening review pending. General delay/control/reset semantics remain. [K-008](KLANG-REVIEW.md#k-008). |
 | `min~` | 20 | 30 | 29 | 46 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
 | `vd~` | 19 | 49 | 32 | 75 | ![Not started](status/not-started.svg) Not ported | candidate: Klang Delay | PD interpolation, minimum delay and block ordering must be checked. [K-008](KLANG-REVIEW.md#k-008). |
 | `wrap~` | 19 | 47 | 31 | 69 | ![Complete](status/complete.svg) Tested port | pd::wrap | Signed phase ramp including negative integers; finite-input fixture scope. |
 | `mod` | 17 | 20 | 31 | 34 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
 | `throw~` | 17 | 82 | 28 | 126 | ![Not started](status/not-started.svg) Host/scheduling gap | Kleine / model wiring | Check block delays, fan-in, feedback, events and graph enable/disable; [K-009](KLANG-REVIEW.md#k-009). |
 | `swap` | 17 | 34 | 27 | 49 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
-| `vcf~` | 17 | 39 | 22 | 55 | ![Current](status/current.svg) Present, unvalidated | pd::vcf | Audit real/imaginary outlets, Q, frequency modulation and coefficient refresh; [K-005](KLANG-REVIEW.md#k-005). |
+| `vcf~` | 17 | 39 | 22 | 55 | ![Complete](status/complete.svg) Tested port | pd::vcf | PD table/gain arithmetic; real/imaginary FM and Q0/Q80 fixtures at both rates. [K-005](KLANG-REVIEW.md#k-005). |
 | `outlet` | 16 | 49 | 38 | 142 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
 | `catch~` | 16 | 29 | 23 | 47 | ![Not started](status/not-started.svg) Host/scheduling gap | Kleine / model wiring | Check block delays, fan-in, feedback, events and graph enable/disable; [K-009](KLANG-REVIEW.md#k-009). |
 | `moses` | 12 | 27 | 23 | 49 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
@@ -86,10 +92,10 @@ Prioritise `vcf~` verification, queued `vline~` ramps and general delays (`vd~`,
 | `nbx` | 11 | 22 | 14 | 29 | ![—](status/none.svg) Host/UI translation | Controls / native state | No DSP port; preserve defaults, ranges and event behaviour. |
 | `sqrt~` | 10 | 20 | 18 | 38 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ square root | PD 0.55 changed this algorithm; test pre-0.55 compatibility separately (installed unops-tilde help). |
 | `route` | 10 | 16 | 16 | 23 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
-| `line` | 10 | 36 | 15 | 46 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
+| `line` | 10 | 36 | 15 | 46 | ![Complete](status/complete.svg) Tested port | pd::line (three-argument set) | Control grain, retarget, stop/reset, duration/grain inlets, legacy stop and repeated emissions: 20 fixtures. Polled values/counts; no synchronous outlet callbacks. tests/pd/line.md. |
 | `tabread4~` | 10 | 14 | 12 | 18 | ![Not started](status/not-started.svg) Not ported | — | Add isolated fixture when first required; assess existing Klang equivalents. |
 | `pow~` | 8 | 12 | 27 | 39 | ![Current](status/current.svg) Native subset validated | Police::LogOsc / std::pow | Both police inlet conventions compared with PD; other domains and legacy numeric approximations remain. |
-| `env~` | 8 | 36 | 15 | 58 | ![Complete](status/complete.svg) Tested port | pd::env | Default 1024-point Hann/512-sample hop only; detector states match. Configurable windows remain outside this port's scope. |
+| `env~` | 8 | 36 | 15 | 58 | ![Complete](status/complete.svg) Tested port | pd::env | Default 1024/512 only; out/updated publish together at the next block boundary. Raw output plus 8 event cases pass without offsets: tests/pd/env-output-results.json. Configurable windows remain outside scope. |
 | `vsl` | 8 | 11 | 15 | 38 | ![—](status/none.svg) Host/UI translation | Controls / native state | No DSP port; preserve defaults, ranges and event behaviour. |
 | `until` | 8 | 15 | 14 | 39 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
 | `==` | 8 | 19 | 13 | 24 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
@@ -107,10 +113,10 @@ Prioritise `vcf~` verification, queued `vline~` ramps and general delays (`vd~`,
 | `int` | 4 | 6 | 8 | 13 | ![Not started](status/not-started.svg) Native/control translation | param / state / event code | Preserve hot/cold inlet ordering and scheduling; no complete PD control runtime. |
 | `max` | 4 | 9 | 8 | 15 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
 | `switch~` | 4 | 29 | 8 | 45 | ![Not started](status/not-started.svg) Host/scheduling gap | Kleine / model wiring | Check block delays, fan-in, feedback, events and graph enable/disable; [K-009](KLANG-REVIEW.md#k-009). |
-| `rzero~` | 4 | 6 | 7 | 10 | ![Not started](status/not-started.svg) Not ported | — | Add isolated fixture when first required; assess existing Klang equivalents. |
+| `rzero~` | 4 | 6 | 7 | 10 | ![Complete](status/complete.svg) Tested port | pd::rzero | Seeded first-difference fixture at coefficient 0.99, both rates. |
 | `clip` | 4 | 5 | 5 | 6 | ![Not started](status/not-started.svg) Native candidate | Klang/C++ arithmetic | Verify PD edge cases (domain, clipping, division/modulo); native availability is not tested parity. |
 | `block~` | 3 | 7 | 11 | 21 | ![Not started](status/not-started.svg) Host/scheduling gap | Kleine / model wiring | Check block delays, fan-in, feedback, events and graph enable/disable; [K-009](KLANG-REVIEW.md#k-009). |
-| `samphold~` | 3 | 3 | 9 | 10 | ![Not started](status/not-started.svg) Not ported | — | Add isolated fixture when first required; assess existing Klang equivalents. |
+| `samphold~` | 3 | 3 | 9 | 10 | ![Complete](status/complete.svg) Tested port | pd::samphold | Seeded noise sampled on a descending phasor edge at both rates. |
 | `tabplay~` | 3 | 3 | 8 | 8 | ![Not started](status/not-started.svg) Not ported | — | Add isolated fixture when first required; assess existing Klang equivalents. |
 | `rfft~` | 3 | 7 | 7 | 17 | ![Not started](status/not-started.svg) Not ported | — | Add isolated fixture when first required; assess existing Klang equivalents. |
 | `rpole~` | 3 | 4 | 6 | 7 | ![Not started](status/not-started.svg) Not ported | — | Add isolated fixture when first required; assess existing Klang equivalents. |

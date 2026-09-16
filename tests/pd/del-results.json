@@ -1,0 +1,3367 @@
+{
+  "tests": [
+    {
+      "rate": 48000,
+      "case": "default",
+      "creation": [
+        200,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        9600
+      ],
+      "klang_frames": [
+        9600
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\default\\render.pd"
+        ],
+        "elapsed_seconds": 0.7987199999915902,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 21110784,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 9600\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\default\\events.tsv",
+          "200",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.055235000007087365,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1646592,
+        "stdout": "9600\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "idle",
+      "creation": [
+        200,
+        0,
+        "msec"
+      ],
+      "events": [],
+      "pd_frames": [],
+      "klang_frames": [],
+      "timing_error_samples": [],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\idle\\render.pd"
+        ],
+        "elapsed_seconds": 0.6757496000063838,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 16203776,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\idle\\events.tsv",
+          "200",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.009624900005292147,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "hot",
+      "creation": [
+        200,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "hot",
+          37.123,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        1782
+      ],
+      "klang_frames": [
+        1782
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\hot\\render.pd"
+        ],
+        "elapsed_seconds": 0.6273885000118753,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21123072,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 1782\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\hot\\events.tsv",
+          "200",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.01034819999767933,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 1642496,
+        "stdout": "1782\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "cold",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          20,
+          "cold",
+          50,
+          "msec"
+        ],
+        [
+          200,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        4800,
+        12000
+      ],
+      "klang_frames": [
+        4800,
+        12000
+      ],
+      "timing_error_samples": [
+        0,
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\cold\\render.pd"
+        ],
+        "elapsed_seconds": 0.6241437999997288,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21041152,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 4800\nDEL: 12000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\cold\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.010869400008232333,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "4800\n12000\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "retrigger",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        6240
+      ],
+      "klang_frames": [
+        6240
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\retrigger\\render.pd"
+        ],
+        "elapsed_seconds": 0.6226651999895694,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21155840,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 6240\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\retrigger\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.010543600001255982,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1634304,
+        "stdout": "6240\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "hot-retrigger",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "hot",
+          50,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        3840
+      ],
+      "klang_frames": [
+        3840
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\hot-retrigger\\render.pd"
+        ],
+        "elapsed_seconds": 0.6205145999992965,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21327872,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 3840\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\hot-retrigger\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.010409000009531155,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "3840\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "stop",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "stop",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [],
+      "klang_frames": [],
+      "timing_error_samples": [],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\stop\\render.pd"
+        ],
+        "elapsed_seconds": 0.6043654000095557,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 21549056,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\stop\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.009177800006000325,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1617920,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "stop-restart",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "stop",
+          0,
+          "msec"
+        ],
+        [
+          200,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        14400
+      ],
+      "klang_frames": [
+        14400
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\stop-restart\\render.pd"
+        ],
+        "elapsed_seconds": 0.7027993999945465,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21344256,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 14400\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\stop-restart\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.01672310000867583,
+        "sampled_cpu_seconds": 0.015625,
+        "sampled_peak_rss_bytes": 2899968,
+        "stdout": "14400\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "zero",
+      "creation": [
+        0,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        0
+      ],
+      "klang_frames": [
+        0
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\zero\\render.pd"
+        ],
+        "elapsed_seconds": 0.6104395000002114,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21082112,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 0\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\zero\\events.tsv",
+          "0",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.009769099997356534,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1617920,
+        "stdout": "0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "negative",
+      "creation": [
+        -20,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        0
+      ],
+      "klang_frames": [
+        0
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\negative\\render.pd"
+        ],
+        "elapsed_seconds": 0.7523919999948703,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21348352,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 0\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\negative\\events.tsv",
+          "-20",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.009635000009438954,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "negative-hot",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "hot",
+          -10,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        0
+      ],
+      "klang_frames": [
+        0
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\negative-hot\\render.pd"
+        ],
+        "elapsed_seconds": 0.6386340000026394,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21278720,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 0\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\negative-hot\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.009379600000102073,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "fractional",
+      "creation": [
+        37.123,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        1782
+      ],
+      "klang_frames": [
+        1782
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\fractional\\render.pd"
+        ],
+        "elapsed_seconds": 0.7826000999921234,
+        "sampled_cpu_seconds": 0.40625,
+        "sampled_peak_rss_bytes": 21405696,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 1782\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\fractional\\events.tsv",
+          "37.123",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.010547900004894473,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "1782\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "tempo-pending",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "tempo",
+          2,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        8160
+      ],
+      "klang_frames": [
+        8160
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-pending\\render.pd"
+        ],
+        "elapsed_seconds": 0.6473616000002949,
+        "sampled_cpu_seconds": 0.296875,
+        "sampled_peak_rss_bytes": 16502784,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 8160\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-pending\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.010289199999533594,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1638400,
+        "stdout": "8160\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "tempo-to-samples",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "tempo",
+          1,
+          "samp"
+        ]
+      ],
+      "pd_frames": [
+        1510
+      ],
+      "klang_frames": [
+        1510
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-to-samples\\render.pd"
+        ],
+        "elapsed_seconds": 0.6026934999972582,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21110784,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 1510\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-to-samples\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.010405499997432344,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "1510\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "tempo-from-samples",
+      "creation": [
+        8000,
+        1,
+        "samp"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "tempo",
+          1,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        8000
+      ],
+      "klang_frames": [
+        8000
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-from-samples\\render.pd"
+        ],
+        "elapsed_seconds": 0.6111107000033371,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 21360640,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 8000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-from-samples\\events.tsv",
+          "8000",
+          "1",
+          "samp"
+        ],
+        "elapsed_seconds": 0.010408799993456341,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1642496,
+        "stdout": "8000\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "tempo-sample-scale",
+      "creation": [
+        8000,
+        1,
+        "samp"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "tempo",
+          2,
+          "samp"
+        ]
+      ],
+      "pd_frames": [
+        8000
+      ],
+      "klang_frames": [
+        8000
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-sample-scale\\render.pd"
+        ],
+        "elapsed_seconds": 0.6024953000014648,
+        "sampled_cpu_seconds": 0.484375,
+        "sampled_peak_rss_bytes": 21094400,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 8000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-sample-scale\\events.tsv",
+          "8000",
+          "1",
+          "samp"
+        ],
+        "elapsed_seconds": 0.009920499986037612,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "8000\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "tempo-invalid",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "tempo",
+          2,
+          "bogus"
+        ],
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        4800
+      ],
+      "klang_frames": [
+        4800
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-invalid\\render.pd"
+        ],
+        "elapsed_seconds": 0.5944373999955133,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21327872,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nerror: bogus: unknown time unit\nDEL: 4800\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-invalid\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.013906899999710731,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1642496,
+        "stdout": "4800\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "tempo-nonpositive",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "tempo",
+          0,
+          "msec"
+        ],
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        4800
+      ],
+      "klang_frames": [
+        4800
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-nonpositive\\render.pd"
+        ],
+        "elapsed_seconds": 0.5910424000030616,
+        "sampled_cpu_seconds": 0.40625,
+        "sampled_peak_rss_bytes": 21237760,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 4800\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\tempo-nonpositive\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.020515700001851656,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 2899968,
+        "stdout": "4800\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "milliseconds",
+      "creation": [
+        100,
+        2,
+        "millisecond"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        9600
+      ],
+      "klang_frames": [
+        9600
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\milliseconds\\render.pd"
+        ],
+        "elapsed_seconds": 0.5913925000058953,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 21041152,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 9600\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\milliseconds\\events.tsv",
+          "100",
+          "2",
+          "millisecond"
+        ],
+        "elapsed_seconds": 0.010367299997597001,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "9600\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "seconds",
+      "creation": [
+        0.2,
+        1,
+        "sec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        9600
+      ],
+      "klang_frames": [
+        9601
+      ],
+      "timing_error_samples": [
+        1
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\seconds\\render.pd"
+        ],
+        "elapsed_seconds": 0.6121591000119224,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 21106688,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 9600\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\seconds\\events.tsv",
+          "0.2",
+          "1",
+          "sec"
+        ],
+        "elapsed_seconds": 0.010070799995446578,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1617920,
+        "stdout": "9601\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "minutes",
+      "creation": [
+        0.002,
+        1,
+        "min"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        5760
+      ],
+      "klang_frames": [
+        5761
+      ],
+      "timing_error_samples": [
+        1
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\minutes\\render.pd"
+        ],
+        "elapsed_seconds": 0.6007938000111608,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21225472,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 5760\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\minutes\\events.tsv",
+          "0.002",
+          "1",
+          "min"
+        ],
+        "elapsed_seconds": 0.00977699999930337,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "5761\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "samples",
+      "creation": [
+        1234,
+        1,
+        "samp"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        1234
+      ],
+      "klang_frames": [
+        1234
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\samples\\render.pd"
+        ],
+        "elapsed_seconds": 0.688551400002325,
+        "sampled_cpu_seconds": 0.3125,
+        "sampled_peak_rss_bytes": 20963328,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 1234\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\samples\\events.tsv",
+          "1234",
+          "1",
+          "samp"
+        ],
+        "elapsed_seconds": 0.010621199995512143,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "1234\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "per-ms",
+      "creation": [
+        100,
+        2,
+        "permsec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        2400
+      ],
+      "klang_frames": [
+        2400
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\per-ms\\render.pd"
+        ],
+        "elapsed_seconds": 0.6529486999934306,
+        "sampled_cpu_seconds": 0.265625,
+        "sampled_peak_rss_bytes": 21090304,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 2400\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\per-ms\\events.tsv",
+          "100",
+          "2",
+          "permsec"
+        ],
+        "elapsed_seconds": 0.010407099995063618,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "2400\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "per-sec",
+      "creation": [
+        1,
+        4,
+        "persec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        12000
+      ],
+      "klang_frames": [
+        12000
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\per-sec\\render.pd"
+        ],
+        "elapsed_seconds": 0.585734299995238,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21073920,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 12000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\per-sec\\events.tsv",
+          "1",
+          "4",
+          "persec"
+        ],
+        "elapsed_seconds": 0.009710100013762712,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "12000\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "per-min",
+      "creation": [
+        1,
+        120,
+        "permin"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        24000
+      ],
+      "klang_frames": [
+        24000
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\per-min\\render.pd"
+        ],
+        "elapsed_seconds": 0.6946348000055877,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21082112,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 24000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\per-min\\events.tsv",
+          "1",
+          "120",
+          "permin"
+        ],
+        "elapsed_seconds": 0.010615200008032843,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1617920,
+        "stdout": "24000\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "per-sample",
+      "creation": [
+        1234,
+        2,
+        "persamp"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        617
+      ],
+      "klang_frames": [
+        617
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\per-sample\\render.pd"
+        ],
+        "elapsed_seconds": 0.57964890000585,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21078016,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 617\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "48000",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\48000\\per-sample\\events.tsv",
+          "1234",
+          "2",
+          "persamp"
+        ],
+        "elapsed_seconds": 0.010990199996740557,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "617\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "default",
+      "creation": [
+        200,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        8820
+      ],
+      "klang_frames": [
+        8820
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\default\\render.pd"
+        ],
+        "elapsed_seconds": 0.7056448999937857,
+        "sampled_cpu_seconds": 0.3125,
+        "sampled_peak_rss_bytes": 21053440,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 8820\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\default\\events.tsv",
+          "200",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.01049040000361856,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "8820\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "idle",
+      "creation": [
+        200,
+        0,
+        "msec"
+      ],
+      "events": [],
+      "pd_frames": [],
+      "klang_frames": [],
+      "timing_error_samples": [],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\idle\\render.pd"
+        ],
+        "elapsed_seconds": 0.6320881999999983,
+        "sampled_cpu_seconds": 0.296875,
+        "sampled_peak_rss_bytes": 20733952,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\idle\\events.tsv",
+          "200",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.009011400004965253,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "hot",
+      "creation": [
+        200,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "hot",
+          37.123,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        1638
+      ],
+      "klang_frames": [
+        1638
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\hot\\render.pd"
+        ],
+        "elapsed_seconds": 0.5855854999972507,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 20946944,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 1638\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\hot\\events.tsv",
+          "200",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.019441800002823584,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 2895872,
+        "stdout": "1638\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "cold",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          20,
+          "cold",
+          50,
+          "msec"
+        ],
+        [
+          200,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        4410,
+        11025
+      ],
+      "klang_frames": [
+        4410,
+        11025
+      ],
+      "timing_error_samples": [
+        0,
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\cold\\render.pd"
+        ],
+        "elapsed_seconds": 0.6660233000002336,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 21168128,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 4410\nDEL: 11025\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\cold\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.010136000011698343,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "4410\n11025\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "retrigger",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        5733
+      ],
+      "klang_frames": [
+        5733
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\retrigger\\render.pd"
+        ],
+        "elapsed_seconds": 0.6405144000018481,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 20692992,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 5733\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\retrigger\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.009988200006773695,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "5733\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "hot-retrigger",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "hot",
+          50,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        3528
+      ],
+      "klang_frames": [
+        3528
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\hot-retrigger\\render.pd"
+        ],
+        "elapsed_seconds": 0.5954371999978321,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21213184,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 3528\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\hot-retrigger\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.009879200006253086,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "3528\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "stop",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "stop",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [],
+      "klang_frames": [],
+      "timing_error_samples": [],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\stop\\render.pd"
+        ],
+        "elapsed_seconds": 0.6871745999960694,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 20967424,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\stop\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.009350499996799044,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1642496,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "stop-restart",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "stop",
+          0,
+          "msec"
+        ],
+        [
+          200,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        13230
+      ],
+      "klang_frames": [
+        13230
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\stop-restart\\render.pd"
+        ],
+        "elapsed_seconds": 0.5918438000080641,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21102592,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 13230\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\stop-restart\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.010438199999043718,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1601536,
+        "stdout": "13230\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "zero",
+      "creation": [
+        0,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        0
+      ],
+      "klang_frames": [
+        0
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\zero\\render.pd"
+        ],
+        "elapsed_seconds": 0.6819832000037422,
+        "sampled_cpu_seconds": 0.296875,
+        "sampled_peak_rss_bytes": 21270528,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 0\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\zero\\events.tsv",
+          "0",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.0091651999973692,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1613824,
+        "stdout": "0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "negative",
+      "creation": [
+        -20,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        0
+      ],
+      "klang_frames": [
+        0
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\negative\\render.pd"
+        ],
+        "elapsed_seconds": 0.6903997999907006,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21254144,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 0\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\negative\\events.tsv",
+          "-20",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.010167699991143309,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1646592,
+        "stdout": "0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "negative-hot",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "hot",
+          -10,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        0
+      ],
+      "klang_frames": [
+        0
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\negative-hot\\render.pd"
+        ],
+        "elapsed_seconds": 0.7585670999978902,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21430272,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 0\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\negative-hot\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.01001499999256339,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "fractional",
+      "creation": [
+        37.123,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        1638
+      ],
+      "klang_frames": [
+        1638
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\fractional\\render.pd"
+        ],
+        "elapsed_seconds": 0.7027461000106996,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 21303296,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 1638\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\fractional\\events.tsv",
+          "37.123",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.011077599992859177,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1634304,
+        "stdout": "1638\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "tempo-pending",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "tempo",
+          2,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        7497
+      ],
+      "klang_frames": [
+        7497
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-pending\\render.pd"
+        ],
+        "elapsed_seconds": 0.6438868999975966,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 16199680,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 7497\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-pending\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.010717400000430644,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "7497\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "tempo-to-samples",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "tempo",
+          1,
+          "samp"
+        ]
+      ],
+      "pd_frames": [
+        1393
+      ],
+      "klang_frames": [
+        1393
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-to-samples\\render.pd"
+        ],
+        "elapsed_seconds": 0.6235584999958519,
+        "sampled_cpu_seconds": 0.296875,
+        "sampled_peak_rss_bytes": 21065728,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 1393\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-to-samples\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.009949400002369657,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "1393\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "tempo-from-samples",
+      "creation": [
+        8000,
+        1,
+        "samp"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "tempo",
+          1,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        8000
+      ],
+      "klang_frames": [
+        8000
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-from-samples\\render.pd"
+        ],
+        "elapsed_seconds": 0.6221645000041462,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21098496,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 8000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-from-samples\\events.tsv",
+          "8000",
+          "1",
+          "samp"
+        ],
+        "elapsed_seconds": 0.01093580000451766,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "8000\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "tempo-sample-scale",
+      "creation": [
+        8000,
+        1,
+        "samp"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ],
+        [
+          30,
+          "tempo",
+          2,
+          "samp"
+        ]
+      ],
+      "pd_frames": [
+        8000
+      ],
+      "klang_frames": [
+        8000
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-sample-scale\\render.pd"
+        ],
+        "elapsed_seconds": 0.6308134999999311,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21258240,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 8000\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-sample-scale\\events.tsv",
+          "8000",
+          "1",
+          "samp"
+        ],
+        "elapsed_seconds": 0.017071499998564832,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 2899968,
+        "stdout": "8000\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "tempo-invalid",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "tempo",
+          2,
+          "bogus"
+        ],
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        4410
+      ],
+      "klang_frames": [
+        4410
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-invalid\\render.pd"
+        ],
+        "elapsed_seconds": 0.6999242999881972,
+        "sampled_cpu_seconds": 0.34375,
+        "sampled_peak_rss_bytes": 21364736,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nerror: bogus: unknown time unit\nDEL: 4410\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-invalid\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.010934799996903166,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1646592,
+        "stdout": "4410\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "tempo-nonpositive",
+      "creation": [
+        100,
+        0,
+        "msec"
+      ],
+      "events": [
+        [
+          0,
+          "tempo",
+          0,
+          "msec"
+        ],
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        4410
+      ],
+      "klang_frames": [
+        4410
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-nonpositive\\render.pd"
+        ],
+        "elapsed_seconds": 0.6785249000095064,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 16543744,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 4410\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\tempo-nonpositive\\events.tsv",
+          "100",
+          "0",
+          "msec"
+        ],
+        "elapsed_seconds": 0.015491299986024387,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 2899968,
+        "stdout": "4410\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "milliseconds",
+      "creation": [
+        100,
+        2,
+        "millisecond"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        8820
+      ],
+      "klang_frames": [
+        8820
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\milliseconds\\render.pd"
+        ],
+        "elapsed_seconds": 0.6248508999997284,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 21299200,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 8820\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\milliseconds\\events.tsv",
+          "100",
+          "2",
+          "millisecond"
+        ],
+        "elapsed_seconds": 0.010121500003151596,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "8820\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "seconds",
+      "creation": [
+        0.2,
+        1,
+        "sec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        8820
+      ],
+      "klang_frames": [
+        8821
+      ],
+      "timing_error_samples": [
+        1
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\seconds\\render.pd"
+        ],
+        "elapsed_seconds": 0.6285272000095574,
+        "sampled_cpu_seconds": 0.328125,
+        "sampled_peak_rss_bytes": 16351232,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 8820\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\seconds\\events.tsv",
+          "0.2",
+          "1",
+          "sec"
+        ],
+        "elapsed_seconds": 0.010718100005760789,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1638400,
+        "stdout": "8821\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "minutes",
+      "creation": [
+        0.002,
+        1,
+        "min"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        5292
+      ],
+      "klang_frames": [
+        5293
+      ],
+      "timing_error_samples": [
+        1
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\minutes\\render.pd"
+        ],
+        "elapsed_seconds": 0.6001072999933967,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 16134144,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 5292\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\minutes\\events.tsv",
+          "0.002",
+          "1",
+          "min"
+        ],
+        "elapsed_seconds": 0.010260999988531694,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1626112,
+        "stdout": "5293\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "samples",
+      "creation": [
+        1234,
+        1,
+        "samp"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        1234
+      ],
+      "klang_frames": [
+        1234
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\samples\\render.pd"
+        ],
+        "elapsed_seconds": 0.6241230000014184,
+        "sampled_cpu_seconds": 0.421875,
+        "sampled_peak_rss_bytes": 16158720,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 1234\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\samples\\events.tsv",
+          "1234",
+          "1",
+          "samp"
+        ],
+        "elapsed_seconds": 0.010212199995294213,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1617920,
+        "stdout": "1234\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "per-ms",
+      "creation": [
+        100,
+        2,
+        "permsec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        2205
+      ],
+      "klang_frames": [
+        2205
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\per-ms\\render.pd"
+        ],
+        "elapsed_seconds": 0.6211365000053775,
+        "sampled_cpu_seconds": 0.375,
+        "sampled_peak_rss_bytes": 21323776,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 2205\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\per-ms\\events.tsv",
+          "100",
+          "2",
+          "permsec"
+        ],
+        "elapsed_seconds": 0.013930899993283674,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "2205\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "per-sec",
+      "creation": [
+        1,
+        4,
+        "persec"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        11025
+      ],
+      "klang_frames": [
+        11025
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\per-sec\\render.pd"
+        ],
+        "elapsed_seconds": 0.6050145000044722,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 21291008,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 11025\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\per-sec\\events.tsv",
+          "1",
+          "4",
+          "persec"
+        ],
+        "elapsed_seconds": 0.010584100004052743,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1622016,
+        "stdout": "11025\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "per-min",
+      "creation": [
+        1,
+        120,
+        "permin"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        22050
+      ],
+      "klang_frames": [
+        22050
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\per-min\\render.pd"
+        ],
+        "elapsed_seconds": 0.6008242999960203,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 21016576,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 22050\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\per-min\\events.tsv",
+          "1",
+          "120",
+          "permin"
+        ],
+        "elapsed_seconds": 0.01183649999438785,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1630208,
+        "stdout": "22050\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "per-sample",
+      "creation": [
+        1234,
+        2,
+        "persamp"
+      ],
+      "events": [
+        [
+          0,
+          "bang",
+          0,
+          "msec"
+        ]
+      ],
+      "pd_frames": [
+        617
+      ],
+      "klang_frames": [
+        617
+      ],
+      "timing_error_samples": [
+        0
+      ],
+      "passed": true,
+      "pd": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\per-sample\\render.pd"
+        ],
+        "elapsed_seconds": 0.6137909999961266,
+        "sampled_cpu_seconds": 0.3125,
+        "sampled_peak_rss_bytes": 21245952,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nDEL: 617\n"
+      },
+      "klang": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\del.exe",
+          "44100",
+          "F:\\klang\\sfx\\kleine\\build\\del-review\\44100\\per-sample\\events.tsv",
+          "1234",
+          "2",
+          "persamp"
+        ],
+        "elapsed_seconds": 0.01092380000045523,
+        "sampled_cpu_seconds": 0,
+        "sampled_peak_rss_bytes": 1650688,
+        "stdout": "617\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "source_sha256": {
+    "include/klang/pd.h": "0d7ce6fbf0768eb53fa09629bad38a4f4da9634bcb5f1875ac5787d973ab611b",
+    "tests/pd/del.cpp": "4818e53e92ae041973d7a182e25fe606897ea6bf0ff47b153948ba4146fb46fd",
+    "tests/pd/del.pd": "7947f5ee8594d590f2c98325cb4e85abc6482c506b7562e648bbae92d25bea0d",
+    "tools/check_pd_del.py": "747c62caea4e339ea06f859be9251fe79efde74703a40240074ca032ad65b0c2"
+  },
+  "executable_sha256": "4f5d6d5df7e4d4d9ed7f5012827f6c62bec325b631ad479415eb47f3a5324400",
+  "notes": [
+    "PD 0.55.2; control messages only, no audio gain, alignment or resampling.",
+    "PD timer deadlines are explicitly projected to the first sample boundary at/after the deadline.",
+    "0.001-sample tolerance in that projection handles PD float timer rounding at integral boundaries.",
+    "Up to one later Klang sample is allowed: a PD float timer cannot resolve double deadlines just beyond an integral sample.",
+    "PD pending sample-unit tempo changes retain their old deadline; this source behaviour is tested.",
+    "No shared scheduler, synchronous feedback or block delivery is claimed."
+  ]
+}

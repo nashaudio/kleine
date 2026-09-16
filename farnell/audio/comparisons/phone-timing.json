@@ -1,0 +1,5255 @@
+{
+  "comparisons": [
+    {
+      "rate": 48000,
+      "case": "phone-effects",
+      "pd_events": [
+        [
+          "programme",
+          11968,
+          317
+        ],
+        [
+          "reset",
+          27136,
+          0
+        ],
+        [
+          "programme",
+          35968,
+          238
+        ],
+        [
+          "reset",
+          47360,
+          0
+        ],
+        [
+          "programme",
+          96000,
+          125
+        ],
+        [
+          "reset",
+          101952,
+          0
+        ],
+        [
+          "programme",
+          110400,
+          634
+        ],
+        [
+          "reset",
+          140800,
+          0
+        ],
+        [
+          "programme",
+          192000,
+          1428
+        ],
+        [
+          "programme",
+          242368,
+          1031
+        ],
+        [
+          "digit",
+          288832,
+          1
+        ],
+        [
+          "reset",
+          291840,
+          0
+        ],
+        [
+          "release",
+          297600,
+          0
+        ],
+        [
+          "digit",
+          303168,
+          2
+        ],
+        [
+          "release",
+          312000,
+          0
+        ],
+        [
+          "digit",
+          318016,
+          3
+        ],
+        [
+          "release",
+          326400,
+          0
+        ],
+        [
+          "release",
+          340800,
+          0
+        ],
+        [
+          "digit",
+          346688,
+          4
+        ],
+        [
+          "release",
+          355200,
+          0
+        ],
+        [
+          "digit",
+          361024,
+          5
+        ],
+        [
+          "release",
+          369600,
+          0
+        ],
+        [
+          "digit",
+          375360,
+          6
+        ],
+        [
+          "release",
+          384000,
+          0
+        ],
+        [
+          "release",
+          398400,
+          0
+        ],
+        [
+          "digit",
+          404032,
+          7
+        ],
+        [
+          "release",
+          412800,
+          0
+        ],
+        [
+          "digit",
+          418368,
+          8
+        ],
+        [
+          "release",
+          427200,
+          0
+        ],
+        [
+          "digit",
+          432704,
+          9
+        ],
+        [
+          "release",
+          441600,
+          0
+        ],
+        [
+          "release",
+          456000,
+          0
+        ],
+        [
+          "release",
+          470400,
+          0
+        ],
+        [
+          "programme",
+          476224,
+          1428
+        ],
+        [
+          "digit",
+          476224,
+          0
+        ],
+        [
+          "release",
+          484800,
+          0
+        ],
+        [
+          "release",
+          499200,
+          0
+        ],
+        [
+          "release",
+          513600,
+          0
+        ],
+        [
+          "programme",
+          526592,
+          1031
+        ],
+        [
+          "reset",
+          576064,
+          0
+        ]
+      ],
+      "klang_events": [
+        [
+          "programme",
+          11968,
+          317
+        ],
+        [
+          "reset",
+          27184,
+          0
+        ],
+        [
+          "programme",
+          35968,
+          238
+        ],
+        [
+          "reset",
+          47392,
+          0
+        ],
+        [
+          "programme",
+          96000,
+          125
+        ],
+        [
+          "reset",
+          102000,
+          0
+        ],
+        [
+          "programme",
+          110400,
+          634
+        ],
+        [
+          "reset",
+          140832,
+          0
+        ],
+        [
+          "programme",
+          192000,
+          1428
+        ],
+        [
+          "programme",
+          242400,
+          1031
+        ],
+        [
+          "digit",
+          288832,
+          1
+        ],
+        [
+          "reset",
+          291888,
+          0
+        ],
+        [
+          "release",
+          297600,
+          0
+        ],
+        [
+          "digit",
+          303168,
+          2
+        ],
+        [
+          "release",
+          312000,
+          0
+        ],
+        [
+          "digit",
+          318016,
+          3
+        ],
+        [
+          "release",
+          326400,
+          0
+        ],
+        [
+          "release",
+          340800,
+          0
+        ],
+        [
+          "digit",
+          346688,
+          4
+        ],
+        [
+          "release",
+          355200,
+          0
+        ],
+        [
+          "digit",
+          361024,
+          5
+        ],
+        [
+          "release",
+          369600,
+          0
+        ],
+        [
+          "digit",
+          375360,
+          6
+        ],
+        [
+          "release",
+          384000,
+          0
+        ],
+        [
+          "release",
+          398400,
+          0
+        ],
+        [
+          "digit",
+          404032,
+          7
+        ],
+        [
+          "release",
+          412800,
+          0
+        ],
+        [
+          "digit",
+          418368,
+          8
+        ],
+        [
+          "release",
+          427200,
+          0
+        ],
+        [
+          "digit",
+          432704,
+          9
+        ],
+        [
+          "release",
+          441600,
+          0
+        ],
+        [
+          "release",
+          456000,
+          0
+        ],
+        [
+          "release",
+          470400,
+          0
+        ],
+        [
+          "programme",
+          476224,
+          1428
+        ],
+        [
+          "digit",
+          476224,
+          0
+        ],
+        [
+          "release",
+          484800,
+          0
+        ],
+        [
+          "release",
+          499200,
+          0
+        ],
+        [
+          "release",
+          513600,
+          0
+        ],
+        [
+          "programme",
+          526624,
+          1031
+        ],
+        [
+          "reset",
+          576112,
+          0
+        ]
+      ],
+      "comparisons": [
+        {
+          "event": "programme",
+          "pd_frame": 11968,
+          "klang_frame": 11968,
+          "pd_value": 317,
+          "klang_value": 317,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 35968,
+          "klang_frame": 35968,
+          "pd_value": 238,
+          "klang_value": 238,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 96000,
+          "klang_frame": 96000,
+          "pd_value": 125,
+          "klang_value": 125,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 110400,
+          "klang_frame": 110400,
+          "pd_value": 634,
+          "klang_value": 634,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 192000,
+          "klang_frame": 192000,
+          "pd_value": 1428,
+          "klang_value": 1428,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 242368,
+          "klang_frame": 242400,
+          "pd_value": 1031,
+          "klang_value": 1031,
+          "offset_samples": 32,
+          "offset_ms": 0.6666666666666666
+        },
+        {
+          "event": "programme",
+          "pd_frame": 476224,
+          "klang_frame": 476224,
+          "pd_value": 1428,
+          "klang_value": 1428,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 526592,
+          "klang_frame": 526624,
+          "pd_value": 1031,
+          "klang_value": 1031,
+          "offset_samples": 32,
+          "offset_ms": 0.6666666666666666
+        },
+        {
+          "event": "reset",
+          "pd_frame": 27136,
+          "klang_frame": 27184,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 48,
+          "offset_ms": 1.0
+        },
+        {
+          "event": "reset",
+          "pd_frame": 47360,
+          "klang_frame": 47392,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 32,
+          "offset_ms": 0.6666666666666666
+        },
+        {
+          "event": "reset",
+          "pd_frame": 101952,
+          "klang_frame": 102000,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 48,
+          "offset_ms": 1.0
+        },
+        {
+          "event": "reset",
+          "pd_frame": 140800,
+          "klang_frame": 140832,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 32,
+          "offset_ms": 0.6666666666666666
+        },
+        {
+          "event": "reset",
+          "pd_frame": 291840,
+          "klang_frame": 291888,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 48,
+          "offset_ms": 1.0
+        },
+        {
+          "event": "reset",
+          "pd_frame": 576064,
+          "klang_frame": 576112,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 48,
+          "offset_ms": 1.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 297600,
+          "klang_frame": 297600,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 312000,
+          "klang_frame": 312000,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 326400,
+          "klang_frame": 326400,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 340800,
+          "klang_frame": 340800,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 355200,
+          "klang_frame": 355200,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 369600,
+          "klang_frame": 369600,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 384000,
+          "klang_frame": 384000,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 398400,
+          "klang_frame": 398400,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 412800,
+          "klang_frame": 412800,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 427200,
+          "klang_frame": 427200,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 441600,
+          "klang_frame": 441600,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 456000,
+          "klang_frame": 456000,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 470400,
+          "klang_frame": 470400,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 484800,
+          "klang_frame": 484800,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 499200,
+          "klang_frame": 499200,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 513600,
+          "klang_frame": 513600,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 288832,
+          "klang_frame": 288832,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 303168,
+          "klang_frame": 303168,
+          "pd_value": 2,
+          "klang_value": 2,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 318016,
+          "klang_frame": 318016,
+          "pd_value": 3,
+          "klang_value": 3,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 346688,
+          "klang_frame": 346688,
+          "pd_value": 4,
+          "klang_value": 4,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 361024,
+          "klang_frame": 361024,
+          "pd_value": 5,
+          "klang_value": 5,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 375360,
+          "klang_frame": 375360,
+          "pd_value": 6,
+          "klang_value": 6,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 404032,
+          "klang_frame": 404032,
+          "pd_value": 7,
+          "klang_value": 7,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 418368,
+          "klang_frame": 418368,
+          "pd_value": 8,
+          "klang_value": 8,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 432704,
+          "klang_frame": 432704,
+          "pd_value": 9,
+          "klang_value": 9,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 476224,
+          "klang_frame": 476224,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        }
+      ],
+      "pd_run": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\48000\\phone-effects\\render.pd"
+        ],
+        "elapsed_seconds": 0.790626500005601,
+        "sampled_cpu_seconds": 0.484375,
+        "sampled_peak_rss_bytes": 26841088,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nTRACE-programme: 187 317\nTRACE-reset: 424 0\nTRACE-programme: 562 317\nTRACE-programme: 562 238\nTRACE-reset: 740 0\nTRACE-programme: 1500 125\nTRACE-reset: 1593 0\nTRACE-programme: 1725 634\nTRACE-reset: 2200 0\nTRACE-programme: 3000 1428\nTRACE-programme: 3787 1031\nTRACE-digit: 4513 1\na: 1\nTRACE-reset: 4560 0\nTRACE-release: 4650 0\nTRACE-digit: 4737 2\na: 2\nTRACE-release: 4875 0\nTRACE-digit: 4969 3\na: 3\nTRACE-release: 5100 0\nTRACE-release: 5325 0\nTRACE-digit: 5417 4\na: 4\nTRACE-release: 5550 0\nTRACE-digit: 5641 5\na: 5\nTRACE-release: 5775 0\nTRACE-digit: 5865 6\na: 6\nTRACE-release: 6000 0\nTRACE-release: 6225 0\nTRACE-digit: 6313 7\na: 7\nTRACE-release: 6450 0\nTRACE-digit: 6537 8\na: 8\nTRACE-release: 6675 0\nTRACE-digit: 6761 9\na: 9\nTRACE-release: 6900 0\nTRACE-release: 7125 0\nTRACE-release: 7350 0\nTRACE-programme: 7441 1428\nTRACE-digit: 7441 0\na: 0\nTRACE-release: 7575 0\nTRACE-release: 7800 0\nTRACE-release: 8025 0\nTRACE-programme: 8228 1031\nTRACE-reset: 9001 0\nF:/klang/sfx/kleine/build/phone-timing/48000/phone-effects/pd.wav: biggest amplitude = 0.369984\n"
+      },
+      "klang_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\trace.exe",
+          "48000",
+          "16",
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\48000\\phone-effects\\events.tsv"
+        ],
+        "elapsed_seconds": 0.29441879999649245,
+        "sampled_cpu_seconds": 0.234375,
+        "sampled_peak_rss_bytes": 4861952,
+        "stdout": "programme 11968 317\nreset 27184 0\nprogramme 35968 238\nreset 47392 0\nprogramme 96000 125\nreset 102000 0\nprogramme 110400 634\nreset 140832 0\nprogramme 192000 1428\nprogramme 242400 1031\ndigit 288832 1\nreset 291888 0\nrelease 297600 0\ndigit 303168 2\nrelease 312000 0\ndigit 318016 3\nrelease 326400 0\ndigit 332352 A\nrelease 340800 0\ndigit 346688 4\nrelease 355200 0\ndigit 361024 5\nrelease 369600 0\ndigit 375360 6\nrelease 384000 0\ndigit 389696 B\nrelease 398400 0\ndigit 404032 7\nrelease 412800 0\ndigit 418368 8\nrelease 427200 0\ndigit 432704 9\nrelease 441600 0\ndigit 447552 C\nrelease 456000 0\ndigit 461888 *\nrelease 470400 0\nprogramme 476224 1428\ndigit 476224 0\nrelease 484800 0\ndigit 490560 #\nrelease 499200 0\ndigit 504896 D\nrelease 513600 0\nprogramme 526624 1031\nreset 576112 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 48000,
+      "case": "phone-match",
+      "pd_events": [
+        [
+          "digit",
+          12864,
+          0
+        ],
+        [
+          "release",
+          21568,
+          0
+        ],
+        [
+          "digit",
+          27200,
+          1
+        ],
+        [
+          "release",
+          35968,
+          0
+        ],
+        [
+          "digit",
+          41536,
+          0
+        ],
+        [
+          "release",
+          50368,
+          0
+        ],
+        [
+          "digit",
+          55872,
+          0
+        ],
+        [
+          "release",
+          64768,
+          0
+        ],
+        [
+          "digit",
+          70720,
+          2
+        ],
+        [
+          "release",
+          79168,
+          0
+        ],
+        [
+          "digit",
+          85056,
+          0
+        ],
+        [
+          "release",
+          93568,
+          0
+        ],
+        [
+          "digit",
+          99392,
+          0
+        ],
+        [
+          "release",
+          107968,
+          0
+        ],
+        [
+          "digit",
+          113728,
+          3
+        ],
+        [
+          "release",
+          122368,
+          0
+        ],
+        [
+          "digit",
+          128064,
+          0
+        ],
+        [
+          "release",
+          136768,
+          0
+        ],
+        [
+          "programme",
+          142400,
+          317
+        ],
+        [
+          "digit",
+          142400,
+          0
+        ],
+        [
+          "release",
+          151168,
+          0
+        ],
+        [
+          "reset",
+          157568,
+          0
+        ],
+        [
+          "programme",
+          166400,
+          238
+        ],
+        [
+          "reset",
+          177792,
+          0
+        ],
+        [
+          "digit",
+          444992,
+          0
+        ],
+        [
+          "release",
+          453568,
+          0
+        ],
+        [
+          "digit",
+          459328,
+          9
+        ],
+        [
+          "release",
+          467968,
+          0
+        ],
+        [
+          "digit",
+          473664,
+          8
+        ],
+        [
+          "release",
+          482368,
+          0
+        ],
+        [
+          "digit",
+          488000,
+          7
+        ],
+        [
+          "release",
+          496768,
+          0
+        ],
+        [
+          "digit",
+          502336,
+          6
+        ],
+        [
+          "release",
+          511168,
+          0
+        ],
+        [
+          "digit",
+          517184,
+          5
+        ],
+        [
+          "release",
+          525568,
+          0
+        ],
+        [
+          "digit",
+          531520,
+          4
+        ],
+        [
+          "release",
+          539968,
+          0
+        ],
+        [
+          "digit",
+          545856,
+          3
+        ],
+        [
+          "release",
+          554368,
+          0
+        ],
+        [
+          "digit",
+          560192,
+          2
+        ],
+        [
+          "release",
+          568768,
+          0
+        ],
+        [
+          "programme",
+          574528,
+          125
+        ],
+        [
+          "digit",
+          574528,
+          1
+        ],
+        [
+          "reset",
+          580480,
+          0
+        ],
+        [
+          "release",
+          583168,
+          0
+        ],
+        [
+          "programme",
+          588928,
+          634
+        ],
+        [
+          "reset",
+          619328,
+          0
+        ],
+        [
+          "digit",
+          877120,
+          1
+        ],
+        [
+          "release",
+          885568,
+          0
+        ],
+        [
+          "digit",
+          891456,
+          2
+        ],
+        [
+          "release",
+          899968,
+          0
+        ],
+        [
+          "digit",
+          905792,
+          3
+        ],
+        [
+          "release",
+          914368,
+          0
+        ],
+        [
+          "digit",
+          920128,
+          4
+        ],
+        [
+          "release",
+          928768,
+          0
+        ],
+        [
+          "digit",
+          934464,
+          5
+        ],
+        [
+          "release",
+          943168,
+          0
+        ],
+        [
+          "digit",
+          948800,
+          6
+        ],
+        [
+          "release",
+          957568,
+          0
+        ],
+        [
+          "digit",
+          963136,
+          7
+        ],
+        [
+          "release",
+          971968,
+          0
+        ],
+        [
+          "digit",
+          977472,
+          8
+        ],
+        [
+          "release",
+          986368,
+          0
+        ],
+        [
+          "digit",
+          992320,
+          9
+        ],
+        [
+          "release",
+          1000768,
+          0
+        ],
+        [
+          "programme",
+          1006656,
+          1428
+        ],
+        [
+          "digit",
+          1006656,
+          0
+        ],
+        [
+          "release",
+          1015168,
+          0
+        ],
+        [
+          "programme",
+          1057024,
+          1031
+        ],
+        [
+          "reset",
+          1106496,
+          0
+        ],
+        [
+          "digit",
+          1308736,
+          1
+        ],
+        [
+          "release",
+          1317568,
+          0
+        ],
+        [
+          "digit",
+          1323584,
+          1
+        ],
+        [
+          "release",
+          1331968,
+          0
+        ],
+        [
+          "digit",
+          1337920,
+          1
+        ],
+        [
+          "release",
+          1346368,
+          0
+        ],
+        [
+          "digit",
+          1352256,
+          1
+        ],
+        [
+          "release",
+          1360768,
+          0
+        ],
+        [
+          "digit",
+          1366592,
+          1
+        ],
+        [
+          "release",
+          1375168,
+          0
+        ],
+        [
+          "digit",
+          1380928,
+          1
+        ],
+        [
+          "release",
+          1389568,
+          0
+        ],
+        [
+          "digit",
+          1395264,
+          1
+        ],
+        [
+          "release",
+          1403968,
+          0
+        ],
+        [
+          "digit",
+          1409600,
+          1
+        ],
+        [
+          "release",
+          1418368,
+          0
+        ],
+        [
+          "digit",
+          1423936,
+          1
+        ],
+        [
+          "release",
+          1432768,
+          0
+        ],
+        [
+          "digit",
+          1438784,
+          1
+        ],
+        [
+          "release",
+          1447168,
+          0
+        ],
+        [
+          "digit",
+          1453120,
+          1
+        ],
+        [
+          "release",
+          1461568,
+          0
+        ]
+      ],
+      "klang_events": [
+        [
+          "digit",
+          12864,
+          0
+        ],
+        [
+          "release",
+          21568,
+          0
+        ],
+        [
+          "digit",
+          27200,
+          1
+        ],
+        [
+          "release",
+          35968,
+          0
+        ],
+        [
+          "digit",
+          41536,
+          0
+        ],
+        [
+          "release",
+          50368,
+          0
+        ],
+        [
+          "digit",
+          55872,
+          0
+        ],
+        [
+          "release",
+          64768,
+          0
+        ],
+        [
+          "digit",
+          70720,
+          2
+        ],
+        [
+          "release",
+          79168,
+          0
+        ],
+        [
+          "digit",
+          85056,
+          0
+        ],
+        [
+          "release",
+          93568,
+          0
+        ],
+        [
+          "digit",
+          99392,
+          0
+        ],
+        [
+          "release",
+          107968,
+          0
+        ],
+        [
+          "digit",
+          113728,
+          3
+        ],
+        [
+          "release",
+          122368,
+          0
+        ],
+        [
+          "digit",
+          128064,
+          0
+        ],
+        [
+          "release",
+          136768,
+          0
+        ],
+        [
+          "programme",
+          142400,
+          317
+        ],
+        [
+          "digit",
+          142400,
+          0
+        ],
+        [
+          "release",
+          151168,
+          0
+        ],
+        [
+          "reset",
+          157616,
+          0
+        ],
+        [
+          "programme",
+          166400,
+          238
+        ],
+        [
+          "reset",
+          177824,
+          0
+        ],
+        [
+          "digit",
+          444992,
+          0
+        ],
+        [
+          "release",
+          453568,
+          0
+        ],
+        [
+          "digit",
+          459328,
+          9
+        ],
+        [
+          "release",
+          467968,
+          0
+        ],
+        [
+          "digit",
+          473664,
+          8
+        ],
+        [
+          "release",
+          482368,
+          0
+        ],
+        [
+          "digit",
+          488000,
+          7
+        ],
+        [
+          "release",
+          496768,
+          0
+        ],
+        [
+          "digit",
+          502336,
+          6
+        ],
+        [
+          "release",
+          511168,
+          0
+        ],
+        [
+          "digit",
+          517184,
+          5
+        ],
+        [
+          "release",
+          525568,
+          0
+        ],
+        [
+          "digit",
+          531520,
+          4
+        ],
+        [
+          "release",
+          539968,
+          0
+        ],
+        [
+          "digit",
+          545856,
+          3
+        ],
+        [
+          "release",
+          554368,
+          0
+        ],
+        [
+          "digit",
+          560192,
+          2
+        ],
+        [
+          "release",
+          568768,
+          0
+        ],
+        [
+          "programme",
+          574528,
+          125
+        ],
+        [
+          "digit",
+          574528,
+          1
+        ],
+        [
+          "reset",
+          580528,
+          0
+        ],
+        [
+          "release",
+          583168,
+          0
+        ],
+        [
+          "programme",
+          588928,
+          634
+        ],
+        [
+          "reset",
+          619360,
+          0
+        ],
+        [
+          "digit",
+          877120,
+          1
+        ],
+        [
+          "release",
+          885568,
+          0
+        ],
+        [
+          "digit",
+          891456,
+          2
+        ],
+        [
+          "release",
+          899968,
+          0
+        ],
+        [
+          "digit",
+          905792,
+          3
+        ],
+        [
+          "release",
+          914368,
+          0
+        ],
+        [
+          "digit",
+          920128,
+          4
+        ],
+        [
+          "release",
+          928768,
+          0
+        ],
+        [
+          "digit",
+          934464,
+          5
+        ],
+        [
+          "release",
+          943168,
+          0
+        ],
+        [
+          "digit",
+          948800,
+          6
+        ],
+        [
+          "release",
+          957568,
+          0
+        ],
+        [
+          "digit",
+          963136,
+          7
+        ],
+        [
+          "release",
+          971968,
+          0
+        ],
+        [
+          "digit",
+          977472,
+          8
+        ],
+        [
+          "release",
+          986368,
+          0
+        ],
+        [
+          "digit",
+          992320,
+          9
+        ],
+        [
+          "release",
+          1000768,
+          0
+        ],
+        [
+          "programme",
+          1006656,
+          1428
+        ],
+        [
+          "digit",
+          1006656,
+          0
+        ],
+        [
+          "release",
+          1015168,
+          0
+        ],
+        [
+          "programme",
+          1057056,
+          1031
+        ],
+        [
+          "reset",
+          1106544,
+          0
+        ],
+        [
+          "digit",
+          1308736,
+          1
+        ],
+        [
+          "release",
+          1317568,
+          0
+        ],
+        [
+          "digit",
+          1323584,
+          1
+        ],
+        [
+          "release",
+          1331968,
+          0
+        ],
+        [
+          "digit",
+          1337920,
+          1
+        ],
+        [
+          "release",
+          1346368,
+          0
+        ],
+        [
+          "digit",
+          1352256,
+          1
+        ],
+        [
+          "release",
+          1360768,
+          0
+        ],
+        [
+          "digit",
+          1366592,
+          1
+        ],
+        [
+          "release",
+          1375168,
+          0
+        ],
+        [
+          "digit",
+          1380928,
+          1
+        ],
+        [
+          "release",
+          1389568,
+          0
+        ],
+        [
+          "digit",
+          1395264,
+          1
+        ],
+        [
+          "release",
+          1403968,
+          0
+        ],
+        [
+          "digit",
+          1409600,
+          1
+        ],
+        [
+          "release",
+          1418368,
+          0
+        ],
+        [
+          "digit",
+          1423936,
+          1
+        ],
+        [
+          "release",
+          1432768,
+          0
+        ],
+        [
+          "digit",
+          1438784,
+          1
+        ],
+        [
+          "release",
+          1447168,
+          0
+        ],
+        [
+          "digit",
+          1453120,
+          1
+        ],
+        [
+          "release",
+          1461568,
+          0
+        ]
+      ],
+      "comparisons": [
+        {
+          "event": "programme",
+          "pd_frame": 142400,
+          "klang_frame": 142400,
+          "pd_value": 317,
+          "klang_value": 317,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 166400,
+          "klang_frame": 166400,
+          "pd_value": 238,
+          "klang_value": 238,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 574528,
+          "klang_frame": 574528,
+          "pd_value": 125,
+          "klang_value": 125,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 588928,
+          "klang_frame": 588928,
+          "pd_value": 634,
+          "klang_value": 634,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 1006656,
+          "klang_frame": 1006656,
+          "pd_value": 1428,
+          "klang_value": 1428,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 1057024,
+          "klang_frame": 1057056,
+          "pd_value": 1031,
+          "klang_value": 1031,
+          "offset_samples": 32,
+          "offset_ms": 0.6666666666666666
+        },
+        {
+          "event": "reset",
+          "pd_frame": 157568,
+          "klang_frame": 157616,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 48,
+          "offset_ms": 1.0
+        },
+        {
+          "event": "reset",
+          "pd_frame": 177792,
+          "klang_frame": 177824,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 32,
+          "offset_ms": 0.6666666666666666
+        },
+        {
+          "event": "reset",
+          "pd_frame": 580480,
+          "klang_frame": 580528,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 48,
+          "offset_ms": 1.0
+        },
+        {
+          "event": "reset",
+          "pd_frame": 619328,
+          "klang_frame": 619360,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 32,
+          "offset_ms": 0.6666666666666666
+        },
+        {
+          "event": "reset",
+          "pd_frame": 1106496,
+          "klang_frame": 1106544,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 48,
+          "offset_ms": 1.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 21568,
+          "klang_frame": 21568,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 35968,
+          "klang_frame": 35968,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 50368,
+          "klang_frame": 50368,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 64768,
+          "klang_frame": 64768,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 79168,
+          "klang_frame": 79168,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 93568,
+          "klang_frame": 93568,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 107968,
+          "klang_frame": 107968,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 122368,
+          "klang_frame": 122368,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 136768,
+          "klang_frame": 136768,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 151168,
+          "klang_frame": 151168,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 453568,
+          "klang_frame": 453568,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 467968,
+          "klang_frame": 467968,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 482368,
+          "klang_frame": 482368,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 496768,
+          "klang_frame": 496768,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 511168,
+          "klang_frame": 511168,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 525568,
+          "klang_frame": 525568,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 539968,
+          "klang_frame": 539968,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 554368,
+          "klang_frame": 554368,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 568768,
+          "klang_frame": 568768,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 583168,
+          "klang_frame": 583168,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 885568,
+          "klang_frame": 885568,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 899968,
+          "klang_frame": 899968,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 914368,
+          "klang_frame": 914368,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 928768,
+          "klang_frame": 928768,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 943168,
+          "klang_frame": 943168,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 957568,
+          "klang_frame": 957568,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 971968,
+          "klang_frame": 971968,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 986368,
+          "klang_frame": 986368,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1000768,
+          "klang_frame": 1000768,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1015168,
+          "klang_frame": 1015168,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1317568,
+          "klang_frame": 1317568,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1331968,
+          "klang_frame": 1331968,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1346368,
+          "klang_frame": 1346368,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1360768,
+          "klang_frame": 1360768,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1375168,
+          "klang_frame": 1375168,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1389568,
+          "klang_frame": 1389568,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1403968,
+          "klang_frame": 1403968,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1418368,
+          "klang_frame": 1418368,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1432768,
+          "klang_frame": 1432768,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1447168,
+          "klang_frame": 1447168,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "release",
+          "pd_frame": 1461568,
+          "klang_frame": 1461568,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 12864,
+          "klang_frame": 12864,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 27200,
+          "klang_frame": 27200,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 41536,
+          "klang_frame": 41536,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 55872,
+          "klang_frame": 55872,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 70720,
+          "klang_frame": 70720,
+          "pd_value": 2,
+          "klang_value": 2,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 85056,
+          "klang_frame": 85056,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 99392,
+          "klang_frame": 99392,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 113728,
+          "klang_frame": 113728,
+          "pd_value": 3,
+          "klang_value": 3,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 128064,
+          "klang_frame": 128064,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 142400,
+          "klang_frame": 142400,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 444992,
+          "klang_frame": 444992,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 459328,
+          "klang_frame": 459328,
+          "pd_value": 9,
+          "klang_value": 9,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 473664,
+          "klang_frame": 473664,
+          "pd_value": 8,
+          "klang_value": 8,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 488000,
+          "klang_frame": 488000,
+          "pd_value": 7,
+          "klang_value": 7,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 502336,
+          "klang_frame": 502336,
+          "pd_value": 6,
+          "klang_value": 6,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 517184,
+          "klang_frame": 517184,
+          "pd_value": 5,
+          "klang_value": 5,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 531520,
+          "klang_frame": 531520,
+          "pd_value": 4,
+          "klang_value": 4,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 545856,
+          "klang_frame": 545856,
+          "pd_value": 3,
+          "klang_value": 3,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 560192,
+          "klang_frame": 560192,
+          "pd_value": 2,
+          "klang_value": 2,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 574528,
+          "klang_frame": 574528,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 877120,
+          "klang_frame": 877120,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 891456,
+          "klang_frame": 891456,
+          "pd_value": 2,
+          "klang_value": 2,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 905792,
+          "klang_frame": 905792,
+          "pd_value": 3,
+          "klang_value": 3,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 920128,
+          "klang_frame": 920128,
+          "pd_value": 4,
+          "klang_value": 4,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 934464,
+          "klang_frame": 934464,
+          "pd_value": 5,
+          "klang_value": 5,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 948800,
+          "klang_frame": 948800,
+          "pd_value": 6,
+          "klang_value": 6,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 963136,
+          "klang_frame": 963136,
+          "pd_value": 7,
+          "klang_value": 7,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 977472,
+          "klang_frame": 977472,
+          "pd_value": 8,
+          "klang_value": 8,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 992320,
+          "klang_frame": 992320,
+          "pd_value": 9,
+          "klang_value": 9,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1006656,
+          "klang_frame": 1006656,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1308736,
+          "klang_frame": 1308736,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1323584,
+          "klang_frame": 1323584,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1337920,
+          "klang_frame": 1337920,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1352256,
+          "klang_frame": 1352256,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1366592,
+          "klang_frame": 1366592,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1380928,
+          "klang_frame": 1380928,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1395264,
+          "klang_frame": 1395264,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1409600,
+          "klang_frame": 1409600,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1423936,
+          "klang_frame": 1423936,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1438784,
+          "klang_frame": 1438784,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1453120,
+          "klang_frame": 1453120,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        }
+      ],
+      "pd_run": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "48000",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\48000\\phone-match\\render.pd"
+        ],
+        "elapsed_seconds": 0.7851463999977568,
+        "sampled_cpu_seconds": 0.59375,
+        "sampled_peak_rss_bytes": 33447936,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nTRACE-digit: 201 0\na: 0\nTRACE-release: 337 0\nTRACE-digit: 425 1\na: 1\nTRACE-release: 562 0\nTRACE-digit: 649 0\na: 0\nTRACE-release: 787 0\nTRACE-digit: 873 0\na: 0\nTRACE-release: 1012 0\nTRACE-digit: 1105 2\na: 2\nTRACE-release: 1237 0\nTRACE-digit: 1329 0\na: 0\nTRACE-release: 1462 0\nTRACE-digit: 1553 0\na: 0\nTRACE-release: 1687 0\nTRACE-digit: 1777 3\na: 3\nTRACE-release: 1912 0\nTRACE-digit: 2001 0\na: 0\nTRACE-release: 2137 0\nTRACE-programme: 2225 317\nTRACE-digit: 2225 0\na: 0\nTRACE-release: 2362 0\nTRACE-reset: 2462 0\nTRACE-programme: 2600 317\nTRACE-programme: 2600 238\nTRACE-reset: 2778 0\nTRACE-digit: 6953 0\na: 0\nTRACE-release: 7087 0\nTRACE-digit: 7177 9\na: 9\nTRACE-release: 7312 0\nTRACE-digit: 7401 8\na: 8\nTRACE-release: 7537 0\nTRACE-digit: 7625 7\na: 7\nTRACE-release: 7762 0\nTRACE-digit: 7849 6\na: 6\nTRACE-release: 7987 0\nTRACE-digit: 8081 5\na: 5\nTRACE-release: 8212 0\nTRACE-digit: 8305 4\na: 4\nTRACE-release: 8437 0\nTRACE-digit: 8529 3\na: 3\nTRACE-release: 8662 0\nTRACE-digit: 8753 2\na: 2\nTRACE-release: 8887 0\nTRACE-programme: 8977 125\nTRACE-digit: 8977 1\na: 1\nTRACE-reset: 9070 0\nTRACE-release: 9112 0\nTRACE-programme: 9202 634\nTRACE-reset: 9677 0\nTRACE-digit: 13705 1\na: 1\nTRACE-release: 13837 0\nTRACE-digit: 13929 2\na: 2\nTRACE-release: 14062 0\nTRACE-digit: 14153 3\na: 3\nTRACE-release: 14287 0\nTRACE-digit: 14377 4\na: 4\nTRACE-release: 14512 0\nTRACE-digit: 14601 5\na: 5\nTRACE-release: 14737 0\nTRACE-digit: 14825 6\na: 6\nTRACE-release: 14962 0\nTRACE-digit: 15049 7\na: 7\nTRACE-release: 15187 0\nTRACE-digit: 15273 8\na: 8\nTRACE-release: 15412 0\nTRACE-digit: 15505 9\na: 9\nTRACE-release: 15637 0\nTRACE-programme: 15729 1428\nTRACE-digit: 15729 0\na: 0\nTRACE-release: 15862 0\nTRACE-programme: 16516 1031\nTRACE-reset: 17289 0\nTRACE-digit: 20449 1\na: 1\nTRACE-release: 20587 0\nTRACE-digit: 20681 1\na: 1\nTRACE-release: 20812 0\nTRACE-digit: 20905 1\na: 1\nTRACE-release: 21037 0\nTRACE-digit: 21129 1\na: 1\nTRACE-release: 21262 0\nTRACE-digit: 21353 1\na: 1\nTRACE-release: 21487 0\nTRACE-digit: 21577 1\na: 1\nTRACE-release: 21712 0\nTRACE-digit: 21801 1\na: 1\nTRACE-release: 21937 0\nTRACE-digit: 22025 1\na: 1\nTRACE-release: 22162 0\nTRACE-digit: 22249 1\na: 1\nTRACE-release: 22387 0\nTRACE-digit: 22481 1\na: 1\nTRACE-release: 22612 0\nTRACE-digit: 22705 1\na: 1\nTRACE-release: 22837 0\nF:/klang/sfx/kleine/build/phone-timing/48000/phone-match/pd.wav: biggest amplitude = 0.289371\n"
+      },
+      "klang_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\trace.exe",
+          "48000",
+          "33",
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\48000\\phone-match\\events.tsv"
+        ],
+        "elapsed_seconds": 0.4960259000072256,
+        "sampled_cpu_seconds": 0.484375,
+        "sampled_peak_rss_bytes": 4861952,
+        "stdout": "digit 12864 0\nrelease 21568 0\ndigit 27200 1\nrelease 35968 0\ndigit 41536 0\nrelease 50368 0\ndigit 55872 0\nrelease 64768 0\ndigit 70720 2\nrelease 79168 0\ndigit 85056 0\nrelease 93568 0\ndigit 99392 0\nrelease 107968 0\ndigit 113728 3\nrelease 122368 0\ndigit 128064 0\nrelease 136768 0\nprogramme 142400 317\ndigit 142400 0\nrelease 151168 0\nreset 157616 0\nprogramme 166400 238\nreset 177824 0\ndigit 444992 0\nrelease 453568 0\ndigit 459328 9\nrelease 467968 0\ndigit 473664 8\nrelease 482368 0\ndigit 488000 7\nrelease 496768 0\ndigit 502336 6\nrelease 511168 0\ndigit 517184 5\nrelease 525568 0\ndigit 531520 4\nrelease 539968 0\ndigit 545856 3\nrelease 554368 0\ndigit 560192 2\nrelease 568768 0\nprogramme 574528 125\ndigit 574528 1\nreset 580528 0\nrelease 583168 0\nprogramme 588928 634\nreset 619360 0\ndigit 877120 1\nrelease 885568 0\ndigit 891456 2\nrelease 899968 0\ndigit 905792 3\nrelease 914368 0\ndigit 920128 4\nrelease 928768 0\ndigit 934464 5\nrelease 943168 0\ndigit 948800 6\nrelease 957568 0\ndigit 963136 7\nrelease 971968 0\ndigit 977472 8\nrelease 986368 0\ndigit 992320 9\nrelease 1000768 0\nprogramme 1006656 1428\ndigit 1006656 0\nrelease 1015168 0\nprogramme 1057056 1031\nreset 1106544 0\ndigit 1308736 1\nrelease 1317568 0\ndigit 1323584 1\nrelease 1331968 0\ndigit 1337920 1\nrelease 1346368 0\ndigit 1352256 1\nrelease 1360768 0\ndigit 1366592 1\nrelease 1375168 0\ndigit 1380928 1\nrelease 1389568 0\ndigit 1395264 1\nrelease 1403968 0\ndigit 1409600 1\nrelease 1418368 0\ndigit 1423936 1\nrelease 1432768 0\ndigit 1438784 1\nrelease 1447168 0\ndigit 1453120 1\nrelease 1461568 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "phone-effects",
+      "pd_events": [
+        [
+          "programme",
+          11008,
+          317
+        ],
+        [
+          "reset",
+          24960,
+          0
+        ],
+        [
+          "programme",
+          33024,
+          238
+        ],
+        [
+          "reset",
+          43520,
+          0
+        ],
+        [
+          "programme",
+          88192,
+          125
+        ],
+        [
+          "reset",
+          93696,
+          0
+        ],
+        [
+          "programme",
+          101376,
+          634
+        ],
+        [
+          "reset",
+          129344,
+          0
+        ],
+        [
+          "programme",
+          176384,
+          1428
+        ],
+        [
+          "programme",
+          222656,
+          1031
+        ],
+        [
+          "digit",
+          265728,
+          1
+        ],
+        [
+          "reset",
+          268096,
+          0
+        ],
+        [
+          "release",
+          273344,
+          0
+        ],
+        [
+          "digit",
+          278592,
+          2
+        ],
+        [
+          "release",
+          286592,
+          0
+        ],
+        [
+          "digit",
+          291904,
+          3
+        ],
+        [
+          "release",
+          299776,
+          0
+        ],
+        [
+          "release",
+          313024,
+          0
+        ],
+        [
+          "digit",
+          318528,
+          4
+        ],
+        [
+          "release",
+          326272,
+          0
+        ],
+        [
+          "digit",
+          331840,
+          5
+        ],
+        [
+          "release",
+          339456,
+          0
+        ],
+        [
+          "digit",
+          344640,
+          6
+        ],
+        [
+          "release",
+          352704,
+          0
+        ],
+        [
+          "release",
+          365952,
+          0
+        ],
+        [
+          "digit",
+          371264,
+          7
+        ],
+        [
+          "release",
+          379200,
+          0
+        ],
+        [
+          "digit",
+          384576,
+          8
+        ],
+        [
+          "release",
+          392384,
+          0
+        ],
+        [
+          "digit",
+          397888,
+          9
+        ],
+        [
+          "release",
+          405632,
+          0
+        ],
+        [
+          "release",
+          418880,
+          0
+        ],
+        [
+          "release",
+          432128,
+          0
+        ],
+        [
+          "programme",
+          437312,
+          1428
+        ],
+        [
+          "digit",
+          437312,
+          0
+        ],
+        [
+          "release",
+          445312,
+          0
+        ],
+        [
+          "release",
+          458560,
+          0
+        ],
+        [
+          "release",
+          471808,
+          0
+        ],
+        [
+          "programme",
+          483584,
+          1031
+        ],
+        [
+          "reset",
+          529024,
+          0
+        ]
+      ],
+      "klang_events": [
+        [
+          "programme",
+          11008,
+          317
+        ],
+        [
+          "reset",
+          24988,
+          0
+        ],
+        [
+          "programme",
+          33058,
+          238
+        ],
+        [
+          "reset",
+          43554,
+          0
+        ],
+        [
+          "programme",
+          88192,
+          125
+        ],
+        [
+          "reset",
+          93705,
+          0
+        ],
+        [
+          "programme",
+          101422,
+          634
+        ],
+        [
+          "reset",
+          129382,
+          0
+        ],
+        [
+          "programme",
+          176384,
+          1428
+        ],
+        [
+          "programme",
+          222689,
+          1031
+        ],
+        [
+          "digit",
+          265792,
+          1
+        ],
+        [
+          "reset",
+          268157,
+          0
+        ],
+        [
+          "release",
+          273396,
+          0
+        ],
+        [
+          "digit",
+          278592,
+          2
+        ],
+        [
+          "release",
+          286644,
+          0
+        ],
+        [
+          "digit",
+          291904,
+          3
+        ],
+        [
+          "release",
+          299828,
+          0
+        ],
+        [
+          "release",
+          313076,
+          0
+        ],
+        [
+          "digit",
+          318528,
+          4
+        ],
+        [
+          "release",
+          326324,
+          0
+        ],
+        [
+          "digit",
+          331840,
+          5
+        ],
+        [
+          "release",
+          339508,
+          0
+        ],
+        [
+          "digit",
+          344640,
+          6
+        ],
+        [
+          "release",
+          352756,
+          0
+        ],
+        [
+          "release",
+          366004,
+          0
+        ],
+        [
+          "digit",
+          371264,
+          7
+        ],
+        [
+          "release",
+          379252,
+          0
+        ],
+        [
+          "digit",
+          384576,
+          8
+        ],
+        [
+          "release",
+          392436,
+          0
+        ],
+        [
+          "digit",
+          397888,
+          9
+        ],
+        [
+          "release",
+          405684,
+          0
+        ],
+        [
+          "release",
+          418932,
+          0
+        ],
+        [
+          "release",
+          432180,
+          0
+        ],
+        [
+          "programme",
+          437312,
+          1428
+        ],
+        [
+          "digit",
+          437312,
+          0
+        ],
+        [
+          "release",
+          445364,
+          0
+        ],
+        [
+          "release",
+          458612,
+          0
+        ],
+        [
+          "release",
+          471860,
+          0
+        ],
+        [
+          "programme",
+          483617,
+          1031
+        ],
+        [
+          "reset",
+          529085,
+          0
+        ]
+      ],
+      "comparisons": [
+        {
+          "event": "programme",
+          "pd_frame": 11008,
+          "klang_frame": 11008,
+          "pd_value": 317,
+          "klang_value": 317,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 33024,
+          "klang_frame": 33058,
+          "pd_value": 238,
+          "klang_value": 238,
+          "offset_samples": 34,
+          "offset_ms": 0.7709750566893424
+        },
+        {
+          "event": "programme",
+          "pd_frame": 88192,
+          "klang_frame": 88192,
+          "pd_value": 125,
+          "klang_value": 125,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 101376,
+          "klang_frame": 101422,
+          "pd_value": 634,
+          "klang_value": 634,
+          "offset_samples": 46,
+          "offset_ms": 1.0430839002267573
+        },
+        {
+          "event": "programme",
+          "pd_frame": 176384,
+          "klang_frame": 176384,
+          "pd_value": 1428,
+          "klang_value": 1428,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 222656,
+          "klang_frame": 222689,
+          "pd_value": 1031,
+          "klang_value": 1031,
+          "offset_samples": 33,
+          "offset_ms": 0.7482993197278912
+        },
+        {
+          "event": "programme",
+          "pd_frame": 437312,
+          "klang_frame": 437312,
+          "pd_value": 1428,
+          "klang_value": 1428,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 483584,
+          "klang_frame": 483617,
+          "pd_value": 1031,
+          "klang_value": 1031,
+          "offset_samples": 33,
+          "offset_ms": 0.7482993197278912
+        },
+        {
+          "event": "reset",
+          "pd_frame": 24960,
+          "klang_frame": 24988,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 28,
+          "offset_ms": 0.6349206349206349
+        },
+        {
+          "event": "reset",
+          "pd_frame": 43520,
+          "klang_frame": 43554,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 34,
+          "offset_ms": 0.7709750566893424
+        },
+        {
+          "event": "reset",
+          "pd_frame": 93696,
+          "klang_frame": 93705,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 9,
+          "offset_ms": 0.20408163265306123
+        },
+        {
+          "event": "reset",
+          "pd_frame": 129344,
+          "klang_frame": 129382,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 38,
+          "offset_ms": 0.8616780045351474
+        },
+        {
+          "event": "reset",
+          "pd_frame": 268096,
+          "klang_frame": 268157,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 61,
+          "offset_ms": 1.383219954648526
+        },
+        {
+          "event": "reset",
+          "pd_frame": 529024,
+          "klang_frame": 529085,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 61,
+          "offset_ms": 1.383219954648526
+        },
+        {
+          "event": "release",
+          "pd_frame": 273344,
+          "klang_frame": 273396,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 286592,
+          "klang_frame": 286644,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 299776,
+          "klang_frame": 299828,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 313024,
+          "klang_frame": 313076,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 326272,
+          "klang_frame": 326324,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 339456,
+          "klang_frame": 339508,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 352704,
+          "klang_frame": 352756,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 365952,
+          "klang_frame": 366004,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 379200,
+          "klang_frame": 379252,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 392384,
+          "klang_frame": 392436,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 405632,
+          "klang_frame": 405684,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 418880,
+          "klang_frame": 418932,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 432128,
+          "klang_frame": 432180,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 445312,
+          "klang_frame": 445364,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 458560,
+          "klang_frame": 458612,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 471808,
+          "klang_frame": 471860,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "digit",
+          "pd_frame": 265728,
+          "klang_frame": 265792,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 64,
+          "offset_ms": 1.4512471655328798
+        },
+        {
+          "event": "digit",
+          "pd_frame": 278592,
+          "klang_frame": 278592,
+          "pd_value": 2,
+          "klang_value": 2,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 291904,
+          "klang_frame": 291904,
+          "pd_value": 3,
+          "klang_value": 3,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 318528,
+          "klang_frame": 318528,
+          "pd_value": 4,
+          "klang_value": 4,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 331840,
+          "klang_frame": 331840,
+          "pd_value": 5,
+          "klang_value": 5,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 344640,
+          "klang_frame": 344640,
+          "pd_value": 6,
+          "klang_value": 6,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 371264,
+          "klang_frame": 371264,
+          "pd_value": 7,
+          "klang_value": 7,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 384576,
+          "klang_frame": 384576,
+          "pd_value": 8,
+          "klang_value": 8,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 397888,
+          "klang_frame": 397888,
+          "pd_value": 9,
+          "klang_value": 9,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 437312,
+          "klang_frame": 437312,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        }
+      ],
+      "pd_run": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\44100\\phone-effects\\render.pd"
+        ],
+        "elapsed_seconds": 0.6788226999924518,
+        "sampled_cpu_seconds": 0.390625,
+        "sampled_peak_rss_bytes": 26382336,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nTRACE-programme: 172 317\nTRACE-reset: 390 0\nTRACE-programme: 516 317\nTRACE-programme: 516 238\nTRACE-reset: 680 0\nTRACE-programme: 1378 125\nTRACE-reset: 1464 0\nTRACE-programme: 1584 634\nTRACE-reset: 2021 0\nTRACE-programme: 2756 1428\nTRACE-programme: 3479 1031\nTRACE-digit: 4152 1\na: 1\nTRACE-reset: 4189 0\nTRACE-release: 4271 0\nTRACE-digit: 4353 2\na: 2\nTRACE-release: 4478 0\nTRACE-digit: 4561 3\na: 3\nTRACE-release: 4684 0\nTRACE-release: 4891 0\nTRACE-digit: 4977 4\na: 4\nTRACE-release: 5098 0\nTRACE-digit: 5185 5\na: 5\nTRACE-release: 5304 0\nTRACE-digit: 5385 6\na: 6\nTRACE-release: 5511 0\nTRACE-release: 5718 0\nTRACE-digit: 5801 7\na: 7\nTRACE-release: 5925 0\nTRACE-digit: 6009 8\na: 8\nTRACE-release: 6131 0\nTRACE-digit: 6217 9\na: 9\nTRACE-release: 6338 0\nTRACE-release: 6545 0\nTRACE-release: 6752 0\nTRACE-programme: 6833 1428\nTRACE-digit: 6833 0\na: 0\nTRACE-release: 6958 0\nTRACE-release: 7165 0\nTRACE-release: 7372 0\nTRACE-programme: 7556 1031\nTRACE-reset: 8266 0\nF:/klang/sfx/kleine/build/phone-timing/44100/phone-effects/pd.wav: biggest amplitude = 0.376456\n"
+      },
+      "klang_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\trace.exe",
+          "44100",
+          "16",
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\44100\\phone-effects\\events.tsv"
+        ],
+        "elapsed_seconds": 0.23034340000594966,
+        "sampled_cpu_seconds": 0.21875,
+        "sampled_peak_rss_bytes": 4861952,
+        "stdout": "programme 11008 317\nreset 24988 0\nprogramme 33058 238\nreset 43554 0\nprogramme 88192 125\nreset 93705 0\nprogramme 101422 634\nreset 129382 0\nprogramme 176384 1428\nprogramme 222689 1031\ndigit 265792 1\nreset 268157 0\nrelease 273396 0\ndigit 278592 2\nrelease 286644 0\ndigit 291904 3\nrelease 299828 0\ndigit 305216 A\nrelease 313076 0\ndigit 318528 4\nrelease 326324 0\ndigit 331840 5\nrelease 339508 0\ndigit 344640 6\nrelease 352756 0\ndigit 357952 B\nrelease 366004 0\ndigit 371264 7\nrelease 379252 0\ndigit 384576 8\nrelease 392436 0\ndigit 397888 9\nrelease 405684 0\ndigit 411200 C\nrelease 418932 0\ndigit 424512 *\nrelease 432180 0\nprogramme 437312 1428\ndigit 437312 0\nrelease 445364 0\ndigit 450624 #\nrelease 458612 0\ndigit 463936 D\nrelease 471860 0\nprogramme 483617 1031\nreset 529085 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "rate": 44100,
+      "case": "phone-match",
+      "pd_events": [
+        [
+          "digit",
+          11840,
+          0
+        ],
+        [
+          "release",
+          19776,
+          0
+        ],
+        [
+          "digit",
+          25152,
+          1
+        ],
+        [
+          "release",
+          32960,
+          0
+        ],
+        [
+          "digit",
+          38464,
+          0
+        ],
+        [
+          "release",
+          46208,
+          0
+        ],
+        [
+          "digit",
+          51776,
+          0
+        ],
+        [
+          "release",
+          59456,
+          0
+        ],
+        [
+          "digit",
+          65088,
+          2
+        ],
+        [
+          "release",
+          72704,
+          0
+        ],
+        [
+          "digit",
+          77888,
+          0
+        ],
+        [
+          "release",
+          85888,
+          0
+        ],
+        [
+          "digit",
+          91136,
+          0
+        ],
+        [
+          "release",
+          99136,
+          0
+        ],
+        [
+          "digit",
+          104448,
+          3
+        ],
+        [
+          "release",
+          112384,
+          0
+        ],
+        [
+          "digit",
+          117824,
+          0
+        ],
+        [
+          "release",
+          125632,
+          0
+        ],
+        [
+          "programme",
+          131136,
+          317
+        ],
+        [
+          "digit",
+          131136,
+          0
+        ],
+        [
+          "release",
+          138816,
+          0
+        ],
+        [
+          "reset",
+          145088,
+          0
+        ],
+        [
+          "programme",
+          153152,
+          238
+        ],
+        [
+          "reset",
+          163648,
+          0
+        ],
+        [
+          "digit",
+          408640,
+          0
+        ],
+        [
+          "release",
+          416640,
+          0
+        ],
+        [
+          "digit",
+          421952,
+          9
+        ],
+        [
+          "release",
+          429888,
+          0
+        ],
+        [
+          "digit",
+          435264,
+          8
+        ],
+        [
+          "release",
+          443136,
+          0
+        ],
+        [
+          "digit",
+          448512,
+          7
+        ],
+        [
+          "release",
+          456320,
+          0
+        ],
+        [
+          "digit",
+          461824,
+          6
+        ],
+        [
+          "release",
+          469568,
+          0
+        ],
+        [
+          "digit",
+          475136,
+          5
+        ],
+        [
+          "release",
+          482816,
+          0
+        ],
+        [
+          "digit",
+          488000,
+          4
+        ],
+        [
+          "release",
+          496064,
+          0
+        ],
+        [
+          "digit",
+          501312,
+          3
+        ],
+        [
+          "release",
+          509248,
+          0
+        ],
+        [
+          "digit",
+          514624,
+          2
+        ],
+        [
+          "release",
+          522496,
+          0
+        ],
+        [
+          "programme",
+          527936,
+          125
+        ],
+        [
+          "digit",
+          527936,
+          1
+        ],
+        [
+          "reset",
+          533440,
+          0
+        ],
+        [
+          "release",
+          535744,
+          0
+        ],
+        [
+          "programme",
+          541120,
+          634
+        ],
+        [
+          "reset",
+          569088,
+          0
+        ],
+        [
+          "digit",
+          805888,
+          1
+        ],
+        [
+          "release",
+          813568,
+          0
+        ],
+        [
+          "digit",
+          819200,
+          2
+        ],
+        [
+          "release",
+          826816,
+          0
+        ],
+        [
+          "digit",
+          832064,
+          3
+        ],
+        [
+          "release",
+          840000,
+          0
+        ],
+        [
+          "digit",
+          845376,
+          4
+        ],
+        [
+          "release",
+          853248,
+          0
+        ],
+        [
+          "digit",
+          858688,
+          5
+        ],
+        [
+          "release",
+          866496,
+          0
+        ],
+        [
+          "digit",
+          872000,
+          6
+        ],
+        [
+          "release",
+          879680,
+          0
+        ],
+        [
+          "digit",
+          885312,
+          7
+        ],
+        [
+          "release",
+          892928,
+          0
+        ],
+        [
+          "digit",
+          898112,
+          8
+        ],
+        [
+          "release",
+          906176,
+          0
+        ],
+        [
+          "digit",
+          911424,
+          9
+        ],
+        [
+          "release",
+          919424,
+          0
+        ],
+        [
+          "programme",
+          924736,
+          1428
+        ],
+        [
+          "digit",
+          924736,
+          0
+        ],
+        [
+          "release",
+          932608,
+          0
+        ],
+        [
+          "programme",
+          971008,
+          1031
+        ],
+        [
+          "reset",
+          1016448,
+          0
+        ],
+        [
+          "digit",
+          1202752,
+          1
+        ],
+        [
+          "release",
+          1210432,
+          0
+        ],
+        [
+          "digit",
+          1216064,
+          1
+        ],
+        [
+          "release",
+          1223680,
+          0
+        ],
+        [
+          "digit",
+          1229376,
+          1
+        ],
+        [
+          "release",
+          1236928,
+          0
+        ],
+        [
+          "digit",
+          1242176,
+          1
+        ],
+        [
+          "release",
+          1250176,
+          0
+        ],
+        [
+          "digit",
+          1255488,
+          1
+        ],
+        [
+          "release",
+          1263360,
+          0
+        ],
+        [
+          "digit",
+          1268800,
+          1
+        ],
+        [
+          "release",
+          1276608,
+          0
+        ],
+        [
+          "digit",
+          1282112,
+          1
+        ],
+        [
+          "release",
+          1289856,
+          0
+        ],
+        [
+          "digit",
+          1295424,
+          1
+        ],
+        [
+          "release",
+          1303040,
+          0
+        ],
+        [
+          "digit",
+          1308736,
+          1
+        ],
+        [
+          "release",
+          1316288,
+          0
+        ],
+        [
+          "digit",
+          1321536,
+          1
+        ],
+        [
+          "release",
+          1329536,
+          0
+        ],
+        [
+          "digit",
+          1334848,
+          1
+        ],
+        [
+          "release",
+          1342784,
+          0
+        ]
+      ],
+      "klang_events": [
+        [
+          "digit",
+          11840,
+          0
+        ],
+        [
+          "release",
+          19828,
+          0
+        ],
+        [
+          "digit",
+          25152,
+          1
+        ],
+        [
+          "release",
+          33012,
+          0
+        ],
+        [
+          "digit",
+          38464,
+          0
+        ],
+        [
+          "release",
+          46260,
+          0
+        ],
+        [
+          "digit",
+          51776,
+          0
+        ],
+        [
+          "release",
+          59508,
+          0
+        ],
+        [
+          "digit",
+          65088,
+          2
+        ],
+        [
+          "release",
+          72756,
+          0
+        ],
+        [
+          "digit",
+          77888,
+          0
+        ],
+        [
+          "release",
+          85940,
+          0
+        ],
+        [
+          "digit",
+          91200,
+          0
+        ],
+        [
+          "release",
+          99188,
+          0
+        ],
+        [
+          "digit",
+          104512,
+          3
+        ],
+        [
+          "release",
+          112436,
+          0
+        ],
+        [
+          "digit",
+          117824,
+          0
+        ],
+        [
+          "release",
+          125684,
+          0
+        ],
+        [
+          "programme",
+          131136,
+          317
+        ],
+        [
+          "digit",
+          131136,
+          0
+        ],
+        [
+          "release",
+          138868,
+          0
+        ],
+        [
+          "reset",
+          145116,
+          0
+        ],
+        [
+          "programme",
+          153186,
+          238
+        ],
+        [
+          "reset",
+          163682,
+          0
+        ],
+        [
+          "digit",
+          408640,
+          0
+        ],
+        [
+          "release",
+          416692,
+          0
+        ],
+        [
+          "digit",
+          421952,
+          9
+        ],
+        [
+          "release",
+          429940,
+          0
+        ],
+        [
+          "digit",
+          435264,
+          8
+        ],
+        [
+          "release",
+          443188,
+          0
+        ],
+        [
+          "digit",
+          448576,
+          7
+        ],
+        [
+          "release",
+          456372,
+          0
+        ],
+        [
+          "digit",
+          461888,
+          6
+        ],
+        [
+          "release",
+          469620,
+          0
+        ],
+        [
+          "digit",
+          475200,
+          5
+        ],
+        [
+          "release",
+          482868,
+          0
+        ],
+        [
+          "digit",
+          488000,
+          4
+        ],
+        [
+          "release",
+          496116,
+          0
+        ],
+        [
+          "digit",
+          501312,
+          3
+        ],
+        [
+          "release",
+          509300,
+          0
+        ],
+        [
+          "digit",
+          514624,
+          2
+        ],
+        [
+          "release",
+          522548,
+          0
+        ],
+        [
+          "programme",
+          527936,
+          125
+        ],
+        [
+          "digit",
+          527936,
+          1
+        ],
+        [
+          "reset",
+          533449,
+          0
+        ],
+        [
+          "release",
+          535796,
+          0
+        ],
+        [
+          "programme",
+          541166,
+          634
+        ],
+        [
+          "reset",
+          569126,
+          0
+        ],
+        [
+          "digit",
+          805952,
+          1
+        ],
+        [
+          "release",
+          813620,
+          0
+        ],
+        [
+          "digit",
+          819264,
+          2
+        ],
+        [
+          "release",
+          826868,
+          0
+        ],
+        [
+          "digit",
+          832064,
+          3
+        ],
+        [
+          "release",
+          840052,
+          0
+        ],
+        [
+          "digit",
+          845376,
+          4
+        ],
+        [
+          "release",
+          853300,
+          0
+        ],
+        [
+          "digit",
+          858688,
+          5
+        ],
+        [
+          "release",
+          866548,
+          0
+        ],
+        [
+          "digit",
+          872000,
+          6
+        ],
+        [
+          "release",
+          879732,
+          0
+        ],
+        [
+          "digit",
+          885312,
+          7
+        ],
+        [
+          "release",
+          892980,
+          0
+        ],
+        [
+          "digit",
+          898112,
+          8
+        ],
+        [
+          "release",
+          906228,
+          0
+        ],
+        [
+          "digit",
+          911424,
+          9
+        ],
+        [
+          "release",
+          919476,
+          0
+        ],
+        [
+          "programme",
+          924736,
+          1428
+        ],
+        [
+          "digit",
+          924736,
+          0
+        ],
+        [
+          "release",
+          932660,
+          0
+        ],
+        [
+          "programme",
+          971041,
+          1031
+        ],
+        [
+          "reset",
+          1016509,
+          0
+        ],
+        [
+          "digit",
+          1202752,
+          1
+        ],
+        [
+          "release",
+          1210484,
+          0
+        ],
+        [
+          "digit",
+          1216064,
+          1
+        ],
+        [
+          "release",
+          1223732,
+          0
+        ],
+        [
+          "digit",
+          1229376,
+          1
+        ],
+        [
+          "release",
+          1236980,
+          0
+        ],
+        [
+          "digit",
+          1242176,
+          1
+        ],
+        [
+          "release",
+          1250228,
+          0
+        ],
+        [
+          "digit",
+          1255488,
+          1
+        ],
+        [
+          "release",
+          1263412,
+          0
+        ],
+        [
+          "digit",
+          1268800,
+          1
+        ],
+        [
+          "release",
+          1276660,
+          0
+        ],
+        [
+          "digit",
+          1282112,
+          1
+        ],
+        [
+          "release",
+          1289908,
+          0
+        ],
+        [
+          "digit",
+          1295424,
+          1
+        ],
+        [
+          "release",
+          1303092,
+          0
+        ],
+        [
+          "digit",
+          1308736,
+          1
+        ],
+        [
+          "release",
+          1316340,
+          0
+        ],
+        [
+          "digit",
+          1321536,
+          1
+        ],
+        [
+          "release",
+          1329588,
+          0
+        ],
+        [
+          "digit",
+          1334848,
+          1
+        ],
+        [
+          "release",
+          1342836,
+          0
+        ]
+      ],
+      "comparisons": [
+        {
+          "event": "programme",
+          "pd_frame": 131136,
+          "klang_frame": 131136,
+          "pd_value": 317,
+          "klang_value": 317,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 153152,
+          "klang_frame": 153186,
+          "pd_value": 238,
+          "klang_value": 238,
+          "offset_samples": 34,
+          "offset_ms": 0.7709750566893424
+        },
+        {
+          "event": "programme",
+          "pd_frame": 527936,
+          "klang_frame": 527936,
+          "pd_value": 125,
+          "klang_value": 125,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 541120,
+          "klang_frame": 541166,
+          "pd_value": 634,
+          "klang_value": 634,
+          "offset_samples": 46,
+          "offset_ms": 1.0430839002267573
+        },
+        {
+          "event": "programme",
+          "pd_frame": 924736,
+          "klang_frame": 924736,
+          "pd_value": 1428,
+          "klang_value": 1428,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "programme",
+          "pd_frame": 971008,
+          "klang_frame": 971041,
+          "pd_value": 1031,
+          "klang_value": 1031,
+          "offset_samples": 33,
+          "offset_ms": 0.7482993197278912
+        },
+        {
+          "event": "reset",
+          "pd_frame": 145088,
+          "klang_frame": 145116,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 28,
+          "offset_ms": 0.6349206349206349
+        },
+        {
+          "event": "reset",
+          "pd_frame": 163648,
+          "klang_frame": 163682,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 34,
+          "offset_ms": 0.7709750566893424
+        },
+        {
+          "event": "reset",
+          "pd_frame": 533440,
+          "klang_frame": 533449,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 9,
+          "offset_ms": 0.20408163265306123
+        },
+        {
+          "event": "reset",
+          "pd_frame": 569088,
+          "klang_frame": 569126,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 38,
+          "offset_ms": 0.8616780045351474
+        },
+        {
+          "event": "reset",
+          "pd_frame": 1016448,
+          "klang_frame": 1016509,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 61,
+          "offset_ms": 1.383219954648526
+        },
+        {
+          "event": "release",
+          "pd_frame": 19776,
+          "klang_frame": 19828,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 32960,
+          "klang_frame": 33012,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 46208,
+          "klang_frame": 46260,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 59456,
+          "klang_frame": 59508,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 72704,
+          "klang_frame": 72756,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 85888,
+          "klang_frame": 85940,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 99136,
+          "klang_frame": 99188,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 112384,
+          "klang_frame": 112436,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 125632,
+          "klang_frame": 125684,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 138816,
+          "klang_frame": 138868,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 416640,
+          "klang_frame": 416692,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 429888,
+          "klang_frame": 429940,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 443136,
+          "klang_frame": 443188,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 456320,
+          "klang_frame": 456372,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 469568,
+          "klang_frame": 469620,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 482816,
+          "klang_frame": 482868,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 496064,
+          "klang_frame": 496116,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 509248,
+          "klang_frame": 509300,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 522496,
+          "klang_frame": 522548,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 535744,
+          "klang_frame": 535796,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 813568,
+          "klang_frame": 813620,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 826816,
+          "klang_frame": 826868,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 840000,
+          "klang_frame": 840052,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 853248,
+          "klang_frame": 853300,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 866496,
+          "klang_frame": 866548,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 879680,
+          "klang_frame": 879732,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 892928,
+          "klang_frame": 892980,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 906176,
+          "klang_frame": 906228,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 919424,
+          "klang_frame": 919476,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 932608,
+          "klang_frame": 932660,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 1210432,
+          "klang_frame": 1210484,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 1223680,
+          "klang_frame": 1223732,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 1236928,
+          "klang_frame": 1236980,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 1250176,
+          "klang_frame": 1250228,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 1263360,
+          "klang_frame": 1263412,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 1276608,
+          "klang_frame": 1276660,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 1289856,
+          "klang_frame": 1289908,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 1303040,
+          "klang_frame": 1303092,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 1316288,
+          "klang_frame": 1316340,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 1329536,
+          "klang_frame": 1329588,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "release",
+          "pd_frame": 1342784,
+          "klang_frame": 1342836,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 52,
+          "offset_ms": 1.1791383219954648
+        },
+        {
+          "event": "digit",
+          "pd_frame": 11840,
+          "klang_frame": 11840,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 25152,
+          "klang_frame": 25152,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 38464,
+          "klang_frame": 38464,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 51776,
+          "klang_frame": 51776,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 65088,
+          "klang_frame": 65088,
+          "pd_value": 2,
+          "klang_value": 2,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 77888,
+          "klang_frame": 77888,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 91136,
+          "klang_frame": 91200,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 64,
+          "offset_ms": 1.4512471655328798
+        },
+        {
+          "event": "digit",
+          "pd_frame": 104448,
+          "klang_frame": 104512,
+          "pd_value": 3,
+          "klang_value": 3,
+          "offset_samples": 64,
+          "offset_ms": 1.4512471655328798
+        },
+        {
+          "event": "digit",
+          "pd_frame": 117824,
+          "klang_frame": 117824,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 131136,
+          "klang_frame": 131136,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 408640,
+          "klang_frame": 408640,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 421952,
+          "klang_frame": 421952,
+          "pd_value": 9,
+          "klang_value": 9,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 435264,
+          "klang_frame": 435264,
+          "pd_value": 8,
+          "klang_value": 8,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 448512,
+          "klang_frame": 448576,
+          "pd_value": 7,
+          "klang_value": 7,
+          "offset_samples": 64,
+          "offset_ms": 1.4512471655328798
+        },
+        {
+          "event": "digit",
+          "pd_frame": 461824,
+          "klang_frame": 461888,
+          "pd_value": 6,
+          "klang_value": 6,
+          "offset_samples": 64,
+          "offset_ms": 1.4512471655328798
+        },
+        {
+          "event": "digit",
+          "pd_frame": 475136,
+          "klang_frame": 475200,
+          "pd_value": 5,
+          "klang_value": 5,
+          "offset_samples": 64,
+          "offset_ms": 1.4512471655328798
+        },
+        {
+          "event": "digit",
+          "pd_frame": 488000,
+          "klang_frame": 488000,
+          "pd_value": 4,
+          "klang_value": 4,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 501312,
+          "klang_frame": 501312,
+          "pd_value": 3,
+          "klang_value": 3,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 514624,
+          "klang_frame": 514624,
+          "pd_value": 2,
+          "klang_value": 2,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 527936,
+          "klang_frame": 527936,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 805888,
+          "klang_frame": 805952,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 64,
+          "offset_ms": 1.4512471655328798
+        },
+        {
+          "event": "digit",
+          "pd_frame": 819200,
+          "klang_frame": 819264,
+          "pd_value": 2,
+          "klang_value": 2,
+          "offset_samples": 64,
+          "offset_ms": 1.4512471655328798
+        },
+        {
+          "event": "digit",
+          "pd_frame": 832064,
+          "klang_frame": 832064,
+          "pd_value": 3,
+          "klang_value": 3,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 845376,
+          "klang_frame": 845376,
+          "pd_value": 4,
+          "klang_value": 4,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 858688,
+          "klang_frame": 858688,
+          "pd_value": 5,
+          "klang_value": 5,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 872000,
+          "klang_frame": 872000,
+          "pd_value": 6,
+          "klang_value": 6,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 885312,
+          "klang_frame": 885312,
+          "pd_value": 7,
+          "klang_value": 7,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 898112,
+          "klang_frame": 898112,
+          "pd_value": 8,
+          "klang_value": 8,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 911424,
+          "klang_frame": 911424,
+          "pd_value": 9,
+          "klang_value": 9,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 924736,
+          "klang_frame": 924736,
+          "pd_value": 0,
+          "klang_value": 0,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1202752,
+          "klang_frame": 1202752,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1216064,
+          "klang_frame": 1216064,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1229376,
+          "klang_frame": 1229376,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1242176,
+          "klang_frame": 1242176,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1255488,
+          "klang_frame": 1255488,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1268800,
+          "klang_frame": 1268800,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1282112,
+          "klang_frame": 1282112,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1295424,
+          "klang_frame": 1295424,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1308736,
+          "klang_frame": 1308736,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1321536,
+          "klang_frame": 1321536,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        },
+        {
+          "event": "digit",
+          "pd_frame": 1334848,
+          "klang_frame": 1334848,
+          "pd_value": 1,
+          "klang_value": 1,
+          "offset_samples": 0,
+          "offset_ms": 0.0
+        }
+      ],
+      "pd_run": {
+        "command": [
+          "C:/Program Files/Pd/bin/pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-batch",
+          "-r",
+          "44100",
+          "-compatibility",
+          "0.55",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\44100\\phone-match\\render.pd"
+        ],
+        "elapsed_seconds": 0.7568842000036966,
+        "sampled_cpu_seconds": 0.453125,
+        "sampled_peak_rss_bytes": 32411648,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nTRACE-digit: 185 0\na: 0\nTRACE-release: 309 0\nTRACE-digit: 393 1\na: 1\nTRACE-release: 515 0\nTRACE-digit: 601 0\na: 0\nTRACE-release: 722 0\nTRACE-digit: 809 0\na: 0\nTRACE-release: 929 0\nTRACE-digit: 1017 2\na: 2\nTRACE-release: 1136 0\nTRACE-digit: 1217 0\na: 0\nTRACE-release: 1342 0\nTRACE-digit: 1424 0\na: 0\nTRACE-release: 1549 0\nTRACE-digit: 1632 3\na: 3\nTRACE-release: 1756 0\nTRACE-digit: 1841 0\na: 0\nTRACE-release: 1963 0\nTRACE-programme: 2049 317\nTRACE-digit: 2049 0\na: 0\nTRACE-release: 2169 0\nTRACE-reset: 2267 0\nTRACE-programme: 2393 317\nTRACE-programme: 2393 238\nTRACE-reset: 2557 0\nTRACE-digit: 6385 0\na: 0\nTRACE-release: 6510 0\nTRACE-digit: 6593 9\na: 9\nTRACE-release: 6717 0\nTRACE-digit: 6801 8\na: 8\nTRACE-release: 6924 0\nTRACE-digit: 7008 7\na: 7\nTRACE-release: 7130 0\nTRACE-digit: 7216 6\na: 6\nTRACE-release: 7337 0\nTRACE-digit: 7424 5\na: 5\nTRACE-release: 7544 0\nTRACE-digit: 7625 4\na: 4\nTRACE-release: 7751 0\nTRACE-digit: 7833 3\na: 3\nTRACE-release: 7957 0\nTRACE-digit: 8041 2\na: 2\nTRACE-release: 8164 0\nTRACE-programme: 8249 125\nTRACE-digit: 8249 1\na: 1\nTRACE-reset: 8335 0\nTRACE-release: 8371 0\nTRACE-programme: 8455 634\nTRACE-reset: 8892 0\nTRACE-digit: 12592 1\na: 1\nTRACE-release: 12712 0\nTRACE-digit: 12800 2\na: 2\nTRACE-release: 12919 0\nTRACE-digit: 13001 3\na: 3\nTRACE-release: 13125 0\nTRACE-digit: 13209 4\na: 4\nTRACE-release: 13332 0\nTRACE-digit: 13417 5\na: 5\nTRACE-release: 13539 0\nTRACE-digit: 13625 6\na: 6\nTRACE-release: 13745 0\nTRACE-digit: 13833 7\na: 7\nTRACE-release: 13952 0\nTRACE-digit: 14033 8\na: 8\nTRACE-release: 14159 0\nTRACE-digit: 14241 9\na: 9\nTRACE-release: 14366 0\nTRACE-programme: 14449 1428\nTRACE-digit: 14449 0\na: 0\nTRACE-release: 14572 0\nTRACE-programme: 15172 1031\nTRACE-reset: 15882 0\nTRACE-digit: 18793 1\na: 1\nTRACE-release: 18913 0\nTRACE-digit: 19001 1\na: 1\nTRACE-release: 19120 0\nTRACE-digit: 19209 1\na: 1\nTRACE-release: 19327 0\nTRACE-digit: 19409 1\na: 1\nTRACE-release: 19534 0\nTRACE-digit: 19617 1\na: 1\nTRACE-release: 19740 0\nTRACE-digit: 19825 1\na: 1\nTRACE-release: 19947 0\nTRACE-digit: 20033 1\na: 1\nTRACE-release: 20154 0\nTRACE-digit: 20241 1\na: 1\nTRACE-release: 20360 0\nTRACE-digit: 20449 1\na: 1\nTRACE-release: 20567 0\nTRACE-digit: 20649 1\na: 1\nTRACE-release: 20774 0\nTRACE-digit: 20857 1\na: 1\nTRACE-release: 20981 0\nF:/klang/sfx/kleine/build/phone-timing/44100/phone-match/pd.wav: biggest amplitude = 0.288466\n"
+      },
+      "klang_run": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\trace.exe",
+          "44100",
+          "33",
+          "F:\\klang\\sfx\\kleine\\build\\phone-timing\\44100\\phone-match\\events.tsv"
+        ],
+        "elapsed_seconds": 0.4720795999892289,
+        "sampled_cpu_seconds": 0.4375,
+        "sampled_peak_rss_bytes": 4861952,
+        "stdout": "digit 11840 0\nrelease 19828 0\ndigit 25152 1\nrelease 33012 0\ndigit 38464 0\nrelease 46260 0\ndigit 51776 0\nrelease 59508 0\ndigit 65088 2\nrelease 72756 0\ndigit 77888 0\nrelease 85940 0\ndigit 91200 0\nrelease 99188 0\ndigit 104512 3\nrelease 112436 0\ndigit 117824 0\nrelease 125684 0\nprogramme 131136 317\ndigit 131136 0\nrelease 138868 0\nreset 145116 0\nprogramme 153186 238\nreset 163682 0\ndigit 408640 0\nrelease 416692 0\ndigit 421952 9\nrelease 429940 0\ndigit 435264 8\nrelease 443188 0\ndigit 448576 7\nrelease 456372 0\ndigit 461888 6\nrelease 469620 0\ndigit 475200 5\nrelease 482868 0\ndigit 488000 4\nrelease 496116 0\ndigit 501312 3\nrelease 509300 0\ndigit 514624 2\nrelease 522548 0\nprogramme 527936 125\ndigit 527936 1\nreset 533449 0\nrelease 535796 0\nprogramme 541166 634\nreset 569126 0\ndigit 805952 1\nrelease 813620 0\ndigit 819264 2\nrelease 826868 0\ndigit 832064 3\nrelease 840052 0\ndigit 845376 4\nrelease 853300 0\ndigit 858688 5\nrelease 866548 0\ndigit 872000 6\nrelease 879732 0\ndigit 885312 7\nrelease 892980 0\ndigit 898112 8\nrelease 906228 0\ndigit 911424 9\nrelease 919476 0\nprogramme 924736 1428\ndigit 924736 0\nrelease 932660 0\nprogramme 971041 1031\nreset 1016509 0\ndigit 1202752 1\nrelease 1210484 0\ndigit 1216064 1\nrelease 1223732 0\ndigit 1229376 1\nrelease 1236980 0\ndigit 1242176 1\nrelease 1250228 0\ndigit 1255488 1\nrelease 1263412 0\ndigit 1268800 1\nrelease 1276660 0\ndigit 1282112 1\nrelease 1289908 0\ndigit 1295424 1\nrelease 1303092 0\ndigit 1308736 1\nrelease 1316340 0\ndigit 1321536 1\nrelease 1329588 0\ndigit 1334848 1\nrelease 1342836 0\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "source_sha256": {
+    "tests/pd/phone-timing.cpp": "e981771a21fec6fa2a517262731667ec6cc97406054ad9846b0bdc18e4b29c25",
+    "tools/check_phone_timing.py": "15887e91707e5f030cbed1cbbbc0a93bb7a174770c862abf6ec78fc789c73b66",
+    "farnell/klang/Artificial Sounds/Phone Tones/phoneeffects.k": "e0bb5aea70bac089d96aa83d6f5b7cea85550b1adc24a94d9ea028434032f339",
+    "farnell/klang/Artificial Sounds/Alarm Generator/alarmgenerator.k": "96e5b93574e5ae6c4741a089cf78ca9f64d7004db82b78a67e4353f63dfc042c",
+    "farnell/klang/Artificial Sounds/DTMF Tones/dtmftones.k": "c84b106defe5d39f491ebbbf7a943a16fa62e9dbc7d8e517e5a6f599fd840244",
+    "include/klang/pd.h": "5ee3c18d40ff45234fbe718b633bda48abbf467fbc4f6208cbc217e4cce692b1"
+  },
+  "notes": [
+    "PD 0.55.2, block 64; unchanged shared event recipes and mono audio; traced PD audio is sample-identical to the uninstrumented reference.",
+    "PD timestamps are logical message times mapped down to the receiving DSP block, not wall-clock measurements.",
+    "Klang timestamps are actual sample positions observed in public model state. Digit timestamps are when PhoneEffects consumes the pending decoded key.",
+    "Tom sends two same-time follow-up programmes; comparison keeps the last, effective programme. Raw PD stderr retains both.",
+    "The PD reference decoder emits digits only; letter/star/hash detections from Klang are excluded from this comparison.",
+    "These offsets do not measure human audibility or prove that timing explains the entire waveform residual.",
+    "The phone-match reference reconstructs missing list-library number matchers; original PD sources and models are unchanged."
+  ]
+}

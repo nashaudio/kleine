@@ -34,5 +34,29 @@
     "file": "d_ctl.c",
     "url": "https://raw.githubusercontent.com/pure-data/pure-data/0.55-2/src/d_ctl.c",
     "sha256": "c2f5ffbeeccfaad71aef934c4cc8423fe5e3897b00f0d4cc86bc9bc6a33553d9"
+  },
+  {
+    "tag": "0.55-2",
+    "file": "x_time.c",
+    "url": "https://raw.githubusercontent.com/pure-data/pure-data/0.55-2/src/x_time.c",
+    "sha256": "6196b080ff2001f8b7d0b6fd94b5cf82acff2ccb2d5b5a5d7f7a9d9e08013ac0"
+  },
+  {
+    "tag": "0.55-2",
+    "file": "x_misc.c",
+    "url": "https://raw.githubusercontent.com/pure-data/pure-data/0.55-2/src/x_misc.c",
+    "sha256": "c9f71883a99188d89a7f6b91527a99d9a2be02bf7591e2cdfa9a699fe90a5553"
+  },
+  {
+    "tag": "0.55-2",
+    "file": "m_sched.c",
+    "url": "https://raw.githubusercontent.com/pure-data/pure-data/0.55-2/src/m_sched.c",
+    "sha256": "5adae8ce3ce03e84a6e5f69dc8e21131d29ee70438d8d8ad90180e2408f535b5"
+  },
+  {
+    "tag": "0.55-2",
+    "file": "d_arithmetic.c",
+    "url": "https://raw.githubusercontent.com/pure-data/pure-data/0.55-2/src/d_arithmetic.c",
+    "sha256": "2a916b1d711f8f60e52c1a202edfd71e636a5a59a179ae3e3881d6be7e93d719"
   }
 ]

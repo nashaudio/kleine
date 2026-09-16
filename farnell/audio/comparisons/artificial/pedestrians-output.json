@@ -1,0 +1,140 @@
+{
+  "tests": [
+    {
+      "version": "0.55-2",
+      "writer": "soundfiler",
+      "frames": 48000,
+      "rate": 48000,
+      "subtype": "PCM_16",
+      "nonzero_samples": 0,
+      "sha256": "0a8f76d89c709043814cb74f331a4578d17ff61256303bd0019a263d053f86e8",
+      "execution": {
+        "command": [
+          "C:\\Program Files\\Pd\\bin\\pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\output-0.55-2\\render.pd"
+        ],
+        "elapsed_seconds": 1.677712499993504,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 20914176,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/output-0.55-2/soundfiler.wav: biggest amplitude = 0.000000\n"
+      }
+    },
+    {
+      "version": "0.55-2",
+      "writer": "writesf",
+      "frames": 45568,
+      "rate": 48000,
+      "subtype": "PCM_16",
+      "nonzero_samples": 0,
+      "sha256": "68dd7ef01ae3da8d56d830aa305f8267816fb52aa7b7c07f5afc6ed2595ba15f",
+      "execution": {
+        "command": [
+          "C:\\Program Files\\Pd\\bin\\pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\output-0.55-2\\render.pd"
+        ],
+        "elapsed_seconds": 1.677712499993504,
+        "sampled_cpu_seconds": 0.359375,
+        "sampled_peak_rss_bytes": 20914176,
+        "stdout": "",
+        "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/metro-review/output-0.55-2/soundfiler.wav: biggest amplitude = 0.000000\n"
+      }
+    },
+    {
+      "version": "0.42-5",
+      "writer": "soundfiler",
+      "frames": 48000,
+      "rate": 48000,
+      "subtype": "PCM_16",
+      "nonzero_samples": 0,
+      "sha256": "0a8f76d89c709043814cb74f331a4578d17ff61256303bd0019a263d053f86e8",
+      "execution": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\pedestrians-review\\pd-0.42-5\\pd\\bin\\pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\output-0.42-5\\render.pd"
+        ],
+        "elapsed_seconds": 1.104033999989042,
+        "sampled_cpu_seconds": 0.078125,
+        "sampled_peak_rss_bytes": 9953280,
+        "stdout": "",
+        "stderr": "sys_nmidiin 0, nmidiindev 0\nF:/klang/sfx/kleine/build/metro-review/output-0.42-5/soundfiler.wav: biggest amplitude = 0.000000\nclosing audio...\nclosing MIDI...\n... done.\n"
+      }
+    },
+    {
+      "version": "0.42-5",
+      "writer": "writesf",
+      "frames": 45568,
+      "rate": 48000,
+      "subtype": "PCM_16",
+      "nonzero_samples": 0,
+      "sha256": "68dd7ef01ae3da8d56d830aa305f8267816fb52aa7b7c07f5afc6ed2595ba15f",
+      "execution": {
+        "command": [
+          "F:\\klang\\sfx\\kleine\\build\\pedestrians-review\\pd-0.42-5\\pd\\bin\\pd.exe",
+          "-nogui",
+          "-stderr",
+          "-noprefs",
+          "-noaudio",
+          "-nomidi",
+          "-r",
+          "48000",
+          "-open",
+          "F:\\klang\\sfx\\kleine\\build\\metro-review\\output-0.42-5\\render.pd"
+        ],
+        "elapsed_seconds": 1.104033999989042,
+        "sampled_cpu_seconds": 0.078125,
+        "sampled_peak_rss_bytes": 9953280,
+        "stdout": "",
+        "stderr": "sys_nmidiin 0, nmidiindev 0\nF:/klang/sfx/kleine/build/metro-review/output-0.42-5/soundfiler.wav: biggest amplitude = 0.000000\nclosing audio...\nclosing MIDI...\n... done.\n"
+      }
+    }
+  ],
+  "sources": {
+    "0.55-2/d_soundfile.c": {
+      "url": "https://github.com/pure-data/pure-data/blob/0.55-2/src/d_soundfile.c",
+      "sha256": "4b4ceecbb25381279ebc7f4f8cabba8028c42a780499309759f99cc036f033d2"
+    },
+    "0.55-2/s_audio_pa.c": {
+      "url": "https://github.com/pure-data/pure-data/blob/0.55-2/src/s_audio_pa.c",
+      "sha256": "26c21db4bf6286eef3043b9a3da4ad7c65fe11d2a27371750b995c264e052881"
+    },
+    "0.42-5/d_soundfile.c": {
+      "url": "https://github.com/pure-data/pure-data/blob/0.42-5/src/d_soundfile.c",
+      "sha256": "b6b30d7615d4efa945ef50a582625d6a5bb6d95efa6daca49feb60a4669f489e"
+    },
+    "0.42-5/s_audio_pa.c": {
+      "url": "https://github.com/pure-data/pure-data/blob/0.42-5/src/s_audio_pa.c",
+      "sha256": "5799835ad98f89bb69c9a5769b26e0afde8b692ba3ed781997235d2dedd2ab18"
+    }
+  },
+  "script_sha256": "f92362771cabb4a18ebea42ce3edad291eed19c9c2d364afe56c55eed5e2347b",
+  "findings": [
+    "Both built-in file writers preserve silence when writing PCM16; no dither option in inspected source.",
+    "Both inspected PortAudio paths open streams with paNoFlag, allowing backend conversion dither.",
+    "Hardware/backend recording was not exercised; this does not identify the website export path."
+  ]
+}

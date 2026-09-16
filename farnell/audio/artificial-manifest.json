@@ -13,19 +13,19 @@
   "voices": 1,
   "fixtures_per_rate": 39,
   "source_sha256": {
-    "farnell\\klang\\Artificial Sounds\\Alarm Generator\\alarmgenerator.k": "ff913c7b68b9725db320ec3e33a0034ec58acb7b142227976263ffe584667879",
-    "farnell\\klang\\Artificial Sounds\\DTMF Tones\\dtmftones.k": "9b5c49225ff31e45fc15c42bbbe1336963d1c4522d4b7e98772e58306ff1ee68",
-    "farnell\\klang\\Artificial Sounds\\Pedestrians\\pedestrians.k": "627953ba52d3e9b80f8dae681be469e22eeaa5f6d8e928a64ca3eb3d15a3347c",
-    "farnell\\klang\\Artificial Sounds\\Phone Tones\\phoneeffects.k": "4acc34b4056920a0f8cc1412f18e1892abf125028d81ac4161ae98dcbebdb5b6",
-    "farnell\\klang\\Artificial Sounds\\Phone Tones\\phonetones.k": "02c105d5ae4d8fa1fa3748f6d058afc489826bce4b4b5d105a68ce01dc7b66aa",
-    "farnell\\klang\\Artificial Sounds\\Police\\police.k": "122ea4606b5e0b60613ac75f5c5c7a43d1cd71180e29edc989b83427b4bf0d4a",
-    "farnell\\render.h": "fb9a6b4f1499c9492dc17cad4eafda6692e944de68923ff1400437ad499eae0d",
+    "farnell\\klang\\Artificial Sounds\\Alarm Generator\\alarmgenerator.k": "51f192868c3f1cb0662f796bf56cf0415abafaefb3ccfc053f8c438d9eecbe7b",
+    "farnell\\klang\\Artificial Sounds\\DTMF Tones\\dtmftones.k": "cd9e4ec6598855bd64264027e926dec92e6f4840a00ff6f3d45fd48d44aa365b",
+    "farnell\\klang\\Artificial Sounds\\Pedestrians\\pedestrians.k": "6d1981f1052c384c4ab0c5696827f6fe41b194c71ee60b8dfd848b182dd67da1",
+    "farnell\\klang\\Artificial Sounds\\Phone Tones\\phoneeffects.k": "2661ac2d671d76be8322dd2bf2e959919d627d4cfabe53a152955340df4f5995",
+    "farnell\\klang\\Artificial Sounds\\Phone Tones\\phonetones.k": "760f96899c7b38b26791a585411653523fdc871d50d1bc0776e3bfd0c0f4a370",
+    "farnell\\klang\\Artificial Sounds\\Police\\police.k": "f3f67c0f851ef88aa1bdeda217c1f03db388ab3d51206b6456cd8d5c9efff061",
+    "farnell\\render.h": "856b9d46bb7ea79014c14bd304ae497edd69fb0a24983561cdd98cb2f7bec283",
     "include\\klang.h": "18227099c3e3de84fbdef47aa7b7375c455acc722405af8125db5b82fb6660e2",
-    "include\\klang\\pd.h": "c9a7b064cfe1a9f7c8da2ac835a564a0d893bee0c7f40b41cc90382635d1906d",
-    "tests\\pd\\primitive.h": "503f6059c5afd7b7c2c617edfa7ba9d7dc27a588056eb5e9df4aab67e3524928",
+    "include\\klang\\pd.h": "e6cdc663a3f4d86d92c8cfbf3b8a9162b13c1f83a46948141cae781bf5504412",
+    "tests\\pd\\primitive.h": "d1c0a2d4f63c90c87748fb93d1044febc2152dacfa275fc62493adab263058b6",
     "tests\\pd\\number-match.pd": "579bf11ffbd3d9216705c76eefe6428c63e42e799298ec22a26e5ecc244ca5ed",
-    "tools\\render_artificial.py": "02d3070522f3005df97748f41b16f24281858f7450732a384b3d5a9473608496",
-    "tools\\package_artificial.py": "afe8422647606f5d974cc256084c92dbd560427e251f752a1ba6122812c3a19b",
+    "tools\\render_artificial.py": "081f9739bf4e78005ddb9d7784e949c3063f85f559bb0f2336599dda8d2d74d9",
+    "tools\\package_artificial.py": "8539fb9fe131c1fd8730ca934912cad97c64852fc6f64f541d1a61b23589ca3f",
     "tools\\compare_audio.py": "11d642d666355b12417a0168daeab1d33948f2e5b0d448a35f5a4c24f782f19d"
   },
   "excerpts": [
@@ -205,15 +205,15 @@
       "samples_over_full_scale": 0
     },
     "25-phone-tones\\phone-effects-kleine.wav": {
-      "sha256": "8101fe34cabb9f8404a7d60007c2f0dd84496015de38d0f5c6b3d8f64c9e89b8",
+      "sha256": "d61770b9007e4ebd4ddf7d445d7ef472aa6083db515081e381a9c812f939ae72",
       "channels": 1,
       "subtype": "FLOAT",
       "sample_rate": 48000,
       "frames": 768000,
       "seconds": 16.0,
-      "peak": 0.36998409032821655,
-      "rms": 0.0978072274857704,
-      "dc": -3.327636941831544e-06,
+      "peak": 0.3699836730957031,
+      "rms": 0.09780709548358489,
+      "dc": -3.327605581074718e-06,
       "nonfinite": 0,
       "samples_over_full_scale": 0
     },
@@ -231,15 +231,15 @@
       "samples_over_full_scale": 0
     },
     "25-phone-tones\\ringback-bulk-kleine.wav": {
-      "sha256": "d81858beb0796770b8af3720f2d1b051c5ac5cdeae919fed929b064ffc70afee",
+      "sha256": "1399c6794c166f88eb7f795a179cd9dfffca34ef92f87a0268e2acb9d4f6584c",
       "channels": 1,
       "subtype": "FLOAT",
       "sample_rate": 48000,
       "frames": 576000,
       "seconds": 12.0,
-      "peak": 0.18909472227096558,
-      "rms": 0.07887048385067034,
-      "dc": -4.97117393164827e-06,
+      "peak": 0.18909373879432678,
+      "rms": 0.07887037238953196,
+      "dc": -4.971093923162849e-06,
       "nonfinite": 0,
       "samples_over_full_scale": 0
     },
@@ -374,15 +374,15 @@
       "samples_over_full_scale": 0
     },
     "27-alarms\\alarm-bank-kleine.wav": {
-      "sha256": "e44cde9f1e0ff672cf00aad516594a45bd9327085e257079ecd6a6fbce3fd0a3",
+      "sha256": "6b24529bc5a504e2aba7a0878d4acacf477d469d106ee7c713bb1aef9f9e3c8c",
       "channels": 1,
       "subtype": "FLOAT",
       "sample_rate": 48000,
       "frames": 288000,
       "seconds": 6.0,
       "peak": 0.2459542602300644,
-      "rms": 0.06492128482200853,
-      "dc": 9.648803826792078e-06,
+      "rms": 0.06492128456928033,
+      "dc": 9.64879674789165e-06,
       "nonfinite": 0,
       "samples_over_full_scale": 0
     },
@@ -426,15 +426,15 @@
       "samples_over_full_scale": 0
     },
     "27-alarms\\alarm02-kleine.wav": {
-      "sha256": "f8fe6c8aa170cf9163033034c4046531f458db5baf47cfb04b16cf7efb923b89",
+      "sha256": "c4013fd99b5c127aab94f7e2cd65f75d66aa5abf1e2d96727823d7ad8178811c",
       "channels": 1,
       "subtype": "FLOAT",
       "sample_rate": 48000,
       "frames": 192000,
       "seconds": 4.0,
       "peak": 0.1999993622303009,
-      "rms": 0.09945922967961107,
-      "dc": -1.4648993737992869e-06,
+      "rms": 0.09945922835999081,
+      "dc": -1.46491062237922e-06,
       "nonfinite": 0,
       "samples_over_full_scale": 0
     },
@@ -452,15 +452,15 @@
       "samples_over_full_scale": 0
     },
     "27-alarms\\alarm03-kleine.wav": {
-      "sha256": "08775e19c093e2312f12db480aa9e95505c9fe073768cc99900b5efe52b20d8c",
+      "sha256": "e1bd77207edf5f8f4f14049a98f98d8a290354d211d9dad096e5ce80e6f35861",
       "channels": 1,
       "subtype": "FLOAT",
       "sample_rate": 48000,
       "frames": 192000,
       "seconds": 4.0,
       "peak": 0.20000000298023224,
-      "rms": 0.14066498156992957,
-      "dc": 6.837639780635137e-07,
+      "rms": 0.14066498090848512,
+      "dc": 6.838309704200647e-07,
       "nonfinite": 0,
       "samples_over_full_scale": 0
     },
@@ -504,15 +504,15 @@
       "samples_over_full_scale": 0
     },
     "27-alarms\\alarm05-kleine.wav": {
-      "sha256": "f6f5c4bcac343ac40958b15c418abc30d1c610c1b91099ae9969b209d7c209f7",
+      "sha256": "49afea4909e4a301db2c0e0b85e9f79ca0d6673377ed6293bd4ae92496e07162",
       "channels": 1,
       "subtype": "FLOAT",
       "sample_rate": 48000,
       "frames": 192000,
       "seconds": 4.0,
       "peak": 0.19999955594539642,
-      "rms": 0.14109517942355698,
-      "dc": -3.2555168004891517e-06,
+      "rms": 0.14109517855219475,
+      "dc": -3.2555098235468688e-06,
       "nonfinite": 0,
       "samples_over_full_scale": 0
     },
@@ -621,15 +621,15 @@
       "samples_over_full_scale": 0
     },
     "27-alarms\\alarms-kleine.wav": {
-      "sha256": "f31fa9cd154ad068d6a5e5e3d6cffbdf2aa29abc8822d8583742266308f56e23",
+      "sha256": "8e8ffee972766d681282de0da34cbf07cb85a95533b5809ca1d4ccf922b33102",
       "channels": 1,
       "subtype": "FLOAT",
       "sample_rate": 48000,
       "frames": 1872000,
       "seconds": 39.0,
       "peak": 0.2499999850988388,
-      "rms": 0.09051431404643816,
-      "dc": -3.49400259550987e-07,
+      "rms": 0.09051431365297667,
+      "dc": -3.4939382665674074e-07,
       "nonfinite": 0,
       "samples_over_full_scale": 0
     },
@@ -647,7 +647,7 @@
       "samples_over_full_scale": 0
     },
     "27-alarms\\alarms-pd.wav": {
-      "sha256": "fc1bd54e29495174367d36318daa4ce8052d75e4a678cb1d9edd15993ad10549",
+      "sha256": "15d49753e1170358615b6b55bef2214ba1e70b1d47dce7687986bff8377866a3",
       "channels": 1,
       "subtype": "FLOAT",
       "sample_rate": 48000,
@@ -660,28 +660,28 @@
       "samples_over_full_scale": 0
     },
     "28-police\\police-kleine.wav": {
-      "sha256": "b9d1e7feae2c5340ca1832c10bacf892025426a8730257e1dd883663b5dcabf2",
+      "sha256": "b7733901e93c3708cf49c7515afc1d1570c3734747f4a0c9189eb43452a26d29",
       "channels": 1,
       "subtype": "FLOAT",
       "sample_rate": 48000,
       "frames": 768000,
       "seconds": 16.0,
-      "peak": 0.15665565431118011,
-      "rms": 0.1002593576442404,
-      "dc": 0.09678398638920484,
+      "peak": 0.15665586292743683,
+      "rms": 0.10025950858489985,
+      "dc": 0.09678413470077038,
       "nonfinite": 0,
       "samples_over_full_scale": 0
     },
     "28-police\\police-legacy-kleine.wav": {
-      "sha256": "cd07ac15298c891271208ab2a2c1636db6c70e0e0b0d6b5921707c9517ba7e87",
+      "sha256": "4d2a8c12f95d4b725f3d59ba34c935a48c2c532cd79ef6202deb6629fb6f1f0e",
       "channels": 1,
       "subtype": "FLOAT",
       "sample_rate": 48000,
       "frames": 768000,
       "seconds": 16.0,
-      "peak": 0.22006875276565552,
-      "rms": 0.09225454884898106,
-      "dc": 0.04399960309235259,
+      "peak": 0.22006884217262268,
+      "rms": 0.0922547120544531,
+      "dc": 0.043999669173126144,
       "nonfinite": 0,
       "samples_over_full_scale": 0
     },
@@ -731,6 +731,7 @@
     "Scripts disable saved GUI startup values where controls are explicitly scheduled.",
     "Events use a shared 64-sample grid; PD delay timestamps sit 0.25 samples inside that block to avoid floating-point boundary ambiguity.",
     "Police legacy means explicit pow~ inlet swaps (or the correctly wired bulk source), not an old PD executable.",
-    "Graph/FFT display patches are covered by their waveform outputs and the external analysis tools; no general rfft~/GUI port is claimed."
+    "Graph/FFT display patches are covered by their waveform outputs and the external analysis tools; no general rfft~/GUI port is claimed.",
+    "Pedestrians now uses sample-timed pd::metro. At 44.1 kHz its gate edges differ by at most 63 samples; identical overlapping carrier samples and event counts are checked. Block delivery is deferred."
   ]
 }

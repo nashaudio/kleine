@@ -1,0 +1,46 @@
+{
+  "files": {
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\32-creaking\\creaking-pd.wav": {
+      "sample_rate": 48000,
+      "frames": 336000,
+      "seconds": 7.0,
+      "peak": 0.5400596857070923,
+      "rms": 0.03773770652849188,
+      "dc": 2.3356608181926285e-12,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\32-creaking\\creaking-kleine.wav": {
+      "sample_rate": 48000,
+      "frames": 336000,
+      "seconds": 7.0,
+      "peak": 0.5400566458702087,
+      "rms": 0.03776418491393172,
+      "dc": 3.212822775018543e-12,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    },
+    "F:\\klang\\sfx\\kleine\\farnell\\audio\\32-creaking\\creaking-online.wav": {
+      "sample_rate": 48000,
+      "frames": 327903,
+      "seconds": 6.8313125,
+      "peak": 0.5362548828125,
+      "rms": 0.03892870739501326,
+      "dc": 8.608875114172484e-09,
+      "nonfinite": 0,
+      "samples_over_full_scale": 0
+    }
+  },
+  "fft": 16384,
+  "hop": 1024,
+  "window": "hann",
+  "envelope_ms": 10,
+  "alignment_lag_samples_pd_minus_klang": 0,
+  "aligned_correlation": 0.9999252676035196,
+  "aligned_error_rms": 0.0004622860828850812,
+  "identical_samples": false,
+  "relative_error_db": -38.237293672198064,
+  "rms_difference_db": 0.006092253816680297,
+  "envelope_relative_error": 0.010566492068261055,
+  "active_spectrum_median_abs_db": 0.03174107345602595
+}
