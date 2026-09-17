@@ -1,0 +1,257 @@
+{
+  "working_sha256": "57c5e56f7d97758bed67cbe1abf836834c46c048d1eca53ce58b3ed987152c12",
+  "model_runs": {
+    "models-msvc": {
+      "compiler_version": "usage: cl [ option... ] filename... [ /link linkoption... ]\nMicrosoft (R) C/C++ Optimizing Compiler Version 19.51.36257 for x64\nCopyright (C) Microsoft Corporation.  All rights reserved.\n\n",
+      "flags": [
+        "/nologo",
+        "/std:c++17",
+        "/EHsc",
+        "/O2",
+        "/fp:fast",
+        "/MT",
+        "/DNDEBUG",
+        "/DNOMINMAX",
+        "/DWIN32",
+        "/D_WINDOWS",
+        "/D_CRT_SECURE_NO_WARNINGS",
+        "/W3",
+        "/wd4244",
+        "/wd4305",
+        "/showIncludes"
+      ],
+      "header_sha256": {
+        "baseline": "1506b513f8c52464ffb3168907d06890113dba597d61a10b16738000dbd8f959",
+        "candidate": "57c5e56f7d97758bed67cbe1abf836834c46c048d1eca53ce58b3ed987152c12"
+      },
+      "sources_unchanged": true,
+      "regressions": [],
+      "paired_renders": 106,
+      "identical": 106,
+      "inspection": "build/ue-integration/models-msvc/inspection/index.html"
+    },
+    "models-clang14": {
+      "compiler_version": "clang version 14.0.6\nTarget: x86_64-unknown-windows-gnu\nThread model: posix\nInstalledDir: F:\\klang\\sfx\\kleine\\build\\toolchains\\klang14\n",
+      "flags": [
+        "-std=c++17",
+        "-fexceptions",
+        "-O2",
+        "-ffast-math",
+        "-static",
+        "-DNDEBUG",
+        "-DNOMINMAX",
+        "-D_CRT_SECURE_NO_WARNINGS",
+        "-H"
+      ],
+      "header_sha256": {
+        "baseline": "1506b513f8c52464ffb3168907d06890113dba597d61a10b16738000dbd8f959",
+        "candidate": "57c5e56f7d97758bed67cbe1abf836834c46c048d1eca53ce58b3ed987152c12"
+      },
+      "sources_unchanged": true,
+      "regressions": [],
+      "paired_renders": 108,
+      "identical": 108,
+      "inspection": "build/ue-integration/models-clang14/inspection/index.html"
+    },
+    "production-smoke": {
+      "compiler_version": "usage: cl [ option... ] filename... [ /link linkoption... ]\nMicrosoft (R) C/C++ Optimizing Compiler Version 19.51.36257 for x64\nCopyright (C) Microsoft Corporation.  All rights reserved.\n\n",
+      "flags": [
+        "/nologo",
+        "/std:c++17",
+        "/EHsc",
+        "/O2",
+        "/fp:fast",
+        "/MT",
+        "/DNDEBUG",
+        "/DNOMINMAX",
+        "/DWIN32",
+        "/D_WINDOWS",
+        "/D_CRT_SECURE_NO_WARNINGS",
+        "/W3",
+        "/wd4244",
+        "/wd4305",
+        "/showIncludes"
+      ],
+      "header_sha256": {
+        "baseline": "1506b513f8c52464ffb3168907d06890113dba597d61a10b16738000dbd8f959",
+        "candidate": "57c5e56f7d97758bed67cbe1abf836834c46c048d1eca53ce58b3ed987152c12"
+      },
+      "sources_unchanged": true,
+      "regressions": [],
+      "paired_renders": 4,
+      "identical": 4,
+      "inspection": "build/ue-integration/production-smoke/inspection/index.html"
+    }
+  },
+  "contracts": {
+    "msvc-release": {
+      "command": [
+        "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+        "/nologo",
+        "/std:c++17",
+        "/EHsc",
+        "/O2",
+        "/MT",
+        "/fp:fast",
+        "/DNDEBUG",
+        "/DNOMINMAX",
+        "/showIncludes",
+        "/IF:\\klang\\sfx\\kleine\\experiments\\klang\\ue-integration",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-additions.cpp",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-link.cpp",
+        "/FoF:\\klang\\sfx\\kleine\\build\\ue-integration\\msvc-release/",
+        "/FeF:\\klang\\sfx\\kleine\\build\\ue-integration\\msvc-release\\contracts.exe"
+      ],
+      "hashes": {
+        "F:\\klang\\sfx\\kleine\\experiments\\klang\\ue-integration\\klang.h": "57c5e56f7d97758bed67cbe1abf836834c46c048d1eca53ce58b3ed987152c12",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-additions.cpp": "2438d4a75945a5d825d8841831fc993bde1ae4870644b946f61d23d8107fb866",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-link.cpp": "d5e4a62631a339772c9404e6212a001cc5a03dd3cbe71323c874ca3d52eeb0ac"
+      },
+      "compile_returncode": 0,
+      "selected_header_verified": true,
+      "sources_unchanged": true,
+      "result": {
+        "returncode": 0,
+        "output": "460595 checks passed\n"
+      }
+    },
+    "msvc-debug": {
+      "command": [
+        "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+        "/nologo",
+        "/std:c++17",
+        "/EHsc",
+        "/Od",
+        "/MTd",
+        "/fp:fast",
+        "/D_DEBUG",
+        "/DNOMINMAX",
+        "/showIncludes",
+        "/IF:\\klang\\sfx\\kleine\\experiments\\klang\\ue-integration",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-additions.cpp",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-link.cpp",
+        "/FoF:\\klang\\sfx\\kleine\\build\\ue-integration\\msvc-debug/",
+        "/FeF:\\klang\\sfx\\kleine\\build\\ue-integration\\msvc-debug\\contracts.exe"
+      ],
+      "hashes": {
+        "F:\\klang\\sfx\\kleine\\experiments\\klang\\ue-integration\\klang.h": "57c5e56f7d97758bed67cbe1abf836834c46c048d1eca53ce58b3ed987152c12",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-additions.cpp": "2438d4a75945a5d825d8841831fc993bde1ae4870644b946f61d23d8107fb866",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-link.cpp": "d5e4a62631a339772c9404e6212a001cc5a03dd3cbe71323c874ca3d52eeb0ac"
+      },
+      "compile_returncode": 0,
+      "selected_header_verified": true,
+      "sources_unchanged": true,
+      "result": {
+        "returncode": 0,
+        "output": "460595 checks passed\n"
+      }
+    },
+    "clang14-release": {
+      "command": [
+        "build/toolchains/klang14\\klang.exe",
+        "-std=c++17",
+        "-fexceptions",
+        "-O2",
+        "-static",
+        "-ffast-math",
+        "-DNDEBUG",
+        "-DNOMINMAX",
+        "-H",
+        "-MD",
+        "-MF",
+        "F:\\klang\\sfx\\kleine\\build\\ue-integration\\clang14-release\\contracts.d",
+        "-IF:\\klang\\sfx\\kleine\\experiments\\klang\\ue-integration",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-additions.cpp",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-link.cpp",
+        "-o",
+        "F:\\klang\\sfx\\kleine\\build\\ue-integration\\clang14-release\\contracts.exe"
+      ],
+      "hashes": {
+        "F:\\klang\\sfx\\kleine\\experiments\\klang\\ue-integration\\klang.h": "57c5e56f7d97758bed67cbe1abf836834c46c048d1eca53ce58b3ed987152c12",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-additions.cpp": "2438d4a75945a5d825d8841831fc993bde1ae4870644b946f61d23d8107fb866",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-link.cpp": "d5e4a62631a339772c9404e6212a001cc5a03dd3cbe71323c874ca3d52eeb0ac"
+      },
+      "compile_returncode": 0,
+      "selected_header_verified": true,
+      "sources_unchanged": true,
+      "result": {
+        "returncode": 0,
+        "output": "460595 checks passed\n"
+      }
+    },
+    "clang14-debug": {
+      "command": [
+        "build/toolchains/klang14\\klang.exe",
+        "-std=c++17",
+        "-fexceptions",
+        "-O0",
+        "-static",
+        "-ffast-math",
+        "-D_DEBUG",
+        "-DNOMINMAX",
+        "-H",
+        "-MD",
+        "-MF",
+        "F:\\klang\\sfx\\kleine\\build\\ue-integration\\clang14-debug\\contracts.d",
+        "-IF:\\klang\\sfx\\kleine\\experiments\\klang\\ue-integration",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-additions.cpp",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-link.cpp",
+        "-o",
+        "F:\\klang\\sfx\\kleine\\build\\ue-integration\\clang14-debug\\contracts.exe"
+      ],
+      "hashes": {
+        "F:\\klang\\sfx\\kleine\\experiments\\klang\\ue-integration\\klang.h": "57c5e56f7d97758bed67cbe1abf836834c46c048d1eca53ce58b3ed987152c12",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-additions.cpp": "2438d4a75945a5d825d8841831fc993bde1ae4870644b946f61d23d8107fb866",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\ue-link.cpp": "d5e4a62631a339772c9404e6212a001cc5a03dd3cbe71323c874ca3d52eeb0ac"
+      },
+      "compile_returncode": 0,
+      "selected_header_verified": true,
+      "sources_unchanged": true,
+      "result": {
+        "returncode": 0,
+        "output": "460595 checks passed\n"
+      }
+    }
+  },
+  "osm": {
+    "date": "2026-09-17T09:51:26.981241+00:00",
+    "profile": "combined",
+    "driver": "cl",
+    "compiler_version": "usage: cl [ option... ] filename... [ /link linkoption... ]\nMicrosoft (R) C/C++ Optimizing Compiler Version 19.51.36257 for x64\nCopyright (C) Microsoft Corporation.  All rights reserved.\n\n",
+    "command": [
+      "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+      "/nologo",
+      "/std:c++17",
+      "/EHsc",
+      "/O2",
+      "/fp:fast",
+      "/MT",
+      "/DNDEBUG",
+      "/DNOMINMAX",
+      "/D_CRT_SECURE_NO_WARNINGS",
+      "/W3",
+      "/wd4244",
+      "/wd4305",
+      "/showIncludes",
+      "/DOSM_MULTICYCLE",
+      "/DOSM_FRACTIONAL_DUTY",
+      "/IF:\\klang\\sfx\\kleine\\experiments\\klang\\ue-integration",
+      "F:\\klang\\sfx\\kleine\\tests\\klang\\osm-quality.cpp",
+      "/FoF:\\klang\\sfx\\kleine\\build\\ue-integration\\osm\\contracts.obj",
+      "/FeF:\\klang\\sfx\\kleine\\build\\ue-integration\\osm\\contracts.exe"
+    ],
+    "hashes": {
+      "tests\\klang\\osm-quality.cpp": "a70878887fe70e4cf7855e145a4fde672c49f415754f086d55eeee9db4ed5ce9",
+      "experiments\\klang\\ue-integration\\klang.h": "57c5e56f7d97758bed67cbe1abf836834c46c048d1eca53ce58b3ed987152c12",
+      "tests\\klang\\oscillator-reference.h": "e769a44f9bc50d6ecb520d321b57c1bec840cd458b4c6d2b22c0f861e983dad7",
+      "tests\\klang\\check_osm.py": "f7b29983f331587436fe60c43af29633b9bd6d653d1390baf67895c3b4fd240b"
+    },
+    "sources_unchanged": true,
+    "compile_returncode": 0,
+    "selected_header_verified": true,
+    "result": {
+      "returncode": 0,
+      "output": "fixtures=42048 checks=23093220 samples=9007680 failures=0 max_error=6.12400663347e-06 rms_error=3.74885006269e-08 peak=1.00000011921\nunquantised_duty_audio_max=6.12400663347e-06 unquantised_duty_edge_max=8.34465026855e-07\nedge_rate=48000 edge_hz=-1.11758709e-05 edge_duty=1.2499999924e-09 edge_pulse=0 edge_sample=0\n"
+    }
+  }
+}

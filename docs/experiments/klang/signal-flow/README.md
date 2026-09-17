@@ -13,7 +13,7 @@ The default build uses `signal(source(2)) >> destination` and checks both the
 result and one evaluation of each object. This inline conversion avoids a named
 temporary, but remains a workaround, not the intended final syntax.
 
-[Retained results](results.json) record the compiler, source hashes, competing
+[Retained results](../../../../experiments/klang/signal-flow/results.json) record the compiler, source hashes, competing
 overloads and successful one-evaluation check.
 
 From an x64 Visual Studio developer prompt:

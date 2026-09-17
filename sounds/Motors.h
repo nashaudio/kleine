@@ -48,7 +48,7 @@ struct ToyBoatEngine : Generator {
 	void process() {
 		signal mix = 0;
 		
-		if(brk) // engine broken>?
+		if(brk) // engine broken?
 		 	noise >> bp_9_15 >> mix; // sputtering noise
 		else
 		 	osc >> mix; // regular pulse
@@ -68,6 +68,8 @@ struct ToyBoatEngine : Generator {
 	
 };
 
+// Legacy model with audio-rate random delay-tap jumps; retained for reference,
+// superseded by Mini, and excluded from the production acceptance corpus.
 struct FourStrokeEngine : Generator {
 	virtual ~FourStrokeEngine() {}
 
@@ -121,6 +123,7 @@ struct FourStrokeEngine : Generator {
 	}
 };
 
+// Legacy wrapper around the known-broken FourStrokeEngine model.
 struct Car : Sound {
 
 	FourStrokeEngine engine;

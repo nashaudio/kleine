@@ -53,7 +53,7 @@ struct Mini : Sound {
 
 		// soft clip distortion (for exhaust noise)
 		static signal softclip(signal x, signal threshold = 1.5f, signal slope = 1.5f) {
-			return threshold * FMath::Tanh(x * slope / threshold);
+			return threshold * tanh(x * slope / threshold);
 		}
     
 		// configure engine (based on UE Chaos Vehicle)

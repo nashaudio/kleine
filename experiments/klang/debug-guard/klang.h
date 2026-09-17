@@ -1,19 +1,3 @@
-#ifdef abs
-#undef abs
-#endif
-#ifdef sqrt
-#undef sqrt
-#endif
-#ifdef min
-#undef min
-#endif
-#ifdef max
-#undef max
-#endif
-#ifdef clamp
-#undef clamp
-#endif
-
 #ifndef _CRT_SECURE_NO_WARNINGS
 #define _CRT_SECURE_NO_WARNINGS
 #endif
@@ -42,18 +26,6 @@
 
 #define HAS_KLANG 1
 
-// Set to 1 before including Klang to restore compiler warnings suppressed for
-// compatibility with the supported host/plugin builds.
-#ifndef KLANG_STRICT
-#define KLANG_STRICT 0
-#endif
-
-#if defined(_MSC_VER) && !KLANG_STRICT
-#pragma warning(push)
-#pragma warning(disable: 4587 4263 4264 4996)
-#define KLANG_WARNING_SCOPE 1
-#endif
-
 // Studio wrappers define KLANG in both Release and Debug builds.
 // Other hosts may opt in explicitly; use one setting throughout a module.
 #ifndef HAS_KLANG_DEBUG
@@ -67,7 +39,7 @@
 #pragma once
 
 #ifdef __wasm__
-#define THREAD_LOCAL
+#define THREAD_LOCAL 
 static inline float _sqrt(float x) { return __builtin_sqrtf(x); }
 static inline float _abs(float x) { return __builtin_fabsf(x); }
 #define SQRT _sqrt
@@ -109,6 +81,14 @@ static inline float _abs(float x) { return __builtin_fabsf(x); }
 
 #define GRAPH_SERIES 4
 
+// provide access to original math functions through std:: prefix
+namespace std {
+	namespace klang {
+		template<typename TYPE> TYPE sqrt(TYPE x) { return SQRT(x); }
+		template<typename TYPE> TYPE abs(TYPE x) { return ABS(x); }
+	}
+};
+
 #define IS_SIMPLE_TYPE(type)																					\
 	static_assert(!std::is_polymorphic_v<type>, "signal has virtual table");									\
 	static_assert(!std::has_virtual_destructor_v<type>, "signal has virtual destructor");						\
@@ -117,7 +97,7 @@ static inline float _abs(float x) { return __builtin_fabsf(x); }
 	static_assert(std::is_trivially_copy_constructible_v<type>, "signal is not trivially copy assignable");		\
 	static_assert(std::is_trivially_destructible_v<type>, "signal is not trivially copy assignable");			\
 	static_assert(std::is_trivially_move_assignable_v<type>, "signal is not trivially copy assignable");		\
-	static_assert(std::is_trivially_move_constructible_v<type>, "signal is not trivially copy assignable");
+	static_assert(std::is_trivially_move_constructible_v<type>, "signal is not trivially copy assignable");	
 
 namespace klang {
 	typedef unsigned char byte;
@@ -131,7 +111,7 @@ namespace klang {
 		}
 		bool below(unsigned char M, unsigned char m, unsigned char b) const { return !atLeast(M, m, b); }
 	}
-	static constexpr version = { 0, 7, 10, KLANG_DEBUG };
+	static constexpr version = { 0, 7, 8, KLANG_DEBUG };
 
 	/// Klang mode identifiers (e.g. averages, level following)
 	enum Mode { Peak, RMS, Mean };
@@ -162,6 +142,7 @@ namespace klang {
 #define CONSTANT constexpr constant
 
 #if __cplusplus == 201703L
+#pragma warning(disable:4996) // disable deprecated warning
 	/// @internal
 	template <typename T>
 	inline constexpr bool is_literal = std::is_literal_type_v<T>;
@@ -1225,7 +1206,7 @@ namespace klang {
 		/// Returns a copy of the signal to treat as a relative offset (e.g. for phase modulation).
 		relative operator+() const;	// unary + operator produces relative signal
 		/// Returns a copy of the signal to treat as a relative offset (e.g. for phase modulation).
-		relative relative() const;	//
+		relative relative() const;	// 
 	};
 
 	/// @internal signal MUST compile as a float
@@ -1240,31 +1221,15 @@ namespace klang {
 	/// Returns a copy of the signal to treat as a relative offset (e.g. for phase modulation).
 	inline relative signal::relative() const { return { value }; }
 
-	/// Stream a built-in arithmetic value into a signal, narrowing at the signal boundary.
-	template<typename TYPE, std::enable_if_t<std::is_arithmetic_v<TYPE>, int> = 0>
-	inline signal& operator>>(TYPE input, signal& destination) {
-		destination << signal(static_cast<float>(input));
+	/// Stream a literal / constant / scalar type into a signal.
+	inline static signal& operator>>(float input, signal& destination) { // CHECK: should this be signal, rather than float?
+		destination << signal(input);
 		return destination;
 	}
-	/// Stream a Klang constant into a signal.
-	inline signal& operator>>(const constant& input, signal& destination) {
-		destination << signal(input.f);
-		return destination;
-	}
-
-	/// A stateless unary C/C++ function that maps one float sample to another.
-	using UnaryFunction = float(float);
-
-	/// Apply an ordinary unary function within a signal-flow expression.
-	inline signal operator>>(signal input, UnaryFunction& function) {
-		return function(float(input));
-	}
-
 
 	/// A multi-channel audio signal (e.g. stereo).
 	template<int CHANNELS = 2>
 	struct signals {
-		static_assert(CHANNELS > 0, "signals requires at least one channel");
 #if !defined(__GNUC__) || defined(__clang__) // non-GNU compilers support anonymous unions; GNU compilers do not (and produce warnings/errors)
 		/// @cond
 		union {
@@ -1276,80 +1241,57 @@ namespace klang {
 		};
 		/// @endcond
 
-		/// Create a multi-channel signal by broadcasting the given value.
-		signals(float initial = 0.f) { for (int channel = 0; channel < CHANNELS; channel++) value[channel] = initial; }
-		/// Create a multi-channel signal by broadcasting the given value.
-		signals(double initial) : signals((float)initial) {}
-		/// Create a multi-channel signal by broadcasting the given value.
-		signals(int initial) : signals((float)initial) {}
-		/// Create a multi-channel signal by broadcasting the given signal.
-		signals(const klang::signal& initial) { for (int channel = 0; channel < CHANNELS; channel++) value[channel] = initial; }
+		/// Create a stereo signal with the given value.
+		signals(float initial = 0.f) : l(initial), r(initial) {}
+		/// Create a stereo signal with the given value.
+		signals(double initial) : l((float)initial), r((float)initial) {}
+		/// Create a stereo signal with the given value.
+		signals(int initial) : l((float)initial), r((float)initial) {}
 
-		/// Create a multi-channel signal with the first two channel values; remaining channels are zero.
-		signals(float left, float right) : signals(0.f) { l = left; r = right; }
-		/// Create a multi-channel signal with the first two channel values; remaining channels are zero.
-		signals(double left, double right) : signals((float)left, (float)right) {}
-		/// Create a multi-channel signal with the first two channel values; remaining channels are zero.
-		signals(int left, int right) : signals((float)left, (float)right) {}
+		/// Create a stereo signal with the given left and right value.
+		signals(float left, float right) : l(left), r(right) {}
+		/// Create a stereo signal with the given left and right value.
+		signals(double left, double right) : l((float)left), r((float)right) {}
+		/// Create a stereo signal with the given left and right value.
+		signals(int left, int right) : l((float)left), r((float)right) {}
 
 		/// Create a multi-channel signal with the given channel values.
-		template <typename... Args, typename = std::enable_if_t<sizeof...(Args) == CHANNELS && (std::is_convertible_v<Args, signal> && ...)>>
+		template <typename... Args, typename = std::enable_if_t<(std::is_convertible_v<Args, signal> && ...)>>
 		signals(Args&... initial) : value{ initial... } {}
 		/// Create a multi-channel signal with the given channel values.
-		template <typename... Args, typename = std::enable_if_t<sizeof...(Args) == CHANNELS && (std::is_scalar_v<Args> && ...)>>
+		template <typename... Args, typename = std::enable_if_t<(std::is_scalar_v<Args> && ...)>>
 		signals(Args... initial) : value{ initial... } {}
 #else
 		signal value[CHANNELS]; ///< Array of channel values.
 		signal& l = value[0]; ///< Left channel
 		signal& r = value[1]; ///< Right channel
 
-		/// Create a multi-channel signal by broadcasting the given value.
+		/// Create a stereo signal with the given value.
 		signals(float initial = 0.f) { for (int v = 0; v < CHANNELS; v++) value[v] = initial; }
-		/// Create a multi-channel signal by broadcasting the given value.
-		signals(double initial) : signals((float)initial) {}
-		/// Create a multi-channel signal by broadcasting the given value.
-		signals(int initial) : signals((float)initial) {}
-		/// Create a multi-channel signal by broadcasting the given signal.
-		signals(const klang::signal& initial) { for (int v = 0; v < CHANNELS; v++) value[v] = initial; }
+		/// Create a stereo signal with the given value.
+		signals(double initial) { for (int v = 0; v < CHANNELS; v++) value[v] = (float)initial; }
+		/// Create a stereo signal with the given value.
+		signals(int initial) { for (int v = 0; v < CHANNELS; v++) value[v] = (float)initial; }
 
-		/// Create a multi-channel signal with the first two channel values; remaining channels are zero.
+		/// Create a stereo signal with the given left and right value.
 		signals(float left, float right) { l = left; r = right; for (int v = 2; v < CHANNELS; v++) value[v] = 0.f; }
-		/// Create a multi-channel signal with the first two channel values; remaining channels are zero.
-		signals(double left, double right) : signals((float)left, (float)right) {}
-		/// Create a multi-channel signal with the first two channel values; remaining channels are zero.
-		signals(int left, int right) : signals((float)left, (float)right) {}
+		/// Create a stereo signal with the given left and right value.
+		signals(double left, double right) { l = (float)left; r = (float)right; for (int v = 2; v < CHANNELS; v++) value[v] = 0.f; }
+		/// Create a stereo signal with the given left and right value.
+		signals(int left, int right) { l = (float)left; r = (float)right; for (int v = 2; v < CHANNELS; v++) value[v] = 0.f; }
 
 		/// Create a multi-channel signal with the given channel values.
-		template <typename... Args, typename = std::enable_if_t<sizeof...(Args) == CHANNELS && (std::is_convertible_v<Args, signal> && ...)>>
+		template <typename... Args, typename = std::enable_if_t<(std::is_convertible_v<Args, signal> && ...)>>
 		signals(Args&... initial) : value{ initial... } {}
 		/// Create a multi-channel signal with the given channel values.
-		template <typename... Args, typename = std::enable_if_t<sizeof...(Args) == CHANNELS && (std::is_scalar_v<Args> && ...)>>
+		template <typename... Args, typename = std::enable_if_t<(std::is_scalar_v<Args> && ...)>>
 		signals(Args... initial) : value{ initial... } {}
 
 		signals& operator=(const signals& input) { for (int v = 0; v < CHANNELS; v++) value[v] = input[v]; return *this; }
 #endif
-		/// Evaluate a mono Klang object once and broadcast its signal to every channel.
-		template<typename TYPE, std::enable_if_t<!std::is_arithmetic_v<std::decay_t<TYPE>> &&
-			!std::is_same_v<std::decay_t<TYPE>, klang::signal> && std::is_convertible_v<TYPE&, klang::signal>, int> = 0>
-		signals(TYPE& initial) {
-			const klang::signal mono = initial;
-			for (int channel = 0; channel < CHANNELS; channel++)
-				value[channel] = mono;
-		}
 
-		/// Return the sum of all channels.
-		klang::signal sum() const {
-			klang::signal result = 0;
-			for (int channel = 0; channel < CHANNELS; channel++)
-				result += value[channel];
-			return result;
-		}
-
-		/// Return the arithmetic mean of all channels.
-		klang::signal average() const { return sum() / float(CHANNELS); }
-
-		/// Return the default mono downmix: the arithmetic mean of all channels.
-		klang::signal mono() const { return average(); }
+		/// Return the mono mix of a stereo channel.
+		signal mono() const { return (l + r) * 0.5f; }
 
 		/// Return a reference to the signal at the specified index (0 = left, 1 = right).
 		signal& operator[](int index) { return value[index]; }
@@ -1477,12 +1419,6 @@ namespace klang {
 		param(const signal& in) : signal(in) {}
 		param(signal& in) : signal(in) {}
 		param(Control& in); // see Control declaration
-		template<typename SOURCE, std::enable_if_t<!std::is_arithmetic_v<std::decay_t<SOURCE>> &&
-			!std::is_base_of_v<signal, std::decay_t<SOURCE>> &&
-			!std::is_same_v<std::decay_t<SOURCE>, Control> &&
-			std::is_convertible_v<SOURCE&&, const signal&>, int> = 0>
-		param(SOURCE&& source)
-			: signal(static_cast<const signal&>(std::forward<SOURCE>(source))) {}
 
 		param& operator+=(const increment& increment) {
 			value += increment.amount;
@@ -1637,34 +1573,31 @@ namespace klang {
 		using param::param;
 		/*Phase(const float p = 0.f) : param(p) { };*/
 
-		/// Wrap a finite phase to [0, cycle); invalid values become zero.
-		static float wrap(float phase, float cycle = 2 * pi) {
-			if (!std::isfinite(phase) || !std::isfinite(cycle) || cycle <= 0) return 0;
-			const float turn = cycle;
-			if (phase >= 0 && phase < turn) return phase;
-			phase = std::fmod(phase, turn);
-			return phase < 0 ? phase + turn : phase;
-		}
-
-		/// Return this phase plus an optional offset, wrapped to one turn.
-		float wrapped(float offset = 0) const { return wrap(value + offset); }
-
-		param& operator+=(float step) {
-			value += step;
-			if (value < 0 || value >= (2 * pi))
-				value = wrap(value);
+		param& operator+=(float increment) {
+			if (increment >= (2 * pi))
+				return *this;
+			value += increment;
+			if (value > (2 * pi))
+				value -= (2 * pi);
 			return *this;
 		}
 
-		param& operator+=(const increment& step) {
-			value += step.amount;
-			if (value < 0 || value >= step.size)
-				value = wrap(value, step.size);
+		param& operator+=(const increment& increment) {
+			if (increment.amount >= increment.size)
+				return *this;
+			value += increment.amount;
+			if (value > increment.size)
+				value -= increment.size;
 			return *this;
 		}
 
-		Phase operator+(const increment& step) const {
-			return wrap(value + step.amount, step.size);
+		Phase operator+(const increment& increment) const {
+			if (increment.amount >= increment.size)
+				return value;
+			Phase value = Phase::value + increment.amount;
+			if (value > increment.size)
+				value -= increment.size;
+			return value;
 		}
 
 		Phase operator%(float modulus) {
@@ -1852,15 +1785,6 @@ namespace klang {
 			return *this;
 		}
 
-		template<typename TYPE, std::enable_if_t<std::is_arithmetic_v<TYPE>, int> = 0>
-		Control& operator=(TYPE input) { return set(static_cast<float>(input)); }
-		template<typename TYPE, std::enable_if_t<!std::is_arithmetic_v<std::decay_t<TYPE>> &&
-			!std::is_same_v<std::decay_t<TYPE>, Control> && std::is_convertible_v<TYPE&&, signal>, int> = 0>
-		Control& operator=(TYPE&& input) {
-			const signal sample = std::forward<TYPE>(input);
-			return set(sample);
-		}
-
 		Control& operator+=(float x) { value += x; return *this; }
 		Control& operator*=(float x) { value *= x; return *this; }
 		Control& operator-=(float x) { value -= x; return *this; }
@@ -1881,9 +1805,11 @@ namespace klang {
 		template<typename TYPE> float operator-(TYPE& x) const { return value - (signal)x; }
 		template<typename TYPE> float operator/(TYPE& x) const { return value / (signal)x; }
 
-		Control& operator<<(const signal& input) { return operator=(input); }
-		template<typename TYPE, std::enable_if_t<std::is_arithmetic_v<TYPE>, int> = 0>
-		Control& operator<<(TYPE input) { return operator=(input); }
+		template<typename TYPE> Control& operator<<(TYPE& in) { value = in; return *this; }		// assign to control with processing
+		template<typename TYPE> Control& operator<<(const TYPE& in) { value = in; return *this; }	// assign to control without/after processing
+
+		template<typename TYPE> TYPE& operator>>(TYPE& in) { return value >> in; }					// stream control to signal/object (allows processing)
+		template<typename TYPE> const TYPE& operator>>(const TYPE& in) { return value >> in; }		// stream control to signal/object (no processing)
 	};
 
 	const Control::Size Automatic = { -1, -1, -1, -1 };
@@ -1917,17 +1843,8 @@ namespace klang {
 		operator float() const { return control->value; }
 		signal smooth() { return control->smooth(); }
 
-		ControlMap& operator=(Control& mapped) { control = &mapped; return *this; }
-		template<typename TYPE, std::enable_if_t<std::is_arithmetic_v<TYPE>, int> = 0>
-		ControlMap& operator=(TYPE input) { *control = input; return *this; }
-		template<typename TYPE, std::enable_if_t<!std::is_arithmetic_v<std::decay_t<TYPE>> &&
-			!std::is_same_v<std::decay_t<TYPE>, ControlMap> && !std::is_same_v<std::decay_t<TYPE>, Control> &&
-			std::is_convertible_v<TYPE&&, signal>, int> = 0>
-		ControlMap& operator=(TYPE&& input) { *control = std::forward<TYPE>(input); return *this; }
-
-		Control& operator<<(const signal& input) { return *control << input; }
-		template<typename TYPE, std::enable_if_t<std::is_arithmetic_v<TYPE>, int> = 0>
-		Control& operator<<(TYPE input) { return *control << input; }
+		template<typename TYPE> Control& operator<<(TYPE& in) { control->value = in; return *control; }		// assign to control with processing
+		template<typename TYPE> Control& operator<<(const TYPE& in) { control->value = in; return *control; }	// assign to control without/after processing
 	};
 
 	IS_SIMPLE_TYPE(Control);
@@ -2182,7 +2099,7 @@ namespace klang {
 			set(initial);
 		}
 
-		buffer(const buffer& buf) : mask(buf.mask), owned(false), samples(buf.samples), size(buf.size) {
+		buffer(const buffer& buf) : mask(buf.mask), owned(false), samples(buf.samples), size(buf.size) { 
 			rewind();
 		}
 
@@ -2332,7 +2249,7 @@ namespace klang {
 
 			void rewind(int offset = 0) { ptr->rewind(offset); }
 			void clear() { ptr->clear(); }
-			void clear(int size) { ptr->clear(size); }
+			void clear(int size) { ptr->clear(size); }	
 			int offset() const { return ptr->offset(); }
 			void set(float value = 0) { ptr->set(value); }
 			signal& operator[](int offset) { return ptr->operator[](offset); }
@@ -2348,7 +2265,7 @@ namespace klang {
 			//signal& operator=(const signal& in) { return ptr->operator=(in); }
 			//signal& operator+=(const signal& in) { return ptr->operator+=(in); }
 			//signal& operator*=(const signal& in) { return ptr->operator*=(in); }
-
+			
 			variable::buffer& operator=(const klang::buffer& in) {
 				resize(in.size); *ptr = in; return *this;
 			}
@@ -2559,14 +2476,14 @@ namespace klang {
 
 			// inline parameter(s) support
 			template<typename... params>
-			Output<SIGNAL>& operator()(params&&... p) {
-				set(std::forward<params>(p)...); return *this;
+			Output<SIGNAL>& operator()(params... p) {
+				set(p...); return *this;
 			}
 
 			using Output<SIGNAL>::operator>>;
 			using Output<SIGNAL>::process;
-			operator const SIGNAL& () override { this->process(); return out; } // return processed output
-			operator const SIGNAL& () const override { return out; } // return last output
+			operator const SIGNAL& () override { this->process(); return out; } // return processed output		
+			operator const SIGNAL& () const override { return out; } // return last output		
 
 		protected:
 			// overrideable parameter setting (up to 8 parameters)
@@ -2607,8 +2524,8 @@ namespace klang {
 
 			// inline parameter(s) support
 			template<typename... params>
-			Modifier<SIGNAL>& operator()(params&&... p) {
-				set(std::forward<params>(p)...); return *this;
+			Modifier<SIGNAL>& operator()(params... p) {
+				set(p...); return *this;
 			}
 		protected:
 			// overrideable parameter setting (up to 8 parameters)
@@ -3206,7 +3123,6 @@ namespace klang {
 	struct Bank : public GeneratorOrModifier<TYPE, signals<COUNT>> {
 		using GeneratorOrModifier<TYPE, signals<COUNT>>::in;
 		using GeneratorOrModifier<TYPE, signals<COUNT>>::out;
-		using GeneratorOrModifier<TYPE, signals<COUNT>>::operator>>;
 
 		TYPE items[COUNT];
 
@@ -3227,18 +3143,6 @@ namespace klang {
 		void process() override {
 			for (int n = 0; n < COUNT; n++)
 				items[n] >> out[n];
-		}
-
-		/// Return the sum of the cached parallel outputs.
-		signal sum() const { return out.sum(); }
-
-		/// Return the Bank's default mono reduction: the sum of its parallel outputs.
-		signal mono() const { return sum(); }
-
-		/// Process every item once and route their summed output to mono.
-		signal& operator>>(signal& destination) {
-			process();
-			return destination = mono();
 		}
 	};
 
@@ -3346,11 +3250,6 @@ namespace klang {
 		return graph;
 	}
 
-	inline static GraphPtr& operator>>(UnaryFunction& function, klang::GraphPtr& graph) {
-		graph->plot(static_cast<float(*)(float)>(function));
-		return graph;
-	}
-
 	template<typename TYPE>
 	static GraphPtr& operator>>(TYPE(*function)(TYPE), klang::GraphPtr& graph) {
 		graph->plot(function);
@@ -3360,11 +3259,6 @@ namespace klang {
 	template<typename SIGNAL, typename... Args>
 	inline Graph& Generic::Function<SIGNAL, Args...>::operator>>(klang::Graph& graph) {
 		graph.plot(*this);
-		return graph;
-	}
-
-	inline static Graph& operator>>(UnaryFunction& function, Graph& graph) {
-		graph.plot(static_cast<float(*)(float)>(function));
 		return graph;
 	}
 
@@ -3386,55 +3280,17 @@ namespace klang {
 		return *this;
 	}
 
-	// Extend common standard unary maths overload sets for Klang wrapper types.
-#define KLANG_UNARY_MATH(function) \
-	using std::function; \
-	inline signal function(signal input) { return std::function(input.value); } \
-	inline float function(const Control& input) { return float(std::function(float(input))); } \
-	inline float function(const ControlMap& input) { return float(std::function(float(input))); }
+	/// Square root function (audio object)
+	inline static Function<float> sqrt(SQRTF);
+	/// Absolute/rectify function (audio object)
+	inline static Function<float> abs(FABS);
+	/// Square function (audio object)
+	inline static Function<float> sqr([](float x) -> float { return x * x; });
+	/// Cube function (audio object)
+	inline static Function<float> cube([](float x) -> float { return x * x * x; });
 
-	KLANG_UNARY_MATH(abs)
-	KLANG_UNARY_MATH(sqrt)
-	KLANG_UNARY_MATH(cbrt)
-	KLANG_UNARY_MATH(sin)
-	KLANG_UNARY_MATH(cos)
-	KLANG_UNARY_MATH(tan)
-	KLANG_UNARY_MATH(asin)
-	KLANG_UNARY_MATH(acos)
-	KLANG_UNARY_MATH(atan)
-	KLANG_UNARY_MATH(sinh)
-	KLANG_UNARY_MATH(cosh)
-	KLANG_UNARY_MATH(tanh)
-	KLANG_UNARY_MATH(asinh)
-	KLANG_UNARY_MATH(acosh)
-	KLANG_UNARY_MATH(atanh)
-	KLANG_UNARY_MATH(exp)
-	KLANG_UNARY_MATH(exp2)
-	KLANG_UNARY_MATH(expm1)
-	KLANG_UNARY_MATH(log)
-	KLANG_UNARY_MATH(log2)
-	KLANG_UNARY_MATH(log10)
-	KLANG_UNARY_MATH(log1p)
-	KLANG_UNARY_MATH(floor)
-	KLANG_UNARY_MATH(ceil)
-	KLANG_UNARY_MATH(trunc)
-	KLANG_UNARY_MATH(round)
-	KLANG_UNARY_MATH(erf)
-	KLANG_UNARY_MATH(erfc)
-
-#undef KLANG_UNARY_MATH
-
-	/// Stateless square and cube functions preserve Klang signals in audio expressions.
-	inline signal sqr(signal input) { return input * input; }
-	inline signal cube(signal input) { return input * input * input; }
-	template<typename TYPE, std::enable_if_t<std::is_arithmetic_v<TYPE>, int> = 0>
-	inline TYPE sqr(TYPE input) { return input * input; }
-	template<typename TYPE, std::enable_if_t<std::is_arithmetic_v<TYPE>, int> = 0>
-	inline TYPE cube(TYPE input) { return input * input * input; }
-	inline float sqr(const Control& input) { const float value = float(input); return value * value; }
-	inline float cube(const Control& input) { const float value = float(input); return value * value * value; }
-	inline float sqr(const ControlMap& input) { const float value = float(input); return value * value; }
-	inline float cube(const ControlMap& input) { const float value = float(input); return value * value * value; }
+#define sqrt klang::sqrt // avoid conflict with std::sqrt
+#define abs klang::abs   // avoid conflict with std::abs
 
 	/// Debug text output
 	struct Console : public Text<16384> {
@@ -3782,21 +3638,10 @@ namespace klang {
 
 		using Array::add;
 
-		/// Construct and fill a table from a value-returning or Result-writing callable.
-		template<typename FUNCTION, std::enable_if_t<
-			std::is_invocable_r_v<TYPE, FUNCTION&, TYPE> ||
-			std::is_invocable_v<FUNCTION&, TYPE, Result&>, int> = 0>
-		Table(FUNCTION function) {
-			Array::count = SIZE;
-			Result result(Array::items, 0);
+		// single argument
+		Table(TYPE(*function)(TYPE)) {
 			for (int x = 0; x < SIZE; x++)
-				if constexpr (std::is_invocable_r_v<TYPE, FUNCTION&, TYPE>)
-					Array::items[x] = function((TYPE)x);
-				else {
-					function((TYPE)x, result);
-					result.sum += Array::items[x];
-					if (x + 1 < SIZE) result++;
-				}
+				add(function(x));
 		}
 
 		// double argument
@@ -3804,6 +3649,17 @@ namespace klang {
 			Array::count = SIZE;
 			for (int x = 0; x < SIZE; x++)
 				Array::items[x] = function(x, arg);
+		}
+
+		// single argument (enhanced)
+		Table(void(*function)(TYPE x, Result& y)) {
+			Array::count = SIZE;
+			Result y(Array::items, 0);
+			for (int x = 0; x < SIZE; x++) {
+				function((TYPE)x, y);
+				y.sum += Array::items[x];
+				y++;
+			}
 		}
 
 		Table(std::initializer_list<TYPE> values) {
@@ -3824,6 +3680,16 @@ namespace klang {
 			}
 		}
 	};
+
+	//#define FUNCTION(type) (void(*)(type, Result<type>&))[](type x, Result<type>& y)
+
+	#define FUNCTION(type, size) (void(*)(type, Table<type, size>::Result&))[](type x, Table<type, size>::Result& y)))
+
+	//template<typename T, int SIZE, typename F>
+	//constexpr auto FUNCTION2(F&& f) -> void (*)(T, typename Table<T, SIZE>::Result&)
+	//{
+	//	return static_cast<void (*)(T, typename Table<T, SIZE>::Result&)>(f);
+	//}
 
 	/// Audio delay object (fixed size)
 	template<int SIZE>
@@ -4436,7 +4302,7 @@ namespace klang {
 			}
 		}
 
-		// Scales the envelope duration to specified length
+		// Scales the envelope duration to specified length 
 		void resize(float length) {
 			const float old_length = getLength();
 			if (old_length == 0.0)
@@ -4673,7 +4539,7 @@ namespace klang {
 			}
 		}
 	};
-
+	
 	struct Sound : Effect { };
 
 	/// Base class for synthesiser notes
@@ -5398,57 +5264,6 @@ namespace klang {
 		return destination;
 	}
 
-	/** Fast scalar approximations. Angles use radians unless a `p` suffix
-	 * identifies an unsigned 32-bit phase covering one complete turn.
-	 * Sine uses the retained V2/Farbrausch range reduction and Robin Green
-	 * odd polynomial. Cosine reuses that polynomial with direct quadrant
-	 * reduction, avoiding an added pi/2 before the existing modulo step.
-	 */
-	namespace fast {
-		constexpr float twoPi = float(2.0 * 3.1415926535897932384626433832795);
-
-		namespace detail {
-			inline float sin(float x) {
-				const float x2 = x * x;
-				return (((-0.00018542f * x2 + 0.0083143f) * x2 - 0.16666f) * x2 + 1.0f) * x;
-			}
-		}
-
-		/// Approximate sine of a finite angle in radians.
-		inline float sin(float x) {
-			x = fast_mod2pi(x);
-			if (x > 3 / 2.f * pi)
-				x -= twoPi;
-			else if (x > pi / 2)
-				x = pi - x;
-			return detail::sin(x);
-		}
-
-		/// Approximate cosine of a finite angle in radians.
-		inline float cos(float x) {
-			x = fast_mod2pi(x);
-			x = x < pi ? pi / 2.f - x : x - 3.f / 2.f * pi;
-			return detail::sin(x);
-		}
-
-		/// Approximate sine from an unsigned 32-bit phase covering one turn.
-		inline float sinp(unsigned int phase) {
-			float x = fast_modp(phase);
-			if (x > 3.f / 2.f * pi)
-				x -= twoPi;
-			else if (x > pi / 2.f)
-				x = pi - x;
-			return detail::sin(x);
-		}
-
-		/// Approximate cosine from an unsigned 32-bit phase covering one turn.
-		inline float cosp(unsigned int phase) {
-			float x = fast_modp(phase);
-			x = x < pi ? pi / 2.f - x : x - 3.f / 2.f * pi;
-			return detail::sin(x);
-		}
-	}
-
 	/// Common audio generators / oscillators.
 	namespace Generators {
 		using namespace klang;
@@ -5458,7 +5273,7 @@ namespace klang {
 			/// Sine wave oscillator
 			struct Sine : public Oscillator {
 				void process() {
-					out = sin(position.wrapped(offset));
+					out = sin(position + offset);
 					position += increment;
 				}
 			};
@@ -5466,7 +5281,7 @@ namespace klang {
 			/// Saw wave oscillator (aliased)
 			struct Saw : public Oscillator {
 				void process() {
-					out = position.wrapped(offset) * pi.inv - 1.f;
+					out = position * pi.inv - 1.f;
 					position += increment;
 				}
 			};
@@ -5482,7 +5297,7 @@ namespace klang {
 			/// Triangle wave oscillator (aliased)
 			struct Triangle : public Oscillator {
 				void process() {
-					out = abs(2.f * position.wrapped(offset) * pi.inv - 2) - 1.f;
+					out = abs(2.f * position * pi.inv - 2) - 1.f;
 					position += increment;
 				}
 			};
@@ -5490,7 +5305,7 @@ namespace klang {
 			/// Square wave oscillator (aliased)
 			struct Square : public Oscillator {
 				void process() {
-					out = position.wrapped(offset) > pi ? 1.f : -1.f;
+					out = position > pi ? 1.f : -1.f;
 					position += increment;
 				}
 			};
@@ -5506,7 +5321,7 @@ namespace klang {
 				}
 
 				void process() {
-					out = position.wrapped(offset) > (duty * pi) ? 1.f : -1.f;
+					out = position > (duty * pi) ? 1.f : -1.f;
 					position += increment;
 				}
 			};
@@ -5586,6 +5401,48 @@ namespace klang {
 			};
 #pragma float_control(pop)
 
+			/// sin approximation [-pi/2, pi/2] using odd minimax polynomial (Robin Green)
+			inline static float polysin(float x) {
+				const float x2 = x * x;
+				return (((-0.00018542f * x2 + 0.0083143f) * x2 - 0.16666f) * x2 + 1.0f) * x;
+			}
+
+			/// fast sine (based on V2/Farbrausch; using polysin)
+			inline static float fastsin(float x)
+			{
+				// Range reduction to [0, 2pi]
+				//x = fmodf(x, twoPi);
+				//if (x < 0)			// support -ve phase (e.g. for FM)
+				//	x += twoPi;		//
+				x = fast_mod2pi(x);
+
+				// Range reduction to [-pi/2, pi/2]
+				if (x > 3 / 2.f * pi)	// 3/2pi ... 2pi
+					x -= twoPi;	// (= translated)
+				else if (x > pi / 2)	// pi/2 ... 3pi/2
+					x = pi - x;		// (= mirrored)
+
+				return polysin(x);
+			}
+
+			/// fast sine (using polysin and integer math)
+			inline static float fastsinp(unsigned int p)
+			{
+				// Range reduction to [0, 2pi]
+				//x = fmodf(x, twoPi);
+				//if (x < 0)			// support -ve phase (e.g. for FM)
+				//	x += twoPi;		//
+				float x = fast_modp(p);
+
+				// Range reduction to [-pi/2, pi/2]
+				if (x > 3.f / 2.f * pi)	// 3/2pi ... 2pi
+					x -= twoPi;			// (= translated)
+				else if (x > pi / 2.f)	// pi/2 ... 3pi/2
+					x = pi - x;			// (= mirrored)
+
+				return polysin(x);
+			}
+
 			/// Sine wave oscillator (band-limited, optimised)
 			struct Sine : public Oscillator {
 				Sine() { set(frequency); }
@@ -5619,7 +5476,7 @@ namespace klang {
 				}
 
 				void process() override {
-					out = klang::fast::sinp(position.position + offset.position);
+					out = fastsinp(position.position + offset.position);
 					position += increment;
 				}
 
@@ -5938,48 +5795,8 @@ namespace klang {
 			};
 
 #undef KLANG_OSM_INLINE
-			/// Aliased 0-to-1 ramp using an integer wrapping phase.
-			struct Phasor : Oscillator {
-				Phasor() { set(frequency); }
-
-				void reset() override {
-					Phasor::position = Oscillator::position = 0;
-				}
-
-				void set(param frequency) override {
-					if (frequency != Oscillator::frequency || sampleRate != double(fs)) {
-						sampleRate = fs;
-						Oscillator::frequency = frequency;
-						increment.set(frequency);
-					}
-				}
-
-				void set(param frequency, param phase) override {
-					Phasor::position = Oscillator::position = phase;
-					set(frequency);
-				}
-
-				void set(param frequency, relative phase) override {
-					set(frequency);
-					set(phase);
-				}
-
-				void set(relative phase) override {
-					Phasor::offset = Oscillator::offset = phase * twoPi;
-				}
-
-				void process() override {
-					Fast::Phase phase = position;
-					phase.position += offset.position;
-					out = float(phase);
-					position += increment;
-				}
-
-			protected:
-				double sampleRate = 0;
-				Fast::Increment increment;
-				Fast::Phase position, offset;
-			};
+			/// The basic aliased ramp is also available through klang::optimised.
+			struct Phasor : Basic::Phasor {};
 
 			/// White noise generator (optimised)
 			struct Noise : public Generator {
@@ -6057,7 +5874,7 @@ namespace klang {
 					_set<index + 1>(rest...);
 			}
 		};
-
+		
 		// optimised first-order IIR
 		template <>
 		struct IIR<1> : public Modifier {
@@ -6385,7 +6202,7 @@ namespace klang {
 						const float w = f * fs.w;
 						cos0 = cosf(w);
 						sin0 = sinf(w);
-
+						
 						init();
 					}
 				}
@@ -6401,7 +6218,7 @@ namespace klang {
 			};
 		}
 		//		}
-
+	
 		/// One-pole Butterworth filter.
 		namespace Butterworth {
 			/// Low-pass filter (LPF).
@@ -6460,7 +6277,7 @@ namespace klang {
 
 				constexpr float min_d = 1e-6f;  // Prevents underflow
 				constexpr float max_d = 0.9999f;  // Ensures stability
-
+			
 				const float w = f.value * fs.w;
 				const float d = std::clamp(std::exp(-pi / (decay * fs)), min_d, max_d);
 
@@ -6571,7 +6388,7 @@ namespace klang {
 				sum += double(buffer++);
 				if (buffer.finished())
 					buffer.rewind();
-				signal(sum * window.inv) >> sqrt >> ar >> out;
+				sum* window.inv >> sqrt >> ar >> out;
 			}
 		};
 	};
@@ -6685,7 +6502,7 @@ namespace klang {
 			inline static void decode(float* buffer, const TYPE* data, int length) {
 				if constexpr (std::is_floating_point<TYPE>::value) {
 					while (length--) {
-						*buffer++ = *data;
+						*buffer++ = *data; 
 						data += STEP;
 					}
 				} else {
@@ -6693,13 +6510,13 @@ namespace klang {
 					if constexpr (std::numeric_limits<TYPE>::is_signed) {
 						constexpr float scale = 1.f / twoComp;
 						while (length--) {
-							*buffer++ = static_cast<float>(*data) * scale;
+							*buffer++ = static_cast<float>(*data) * scale; 
 							data += STEP;
 						}
 					} else {
 						constexpr float scale = 1.f / ((twoComp << 1) - 1);
 						while (length--) {
-							*buffer++ = (static_cast<float>(*data) - twoComp) * scale;
+							*buffer++ = (static_cast<float>(*data) - twoComp) * scale; 
 							data += STEP;
 						}
 					}
@@ -6707,7 +6524,7 @@ namespace klang {
 			}
 
 			bool operator>>(variable::buffer& buffer) {
-				if (!header || !format || !data)
+				if (!header || !format || !data) 
 					return false;
 
 				buffer.resize(data->size / format->BlockAlign);
@@ -6718,7 +6535,7 @@ namespace klang {
 						decode<signed short>(buffer.data(), (signed short*)data->data, buffer.size); // 16-bit (signed)
 					else if(format->BitsPerSample == 32)
 						decode<signed int>(buffer.data(), (signed int*)data->data, buffer.size); // 32-bit (signed)
-				} else if (format->AudioFormat == 3) {
+				} else if (format->AudioFormat == 3) { 
 					if(format->BitsPerSample == 32)
 						decode<float>(buffer.data(), (float*)data->data, buffer.size); // 32-bit (float)
 				}
@@ -6726,7 +6543,7 @@ namespace klang {
 			}
 		};
 
-		//struct AIFF {
+		//struct AIFF {		
 		//	struct Binary Extended {
 		//		unsigned short exponent;	  // 15-bit exponent + sign bit
 		//		unsigned long long mantissa;  // 64-bit mantissa
@@ -6785,10 +6602,5 @@ namespace klang {
 
 	//using namespace optimised;
 };
-
-#if defined(KLANG_WARNING_SCOPE)
-#pragma warning(pop)
-#undef KLANG_WARNING_SCOPE
-#endif
 
 //using namespace klang;

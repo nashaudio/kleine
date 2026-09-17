@@ -1,0 +1,103 @@
+{
+  "date": "2026-09-17",
+  "scope": "Promoted stateless math functions and exact float(float) signal-flow support",
+  "headers": {
+    "baseline": {
+      "path": "include/klang.h",
+      "sha256": "5936c841df12cbe65955157c5aa64b260e7c81ad17333680009c4aa9ac7aad44"
+    },
+    "candidate": {
+      "path": "experiments/klang/function-flow/klang.h",
+      "sha256": "c197d69f86574a6785fbd6713406ab074d3ab89a55c3094300fb22fd1172797e"
+    },
+    "production": {
+      "path": "include/klang.h",
+      "sha256": "3a846181b171bf5ce54a5daf2046d4c98c548322683d1fada1d63b84dbff3264",
+      "note": "LF working copy; source-equivalent to the retained CRLF candidate"
+    }
+  },
+  "sources": {
+    "prepare.py": "0d2e23d965a08ca470305970407e97acd787f5bc0163e9b412971755a5bdf684",
+    "probe.cpp": "43a7f401405e323e74f39f17845f530dcc701afa47072f051ab5843516232a85",
+    "fast-math.cpp": "ca9a77318ccd796bbc90c30a2f2939f080e7a72a9ddb4448769a0290a787e3ef",
+    "sounds/Mini.h": "774b3713fdb1fb6516682558cddf8ad1c31cf2fdb1423f0a9c9335b20d696916"
+  },
+  "contracts": {
+    "msvc_19_51_release": "pass",
+    "msvc_19_51_debug": "pass",
+    "clang_14_release": "pass",
+    "clang_14_debug": "pass",
+    "arithmetic_msvc_precise": "227 runtime checks pass",
+    "arithmetic_clang_fast": "227 runtime checks pass",
+    "function_left_scalar_msvc": "compiles",
+    "function_left_scalar_clang": "compiles",
+    "fast_trig_precise": "MSVC and Clang pass; legacy sine and phase sine are bit-identical; sine/cosine peak error about 2.065e-5 over -100pi..100pi",
+    "fast_trig_fast_math": "MSVC and Clang pass; legacy sine and phase sine remain bit-identical; sine/cosine peak error below 3e-5",
+    "msvc_fast_precision_note": "The existing 2^24 narrowing assertion fails under /fp:fast in both baseline and candidate; /fp:precise passes."
+  },
+  "corpus_report_header_sha256": "0aa8a10fc77309e4eb4bf1391f8f3bd4843e0d1af8ecf07ce17114d89f72a105",
+  "corpus_rerun_after_fast_namespace": false,
+  "corpus_rerun_note": "Not rerun by request: the delta only relocates the existing fast sine arithmetic, updates its sole oscillator caller, and adds unused cosine functions. Focused tests prove old/new sine bit identity under both compilers and floating-point modes.",
+  "post_promotion": {
+    "function_flow_probe": "pass on MSVC 19.51 and Studio Clang 14",
+    "fast_trig": "pass under fast floating-point modes on both compilers",
+    "arithmetic": "227 runtime checks pass under precise floating-point modes on both compilers",
+    "selected_models": "Harrier sample-identical; Mini raw compile and finite deterministic renders at 44.1/48 kHz",
+    "clang_report": "build/function-flow/promoted-harrier-mini-clang14/results.json",
+    "clang_report_sha256": "ddfe29b1bed34633ce26aad0c0cf47f9a8a137d068b21907bead32e9c8e0220e",
+    "msvc_report": "build/function-flow/promoted-harrier-mini-msvc/results.json",
+    "msvc_report_sha256": "4c42b2773e9198a3a262f8083acec005f54cbcbb5794a8a8180c6cf6c78000c3"
+  },
+  "compatibility": {
+    "msvc": {
+      "baseline": "72/80",
+      "candidate": "73/80",
+      "regressions": 0,
+      "report": "build/function-flow/compatibility-msvc-math-final/results.json",
+      "report_sha256": "2148c9d15a31c821fcf76af3df84f7b441c53a88ec0385ad7e54f8200eb77410"
+    },
+    "clang14": {
+      "baseline": "70/80",
+      "candidate": "71/80",
+      "regressions": 0,
+      "report": "build/function-flow/compatibility-clang14-math-final/results.json",
+      "report_sha256": "133a39eab3bfed46b3416536cb2337acfeb832e3d93c3a9486e4f35e4e28577b"
+    }
+  },
+  "renders": {
+    "msvc_fast": {
+      "paired_identical": 20,
+      "candidate_unpaired": 4,
+      "new_models": ["Mini", "Helicopter"],
+      "report": "build/function-flow/models-msvc-math-final/results.json",
+      "report_sha256": "cffe4034d85a7480092d3def22a0c9b68c180c9a86e2fe29098130e9f1fdce9e"
+    },
+    "clang14_fast": {
+      "paired_identical": 16,
+      "paired_changed": 4,
+      "candidate_unpaired": 4,
+      "changed_models": {
+        "IIR": "Differences are bounded by the minimum positive float subnormal (peak 1.401298464324817e-45).",
+        "Vocoder": "Residual RMS 2.6228298624486928e-05 at 44.1 kHz and 2.7911238239739345e-05 at 48 kHz."
+      },
+      "report": "build/function-flow/models-clang14-math-final/results.json",
+      "report_sha256": "9a3328696ffb03aa8a572253253d3ebc770f7de69ced2a000c172ca08cf02f8f"
+    },
+    "clang14_precise": {
+      "paired_identical": 6,
+      "models": ["IIR", "Vocoder", "Harrier"],
+      "report": "build/function-flow/precise-clang14-math-final/results.json",
+      "report_sha256": "bfe53982652ebdbe4726236130a015f3764b9ca6f0ed5fe4fdf3fb21e566dfec"
+    }
+  },
+  "decisions": [
+    "Keep raw automatic promotion exact to float(float); do not add a generic callable operator.",
+    "Require a Klang signal on the left of raw function flow; scalar literals should be constants or explicit signal boundaries.",
+    "Make abs, sqrt, sqr, and cube stateless value functions while leaving Generic::Function unchanged.",
+    "Import common unary standard maths overload sets into Klang and provide signal/Control/ControlMap overloads.",
+    "Replace Mini's UE-only FMath::Tanh call with Klang's standard-backed tanh overload.",
+    "Permanently undefine hostile incoming abs/sqrt/min/max/clamp macros before standard includes.",
+    "Retain existing two-argument min/max semantics; non-unary functions remain ordinary calls rather than signal-flow stages.",
+    "Move the retained approximate sine helpers to klang::fast and add cosine from the same polynomial/quadrant reduction; do not add unsourced tan, arc or hyperbolic approximations."
+  ]
+}

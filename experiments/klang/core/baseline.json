@@ -1,0 +1,2731 @@
+{
+  "stage": "Unmodified header baseline; no numeric refactor yet",
+  "header_sha256": "18227099c3e3de84fbdef47aa7b7375c455acc722405af8125db5b82fb6660e2",
+  "compilers": {
+    "msvc": {
+      "date": "2026-09-16T14:12:49.660093+00:00",
+      "compiler": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+      "compiler_version": "usage: cl [ option... ] filename... [ /link linkoption... ]\nMicrosoft (R) C/C++ Optimizing Compiler Version 19.51.36257 for x64\nCopyright (C) Microsoft Corporation.  All rights reserved.",
+      "summary": {
+        "baseline": {
+          "examples": {
+            "passed": 40,
+            "total": 53
+          },
+          "sounds": {
+            "passed": 1,
+            "total": 7
+          },
+          "farnell/klang": {
+            "passed": 20,
+            "total": 20
+          }
+        },
+        "candidate": {
+          "examples": {
+            "passed": 40,
+            "total": 53
+          },
+          "sounds": {
+            "passed": 1,
+            "total": 7
+          },
+          "farnell/klang": {
+            "passed": 20,
+            "total": 20
+          }
+        }
+      },
+      "sources_unchanged_during_run": true,
+      "regressions": [],
+      "cases": [
+        {
+          "header": "baseline",
+          "source": "examples/Additive/Inheritance.k",
+          "sha256": "7cfae2afa2f5ec6f5654da42299eb6d711e6ba06446d8116e28746bd78999030",
+          "types": [
+            "::Inheritance"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Additive/Inheritance.k(45): error C2679: binary '/': no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Additive/Nyquist.k",
+          "sha256": "22f3e84de39dfe69256e138d3ec53ce01e0377134712bfcbb8781364cab3f668",
+          "types": [
+            "::Nyquist"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Additive/Nyquist.k(17): error C2679: binary '/': no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Additive/Resynthesis.k",
+          "sha256": "eeb3b032a7682d83d8cd18cb4744a5bdfb30ee89031a89ace04b3473c601e04c",
+          "types": [
+            "::Resynthesis"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Additive/Saw.k",
+          "sha256": "59e304ae78bc9fcfdafe05cf3fd039e90788b8b136584161d3f720ca922bf76a",
+          "types": [
+            "::Saw"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Additive/Saw.k(16): error C2679: binary '/': no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Additive/Square.k",
+          "sha256": "f2f99fe9671ad7b91a2897db18c7353c5138d11d2791e4c2bf2fa6623e63a876",
+          "types": [
+            "::Square"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Banjo.k",
+          "sha256": "9a06f48ebbac139368da12bd3a200efc7bede8b068471eb80542f5701703fa7b",
+          "types": [
+            "::Banjo"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Chorus.k",
+          "sha256": "d862a63630f0e3b649ced477fea29a9e1d1862a0800fee94fc1d6c2679053a6a",
+          "types": [
+            "::Chorus"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Compressor.k",
+          "sha256": "4d09e7152c95b12390329bb40fc7d4eeefff932ce751bb8a9cb7d6f5a9185739",
+          "types": [
+            "::Compressor"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/DX7.k",
+          "sha256": "0635c8c1cf8c2d96c023afe171062ae6ad5ab984b85355eaa5b8a560b5b480ae",
+          "types": [
+            "::DX7"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/DX7.k(96): error C2187: syntax error: ')' was unexpected here"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/Echo.k",
+          "sha256": "cd6f4a277d4dffb475dfaeef3813d54cc48086fff8d362819b73fb89171e3a71",
+          "types": [
+            "::Echo"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/Feedback.k",
+          "sha256": "644baf68f7f6405cb2f4c32770fc85a7a9d0bbd2ad8d4c225b8bac41c40af602",
+          "types": [
+            "::Feedback"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/Patterns.k",
+          "sha256": "3188d24ae043c6a557fe5dbbc7e1837249678af4d57352ba27c73f58d3e78b19",
+          "types": [
+            "::Patterns"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/PingPong.k",
+          "sha256": "d0f3d5e4901c822450ee88678b32d0e1fb8d463370a4a6676f88e4e36f5eaee8",
+          "types": [
+            "::PingPong"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/Reverb.k",
+          "sha256": "3655df16ed77e1804431f468e77da7cb7d7215cdec28b9004c401151714bf0ab",
+          "types": [
+            "::Reverb"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/Reverb2.k",
+          "sha256": "b76ad81ce6e0df3f28bbd0b15ca5007f1af0b64fc50d4fab268889055f385335",
+          "types": [
+            "::Reverb2"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Distortion/Clipping.k",
+          "sha256": "4aa49ca388294aa3bf8a8a067ca6f3e92c1c27fd5445d15985356f3538f51643",
+          "types": [
+            "::Clipping"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Distortion/Functions.k",
+          "sha256": "072062052b9ffb114ba875fc005d43bb80b44f5d78774e3b219551378043e2c4",
+          "types": [
+            "::Functions"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Distortion/Mute.k",
+          "sha256": "2f5b4765484c8646d83e6ce15506c3fff3cc87793152974d81a7021f79aa6c86",
+          "types": [
+            "::Mute"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Distortion/Shaping.k",
+          "sha256": "b485eed47e4fc754078b6a559ff2f39773a327bb378312c3a3f45581767a82ca",
+          "types": [
+            "::Shaping"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/FM.k",
+          "sha256": "82c1e44d0eb51c7907b91a89b0fe32dce3c2886da3764fd175b8f5ae22da0025",
+          "types": [
+            "::FM"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/FM.k(18): error C2059: syntax error: '>'"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Filtering/Bands.k",
+          "sha256": "e7c0ee9877ee9f4ae5f7a44a03d0010288e128f4bd5db7b74697d1a2a69f2ef8",
+          "types": [
+            "::Bands"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Filtering/EQ.k",
+          "sha256": "b9574ac9eaeb6927c2d498eac664336ecd6fed484740bbd5d25dee2d537da6be",
+          "types": [
+            "::EQ"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Filtering/IIR.k",
+          "sha256": "688bbf39d9fa43481a839af1d0593a78ac3ed993859c0188174c6ac3dd274e86",
+          "types": [
+            "::IIR"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Filtering/Objects.k",
+          "sha256": "14e62dee8c822fba952685eb3d913ef030b16b69b1e71c1b52d107310c94558f",
+          "types": [
+            "::Objects"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Filtering/WahWah.k",
+          "sha256": "598adc09c5447a134a3901d2e88ac2821d7b8c47f89636c8fe17297eab235af7",
+          "types": [
+            "::WahWah"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Filtering/WahWah.k(24): error C2679: binary '*': no operator found which takes a right-hand operand of type 'double' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Gain/Gain.k",
+          "sha256": "9fb0b8286389770bb1503367cf80b26f1bd2464e7d3e5c6746f89bcfc99665c4",
+          "types": [
+            "::Gain"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Gain/Pan.k",
+          "sha256": "80dcde89ce3551cd05dec1425afaa174f3c65600792fe5de172b22da3ac97cb8",
+          "types": [
+            "::Pan"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Gain/RM.k",
+          "sha256": "18e2bdbb43617e57a6e3f26316f2288e6cd854c9bad7cd59d0ffefdc67fdd30a",
+          "types": [
+            "::RM"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Gain/Tremolo.k",
+          "sha256": "d585f6224a5ef65fe99192ecb1f06ac9efab83b9e9af35b99bf498fe8e09860a",
+          "types": [
+            "::Tremolo"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Guitar.k",
+          "sha256": "60eadca3ed8ba18cc27bdd467aa42a2597af08729f2fa93ff2fc7e8aaef33c56",
+          "types": [
+            "::Guitar"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/ModalResonator.k",
+          "sha256": "73afe209df7f6f5807d41e992911474be2a79f69d461465e8f0e84dc3d492488",
+          "types": [
+            "::ModalResonator"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/AM.k",
+          "sha256": "7e4a1f2e8c79df05486cd25d2b6eb0d565075cd99fe84c50fe83875fa7216e37",
+          "types": [
+            "::AM"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/Chorus.k",
+          "sha256": "c2f60d2dd3b62e384868a0d9f433892e4820f67c2607e86d91de001bd5b20a10",
+          "types": [
+            "::Chorus"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/FM.k",
+          "sha256": "e5c19be9cd040c7dfb1ff89c829d84c03baa1d6c6a39e7252af7d52da367e45c",
+          "types": [
+            "::FM"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/FM2.k",
+          "sha256": "aea3f7328f15e52af7c90125b49bfd18c207bc2bb6177c0e2641591dac548605",
+          "types": [
+            "::FM2"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/Flanger.k",
+          "sha256": "e68f4d2f062d6c3cbfcd4c13eae868f5a483ca77c94b16dbbe145edec652637b",
+          "types": [
+            "::Flanger"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/ModDelay.k",
+          "sha256": "bd37be5589b8a6f12283f2e69b3e0006319fb45df4f76fc2ac7be9f4c0f18943",
+          "types": [
+            "::ModDelay"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/Operators.k",
+          "sha256": "efa9ee59a37d9763287ceeec6570429e3bf45240def980e0097a4666f5f6fa70",
+          "types": [
+            "::Operators"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Physical/Bowed.k",
+          "sha256": "8f749a46683579fbe63c65c5e269ea5e1cf90ceb036820ecad822f0eb9dd67b8",
+          "types": [
+            "::Bowed"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Physical/String.k",
+          "sha256": "20d086b7579c3d29f85cff95bc68ad8aad0ac6c8d08afc66798128cb87c74064",
+          "types": [
+            "::String"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Physical/String.k(43): error C2679: binary '*': no operator found which takes a right-hand operand of type 'float' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Physical/Waveguide.k",
+          "sha256": "bf1a985f3d11c1d224e3d7eeb01cb9d8965b8116ce17c20f39bd0b52560dc565",
+          "types": [
+            "::Waveguide"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/PingPong.k",
+          "sha256": "0caeb81a60e48d67ea808ea23210f11f14830d2a565d16bc7c7188c1b445490d",
+          "types": [
+            "::PingPong"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Reverb.k",
+          "sha256": "7eba86fbe8e0e7b29badfcf01fc3b7e404a74c574bca349558c537ab85e7abc4",
+          "types": [
+            "::Reverb"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Breakpoint.k",
+          "sha256": "2e1e7be7a5bf0f89569fbfe3244e1b1062b4c4774d7c856e5d51c3917e86f4a9",
+          "types": [
+            "::Breakpoint"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Expression.k",
+          "sha256": "dce4b5fd6259ce3f9466082a735b5693560834a58b5a31badfdce8b5dcda6095",
+          "types": [
+            "::Expression"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Filter.k",
+          "sha256": "edaf527c56dd4b60719d3af0b34d6dd96e4011516c264541ffd112bfd8e7965d",
+          "types": [
+            "::Filter"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Subtractive/Filter.k(29): error C2665: 'klang::Filters::Biquad::Filter::set': no overloaded function could convert all the argument types"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Modular.k",
+          "sha256": "39a91bf98c9494dc050597fe17483badfc0040845df446d39b8b741cf11a6d79",
+          "types": [
+            "::Modular"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Subtractive/Modular.k(103): error C2679: binary '*': no operator found which takes a right-hand operand of type 'float' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Ramp.k",
+          "sha256": "10469b9f7a15650b7e04c78bc7f51eee5417e8aaea5925348ce44f63f0367315",
+          "types": [
+            "::Ramp"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Release.k",
+          "sha256": "8d7566bec87cdb3df5b46639d7fc1e2061b3c78d0ceea4696e19d5c12a08ade1",
+          "types": [
+            "::Release"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/SuperSaw.k",
+          "sha256": "5e0c7ed7a6eaabaecf757abfdc5006f4bfe66644e2cb0a99eecdfeb0de1a9e6e",
+          "types": [
+            "::SuperSaw"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/SuperSaw.k(28): error C2679: binary '/': no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/SynTHX.k",
+          "sha256": "820583bb1d0f23544317c988f9d0316d717b5efea51aab25b7cf6033244b8c11",
+          "types": [
+            "::SynTHX"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/SynTHX.k(114): error C2679: binary '*': no operator found which takes a right-hand operand of type 'float' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/TB303.k",
+          "sha256": "219e42a8e537f1b7093f1980aa7bfd1b3de2e23172589ca94084954a2546fe3d",
+          "types": [
+            "::TB303"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/TB303.k(120): error C2679: binary '*': no operator found which takes a right-hand operand of type 'float' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Vocoder.k",
+          "sha256": "ea5f761545ac13f366eaf8f9c27c21ce667399e6eb19eb89453eaef0b3edf836",
+          "types": [
+            "::Vocoder"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Vocoder.k(96): error C2679: binary '/': no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Alarm Generator/alarmgenerator.k",
+          "sha256": "96e5b93574e5ae6c4741a089cf78ca9f64d7004db82b78a67e4353f63dfc042c",
+          "types": [
+            "::farnell::AlarmGenerator"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/DTMF Tones/dtmftones.k",
+          "sha256": "6ab10ed4a3e36c7dcc38142def1f05d4c8eff85c0071bf13251718ce7fa9a24f",
+          "types": [
+            "::farnell::DTMFTones"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/DTMF Tones/variants/dtmf-unfiltered.k",
+          "sha256": "aa22b83e66e13458c824cd4aab9c77306eeb8b5efa9956bb0184610b1a02f5d4",
+          "types": [
+            "::farnell::variants::DTMFUnfiltered"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Pedestrians/pedestrians.k",
+          "sha256": "6ce364a01707a95b926304fedf4ac55056e411de9a45c35e26259d76349fc5b1",
+          "types": [
+            "::farnell::Pedestrians"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Phone Tones/phoneeffects.k",
+          "sha256": "e02c9ed30edc2872d1c4318d9cf314925814255845dd60754c08bd52d06f322f",
+          "types": [
+            "::farnell::PhoneEffects"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Phone Tones/phonetones.k",
+          "sha256": "88847df5bb64b7716c6552339fc47f3f273b287d5e6ba3843ef91cc7a5ed015d",
+          "types": [
+            "::farnell::PhoneTones"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Police/police.k",
+          "sha256": "8d2162341e1d647523b264ca67b1bf68c33596df0461c74582a9791f7fb37fed",
+          "types": [
+            "::farnell::Police"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Police/variants/oscillators.k",
+          "sha256": "d04eb8e8499e3c5cfb8d78dd9f54adb686557f8d65c7b6b79d4ac5a5e962c144",
+          "types": [
+            "::farnell::variants::ExponentialOsc",
+            "::farnell::variants::PowerOsc",
+            "::farnell::variants::SymmetricExponentialOsc",
+            "::farnell::variants::InvertedExponentialOsc",
+            "::farnell::variants::TriangleOsc"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Police/variants/police-exponential.k",
+          "sha256": "1e2a77772292e4cfbae0f23f4238c5dd4c1ff3aa310c369ecd54bf69b99b4a64",
+          "types": [
+            "::farnell::variants::PoliceExponential"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Boing/boing.k",
+          "sha256": "076c090915d4027e03d587295ec71b84fe8e8b417eaeea765bf427cd4c333fc5",
+          "types": [
+            "::farnell::Boing"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Boing/variants/boing-exponential.k",
+          "sha256": "3b2a9126ae1e2f7d502df7648a2a364a4103e90da7c81ec47daa7aa4514e4bfa",
+          "types": [
+            "::farnell::variants::BoingExponential"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Boing/variants/boing-power.k",
+          "sha256": "d35c2d1974191e48d1f7c1c196fdf39c6817a0590eed356b93802da50e29f28c",
+          "types": [
+            "::farnell::variants::BoingPower"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Bouncing/bouncing.k",
+          "sha256": "8713ddf4b908e45474e0206933e5cb86d342a7ffcbdf713b24c09f045eba8130",
+          "types": [
+            "::farnell::Bouncing"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Bouncing/variants/bouncing-exponential.k",
+          "sha256": "cdddec199eb18e782be41171bbc9b0fcd91eae99eba3e9e6b9418157a9adc6a1",
+          "types": [
+            "::farnell::variants::BouncingExponential"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Bouncing/variants/bouncing-power.k",
+          "sha256": "f02f6d30bd757e18bc29592852371b85bf10ef872680049e50bb1c750cdfff0b",
+          "types": [
+            "::farnell::variants::BouncingPower"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Creaking/creaking.k",
+          "sha256": "5b2c089c67ad63835966a1e742ef807bb36f21e0d70f6492bc3452382815024f",
+          "types": [
+            "::farnell::Creaking"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Rolling/rolling.k",
+          "sha256": "3f2fdd74ea530969c70752ff0c67c518f7a650e00748c738c79f2242abc6ba95",
+          "types": [
+            "::farnell::Rolling"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Telephone Bell/studies.k",
+          "sha256": "0da29fd7fbaeb2aa08b92cd5ea4f933c9b50eef46849ef542529d89ab4c350ff",
+          "types": [
+            "::farnell::BellStudies"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Telephone Bell/telephonebell.k",
+          "sha256": "e9571ffa362e2bfd82c6a81734912f0ff362438a8b9c0a658fe6a5be38f0bc03",
+          "types": [
+            "::farnell::TelephoneBell"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/common.h",
+          "sha256": "350f1beef75ce04d511cfbce14ea0f20ffba41136e3de08b7da31d340f1facb7",
+          "types": [
+            "::farnell::SampleDelay",
+            "::farnell::ControlRandom"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Bicycle.h",
+          "sha256": "2dce7837b2e7c361e7d10b0e2e5a8dbbb43480c94754257f5393b6996ec9226e",
+          "types": [
+            "::Bicycle"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Bicycle.h(29): error C3646: 'phasor': unknown override specifier"
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Harrier.h",
+          "sha256": "8d9112ee1f03bd1367434ce13047551b67a27b6956cdaaf06a860536e8409da2",
+          "types": [
+            "::Harrier"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Helicopter.h",
+          "sha256": "34d4361e0e81514285b2e1a0999dd6d329ce81acd702e97a1213569fdc2ac147",
+          "types": [
+            "::Helicopter"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Helicopter.h(165): error C2653: 'FMath': is not a class or namespace name"
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Mini.h",
+          "sha256": "f26e38e2cacbce1477a51443ff6a30c64976ba0309dfe8dae0076fbcbba5b63e",
+          "types": [
+            "::Mini"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Mini.h(56): error C2653: 'FMath': is not a class or namespace name"
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Motors.h",
+          "sha256": "9f8ef3e03b407dfea50cb5e845999f01bafcdf71b16657b8ede0fd2c4416ef5f",
+          "types": [
+            "::ToyBoatEngine",
+            "::FourStrokeEngine",
+            "::Car"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Motors.h(76): error C3646: 'phasor': unknown override specifier"
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Nature.h",
+          "sha256": "a3ee35af348720dc8e3d007f247aa478cfc503f2cf9f2c73caf5e74b571d23b1",
+          "types": [
+            "::Rain"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Nature.h(17): error C2679: binary '*': no operator found which takes a right-hand operand of type 'double' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Train.h",
+          "sha256": "e24f73a1941c47e6a3380e069161a8fbe28d69df7ea63f887870091eeffbe951",
+          "types": [
+            "::Train"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Train.h(110): error C2679: binary '*': no operator found which takes a right-hand operand of type 'double' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Additive/Inheritance.k",
+          "sha256": "7cfae2afa2f5ec6f5654da42299eb6d711e6ba06446d8116e28746bd78999030",
+          "types": [
+            "::Inheritance"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Additive/Inheritance.k(45): error C2679: binary '/': no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Additive/Nyquist.k",
+          "sha256": "22f3e84de39dfe69256e138d3ec53ce01e0377134712bfcbb8781364cab3f668",
+          "types": [
+            "::Nyquist"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Additive/Nyquist.k(17): error C2679: binary '/': no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Additive/Resynthesis.k",
+          "sha256": "eeb3b032a7682d83d8cd18cb4744a5bdfb30ee89031a89ace04b3473c601e04c",
+          "types": [
+            "::Resynthesis"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Additive/Saw.k",
+          "sha256": "59e304ae78bc9fcfdafe05cf3fd039e90788b8b136584161d3f720ca922bf76a",
+          "types": [
+            "::Saw"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Additive/Saw.k(16): error C2679: binary '/': no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Additive/Square.k",
+          "sha256": "f2f99fe9671ad7b91a2897db18c7353c5138d11d2791e4c2bf2fa6623e63a876",
+          "types": [
+            "::Square"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Banjo.k",
+          "sha256": "9a06f48ebbac139368da12bd3a200efc7bede8b068471eb80542f5701703fa7b",
+          "types": [
+            "::Banjo"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Chorus.k",
+          "sha256": "d862a63630f0e3b649ced477fea29a9e1d1862a0800fee94fc1d6c2679053a6a",
+          "types": [
+            "::Chorus"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Compressor.k",
+          "sha256": "4d09e7152c95b12390329bb40fc7d4eeefff932ce751bb8a9cb7d6f5a9185739",
+          "types": [
+            "::Compressor"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/DX7.k",
+          "sha256": "0635c8c1cf8c2d96c023afe171062ae6ad5ab984b85355eaa5b8a560b5b480ae",
+          "types": [
+            "::DX7"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/DX7.k(96): error C2187: syntax error: ')' was unexpected here"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Delay/Echo.k",
+          "sha256": "cd6f4a277d4dffb475dfaeef3813d54cc48086fff8d362819b73fb89171e3a71",
+          "types": [
+            "::Echo"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Delay/Feedback.k",
+          "sha256": "644baf68f7f6405cb2f4c32770fc85a7a9d0bbd2ad8d4c225b8bac41c40af602",
+          "types": [
+            "::Feedback"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Delay/Patterns.k",
+          "sha256": "3188d24ae043c6a557fe5dbbc7e1837249678af4d57352ba27c73f58d3e78b19",
+          "types": [
+            "::Patterns"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Delay/PingPong.k",
+          "sha256": "d0f3d5e4901c822450ee88678b32d0e1fb8d463370a4a6676f88e4e36f5eaee8",
+          "types": [
+            "::PingPong"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Delay/Reverb.k",
+          "sha256": "3655df16ed77e1804431f468e77da7cb7d7215cdec28b9004c401151714bf0ab",
+          "types": [
+            "::Reverb"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Delay/Reverb2.k",
+          "sha256": "b76ad81ce6e0df3f28bbd0b15ca5007f1af0b64fc50d4fab268889055f385335",
+          "types": [
+            "::Reverb2"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Distortion/Clipping.k",
+          "sha256": "4aa49ca388294aa3bf8a8a067ca6f3e92c1c27fd5445d15985356f3538f51643",
+          "types": [
+            "::Clipping"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Distortion/Functions.k",
+          "sha256": "072062052b9ffb114ba875fc005d43bb80b44f5d78774e3b219551378043e2c4",
+          "types": [
+            "::Functions"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Distortion/Mute.k",
+          "sha256": "2f5b4765484c8646d83e6ce15506c3fff3cc87793152974d81a7021f79aa6c86",
+          "types": [
+            "::Mute"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Distortion/Shaping.k",
+          "sha256": "b485eed47e4fc754078b6a559ff2f39773a327bb378312c3a3f45581767a82ca",
+          "types": [
+            "::Shaping"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/FM.k",
+          "sha256": "82c1e44d0eb51c7907b91a89b0fe32dce3c2886da3764fd175b8f5ae22da0025",
+          "types": [
+            "::FM"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/FM.k(18): error C2059: syntax error: '>'"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Filtering/Bands.k",
+          "sha256": "e7c0ee9877ee9f4ae5f7a44a03d0010288e128f4bd5db7b74697d1a2a69f2ef8",
+          "types": [
+            "::Bands"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Filtering/EQ.k",
+          "sha256": "b9574ac9eaeb6927c2d498eac664336ecd6fed484740bbd5d25dee2d537da6be",
+          "types": [
+            "::EQ"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Filtering/IIR.k",
+          "sha256": "688bbf39d9fa43481a839af1d0593a78ac3ed993859c0188174c6ac3dd274e86",
+          "types": [
+            "::IIR"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Filtering/Objects.k",
+          "sha256": "14e62dee8c822fba952685eb3d913ef030b16b69b1e71c1b52d107310c94558f",
+          "types": [
+            "::Objects"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Filtering/WahWah.k",
+          "sha256": "598adc09c5447a134a3901d2e88ac2821d7b8c47f89636c8fe17297eab235af7",
+          "types": [
+            "::WahWah"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Filtering/WahWah.k(24): error C2679: binary '*': no operator found which takes a right-hand operand of type 'double' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Gain/Gain.k",
+          "sha256": "9fb0b8286389770bb1503367cf80b26f1bd2464e7d3e5c6746f89bcfc99665c4",
+          "types": [
+            "::Gain"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Gain/Pan.k",
+          "sha256": "80dcde89ce3551cd05dec1425afaa174f3c65600792fe5de172b22da3ac97cb8",
+          "types": [
+            "::Pan"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Gain/RM.k",
+          "sha256": "18e2bdbb43617e57a6e3f26316f2288e6cd854c9bad7cd59d0ffefdc67fdd30a",
+          "types": [
+            "::RM"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Gain/Tremolo.k",
+          "sha256": "d585f6224a5ef65fe99192ecb1f06ac9efab83b9e9af35b99bf498fe8e09860a",
+          "types": [
+            "::Tremolo"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Guitar.k",
+          "sha256": "60eadca3ed8ba18cc27bdd467aa42a2597af08729f2fa93ff2fc7e8aaef33c56",
+          "types": [
+            "::Guitar"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/ModalResonator.k",
+          "sha256": "73afe209df7f6f5807d41e992911474be2a79f69d461465e8f0e84dc3d492488",
+          "types": [
+            "::ModalResonator"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Modulation/AM.k",
+          "sha256": "7e4a1f2e8c79df05486cd25d2b6eb0d565075cd99fe84c50fe83875fa7216e37",
+          "types": [
+            "::AM"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Modulation/Chorus.k",
+          "sha256": "c2f60d2dd3b62e384868a0d9f433892e4820f67c2607e86d91de001bd5b20a10",
+          "types": [
+            "::Chorus"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Modulation/FM.k",
+          "sha256": "e5c19be9cd040c7dfb1ff89c829d84c03baa1d6c6a39e7252af7d52da367e45c",
+          "types": [
+            "::FM"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Modulation/FM2.k",
+          "sha256": "aea3f7328f15e52af7c90125b49bfd18c207bc2bb6177c0e2641591dac548605",
+          "types": [
+            "::FM2"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Modulation/Flanger.k",
+          "sha256": "e68f4d2f062d6c3cbfcd4c13eae868f5a483ca77c94b16dbbe145edec652637b",
+          "types": [
+            "::Flanger"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Modulation/ModDelay.k",
+          "sha256": "bd37be5589b8a6f12283f2e69b3e0006319fb45df4f76fc2ac7be9f4c0f18943",
+          "types": [
+            "::ModDelay"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Modulation/Operators.k",
+          "sha256": "efa9ee59a37d9763287ceeec6570429e3bf45240def980e0097a4666f5f6fa70",
+          "types": [
+            "::Operators"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Physical/Bowed.k",
+          "sha256": "8f749a46683579fbe63c65c5e269ea5e1cf90ceb036820ecad822f0eb9dd67b8",
+          "types": [
+            "::Bowed"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Physical/String.k",
+          "sha256": "20d086b7579c3d29f85cff95bc68ad8aad0ac6c8d08afc66798128cb87c74064",
+          "types": [
+            "::String"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Physical/String.k(43): error C2679: binary '*': no operator found which takes a right-hand operand of type 'float' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Physical/Waveguide.k",
+          "sha256": "bf1a985f3d11c1d224e3d7eeb01cb9d8965b8116ce17c20f39bd0b52560dc565",
+          "types": [
+            "::Waveguide"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/PingPong.k",
+          "sha256": "0caeb81a60e48d67ea808ea23210f11f14830d2a565d16bc7c7188c1b445490d",
+          "types": [
+            "::PingPong"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Reverb.k",
+          "sha256": "7eba86fbe8e0e7b29badfcf01fc3b7e404a74c574bca349558c537ab85e7abc4",
+          "types": [
+            "::Reverb"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Subtractive/Breakpoint.k",
+          "sha256": "2e1e7be7a5bf0f89569fbfe3244e1b1062b4c4774d7c856e5d51c3917e86f4a9",
+          "types": [
+            "::Breakpoint"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Subtractive/Expression.k",
+          "sha256": "dce4b5fd6259ce3f9466082a735b5693560834a58b5a31badfdce8b5dcda6095",
+          "types": [
+            "::Expression"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Subtractive/Filter.k",
+          "sha256": "edaf527c56dd4b60719d3af0b34d6dd96e4011516c264541ffd112bfd8e7965d",
+          "types": [
+            "::Filter"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Subtractive/Filter.k(29): error C2665: 'klang::Filters::Biquad::Filter::set': no overloaded function could convert all the argument types"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Subtractive/Modular.k",
+          "sha256": "39a91bf98c9494dc050597fe17483badfc0040845df446d39b8b741cf11a6d79",
+          "types": [
+            "::Modular"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Subtractive/Modular.k(103): error C2679: binary '*': no operator found which takes a right-hand operand of type 'float' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Subtractive/Ramp.k",
+          "sha256": "10469b9f7a15650b7e04c78bc7f51eee5417e8aaea5925348ce44f63f0367315",
+          "types": [
+            "::Ramp"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Subtractive/Release.k",
+          "sha256": "8d7566bec87cdb3df5b46639d7fc1e2061b3c78d0ceea4696e19d5c12a08ade1",
+          "types": [
+            "::Release"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "examples/SuperSaw.k",
+          "sha256": "5e0c7ed7a6eaabaecf757abfdc5006f4bfe66644e2cb0a99eecdfeb0de1a9e6e",
+          "types": [
+            "::SuperSaw"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/SuperSaw.k(28): error C2679: binary '/': no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/SynTHX.k",
+          "sha256": "820583bb1d0f23544317c988f9d0316d717b5efea51aab25b7cf6033244b8c11",
+          "types": [
+            "::SynTHX"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/SynTHX.k(114): error C2679: binary '*': no operator found which takes a right-hand operand of type 'float' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/TB303.k",
+          "sha256": "219e42a8e537f1b7093f1980aa7bfd1b3de2e23172589ca94084954a2546fe3d",
+          "types": [
+            "::TB303"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/TB303.k(120): error C2679: binary '*': no operator found which takes a right-hand operand of type 'float' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "examples/Vocoder.k",
+          "sha256": "ea5f761545ac13f366eaf8f9c27c21ce667399e6eb19eb89453eaef0b3edf836",
+          "types": [
+            "::Vocoder"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Vocoder.k(96): error C2679: binary '/': no operator found which takes a right-hand operand of type 'int' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Artificial Sounds/Alarm Generator/alarmgenerator.k",
+          "sha256": "96e5b93574e5ae6c4741a089cf78ca9f64d7004db82b78a67e4353f63dfc042c",
+          "types": [
+            "::farnell::AlarmGenerator"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Artificial Sounds/DTMF Tones/dtmftones.k",
+          "sha256": "6ab10ed4a3e36c7dcc38142def1f05d4c8eff85c0071bf13251718ce7fa9a24f",
+          "types": [
+            "::farnell::DTMFTones"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Artificial Sounds/DTMF Tones/variants/dtmf-unfiltered.k",
+          "sha256": "aa22b83e66e13458c824cd4aab9c77306eeb8b5efa9956bb0184610b1a02f5d4",
+          "types": [
+            "::farnell::variants::DTMFUnfiltered"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Artificial Sounds/Pedestrians/pedestrians.k",
+          "sha256": "6ce364a01707a95b926304fedf4ac55056e411de9a45c35e26259d76349fc5b1",
+          "types": [
+            "::farnell::Pedestrians"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Artificial Sounds/Phone Tones/phoneeffects.k",
+          "sha256": "e02c9ed30edc2872d1c4318d9cf314925814255845dd60754c08bd52d06f322f",
+          "types": [
+            "::farnell::PhoneEffects"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Artificial Sounds/Phone Tones/phonetones.k",
+          "sha256": "88847df5bb64b7716c6552339fc47f3f273b287d5e6ba3843ef91cc7a5ed015d",
+          "types": [
+            "::farnell::PhoneTones"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Artificial Sounds/Police/police.k",
+          "sha256": "8d2162341e1d647523b264ca67b1bf68c33596df0461c74582a9791f7fb37fed",
+          "types": [
+            "::farnell::Police"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Artificial Sounds/Police/variants/oscillators.k",
+          "sha256": "d04eb8e8499e3c5cfb8d78dd9f54adb686557f8d65c7b6b79d4ac5a5e962c144",
+          "types": [
+            "::farnell::variants::ExponentialOsc",
+            "::farnell::variants::PowerOsc",
+            "::farnell::variants::SymmetricExponentialOsc",
+            "::farnell::variants::InvertedExponentialOsc",
+            "::farnell::variants::TriangleOsc"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Artificial Sounds/Police/variants/police-exponential.k",
+          "sha256": "1e2a77772292e4cfbae0f23f4238c5dd4c1ff3aa310c369ecd54bf69b99b4a64",
+          "types": [
+            "::farnell::variants::PoliceExponential"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Idiophonics/Boing/boing.k",
+          "sha256": "076c090915d4027e03d587295ec71b84fe8e8b417eaeea765bf427cd4c333fc5",
+          "types": [
+            "::farnell::Boing"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Idiophonics/Boing/variants/boing-exponential.k",
+          "sha256": "3b2a9126ae1e2f7d502df7648a2a364a4103e90da7c81ec47daa7aa4514e4bfa",
+          "types": [
+            "::farnell::variants::BoingExponential"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Idiophonics/Boing/variants/boing-power.k",
+          "sha256": "d35c2d1974191e48d1f7c1c196fdf39c6817a0590eed356b93802da50e29f28c",
+          "types": [
+            "::farnell::variants::BoingPower"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Idiophonics/Bouncing/bouncing.k",
+          "sha256": "8713ddf4b908e45474e0206933e5cb86d342a7ffcbdf713b24c09f045eba8130",
+          "types": [
+            "::farnell::Bouncing"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Idiophonics/Bouncing/variants/bouncing-exponential.k",
+          "sha256": "cdddec199eb18e782be41171bbc9b0fcd91eae99eba3e9e6b9418157a9adc6a1",
+          "types": [
+            "::farnell::variants::BouncingExponential"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Idiophonics/Bouncing/variants/bouncing-power.k",
+          "sha256": "f02f6d30bd757e18bc29592852371b85bf10ef872680049e50bb1c750cdfff0b",
+          "types": [
+            "::farnell::variants::BouncingPower"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Idiophonics/Creaking/creaking.k",
+          "sha256": "5b2c089c67ad63835966a1e742ef807bb36f21e0d70f6492bc3452382815024f",
+          "types": [
+            "::farnell::Creaking"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Idiophonics/Rolling/rolling.k",
+          "sha256": "3f2fdd74ea530969c70752ff0c67c518f7a650e00748c738c79f2242abc6ba95",
+          "types": [
+            "::farnell::Rolling"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Idiophonics/Telephone Bell/studies.k",
+          "sha256": "0da29fd7fbaeb2aa08b92cd5ea4f933c9b50eef46849ef542529d89ab4c350ff",
+          "types": [
+            "::farnell::BellStudies"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Idiophonics/Telephone Bell/telephonebell.k",
+          "sha256": "e9571ffa362e2bfd82c6a81734912f0ff362438a8b9c0a658fe6a5be38f0bc03",
+          "types": [
+            "::farnell::TelephoneBell"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "farnell/klang/Idiophonics/common.h",
+          "sha256": "350f1beef75ce04d511cfbce14ea0f20ffba41136e3de08b7da31d340f1facb7",
+          "types": [
+            "::farnell::SampleDelay",
+            "::farnell::ControlRandom"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "sounds/Bicycle.h",
+          "sha256": "2dce7837b2e7c361e7d10b0e2e5a8dbbb43480c94754257f5393b6996ec9226e",
+          "types": [
+            "::Bicycle"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Bicycle.h(29): error C3646: 'phasor': unknown override specifier"
+        },
+        {
+          "header": "candidate",
+          "source": "sounds/Harrier.h",
+          "sha256": "8d9112ee1f03bd1367434ce13047551b67a27b6956cdaaf06a860536e8409da2",
+          "types": [
+            "::Harrier"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "candidate",
+          "source": "sounds/Helicopter.h",
+          "sha256": "34d4361e0e81514285b2e1a0999dd6d329ce81acd702e97a1213569fdc2ac147",
+          "types": [
+            "::Helicopter"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Helicopter.h(165): error C2653: 'FMath': is not a class or namespace name"
+        },
+        {
+          "header": "candidate",
+          "source": "sounds/Mini.h",
+          "sha256": "f26e38e2cacbce1477a51443ff6a30c64976ba0309dfe8dae0076fbcbba5b63e",
+          "types": [
+            "::Mini"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Mini.h(56): error C2653: 'FMath': is not a class or namespace name"
+        },
+        {
+          "header": "candidate",
+          "source": "sounds/Motors.h",
+          "sha256": "9f8ef3e03b407dfea50cb5e845999f01bafcdf71b16657b8ede0fd2c4416ef5f",
+          "types": [
+            "::ToyBoatEngine",
+            "::FourStrokeEngine",
+            "::Car"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Motors.h(76): error C3646: 'phasor': unknown override specifier"
+        },
+        {
+          "header": "candidate",
+          "source": "sounds/Nature.h",
+          "sha256": "a3ee35af348720dc8e3d007f247aa478cfc503f2cf9f2c73caf5e74b571d23b1",
+          "types": [
+            "::Rain"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Nature.h(17): error C2679: binary '*': no operator found which takes a right-hand operand of type 'double' (or there is no acceptable conversion)"
+        },
+        {
+          "header": "candidate",
+          "source": "sounds/Train.h",
+          "sha256": "e24f73a1941c47e6a3380e069161a8fbe28d69df7ea63f887870091eeffbe951",
+          "types": [
+            "::Train"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Train.h(110): error C2679: binary '*': no operator found which takes a right-hand operand of type 'double' (or there is no acceptable conversion)"
+        }
+      ]
+    },
+    "clang": {
+      "date": "2026-09-16T14:12:26.940984+00:00",
+      "compiler": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\Llvm\\x64\\bin\\clang-cl.exe",
+      "compiler_version": "clang version 22.1.3 (https://github.com/llvm/llvm-project e9846648fd6183ee6d8cbdb4502213fcf902a211)\nTarget: x86_64-pc-windows-msvc\nThread model: posix\nInstalledDir: D:\\VisualStudio\\18\\Community\\VC\\Tools\\Llvm\\x64\\bin",
+      "summary": {
+        "baseline": {
+          "examples": {
+            "passed": 40,
+            "total": 53
+          },
+          "sounds": {
+            "passed": 1,
+            "total": 7
+          },
+          "farnell/klang": {
+            "passed": 18,
+            "total": 20
+          }
+        }
+      },
+      "sources_unchanged_during_run": true,
+      "regressions": [],
+      "cases": [
+        {
+          "header": "baseline",
+          "source": "examples/Additive/Inheritance.k",
+          "sha256": "7cfae2afa2f5ec6f5654da42299eb6d711e6ba06446d8116e28746bd78999030",
+          "types": [
+            "::Inheritance"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Additive/Inheritance.k(45,20): error: invalid operands to binary expression ('Sine' and 'int')"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Additive/Nyquist.k",
+          "sha256": "22f3e84de39dfe69256e138d3ec53ce01e0377134712bfcbb8781364cab3f668",
+          "types": [
+            "::Nyquist"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Additive/Nyquist.k(17,19): error: invalid operands to binary expression ('Sine' and 'int')"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Additive/Resynthesis.k",
+          "sha256": "eeb3b032a7682d83d8cd18cb4744a5bdfb30ee89031a89ace04b3473c601e04c",
+          "types": [
+            "::Resynthesis"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Additive/Saw.k",
+          "sha256": "59e304ae78bc9fcfdafe05cf3fd039e90788b8b136584161d3f720ca922bf76a",
+          "types": [
+            "::Saw"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Additive/Saw.k(16,18): error: invalid operands to binary expression ('Sine' and 'int')"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Additive/Square.k",
+          "sha256": "f2f99fe9671ad7b91a2897db18c7353c5138d11d2791e4c2bf2fa6623e63a876",
+          "types": [
+            "::Square"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Banjo.k",
+          "sha256": "9a06f48ebbac139368da12bd3a200efc7bede8b068471eb80542f5701703fa7b",
+          "types": [
+            "::Banjo"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Chorus.k",
+          "sha256": "d862a63630f0e3b649ced477fea29a9e1d1862a0800fee94fc1d6c2679053a6a",
+          "types": [
+            "::Chorus"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Compressor.k",
+          "sha256": "4d09e7152c95b12390329bb40fc7d4eeefff932ce751bb8a9cb7d6f5a9185739",
+          "types": [
+            "::Compressor"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/DX7.k",
+          "sha256": "0635c8c1cf8c2d96c023afe171062ae6ad5ab984b85355eaa5b8a560b5b480ae",
+          "types": [
+            "::DX7"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/DX7.k(96,45): error: too few arguments provided to function-like macro invocation"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/Echo.k",
+          "sha256": "cd6f4a277d4dffb475dfaeef3813d54cc48086fff8d362819b73fb89171e3a71",
+          "types": [
+            "::Echo"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/Feedback.k",
+          "sha256": "644baf68f7f6405cb2f4c32770fc85a7a9d0bbd2ad8d4c225b8bac41c40af602",
+          "types": [
+            "::Feedback"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/Patterns.k",
+          "sha256": "3188d24ae043c6a557fe5dbbc7e1837249678af4d57352ba27c73f58d3e78b19",
+          "types": [
+            "::Patterns"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/PingPong.k",
+          "sha256": "d0f3d5e4901c822450ee88678b32d0e1fb8d463370a4a6676f88e4e36f5eaee8",
+          "types": [
+            "::PingPong"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/Reverb.k",
+          "sha256": "3655df16ed77e1804431f468e77da7cb7d7215cdec28b9004c401151714bf0ab",
+          "types": [
+            "::Reverb"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Delay/Reverb2.k",
+          "sha256": "b76ad81ce6e0df3f28bbd0b15ca5007f1af0b64fc50d4fab268889055f385335",
+          "types": [
+            "::Reverb2"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Distortion/Clipping.k",
+          "sha256": "4aa49ca388294aa3bf8a8a067ca6f3e92c1c27fd5445d15985356f3538f51643",
+          "types": [
+            "::Clipping"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Distortion/Functions.k",
+          "sha256": "072062052b9ffb114ba875fc005d43bb80b44f5d78774e3b219551378043e2c4",
+          "types": [
+            "::Functions"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Distortion/Mute.k",
+          "sha256": "2f5b4765484c8646d83e6ce15506c3fff3cc87793152974d81a7021f79aa6c86",
+          "types": [
+            "::Mute"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Distortion/Shaping.k",
+          "sha256": "b485eed47e4fc754078b6a559ff2f39773a327bb378312c3a3f45581767a82ca",
+          "types": [
+            "::Shaping"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/FM.k",
+          "sha256": "82c1e44d0eb51c7907b91a89b0fe32dce3c2886da3764fd175b8f5ae22da0025",
+          "types": [
+            "::FM"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/FM.k(18,54): error: too few arguments provided to function-like macro invocation"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Filtering/Bands.k",
+          "sha256": "e7c0ee9877ee9f4ae5f7a44a03d0010288e128f4bd5db7b74697d1a2a69f2ef8",
+          "types": [
+            "::Bands"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Filtering/EQ.k",
+          "sha256": "b9574ac9eaeb6927c2d498eac664336ecd6fed484740bbd5d25dee2d537da6be",
+          "types": [
+            "::EQ"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Filtering/IIR.k",
+          "sha256": "688bbf39d9fa43481a839af1d0593a78ac3ed993859c0188174c6ac3dd274e86",
+          "types": [
+            "::IIR"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Filtering/Objects.k",
+          "sha256": "14e62dee8c822fba952685eb3d913ef030b16b69b1e71c1b52d107310c94558f",
+          "types": [
+            "::Objects"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Filtering/WahWah.k",
+          "sha256": "598adc09c5447a134a3901d2e88ac2821d7b8c47f89636c8fe17297eab235af7",
+          "types": [
+            "::WahWah"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Filtering/WahWah.k(24,26): error: invalid operands to binary expression ('Output<klang::signal>' and 'double')"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Gain/Gain.k",
+          "sha256": "9fb0b8286389770bb1503367cf80b26f1bd2464e7d3e5c6746f89bcfc99665c4",
+          "types": [
+            "::Gain"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Gain/Pan.k",
+          "sha256": "80dcde89ce3551cd05dec1425afaa174f3c65600792fe5de172b22da3ac97cb8",
+          "types": [
+            "::Pan"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Gain/RM.k",
+          "sha256": "18e2bdbb43617e57a6e3f26316f2288e6cd854c9bad7cd59d0ffefdc67fdd30a",
+          "types": [
+            "::RM"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Gain/Tremolo.k",
+          "sha256": "d585f6224a5ef65fe99192ecb1f06ac9efab83b9e9af35b99bf498fe8e09860a",
+          "types": [
+            "::Tremolo"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Guitar.k",
+          "sha256": "60eadca3ed8ba18cc27bdd467aa42a2597af08729f2fa93ff2fc7e8aaef33c56",
+          "types": [
+            "::Guitar"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/ModalResonator.k",
+          "sha256": "73afe209df7f6f5807d41e992911474be2a79f69d461465e8f0e84dc3d492488",
+          "types": [
+            "::ModalResonator"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/AM.k",
+          "sha256": "7e4a1f2e8c79df05486cd25d2b6eb0d565075cd99fe84c50fe83875fa7216e37",
+          "types": [
+            "::AM"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/Chorus.k",
+          "sha256": "c2f60d2dd3b62e384868a0d9f433892e4820f67c2607e86d91de001bd5b20a10",
+          "types": [
+            "::Chorus"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/FM.k",
+          "sha256": "e5c19be9cd040c7dfb1ff89c829d84c03baa1d6c6a39e7252af7d52da367e45c",
+          "types": [
+            "::FM"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/FM2.k",
+          "sha256": "aea3f7328f15e52af7c90125b49bfd18c207bc2bb6177c0e2641591dac548605",
+          "types": [
+            "::FM2"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/Flanger.k",
+          "sha256": "e68f4d2f062d6c3cbfcd4c13eae868f5a483ca77c94b16dbbe145edec652637b",
+          "types": [
+            "::Flanger"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/ModDelay.k",
+          "sha256": "bd37be5589b8a6f12283f2e69b3e0006319fb45df4f76fc2ac7be9f4c0f18943",
+          "types": [
+            "::ModDelay"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Modulation/Operators.k",
+          "sha256": "efa9ee59a37d9763287ceeec6570429e3bf45240def980e0097a4666f5f6fa70",
+          "types": [
+            "::Operators"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Physical/Bowed.k",
+          "sha256": "8f749a46683579fbe63c65c5e269ea5e1cf90ceb036820ecad822f0eb9dd67b8",
+          "types": [
+            "::Bowed"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Physical/String.k",
+          "sha256": "20d086b7579c3d29f85cff95bc68ad8aad0ac6c8d08afc66798128cb87c74064",
+          "types": [
+            "::String"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Physical/String.k(43,28): error: invalid operands to binary expression ('Envelope' and 'float')"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Physical/Waveguide.k",
+          "sha256": "bf1a985f3d11c1d224e3d7eeb01cb9d8965b8116ce17c20f39bd0b52560dc565",
+          "types": [
+            "::Waveguide"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/PingPong.k",
+          "sha256": "0caeb81a60e48d67ea808ea23210f11f14830d2a565d16bc7c7188c1b445490d",
+          "types": [
+            "::PingPong"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Reverb.k",
+          "sha256": "7eba86fbe8e0e7b29badfcf01fc3b7e404a74c574bca349558c537ab85e7abc4",
+          "types": [
+            "::Reverb"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Breakpoint.k",
+          "sha256": "2e1e7be7a5bf0f89569fbfe3244e1b1062b4c4774d7c856e5d51c3917e86f4a9",
+          "types": [
+            "::Breakpoint"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Expression.k",
+          "sha256": "dce4b5fd6259ce3f9466082a735b5693560834a58b5a31badfdce8b5dcda6095",
+          "types": [
+            "::Expression"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Filter.k",
+          "sha256": "edaf527c56dd4b60719d3af0b34d6dd96e4011516c264541ffd112bfd8e7965d",
+          "types": [
+            "::Filter"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Subtractive/Filter.k(29,11): error: no matching member function for call to 'set'"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Modular.k",
+          "sha256": "39a91bf98c9494dc050597fe17483badfc0040845df446d39b8b741cf11a6d79",
+          "types": [
+            "::Modular"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Subtractive/Modular.k(103,25): error: invalid operands to binary expression ('ADSR' and 'float')"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Ramp.k",
+          "sha256": "10469b9f7a15650b7e04c78bc7f51eee5417e8aaea5925348ce44f63f0367315",
+          "types": [
+            "::Ramp"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Subtractive/Release.k",
+          "sha256": "8d7566bec87cdb3df5b46639d7fc1e2061b3c78d0ceea4696e19d5c12a08ade1",
+          "types": [
+            "::Release"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "examples/SuperSaw.k",
+          "sha256": "5e0c7ed7a6eaabaecf757abfdc5006f4bfe66644e2cb0a99eecdfeb0de1a9e6e",
+          "types": [
+            "::SuperSaw"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/SuperSaw.k(28,19): error: invalid operands to binary expression ('Saw' and 'int')"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/SynTHX.k",
+          "sha256": "820583bb1d0f23544317c988f9d0316d717b5efea51aab25b7cf6033244b8c11",
+          "types": [
+            "::SynTHX"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/SynTHX.k(114,59): error: invalid operands to binary expression ('Partial' and 'float')"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/TB303.k",
+          "sha256": "219e42a8e537f1b7093f1980aa7bfd1b3de2e23172589ca94084954a2546fe3d",
+          "types": [
+            "::TB303"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/TB303.k(120,29): error: invalid operands to binary expression ('TB303::HPF' and 'float')"
+        },
+        {
+          "header": "baseline",
+          "source": "examples/Vocoder.k",
+          "sha256": "ea5f761545ac13f366eaf8f9c27c21ce667399e6eb19eb89453eaef0b3edf836",
+          "types": [
+            "::Vocoder"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/examples/Vocoder.k(96,24): error: invalid operands to binary expression ('Saw' and 'int')"
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Alarm Generator/alarmgenerator.k",
+          "sha256": "96e5b93574e5ae6c4741a089cf78ca9f64d7004db82b78a67e4353f63dfc042c",
+          "types": [
+            "::farnell::AlarmGenerator"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/farnell/klang/Artificial Sounds/Alarm Generator/alarmgenerator.k(125,31): error: conditional expression is ambiguous; 'signal' can be converted to 'float' and vice versa"
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/DTMF Tones/dtmftones.k",
+          "sha256": "6ab10ed4a3e36c7dcc38142def1f05d4c8eff85c0071bf13251718ce7fa9a24f",
+          "types": [
+            "::farnell::DTMFTones"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/DTMF Tones/variants/dtmf-unfiltered.k",
+          "sha256": "aa22b83e66e13458c824cd4aab9c77306eeb8b5efa9956bb0184610b1a02f5d4",
+          "types": [
+            "::farnell::variants::DTMFUnfiltered"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Pedestrians/pedestrians.k",
+          "sha256": "6ce364a01707a95b926304fedf4ac55056e411de9a45c35e26259d76349fc5b1",
+          "types": [
+            "::farnell::Pedestrians"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Phone Tones/phoneeffects.k",
+          "sha256": "e02c9ed30edc2872d1c4318d9cf314925814255845dd60754c08bd52d06f322f",
+          "types": [
+            "::farnell::PhoneEffects"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/farnell/klang/Artificial Sounds/Phone Tones\\../Alarm Generator/alarmgenerator.k(125,31): error: conditional expression is ambiguous; 'signal' can be converted to 'float' and vice versa"
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Phone Tones/phonetones.k",
+          "sha256": "88847df5bb64b7716c6552339fc47f3f273b287d5e6ba3843ef91cc7a5ed015d",
+          "types": [
+            "::farnell::PhoneTones"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Police/police.k",
+          "sha256": "8d2162341e1d647523b264ca67b1bf68c33596df0461c74582a9791f7fb37fed",
+          "types": [
+            "::farnell::Police"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Police/variants/oscillators.k",
+          "sha256": "d04eb8e8499e3c5cfb8d78dd9f54adb686557f8d65c7b6b79d4ac5a5e962c144",
+          "types": [
+            "::farnell::variants::ExponentialOsc",
+            "::farnell::variants::PowerOsc",
+            "::farnell::variants::SymmetricExponentialOsc",
+            "::farnell::variants::InvertedExponentialOsc",
+            "::farnell::variants::TriangleOsc"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Artificial Sounds/Police/variants/police-exponential.k",
+          "sha256": "1e2a77772292e4cfbae0f23f4238c5dd4c1ff3aa310c369ecd54bf69b99b4a64",
+          "types": [
+            "::farnell::variants::PoliceExponential"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Boing/boing.k",
+          "sha256": "076c090915d4027e03d587295ec71b84fe8e8b417eaeea765bf427cd4c333fc5",
+          "types": [
+            "::farnell::Boing"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Boing/variants/boing-exponential.k",
+          "sha256": "3b2a9126ae1e2f7d502df7648a2a364a4103e90da7c81ec47daa7aa4514e4bfa",
+          "types": [
+            "::farnell::variants::BoingExponential"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Boing/variants/boing-power.k",
+          "sha256": "d35c2d1974191e48d1f7c1c196fdf39c6817a0590eed356b93802da50e29f28c",
+          "types": [
+            "::farnell::variants::BoingPower"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Bouncing/bouncing.k",
+          "sha256": "8713ddf4b908e45474e0206933e5cb86d342a7ffcbdf713b24c09f045eba8130",
+          "types": [
+            "::farnell::Bouncing"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Bouncing/variants/bouncing-exponential.k",
+          "sha256": "cdddec199eb18e782be41171bbc9b0fcd91eae99eba3e9e6b9418157a9adc6a1",
+          "types": [
+            "::farnell::variants::BouncingExponential"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Bouncing/variants/bouncing-power.k",
+          "sha256": "f02f6d30bd757e18bc29592852371b85bf10ef872680049e50bb1c750cdfff0b",
+          "types": [
+            "::farnell::variants::BouncingPower"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Creaking/creaking.k",
+          "sha256": "5b2c089c67ad63835966a1e742ef807bb36f21e0d70f6492bc3452382815024f",
+          "types": [
+            "::farnell::Creaking"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Rolling/rolling.k",
+          "sha256": "3f2fdd74ea530969c70752ff0c67c518f7a650e00748c738c79f2242abc6ba95",
+          "types": [
+            "::farnell::Rolling"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Telephone Bell/studies.k",
+          "sha256": "0da29fd7fbaeb2aa08b92cd5ea4f933c9b50eef46849ef542529d89ab4c350ff",
+          "types": [
+            "::farnell::BellStudies"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/Telephone Bell/telephonebell.k",
+          "sha256": "e9571ffa362e2bfd82c6a81734912f0ff362438a8b9c0a658fe6a5be38f0bc03",
+          "types": [
+            "::farnell::TelephoneBell"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "farnell/klang/Idiophonics/common.h",
+          "sha256": "350f1beef75ce04d511cfbce14ea0f20ffba41136e3de08b7da31d340f1facb7",
+          "types": [
+            "::farnell::SampleDelay",
+            "::farnell::ControlRandom"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Bicycle.h",
+          "sha256": "2dce7837b2e7c361e7d10b0e2e5a8dbbb43480c94754257f5393b6996ec9226e",
+          "types": [
+            "::Bicycle"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Bicycle.h(29,5): error: unknown type name 'Phasor'"
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Harrier.h",
+          "sha256": "8d9112ee1f03bd1367434ce13047551b67a27b6956cdaaf06a860536e8409da2",
+          "types": [
+            "::Harrier"
+          ],
+          "passed": true,
+          "selected_header_verified": true,
+          "first_error": null
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Helicopter.h",
+          "sha256": "34d4361e0e81514285b2e1a0999dd6d329ce81acd702e97a1213569fdc2ac147",
+          "types": [
+            "::Helicopter"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Helicopter.h(165,23): error: use of undeclared identifier 'FMath'"
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Mini.h",
+          "sha256": "f26e38e2cacbce1477a51443ff6a30c64976ba0309dfe8dae0076fbcbba5b63e",
+          "types": [
+            "::Mini"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Mini.h(56,23): error: use of undeclared identifier 'FMath'"
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Motors.h",
+          "sha256": "9f8ef3e03b407dfea50cb5e845999f01bafcdf71b16657b8ede0fd2c4416ef5f",
+          "types": [
+            "::ToyBoatEngine",
+            "::FourStrokeEngine",
+            "::Car"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Motors.h(76,2): error: unknown type name 'Phasor'"
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Nature.h",
+          "sha256": "a3ee35af348720dc8e3d007f247aa478cfc503f2cf9f2c73caf5e74b571d23b1",
+          "types": [
+            "::Rain"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Nature.h(17,9): error: invalid operands to binary expression ('Noise' and 'double')"
+        },
+        {
+          "header": "baseline",
+          "source": "sounds/Train.h",
+          "sha256": "e24f73a1941c47e6a3380e069161a8fbe28d69df7ea63f887870091eeffbe951",
+          "types": [
+            "::Train"
+          ],
+          "passed": false,
+          "selected_header_verified": true,
+          "first_error": "F:/klang/sfx/kleine/sounds/Train.h(110,23): error: invalid operands to binary expression ('Sine' and 'double')"
+        }
+      ]
+    }
+  }
+}

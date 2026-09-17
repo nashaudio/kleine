@@ -1,0 +1,641 @@
+{
+  "candidate_sha256": "5936c841df12cbe65955157c5aa64b260e7c81ad17333680009c4aa9ac7aad44",
+  "studio_debug_definition_preprocessed_equal": true,
+  "contracts": {
+    "msvc": {
+      "hashes": {
+        "F:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard\\klang.h": "5936c841df12cbe65955157c5aa64b260e7c81ad17333680009c4aa9ac7aad44",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp": "bff497326c9aa2d3057d022e68ea7cb995f135b830035690f365b5498d2e7c17",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\check_debug_guard.py": "861f3fa04614b093b429d96ef020d37baa1fa068af6082554223fdf7531b46c3"
+      },
+      "sources_unchanged": true,
+      "results": [
+        {
+          "name": "default-off",
+          "debug": false,
+          "command": [
+            "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+            "/nologo",
+            "/std:c++17",
+            "/EHsc",
+            "/O2",
+            "/MT",
+            "/fp:fast",
+            "/DNDEBUG",
+            "/DNOMINMAX",
+            "/showIncludes",
+            "/DEXPECT_CAPTURE=0",
+            "/IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "/FoF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\release\\default-off\\test.obj",
+            "/FeF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\release\\default-off\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=0 passed; sizes Debug=16408 Buffer=64 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "studio-on",
+          "debug": false,
+          "command": [
+            "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+            "/nologo",
+            "/std:c++17",
+            "/EHsc",
+            "/O2",
+            "/MT",
+            "/fp:fast",
+            "/DNDEBUG",
+            "/DNOMINMAX",
+            "/showIncludes",
+            "/DKLANG=1",
+            "/DEXPECT_CAPTURE=1",
+            "/IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "/FoF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\release\\studio-on\\test.obj",
+            "/FeF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\release\\studio-on\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=1 passed; sizes Debug=16408 Buffer=64 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "override-off",
+          "debug": false,
+          "command": [
+            "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+            "/nologo",
+            "/std:c++17",
+            "/EHsc",
+            "/O2",
+            "/MT",
+            "/fp:fast",
+            "/DNDEBUG",
+            "/DNOMINMAX",
+            "/showIncludes",
+            "/DKLANG=1",
+            "/DHAS_KLANG_DEBUG=0",
+            "/DEXPECT_CAPTURE=0",
+            "/IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "/FoF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\release\\override-off\\test.obj",
+            "/FeF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\release\\override-off\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=0 passed; sizes Debug=16408 Buffer=64 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "override-on",
+          "debug": false,
+          "command": [
+            "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+            "/nologo",
+            "/std:c++17",
+            "/EHsc",
+            "/O2",
+            "/MT",
+            "/fp:fast",
+            "/DNDEBUG",
+            "/DNOMINMAX",
+            "/showIncludes",
+            "/DHAS_KLANG_DEBUG=1",
+            "/DEXPECT_CAPTURE=1",
+            "/IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "/FoF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\release\\override-on\\test.obj",
+            "/FeF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\release\\override-on\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=1 passed; sizes Debug=16408 Buffer=64 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "default-off",
+          "debug": true,
+          "command": [
+            "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+            "/nologo",
+            "/std:c++17",
+            "/EHsc",
+            "/Od",
+            "/MTd",
+            "/fp:fast",
+            "/D_DEBUG",
+            "/DNOMINMAX",
+            "/showIncludes",
+            "/DEXPECT_CAPTURE=0",
+            "/IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "/FoF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\debug\\default-off\\test.obj",
+            "/FeF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\debug\\default-off\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=0 passed; sizes Debug=16408 Buffer=64 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "studio-on",
+          "debug": true,
+          "command": [
+            "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+            "/nologo",
+            "/std:c++17",
+            "/EHsc",
+            "/Od",
+            "/MTd",
+            "/fp:fast",
+            "/D_DEBUG",
+            "/DNOMINMAX",
+            "/showIncludes",
+            "/DKLANG=1",
+            "/DEXPECT_CAPTURE=1",
+            "/IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "/FoF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\debug\\studio-on\\test.obj",
+            "/FeF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\debug\\studio-on\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=1 passed; sizes Debug=16408 Buffer=64 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "override-off",
+          "debug": true,
+          "command": [
+            "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+            "/nologo",
+            "/std:c++17",
+            "/EHsc",
+            "/Od",
+            "/MTd",
+            "/fp:fast",
+            "/D_DEBUG",
+            "/DNOMINMAX",
+            "/showIncludes",
+            "/DKLANG=1",
+            "/DHAS_KLANG_DEBUG=0",
+            "/DEXPECT_CAPTURE=0",
+            "/IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "/FoF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\debug\\override-off\\test.obj",
+            "/FeF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\debug\\override-off\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=0 passed; sizes Debug=16408 Buffer=64 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "override-on",
+          "debug": true,
+          "command": [
+            "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe",
+            "/nologo",
+            "/std:c++17",
+            "/EHsc",
+            "/Od",
+            "/MTd",
+            "/fp:fast",
+            "/D_DEBUG",
+            "/DNOMINMAX",
+            "/showIncludes",
+            "/DHAS_KLANG_DEBUG=1",
+            "/DEXPECT_CAPTURE=1",
+            "/IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "/FoF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\debug\\override-on\\test.obj",
+            "/FeF:\\klang\\sfx\\kleine\\build\\debug-guard\\msvc\\debug\\override-on\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=1 passed; sizes Debug=16408 Buffer=64 Session=1 Sound=622736\n"
+          }
+        }
+      ]
+    },
+    "clang14": {
+      "hashes": {
+        "F:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard\\klang.h": "5936c841df12cbe65955157c5aa64b260e7c81ad17333680009c4aa9ac7aad44",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp": "bff497326c9aa2d3057d022e68ea7cb995f135b830035690f365b5498d2e7c17",
+        "F:\\klang\\sfx\\kleine\\tests\\klang\\check_debug_guard.py": "861f3fa04614b093b429d96ef020d37baa1fa068af6082554223fdf7531b46c3"
+      },
+      "sources_unchanged": true,
+      "results": [
+        {
+          "name": "default-off",
+          "debug": false,
+          "command": [
+            "build/toolchains/klang14\\klang.exe",
+            "-std=c++17",
+            "-fexceptions",
+            "-O2",
+            "-static",
+            "-ffast-math",
+            "-DNDEBUG",
+            "-DNOMINMAX",
+            "-DEXPECT_CAPTURE=0",
+            "-IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "-MD",
+            "-MF",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\release\\default-off\\test.d",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "-o",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\release\\default-off\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=0 passed; sizes Debug=16408 Buffer=56 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "studio-on",
+          "debug": false,
+          "command": [
+            "build/toolchains/klang14\\klang.exe",
+            "-std=c++17",
+            "-fexceptions",
+            "-O2",
+            "-static",
+            "-ffast-math",
+            "-DNDEBUG",
+            "-DNOMINMAX",
+            "-DKLANG=1",
+            "-DEXPECT_CAPTURE=1",
+            "-IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "-MD",
+            "-MF",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\release\\studio-on\\test.d",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "-o",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\release\\studio-on\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=1 passed; sizes Debug=16408 Buffer=56 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "override-off",
+          "debug": false,
+          "command": [
+            "build/toolchains/klang14\\klang.exe",
+            "-std=c++17",
+            "-fexceptions",
+            "-O2",
+            "-static",
+            "-ffast-math",
+            "-DNDEBUG",
+            "-DNOMINMAX",
+            "-DKLANG=1",
+            "-DHAS_KLANG_DEBUG=0",
+            "-DEXPECT_CAPTURE=0",
+            "-IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "-MD",
+            "-MF",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\release\\override-off\\test.d",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "-o",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\release\\override-off\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=0 passed; sizes Debug=16408 Buffer=56 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "override-on",
+          "debug": false,
+          "command": [
+            "build/toolchains/klang14\\klang.exe",
+            "-std=c++17",
+            "-fexceptions",
+            "-O2",
+            "-static",
+            "-ffast-math",
+            "-DNDEBUG",
+            "-DNOMINMAX",
+            "-DHAS_KLANG_DEBUG=1",
+            "-DEXPECT_CAPTURE=1",
+            "-IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "-MD",
+            "-MF",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\release\\override-on\\test.d",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "-o",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\release\\override-on\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=1 passed; sizes Debug=16408 Buffer=56 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "default-off",
+          "debug": true,
+          "command": [
+            "build/toolchains/klang14\\klang.exe",
+            "-std=c++17",
+            "-fexceptions",
+            "-O0",
+            "-static",
+            "-ffast-math",
+            "-D_DEBUG",
+            "-DNOMINMAX",
+            "-DEXPECT_CAPTURE=0",
+            "-IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "-MD",
+            "-MF",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\debug\\default-off\\test.d",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "-o",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\debug\\default-off\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=0 passed; sizes Debug=16408 Buffer=56 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "studio-on",
+          "debug": true,
+          "command": [
+            "build/toolchains/klang14\\klang.exe",
+            "-std=c++17",
+            "-fexceptions",
+            "-O0",
+            "-static",
+            "-ffast-math",
+            "-D_DEBUG",
+            "-DNOMINMAX",
+            "-DKLANG=1",
+            "-DEXPECT_CAPTURE=1",
+            "-IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "-MD",
+            "-MF",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\debug\\studio-on\\test.d",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "-o",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\debug\\studio-on\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=1 passed; sizes Debug=16408 Buffer=56 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "override-off",
+          "debug": true,
+          "command": [
+            "build/toolchains/klang14\\klang.exe",
+            "-std=c++17",
+            "-fexceptions",
+            "-O0",
+            "-static",
+            "-ffast-math",
+            "-D_DEBUG",
+            "-DNOMINMAX",
+            "-DKLANG=1",
+            "-DHAS_KLANG_DEBUG=0",
+            "-DEXPECT_CAPTURE=0",
+            "-IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "-MD",
+            "-MF",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\debug\\override-off\\test.d",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "-o",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\debug\\override-off\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=0 passed; sizes Debug=16408 Buffer=56 Session=1 Sound=622736\n"
+          }
+        },
+        {
+          "name": "override-on",
+          "debug": true,
+          "command": [
+            "build/toolchains/klang14\\klang.exe",
+            "-std=c++17",
+            "-fexceptions",
+            "-O0",
+            "-static",
+            "-ffast-math",
+            "-D_DEBUG",
+            "-DNOMINMAX",
+            "-DHAS_KLANG_DEBUG=1",
+            "-DEXPECT_CAPTURE=1",
+            "-IF:\\klang\\sfx\\kleine\\experiments\\klang\\debug-guard",
+            "-MD",
+            "-MF",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\debug\\override-on\\test.d",
+            "F:\\klang\\sfx\\kleine\\tests\\klang\\debug-guard.cpp",
+            "-o",
+            "F:\\klang\\sfx\\kleine\\build\\debug-guard\\clang14\\debug\\override-on\\test.exe"
+          ],
+          "compile_returncode": 0,
+          "selected_header_verified": true,
+          "run": {
+            "returncode": 0,
+            "output": "capture=1 passed; sizes Debug=16408 Buffer=56 Session=1 Sound=622736\n"
+          }
+        }
+      ]
+    }
+  },
+  "models": {
+    "header_sha256": {
+      "baseline": "57c5e56f7d97758bed67cbe1abf836834c46c048d1eca53ce58b3ed987152c12",
+      "candidate": "5936c841df12cbe65955157c5aa64b260e7c81ad17333680009c4aa9ac7aad44"
+    },
+    "flags": [
+      "/nologo",
+      "/std:c++17",
+      "/EHsc",
+      "/O2",
+      "/fp:fast",
+      "/MT",
+      "/DNDEBUG",
+      "/DNOMINMAX",
+      "/DWIN32",
+      "/D_WINDOWS",
+      "/D_CRT_SECURE_NO_WARNINGS",
+      "/W3",
+      "/wd4244",
+      "/wd4305",
+      "/showIncludes"
+    ],
+    "compiler_version": "usage: cl [ option... ] filename... [ /link linkoption... ]\nMicrosoft (R) C/C++ Optimizing Compiler Version 19.51.36257 for x64\nCopyright (C) Microsoft Corporation.  All rights reserved.\n\n",
+    "comparisons": [
+      {
+        "model": "Compressor",
+        "source": "examples/Compressor.k",
+        "reference": "baseline",
+        "rate": 44100,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      },
+      {
+        "model": "Compressor",
+        "source": "examples/Compressor.k",
+        "reference": "baseline",
+        "rate": 48000,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      },
+      {
+        "model": "PingPong",
+        "source": "examples/Delay/PingPong.k",
+        "reference": "baseline",
+        "rate": 44100,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      },
+      {
+        "model": "PingPong",
+        "source": "examples/Delay/PingPong.k",
+        "reference": "baseline",
+        "rate": 48000,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      },
+      {
+        "model": "RM",
+        "source": "examples/Gain/RM.k",
+        "reference": "baseline",
+        "rate": 44100,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      },
+      {
+        "model": "RM",
+        "source": "examples/Gain/RM.k",
+        "reference": "baseline",
+        "rate": 48000,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      },
+      {
+        "model": "Tremolo",
+        "source": "examples/Gain/Tremolo.k",
+        "reference": "baseline",
+        "rate": 44100,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      },
+      {
+        "model": "Tremolo",
+        "source": "examples/Gain/Tremolo.k",
+        "reference": "baseline",
+        "rate": 48000,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      },
+      {
+        "model": "Flanger",
+        "source": "examples/Modulation/Flanger.k",
+        "reference": "baseline",
+        "rate": 44100,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      },
+      {
+        "model": "Flanger",
+        "source": "examples/Modulation/Flanger.k",
+        "reference": "baseline",
+        "rate": 48000,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      },
+      {
+        "model": "PingPong",
+        "source": "examples/PingPong.k",
+        "reference": "baseline",
+        "rate": 44100,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      },
+      {
+        "model": "PingPong",
+        "source": "examples/PingPong.k",
+        "reference": "baseline",
+        "rate": 48000,
+        "shape_equal": true,
+        "sample_identical": true,
+        "finite": true,
+        "residual_peak": 0.0,
+        "residual_rms": 0.0
+      }
+    ],
+    "regressions": []
+  }
+}

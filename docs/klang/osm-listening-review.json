@@ -1,0 +1,108 @@
+{
+  "date": "2026-09-17",
+  "reviewer": "Chris Nash",
+  "status": "accepted",
+  "result": "NIPD: no immediately perceptible difference",
+  "scope": {
+    "models": [
+      "Flanger",
+      "Expression",
+      "FM2"
+    ],
+    "builds": [
+      "MSVC Release",
+      "Studio Clang 14.0.6 Release"
+    ],
+    "sample_rate": 44100,
+    "pairs": 6
+  },
+  "decision": "Accept the numerical differences in these reviewed fixtures; no further investigation required.",
+  "interpretation": "Improved accuracy or reduced phase drift is plausible, but not established as the cause of every residual.",
+  "user_feedback": "The all sound the same. I think the differences can be dismissed - probably as improved accuracy (less phase drift, etc.).",
+  "files": [
+    {
+      "path": "build/osm-promotion/listening/msvc-release-flanger-baseline-44100.wav",
+      "sha256": "09d70ebf2d374a3296cace2b4ac4ca07d73eebd309a1286e3b6a23feeb8aa29f",
+      "source": "build/osm-promotion/models-v2-msvc-release/baseline/host-fixture/042-Flanger/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    },
+    {
+      "path": "build/osm-promotion/listening/msvc-release-fm2-baseline-44100.wav",
+      "sha256": "6e56a14236fd0ee54039d06afb122dc9b1195af42b56d4d517bb9d888fb2841f",
+      "source": "build/osm-promotion/models-v2-msvc-release/baseline/host-fixture/044-FM2/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    },
+    {
+      "path": "build/osm-promotion/listening/msvc-release-expression-baseline-44100.wav",
+      "sha256": "2f943ad64d9ef6aefda4f47fca9d2da34d9648d8c396d89a89ab8b284181b42b",
+      "source": "build/osm-promotion/models-v2-msvc-release/baseline/host-fixture/053-Expression/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    },
+    {
+      "path": "build/osm-promotion/listening/msvc-release-flanger-candidate-44100.wav",
+      "sha256": "7f6102a31e8e270fbde9435b941bcbac5ea331ce2319a35c30a418dc6052c48b",
+      "source": "build/osm-promotion/models-v2-msvc-release/candidate/host-fixture/042-Flanger/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    },
+    {
+      "path": "build/osm-promotion/listening/msvc-release-fm2-candidate-44100.wav",
+      "sha256": "36ccedab58bcea4dade4a03f80f98421f8cd735baf9482127714cbde9bfab3d9",
+      "source": "build/osm-promotion/models-v2-msvc-release/candidate/host-fixture/044-FM2/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    },
+    {
+      "path": "build/osm-promotion/listening/msvc-release-expression-candidate-44100.wav",
+      "sha256": "832a07ca1a3fdc0a3ef41e097f7e8d14cf17b9922405056c23216ebc0430e7b7",
+      "source": "build/osm-promotion/models-v2-msvc-release/candidate/host-fixture/053-Expression/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    },
+    {
+      "path": "build/osm-promotion/listening/clang14-release-flanger-baseline-44100.wav",
+      "sha256": "066159f75ddee26902b46e9e0e43fb7aa2838cd6030f5b5fde0dee9a1a7c5e2f",
+      "source": "build/osm-promotion/models-v2-clang14-release/baseline/host-fixture/042-Flanger/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    },
+    {
+      "path": "build/osm-promotion/listening/clang14-release-fm2-baseline-44100.wav",
+      "sha256": "200b61eb4580e3734e7136cf496e5398dc87135ac64293e1bbd24138b80c2270",
+      "source": "build/osm-promotion/models-v2-clang14-release/baseline/host-fixture/044-FM2/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    },
+    {
+      "path": "build/osm-promotion/listening/clang14-release-expression-baseline-44100.wav",
+      "sha256": "0f7c3ada6a536597c77089306f1db052a69aa5cc396447660a79b164f5b3adaa",
+      "source": "build/osm-promotion/models-v2-clang14-release/baseline/host-fixture/053-Expression/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    },
+    {
+      "path": "build/osm-promotion/listening/clang14-release-flanger-candidate-44100.wav",
+      "sha256": "35eac3eea3a54146cd790813d1f81ce7ebae44c465cf69ef8b8e838440027554",
+      "source": "build/osm-promotion/models-v2-clang14-release/candidate/host-fixture/042-Flanger/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    },
+    {
+      "path": "build/osm-promotion/listening/clang14-release-fm2-candidate-44100.wav",
+      "sha256": "8c858f1cc52fd8e8198a74e55031af2dcc9586c3c47b10cf0412f567f914624e",
+      "source": "build/osm-promotion/models-v2-clang14-release/candidate/host-fixture/044-FM2/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    },
+    {
+      "path": "build/osm-promotion/listening/clang14-release-expression-candidate-44100.wav",
+      "sha256": "e65665f3c28602c2f70bd84ab0c4c338e32a9eddb932d408ce5f23ce70e31fe1",
+      "source": "build/osm-promotion/models-v2-clang14-release/candidate/host-fixture/053-Expression/44100.f32",
+      "gain": 1,
+      "alignment_samples": 0
+    }
+  ]
+}
