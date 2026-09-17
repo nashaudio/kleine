@@ -45,6 +45,7 @@ build/
 
 # Local book reference and generated analysis/build files
 /book/
+/docs/book/
 /output.wav
 __pycache__/
 *.py[cod]
