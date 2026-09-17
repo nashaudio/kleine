@@ -8,6 +8,7 @@ from collections import Counter, defaultdict
 import hashlib
 from html import escape, unescape
 import json
+import posixpath
 from pathlib import Path
 import re
 from urllib.parse import quote
@@ -15,6 +16,7 @@ from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / "farnell"
+DOCS = ROOT / "docs" / "farnell" / "reviews"
 SITE = "https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/8375/designing_sound.zip/"
 ALIASES = dict(zip(
     "t f i b s r s~ r~ del sel".split(),
@@ -41,8 +43,8 @@ BUILTINS = ARITHMETIC | CONTROL | GUI | HOST | set("osc~ hip~ lop~ bp~ noise~ vc
 # Bundled Vanilla abstractions are dependencies, not C primitives.
 BUNDLED = {"hilbert~", "rev3~"}
 PORTS = {
-    "delay": ("Tested port", "pd::del", "Complete object messages/tempo units within sample polling: 52 isolated control cases. Shared-clock ordering, synchronous feedback and block delivery are separate; tests/pd/del.md."),
-    "metro": ("Partial port", "pd::metro", "Reusable sample-timed polling: 16 event-count fixtures. Tempo units, synchronous outlet feedback and block delivery remain; tests/pd/metro.md."),
+    "delay": ("Tested port", "pd::del", "Complete object messages/tempo units within sample polling: 52 isolated control cases. Shared-clock ordering, synchronous feedback and block delivery are separate; docs/tests/pd/del.md."),
+    "metro": ("Partial port", "pd::metro", "Reusable sample-timed polling: 16 event-count fixtures. Tempo units, synchronous outlet feedback and block delivery remain; docs/tests/pd/metro.md."),
     "osc~": ("Tested port", "pd::osc", "Phase, negative frequency and FM fixtures; exact decoded samples in tested cases."),
     "hip~": ("Tested port", "pd::hip", "Impulse / zero cutoff / high cutoff / legacy normalisation fixtures."),
     "noise~": ("Tested port", "pd::noise", "Explicit-seed sample parity; default global seed order remains an integration concern."),
@@ -51,14 +53,14 @@ PORTS = {
     "vcf~": ("Tested port", "pd::vcf", "PD table/gain arithmetic; real/imaginary FM and Q0/Q80 fixtures at both rates. K-005."),
     "samphold~": ("Tested port", "pd::samphold", "Seeded noise sampled on a descending phasor edge at both rates."),
     "rzero~": ("Tested port", "pd::rzero", "Seeded first-difference fixture at coefficient 0.99, both rates."),
-    "vline~": ("Tested port", "pd::vline", "Complete float/list, cold-inlet, stop and queue contract: 50 isolated cases. Explicit host clock sync; pure models remain sample-timed. tests/pd/vline.md. K-007."),
+    "vline~": ("Tested port", "pd::vline", "Complete float/list, cold-inlet, stop and queue contract: 50 isolated cases. Explicit host clock sync; pure models remain sample-timed. docs/tests/pd/vline.md. K-007."),
     "delread~": ("Limited model helper", "TelephoneBell::Delay / Police::Environment / SampleDelay", "Pure fixed taps now omit implicit block routing; new listening review pending. General delay/control/reset semantics remain. K-008."),
     "delwrite~": ("Limited model helper", "TelephoneBell::Delay / Police::Environment / SampleDelay", "Prior retained routing fixtures describe the old model. Pure feedback paths need review; no general named-buffer port. K-008."),
     "phasor~": ("Tested port", "pd::phasor", "Positive/negative frequency, initial phase and wrap at 48/44.1 kHz; preserve 64-sample phase maintenance."),
     "cos~": ("Tested port", "pd::cos", "Negative/positive cycle lookup; exact fixture samples and alarm waveshaping comparisons."),
     "wrap~": ("Tested port", "pd::wrap", "Signed phase ramp including negative integers; finite-input fixture scope."),
     "line~": ("Tested port", "pd::line", "64-sample grid; short ramp, retarget, stop, immediate set at both rates. No arbitrary block size contract."),
-    "line": ("Tested port", "pd::line (three-argument set)", "Control grain, retarget, stop/reset, duration/grain inlets, legacy stop and repeated emissions: 20 fixtures. Polled values/counts; no synchronous outlet callbacks. tests/pd/line.md."),
+    "line": ("Tested port", "pd::line (three-argument set)", "Control grain, retarget, stop/reset, duration/grain inlets, legacy stop and repeated emissions: 20 fixtures. Polled values/counts; no synchronous outlet callbacks. docs/tests/pd/line.md."),
     "env~": ("Tested port", "pd::env", "Default 1024/512 only; out/updated publish together at the next block boundary. Raw output plus 8 event cases pass without offsets: tests/pd/env-output-results.json. Configurable windows remain outside scope."),
     "pow~": ("Native subset validated", "Police::LogOsc / std::pow", "Both police inlet conventions compared with PD; other domains and legacy numeric approximations remain."),
     "vd~": ("Not ported", "candidate: Klang Delay", "PD interpolation, minimum delay and block ordering must be checked. K-008."),
@@ -428,10 +430,10 @@ def primitives(meta, sources, rows, graph, missing, stems):
     raw_names = set(an)
     abstraction_names = set(stems) - BUILTINS
     builtin_names = sorted(raw_names & BUILTINS, key=lambda n: (-wp[n], -ap[n], n))
-    lines = ["# PD primitive coverage and usage", "", "Snapshot: " + meta["snapshot"] + ". See [model coverage](COVERAGE.md), [Klang review backlog](KLANG-REVIEW.md), and [isolated comparison evidence](../tests/pd/README.md).", "",
+    lines = ["# PD primitive coverage and usage", "", "Snapshot: " + meta["snapshot"] + ". See [model coverage](COVERAGE.md), [Klang review backlog](KLANG-REVIEW.md), and [isolated comparison evidence](../docs/tests/pd/README.md).", "",
              "## Overview", "",
              f"The active inventory contains **{len(sources)} patch files**: {len(web)} website files and {len(sources)-len(web)} bulk files, representing **{len(unique)} byte-distinct contents**. The parked `pd/old` archive is excluded. There are **{len(builtin_names)} distinct normalised Vanilla node names used**, plus bundled abstractions and non-Vanilla/local/dynamic objects listed separately.", "",
-             "All sixteen primitive classes in [include/klang/pd.h](../include/klang/pd.h) have isolated comparison fixtures. The original suite retains 58 passing cases at 48/44.1 kHz on PD 0.55.2, including `vcf`, `samphold`, `rzero` and source filter arithmetic. The complete `pd::vline` ramp/message port replaces Gesture and adds [50 isolated cases](../tests/pd/vline.md); explicit host clock synchronisation is tested separately from pure model timing. The reusable `pd::del` control clock adds [52 message/tempo cases](../tests/pd/del.md). Metro and control-line fixtures are also documented below. This describes the retained fixtures, not universal parity. [Original results](../tests/pd/results.json) and [source revisions](../tests/pd/sources.json) preserve the evidence.", "",
+             "All sixteen primitive classes in [include/klang/pd.h](../include/klang/pd.h) have isolated comparison fixtures. The original suite retains 58 passing cases at 48/44.1 kHz on PD 0.55.2, including `vcf`, `samphold`, `rzero` and source filter arithmetic. The complete `pd::vline` ramp/message port replaces Gesture and adds [50 isolated cases](../docs/tests/pd/vline.md); explicit host clock synchronisation is tested separately from pure model timing. The reusable `pd::del` control clock adds [52 message/tempo cases](../docs/tests/pd/del.md). Metro and control-line fixtures are also documented below. This describes the retained fixtures, not universal parity. [Original results](../tests/pd/results.json) and [source revisions](../tests/pd/sources.json) preserve the evidence.", "",
              STATUS_LEGEND, "",
              "**Node coverage:** " + progress(primitive_role(name) for name in builtin_names), "",
              "Green means validated within the retained fixture scope; amber means an existing implementation/helper still needs work. White includes native/control candidates whose PD semantics have not yet been checked. Grey GUI rows need no dedicated primitive port and are excluded from the percentage; model control translation still applies. Each remaining node counts once, regardless of usage frequency. Red in the dependency table marks unresolved source requirements, not a failed audio test.", "",
@@ -478,9 +480,34 @@ def primitives(meta, sources, rows, graph, missing, stems):
               "Vanilla classification uses the installed PD 0.55.2 reference help and local source evidence, with legacy `q8_sqrt~` retained as a compatibility item. A headless no-preferences creation probe confirmed that `init` and `>~` are unavailable in this Vanilla installation; they remain unresolved/external dependencies. The installed `unops-tilde-help.pd` documents the sqrt algorithm change in 0.55 and the current q8 aliases. This is a working dependency inventory, not a complete list of all Vanilla objects. No primitive code was changed by this inventory."]
     lines[4:4] = [
         "## Interface policy and current review", "",
-        "Aim for complete reusable PD ports, with documented gaps. Review tilde/non-tilde pairs individually, preferring polymorphism where the interfaces fit. `pd::line` uses two-argument `set(target, duration)` for audio and three-argument `set(target, duration, grain)` for control output; both times are milliseconds. Two `{timeMs,value}` endpoints are also accepted. See [line API and 20 control fixtures](../tests/pd/line.md).", "",
+        "Aim for complete reusable PD ports, with documented gaps. Review tilde/non-tilde pairs individually, preferring polymorphism where the interfaces fit. `pd::line` uses two-argument `set(target, duration)` for audio and three-argument `set(target, duration, grain)` for control output; both times are milliseconds. Two `{timeMs,value}` endpoints are also accepted. See [line API and 20 control fixtures](../docs/tests/pd/line.md).", "",
         "The [topology review](KLANG-TOPOLOGY-REVIEW.md) removes hidden model-level block workarounds and records the remaining primitive work. The polling metro has 16 isolated cases, but tempo units and synchronous outlet feedback remain incomplete. PD primitives retain Doxygen API descriptions and examples; models use short `//` object descriptions with at most one longer Doxygen overview per file. Run `doxygen tools/Doxyfile.pd` from the repository root.", ""]
     return re.sub(r"\bK-(\d{3})\b", lambda m: link(m[0], "KLANG-REVIEW.md#k-" + m[1]), "\n".join(lines)) + "\n"
+
+
+def docs_links(text):
+    """Render Farnell-relative source links from the central review directory."""
+    reports = {"COVERAGE.md", "PD-PRIMITIVES.md", "KLANG-REVIEW.md",
+               "KLANG-TOPOLOGY-REVIEW.md", "PD-BLOCK.md"}
+    def relocate(match):
+        url = match[2]
+        if url.startswith(("#", "/")) or re.match(r"^[a-zA-Z][\w+.-]*:", url):
+            return match[0]
+        path, separator, fragment = url.partition("#")
+        if path in reports:
+            target = DOCS / path
+        else:
+            target = (BASE / path).resolve()
+            if target.suffix.lower() == ".md":
+                try:
+                    relative = target.relative_to(BASE)
+                    target = (DOCS / relative.name if relative.parts[0] == "docs"
+                              else ROOT / "docs" / "farnell" / relative)
+                except ValueError:
+                    pass
+        path = posixpath.relpath(target.as_posix(), DOCS.as_posix())
+        return match[1] + path + separator + fragment + match[3]
+    return re.sub(r"(!?\[[^\]\n]*\]\()([^\)\n]+)(\))", relocate, text)
 
 
 def main():
@@ -494,8 +521,10 @@ def main():
     assert set(sources) == {p for row in rows for p in row["sources"]}, "Uncatalogued source file"
     for row in rows:
         assert all(f in meta["figure_pages"] for f in row["figures"]), row["id"]
-    (BASE / "COVERAGE.md").write_text(coverage(meta, sources, web, rows, graph, missing), encoding="utf-8")
-    (BASE / "PD-PRIMITIVES.md").write_text(primitives(meta, sources, rows, graph, missing, stems), encoding="utf-8")
+    docs = DOCS
+    docs.mkdir(exist_ok=True)
+    (docs / "COVERAGE.md").write_text(docs_links(coverage(meta, sources, web, rows, graph, missing)), encoding="utf-8")
+    (docs / "PD-PRIMITIVES.md").write_text(docs_links(primitives(meta, sources, rows, graph, missing, stems)), encoding="utf-8")
     print(f"Catalogued {len(sources)} active PD files in {len(rows)} work items; all source paths accounted for.")
 
 

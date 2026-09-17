@@ -1,6 +1,6 @@
 """Paired chapter 29-33 trials; instrumented references and scratch WAVs live in build.
 
-Original PD files are preserved. See farnell/audio/idiophonics.md for variant scope.
+Original PD files are preserved. See docs/farnell/audio/idiophonics.md for variant scope.
 """
 import argparse
 import hashlib

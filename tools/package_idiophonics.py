@@ -11,6 +11,7 @@ from analyse_creaking import main as analyse_creaking
 
 AUDIO = ROOT/'farnell/audio'
 EVIDENCE = AUDIO/'comparisons/idiophonics'
+DOCS = ROOT/'docs/farnell/audio/comparisons/idiophonics'
 ONLINE = {'bouncing':'p07/bounce.wav','rolling':'p08/rolling.wav',
           'creaking':'p09/creaking.wav','boing':'p10/boing.wav'}
 
@@ -21,6 +22,7 @@ def sha(path):
 
 def main():
     EVIDENCE.mkdir(parents=True,exist_ok=True)
+    DOCS.mkdir(parents=True,exist_ok=True)
     runs = {}
     for rate in [48000,44100]:
         source = ROOT/f'build/idiophonics/{rate}/results.json'
@@ -77,7 +79,7 @@ def main():
         r=runs['48000'][case];p,k=r['pd'],r['kleine'];seconds=r['duration']
         dsp=json.loads(k['stdout'])['processing_wall_seconds']*1000/seconds
         rows.append(f"| {case} | {p['sampled_cpu_seconds']*1000/seconds:.2f} / {k['sampled_cpu_seconds']*1000/seconds:.2f} | {p['elapsed_seconds']:.3f} / {k['elapsed_seconds']:.3f} | {p['sampled_peak_rss_bytes']/2**20:.2f} / {k['sampled_peak_rss_bytes']/2**20:.2f} | {dsp:.3f} |")
-    (EVIDENCE/'tables.md').write_text('\n'.join(rows)+'\n')
+    (DOCS/'tables.md').write_text('\n'.join(rows)+'\n')
 
     audio={}
     files=[folder_for(case)/f'{case}-{r}.wav' for case in LISTENING for r in ['pd','kleine']]

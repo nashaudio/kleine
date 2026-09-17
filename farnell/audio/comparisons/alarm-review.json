@@ -1,0 +1,2105 @@
+{
+  "results": {
+    "48000": {
+      "alarm01": {
+        "sample_rate": 48000,
+        "duration": 4,
+        "frames": 192000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm01.pd": "57c7756a44b217132380d7eef1e70d5e168b6b7c50441a5e8e04ff1b46f10d0e"
+        },
+        "events": [],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm01\\render.pd"
+          ],
+          "elapsed_seconds": 1.1643060000000105,
+          "sampled_cpu_seconds": 0.46875,
+          "sampled_peak_rss_bytes": 21790720,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/48000/alarm01/pd.wav: biggest amplitude = 0.200000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm01",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm01\\kleine.wav",
+            "4",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm01\\events.tsv"
+          ],
+          "elapsed_seconds": 0.04261359999998149,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 5021696,
+          "stdout": "{\"model\":\"alarm01\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.002444}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.19999997317790985,
+          "klang_peak": 0.19999997317790985,
+          "pd_dc": -5.657848305418156e-09,
+          "klang_dc": -5.657848305418156e-09,
+          "pd_rms": 0.097467866099372,
+          "klang_rms": 0.097467866099372,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm01-controls": {
+        "sample_rate": 48000,
+        "duration": 4,
+        "frames": 192000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm01.pd": "57c7756a44b217132380d7eef1e70d5e168b6b7c50441a5e8e04ff1b46f10d0e"
+        },
+        "events": [
+          {
+            "frame": 0,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 11968,
+            "action": "start",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 43200,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 72000,
+            "action": "start",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 105600,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 124800,
+            "action": "start",
+            "values": [
+              1
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm01-controls\\render.pd"
+          ],
+          "elapsed_seconds": 0.6704954000000498,
+          "sampled_cpu_seconds": 0.40625,
+          "sampled_peak_rss_bytes": 20836352,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/48000/alarm01-controls/pd.wav: biggest amplitude = 0.200000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm01",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm01-controls\\kleine.wav",
+            "4",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm01-controls\\events.tsv"
+          ],
+          "elapsed_seconds": 0.024470299999961753,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 5128192,
+          "stdout": "{\"model\":\"alarm01\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.002201}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.19999995827674866,
+          "klang_peak": 0.19999995827674866,
+          "pd_dc": -3.303431716024837e-09,
+          "klang_dc": -3.303431716024837e-09,
+          "pd_rms": 0.09219537146708628,
+          "klang_rms": 0.09219537146708628,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm02": {
+        "sample_rate": 48000,
+        "duration": 4,
+        "frames": 192000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm02.pd": "ac65e89a4a0c15f531f909430331e4983a47db355c3079b38ea31c6a2bf23a40"
+        },
+        "events": [],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm02\\render.pd"
+          ],
+          "elapsed_seconds": 0.6273901000000706,
+          "sampled_cpu_seconds": 0.46875,
+          "sampled_peak_rss_bytes": 21458944,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/48000/alarm02/pd.wav: biggest amplitude = 0.199999\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm02",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm02\\kleine.wav",
+            "4",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm02\\events.tsv"
+          ],
+          "elapsed_seconds": 0.019214099999999235,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 5021696,
+          "stdout": "{\"model\":\"alarm02\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.004088}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.1999993622303009,
+          "klang_peak": 0.1999993622303009,
+          "pd_dc": -1.46491062237922e-06,
+          "klang_dc": -1.46491062237922e-06,
+          "pd_rms": 0.09945922835999081,
+          "klang_rms": 0.09945922835999081,
+          "level_delta_db": 0.0,
+          "error_rms": 5.0415564881205886e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0838128159862363e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm03": {
+        "sample_rate": 48000,
+        "duration": 4,
+        "frames": 192000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm03.pd": "78bb63b513e6254c8b147a6daa6feed61d2efe1c4fd4214f5964af01a65cb765"
+        },
+        "events": [],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm03\\render.pd"
+          ],
+          "elapsed_seconds": 0.6006323000000293,
+          "sampled_cpu_seconds": 0.4375,
+          "sampled_peak_rss_bytes": 21524480,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/48000/alarm03/pd.wav: biggest amplitude = 0.200000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm03",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm03\\kleine.wav",
+            "4",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm03\\events.tsv"
+          ],
+          "elapsed_seconds": 0.019474699999932454,
+          "sampled_cpu_seconds": 0,
+          "sampled_peak_rss_bytes": 5042176,
+          "stdout": "{\"model\":\"alarm03\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.004900}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.20000000298023224,
+          "klang_peak": 0.20000000298023224,
+          "pd_dc": 6.838309704200647e-07,
+          "klang_dc": 6.838309704200647e-07,
+          "pd_rms": 0.14066498090848512,
+          "klang_rms": 0.14066498090848512,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm04": {
+        "sample_rate": 48000,
+        "duration": 4,
+        "frames": 192000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm04.pd": "d77b7101dfce4bcde76eefbc66470e825134155c0fe2fa9558dcc1026bbfab45"
+        },
+        "events": [],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm04\\render.pd"
+          ],
+          "elapsed_seconds": 0.6511675000000423,
+          "sampled_cpu_seconds": 0.4375,
+          "sampled_peak_rss_bytes": 21540864,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/48000/alarm04/pd.wav: biggest amplitude = 0.250000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm04",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm04\\kleine.wav",
+            "4",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm04\\events.tsv"
+          ],
+          "elapsed_seconds": 0.025898200000028737,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 5021696,
+          "stdout": "{\"model\":\"alarm04\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.008539}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.2499999850988388,
+          "klang_peak": 0.2499999850988388,
+          "pd_dc": 6.356564584678246e-07,
+          "klang_dc": 6.356564584678246e-07,
+          "pd_rms": 0.12499979527451661,
+          "klang_rms": 0.12499979527451661,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm05": {
+        "sample_rate": 48000,
+        "duration": 4,
+        "frames": 192000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm05.pd": "7407dd7d37972c519919d6769e76d196dd6017c822c403df59e74e9bad577da7"
+        },
+        "events": [],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm05\\render.pd"
+          ],
+          "elapsed_seconds": 0.7250223000000915,
+          "sampled_cpu_seconds": 0.453125,
+          "sampled_peak_rss_bytes": 21471232,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/48000/alarm05/pd.wav: biggest amplitude = 0.200000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm05",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm05\\kleine.wav",
+            "4",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm05\\events.tsv"
+          ],
+          "elapsed_seconds": 0.031104000000027554,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 5025792,
+          "stdout": "{\"model\":\"alarm05\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.005519}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.19999955594539642,
+          "klang_peak": 0.19999955594539642,
+          "pd_dc": -3.2555098235468688e-06,
+          "klang_dc": -3.2555098235468688e-06,
+          "pd_rms": 0.14109517855219475,
+          "klang_rms": 0.14109517855219475,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm05-controls": {
+        "sample_rate": 48000,
+        "duration": 4,
+        "frames": 192000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm05.pd": "7407dd7d37972c519919d6769e76d196dd6017c822c403df59e74e9bad577da7"
+        },
+        "events": [
+          {
+            "frame": 0,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 11968,
+            "action": "start",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 43200,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 72000,
+            "action": "start",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 105600,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 124800,
+            "action": "start",
+            "values": [
+              1
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm05-controls\\render.pd"
+          ],
+          "elapsed_seconds": 0.7685434999999643,
+          "sampled_cpu_seconds": 0.421875,
+          "sampled_peak_rss_bytes": 21913600,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/48000/alarm05-controls/pd.wav: biggest amplitude = 0.200000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm05",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm05-controls\\kleine.wav",
+            "4",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm05-controls\\events.tsv"
+          ],
+          "elapsed_seconds": 0.03050159999997959,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 5091328,
+          "stdout": "{\"model\":\"alarm05\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.005390}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.19999979436397552,
+          "klang_peak": 0.19999979436397552,
+          "pd_dc": -7.37672937198397e-07,
+          "klang_dc": -7.37672937198397e-07,
+          "pd_rms": 0.1366461384066377,
+          "klang_rms": 0.1366461384066377,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm06": {
+        "sample_rate": 48000,
+        "duration": 4,
+        "frames": 192000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm06.pd": "60d82f951223f457a5b4bcb830eb63a9b476e10afdbd04ca99b778f54cca29f3"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "program",
+            "values": [
+              471,
+              2,
+              555.55556,
+              507.9365,
+              619.0476,
+              619.0476,
+              0.5396825396825397
+            ]
+          },
+          {
+            "frame": 72000,
+            "action": "program",
+            "values": [
+              800,
+              3,
+              723,
+              932,
+              1012,
+              440,
+              0.5
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm06\\render.pd"
+          ],
+          "elapsed_seconds": 0.636265000000094,
+          "sampled_cpu_seconds": 0.421875,
+          "sampled_peak_rss_bytes": 21364736,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/48000/alarm06/pd.wav: biggest amplitude = 0.059399\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm06",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm06\\kleine.wav",
+            "4",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm06\\events.tsv"
+          ],
+          "elapsed_seconds": 0.041845399999942856,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 5099520,
+          "stdout": "{\"model\":\"alarm06\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.020963}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.05939903482794762,
+          "klang_peak": 0.05939903482794762,
+          "pd_dc": 8.855143505033987e-13,
+          "klang_dc": 8.855143505033987e-13,
+          "pd_rms": 0.013706952787705846,
+          "klang_rms": 0.013706952787705846,
+          "level_delta_db": 0.0,
+          "error_rms": 3.0561356850743973e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0832000560980935e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm07": {
+        "sample_rate": 48000,
+        "duration": 12,
+        "frames": 576000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm07.pd": "6f483dbae5637f4e5a189b372a2571b613de0ae9c44e25ddf5e4254e2a131c8b"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "program",
+            "values": [
+              380,
+              2,
+              349,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "frame": 49408,
+            "action": "program",
+            "values": [
+              238,
+              1,
+              317,
+              0,
+              0,
+              476,
+              0
+            ]
+          },
+          {
+            "frame": 80064,
+            "action": "program",
+            "values": [
+              317,
+              7,
+              300,
+              125,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "frame": 114432,
+            "action": "program",
+            "values": [
+              1031,
+              9,
+              360,
+              238,
+              174,
+              158,
+              1
+            ]
+          },
+          {
+            "frame": 183168,
+            "action": "program",
+            "values": [
+              900,
+              4,
+              2000,
+              2010,
+              2000,
+              2010,
+              1
+            ]
+          },
+          {
+            "frame": 245568,
+            "action": "program",
+            "values": [
+              1428,
+              3,
+              619,
+              571,
+              365,
+              206,
+              1
+            ]
+          },
+          {
+            "frame": 333312,
+            "action": "program",
+            "values": [
+              450,
+              1,
+              365,
+              571,
+              619,
+              206,
+              0.5
+            ]
+          },
+          {
+            "frame": 374080,
+            "action": "program",
+            "values": [
+              714,
+              74,
+              1000,
+              0,
+              1000,
+              0,
+              1
+            ]
+          },
+          {
+            "frame": 427584,
+            "action": "program",
+            "values": [
+              200,
+              30,
+              1000,
+              476,
+              159,
+              0,
+              1
+            ]
+          },
+          {
+            "frame": 456384,
+            "action": "program",
+            "values": [
+              634,
+              61,
+              1000,
+              476,
+              159,
+              0,
+              1
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm07\\render.pd"
+          ],
+          "elapsed_seconds": 0.6886898999999858,
+          "sampled_cpu_seconds": 0.46875,
+          "sampled_peak_rss_bytes": 24420352,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/48000/alarm07/pd.wav: biggest amplitude = 0.160442\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm07",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm07\\kleine.wav",
+            "12",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm07\\events.tsv"
+          ],
+          "elapsed_seconds": 0.0913765999999896,
+          "sampled_cpu_seconds": 0.078125,
+          "sampled_peak_rss_bytes": 6696960,
+          "stdout": "{\"model\":\"alarm07\",\"sample_rate\":48000,\"frames\":576000,\"gain\":1,\"processing_wall_seconds\":0.066534}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.16044200956821442,
+          "klang_peak": 0.16044200956821442,
+          "pd_dc": 5.6642014766788365e-14,
+          "klang_dc": 5.6642014766788365e-14,
+          "pd_rms": 0.040746209847017094,
+          "klang_rms": 0.040746209847017094,
+          "level_delta_db": 0.0,
+          "error_rms": 4.138239005384426e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0839519503502071e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm15": {
+        "sample_rate": 48000,
+        "duration": 4,
+        "frames": 192000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\2tone-15.pd": "d9bec6fa4108dc73c63261fc53e1ee07ec276fbacfa26bdd147efeffc46ed5f3"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "program",
+            "values": [
+              471,
+              2,
+              555.55556,
+              507.9365,
+              619.0476,
+              619.0476,
+              0.5396825396825397
+            ]
+          },
+          {
+            "frame": 72000,
+            "action": "program",
+            "values": [
+              800,
+              3,
+              723,
+              932,
+              1012,
+              440,
+              0.5
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm15\\render.pd"
+          ],
+          "elapsed_seconds": 0.6231802999999445,
+          "sampled_cpu_seconds": 0.53125,
+          "sampled_peak_rss_bytes": 21524480,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/48000/alarm15/pd.wav: biggest amplitude = 0.059399\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm06",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm15\\kleine.wav",
+            "4",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm15\\events.tsv"
+          ],
+          "elapsed_seconds": 0.04783810000003541,
+          "sampled_cpu_seconds": 0.03125,
+          "sampled_peak_rss_bytes": 5099520,
+          "stdout": "{\"model\":\"alarm06\",\"sample_rate\":48000,\"frames\":192000,\"gain\":1,\"processing_wall_seconds\":0.021007}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.05939903482794762,
+          "klang_peak": 0.05939903482794762,
+          "pd_dc": 8.855143505033987e-13,
+          "klang_dc": 8.855143505033987e-13,
+          "pd_rms": 0.013706952787705846,
+          "klang_rms": 0.013706952787705846,
+          "level_delta_db": 0.0,
+          "error_rms": 3.0561356850743973e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0832000560980935e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm-bank": {
+        "sample_rate": 48000,
+        "duration": 6,
+        "frames": 288000,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\2tone-20.pd": "2ba8bf8f1479f1a9cc62782af17618e5217e038bdc551d5f1375d0f13d0ef383"
+        },
+        "events": [
+          {
+            "frame": 11968,
+            "action": "bank",
+            "values": [
+              0.126984,
+              0.190476,
+              0.730159,
+              0.0793651,
+              0,
+              0.460317,
+              0.507937,
+              0.0634921
+            ]
+          },
+          {
+            "frame": 96000,
+            "action": "bank",
+            "values": [
+              0.174603,
+              0.396825,
+              0.619048,
+              0.587302,
+              0.428571,
+              0.460317,
+              0.492063,
+              0.396825
+            ]
+          },
+          {
+            "frame": 192000,
+            "action": "bank",
+            "values": [
+              0.793651,
+              0.793651,
+              0.793651,
+              0,
+              0.0634921,
+              0.460317,
+              0.269841,
+              0.0634921
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "48000",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm-bank\\render.pd"
+          ],
+          "elapsed_seconds": 0.6486727000000201,
+          "sampled_cpu_seconds": 0.453125,
+          "sampled_peak_rss_bytes": 22470656,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/48000/alarm-bank/pd.wav: biggest amplitude = 0.245954\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm-bank",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm-bank\\kleine.wav",
+            "6",
+            "48000",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\48000\\alarm-bank\\events.tsv"
+          ],
+          "elapsed_seconds": 0.05509549999999308,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 5480448,
+          "stdout": "{\"model\":\"alarm-bank\",\"sample_rate\":48000,\"frames\":288000,\"gain\":1,\"processing_wall_seconds\":0.025283}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.2459542602300644,
+          "klang_peak": 0.2459542602300644,
+          "pd_dc": 9.64879674789165e-06,
+          "klang_dc": 9.64879674789165e-06,
+          "pd_rms": 0.06492128456928033,
+          "klang_rms": 0.06492128456928033,
+          "level_delta_db": 0.0,
+          "error_rms": 5.291141680391969e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0825668751885783e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      }
+    },
+    "44100": {
+      "alarm01": {
+        "sample_rate": 44100,
+        "duration": 4,
+        "frames": 176400,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm01.pd": "57c7756a44b217132380d7eef1e70d5e168b6b7c50441a5e8e04ff1b46f10d0e"
+        },
+        "events": [],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm01\\render.pd"
+          ],
+          "elapsed_seconds": 0.6605276000000231,
+          "sampled_cpu_seconds": 0.34375,
+          "sampled_peak_rss_bytes": 21549056,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/44100/alarm01/pd.wav: biggest amplitude = 0.200000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm01",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm01\\kleine.wav",
+            "4",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm01\\events.tsv"
+          ],
+          "elapsed_seconds": 0.02006380000000263,
+          "sampled_cpu_seconds": 0,
+          "sampled_peak_rss_bytes": 4968448,
+          "stdout": "{\"model\":\"alarm01\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.002011}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.19999998807907104,
+          "klang_peak": 0.19999998807907104,
+          "pd_dc": -1.1082545315235423e-06,
+          "klang_dc": 1.2829031160654598e-09,
+          "pd_rms": 0.0974746205601237,
+          "klang_rms": 0.09746786907079691,
+          "level_delta_db": -0.0006016409385102563,
+          "error_rms": 0.006775095547712714,
+          "relative_error_db": -23.159522578643482,
+          "max_abs_error": 0.1999792605638504,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      },
+      "alarm01-controls": {
+        "sample_rate": 44100,
+        "duration": 4,
+        "frames": 176400,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm01.pd": "57c7756a44b217132380d7eef1e70d5e168b6b7c50441a5e8e04ff1b46f10d0e"
+        },
+        "events": [
+          {
+            "frame": 0,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 11008,
+            "action": "start",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 39680,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 66112,
+            "action": "start",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 96960,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 114624,
+            "action": "start",
+            "values": [
+              1
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm01-controls\\render.pd"
+          ],
+          "elapsed_seconds": 0.6034499999999525,
+          "sampled_cpu_seconds": 0.4375,
+          "sampled_peak_rss_bytes": 21192704,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/44100/alarm01-controls/pd.wav: biggest amplitude = 0.200000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm01",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm01-controls\\kleine.wav",
+            "4",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm01-controls\\events.tsv"
+          ],
+          "elapsed_seconds": 0.025921500000094966,
+          "sampled_cpu_seconds": 0,
+          "sampled_peak_rss_bytes": 4153344,
+          "stdout": "{\"model\":\"alarm01\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.002022}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.19999998807907104,
+          "klang_peak": 0.19999998807907104,
+          "pd_dc": 1.9796632466940187e-05,
+          "klang_dc": -9.61278155398536e-07,
+          "pd_rms": 0.0921766540193977,
+          "klang_rms": 0.09219582124383377,
+          "level_delta_db": 0.0018059571688431508,
+          "error_rms": 0.005645723528236177,
+          "relative_error_db": -24.258026649141634,
+          "max_abs_error": 0.19997937977313995,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      },
+      "alarm02": {
+        "sample_rate": 44100,
+        "duration": 4,
+        "frames": 176400,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm02.pd": "ac65e89a4a0c15f531f909430331e4983a47db355c3079b38ea31c6a2bf23a40"
+        },
+        "events": [],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm02\\render.pd"
+          ],
+          "elapsed_seconds": 0.586577899999952,
+          "sampled_cpu_seconds": 0.4375,
+          "sampled_peak_rss_bytes": 20946944,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/44100/alarm02/pd.wav: biggest amplitude = 0.199999\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm02",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm02\\kleine.wav",
+            "4",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm02\\events.tsv"
+          ],
+          "elapsed_seconds": 0.01979310000001533,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 4960256,
+          "stdout": "{\"model\":\"alarm02\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.003710}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.19999940693378448,
+          "klang_peak": 0.19999940693378448,
+          "pd_dc": -1.4188137541032167e-06,
+          "klang_dc": -1.4188137541032167e-06,
+          "pd_rms": 0.09946263111411315,
+          "klang_rms": 0.09946263111411315,
+          "level_delta_db": 0.0,
+          "error_rms": 5.141572299910409e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0832496869348467e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm03": {
+        "sample_rate": 44100,
+        "duration": 4,
+        "frames": 176400,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm03.pd": "78bb63b513e6254c8b147a6daa6feed61d2efe1c4fd4214f5964af01a65cb765"
+        },
+        "events": [],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm03\\render.pd"
+          ],
+          "elapsed_seconds": 0.5854596000000356,
+          "sampled_cpu_seconds": 0.40625,
+          "sampled_peak_rss_bytes": 21458944,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/44100/alarm03/pd.wav: biggest amplitude = 0.200000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm03",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm03\\kleine.wav",
+            "4",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm03\\events.tsv"
+          ],
+          "elapsed_seconds": 0.01860030000000279,
+          "sampled_cpu_seconds": 0,
+          "sampled_peak_rss_bytes": 4960256,
+          "stdout": "{\"model\":\"alarm03\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.004557}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.20000000298023224,
+          "klang_peak": 0.20000000298023224,
+          "pd_dc": 6.619991610866634e-07,
+          "klang_dc": 6.619991610866634e-07,
+          "pd_rms": 0.14066565353804053,
+          "klang_rms": 0.14066565353804053,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm04": {
+        "sample_rate": 44100,
+        "duration": 4,
+        "frames": 176400,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm04.pd": "d77b7101dfce4bcde76eefbc66470e825134155c0fe2fa9558dcc1026bbfab45"
+        },
+        "events": [],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm04\\render.pd"
+          ],
+          "elapsed_seconds": 0.5941066999999975,
+          "sampled_cpu_seconds": 0.390625,
+          "sampled_peak_rss_bytes": 21196800,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/44100/alarm04/pd.wav: biggest amplitude = 0.249979\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm04",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm04\\kleine.wav",
+            "4",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm04\\events.tsv"
+          ],
+          "elapsed_seconds": 0.02600500000005468,
+          "sampled_cpu_seconds": 0.015625,
+          "sampled_peak_rss_bytes": 4964352,
+          "stdout": "{\"model\":\"alarm04\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.007678}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.24997881054878235,
+          "klang_peak": 0.24997881054878235,
+          "pd_dc": 6.284416490707916e-07,
+          "klang_dc": 6.284416490707916e-07,
+          "pd_rms": 0.12499983671992164,
+          "klang_rms": 0.12499983671992164,
+          "level_delta_db": 0.0,
+          "error_rms": 0.0,
+          "relative_error_db": -300.0,
+          "max_abs_error": 0.0,
+          "identical_samples": true
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm05": {
+        "sample_rate": 44100,
+        "duration": 4,
+        "frames": 176400,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm05.pd": "7407dd7d37972c519919d6769e76d196dd6017c822c403df59e74e9bad577da7"
+        },
+        "events": [],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm05\\render.pd"
+          ],
+          "elapsed_seconds": 0.5881335999999919,
+          "sampled_cpu_seconds": 0.4375,
+          "sampled_peak_rss_bytes": 21348352,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/44100/alarm05/pd.wav: biggest amplitude = 0.200000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm05",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm05\\kleine.wav",
+            "4",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm05\\events.tsv"
+          ],
+          "elapsed_seconds": 0.019048300000008567,
+          "sampled_cpu_seconds": 0,
+          "sampled_peak_rss_bytes": 4964352,
+          "stdout": "{\"model\":\"alarm05\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.005014}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.19999971985816956,
+          "klang_peak": 0.19999967515468597,
+          "pd_dc": -1.700636534196367e-06,
+          "klang_dc": -3.295191215898781e-06,
+          "pd_rms": 0.1410865485488639,
+          "klang_rms": 0.14109537527096055,
+          "level_delta_db": 0.0005433936588465951,
+          "error_rms": 0.0027120624708134003,
+          "relative_error_db": -34.323718405139545,
+          "max_abs_error": 0.14670507237315178,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      },
+      "alarm05-controls": {
+        "sample_rate": 44100,
+        "duration": 4,
+        "frames": 176400,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm05.pd": "7407dd7d37972c519919d6769e76d196dd6017c822c403df59e74e9bad577da7"
+        },
+        "events": [
+          {
+            "frame": 0,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 11008,
+            "action": "start",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 39680,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 66112,
+            "action": "start",
+            "values": [
+              1
+            ]
+          },
+          {
+            "frame": 96960,
+            "action": "start",
+            "values": [
+              0
+            ]
+          },
+          {
+            "frame": 114624,
+            "action": "start",
+            "values": [
+              1
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm05-controls\\render.pd"
+          ],
+          "elapsed_seconds": 0.5830759000000398,
+          "sampled_cpu_seconds": 0.375,
+          "sampled_peak_rss_bytes": 21336064,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/44100/alarm05-controls/pd.wav: biggest amplitude = 0.200000\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm05",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm05-controls\\kleine.wav",
+            "4",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm05-controls\\events.tsv"
+          ],
+          "elapsed_seconds": 0.020379900000079942,
+          "sampled_cpu_seconds": 0,
+          "sampled_peak_rss_bytes": 5025792,
+          "stdout": "{\"model\":\"alarm05\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.004957}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.19999971985816956,
+          "klang_peak": 0.19999971985816956,
+          "pd_dc": -9.89619075057937e-07,
+          "klang_dc": 2.8441201056117924e-06,
+          "pd_rms": 0.1366588254546533,
+          "klang_rms": 0.13665544888605427,
+          "level_delta_db": -0.000214613761237276,
+          "error_rms": 0.0014961367617640701,
+          "relative_error_db": -39.21332779173428,
+          "max_abs_error": 0.09806408733129501,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": false,
+        "review_only": true
+      },
+      "alarm06": {
+        "sample_rate": 44100,
+        "duration": 4,
+        "frames": 176400,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm06.pd": "60d82f951223f457a5b4bcb830eb63a9b476e10afdbd04ca99b778f54cca29f3"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "program",
+            "values": [
+              471,
+              2,
+              555.55556,
+              507.9365,
+              619.0476,
+              619.0476,
+              0.5396825396825397
+            ]
+          },
+          {
+            "frame": 66112,
+            "action": "program",
+            "values": [
+              800,
+              3,
+              723,
+              932,
+              1012,
+              440,
+              0.5
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm06\\render.pd"
+          ],
+          "elapsed_seconds": 0.6045549000000392,
+          "sampled_cpu_seconds": 0.359375,
+          "sampled_peak_rss_bytes": 21389312,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/44100/alarm06/pd.wav: biggest amplitude = 0.059408\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm06",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm06\\kleine.wav",
+            "4",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm06\\events.tsv"
+          ],
+          "elapsed_seconds": 0.042890999999940504,
+          "sampled_cpu_seconds": 0.03125,
+          "sampled_peak_rss_bytes": 5197824,
+          "stdout": "{\"model\":\"alarm06\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.019330}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.05940840393304825,
+          "klang_peak": 0.05940840393304825,
+          "pd_dc": 9.532216550481177e-13,
+          "klang_dc": 9.532216550481177e-13,
+          "pd_rms": 0.013702503252021606,
+          "klang_rms": 0.013702503252021606,
+          "level_delta_db": 0.0,
+          "error_rms": 3.0483227495162924e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0792985424167135e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm07": {
+        "sample_rate": 44100,
+        "duration": 12,
+        "frames": 529200,
+        "block_size": 64,
+        "sources": {
+          "farnell\\zip\\p04\\alarm07.pd": "6f483dbae5637f4e5a189b372a2571b613de0ae9c44e25ddf5e4254e2a131c8b"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "program",
+            "values": [
+              380,
+              2,
+              349,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "frame": 45376,
+            "action": "program",
+            "values": [
+              238,
+              1,
+              317,
+              0,
+              0,
+              476,
+              0
+            ]
+          },
+          {
+            "frame": 73536,
+            "action": "program",
+            "values": [
+              317,
+              7,
+              300,
+              125,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "frame": 105152,
+            "action": "program",
+            "values": [
+              1031,
+              9,
+              360,
+              238,
+              174,
+              158,
+              1
+            ]
+          },
+          {
+            "frame": 168256,
+            "action": "program",
+            "values": [
+              900,
+              4,
+              2000,
+              2010,
+              2000,
+              2010,
+              1
+            ]
+          },
+          {
+            "frame": 225600,
+            "action": "program",
+            "values": [
+              1428,
+              3,
+              619,
+              571,
+              365,
+              206,
+              1
+            ]
+          },
+          {
+            "frame": 306176,
+            "action": "program",
+            "values": [
+              450,
+              1,
+              365,
+              571,
+              619,
+              206,
+              0.5
+            ]
+          },
+          {
+            "frame": 343680,
+            "action": "program",
+            "values": [
+              714,
+              74,
+              1000,
+              0,
+              1000,
+              0,
+              1
+            ]
+          },
+          {
+            "frame": 392832,
+            "action": "program",
+            "values": [
+              200,
+              30,
+              1000,
+              476,
+              159,
+              0,
+              1
+            ]
+          },
+          {
+            "frame": 419264,
+            "action": "program",
+            "values": [
+              634,
+              61,
+              1000,
+              476,
+              159,
+              0,
+              1
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm07\\render.pd"
+          ],
+          "elapsed_seconds": 0.615770399999974,
+          "sampled_cpu_seconds": 0.34375,
+          "sampled_peak_rss_bytes": 24084480,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/44100/alarm07/pd.wav: biggest amplitude = 0.154080\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm07",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm07\\kleine.wav",
+            "12",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm07\\events.tsv"
+          ],
+          "elapsed_seconds": 0.07915630000002238,
+          "sampled_cpu_seconds": 0.0625,
+          "sampled_peak_rss_bytes": 6447104,
+          "stdout": "{\"model\":\"alarm07\",\"sample_rate\":44100,\"frames\":529200,\"gain\":1,\"processing_wall_seconds\":0.057958}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.1540803611278534,
+          "klang_peak": 0.1540803611278534,
+          "pd_dc": -1.007136924458461e-13,
+          "klang_dc": -1.0071369286543152e-13,
+          "pd_rms": 0.03862941631097907,
+          "klang_rms": 0.03862941631097907,
+          "level_delta_db": 0.0,
+          "error_rms": 4.13239286060474e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0831922366563655e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm15": {
+        "sample_rate": 44100,
+        "duration": 4,
+        "frames": 176400,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\2tone-15.pd": "d9bec6fa4108dc73c63261fc53e1ee07ec276fbacfa26bdd147efeffc46ed5f3"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "program",
+            "values": [
+              471,
+              2,
+              555.55556,
+              507.9365,
+              619.0476,
+              619.0476,
+              0.5396825396825397
+            ]
+          },
+          {
+            "frame": 66112,
+            "action": "program",
+            "values": [
+              800,
+              3,
+              723,
+              932,
+              1012,
+              440,
+              0.5
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm15\\render.pd"
+          ],
+          "elapsed_seconds": 0.593666100000064,
+          "sampled_cpu_seconds": 0.390625,
+          "sampled_peak_rss_bytes": 21397504,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/44100/alarm15/pd.wav: biggest amplitude = 0.059408\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm06",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm15\\kleine.wav",
+            "4",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm15\\events.tsv"
+          ],
+          "elapsed_seconds": 0.03749750000008589,
+          "sampled_cpu_seconds": 0.03125,
+          "sampled_peak_rss_bytes": 5050368,
+          "stdout": "{\"model\":\"alarm06\",\"sample_rate\":44100,\"frames\":176400,\"gain\":1,\"processing_wall_seconds\":0.019294}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.05940840393304825,
+          "klang_peak": 0.05940840393304825,
+          "pd_dc": 9.532216550481177e-13,
+          "klang_dc": 9.532216550481177e-13,
+          "pd_rms": 0.013702503252021606,
+          "klang_rms": 0.013702503252021606,
+          "level_delta_db": 0.0,
+          "error_rms": 3.0483227495162924e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0792985424167135e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      },
+      "alarm-bank": {
+        "sample_rate": 44100,
+        "duration": 6,
+        "frames": 264600,
+        "block_size": 64,
+        "sources": {
+          "farnell\\pd\\ALARMS\\2tone-20.pd": "2ba8bf8f1479f1a9cc62782af17618e5217e038bdc551d5f1375d0f13d0ef383"
+        },
+        "events": [
+          {
+            "frame": 11008,
+            "action": "bank",
+            "values": [
+              0.126984,
+              0.190476,
+              0.730159,
+              0.0793651,
+              0,
+              0.460317,
+              0.507937,
+              0.0634921
+            ]
+          },
+          {
+            "frame": 88192,
+            "action": "bank",
+            "values": [
+              0.174603,
+              0.396825,
+              0.619048,
+              0.587302,
+              0.428571,
+              0.460317,
+              0.492063,
+              0.396825
+            ]
+          },
+          {
+            "frame": 176384,
+            "action": "bank",
+            "values": [
+              0.793651,
+              0.793651,
+              0.793651,
+              0,
+              0.0634921,
+              0.460317,
+              0.269841,
+              0.0634921
+            ]
+          }
+        ],
+        "pd": {
+          "command": [
+            "C:/Program Files/Pd/bin/pd.exe",
+            "-nogui",
+            "-stderr",
+            "-noprefs",
+            "-noaudio",
+            "-nomidi",
+            "-batch",
+            "-r",
+            "44100",
+            "-compatibility",
+            "0.55",
+            "-open",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm-bank\\render.pd"
+          ],
+          "elapsed_seconds": 0.5977039000000559,
+          "sampled_cpu_seconds": 0.4375,
+          "sampled_peak_rss_bytes": 22077440,
+          "stdout": "",
+          "stderr": "error: unable to create registry entry: loading\n\nerror: unable to create registry entry: loading\n\nF:/klang/sfx/kleine/build/alarm-review/44100/alarm-bank/pd.wav: biggest amplitude = 0.247153\n"
+        },
+        "kleine": {
+          "command": [
+            "F:\\klang\\sfx\\kleine\\build\\x64-release\\kleine.exe",
+            "--render",
+            "alarm-bank",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm-bank\\kleine.wav",
+            "6",
+            "44100",
+            "1",
+            "F:\\klang\\sfx\\kleine\\build\\alarm-review\\44100\\alarm-bank\\events.tsv"
+          ],
+          "elapsed_seconds": 0.0439265999999634,
+          "sampled_cpu_seconds": 0.03125,
+          "sampled_peak_rss_bytes": 5382144,
+          "stdout": "{\"model\":\"alarm-bank\",\"sample_rate\":44100,\"frames\":264600,\"gain\":1,\"processing_wall_seconds\":0.023195}\n",
+          "stderr": ""
+        },
+        "comparison": {
+          "pd_peak": 0.2471529096364975,
+          "klang_peak": 0.2471529096364975,
+          "pd_dc": 9.233862439792265e-06,
+          "klang_dc": 9.233862439792265e-06,
+          "pd_rms": 0.06491878565866414,
+          "klang_rms": 0.06491878565866414,
+          "level_delta_db": 0.0,
+          "error_rms": 5.2914906055146356e-21,
+          "relative_error_db": -300.0,
+          "max_abs_error": 1.0827142167351893e-19,
+          "identical_samples": false
+        },
+        "pd_clipped_samples": 0,
+        "kleine_clipped_samples": 0,
+        "passed": true,
+        "review_only": true
+      }
+    }
+  },
+  "source_sha256": {
+    "farnell/klang/Artificial Sounds/Alarm Generator/alarmgenerator.k": "96e5b93574e5ae6c4741a089cf78ca9f64d7004db82b78a67e4353f63dfc042c",
+    "include/klang/pd.h": "c02aaacffc6fbb64137a9684c7001192c000e9f9bb555a7b9ffdd82e07c71856",
+    "farnell/render.h": "3c434144e611922c771be11c3f1484df97c0f80f1f3e0379840b9b5c055d26b6",
+    "tools/render_artificial.py": "67f010a9fa722c129b4d4d4a6dc301036c6ec0efaad6e0d3dc4ccae2740dc19f"
+  },
+  "executable_sha256": "a79fa629971b28ac2687ee92eaf382be0792b23020d3468c0dbc1e01e86f2878",
+  "machine": "Windows-10-10.0.19045-SP0",
+  "processor": "Intel64 Family 6 Model 165 Stepping 5, GenuineIntel",
+  "notes": [
+    "Current MSVC x64 Release, PD 0.55.2, one voice, block64; raw float32 audio at 48/44.1 kHz; no fitted gain or alignment.",
+    "All eleven fixtures are sample-identical at 48 kHz. At 44.1 kHz only alarm01/alarm05 and their control fixtures differ.",
+    "Sound-by-sound listening review starts at alarm01; no new listening acceptance or block workaround is inferred.",
+    "Current model code is unchanged. Scratch audio is under build/alarm-review; retained listening WAVs are unchanged.",
+    "Alarm programmes still use a model-local reset timestamp; migration to pd::del remains a topology follow-up.",
+    "Run records retain elapsed time, sampled process CPU/RSS and Kleine processing wall time; these are not interchangeable DSP-cost measurements."
+  ]
+}

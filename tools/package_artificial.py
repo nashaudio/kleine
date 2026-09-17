@@ -15,6 +15,7 @@ from render_artificial import PRIMARY_CASES, ALL_CASES
 
 AUDIO = ROOT/'farnell/audio'
 EVIDENCE = AUDIO/'comparisons/artificial'
+DOCS = ROOT/'docs/farnell/audio/comparisons/artificial'
 FOLDERS = {'pedestrians':'24-pedestrians','dtmf':'26-dtmf-tones','police':'28-police','police-legacy':'28-police'}
 EXCERPTS = [
     ('p01/pedestrian-beeps.wav',.05,5.2,'24-pedestrians/pedestrians-online.wav'),
@@ -46,6 +47,7 @@ def reference_laws():
 
 
 def main():
+    DOCS.mkdir(parents=True, exist_ok=True)
     EVIDENCE.mkdir(parents=True,exist_ok=True)
     excerpts=[]
     for relative,start,stop,output in EXCERPTS:
@@ -97,7 +99,8 @@ def main():
            'Component waveforms and encoded detector states are diagnostics, not listening fixtures. '
            'Both sample rates construct fresh models; live sample-rate changes are not established. '
            'Pedestrians is intentionally sample-timed: its 44.1 kHz residual includes bounded gate-edge shifts; '
-           'see 24-pedestrians/README.md and tests/pd/metro.md.','',
+           'see [the Pedestrians review](../../24-pedestrians/README.md) and '
+           '[metro contract](../../../../tests/pd/metro.md).','',
            '| Case | 48 kHz residual (dB) | 44.1 kHz residual (dB) | 48 kHz level delta (dB) |',
            '| --- | ---: | ---: | ---: |']
     def residual(m):return 'identical' if m['identical_samples'] else f"{m['relative_error_db']:.2f}"
@@ -113,7 +116,7 @@ def main():
         r=runs['48000'][case];p,k=r['pd'],r['kleine'];duration=r['duration']
         dsp=json.loads(k['stdout'])['processing_wall_seconds']*1000/duration
         table.append(f"| {case} | {p['sampled_cpu_seconds']*1000/duration:.2f} / {k['sampled_cpu_seconds']*1000/duration:.2f} | {p['sampled_peak_rss_bytes']/2**20:.2f} / {k['sampled_peak_rss_bytes']/2**20:.2f} | {dsp:.3f} |")
-    (EVIDENCE/'tables.md').write_text('\n'.join(table)+'\n')
+    (DOCS/'tables.md').write_text('\n'.join(table)+'\n')
     files=[]
     for folder in ['24-pedestrians','26-dtmf-tones','27-alarms','28-police']:files+=list((AUDIO/folder).glob('*.wav'))
     files += [AUDIO/'25-phone-tones'/f'{case}-{r}.wav' for case in ['ringback-bulk','phone-effects'] for r in ['pd','kleine']]

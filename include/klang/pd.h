@@ -19,7 +19,7 @@ namespace pd {
 // Primitive ports adapted from Pure Data 0.55-2, src/d_osc.c,
 // src/d_osc.h, src/d_ctl.c and src/d_filter.c.
 // Copyright (c) 1997-2024 Miller Puckette.
-// Redistribution terms: ../../licenses/Pure-Data-BSD.txt.
+// Redistribution terms: ../../docs/licenses/Pure-Data-BSD.txt.
 
 // Pd osc~: cosine table interpolation, frequency in Hz and phase in cycles.
 /** @brief PD osc~ cosine oscillator; frequency is Hz and phase is in cycles.
@@ -228,9 +228,9 @@ private:
  * updated reports the last poll's bang; pending() reports an armed clock.
  *
  * Adapted from PD 0.55-2 src/x_time.c and src/m_sched.c (Miller Puckette;
- * ../../licenses/Pure-Data-BSD.txt). The source's pending sample-unit tempo-change
+ * ../../docs/licenses/Pure-Data-BSD.txt). The source's pending sample-unit tempo-change
  * behaviour is retained: a negative remaining-time calculation leaves that
- * deadline in place. See tests/pd/del.md for the reference comparison.
+ * deadline in place. See docs/tests/pd/del.md for the reference comparison.
  * @note Poll exactly once per sample at a fixed klang::fs. Delivery is at the
  * first sample boundary at or after the deadline. Shared PD clock ordering,
  * synchronous feedback and 64-sample block delivery are separate host concerns.

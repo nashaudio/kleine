@@ -267,7 +267,7 @@ def main():
     args.pd, args.old_pd = args.pd.resolve(), args.old_pd.resolve()
     for path in [args.pd, args.old_pd]:
         if not path.is_file():
-            parser.error(f'Missing executable: {path}; see farnell/audio/24-pedestrians/README.md')
+            parser.error(f'Missing executable: {path}; see docs/farnell/audio/24-pedestrians/README.md')
     WORK.mkdir(parents=True, exist_ok=True)
     online, online_record = measure(AUDIO/'pedestrians-online.wav')
     pd, pd_record = measure(AUDIO/'pedestrians-pd.wav')

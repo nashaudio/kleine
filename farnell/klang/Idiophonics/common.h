@@ -6,7 +6,7 @@ namespace farnell {
 using namespace klang::optimised;
 
 // Control random arithmetic adapted from Pure Data 0.55-2, src/x_misc.c. Copyright (c) 1997-2024 Miller Puckette.
-// Redistribution terms: licenses/Pure-Data-BSD.txt (repository root).
+// Redistribution terms: docs/licenses/Pure-Data-BSD.txt (repository root).
 
 // Read-before-write sample delay; a helper, not a named-buffer PD port.
 struct SampleDelay {

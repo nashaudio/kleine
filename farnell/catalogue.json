@@ -2157,7 +2157,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "Pedestrians",
-      "evidence": "audio/24-pedestrians/README.md",
+      "evidence": "../docs/farnell/audio/24-pedestrians/README.md",
       "comparison_cases": [
         "pedestrians",
         "pedestrians-controls"
@@ -2170,7 +2170,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "PhoneTones::Busy",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "klang_file": "klang/Artificial Sounds/Phone Tones/phonetones.k",
       "note": " Selected companion-site implementation; listening choice accepted 16 September. See audio/25-phone-tones/README.md."
     },
@@ -2181,7 +2181,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "PhoneTones::Dial",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "klang_file": "klang/Artificial Sounds/Phone Tones/phonetones.k",
       "note": " Selected companion-site implementation; listening choice accepted 16 September. See audio/25-phone-tones/README.md."
     },
@@ -2193,7 +2193,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "PhoneTones",
-      "evidence": "audio/artificial-sounds.md"
+      "evidence": "../docs/farnell/audio/artificial-sounds.md"
     },
     "p02/pulsedial.pd": {
       "figures": [
@@ -2202,7 +2202,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "PhoneTones",
-      "evidence": "audio/artificial-sounds.md"
+      "evidence": "../docs/farnell/audio/artificial-sounds.md"
     },
     "p02/ringingtone.pd": {
       "figures": [
@@ -2211,7 +2211,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "PhoneTones",
-      "evidence": "audio/artificial-sounds.md"
+      "evidence": "../docs/farnell/audio/artificial-sounds.md"
     },
     "p03/dtmf.pd": {
       "figures": [
@@ -2221,12 +2221,12 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "DTMFTones",
-      "evidence": "audio/26-dtmf-tones/README.md",
+      "evidence": "../docs/farnell/audio/26-dtmf-tones/README.md",
       "comparison_cases": [
         "dtmf",
         "dtmf-retrigger"
       ],
-      "previous_evidence": "audio/artificial-sounds.md",
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md",
       "note": "Current 48 kHz PD/Kleine diallers accepted as sounding the same, with numerical parity including retriggers. Online uses longer irregular keypress spacing. The dialler now uses pd::del{200}, validated with 52 isolated cases; existing audio is sample-identical before/after. The 44.1 kHz block-timing comparison remains a separate review."
     },
     "p04/alarm01.pd": {
@@ -2234,14 +2234,14 @@
         "24.4"
       ],
       "mapping": "topic",
-      "status": "topology review",
-      "note": "Preliminary variation of the pedestrian graph (800 Hz / 300 ms); no separate numbered chapter 27 diagram. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
+      "status": "trial validated",
+      "note": "Preliminary pedestrian-graph variation (800 Hz / 300 ms), without a separate numbered chapter 27 diagram. Current 48 kHz PD/Kleine samples are identical. Chris accepts the fresh ordinary 44.1 kHz pair as NIPD (no immediately perceptible difference); no block workaround is warranted. This listening result does not include the separate stop/restart fixture or website recording.",
       "component": "AlarmGenerator(1)",
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/audio/27-alarms/README.md",
       "comparison_cases": [
         "alarm01"
       ],
-      "previous_evidence": "audio/artificial-sounds.md"
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md"
     },
     "p04/alarm02.pd": {
       "figures": [
@@ -2250,7 +2250,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "AlarmGenerator(2)",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "alarm02"
       ]
@@ -2262,7 +2262,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "AlarmGenerator(3)",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "alarm03"
       ]
@@ -2274,7 +2274,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "AlarmGenerator(4)",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "alarm04"
       ]
@@ -2286,11 +2286,11 @@
       "mapping": "caption",
       "status": "topology review",
       "component": "AlarmGenerator(5)",
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "comparison_cases": [
         "alarm05"
       ],
-      "previous_evidence": "audio/artificial-sounds.md",
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md",
       "note": "Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged."
     },
     "p04/alarm06.pd": {
@@ -2301,7 +2301,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "AlarmGenerator(6)",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "alarm06"
       ]
@@ -2314,7 +2314,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "AlarmGenerator(7)",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "alarm07"
       ]
@@ -2326,13 +2326,13 @@
       "mapping": "caption",
       "status": "topology review",
       "component": "Police",
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "comparison_cases": [
         "police",
         "police-legacy"
       ],
       "note": "Current website pow~ wiring and historical/bulk inlet convention are separate reference variants. See component and full-siren fixtures at both sample rates. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
-      "previous_evidence": "audio/artificial-sounds.md"
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md"
     },
     "p05/logosc.pd": {
       "figures": [
@@ -2341,7 +2341,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "Police::LogOsc",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "police-logosc",
         "police-logosc-legacy"
@@ -2355,7 +2355,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "Police::Horn",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "police-horn"
       ],
@@ -2368,12 +2368,12 @@
       "mapping": "caption",
       "status": "topology review",
       "component": "Police::Environment",
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "comparison_cases": [
         "police-environment"
       ],
       "note": "See component and full-siren fixtures at both sample rates. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
-      "previous_evidence": "audio/artificial-sounds.md"
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md"
     },
     "p05/logosc_graph.pd": {
       "figures": [
@@ -2382,7 +2382,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "variants::PowerOsc / variants::SymmetricExponentialOsc",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "police-graph",
         "police-graph-legacy"
@@ -2397,7 +2397,7 @@
       "mapping": "caption",
       "status": "trial validated",
       "component": "variants::TriangleOsc / variants::PowerOsc",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "police-triangle",
         "police-compare-log"
@@ -2454,9 +2454,9 @@
       "comparison_cases": [
         "bouncing"
       ],
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "note": "Website fourth-power pitch; bulk exponential and historical inlet variants compared separately. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
-      "previous_evidence": "audio/idiophonics.md"
+      "previous_evidence": "../docs/farnell/audio/idiophonics.md"
     },
     "p08/rolling1.pd": {
       "figures": [
@@ -2472,7 +2472,7 @@
         "rolling",
         "rolling-bulk"
       ],
-      "evidence": "audio/idiophonics.md"
+      "evidence": "../docs/farnell/audio/idiophonics.md"
     },
     "p08/uneven2.pd": {
       "figures": [
@@ -2485,9 +2485,9 @@
         "uneven2",
         "uneven2-bulk"
       ],
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "note": "Separate ground/three-mode can; both active source revisions compared. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
-      "previous_evidence": "audio/idiophonics.md"
+      "previous_evidence": "../docs/farnell/audio/idiophonics.md"
     },
     "p09/doorcreaker.pd": {
       "figures": [
@@ -2506,9 +2506,9 @@
         "creaking-wood",
         "creaking-panel"
       ],
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "note": "Moving-force performance fitted to website contact timing after listening review exposed a poor held-force demo. Both performances and wood/panel response compared at two rates; small pulse timing approximation remains. Revised listening/realism verdict open; see evidence. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
-      "previous_evidence": "audio/idiophonics.md"
+      "previous_evidence": "../docs/farnell/audio/idiophonics.md"
     },
     "p09/dfbef.pd": {
       "figures": [
@@ -2520,9 +2520,9 @@
       "comparison_cases": [
         "creaking-delay"
       ],
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "note": "Impulse response is sample-identical at both rates; feedback includes the send/receive block. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
-      "previous_evidence": "audio/idiophonics.md"
+      "previous_evidence": "../docs/farnell/audio/idiophonics.md"
     },
     "p10/twang.pd": {
       "figures": [
@@ -2537,9 +2537,9 @@
         "boing-bulk",
         "boing-legacy"
       ],
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "note": "Website env16p is a 64th power. Bulk modern/historical pow~ conventions are separate variants; raw bulk overload retained with quieter audition copies. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
-      "previous_evidence": "audio/idiophonics.md"
+      "previous_evidence": "../docs/farnell/audio/idiophonics.md"
     },
     "p11/fire_crackling1.pd": {
       "figures": [
@@ -3629,11 +3629,11 @@
       "status": "trial validated",
       "note": "Both telephone-line.pd copies are byte-identical and implemented by PhoneTones::Line in pulse mode. Current 48 kHz pulse render agrees with PD apart from negligible filter tails; latest website embedded handset renders identically to the collection patch. Pulse scheduling at 44.1 kHz is a separate model-level follow-up.",
       "component": "PhoneTones::Line",
-      "evidence": "audio/comparisons/reference-levels.md",
+      "evidence": "../docs/farnell/audio/comparisons/reference-levels.md",
       "comparison_cases": [
         "pulse"
       ],
-      "previous_evidence": "audio/artificial-sounds.md"
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md"
     },
     "pd/ALARMS/telephone-line.pd": {
       "chapter": 25,
@@ -3644,11 +3644,11 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "PhoneTones::Line",
-      "evidence": "audio/comparisons/reference-levels.md",
+      "evidence": "../docs/farnell/audio/comparisons/reference-levels.md",
       "comparison_cases": [
         "pulse"
       ],
-      "previous_evidence": "audio/artificial-sounds.md",
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md",
       "note": "Both telephone-line.pd copies are byte-identical and implemented by PhoneTones::Line in pulse mode. Current 48 kHz pulse render agrees with PD apart from negligible filter tails; latest website embedded handset renders identically to the collection patch. Pulse scheduling at 44.1 kHz is a separate model-level follow-up."
     },
     "pd/ALARMS/dial-remotering.pd": {
@@ -3659,11 +3659,11 @@
       "mapping": "topic",
       "status": "no work",
       "component": "validation::RingbackHandset",
-      "evidence": "audio/25-phone-tones/README.md",
+      "evidence": "../docs/farnell/audio/25-phone-tones/README.md",
       "comparison_cases": [
         "ringback-bulk"
       ],
-      "previous_evidence": "audio/artificial-sounds.md",
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md",
       "note": "Rejected as duller in the listening review; excluded from active completion work. Retained solely as a historical comparison fixture.",
       "klang_file": "../tests/pd/phone-tones-archive.h"
     },
@@ -3679,14 +3679,14 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "PhoneEffects",
-      "evidence": "audio/25-phone-tones/README.md",
+      "evidence": "../docs/farnell/audio/25-phone-tones/README.md",
       "comparison_cases": [
         "phone-effects",
         "phone-match"
       ],
       "klang_file": "klang/Artificial Sounds/Phone Tones/phoneeffects.k",
       "note": "Current build PhoneEffects listening review accepted: Chris reports matching envelopes and no apparent difference on simultaneous playback of the four PD/Klang files. Event traces at 48/44.1 kHz match digit and effective ringtone sequences; offsets of at most 64 samples are retained as diagnostics, not an audible failure. Number matching uses a documented reconstruction of missing list-emath/list-dotprod objects. Standalone call-recogniser acceptance is separate.",
-      "previous_evidence": "audio/artificial-sounds.md"
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md"
     },
     "pd/ALARMS/decode-tone.pd": {
       "chapter": 26,
@@ -3698,7 +3698,7 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "DTMFTones::Detector",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "dtmf-detector"
       ]
@@ -3712,11 +3712,11 @@
       "mapping": "topic",
       "status": "no work",
       "component": "validation::DTMFLevel03",
-      "evidence": "audio/26-dtmf-tones/README.md",
+      "evidence": "../docs/farnell/audio/26-dtmf-tones/README.md",
       "comparison_cases": [
         "dtmf-bulk"
       ],
-      "previous_evidence": "audio/artificial-sounds.md",
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md",
       "note": "Discarded by Chris as perceptually identical to the retained companion-site dialler. Excluded from active completion work; gain-0.3 implementation retained solely as a historical comparison fixture.",
       "klang_file": "../tests/pd/dtmf-archive.h"
     },
@@ -3729,7 +3729,7 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "variants::DTMFUnfiltered",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "dtmf-study"
       ],
@@ -3746,12 +3746,12 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "DTMFTones::Decoder",
-      "evidence": "../tests/pd/dtmf-messages.md",
+      "evidence": "../docs/tests/pd/dtmf-messages.md",
       "comparison_cases": [
         "dtmf-decoder"
       ],
       "note": "Explicit source graphs now replace unique-pair snapshot decoding: Decoder preserves standalone AND/select repetition; DigitDecoder composes ten Sand instances with shared change/moses. All 56 shared-input cases at 48/44.1 kHz match detector states and both output message streams, including switches and overlaps. Isolated Sand messages match; 18 existing audio recipes are sample-identical before/after.",
-      "previous_evidence": "audio/artificial-sounds.md"
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md"
     },
     "pd/ALARMS/dt-call-recogniser.pd": {
       "chapter": 26,
@@ -3763,14 +3763,14 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "PhoneEffects",
-      "evidence": "audio/26-dtmf-tones/README.md",
+      "evidence": "../docs/farnell/audio/26-dtmf-tones/README.md",
       "comparison_cases": [
         "call-recogniser",
         "call-match"
       ],
       "klang_file": "klang/Artificial Sounds/Phone Tones/phoneeffects.k",
       "note": "Chris accepts both current 48 kHz call-recogniser and call-match PD/Kleine listening pairs as sounding the same. Scope covers personalised ringers and the automatic number-triggered recipe, using the documented Vanilla reconstruction of absent list-emath/list-dotprod matchers. Original patches are unchanged. Numerical timing residuals are diagnostic; 44.1 kHz listening acceptance is not claimed.",
-      "previous_evidence": "audio/artificial-sounds.md"
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md"
     },
     "pd/POLICE/logosc~.pd": {
       "chapter": 28,
@@ -3780,7 +3780,7 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "variants::ExponentialOsc",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "police-osc-bulk"
       ],
@@ -3795,7 +3795,7 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "variants::SymmetricExponentialOsc",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "police00"
       ],
@@ -3810,7 +3810,7 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "variants::InvertedExponentialOsc",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "police01"
       ],
@@ -3825,7 +3825,7 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "variants::SymmetricExponentialOsc",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "police1"
       ],
@@ -3840,12 +3840,12 @@
       "mapping": "topic",
       "status": "topology review",
       "component": "variants::PoliceExponential",
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "comparison_cases": [
         "police3"
       ],
       "note": "See component and full-siren fixtures at both sample rates. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged. Separate development implementation; see klang/VARIANTS.md for the complete mapping.",
-      "previous_evidence": "audio/artificial-sounds.md",
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md",
       "klang_file": "klang/Artificial Sounds/Police/variants/police-exponential.k"
     },
     "pd/BELL/A0-bell-oscillator.pd": {
@@ -3859,7 +3859,7 @@
       "comparison_cases": [
         "bell-a0"
       ],
-      "evidence": "audio/idiophonics.md",
+      "evidence": "../docs/farnell/audio/idiophonics.md",
       "note": "Standalone frequency/amplitude study.",
       "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
@@ -3874,7 +3874,7 @@
       "comparison_cases": [
         "bell-a1"
       ],
-      "evidence": "audio/idiophonics.md",
+      "evidence": "../docs/farnell/audio/idiophonics.md",
       "note": "Standalone squared finite-decay study.",
       "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
@@ -3889,7 +3889,7 @@
       "comparison_cases": [
         "bell-a2"
       ],
-      "evidence": "audio/idiophonics.md",
+      "evidence": "../docs/farnell/audio/idiophonics.md",
       "note": "Retains the earlier 0.5 sum gain.",
       "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
@@ -3904,10 +3904,10 @@
       "comparison_cases": [
         "bell-a3"
       ],
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "note": "Retains the disconnected middle group, unused even ringer outlet and double-burst cadence. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
       "klang_file": "klang/Idiophonics/Telephone Bell/studies.k",
-      "previous_evidence": "audio/idiophonics.md"
+      "previous_evidence": "../docs/farnell/audio/idiophonics.md"
     },
     "pd/BELL/A3-bell-scale.pd": {
       "chapter": 29,
@@ -3920,10 +3920,10 @@
       "comparison_cases": [
         "bell-a3"
       ],
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "note": "Dynamic numeric argument object boxes load successfully on PD 0.55.2; exercised by A3 without reconstruction. Static scanner cannot expand arbitrary instance arguments. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged.",
       "klang_file": "klang/Idiophonics/Telephone Bell/studies.k",
-      "previous_evidence": "audio/idiophonics.md"
+      "previous_evidence": "../docs/farnell/audio/idiophonics.md"
     },
     "pd/BELL/A4-bell-telephone.pd": {
       "chapter": 29,
@@ -3936,7 +3936,7 @@
       "comparison_cases": [
         "bell-a4"
       ],
-      "evidence": "audio/idiophonics.md",
+      "evidence": "../docs/farnell/audio/idiophonics.md",
       "note": "Earlier mixed envelope powers and 59 ms body resonance; separate from final TelephoneBell.",
       "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
@@ -3951,7 +3951,7 @@
       "comparison_cases": [
         "bell-group"
       ],
-      "evidence": "audio/idiophonics.md",
+      "evidence": "../docs/farnell/audio/idiophonics.md",
       "note": "Independent partial decays and 0.3333 group gain.",
       "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
@@ -3966,7 +3966,7 @@
       "comparison_cases": [
         "bell-partial"
       ],
-      "evidence": "audio/idiophonics.md",
+      "evidence": "../docs/farnell/audio/idiophonics.md",
       "note": "Independent frequency, amplitude and decay.",
       "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
@@ -3981,7 +3981,7 @@
       "comparison_cases": [
         "bell-testgroup"
       ],
-      "evidence": "audio/idiophonics.md",
+      "evidence": "../docs/farnell/audio/idiophonics.md",
       "note": "Final shared-envelope group at the supplied 0.3 listening gain.",
       "klang_file": "klang/Idiophonics/Telephone Bell/studies.k"
     },
@@ -3997,9 +3997,9 @@
         "bouncing-bulk",
         "bouncing-legacy"
       ],
-      "evidence": "KLANG-TOPOLOGY-REVIEW.md",
+      "evidence": "../docs/farnell/reviews/KLANG-TOPOLOGY-REVIEW.md",
       "note": "Modern exponent/base wiring and explicit historical inlet swap rendered separately. Pure-form changes are pending the per-sound block/listening review; prior retained WAVs are unchanged. Separate development implementation; see klang/VARIANTS.md for the complete mapping.",
-      "previous_evidence": "audio/idiophonics.md",
+      "previous_evidence": "../docs/farnell/audio/idiophonics.md",
       "klang_file": "klang/Idiophonics/Bouncing/variants/bouncing-exponential.k"
     },
     "pd/ROLLING/tincan.pd": {
@@ -4015,7 +4015,7 @@
       "comparison_cases": [
         "tincan"
       ],
-      "evidence": "audio/idiophonics.md",
+      "evidence": "../docs/farnell/audio/idiophonics.md",
       "note": "Recovered separate struck can; different modal weights and clip limit from rolling1."
     },
     "pd/ROLLING/uneven.pd": {
@@ -4029,7 +4029,7 @@
       "comparison_cases": [
         "uneven"
       ],
-      "evidence": "audio/idiophonics.md",
+      "evidence": "../docs/farnell/audio/idiophonics.md",
       "note": "Audible random gesture path implemented; disconnected noise/phasor experiments do not feed the output. Rendering copy enables the saved spigot control explicitly."
     },
     "pd/BUBBLES/adenv.pd": {
@@ -4435,7 +4435,7 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "AlarmGenerator(6)",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "alarm15"
       ],
@@ -4450,7 +4450,7 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "AlarmGenerator::Bank",
-      "evidence": "audio/artificial-sounds.md",
+      "evidence": "../docs/farnell/audio/artificial-sounds.md",
       "comparison_cases": [
         "alarm-bank"
       ],
@@ -4464,7 +4464,7 @@
       "mapping": "topic",
       "status": "trial validated",
       "component": "DTMFTones::Sand / DigitDecoder",
-      "evidence": "../tests/pd/dtmf-messages.md",
+      "evidence": "../docs/tests/pd/dtmf-messages.md",
       "comparison_cases": [
         "dtmf-decoder",
         "phone-match",
@@ -4472,7 +4472,7 @@
       ],
       "klang_file": "klang/Artificial Sounds/DTMF Tones/dtmftones.k",
       "note": "Explicit source graphs now replace unique-pair snapshot decoding: Decoder preserves standalone AND/select repetition; DigitDecoder composes ten Sand instances with shared change/moses. All 56 shared-input cases at 48/44.1 kHz match detector states and both output message streams, including switches and overlaps. Isolated Sand messages match; 18 existing audio recipes are sample-identical before/after.",
-      "previous_evidence": "audio/artificial-sounds.md"
+      "previous_evidence": "../docs/farnell/audio/artificial-sounds.md"
     }
   },
   "book_patches": [

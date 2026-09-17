@@ -147,7 +147,9 @@ def main():
         r = runs[case]; p, k, seconds = r['pd'], r['kleine'], r['duration']
         dsp = json.loads(k['stdout'])['processing_wall_seconds']*1000/seconds
         rows.append(f"| {case} | {p['sampled_cpu_seconds']*1000/seconds:.2f} / {k['sampled_cpu_seconds']*1000/seconds:.2f} | {p['elapsed_seconds']:.3f} / {k['elapsed_seconds']:.3f} | {p['sampled_peak_rss_bytes']/2**20:.2f} / {k['sampled_peak_rss_bytes']/2**20:.2f} | {dsp:.3f} |")
-    (evidence/'tables.md').write_text('\n'.join(rows)+'\n')
+    docs = ROOT/'docs/farnell/audio/comparisons'
+    docs.mkdir(parents=True, exist_ok=True)
+    (docs/'tables.md').write_text('\n'.join(rows)+'\n')
 
 
 if __name__ == '__main__': main()
